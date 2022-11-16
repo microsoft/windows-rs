@@ -217,14 +217,6 @@ unsafe impl ::windows::core::Abi for GLOBALENTRY {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GLOBALENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBALENTRY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GLOBALENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GLOBALENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -260,7 +252,7 @@ unsafe impl ::windows::core::Abi for IMAGE_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGE_NOTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGE_NOTE>()) == 0 }
+        self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -294,14 +286,6 @@ impl ::core::clone::Clone for MODULEENTRY {
 unsafe impl ::windows::core::Abi for MODULEENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MODULEENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODULEENTRY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MODULEENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MODULEENTRY {
     fn default() -> Self {
@@ -341,7 +325,7 @@ unsafe impl ::windows::core::Abi for SEGMENT_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEGMENT_NOTE>()) == 0 }
+        self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -381,7 +365,7 @@ unsafe impl ::windows::core::Abi for TEMP_BP_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TEMP_BP_NOTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TEMP_BP_NOTE>()) == 0 }
+        self.Seg == other.Seg && self.Offset == other.Offset && self.bPM == other.bPM
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -475,7 +459,7 @@ unsafe impl ::windows::core::Abi for VDMCONTEXT {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMCONTEXT>()) == 0 }
+        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -563,7 +547,7 @@ unsafe impl ::windows::core::Abi for VDMCONTEXT_WITHOUT_XSAVE {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMCONTEXT_WITHOUT_XSAVE>()) == 0 }
+        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -595,14 +579,6 @@ unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -627,14 +603,6 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
@@ -668,7 +636,7 @@ unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -709,7 +677,7 @@ unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_1 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_1>()) == 0 }
+        self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -752,7 +720,7 @@ unsafe impl ::windows::core::Abi for VDM_SEGINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDM_SEGINFO>()) == 0 }
+        self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]

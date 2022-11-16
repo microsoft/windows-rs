@@ -1438,7 +1438,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPoint {
 }
 impl ::core::cmp::PartialEq for InjectedInputPoint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputPoint>()) == 0 }
+        self.PositionX == other.PositionX && self.PositionY == other.PositionY
     }
 }
 impl ::core::cmp::Eq for InjectedInputPoint {}
@@ -1479,7 +1479,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPointerInfo {
 }
 impl ::core::cmp::PartialEq for InjectedInputPointerInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputPointerInfo>()) == 0 }
+        self.PointerId == other.PointerId && self.PointerOptions == other.PointerOptions && self.PixelLocation == other.PixelLocation && self.TimeOffsetInMilliseconds == other.TimeOffsetInMilliseconds && self.PerformanceCount == other.PerformanceCount
     }
 }
 impl ::core::cmp::Eq for InjectedInputPointerInfo {}
@@ -1519,7 +1519,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputRectangle {
 }
 impl ::core::cmp::PartialEq for InjectedInputRectangle {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputRectangle>()) == 0 }
+        self.Left == other.Left && self.Top == other.Top && self.Bottom == other.Bottom && self.Right == other.Right
     }
 }
 impl ::core::cmp::Eq for InjectedInputRectangle {}

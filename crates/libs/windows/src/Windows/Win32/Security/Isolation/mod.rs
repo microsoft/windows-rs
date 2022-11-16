@@ -171,7 +171,7 @@ unsafe impl ::windows::core::Abi for IsolatedAppLauncherTelemetryParameters {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IsolatedAppLauncherTelemetryParameters {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IsolatedAppLauncherTelemetryParameters>()) == 0 }
+        self.EnableForLaunch == other.EnableForLaunch && self.CorrelationGUID == other.CorrelationGUID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

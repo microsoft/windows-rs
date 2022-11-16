@@ -8618,7 +8618,7 @@ unsafe impl ::windows::core::Abi for ACCESS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_0>()) == 0 }
+        self.acc0_resource_name == other.acc0_resource_name
     }
 }
 impl ::core::cmp::Eq for ACCESS_INFO_0 {}
@@ -8650,7 +8650,7 @@ unsafe impl ::windows::core::Abi for ACCESS_INFO_1 {
 }
 impl ::core::cmp::PartialEq for ACCESS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_1>()) == 0 }
+        self.acc1_resource_name == other.acc1_resource_name && self.acc1_attr == other.acc1_attr && self.acc1_count == other.acc1_count
     }
 }
 impl ::core::cmp::Eq for ACCESS_INFO_1 {}
@@ -8680,7 +8680,7 @@ unsafe impl ::windows::core::Abi for ACCESS_INFO_1002 {
 }
 impl ::core::cmp::PartialEq for ACCESS_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_INFO_1002>()) == 0 }
+        self.acc1002_attr == other.acc1002_attr
     }
 }
 impl ::core::cmp::Eq for ACCESS_INFO_1002 {}
@@ -8711,7 +8711,7 @@ unsafe impl ::windows::core::Abi for ACCESS_LIST {
 }
 impl ::core::cmp::PartialEq for ACCESS_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESS_LIST>()) == 0 }
+        self.acl_ugname == other.acl_ugname && self.acl_access == other.acl_access
     }
 }
 impl ::core::cmp::Eq for ACCESS_LIST {}
@@ -8742,7 +8742,7 @@ unsafe impl ::windows::core::Abi for ADMIN_OTHER_INFO {
 }
 impl ::core::cmp::PartialEq for ADMIN_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADMIN_OTHER_INFO>()) == 0 }
+        self.alrtad_errcode == other.alrtad_errcode && self.alrtad_numstrings == other.alrtad_numstrings
     }
 }
 impl ::core::cmp::Eq for ADMIN_OTHER_INFO {}
@@ -8775,7 +8775,7 @@ unsafe impl ::windows::core::Abi for AE_ACCLIM {
 }
 impl ::core::cmp::PartialEq for AE_ACCLIM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_ACCLIM>()) == 0 }
+        self.ae_al_compname == other.ae_al_compname && self.ae_al_username == other.ae_al_username && self.ae_al_resname == other.ae_al_resname && self.ae_al_limit == other.ae_al_limit
     }
 }
 impl ::core::cmp::Eq for AE_ACCLIM {}
@@ -8809,7 +8809,7 @@ unsafe impl ::windows::core::Abi for AE_ACLMOD {
 }
 impl ::core::cmp::PartialEq for AE_ACLMOD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_ACLMOD>()) == 0 }
+        self.ae_am_compname == other.ae_am_compname && self.ae_am_username == other.ae_am_username && self.ae_am_resname == other.ae_am_resname && self.ae_am_action == other.ae_am_action && self.ae_am_datalen == other.ae_am_datalen
     }
 }
 impl ::core::cmp::Eq for AE_ACLMOD {}
@@ -8844,7 +8844,7 @@ unsafe impl ::windows::core::Abi for AE_CLOSEFILE {
 }
 impl ::core::cmp::PartialEq for AE_CLOSEFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CLOSEFILE>()) == 0 }
+        self.ae_cf_compname == other.ae_cf_compname && self.ae_cf_username == other.ae_cf_username && self.ae_cf_resname == other.ae_cf_resname && self.ae_cf_fileid == other.ae_cf_fileid && self.ae_cf_duration == other.ae_cf_duration && self.ae_cf_reason == other.ae_cf_reason
     }
 }
 impl ::core::cmp::Eq for AE_CLOSEFILE {}
@@ -8877,7 +8877,7 @@ unsafe impl ::windows::core::Abi for AE_CONNREJ {
 }
 impl ::core::cmp::PartialEq for AE_CONNREJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNREJ>()) == 0 }
+        self.ae_cr_compname == other.ae_cr_compname && self.ae_cr_username == other.ae_cr_username && self.ae_cr_netname == other.ae_cr_netname && self.ae_cr_reason == other.ae_cr_reason
     }
 }
 impl ::core::cmp::Eq for AE_CONNREJ {}
@@ -8910,7 +8910,7 @@ unsafe impl ::windows::core::Abi for AE_CONNSTART {
 }
 impl ::core::cmp::PartialEq for AE_CONNSTART {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNSTART>()) == 0 }
+        self.ae_ct_compname == other.ae_ct_compname && self.ae_ct_username == other.ae_ct_username && self.ae_ct_netname == other.ae_ct_netname && self.ae_ct_connid == other.ae_ct_connid
     }
 }
 impl ::core::cmp::Eq for AE_CONNSTART {}
@@ -8944,7 +8944,7 @@ unsafe impl ::windows::core::Abi for AE_CONNSTOP {
 }
 impl ::core::cmp::PartialEq for AE_CONNSTOP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CONNSTOP>()) == 0 }
+        self.ae_cp_compname == other.ae_cp_compname && self.ae_cp_username == other.ae_cp_username && self.ae_cp_netname == other.ae_cp_netname && self.ae_cp_connid == other.ae_cp_connid && self.ae_cp_reason == other.ae_cp_reason
     }
 }
 impl ::core::cmp::Eq for AE_CONNSTOP {}
@@ -8998,7 +8998,7 @@ unsafe impl ::windows::core::Abi for AE_GENERIC {
 }
 impl ::core::cmp::PartialEq for AE_GENERIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_GENERIC>()) == 0 }
+        self.ae_ge_msgfile == other.ae_ge_msgfile && self.ae_ge_msgnum == other.ae_ge_msgnum && self.ae_ge_params == other.ae_ge_params && self.ae_ge_param1 == other.ae_ge_param1 && self.ae_ge_param2 == other.ae_ge_param2 && self.ae_ge_param3 == other.ae_ge_param3 && self.ae_ge_param4 == other.ae_ge_param4 && self.ae_ge_param5 == other.ae_ge_param5 && self.ae_ge_param6 == other.ae_ge_param6 && self.ae_ge_param7 == other.ae_ge_param7 && self.ae_ge_param8 == other.ae_ge_param8 && self.ae_ge_param9 == other.ae_ge_param9
     }
 }
 impl ::core::cmp::Eq for AE_GENERIC {}
@@ -9031,7 +9031,7 @@ unsafe impl ::windows::core::Abi for AE_LOCKOUT {
 }
 impl ::core::cmp::PartialEq for AE_LOCKOUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_LOCKOUT>()) == 0 }
+        self.ae_lk_compname == other.ae_lk_compname && self.ae_lk_username == other.ae_lk_username && self.ae_lk_action == other.ae_lk_action && self.ae_lk_bad_pw_count == other.ae_lk_bad_pw_count
     }
 }
 impl ::core::cmp::Eq for AE_LOCKOUT {}
@@ -9064,7 +9064,7 @@ unsafe impl ::windows::core::Abi for AE_NETLOGOFF {
 }
 impl ::core::cmp::PartialEq for AE_NETLOGOFF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_NETLOGOFF>()) == 0 }
+        self.ae_nf_compname == other.ae_nf_compname && self.ae_nf_username == other.ae_nf_username && self.ae_nf_reserved1 == other.ae_nf_reserved1 && self.ae_nf_reserved2 == other.ae_nf_reserved2
     }
 }
 impl ::core::cmp::Eq for AE_NETLOGOFF {}
@@ -9097,7 +9097,7 @@ unsafe impl ::windows::core::Abi for AE_NETLOGON {
 }
 impl ::core::cmp::PartialEq for AE_NETLOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_NETLOGON>()) == 0 }
+        self.ae_no_compname == other.ae_no_compname && self.ae_no_username == other.ae_no_username && self.ae_no_privilege == other.ae_no_privilege && self.ae_no_authflags == other.ae_no_authflags
     }
 }
 impl ::core::cmp::Eq for AE_NETLOGON {}
@@ -9133,7 +9133,7 @@ unsafe impl ::windows::core::Abi for AE_RESACCESS {
 }
 impl ::core::cmp::PartialEq for AE_RESACCESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_RESACCESS>()) == 0 }
+        self.ae_ra_compname == other.ae_ra_compname && self.ae_ra_username == other.ae_ra_username && self.ae_ra_resname == other.ae_ra_resname && self.ae_ra_operation == other.ae_ra_operation && self.ae_ra_returncode == other.ae_ra_returncode && self.ae_ra_restype == other.ae_ra_restype && self.ae_ra_fileid == other.ae_ra_fileid
     }
 }
 impl ::core::cmp::Eq for AE_RESACCESS {}
@@ -9166,7 +9166,7 @@ unsafe impl ::windows::core::Abi for AE_RESACCESSREJ {
 }
 impl ::core::cmp::PartialEq for AE_RESACCESSREJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_RESACCESSREJ>()) == 0 }
+        self.ae_rr_compname == other.ae_rr_compname && self.ae_rr_username == other.ae_rr_username && self.ae_rr_resname == other.ae_rr_resname && self.ae_rr_operation == other.ae_rr_operation
     }
 }
 impl ::core::cmp::Eq for AE_RESACCESSREJ {}
@@ -9202,7 +9202,7 @@ unsafe impl ::windows::core::Abi for AE_SERVICESTAT {
 }
 impl ::core::cmp::PartialEq for AE_SERVICESTAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SERVICESTAT>()) == 0 }
+        self.ae_ss_compname == other.ae_ss_compname && self.ae_ss_username == other.ae_ss_username && self.ae_ss_svcname == other.ae_ss_svcname && self.ae_ss_status == other.ae_ss_status && self.ae_ss_code == other.ae_ss_code && self.ae_ss_text == other.ae_ss_text && self.ae_ss_returnval == other.ae_ss_returnval
     }
 }
 impl ::core::cmp::Eq for AE_SERVICESTAT {}
@@ -9234,7 +9234,7 @@ unsafe impl ::windows::core::Abi for AE_SESSLOGOFF {
 }
 impl ::core::cmp::PartialEq for AE_SESSLOGOFF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSLOGOFF>()) == 0 }
+        self.ae_sf_compname == other.ae_sf_compname && self.ae_sf_username == other.ae_sf_username && self.ae_sf_reason == other.ae_sf_reason
     }
 }
 impl ::core::cmp::Eq for AE_SESSLOGOFF {}
@@ -9266,7 +9266,7 @@ unsafe impl ::windows::core::Abi for AE_SESSLOGON {
 }
 impl ::core::cmp::PartialEq for AE_SESSLOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSLOGON>()) == 0 }
+        self.ae_so_compname == other.ae_so_compname && self.ae_so_username == other.ae_so_username && self.ae_so_privilege == other.ae_so_privilege
     }
 }
 impl ::core::cmp::Eq for AE_SESSLOGON {}
@@ -9297,7 +9297,7 @@ unsafe impl ::windows::core::Abi for AE_SESSPWERR {
 }
 impl ::core::cmp::PartialEq for AE_SESSPWERR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SESSPWERR>()) == 0 }
+        self.ae_sp_compname == other.ae_sp_compname && self.ae_sp_username == other.ae_sp_username
     }
 }
 impl ::core::cmp::Eq for AE_SESSPWERR {}
@@ -9327,7 +9327,7 @@ unsafe impl ::windows::core::Abi for AE_SRVSTATUS {
 }
 impl ::core::cmp::PartialEq for AE_SRVSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_SRVSTATUS>()) == 0 }
+        self.ae_sv_status == other.ae_sv_status
     }
 }
 impl ::core::cmp::Eq for AE_SRVSTATUS {}
@@ -9362,7 +9362,7 @@ unsafe impl ::windows::core::Abi for AE_UASMOD {
 }
 impl ::core::cmp::PartialEq for AE_UASMOD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_UASMOD>()) == 0 }
+        self.ae_um_compname == other.ae_um_compname && self.ae_um_username == other.ae_um_username && self.ae_um_resname == other.ae_um_resname && self.ae_um_rectype == other.ae_um_rectype && self.ae_um_action == other.ae_um_action && self.ae_um_datalen == other.ae_um_datalen
     }
 }
 impl ::core::cmp::Eq for AE_UASMOD {}
@@ -9397,7 +9397,7 @@ unsafe impl ::windows::core::Abi for AT_ENUM {
 }
 impl ::core::cmp::PartialEq for AT_ENUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AT_ENUM>()) == 0 }
+        self.JobId == other.JobId && self.JobTime == other.JobTime && self.DaysOfMonth == other.DaysOfMonth && self.DaysOfWeek == other.DaysOfWeek && self.Flags == other.Flags && self.Command == other.Command
     }
 }
 impl ::core::cmp::Eq for AT_ENUM {}
@@ -9431,7 +9431,7 @@ unsafe impl ::windows::core::Abi for AT_INFO {
 }
 impl ::core::cmp::PartialEq for AT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AT_INFO>()) == 0 }
+        self.JobTime == other.JobTime && self.DaysOfMonth == other.DaysOfMonth && self.DaysOfWeek == other.DaysOfWeek && self.Flags == other.Flags && self.Command == other.Command
     }
 }
 impl ::core::cmp::Eq for AT_INFO {}
@@ -9466,7 +9466,7 @@ unsafe impl ::windows::core::Abi for AUDIT_ENTRY {
 }
 impl ::core::cmp::PartialEq for AUDIT_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_ENTRY>()) == 0 }
+        self.ae_len == other.ae_len && self.ae_reserved == other.ae_reserved && self.ae_time == other.ae_time && self.ae_type == other.ae_type && self.ae_data_offset == other.ae_data_offset && self.ae_data_size == other.ae_data_size
     }
 }
 impl ::core::cmp::Eq for AUDIT_ENTRY {}
@@ -9497,7 +9497,7 @@ unsafe impl ::windows::core::Abi for CONFIG_INFO_0 {
 }
 impl ::core::cmp::PartialEq for CONFIG_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIG_INFO_0>()) == 0 }
+        self.cfgi0_key == other.cfgi0_key && self.cfgi0_data == other.cfgi0_data
     }
 }
 impl ::core::cmp::Eq for CONFIG_INFO_0 {}
@@ -9557,7 +9557,7 @@ unsafe impl ::windows::core::Abi for DSREG_JOIN_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for DSREG_JOIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSREG_JOIN_INFO>()) == 0 }
+        self.joinType == other.joinType && self.pJoinCertificate == other.pJoinCertificate && self.pszDeviceId == other.pszDeviceId && self.pszIdpDomain == other.pszIdpDomain && self.pszTenantId == other.pszTenantId && self.pszJoinUserEmail == other.pszJoinUserEmail && self.pszTenantDisplayName == other.pszTenantDisplayName && self.pszMdmEnrollmentUrl == other.pszMdmEnrollmentUrl && self.pszMdmTermsOfUseUrl == other.pszMdmTermsOfUseUrl && self.pszMdmComplianceUrl == other.pszMdmComplianceUrl && self.pszUserSettingSyncUrl == other.pszUserSettingSyncUrl && self.pUserInfo == other.pUserInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -9591,7 +9591,7 @@ unsafe impl ::windows::core::Abi for DSREG_USER_INFO {
 }
 impl ::core::cmp::PartialEq for DSREG_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSREG_USER_INFO>()) == 0 }
+        self.pszUserEmail == other.pszUserEmail && self.pszUserKeyId == other.pszUserKeyId && self.pszUserKeyName == other.pszUserKeyName
     }
 }
 impl ::core::cmp::Eq for DSREG_USER_INFO {}
@@ -9622,7 +9622,7 @@ unsafe impl ::windows::core::Abi for ERRLOG_OTHER_INFO {
 }
 impl ::core::cmp::PartialEq for ERRLOG_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERRLOG_OTHER_INFO>()) == 0 }
+        self.alrter_errcode == other.alrter_errcode && self.alrter_offset == other.alrter_offset
     }
 }
 impl ::core::cmp::Eq for ERRLOG_OTHER_INFO {}
@@ -9660,7 +9660,7 @@ unsafe impl ::windows::core::Abi for ERROR_LOG {
 }
 impl ::core::cmp::PartialEq for ERROR_LOG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERROR_LOG>()) == 0 }
+        self.el_len == other.el_len && self.el_reserved == other.el_reserved && self.el_time == other.el_time && self.el_error == other.el_error && self.el_name == other.el_name && self.el_text == other.el_text && self.el_data == other.el_data && self.el_data_size == other.el_data_size && self.el_nstrings == other.el_nstrings
     }
 }
 impl ::core::cmp::Eq for ERROR_LOG {}
@@ -9698,7 +9698,7 @@ unsafe impl ::windows::core::Abi for FLAT_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FLAT_STRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAT_STRING>()) == 0 }
+        self.MaximumLength == other.MaximumLength && self.Length == other.Length && self.Buffer == other.Buffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9730,7 +9730,7 @@ unsafe impl ::windows::core::Abi for GROUP_INFO_0 {
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_0>()) == 0 }
+        self.grpi0_name == other.grpi0_name
     }
 }
 impl ::core::cmp::Eq for GROUP_INFO_0 {}
@@ -9761,7 +9761,7 @@ unsafe impl ::windows::core::Abi for GROUP_INFO_1 {
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1>()) == 0 }
+        self.grpi1_name == other.grpi1_name && self.grpi1_comment == other.grpi1_comment
     }
 }
 impl ::core::cmp::Eq for GROUP_INFO_1 {}
@@ -9791,7 +9791,7 @@ unsafe impl ::windows::core::Abi for GROUP_INFO_1002 {
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1002>()) == 0 }
+        self.grpi1002_comment == other.grpi1002_comment
     }
 }
 impl ::core::cmp::Eq for GROUP_INFO_1002 {}
@@ -9821,7 +9821,7 @@ unsafe impl ::windows::core::Abi for GROUP_INFO_1005 {
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_1005>()) == 0 }
+        self.grpi1005_attributes == other.grpi1005_attributes
     }
 }
 impl ::core::cmp::Eq for GROUP_INFO_1005 {}
@@ -9854,7 +9854,7 @@ unsafe impl ::windows::core::Abi for GROUP_INFO_2 {
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_2>()) == 0 }
+        self.grpi2_name == other.grpi2_name && self.grpi2_comment == other.grpi2_comment && self.grpi2_group_id == other.grpi2_group_id && self.grpi2_attributes == other.grpi2_attributes
     }
 }
 impl ::core::cmp::Eq for GROUP_INFO_2 {}
@@ -9893,7 +9893,7 @@ unsafe impl ::windows::core::Abi for GROUP_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GROUP_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_INFO_3>()) == 0 }
+        self.grpi3_name == other.grpi3_name && self.grpi3_comment == other.grpi3_comment && self.grpi3_group_sid == other.grpi3_group_sid && self.grpi3_attributes == other.grpi3_attributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9925,7 +9925,7 @@ unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for GROUP_USERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_USERS_INFO_0>()) == 0 }
+        self.grui0_name == other.grui0_name
     }
 }
 impl ::core::cmp::Eq for GROUP_USERS_INFO_0 {}
@@ -9956,7 +9956,7 @@ unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_1 {
 }
 impl ::core::cmp::PartialEq for GROUP_USERS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_USERS_INFO_1>()) == 0 }
+        self.grui1_name == other.grui1_name && self.grui1_attributes == other.grui1_attributes
     }
 }
 impl ::core::cmp::Eq for GROUP_USERS_INFO_1 {}
@@ -9986,7 +9986,7 @@ unsafe impl ::windows::core::Abi for HARDWARE_ADDRESS {
 }
 impl ::core::cmp::PartialEq for HARDWARE_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWARE_ADDRESS>()) == 0 }
+        self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for HARDWARE_ADDRESS {}
@@ -10019,7 +10019,7 @@ unsafe impl ::windows::core::Abi for HLOG {
 }
 impl ::core::cmp::PartialEq for HLOG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HLOG>()) == 0 }
+        self.time == other.time && self.last_flags == other.last_flags && self.offset == other.offset && self.rec_offset == other.rec_offset
     }
 }
 impl ::core::cmp::Eq for HLOG {}
@@ -10049,7 +10049,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_0 {
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_0>()) == 0 }
+        self.lgrpi0_name == other.lgrpi0_name
     }
 }
 impl ::core::cmp::Eq for LOCALGROUP_INFO_0 {}
@@ -10080,7 +10080,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1 {
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_1>()) == 0 }
+        self.lgrpi1_name == other.lgrpi1_name && self.lgrpi1_comment == other.lgrpi1_comment
     }
 }
 impl ::core::cmp::Eq for LOCALGROUP_INFO_1 {}
@@ -10110,7 +10110,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1002 {
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_INFO_1002>()) == 0 }
+        self.lgrpi1002_comment == other.lgrpi1002_comment
     }
 }
 impl ::core::cmp::Eq for LOCALGROUP_INFO_1002 {}
@@ -10146,7 +10146,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_0>()) == 0 }
+        self.lgrmi0_sid == other.lgrmi0_sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10186,7 +10186,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_1>()) == 0 }
+        self.lgrmi1_sid == other.lgrmi1_sid && self.lgrmi1_sidusage == other.lgrmi1_sidusage && self.lgrmi1_name == other.lgrmi1_name
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -10226,7 +10226,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_2>()) == 0 }
+        self.lgrmi2_sid == other.lgrmi2_sid && self.lgrmi2_sidusage == other.lgrmi2_sidusage && self.lgrmi2_domainandname == other.lgrmi2_domainandname
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -10258,7 +10258,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_3 {
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_MEMBERS_INFO_3>()) == 0 }
+        self.lgrmi3_domainandname == other.lgrmi3_domainandname
     }
 }
 impl ::core::cmp::Eq for LOCALGROUP_MEMBERS_INFO_3 {}
@@ -10288,7 +10288,7 @@ unsafe impl ::windows::core::Abi for LOCALGROUP_USERS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_USERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALGROUP_USERS_INFO_0>()) == 0 }
+        self.lgrui0_name == other.lgrui0_name
     }
 }
 impl ::core::cmp::Eq for LOCALGROUP_USERS_INFO_0 {}
@@ -10320,7 +10320,7 @@ unsafe impl ::windows::core::Abi for MPR_PROTOCOL_0 {
 }
 impl ::core::cmp::PartialEq for MPR_PROTOCOL_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPR_PROTOCOL_0>()) == 0 }
+        self.dwProtocolId == other.dwProtocolId && self.wszProtocol == other.wszProtocol && self.wszDLLName == other.wszDLLName
     }
 }
 impl ::core::cmp::Eq for MPR_PROTOCOL_0 {}
@@ -10350,7 +10350,7 @@ unsafe impl ::windows::core::Abi for MSA_INFO_0 {
 }
 impl ::core::cmp::PartialEq for MSA_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSA_INFO_0>()) == 0 }
+        self.State == other.State
     }
 }
 impl ::core::cmp::Eq for MSA_INFO_0 {}
@@ -10380,7 +10380,7 @@ unsafe impl ::windows::core::Abi for MSG_INFO_0 {
 }
 impl ::core::cmp::PartialEq for MSG_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG_INFO_0>()) == 0 }
+        self.msgi0_name == other.msgi0_name
     }
 }
 impl ::core::cmp::Eq for MSG_INFO_0 {}
@@ -10412,7 +10412,7 @@ unsafe impl ::windows::core::Abi for MSG_INFO_1 {
 }
 impl ::core::cmp::PartialEq for MSG_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG_INFO_1>()) == 0 }
+        self.msgi1_name == other.msgi1_name && self.msgi1_forward_flag == other.msgi1_forward_flag && self.msgi1_forward == other.msgi1_forward
     }
 }
 impl ::core::cmp::Eq for MSG_INFO_1 {}
@@ -10443,7 +10443,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_INFO_1 {
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_1>()) == 0 }
+        self.netlog1_flags == other.netlog1_flags && self.netlog1_pdc_connection_status == other.netlog1_pdc_connection_status
     }
 }
 impl ::core::cmp::Eq for NETLOGON_INFO_1 {}
@@ -10476,7 +10476,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_INFO_2 {
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_2>()) == 0 }
+        self.netlog2_flags == other.netlog2_flags && self.netlog2_pdc_connection_status == other.netlog2_pdc_connection_status && self.netlog2_trusted_dc_name == other.netlog2_trusted_dc_name && self.netlog2_tc_connection_status == other.netlog2_tc_connection_status
     }
 }
 impl ::core::cmp::Eq for NETLOGON_INFO_2 {}
@@ -10512,7 +10512,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_INFO_3 {
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_3>()) == 0 }
+        self.netlog3_flags == other.netlog3_flags && self.netlog3_logon_attempts == other.netlog3_logon_attempts && self.netlog3_reserved1 == other.netlog3_reserved1 && self.netlog3_reserved2 == other.netlog3_reserved2 && self.netlog3_reserved3 == other.netlog3_reserved3 && self.netlog3_reserved4 == other.netlog3_reserved4 && self.netlog3_reserved5 == other.netlog3_reserved5
     }
 }
 impl ::core::cmp::Eq for NETLOGON_INFO_3 {}
@@ -10543,7 +10543,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_INFO_4 {
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INFO_4>()) == 0 }
+        self.netlog4_trusted_dc_name == other.netlog4_trusted_dc_name && self.netlog4_trusted_domain_name == other.netlog4_trusted_domain_name
     }
 }
 impl ::core::cmp::Eq for NETLOGON_INFO_4 {}
@@ -10603,7 +10603,7 @@ unsafe impl ::windows::core::Abi for NETSETUP_PROVISIONING_PARAMS {
 }
 impl ::core::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETSETUP_PROVISIONING_PARAMS>()) == 0 }
+        self.dwVersion == other.dwVersion && self.lpDomain == other.lpDomain && self.lpHostName == other.lpHostName && self.lpMachineAccountOU == other.lpMachineAccountOU && self.lpDcName == other.lpDcName && self.dwProvisionOptions == other.dwProvisionOptions && self.aCertTemplateNames == other.aCertTemplateNames && self.cCertTemplateNames == other.cCertTemplateNames && self.aMachinePolicyNames == other.aMachinePolicyNames && self.cMachinePolicyNames == other.cMachinePolicyNames && self.aMachinePolicyPaths == other.aMachinePolicyPaths && self.cMachinePolicyPaths == other.cMachinePolicyPaths && self.lpNetbiosName == other.lpNetbiosName && self.lpSiteName == other.lpSiteName && self.lpPrimaryDNSDomain == other.lpPrimaryDNSDomain
     }
 }
 impl ::core::cmp::Eq for NETSETUP_PROVISIONING_PARAMS {}
@@ -10639,7 +10639,7 @@ unsafe impl ::windows::core::Abi for NETWORK_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETWORK_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_NAME>()) == 0 }
+        self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10675,7 +10675,7 @@ unsafe impl ::windows::core::Abi for NET_DISPLAY_GROUP {
 }
 impl ::core::cmp::PartialEq for NET_DISPLAY_GROUP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_GROUP>()) == 0 }
+        self.grpi3_name == other.grpi3_name && self.grpi3_comment == other.grpi3_comment && self.grpi3_group_id == other.grpi3_group_id && self.grpi3_attributes == other.grpi3_attributes && self.grpi3_next_index == other.grpi3_next_index
     }
 }
 impl ::core::cmp::Eq for NET_DISPLAY_GROUP {}
@@ -10709,7 +10709,7 @@ unsafe impl ::windows::core::Abi for NET_DISPLAY_MACHINE {
 }
 impl ::core::cmp::PartialEq for NET_DISPLAY_MACHINE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_MACHINE>()) == 0 }
+        self.usri2_name == other.usri2_name && self.usri2_comment == other.usri2_comment && self.usri2_flags == other.usri2_flags && self.usri2_user_id == other.usri2_user_id && self.usri2_next_index == other.usri2_next_index
     }
 }
 impl ::core::cmp::Eq for NET_DISPLAY_MACHINE {}
@@ -10744,7 +10744,7 @@ unsafe impl ::windows::core::Abi for NET_DISPLAY_USER {
 }
 impl ::core::cmp::PartialEq for NET_DISPLAY_USER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_DISPLAY_USER>()) == 0 }
+        self.usri1_name == other.usri1_name && self.usri1_comment == other.usri1_comment && self.usri1_flags == other.usri1_flags && self.usri1_full_name == other.usri1_full_name && self.usri1_user_id == other.usri1_user_id && self.usri1_next_index == other.usri1_next_index
     }
 }
 impl ::core::cmp::Eq for NET_DISPLAY_USER {}
@@ -10781,7 +10781,7 @@ unsafe impl ::windows::core::Abi for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_VALIDATE_AUTHENTICATION_INPUT_ARG>()) == 0 }
+        self.InputPersistedFields == other.InputPersistedFields && self.PasswordMatched == other.PasswordMatched
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10820,7 +10820,7 @@ unsafe impl ::windows::core::Abi for NET_VALIDATE_OUTPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_OUTPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_VALIDATE_OUTPUT_ARG>()) == 0 }
+        self.ChangedPersistedFields == other.ChangedPersistedFields && self.ValidationStatus == other.ValidationStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10862,7 +10862,7 @@ unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG>()) == 0 }
+        self.InputPersistedFields == other.InputPersistedFields && self.ClearPassword == other.ClearPassword && self.UserAccountName == other.UserAccountName && self.HashedPassword == other.HashedPassword && self.PasswordMatch == other.PasswordMatch
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10895,7 +10895,7 @@ unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_HASH {
 }
 impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_HASH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_VALIDATE_PASSWORD_HASH>()) == 0 }
+        self.Length == other.Length && self.Hash == other.Hash
     }
 }
 impl ::core::cmp::Eq for NET_VALIDATE_PASSWORD_HASH {}
@@ -10936,7 +10936,7 @@ unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_VALIDATE_PASSWORD_RESET_INPUT_ARG>()) == 0 }
+        self.InputPersistedFields == other.InputPersistedFields && self.ClearPassword == other.ClearPassword && self.UserAccountName == other.UserAccountName && self.HashedPassword == other.HashedPassword && self.PasswordMustChangeAtNextLogon == other.PasswordMustChangeAtNextLogon && self.ClearLockout == other.ClearLockout
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10980,7 +10980,7 @@ unsafe impl ::windows::core::Abi for NET_VALIDATE_PERSISTED_FIELDS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_PERSISTED_FIELDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_VALIDATE_PERSISTED_FIELDS>()) == 0 }
+        self.PresentFields == other.PresentFields && self.PasswordLastSet == other.PasswordLastSet && self.BadPasswordTime == other.BadPasswordTime && self.LockoutTime == other.LockoutTime && self.BadPasswordCount == other.BadPasswordCount && self.PasswordHistoryLength == other.PasswordHistoryLength && self.PasswordHistory == other.PasswordHistory
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11063,7 +11063,7 @@ unsafe impl ::windows::core::Abi for PRINT_OTHER_INFO {
 }
 impl ::core::cmp::PartialEq for PRINT_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINT_OTHER_INFO>()) == 0 }
+        self.alrtpr_jobid == other.alrtpr_jobid && self.alrtpr_status == other.alrtpr_status && self.alrtpr_submitted == other.alrtpr_submitted && self.alrtpr_size == other.alrtpr_size
     }
 }
 impl ::core::cmp::Eq for PRINT_OTHER_INFO {}
@@ -11129,7 +11129,7 @@ unsafe impl ::windows::core::Abi for RASCON_IPUI {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RASCON_IPUI {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RASCON_IPUI>()) == 0 }
+        self.guidConnection == other.guidConnection && self.fIPv6Cfg == other.fIPv6Cfg && self.dwFlags == other.dwFlags && self.pszwIpAddr == other.pszwIpAddr && self.pszwDnsAddr == other.pszwDnsAddr && self.pszwDns2Addr == other.pszwDns2Addr && self.pszwWinsAddr == other.pszwWinsAddr && self.pszwWins2Addr == other.pszwWins2Addr && self.pszwDnsSuffix == other.pszwDnsSuffix && self.pszwIpv6Addr == other.pszwIpv6Addr && self.dwIpv6PrefixLength == other.dwIpv6PrefixLength && self.pszwIpv6DnsAddr == other.pszwIpv6DnsAddr && self.pszwIpv6Dns2Addr == other.pszwIpv6Dns2Addr && self.dwIPv4InfMetric == other.dwIPv4InfMetric && self.dwIPv6InfMetric == other.dwIPv6InfMetric
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11161,7 +11161,7 @@ unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_0 {
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_EDIR_INFO_0>()) == 0 }
+        self.rped0_dirname == other.rped0_dirname
     }
 }
 impl ::core::cmp::Eq for REPL_EDIR_INFO_0 {}
@@ -11193,7 +11193,7 @@ unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1 {
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_EDIR_INFO_1>()) == 0 }
+        self.rped1_dirname == other.rped1_dirname && self.rped1_integrity == other.rped1_integrity && self.rped1_extent == other.rped1_extent
     }
 }
 impl ::core::cmp::Eq for REPL_EDIR_INFO_1 {}
@@ -11223,7 +11223,7 @@ unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1000 {
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1000 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_EDIR_INFO_1000>()) == 0 }
+        self.rped1000_integrity == other.rped1000_integrity
     }
 }
 impl ::core::cmp::Eq for REPL_EDIR_INFO_1000 {}
@@ -11253,7 +11253,7 @@ unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1001 {
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_EDIR_INFO_1001>()) == 0 }
+        self.rped1001_extent == other.rped1001_extent
     }
 }
 impl ::core::cmp::Eq for REPL_EDIR_INFO_1001 {}
@@ -11287,7 +11287,7 @@ unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_2 {
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_EDIR_INFO_2>()) == 0 }
+        self.rped2_dirname == other.rped2_dirname && self.rped2_integrity == other.rped2_integrity && self.rped2_extent == other.rped2_extent && self.rped2_lockcount == other.rped2_lockcount && self.rped2_locktime == other.rped2_locktime
     }
 }
 impl ::core::cmp::Eq for REPL_EDIR_INFO_2 {}
@@ -11317,7 +11317,7 @@ unsafe impl ::windows::core::Abi for REPL_IDIR_INFO_0 {
 }
 impl ::core::cmp::PartialEq for REPL_IDIR_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_IDIR_INFO_0>()) == 0 }
+        self.rpid0_dirname == other.rpid0_dirname
     }
 }
 impl ::core::cmp::Eq for REPL_IDIR_INFO_0 {}
@@ -11352,7 +11352,7 @@ unsafe impl ::windows::core::Abi for REPL_IDIR_INFO_1 {
 }
 impl ::core::cmp::PartialEq for REPL_IDIR_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_IDIR_INFO_1>()) == 0 }
+        self.rpid1_dirname == other.rpid1_dirname && self.rpid1_state == other.rpid1_state && self.rpid1_mastername == other.rpid1_mastername && self.rpid1_last_update_time == other.rpid1_last_update_time && self.rpid1_lockcount == other.rpid1_lockcount && self.rpid1_locktime == other.rpid1_locktime
     }
 }
 impl ::core::cmp::Eq for REPL_IDIR_INFO_1 {}
@@ -11391,7 +11391,7 @@ unsafe impl ::windows::core::Abi for REPL_INFO_0 {
 }
 impl ::core::cmp::PartialEq for REPL_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_INFO_0>()) == 0 }
+        self.rp0_role == other.rp0_role && self.rp0_exportpath == other.rp0_exportpath && self.rp0_exportlist == other.rp0_exportlist && self.rp0_importpath == other.rp0_importpath && self.rp0_importlist == other.rp0_importlist && self.rp0_logonusername == other.rp0_logonusername && self.rp0_interval == other.rp0_interval && self.rp0_pulse == other.rp0_pulse && self.rp0_guardtime == other.rp0_guardtime && self.rp0_random == other.rp0_random
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_0 {}
@@ -11421,7 +11421,7 @@ unsafe impl ::windows::core::Abi for REPL_INFO_1000 {
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1000 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_INFO_1000>()) == 0 }
+        self.rp1000_interval == other.rp1000_interval
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1000 {}
@@ -11451,7 +11451,7 @@ unsafe impl ::windows::core::Abi for REPL_INFO_1001 {
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_INFO_1001>()) == 0 }
+        self.rp1001_pulse == other.rp1001_pulse
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1001 {}
@@ -11481,7 +11481,7 @@ unsafe impl ::windows::core::Abi for REPL_INFO_1002 {
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_INFO_1002>()) == 0 }
+        self.rp1002_guardtime == other.rp1002_guardtime
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1002 {}
@@ -11511,7 +11511,7 @@ unsafe impl ::windows::core::Abi for REPL_INFO_1003 {
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REPL_INFO_1003>()) == 0 }
+        self.rp1003_random == other.rp1003_random
     }
 }
 impl ::core::cmp::Eq for REPL_INFO_1003 {}
@@ -11544,7 +11544,7 @@ unsafe impl ::windows::core::Abi for RTR_INFO_BLOCK_HEADER {
 }
 impl ::core::cmp::PartialEq for RTR_INFO_BLOCK_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTR_INFO_BLOCK_HEADER>()) == 0 }
+        self.Version == other.Version && self.Size == other.Size && self.TocEntriesCount == other.TocEntriesCount && self.TocEntry == other.TocEntry
     }
 }
 impl ::core::cmp::Eq for RTR_INFO_BLOCK_HEADER {}
@@ -11577,7 +11577,7 @@ unsafe impl ::windows::core::Abi for RTR_TOC_ENTRY {
 }
 impl ::core::cmp::PartialEq for RTR_TOC_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTR_TOC_ENTRY>()) == 0 }
+        self.InfoType == other.InfoType && self.InfoSize == other.InfoSize && self.Count == other.Count && self.Offset == other.Offset
     }
 }
 impl ::core::cmp::Eq for RTR_TOC_ENTRY {}
@@ -11608,7 +11608,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_100 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_100>()) == 0 }
+        self.sv100_platform_id == other.sv100_platform_id && self.sv100_name == other.sv100_name
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_100 {}
@@ -11638,7 +11638,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1005 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1005>()) == 0 }
+        self.sv1005_comment == other.sv1005_comment
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1005 {}
@@ -11673,7 +11673,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_101 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_101>()) == 0 }
+        self.sv101_platform_id == other.sv101_platform_id && self.sv101_name == other.sv101_name && self.sv101_version_major == other.sv101_version_major && self.sv101_version_minor == other.sv101_version_minor && self.sv101_type == other.sv101_type && self.sv101_comment == other.sv101_comment
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_101 {}
@@ -11703,7 +11703,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1010 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1010>()) == 0 }
+        self.sv1010_disc == other.sv1010_disc
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1010 {}
@@ -11733,7 +11733,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1016 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1016 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1016>()) == 0 }
+        self.sv1016_hidden == other.sv1016_hidden
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1016 {}
@@ -11763,7 +11763,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1017 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1017 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1017>()) == 0 }
+        self.sv1017_announce == other.sv1017_announce
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1017 {}
@@ -11793,7 +11793,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1018 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1018>()) == 0 }
+        self.sv1018_anndelta == other.sv1018_anndelta
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1018 {}
@@ -11849,7 +11849,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_102 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_102>()) == 0 }
+        self.sv102_platform_id == other.sv102_platform_id && self.sv102_name == other.sv102_name && self.sv102_version_major == other.sv102_version_major && self.sv102_version_minor == other.sv102_version_minor && self.sv102_type == other.sv102_type && self.sv102_comment == other.sv102_comment && self.sv102_users == other.sv102_users && self.sv102_disc == other.sv102_disc && self.sv102_hidden == other.sv102_hidden && self.sv102_announce == other.sv102_announce && self.sv102_anndelta == other.sv102_anndelta && self.sv102_licenses == other.sv102_licenses && self.sv102_userpath == other.sv102_userpath
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_102 {}
@@ -11913,7 +11913,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_103 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_103 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_103>()) == 0 }
+        self.sv103_platform_id == other.sv103_platform_id && self.sv103_name == other.sv103_name && self.sv103_version_major == other.sv103_version_major && self.sv103_version_minor == other.sv103_version_minor && self.sv103_type == other.sv103_type && self.sv103_comment == other.sv103_comment && self.sv103_users == other.sv103_users && self.sv103_disc == other.sv103_disc && self.sv103_hidden == other.sv103_hidden && self.sv103_announce == other.sv103_announce && self.sv103_anndelta == other.sv103_anndelta && self.sv103_licenses == other.sv103_licenses && self.sv103_userpath == other.sv103_userpath && self.sv103_capabilities == other.sv103_capabilities
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11945,7 +11945,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1107 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1107 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1107>()) == 0 }
+        self.sv1107_users == other.sv1107_users
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1107 {}
@@ -11975,7 +11975,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1501 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1501 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1501>()) == 0 }
+        self.sv1501_sessopens == other.sv1501_sessopens
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1501 {}
@@ -12005,7 +12005,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1502 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1502 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1502>()) == 0 }
+        self.sv1502_sessvcs == other.sv1502_sessvcs
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1502 {}
@@ -12035,7 +12035,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1503 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1503 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1503>()) == 0 }
+        self.sv1503_opensearch == other.sv1503_opensearch
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1503 {}
@@ -12065,7 +12065,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1506 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1506 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1506>()) == 0 }
+        self.sv1506_maxworkitems == other.sv1506_maxworkitems
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1506 {}
@@ -12095,7 +12095,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1509 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1509 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1509>()) == 0 }
+        self.sv1509_maxrawbuflen == other.sv1509_maxrawbuflen
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1509 {}
@@ -12125,7 +12125,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1510 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1510 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1510>()) == 0 }
+        self.sv1510_sessusers == other.sv1510_sessusers
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1510 {}
@@ -12155,7 +12155,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1511 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1511 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1511>()) == 0 }
+        self.sv1511_sessconns == other.sv1511_sessconns
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1511 {}
@@ -12185,7 +12185,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1512 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1512 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1512>()) == 0 }
+        self.sv1512_maxnonpagedmemoryusage == other.sv1512_maxnonpagedmemoryusage
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1512 {}
@@ -12215,7 +12215,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1513 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1513 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1513>()) == 0 }
+        self.sv1513_maxpagedmemoryusage == other.sv1513_maxpagedmemoryusage
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1513 {}
@@ -12251,7 +12251,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1514 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1514 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1514>()) == 0 }
+        self.sv1514_enablesoftcompat == other.sv1514_enablesoftcompat
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12289,7 +12289,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1515 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1515 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1515>()) == 0 }
+        self.sv1515_enableforcedlogoff == other.sv1515_enableforcedlogoff
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12327,7 +12327,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1516 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1516 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1516>()) == 0 }
+        self.sv1516_timesource == other.sv1516_timesource
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12365,7 +12365,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1518 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1518 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1518>()) == 0 }
+        self.sv1518_lmannounce == other.sv1518_lmannounce
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12397,7 +12397,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1520 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1520 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1520>()) == 0 }
+        self.sv1520_maxcopyreadlen == other.sv1520_maxcopyreadlen
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1520 {}
@@ -12427,7 +12427,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1521 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1521 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1521>()) == 0 }
+        self.sv1521_maxcopywritelen == other.sv1521_maxcopywritelen
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1521 {}
@@ -12457,7 +12457,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1522 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1522 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1522>()) == 0 }
+        self.sv1522_minkeepsearch == other.sv1522_minkeepsearch
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1522 {}
@@ -12487,7 +12487,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1523 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1523 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1523>()) == 0 }
+        self.sv1523_maxkeepsearch == other.sv1523_maxkeepsearch
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1523 {}
@@ -12517,7 +12517,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1524 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1524 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1524>()) == 0 }
+        self.sv1524_minkeepcomplsearch == other.sv1524_minkeepcomplsearch
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1524 {}
@@ -12547,7 +12547,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1525 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1525 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1525>()) == 0 }
+        self.sv1525_maxkeepcomplsearch == other.sv1525_maxkeepcomplsearch
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1525 {}
@@ -12577,7 +12577,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1528 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1528 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1528>()) == 0 }
+        self.sv1528_scavtimeout == other.sv1528_scavtimeout
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1528 {}
@@ -12607,7 +12607,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1529 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1529 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1529>()) == 0 }
+        self.sv1529_minrcvqueue == other.sv1529_minrcvqueue
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1529 {}
@@ -12637,7 +12637,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1530 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1530 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1530>()) == 0 }
+        self.sv1530_minfreeworkitems == other.sv1530_minfreeworkitems
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1530 {}
@@ -12667,7 +12667,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1533 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1533 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1533>()) == 0 }
+        self.sv1533_maxmpxct == other.sv1533_maxmpxct
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1533 {}
@@ -12697,7 +12697,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1534 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1534 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1534>()) == 0 }
+        self.sv1534_oplockbreakwait == other.sv1534_oplockbreakwait
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1534 {}
@@ -12727,7 +12727,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1535 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1535 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1535>()) == 0 }
+        self.sv1535_oplockbreakresponsewait == other.sv1535_oplockbreakresponsewait
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1535 {}
@@ -12763,7 +12763,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1536 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1536 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1536>()) == 0 }
+        self.sv1536_enableoplocks == other.sv1536_enableoplocks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12801,7 +12801,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1537 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1537 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1537>()) == 0 }
+        self.sv1537_enableoplockforceclose == other.sv1537_enableoplockforceclose
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12839,7 +12839,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1538 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1538 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1538>()) == 0 }
+        self.sv1538_enablefcbopens == other.sv1538_enablefcbopens
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12877,7 +12877,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1539 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1539 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1539>()) == 0 }
+        self.sv1539_enableraw == other.sv1539_enableraw
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12915,7 +12915,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1540 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1540 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1540>()) == 0 }
+        self.sv1540_enablesharednetdrives == other.sv1540_enablesharednetdrives
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12953,7 +12953,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1541 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1541 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1541>()) == 0 }
+        self.sv1541_minfreeconnections == other.sv1541_minfreeconnections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12991,7 +12991,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1542 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1542 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1542>()) == 0 }
+        self.sv1542_maxfreeconnections == other.sv1542_maxfreeconnections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13023,7 +13023,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1543 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1543 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1543>()) == 0 }
+        self.sv1543_initsesstable == other.sv1543_initsesstable
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1543 {}
@@ -13053,7 +13053,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1544 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1544 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1544>()) == 0 }
+        self.sv1544_initconntable == other.sv1544_initconntable
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1544 {}
@@ -13083,7 +13083,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1545 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1545 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1545>()) == 0 }
+        self.sv1545_initfiletable == other.sv1545_initfiletable
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1545 {}
@@ -13113,7 +13113,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1546 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1546 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1546>()) == 0 }
+        self.sv1546_initsearchtable == other.sv1546_initsearchtable
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1546 {}
@@ -13143,7 +13143,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1547 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1547 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1547>()) == 0 }
+        self.sv1547_alertschedule == other.sv1547_alertschedule
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1547 {}
@@ -13173,7 +13173,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1548 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1548 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1548>()) == 0 }
+        self.sv1548_errorthreshold == other.sv1548_errorthreshold
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1548 {}
@@ -13203,7 +13203,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1549 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1549 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1549>()) == 0 }
+        self.sv1549_networkerrorthreshold == other.sv1549_networkerrorthreshold
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1549 {}
@@ -13233,7 +13233,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1550 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1550 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1550>()) == 0 }
+        self.sv1550_diskspacethreshold == other.sv1550_diskspacethreshold
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1550 {}
@@ -13263,7 +13263,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1552 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1552 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1552>()) == 0 }
+        self.sv1552_maxlinkdelay == other.sv1552_maxlinkdelay
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1552 {}
@@ -13293,7 +13293,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1553 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1553 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1553>()) == 0 }
+        self.sv1553_minlinkthroughput == other.sv1553_minlinkthroughput
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1553 {}
@@ -13323,7 +13323,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1554 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1554 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1554>()) == 0 }
+        self.sv1554_linkinfovalidtime == other.sv1554_linkinfovalidtime
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1554 {}
@@ -13353,7 +13353,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1555 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1555 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1555>()) == 0 }
+        self.sv1555_scavqosinfoupdatetime == other.sv1555_scavqosinfoupdatetime
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1555 {}
@@ -13383,7 +13383,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1556 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1556 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1556>()) == 0 }
+        self.sv1556_maxworkitemidletime == other.sv1556_maxworkitemidletime
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1556 {}
@@ -13413,7 +13413,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1557 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1557 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1557>()) == 0 }
+        self.sv1557_maxrawworkitems == other.sv1557_maxrawworkitems
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1557 {}
@@ -13443,7 +13443,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1560 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1560 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1560>()) == 0 }
+        self.sv1560_producttype == other.sv1560_producttype
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1560 {}
@@ -13473,7 +13473,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1561 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1561 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1561>()) == 0 }
+        self.sv1561_serversize == other.sv1561_serversize
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1561 {}
@@ -13503,7 +13503,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1562 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1562 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1562>()) == 0 }
+        self.sv1562_connectionlessautodisc == other.sv1562_connectionlessautodisc
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1562 {}
@@ -13533,7 +13533,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1563 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1563 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1563>()) == 0 }
+        self.sv1563_sharingviolationretries == other.sv1563_sharingviolationretries
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1563 {}
@@ -13563,7 +13563,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1564 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1564 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1564>()) == 0 }
+        self.sv1564_sharingviolationdelay == other.sv1564_sharingviolationdelay
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1564 {}
@@ -13593,7 +13593,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1565 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1565 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1565>()) == 0 }
+        self.sv1565_maxglobalopensearch == other.sv1565_maxglobalopensearch
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1565 {}
@@ -13629,7 +13629,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1566 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1566 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1566>()) == 0 }
+        self.sv1566_removeduplicatesearches == other.sv1566_removeduplicatesearches
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13661,7 +13661,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1567 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1567 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1567>()) == 0 }
+        self.sv1567_lockviolationretries == other.sv1567_lockviolationretries
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1567 {}
@@ -13691,7 +13691,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1568 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1568 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1568>()) == 0 }
+        self.sv1568_lockviolationoffset == other.sv1568_lockviolationoffset
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1568 {}
@@ -13721,7 +13721,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1569 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1569 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1569>()) == 0 }
+        self.sv1569_lockviolationdelay == other.sv1569_lockviolationdelay
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1569 {}
@@ -13751,7 +13751,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1570 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1570 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1570>()) == 0 }
+        self.sv1570_mdlreadswitchover == other.sv1570_mdlreadswitchover
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1570 {}
@@ -13781,7 +13781,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1571 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1571 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1571>()) == 0 }
+        self.sv1571_cachedopenlimit == other.sv1571_cachedopenlimit
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1571 {}
@@ -13811,7 +13811,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1572 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1572 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1572>()) == 0 }
+        self.sv1572_criticalthreads == other.sv1572_criticalthreads
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1572 {}
@@ -13841,7 +13841,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1573 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1573 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1573>()) == 0 }
+        self.sv1573_restrictnullsessaccess == other.sv1573_restrictnullsessaccess
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1573 {}
@@ -13871,7 +13871,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1574 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1574 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1574>()) == 0 }
+        self.sv1574_enablewfw311directipx == other.sv1574_enablewfw311directipx
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1574 {}
@@ -13901,7 +13901,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1575 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1575 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1575>()) == 0 }
+        self.sv1575_otherqueueaffinity == other.sv1575_otherqueueaffinity
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1575 {}
@@ -13931,7 +13931,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1576 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1576 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1576>()) == 0 }
+        self.sv1576_queuesamplesecs == other.sv1576_queuesamplesecs
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1576 {}
@@ -13961,7 +13961,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1577 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1577 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1577>()) == 0 }
+        self.sv1577_balancecount == other.sv1577_balancecount
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1577 {}
@@ -13991,7 +13991,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1578 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1578 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1578>()) == 0 }
+        self.sv1578_preferredaffinity == other.sv1578_preferredaffinity
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1578 {}
@@ -14021,7 +14021,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1579 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1579 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1579>()) == 0 }
+        self.sv1579_maxfreerfcbs == other.sv1579_maxfreerfcbs
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1579 {}
@@ -14051,7 +14051,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1580 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1580 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1580>()) == 0 }
+        self.sv1580_maxfreemfcbs == other.sv1580_maxfreemfcbs
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1580 {}
@@ -14081,7 +14081,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1581 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1581 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1581>()) == 0 }
+        self.sv1581_maxfreemlcbs == other.sv1581_maxfreemlcbs
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1581 {}
@@ -14111,7 +14111,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1582 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1582 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1582>()) == 0 }
+        self.sv1582_maxfreepagedpoolchunks == other.sv1582_maxfreepagedpoolchunks
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1582 {}
@@ -14141,7 +14141,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1583 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1583 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1583>()) == 0 }
+        self.sv1583_minpagedpoolchunksize == other.sv1583_minpagedpoolchunksize
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1583 {}
@@ -14171,7 +14171,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1584 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1584 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1584>()) == 0 }
+        self.sv1584_maxpagedpoolchunksize == other.sv1584_maxpagedpoolchunksize
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1584 {}
@@ -14207,7 +14207,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1585 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1585 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1585>()) == 0 }
+        self.sv1585_sendsfrompreferredprocessor == other.sv1585_sendsfrompreferredprocessor
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14239,7 +14239,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1586 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1586 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1586>()) == 0 }
+        self.sv1586_maxthreadsperqueue == other.sv1586_maxthreadsperqueue
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1586 {}
@@ -14269,7 +14269,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1587 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1587 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1587>()) == 0 }
+        self.sv1587_cacheddirectorylimit == other.sv1587_cacheddirectorylimit
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1587 {}
@@ -14299,7 +14299,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1588 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1588 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1588>()) == 0 }
+        self.sv1588_maxcopylength == other.sv1588_maxcopylength
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1588 {}
@@ -14329,7 +14329,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1590 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1590 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1590>()) == 0 }
+        self.sv1590_enablecompression == other.sv1590_enablecompression
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1590 {}
@@ -14359,7 +14359,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1591 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1591 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1591>()) == 0 }
+        self.sv1591_autosharewks == other.sv1591_autosharewks
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1591 {}
@@ -14389,7 +14389,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1592 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1592 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1592>()) == 0 }
+        self.sv1592_autosharewks == other.sv1592_autosharewks
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1592 {}
@@ -14419,7 +14419,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1593 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1593 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1593>()) == 0 }
+        self.sv1593_enablesecuritysignature == other.sv1593_enablesecuritysignature
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1593 {}
@@ -14449,7 +14449,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1594 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1594 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1594>()) == 0 }
+        self.sv1594_requiresecuritysignature == other.sv1594_requiresecuritysignature
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1594 {}
@@ -14479,7 +14479,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1595 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1595 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1595>()) == 0 }
+        self.sv1595_minclientbuffersize == other.sv1595_minclientbuffersize
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1595 {}
@@ -14509,7 +14509,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1596 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1596 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1596>()) == 0 }
+        self.sv1596_ConnectionNoSessionsTimeout == other.sv1596_ConnectionNoSessionsTimeout
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1596 {}
@@ -14539,7 +14539,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1597 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1597 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1597>()) == 0 }
+        self.sv1597_IdleThreadTimeOut == other.sv1597_IdleThreadTimeOut
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1597 {}
@@ -14569,7 +14569,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1598 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1598 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1598>()) == 0 }
+        self.sv1598_enableW9xsecuritysignature == other.sv1598_enableW9xsecuritysignature
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1598 {}
@@ -14605,7 +14605,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1599 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1599 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1599>()) == 0 }
+        self.sv1598_enforcekerberosreauthentication == other.sv1598_enforcekerberosreauthentication
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14643,7 +14643,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1600 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1600 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1600>()) == 0 }
+        self.sv1598_disabledos == other.sv1598_disabledos
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14675,7 +14675,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1601 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1601 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1601>()) == 0 }
+        self.sv1598_lowdiskspaceminimum == other.sv1598_lowdiskspaceminimum
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_1601 {}
@@ -14711,7 +14711,7 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_1602 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1602 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_1602>()) == 0 }
+        self.sv_1598_disablestrictnamechecking == other.sv_1598_disablestrictnamechecking
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14805,7 +14805,37 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_402 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_402 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_402>()) == 0 }
+        self.sv402_ulist_mtime == other.sv402_ulist_mtime
+            && self.sv402_glist_mtime == other.sv402_glist_mtime
+            && self.sv402_alist_mtime == other.sv402_alist_mtime
+            && self.sv402_alerts == other.sv402_alerts
+            && self.sv402_security == other.sv402_security
+            && self.sv402_numadmin == other.sv402_numadmin
+            && self.sv402_lanmask == other.sv402_lanmask
+            && self.sv402_guestacct == other.sv402_guestacct
+            && self.sv402_chdevs == other.sv402_chdevs
+            && self.sv402_chdevq == other.sv402_chdevq
+            && self.sv402_chdevjobs == other.sv402_chdevjobs
+            && self.sv402_connections == other.sv402_connections
+            && self.sv402_shares == other.sv402_shares
+            && self.sv402_openfiles == other.sv402_openfiles
+            && self.sv402_sessopens == other.sv402_sessopens
+            && self.sv402_sessvcs == other.sv402_sessvcs
+            && self.sv402_sessreqs == other.sv402_sessreqs
+            && self.sv402_opensearch == other.sv402_opensearch
+            && self.sv402_activelocks == other.sv402_activelocks
+            && self.sv402_numreqbuf == other.sv402_numreqbuf
+            && self.sv402_sizreqbuf == other.sv402_sizreqbuf
+            && self.sv402_numbigbuf == other.sv402_numbigbuf
+            && self.sv402_numfiletasks == other.sv402_numfiletasks
+            && self.sv402_alertsched == other.sv402_alertsched
+            && self.sv402_erroralert == other.sv402_erroralert
+            && self.sv402_logonalert == other.sv402_logonalert
+            && self.sv402_accessalert == other.sv402_accessalert
+            && self.sv402_diskalert == other.sv402_diskalert
+            && self.sv402_netioalert == other.sv402_netioalert
+            && self.sv402_maxauditsz == other.sv402_maxauditsz
+            && self.sv402_srvheuristics == other.sv402_srvheuristics
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_402 {}
@@ -14903,7 +14933,40 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_403 {
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_403 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_403>()) == 0 }
+        self.sv403_ulist_mtime == other.sv403_ulist_mtime
+            && self.sv403_glist_mtime == other.sv403_glist_mtime
+            && self.sv403_alist_mtime == other.sv403_alist_mtime
+            && self.sv403_alerts == other.sv403_alerts
+            && self.sv403_security == other.sv403_security
+            && self.sv403_numadmin == other.sv403_numadmin
+            && self.sv403_lanmask == other.sv403_lanmask
+            && self.sv403_guestacct == other.sv403_guestacct
+            && self.sv403_chdevs == other.sv403_chdevs
+            && self.sv403_chdevq == other.sv403_chdevq
+            && self.sv403_chdevjobs == other.sv403_chdevjobs
+            && self.sv403_connections == other.sv403_connections
+            && self.sv403_shares == other.sv403_shares
+            && self.sv403_openfiles == other.sv403_openfiles
+            && self.sv403_sessopens == other.sv403_sessopens
+            && self.sv403_sessvcs == other.sv403_sessvcs
+            && self.sv403_sessreqs == other.sv403_sessreqs
+            && self.sv403_opensearch == other.sv403_opensearch
+            && self.sv403_activelocks == other.sv403_activelocks
+            && self.sv403_numreqbuf == other.sv403_numreqbuf
+            && self.sv403_sizreqbuf == other.sv403_sizreqbuf
+            && self.sv403_numbigbuf == other.sv403_numbigbuf
+            && self.sv403_numfiletasks == other.sv403_numfiletasks
+            && self.sv403_alertsched == other.sv403_alertsched
+            && self.sv403_erroralert == other.sv403_erroralert
+            && self.sv403_logonalert == other.sv403_logonalert
+            && self.sv403_accessalert == other.sv403_accessalert
+            && self.sv403_diskalert == other.sv403_diskalert
+            && self.sv403_netioalert == other.sv403_netioalert
+            && self.sv403_maxauditsz == other.sv403_maxauditsz
+            && self.sv403_srvheuristics == other.sv403_srvheuristics
+            && self.sv403_auditedevents == other.sv403_auditedevents
+            && self.sv403_autoprofile == other.sv403_autoprofile
+            && self.sv403_autopath == other.sv403_autopath
     }
 }
 impl ::core::cmp::Eq for SERVER_INFO_403 {}
@@ -14975,7 +15038,24 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_502>()) == 0 }
+        self.sv502_sessopens == other.sv502_sessopens
+            && self.sv502_sessvcs == other.sv502_sessvcs
+            && self.sv502_opensearch == other.sv502_opensearch
+            && self.sv502_sizreqbuf == other.sv502_sizreqbuf
+            && self.sv502_initworkitems == other.sv502_initworkitems
+            && self.sv502_maxworkitems == other.sv502_maxworkitems
+            && self.sv502_rawworkitems == other.sv502_rawworkitems
+            && self.sv502_irpstacksize == other.sv502_irpstacksize
+            && self.sv502_maxrawbuflen == other.sv502_maxrawbuflen
+            && self.sv502_sessusers == other.sv502_sessusers
+            && self.sv502_sessconns == other.sv502_sessconns
+            && self.sv502_maxpagedmemoryusage == other.sv502_maxpagedmemoryusage
+            && self.sv502_maxnonpagedmemoryusage == other.sv502_maxnonpagedmemoryusage
+            && self.sv502_enablesoftcompat == other.sv502_enablesoftcompat
+            && self.sv502_enableforcedlogoff == other.sv502_enableforcedlogoff
+            && self.sv502_timesource == other.sv502_timesource
+            && self.sv502_acceptdownlevelapis == other.sv502_acceptdownlevelapis
+            && self.sv502_lmannounce == other.sv502_lmannounce
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15097,7 +15177,48 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_503 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_503 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_503>()) == 0 }
+        self.sv503_sessopens == other.sv503_sessopens
+            && self.sv503_sessvcs == other.sv503_sessvcs
+            && self.sv503_opensearch == other.sv503_opensearch
+            && self.sv503_sizreqbuf == other.sv503_sizreqbuf
+            && self.sv503_initworkitems == other.sv503_initworkitems
+            && self.sv503_maxworkitems == other.sv503_maxworkitems
+            && self.sv503_rawworkitems == other.sv503_rawworkitems
+            && self.sv503_irpstacksize == other.sv503_irpstacksize
+            && self.sv503_maxrawbuflen == other.sv503_maxrawbuflen
+            && self.sv503_sessusers == other.sv503_sessusers
+            && self.sv503_sessconns == other.sv503_sessconns
+            && self.sv503_maxpagedmemoryusage == other.sv503_maxpagedmemoryusage
+            && self.sv503_maxnonpagedmemoryusage == other.sv503_maxnonpagedmemoryusage
+            && self.sv503_enablesoftcompat == other.sv503_enablesoftcompat
+            && self.sv503_enableforcedlogoff == other.sv503_enableforcedlogoff
+            && self.sv503_timesource == other.sv503_timesource
+            && self.sv503_acceptdownlevelapis == other.sv503_acceptdownlevelapis
+            && self.sv503_lmannounce == other.sv503_lmannounce
+            && self.sv503_domain == other.sv503_domain
+            && self.sv503_maxcopyreadlen == other.sv503_maxcopyreadlen
+            && self.sv503_maxcopywritelen == other.sv503_maxcopywritelen
+            && self.sv503_minkeepsearch == other.sv503_minkeepsearch
+            && self.sv503_maxkeepsearch == other.sv503_maxkeepsearch
+            && self.sv503_minkeepcomplsearch == other.sv503_minkeepcomplsearch
+            && self.sv503_maxkeepcomplsearch == other.sv503_maxkeepcomplsearch
+            && self.sv503_threadcountadd == other.sv503_threadcountadd
+            && self.sv503_numblockthreads == other.sv503_numblockthreads
+            && self.sv503_scavtimeout == other.sv503_scavtimeout
+            && self.sv503_minrcvqueue == other.sv503_minrcvqueue
+            && self.sv503_minfreeworkitems == other.sv503_minfreeworkitems
+            && self.sv503_xactmemsize == other.sv503_xactmemsize
+            && self.sv503_threadpriority == other.sv503_threadpriority
+            && self.sv503_maxmpxct == other.sv503_maxmpxct
+            && self.sv503_oplockbreakwait == other.sv503_oplockbreakwait
+            && self.sv503_oplockbreakresponsewait == other.sv503_oplockbreakresponsewait
+            && self.sv503_enableoplocks == other.sv503_enableoplocks
+            && self.sv503_enableoplockforceclose == other.sv503_enableoplockforceclose
+            && self.sv503_enablefcbopens == other.sv503_enablefcbopens
+            && self.sv503_enableraw == other.sv503_enableraw
+            && self.sv503_enablesharednetdrives == other.sv503_enablesharednetdrives
+            && self.sv503_minfreeconnections == other.sv503_minfreeconnections
+            && self.sv503_maxfreeconnections == other.sv503_maxfreeconnections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15221,7 +15342,49 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_598 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_598 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_598>()) == 0 }
+        self.sv598_maxrawworkitems == other.sv598_maxrawworkitems
+            && self.sv598_maxthreadsperqueue == other.sv598_maxthreadsperqueue
+            && self.sv598_producttype == other.sv598_producttype
+            && self.sv598_serversize == other.sv598_serversize
+            && self.sv598_connectionlessautodisc == other.sv598_connectionlessautodisc
+            && self.sv598_sharingviolationretries == other.sv598_sharingviolationretries
+            && self.sv598_sharingviolationdelay == other.sv598_sharingviolationdelay
+            && self.sv598_maxglobalopensearch == other.sv598_maxglobalopensearch
+            && self.sv598_removeduplicatesearches == other.sv598_removeduplicatesearches
+            && self.sv598_lockviolationoffset == other.sv598_lockviolationoffset
+            && self.sv598_lockviolationdelay == other.sv598_lockviolationdelay
+            && self.sv598_mdlreadswitchover == other.sv598_mdlreadswitchover
+            && self.sv598_cachedopenlimit == other.sv598_cachedopenlimit
+            && self.sv598_otherqueueaffinity == other.sv598_otherqueueaffinity
+            && self.sv598_restrictnullsessaccess == other.sv598_restrictnullsessaccess
+            && self.sv598_enablewfw311directipx == other.sv598_enablewfw311directipx
+            && self.sv598_queuesamplesecs == other.sv598_queuesamplesecs
+            && self.sv598_balancecount == other.sv598_balancecount
+            && self.sv598_preferredaffinity == other.sv598_preferredaffinity
+            && self.sv598_maxfreerfcbs == other.sv598_maxfreerfcbs
+            && self.sv598_maxfreemfcbs == other.sv598_maxfreemfcbs
+            && self.sv598_maxfreelfcbs == other.sv598_maxfreelfcbs
+            && self.sv598_maxfreepagedpoolchunks == other.sv598_maxfreepagedpoolchunks
+            && self.sv598_minpagedpoolchunksize == other.sv598_minpagedpoolchunksize
+            && self.sv598_maxpagedpoolchunksize == other.sv598_maxpagedpoolchunksize
+            && self.sv598_sendsfrompreferredprocessor == other.sv598_sendsfrompreferredprocessor
+            && self.sv598_cacheddirectorylimit == other.sv598_cacheddirectorylimit
+            && self.sv598_maxcopylength == other.sv598_maxcopylength
+            && self.sv598_enablecompression == other.sv598_enablecompression
+            && self.sv598_autosharewks == other.sv598_autosharewks
+            && self.sv598_autoshareserver == other.sv598_autoshareserver
+            && self.sv598_enablesecuritysignature == other.sv598_enablesecuritysignature
+            && self.sv598_requiresecuritysignature == other.sv598_requiresecuritysignature
+            && self.sv598_minclientbuffersize == other.sv598_minclientbuffersize
+            && self.sv598_serverguid == other.sv598_serverguid
+            && self.sv598_ConnectionNoSessionsTimeout == other.sv598_ConnectionNoSessionsTimeout
+            && self.sv598_IdleThreadTimeOut == other.sv598_IdleThreadTimeOut
+            && self.sv598_enableW9xsecuritysignature == other.sv598_enableW9xsecuritysignature
+            && self.sv598_enforcekerberosreauthentication == other.sv598_enforcekerberosreauthentication
+            && self.sv598_disabledos == other.sv598_disabledos
+            && self.sv598_lowdiskspaceminimum == other.sv598_lowdiskspaceminimum
+            && self.sv598_disablestrictnamechecking == other.sv598_disablestrictnamechecking
+            && self.sv598_enableauthenticateusersharing == other.sv598_enableauthenticateusersharing
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15371,7 +15534,62 @@ unsafe impl ::windows::core::Abi for SERVER_INFO_599 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_599 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_INFO_599>()) == 0 }
+        self.sv599_sessopens == other.sv599_sessopens
+            && self.sv599_sessvcs == other.sv599_sessvcs
+            && self.sv599_opensearch == other.sv599_opensearch
+            && self.sv599_sizreqbuf == other.sv599_sizreqbuf
+            && self.sv599_initworkitems == other.sv599_initworkitems
+            && self.sv599_maxworkitems == other.sv599_maxworkitems
+            && self.sv599_rawworkitems == other.sv599_rawworkitems
+            && self.sv599_irpstacksize == other.sv599_irpstacksize
+            && self.sv599_maxrawbuflen == other.sv599_maxrawbuflen
+            && self.sv599_sessusers == other.sv599_sessusers
+            && self.sv599_sessconns == other.sv599_sessconns
+            && self.sv599_maxpagedmemoryusage == other.sv599_maxpagedmemoryusage
+            && self.sv599_maxnonpagedmemoryusage == other.sv599_maxnonpagedmemoryusage
+            && self.sv599_enablesoftcompat == other.sv599_enablesoftcompat
+            && self.sv599_enableforcedlogoff == other.sv599_enableforcedlogoff
+            && self.sv599_timesource == other.sv599_timesource
+            && self.sv599_acceptdownlevelapis == other.sv599_acceptdownlevelapis
+            && self.sv599_lmannounce == other.sv599_lmannounce
+            && self.sv599_domain == other.sv599_domain
+            && self.sv599_maxcopyreadlen == other.sv599_maxcopyreadlen
+            && self.sv599_maxcopywritelen == other.sv599_maxcopywritelen
+            && self.sv599_minkeepsearch == other.sv599_minkeepsearch
+            && self.sv599_maxkeepsearch == other.sv599_maxkeepsearch
+            && self.sv599_minkeepcomplsearch == other.sv599_minkeepcomplsearch
+            && self.sv599_maxkeepcomplsearch == other.sv599_maxkeepcomplsearch
+            && self.sv599_threadcountadd == other.sv599_threadcountadd
+            && self.sv599_numblockthreads == other.sv599_numblockthreads
+            && self.sv599_scavtimeout == other.sv599_scavtimeout
+            && self.sv599_minrcvqueue == other.sv599_minrcvqueue
+            && self.sv599_minfreeworkitems == other.sv599_minfreeworkitems
+            && self.sv599_xactmemsize == other.sv599_xactmemsize
+            && self.sv599_threadpriority == other.sv599_threadpriority
+            && self.sv599_maxmpxct == other.sv599_maxmpxct
+            && self.sv599_oplockbreakwait == other.sv599_oplockbreakwait
+            && self.sv599_oplockbreakresponsewait == other.sv599_oplockbreakresponsewait
+            && self.sv599_enableoplocks == other.sv599_enableoplocks
+            && self.sv599_enableoplockforceclose == other.sv599_enableoplockforceclose
+            && self.sv599_enablefcbopens == other.sv599_enablefcbopens
+            && self.sv599_enableraw == other.sv599_enableraw
+            && self.sv599_enablesharednetdrives == other.sv599_enablesharednetdrives
+            && self.sv599_minfreeconnections == other.sv599_minfreeconnections
+            && self.sv599_maxfreeconnections == other.sv599_maxfreeconnections
+            && self.sv599_initsesstable == other.sv599_initsesstable
+            && self.sv599_initconntable == other.sv599_initconntable
+            && self.sv599_initfiletable == other.sv599_initfiletable
+            && self.sv599_initsearchtable == other.sv599_initsearchtable
+            && self.sv599_alertschedule == other.sv599_alertschedule
+            && self.sv599_errorthreshold == other.sv599_errorthreshold
+            && self.sv599_networkerrorthreshold == other.sv599_networkerrorthreshold
+            && self.sv599_diskspacethreshold == other.sv599_diskspacethreshold
+            && self.sv599_reserved == other.sv599_reserved
+            && self.sv599_maxlinkdelay == other.sv599_maxlinkdelay
+            && self.sv599_minlinkthroughput == other.sv599_minlinkthroughput
+            && self.sv599_linkinfovalidtime == other.sv599_linkinfovalidtime
+            && self.sv599_scavqosinfoupdatetime == other.sv599_scavqosinfoupdatetime
+            && self.sv599_maxworkitemidletime == other.sv599_maxworkitemidletime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15407,7 +15625,7 @@ unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_0 {
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_TRANSPORT_INFO_0>()) == 0 }
+        self.svti0_numberofvcs == other.svti0_numberofvcs && self.svti0_transportname == other.svti0_transportname && self.svti0_transportaddress == other.svti0_transportaddress && self.svti0_transportaddresslength == other.svti0_transportaddresslength && self.svti0_networkaddress == other.svti0_networkaddress
     }
 }
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_0 {}
@@ -15442,7 +15660,7 @@ unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_1 {
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_TRANSPORT_INFO_1>()) == 0 }
+        self.svti1_numberofvcs == other.svti1_numberofvcs && self.svti1_transportname == other.svti1_transportname && self.svti1_transportaddress == other.svti1_transportaddress && self.svti1_transportaddresslength == other.svti1_transportaddresslength && self.svti1_networkaddress == other.svti1_networkaddress && self.svti1_domain == other.svti1_domain
     }
 }
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_1 {}
@@ -15478,7 +15696,7 @@ unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_2 {
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_TRANSPORT_INFO_2>()) == 0 }
+        self.svti2_numberofvcs == other.svti2_numberofvcs && self.svti2_transportname == other.svti2_transportname && self.svti2_transportaddress == other.svti2_transportaddress && self.svti2_transportaddresslength == other.svti2_transportaddresslength && self.svti2_networkaddress == other.svti2_networkaddress && self.svti2_domain == other.svti2_domain && self.svti2_flags == other.svti2_flags
     }
 }
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_2 {}
@@ -15526,7 +15744,7 @@ unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_3 {
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVER_TRANSPORT_INFO_3>()) == 0 }
+        self.svti3_numberofvcs == other.svti3_numberofvcs && self.svti3_transportname == other.svti3_transportname && self.svti3_transportaddress == other.svti3_transportaddress && self.svti3_transportaddresslength == other.svti3_transportaddresslength && self.svti3_networkaddress == other.svti3_networkaddress && self.svti3_domain == other.svti3_domain && self.svti3_flags == other.svti3_flags && self.svti3_passwordlength == other.svti3_passwordlength && self.svti3_password == other.svti3_password
     }
 }
 impl ::core::cmp::Eq for SERVER_TRANSPORT_INFO_3 {}
@@ -15556,7 +15774,7 @@ unsafe impl ::windows::core::Abi for SERVICE_INFO_0 {
 }
 impl ::core::cmp::PartialEq for SERVICE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_INFO_0>()) == 0 }
+        self.svci0_name == other.svci0_name
     }
 }
 impl ::core::cmp::Eq for SERVICE_INFO_0 {}
@@ -15589,7 +15807,7 @@ unsafe impl ::windows::core::Abi for SERVICE_INFO_1 {
 }
 impl ::core::cmp::PartialEq for SERVICE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_INFO_1>()) == 0 }
+        self.svci1_name == other.svci1_name && self.svci1_status == other.svci1_status && self.svci1_code == other.svci1_code && self.svci1_pid == other.svci1_pid
     }
 }
 impl ::core::cmp::Eq for SERVICE_INFO_1 {}
@@ -15625,7 +15843,7 @@ unsafe impl ::windows::core::Abi for SERVICE_INFO_2 {
 }
 impl ::core::cmp::PartialEq for SERVICE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_INFO_2>()) == 0 }
+        self.svci2_name == other.svci2_name && self.svci2_status == other.svci2_status && self.svci2_code == other.svci2_code && self.svci2_pid == other.svci2_pid && self.svci2_text == other.svci2_text && self.svci2_specific_error == other.svci2_specific_error && self.svci2_display_name == other.svci2_display_name
     }
 }
 impl ::core::cmp::Eq for SERVICE_INFO_2 {}
@@ -15664,7 +15882,7 @@ unsafe impl ::windows::core::Abi for SMB_COMPRESSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SMB_COMPRESSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMB_COMPRESSION_INFO>()) == 0 }
+        self.Switch == other.Switch && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15699,7 +15917,7 @@ unsafe impl ::windows::core::Abi for SMB_TREE_CONNECT_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for SMB_TREE_CONNECT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMB_TREE_CONNECT_PARAMETERS>()) == 0 }
+        self.EABufferOffset == other.EABufferOffset && self.EABufferLen == other.EABufferLen && self.CreateOptions == other.CreateOptions && self.TreeConnectAttributes == other.TreeConnectAttributes
     }
 }
 impl ::core::cmp::Eq for SMB_TREE_CONNECT_PARAMETERS {}
@@ -15731,7 +15949,7 @@ unsafe impl ::windows::core::Abi for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMB_USE_OPTION_COMPRESSION_PARAMETERS>()) == 0 }
+        self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {}
@@ -15763,7 +15981,7 @@ unsafe impl ::windows::core::Abi for STD_ALERT {
 }
 impl ::core::cmp::PartialEq for STD_ALERT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STD_ALERT>()) == 0 }
+        self.alrt_timestamp == other.alrt_timestamp && self.alrt_eventname == other.alrt_eventname && self.alrt_servicename == other.alrt_servicename
     }
 }
 impl ::core::cmp::Eq for STD_ALERT {}
@@ -15817,7 +16035,7 @@ unsafe impl ::windows::core::Abi for TIME_OF_DAY_INFO {
 }
 impl ::core::cmp::PartialEq for TIME_OF_DAY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIME_OF_DAY_INFO>()) == 0 }
+        self.tod_elapsedt == other.tod_elapsedt && self.tod_msecs == other.tod_msecs && self.tod_hours == other.tod_hours && self.tod_mins == other.tod_mins && self.tod_secs == other.tod_secs && self.tod_hunds == other.tod_hunds && self.tod_timezone == other.tod_timezone && self.tod_tinterval == other.tod_tinterval && self.tod_day == other.tod_day && self.tod_month == other.tod_month && self.tod_year == other.tod_year && self.tod_weekday == other.tod_weekday
     }
 }
 impl ::core::cmp::Eq for TIME_OF_DAY_INFO {}
@@ -15854,7 +16072,7 @@ unsafe impl ::windows::core::Abi for TRANSPORT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRANSPORT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSPORT_INFO>()) == 0 }
+        self.Type == other.Type && self.SkipCertificateCheck == other.SkipCertificateCheck
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15886,7 +16104,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_0 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_0>()) == 0 }
+        self.usri0_name == other.usri0_name
     }
 }
 impl ::core::cmp::Eq for USER_INFO_0 {}
@@ -15923,7 +16141,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1>()) == 0 }
+        self.usri1_name == other.usri1_name && self.usri1_password == other.usri1_password && self.usri1_password_age == other.usri1_password_age && self.usri1_priv == other.usri1_priv && self.usri1_home_dir == other.usri1_home_dir && self.usri1_comment == other.usri1_comment && self.usri1_flags == other.usri1_flags && self.usri1_script_path == other.usri1_script_path
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1 {}
@@ -15956,7 +16174,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_10 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_10 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_10>()) == 0 }
+        self.usri10_name == other.usri10_name && self.usri10_comment == other.usri10_comment && self.usri10_usr_comment == other.usri10_usr_comment && self.usri10_full_name == other.usri10_full_name
     }
 }
 impl ::core::cmp::Eq for USER_INFO_10 {}
@@ -15986,7 +16204,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1003 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1003>()) == 0 }
+        self.usri1003_password == other.usri1003_password
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1003 {}
@@ -16016,7 +16234,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1005 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1005>()) == 0 }
+        self.usri1005_priv == other.usri1005_priv
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1005 {}
@@ -16046,7 +16264,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1006 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1006>()) == 0 }
+        self.usri1006_home_dir == other.usri1006_home_dir
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1006 {}
@@ -16076,7 +16294,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1007 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1007 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1007>()) == 0 }
+        self.usri1007_comment == other.usri1007_comment
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1007 {}
@@ -16106,7 +16324,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1008 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1008 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1008>()) == 0 }
+        self.usri1008_flags == other.usri1008_flags
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1008 {}
@@ -16136,7 +16354,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1009 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1009 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1009>()) == 0 }
+        self.usri1009_script_path == other.usri1009_script_path
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1009 {}
@@ -16166,7 +16384,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1010 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1010>()) == 0 }
+        self.usri1010_auth_flags == other.usri1010_auth_flags
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1010 {}
@@ -16196,7 +16414,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1011 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1011 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1011>()) == 0 }
+        self.usri1011_full_name == other.usri1011_full_name
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1011 {}
@@ -16226,7 +16444,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1012 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1012 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1012>()) == 0 }
+        self.usri1012_usr_comment == other.usri1012_usr_comment
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1012 {}
@@ -16256,7 +16474,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1013 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1013 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1013>()) == 0 }
+        self.usri1013_parms == other.usri1013_parms
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1013 {}
@@ -16286,7 +16504,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1014 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1014 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1014>()) == 0 }
+        self.usri1014_workstations == other.usri1014_workstations
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1014 {}
@@ -16316,7 +16534,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1017 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1017 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1017>()) == 0 }
+        self.usri1017_acct_expires == other.usri1017_acct_expires
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1017 {}
@@ -16346,7 +16564,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1018 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1018>()) == 0 }
+        self.usri1018_max_storage == other.usri1018_max_storage
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1018 {}
@@ -16377,7 +16595,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1020 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1020 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1020>()) == 0 }
+        self.usri1020_units_per_week == other.usri1020_units_per_week && self.usri1020_logon_hours == other.usri1020_logon_hours
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1020 {}
@@ -16407,7 +16625,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1023 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1023 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1023>()) == 0 }
+        self.usri1023_logon_server == other.usri1023_logon_server
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1023 {}
@@ -16437,7 +16655,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1024 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1024 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1024>()) == 0 }
+        self.usri1024_country_code == other.usri1024_country_code
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1024 {}
@@ -16467,7 +16685,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1025 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1025 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1025>()) == 0 }
+        self.usri1025_code_page == other.usri1025_code_page
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1025 {}
@@ -16497,7 +16715,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1051 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1051 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1051>()) == 0 }
+        self.usri1051_primary_group_id == other.usri1051_primary_group_id
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1051 {}
@@ -16527,7 +16745,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1052 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1052 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1052>()) == 0 }
+        self.usri1052_profile == other.usri1052_profile
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1052 {}
@@ -16557,7 +16775,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_1053 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_1053 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_1053>()) == 0 }
+        self.usri1053_home_dir_drive == other.usri1053_home_dir_drive
     }
 }
 impl ::core::cmp::Eq for USER_INFO_1053 {}
@@ -16627,7 +16845,26 @@ unsafe impl ::windows::core::Abi for USER_INFO_11 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_11 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_11>()) == 0 }
+        self.usri11_name == other.usri11_name
+            && self.usri11_comment == other.usri11_comment
+            && self.usri11_usr_comment == other.usri11_usr_comment
+            && self.usri11_full_name == other.usri11_full_name
+            && self.usri11_priv == other.usri11_priv
+            && self.usri11_auth_flags == other.usri11_auth_flags
+            && self.usri11_password_age == other.usri11_password_age
+            && self.usri11_home_dir == other.usri11_home_dir
+            && self.usri11_parms == other.usri11_parms
+            && self.usri11_last_logon == other.usri11_last_logon
+            && self.usri11_last_logoff == other.usri11_last_logoff
+            && self.usri11_bad_pw_count == other.usri11_bad_pw_count
+            && self.usri11_num_logons == other.usri11_num_logons
+            && self.usri11_logon_server == other.usri11_logon_server
+            && self.usri11_country_code == other.usri11_country_code
+            && self.usri11_workstations == other.usri11_workstations
+            && self.usri11_max_storage == other.usri11_max_storage
+            && self.usri11_units_per_week == other.usri11_units_per_week
+            && self.usri11_logon_hours == other.usri11_logon_hours
+            && self.usri11_code_page == other.usri11_code_page
     }
 }
 impl ::core::cmp::Eq for USER_INFO_11 {}
@@ -16705,7 +16942,30 @@ unsafe impl ::windows::core::Abi for USER_INFO_2 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_2>()) == 0 }
+        self.usri2_name == other.usri2_name
+            && self.usri2_password == other.usri2_password
+            && self.usri2_password_age == other.usri2_password_age
+            && self.usri2_priv == other.usri2_priv
+            && self.usri2_home_dir == other.usri2_home_dir
+            && self.usri2_comment == other.usri2_comment
+            && self.usri2_flags == other.usri2_flags
+            && self.usri2_script_path == other.usri2_script_path
+            && self.usri2_auth_flags == other.usri2_auth_flags
+            && self.usri2_full_name == other.usri2_full_name
+            && self.usri2_usr_comment == other.usri2_usr_comment
+            && self.usri2_parms == other.usri2_parms
+            && self.usri2_workstations == other.usri2_workstations
+            && self.usri2_last_logon == other.usri2_last_logon
+            && self.usri2_last_logoff == other.usri2_last_logoff
+            && self.usri2_acct_expires == other.usri2_acct_expires
+            && self.usri2_max_storage == other.usri2_max_storage
+            && self.usri2_units_per_week == other.usri2_units_per_week
+            && self.usri2_logon_hours == other.usri2_logon_hours
+            && self.usri2_bad_pw_count == other.usri2_bad_pw_count
+            && self.usri2_num_logons == other.usri2_num_logons
+            && self.usri2_logon_server == other.usri2_logon_server
+            && self.usri2_country_code == other.usri2_country_code
+            && self.usri2_code_page == other.usri2_code_page
     }
 }
 impl ::core::cmp::Eq for USER_INFO_2 {}
@@ -16739,7 +16999,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_20 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_20 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_20>()) == 0 }
+        self.usri20_name == other.usri20_name && self.usri20_full_name == other.usri20_full_name && self.usri20_comment == other.usri20_comment && self.usri20_flags == other.usri20_flags && self.usri20_user_id == other.usri20_user_id
     }
 }
 impl ::core::cmp::Eq for USER_INFO_20 {}
@@ -16769,7 +17029,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_21 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_21 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_21>()) == 0 }
+        self.usri21_password == other.usri21_password
     }
 }
 impl ::core::cmp::Eq for USER_INFO_21 {}
@@ -16847,7 +17107,30 @@ unsafe impl ::windows::core::Abi for USER_INFO_22 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_22 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_22>()) == 0 }
+        self.usri22_name == other.usri22_name
+            && self.usri22_password == other.usri22_password
+            && self.usri22_password_age == other.usri22_password_age
+            && self.usri22_priv == other.usri22_priv
+            && self.usri22_home_dir == other.usri22_home_dir
+            && self.usri22_comment == other.usri22_comment
+            && self.usri22_flags == other.usri22_flags
+            && self.usri22_script_path == other.usri22_script_path
+            && self.usri22_auth_flags == other.usri22_auth_flags
+            && self.usri22_full_name == other.usri22_full_name
+            && self.usri22_usr_comment == other.usri22_usr_comment
+            && self.usri22_parms == other.usri22_parms
+            && self.usri22_workstations == other.usri22_workstations
+            && self.usri22_last_logon == other.usri22_last_logon
+            && self.usri22_last_logoff == other.usri22_last_logoff
+            && self.usri22_acct_expires == other.usri22_acct_expires
+            && self.usri22_max_storage == other.usri22_max_storage
+            && self.usri22_units_per_week == other.usri22_units_per_week
+            && self.usri22_logon_hours == other.usri22_logon_hours
+            && self.usri22_bad_pw_count == other.usri22_bad_pw_count
+            && self.usri22_num_logons == other.usri22_num_logons
+            && self.usri22_logon_server == other.usri22_logon_server
+            && self.usri22_country_code == other.usri22_country_code
+            && self.usri22_code_page == other.usri22_code_page
     }
 }
 impl ::core::cmp::Eq for USER_INFO_22 {}
@@ -16887,7 +17170,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_23 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_INFO_23 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_23>()) == 0 }
+        self.usri23_name == other.usri23_name && self.usri23_full_name == other.usri23_full_name && self.usri23_comment == other.usri23_comment && self.usri23_flags == other.usri23_flags && self.usri23_user_sid == other.usri23_user_sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16929,7 +17212,7 @@ unsafe impl ::windows::core::Abi for USER_INFO_24 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_INFO_24 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_24>()) == 0 }
+        self.usri24_internet_identity == other.usri24_internet_identity && self.usri24_flags == other.usri24_flags && self.usri24_internet_provider_name == other.usri24_internet_provider_name && self.usri24_internet_principal_name == other.usri24_internet_principal_name && self.usri24_user_sid == other.usri24_user_sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17019,7 +17302,35 @@ unsafe impl ::windows::core::Abi for USER_INFO_3 {
 }
 impl ::core::cmp::PartialEq for USER_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_3>()) == 0 }
+        self.usri3_name == other.usri3_name
+            && self.usri3_password == other.usri3_password
+            && self.usri3_password_age == other.usri3_password_age
+            && self.usri3_priv == other.usri3_priv
+            && self.usri3_home_dir == other.usri3_home_dir
+            && self.usri3_comment == other.usri3_comment
+            && self.usri3_flags == other.usri3_flags
+            && self.usri3_script_path == other.usri3_script_path
+            && self.usri3_auth_flags == other.usri3_auth_flags
+            && self.usri3_full_name == other.usri3_full_name
+            && self.usri3_usr_comment == other.usri3_usr_comment
+            && self.usri3_parms == other.usri3_parms
+            && self.usri3_workstations == other.usri3_workstations
+            && self.usri3_last_logon == other.usri3_last_logon
+            && self.usri3_last_logoff == other.usri3_last_logoff
+            && self.usri3_acct_expires == other.usri3_acct_expires
+            && self.usri3_max_storage == other.usri3_max_storage
+            && self.usri3_units_per_week == other.usri3_units_per_week
+            && self.usri3_logon_hours == other.usri3_logon_hours
+            && self.usri3_bad_pw_count == other.usri3_bad_pw_count
+            && self.usri3_num_logons == other.usri3_num_logons
+            && self.usri3_logon_server == other.usri3_logon_server
+            && self.usri3_country_code == other.usri3_country_code
+            && self.usri3_code_page == other.usri3_code_page
+            && self.usri3_user_id == other.usri3_user_id
+            && self.usri3_primary_group_id == other.usri3_primary_group_id
+            && self.usri3_profile == other.usri3_profile
+            && self.usri3_home_dir_drive == other.usri3_home_dir_drive
+            && self.usri3_password_expired == other.usri3_password_expired
     }
 }
 impl ::core::cmp::Eq for USER_INFO_3 {}
@@ -17113,7 +17424,35 @@ unsafe impl ::windows::core::Abi for USER_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_INFO_4>()) == 0 }
+        self.usri4_name == other.usri4_name
+            && self.usri4_password == other.usri4_password
+            && self.usri4_password_age == other.usri4_password_age
+            && self.usri4_priv == other.usri4_priv
+            && self.usri4_home_dir == other.usri4_home_dir
+            && self.usri4_comment == other.usri4_comment
+            && self.usri4_flags == other.usri4_flags
+            && self.usri4_script_path == other.usri4_script_path
+            && self.usri4_auth_flags == other.usri4_auth_flags
+            && self.usri4_full_name == other.usri4_full_name
+            && self.usri4_usr_comment == other.usri4_usr_comment
+            && self.usri4_parms == other.usri4_parms
+            && self.usri4_workstations == other.usri4_workstations
+            && self.usri4_last_logon == other.usri4_last_logon
+            && self.usri4_last_logoff == other.usri4_last_logoff
+            && self.usri4_acct_expires == other.usri4_acct_expires
+            && self.usri4_max_storage == other.usri4_max_storage
+            && self.usri4_units_per_week == other.usri4_units_per_week
+            && self.usri4_logon_hours == other.usri4_logon_hours
+            && self.usri4_bad_pw_count == other.usri4_bad_pw_count
+            && self.usri4_num_logons == other.usri4_num_logons
+            && self.usri4_logon_server == other.usri4_logon_server
+            && self.usri4_country_code == other.usri4_country_code
+            && self.usri4_code_page == other.usri4_code_page
+            && self.usri4_user_sid == other.usri4_user_sid
+            && self.usri4_primary_group_id == other.usri4_primary_group_id
+            && self.usri4_profile == other.usri4_profile
+            && self.usri4_home_dir_drive == other.usri4_home_dir_drive
+            && self.usri4_password_expired == other.usri4_password_expired
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17149,7 +17488,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_0>()) == 0 }
+        self.usrmod0_min_passwd_len == other.usrmod0_min_passwd_len && self.usrmod0_max_passwd_age == other.usrmod0_max_passwd_age && self.usrmod0_min_passwd_age == other.usrmod0_min_passwd_age && self.usrmod0_force_logoff == other.usrmod0_force_logoff && self.usrmod0_password_hist_len == other.usrmod0_password_hist_len
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_0 {}
@@ -17180,7 +17519,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1>()) == 0 }
+        self.usrmod1_role == other.usrmod1_role && self.usrmod1_primary == other.usrmod1_primary
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1 {}
@@ -17210,7 +17549,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1001 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1001>()) == 0 }
+        self.usrmod1001_min_passwd_len == other.usrmod1001_min_passwd_len
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1001 {}
@@ -17240,7 +17579,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1002 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1002>()) == 0 }
+        self.usrmod1002_max_passwd_age == other.usrmod1002_max_passwd_age
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1002 {}
@@ -17270,7 +17609,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1003 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1003>()) == 0 }
+        self.usrmod1003_min_passwd_age == other.usrmod1003_min_passwd_age
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1003 {}
@@ -17300,7 +17639,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1004 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1004 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1004>()) == 0 }
+        self.usrmod1004_force_logoff == other.usrmod1004_force_logoff
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1004 {}
@@ -17330,7 +17669,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1005 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1005>()) == 0 }
+        self.usrmod1005_password_hist_len == other.usrmod1005_password_hist_len
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1005 {}
@@ -17360,7 +17699,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1006 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1006>()) == 0 }
+        self.usrmod1006_role == other.usrmod1006_role
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1006 {}
@@ -17390,7 +17729,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1007 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1007 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_1007>()) == 0 }
+        self.usrmod1007_primary == other.usrmod1007_primary
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_1007 {}
@@ -17427,7 +17766,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_2>()) == 0 }
+        self.usrmod2_domain_name == other.usrmod2_domain_name && self.usrmod2_domain_id == other.usrmod2_domain_id
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17461,7 +17800,7 @@ unsafe impl ::windows::core::Abi for USER_MODALS_INFO_3 {
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_MODALS_INFO_3>()) == 0 }
+        self.usrmod3_lockout_duration == other.usrmod3_lockout_duration && self.usrmod3_lockout_observation_window == other.usrmod3_lockout_observation_window && self.usrmod3_lockout_threshold == other.usrmod3_lockout_threshold
     }
 }
 impl ::core::cmp::Eq for USER_MODALS_INFO_3 {}
@@ -17492,7 +17831,7 @@ unsafe impl ::windows::core::Abi for USER_OTHER_INFO {
 }
 impl ::core::cmp::PartialEq for USER_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_OTHER_INFO>()) == 0 }
+        self.alrtus_errcode == other.alrtus_errcode && self.alrtus_numstrings == other.alrtus_numstrings
     }
 }
 impl ::core::cmp::Eq for USER_OTHER_INFO {}
@@ -17523,7 +17862,7 @@ unsafe impl ::windows::core::Abi for USE_INFO_0 {
 }
 impl ::core::cmp::PartialEq for USE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_INFO_0>()) == 0 }
+        self.ui0_local == other.ui0_local && self.ui0_remote == other.ui0_remote
     }
 }
 impl ::core::cmp::Eq for USE_INFO_0 {}
@@ -17559,7 +17898,7 @@ unsafe impl ::windows::core::Abi for USE_INFO_1 {
 }
 impl ::core::cmp::PartialEq for USE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_INFO_1>()) == 0 }
+        self.ui1_local == other.ui1_local && self.ui1_remote == other.ui1_remote && self.ui1_password == other.ui1_password && self.ui1_status == other.ui1_status && self.ui1_asg_type == other.ui1_asg_type && self.ui1_refcount == other.ui1_refcount && self.ui1_usecount == other.ui1_usecount
     }
 }
 impl ::core::cmp::Eq for USE_INFO_1 {}
@@ -17597,7 +17936,7 @@ unsafe impl ::windows::core::Abi for USE_INFO_2 {
 }
 impl ::core::cmp::PartialEq for USE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_INFO_2>()) == 0 }
+        self.ui2_local == other.ui2_local && self.ui2_remote == other.ui2_remote && self.ui2_password == other.ui2_password && self.ui2_status == other.ui2_status && self.ui2_asg_type == other.ui2_asg_type && self.ui2_refcount == other.ui2_refcount && self.ui2_usecount == other.ui2_usecount && self.ui2_username == other.ui2_username && self.ui2_domainname == other.ui2_domainname
     }
 }
 impl ::core::cmp::Eq for USE_INFO_2 {}
@@ -17628,7 +17967,7 @@ unsafe impl ::windows::core::Abi for USE_INFO_3 {
 }
 impl ::core::cmp::PartialEq for USE_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_INFO_3>()) == 0 }
+        self.ui3_ui2 == other.ui3_ui2 && self.ui3_flags == other.ui3_flags
     }
 }
 impl ::core::cmp::Eq for USE_INFO_3 {}
@@ -17660,7 +17999,7 @@ unsafe impl ::windows::core::Abi for USE_INFO_4 {
 }
 impl ::core::cmp::PartialEq for USE_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_INFO_4>()) == 0 }
+        self.ui4_ui3 == other.ui4_ui3 && self.ui4_auth_identity_length == other.ui4_auth_identity_length && self.ui4_auth_identity == other.ui4_auth_identity
     }
 }
 impl ::core::cmp::Eq for USE_INFO_4 {}
@@ -17696,7 +18035,7 @@ unsafe impl ::windows::core::Abi for USE_INFO_5 {
 }
 impl ::core::cmp::PartialEq for USE_INFO_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_INFO_5>()) == 0 }
+        self.ui4_ui3 == other.ui4_ui3 && self.ui4_auth_identity_length == other.ui4_auth_identity_length && self.ui4_auth_identity == other.ui4_auth_identity && self.ui5_security_descriptor_length == other.ui5_security_descriptor_length && self.ui5_security_descriptor == other.ui5_security_descriptor && self.ui5_use_options_length == other.ui5_use_options_length && self.ui5_use_options == other.ui5_use_options
     }
 }
 impl ::core::cmp::Eq for USE_INFO_5 {}
@@ -17728,7 +18067,7 @@ unsafe impl ::windows::core::Abi for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_OPTION_DEFERRED_CONNECTION_PARAMETERS>()) == 0 }
+        self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {}
@@ -17760,7 +18099,7 @@ unsafe impl ::windows::core::Abi for USE_OPTION_GENERIC {
 }
 impl ::core::cmp::PartialEq for USE_OPTION_GENERIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_OPTION_GENERIC>()) == 0 }
+        self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_GENERIC {}
@@ -17792,7 +18131,7 @@ unsafe impl ::windows::core::Abi for USE_OPTION_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for USE_OPTION_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_OPTION_PROPERTIES>()) == 0 }
+        self.Tag == other.Tag && self.pInfo == other.pInfo && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_PROPERTIES {}
@@ -17824,7 +18163,7 @@ unsafe impl ::windows::core::Abi for USE_OPTION_TRANSPORT_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for USE_OPTION_TRANSPORT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USE_OPTION_TRANSPORT_PARAMETERS>()) == 0 }
+        self.Tag == other.Tag && self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for USE_OPTION_TRANSPORT_PARAMETERS {}
@@ -17858,7 +18197,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_100 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_100>()) == 0 }
+        self.wki100_platform_id == other.wki100_platform_id && self.wki100_computername == other.wki100_computername && self.wki100_langroup == other.wki100_langroup && self.wki100_ver_major == other.wki100_ver_major && self.wki100_ver_minor == other.wki100_ver_minor
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_100 {}
@@ -17893,7 +18232,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_101 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_101>()) == 0 }
+        self.wki101_platform_id == other.wki101_platform_id && self.wki101_computername == other.wki101_computername && self.wki101_langroup == other.wki101_langroup && self.wki101_ver_major == other.wki101_ver_major && self.wki101_ver_minor == other.wki101_ver_minor && self.wki101_lanroot == other.wki101_lanroot
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_101 {}
@@ -17923,7 +18262,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1010 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1010>()) == 0 }
+        self.wki1010_char_wait == other.wki1010_char_wait
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1010 {}
@@ -17953,7 +18292,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1011 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1011 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1011>()) == 0 }
+        self.wki1011_collection_time == other.wki1011_collection_time
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1011 {}
@@ -17983,7 +18322,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1012 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1012 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1012>()) == 0 }
+        self.wki1012_maximum_collection_count == other.wki1012_maximum_collection_count
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1012 {}
@@ -18013,7 +18352,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1013 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1013 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1013>()) == 0 }
+        self.wki1013_keep_conn == other.wki1013_keep_conn
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1013 {}
@@ -18043,7 +18382,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1018 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1018>()) == 0 }
+        self.wki1018_sess_timeout == other.wki1018_sess_timeout
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1018 {}
@@ -18079,7 +18418,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_102 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_102>()) == 0 }
+        self.wki102_platform_id == other.wki102_platform_id && self.wki102_computername == other.wki102_computername && self.wki102_langroup == other.wki102_langroup && self.wki102_ver_major == other.wki102_ver_major && self.wki102_ver_minor == other.wki102_ver_minor && self.wki102_lanroot == other.wki102_lanroot && self.wki102_logged_on_users == other.wki102_logged_on_users
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_102 {}
@@ -18109,7 +18448,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1023 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1023 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1023>()) == 0 }
+        self.wki1023_siz_char_buf == other.wki1023_siz_char_buf
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1023 {}
@@ -18139,7 +18478,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1027 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1027 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1027>()) == 0 }
+        self.wki1027_errlog_sz == other.wki1027_errlog_sz
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1027 {}
@@ -18169,7 +18508,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1028 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1028 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1028>()) == 0 }
+        self.wki1028_print_buf_time == other.wki1028_print_buf_time
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1028 {}
@@ -18199,7 +18538,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1032 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1032 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1032>()) == 0 }
+        self.wki1032_wrk_heuristics == other.wki1032_wrk_heuristics
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1032 {}
@@ -18229,7 +18568,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1033 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1033 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1033>()) == 0 }
+        self.wki1033_max_threads == other.wki1033_max_threads
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1033 {}
@@ -18259,7 +18598,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1041 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1041 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1041>()) == 0 }
+        self.wki1041_lock_quota == other.wki1041_lock_quota
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1041 {}
@@ -18289,7 +18628,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1042 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1042 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1042>()) == 0 }
+        self.wki1042_lock_increment == other.wki1042_lock_increment
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1042 {}
@@ -18319,7 +18658,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1043 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1043 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1043>()) == 0 }
+        self.wki1043_lock_maximum == other.wki1043_lock_maximum
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1043 {}
@@ -18349,7 +18688,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1044 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1044 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1044>()) == 0 }
+        self.wki1044_pipe_increment == other.wki1044_pipe_increment
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1044 {}
@@ -18379,7 +18718,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1045 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1045 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1045>()) == 0 }
+        self.wki1045_pipe_maximum == other.wki1045_pipe_maximum
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1045 {}
@@ -18409,7 +18748,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1046 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1046 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1046>()) == 0 }
+        self.wki1046_dormant_file_limit == other.wki1046_dormant_file_limit
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1046 {}
@@ -18439,7 +18778,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1047 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1047 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1047>()) == 0 }
+        self.wki1047_cache_file_timeout == other.wki1047_cache_file_timeout
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1047 {}
@@ -18475,7 +18814,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1048 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1048 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1048>()) == 0 }
+        self.wki1048_use_opportunistic_locking == other.wki1048_use_opportunistic_locking
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18513,7 +18852,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1049 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1049 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1049>()) == 0 }
+        self.wki1049_use_unlock_behind == other.wki1049_use_unlock_behind
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18551,7 +18890,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1050 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1050 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1050>()) == 0 }
+        self.wki1050_use_close_behind == other.wki1050_use_close_behind
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18589,7 +18928,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1051 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1051 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1051>()) == 0 }
+        self.wki1051_buf_named_pipes == other.wki1051_buf_named_pipes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18627,7 +18966,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1052 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1052 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1052>()) == 0 }
+        self.wki1052_use_lock_read_unlock == other.wki1052_use_lock_read_unlock
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18665,7 +19004,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1053 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1053 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1053>()) == 0 }
+        self.wki1053_utilize_nt_caching == other.wki1053_utilize_nt_caching
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18703,7 +19042,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1054 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1054 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1054>()) == 0 }
+        self.wki1054_use_raw_read == other.wki1054_use_raw_read
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18741,7 +19080,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1055 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1055 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1055>()) == 0 }
+        self.wki1055_use_raw_write == other.wki1055_use_raw_write
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18779,7 +19118,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1056 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1056 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1056>()) == 0 }
+        self.wki1056_use_write_raw_data == other.wki1056_use_write_raw_data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18817,7 +19156,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1057 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1057 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1057>()) == 0 }
+        self.wki1057_use_encryption == other.wki1057_use_encryption
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18855,7 +19194,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1058 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1058 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1058>()) == 0 }
+        self.wki1058_buf_files_deny_write == other.wki1058_buf_files_deny_write
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18893,7 +19232,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1059 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1059 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1059>()) == 0 }
+        self.wki1059_buf_read_only_files == other.wki1059_buf_read_only_files
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18931,7 +19270,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1060 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1060 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1060>()) == 0 }
+        self.wki1060_force_core_create_mode == other.wki1060_force_core_create_mode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18969,7 +19308,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1061 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1061 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1061>()) == 0 }
+        self.wki1061_use_512_byte_max_transfer == other.wki1061_use_512_byte_max_transfer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19001,7 +19340,7 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_1062 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1062 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_1062>()) == 0 }
+        self.wki1062_read_ahead_throughput == other.wki1062_read_ahead_throughput
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_1062 {}
@@ -19071,7 +19410,26 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_302 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_302 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_302>()) == 0 }
+        self.wki302_char_wait == other.wki302_char_wait
+            && self.wki302_collection_time == other.wki302_collection_time
+            && self.wki302_maximum_collection_count == other.wki302_maximum_collection_count
+            && self.wki302_keep_conn == other.wki302_keep_conn
+            && self.wki302_keep_search == other.wki302_keep_search
+            && self.wki302_max_cmds == other.wki302_max_cmds
+            && self.wki302_num_work_buf == other.wki302_num_work_buf
+            && self.wki302_siz_work_buf == other.wki302_siz_work_buf
+            && self.wki302_max_wrk_cache == other.wki302_max_wrk_cache
+            && self.wki302_sess_timeout == other.wki302_sess_timeout
+            && self.wki302_siz_error == other.wki302_siz_error
+            && self.wki302_num_alerts == other.wki302_num_alerts
+            && self.wki302_num_services == other.wki302_num_services
+            && self.wki302_errlog_sz == other.wki302_errlog_sz
+            && self.wki302_print_buf_time == other.wki302_print_buf_time
+            && self.wki302_num_char_buf == other.wki302_num_char_buf
+            && self.wki302_siz_char_buf == other.wki302_siz_char_buf
+            && self.wki302_wrk_heuristics == other.wki302_wrk_heuristics
+            && self.wki302_mailslots == other.wki302_mailslots
+            && self.wki302_num_dgram_buf == other.wki302_num_dgram_buf
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_302 {}
@@ -19143,7 +19501,27 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_402 {
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_402 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_402>()) == 0 }
+        self.wki402_char_wait == other.wki402_char_wait
+            && self.wki402_collection_time == other.wki402_collection_time
+            && self.wki402_maximum_collection_count == other.wki402_maximum_collection_count
+            && self.wki402_keep_conn == other.wki402_keep_conn
+            && self.wki402_keep_search == other.wki402_keep_search
+            && self.wki402_max_cmds == other.wki402_max_cmds
+            && self.wki402_num_work_buf == other.wki402_num_work_buf
+            && self.wki402_siz_work_buf == other.wki402_siz_work_buf
+            && self.wki402_max_wrk_cache == other.wki402_max_wrk_cache
+            && self.wki402_sess_timeout == other.wki402_sess_timeout
+            && self.wki402_siz_error == other.wki402_siz_error
+            && self.wki402_num_alerts == other.wki402_num_alerts
+            && self.wki402_num_services == other.wki402_num_services
+            && self.wki402_errlog_sz == other.wki402_errlog_sz
+            && self.wki402_print_buf_time == other.wki402_print_buf_time
+            && self.wki402_num_char_buf == other.wki402_num_char_buf
+            && self.wki402_siz_char_buf == other.wki402_siz_char_buf
+            && self.wki402_wrk_heuristics == other.wki402_wrk_heuristics
+            && self.wki402_mailslots == other.wki402_mailslots
+            && self.wki402_num_dgram_buf == other.wki402_num_dgram_buf
+            && self.wki402_max_threads == other.wki402_max_threads
     }
 }
 impl ::core::cmp::Eq for WKSTA_INFO_402 {}
@@ -19249,7 +19627,41 @@ unsafe impl ::windows::core::Abi for WKSTA_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_INFO_502>()) == 0 }
+        self.wki502_char_wait == other.wki502_char_wait
+            && self.wki502_collection_time == other.wki502_collection_time
+            && self.wki502_maximum_collection_count == other.wki502_maximum_collection_count
+            && self.wki502_keep_conn == other.wki502_keep_conn
+            && self.wki502_max_cmds == other.wki502_max_cmds
+            && self.wki502_sess_timeout == other.wki502_sess_timeout
+            && self.wki502_siz_char_buf == other.wki502_siz_char_buf
+            && self.wki502_max_threads == other.wki502_max_threads
+            && self.wki502_lock_quota == other.wki502_lock_quota
+            && self.wki502_lock_increment == other.wki502_lock_increment
+            && self.wki502_lock_maximum == other.wki502_lock_maximum
+            && self.wki502_pipe_increment == other.wki502_pipe_increment
+            && self.wki502_pipe_maximum == other.wki502_pipe_maximum
+            && self.wki502_cache_file_timeout == other.wki502_cache_file_timeout
+            && self.wki502_dormant_file_limit == other.wki502_dormant_file_limit
+            && self.wki502_read_ahead_throughput == other.wki502_read_ahead_throughput
+            && self.wki502_num_mailslot_buffers == other.wki502_num_mailslot_buffers
+            && self.wki502_num_srv_announce_buffers == other.wki502_num_srv_announce_buffers
+            && self.wki502_max_illegal_datagram_events == other.wki502_max_illegal_datagram_events
+            && self.wki502_illegal_datagram_event_reset_frequency == other.wki502_illegal_datagram_event_reset_frequency
+            && self.wki502_log_election_packets == other.wki502_log_election_packets
+            && self.wki502_use_opportunistic_locking == other.wki502_use_opportunistic_locking
+            && self.wki502_use_unlock_behind == other.wki502_use_unlock_behind
+            && self.wki502_use_close_behind == other.wki502_use_close_behind
+            && self.wki502_buf_named_pipes == other.wki502_buf_named_pipes
+            && self.wki502_use_lock_read_unlock == other.wki502_use_lock_read_unlock
+            && self.wki502_utilize_nt_caching == other.wki502_utilize_nt_caching
+            && self.wki502_use_raw_read == other.wki502_use_raw_read
+            && self.wki502_use_raw_write == other.wki502_use_raw_write
+            && self.wki502_use_write_raw_data == other.wki502_use_write_raw_data
+            && self.wki502_use_encryption == other.wki502_use_encryption
+            && self.wki502_buf_files_deny_write == other.wki502_buf_files_deny_write
+            && self.wki502_buf_read_only_files == other.wki502_buf_read_only_files
+            && self.wki502_force_core_create_mode == other.wki502_force_core_create_mode
+            && self.wki502_use_512_byte_max_transfer == other.wki502_use_512_byte_max_transfer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19291,7 +19703,7 @@ unsafe impl ::windows::core::Abi for WKSTA_TRANSPORT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_TRANSPORT_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_TRANSPORT_INFO_0>()) == 0 }
+        self.wkti0_quality_of_service == other.wkti0_quality_of_service && self.wkti0_number_of_vcs == other.wkti0_number_of_vcs && self.wkti0_transport_name == other.wkti0_transport_name && self.wkti0_transport_address == other.wkti0_transport_address && self.wkti0_wan_ish == other.wkti0_wan_ish
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19323,7 +19735,7 @@ unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_0 {
 }
 impl ::core::cmp::PartialEq for WKSTA_USER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_USER_INFO_0>()) == 0 }
+        self.wkui0_username == other.wkui0_username
     }
 }
 impl ::core::cmp::Eq for WKSTA_USER_INFO_0 {}
@@ -19356,7 +19768,7 @@ unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_1 {
 }
 impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_USER_INFO_1>()) == 0 }
+        self.wkui1_username == other.wkui1_username && self.wkui1_logon_domain == other.wkui1_logon_domain && self.wkui1_oth_domains == other.wkui1_oth_domains && self.wkui1_logon_server == other.wkui1_logon_server
     }
 }
 impl ::core::cmp::Eq for WKSTA_USER_INFO_1 {}
@@ -19386,7 +19798,7 @@ unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_1101 {
 }
 impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1101 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WKSTA_USER_INFO_1101>()) == 0 }
+        self.wkui1101_oth_domains == other.wkui1101_oth_domains
     }
 }
 impl ::core::cmp::Eq for WKSTA_USER_INFO_1101 {}

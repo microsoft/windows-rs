@@ -6314,7 +6314,7 @@ unsafe impl ::windows::core::Abi for CONTEXTMENUITEM {
 }
 impl ::core::cmp::PartialEq for CONTEXTMENUITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXTMENUITEM>()) == 0 }
+        self.strName == other.strName && self.strStatusBarText == other.strStatusBarText && self.lCommandID == other.lCommandID && self.lInsertionPointID == other.lInsertionPointID && self.fFlags == other.fFlags && self.fSpecialFlags == other.fSpecialFlags
     }
 }
 impl ::core::cmp::Eq for CONTEXTMENUITEM {}
@@ -6350,7 +6350,7 @@ unsafe impl ::windows::core::Abi for CONTEXTMENUITEM2 {
 }
 impl ::core::cmp::PartialEq for CONTEXTMENUITEM2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXTMENUITEM2>()) == 0 }
+        self.strName == other.strName && self.strStatusBarText == other.strStatusBarText && self.lCommandID == other.lCommandID && self.lInsertionPointID == other.lInsertionPointID && self.fFlags == other.fFlags && self.fSpecialFlags == other.fSpecialFlags && self.strLanguageIndependentName == other.strLanguageIndependentName
     }
 }
 impl ::core::cmp::Eq for CONTEXTMENUITEM2 {}
@@ -6382,7 +6382,7 @@ unsafe impl ::windows::core::Abi for MENUBUTTONDATA {
 }
 impl ::core::cmp::PartialEq for MENUBUTTONDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUBUTTONDATA>()) == 0 }
+        self.idCommand == other.idCommand && self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for MENUBUTTONDATA {}
@@ -6417,7 +6417,7 @@ unsafe impl ::windows::core::Abi for MMCBUTTON {
 }
 impl ::core::cmp::PartialEq for MMCBUTTON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMCBUTTON>()) == 0 }
+        self.nBitmap == other.nBitmap && self.idCommand == other.idCommand && self.fsState == other.fsState && self.fsType == other.fsType && self.lpButtonText == other.lpButtonText && self.lpTooltipText == other.lpTooltipText
     }
 }
 impl ::core::cmp::Eq for MMCBUTTON {}
@@ -6450,7 +6450,7 @@ unsafe impl ::windows::core::Abi for MMC_COLUMN_DATA {
 }
 impl ::core::cmp::PartialEq for MMC_COLUMN_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_COLUMN_DATA>()) == 0 }
+        self.nColIndex == other.nColIndex && self.dwFlags == other.dwFlags && self.nWidth == other.nWidth && self.ulReserved == other.ulReserved
     }
 }
 impl ::core::cmp::Eq for MMC_COLUMN_DATA {}
@@ -6482,7 +6482,7 @@ unsafe impl ::windows::core::Abi for MMC_COLUMN_SET_DATA {
 }
 impl ::core::cmp::PartialEq for MMC_COLUMN_SET_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_COLUMN_SET_DATA>()) == 0 }
+        self.cbSize == other.cbSize && self.nNumCols == other.nNumCols && self.pColData == other.pColData
     }
 }
 impl ::core::cmp::Eq for MMC_COLUMN_SET_DATA {}
@@ -6520,7 +6520,7 @@ unsafe impl ::windows::core::Abi for MMC_EXPANDSYNC_STRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MMC_EXPANDSYNC_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_EXPANDSYNC_STRUCT>()) == 0 }
+        self.bHandled == other.bHandled && self.bExpanding == other.bExpanding && self.hItem == other.hItem
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6562,7 +6562,7 @@ unsafe impl ::windows::core::Abi for MMC_EXT_VIEW_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MMC_EXT_VIEW_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_EXT_VIEW_DATA>()) == 0 }
+        self.viewID == other.viewID && self.pszURL == other.pszURL && self.pszViewTitle == other.pszViewTitle && self.pszTooltipText == other.pszTooltipText && self.bReplacesDefaultView == other.bReplacesDefaultView
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6596,7 +6596,7 @@ unsafe impl ::windows::core::Abi for MMC_FILTERDATA {
 }
 impl ::core::cmp::PartialEq for MMC_FILTERDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_FILTERDATA>()) == 0 }
+        self.pszText == other.pszText && self.cchTextMax == other.cchTextMax && self.lValue == other.lValue
     }
 }
 impl ::core::cmp::Eq for MMC_FILTERDATA {}
@@ -6628,7 +6628,7 @@ unsafe impl ::windows::core::Abi for MMC_LISTPAD_INFO {
 }
 impl ::core::cmp::PartialEq for MMC_LISTPAD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_LISTPAD_INFO>()) == 0 }
+        self.szTitle == other.szTitle && self.szButtonText == other.szButtonText && self.nCommandID == other.nCommandID
     }
 }
 impl ::core::cmp::Eq for MMC_LISTPAD_INFO {}
@@ -6661,7 +6661,7 @@ unsafe impl ::windows::core::Abi for MMC_RESTORE_VIEW {
 }
 impl ::core::cmp::PartialEq for MMC_RESTORE_VIEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_RESTORE_VIEW>()) == 0 }
+        self.dwSize == other.dwSize && self.cookie == other.cookie && self.pViewType == other.pViewType && self.lViewOptions == other.lViewOptions
     }
 }
 impl ::core::cmp::Eq for MMC_RESTORE_VIEW {}
@@ -6688,14 +6688,6 @@ impl ::core::clone::Clone for MMC_SNAPIN_PROPERTY {
 unsafe impl ::windows::core::Abi for MMC_SNAPIN_PROPERTY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for MMC_SNAPIN_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszPropName == other.pszPropName && self.varValue == other.varValue && self.eAction == other.eAction
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for MMC_SNAPIN_PROPERTY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for MMC_SNAPIN_PROPERTY {
     fn default() -> Self {
@@ -6725,7 +6717,7 @@ unsafe impl ::windows::core::Abi for MMC_SORT_DATA {
 }
 impl ::core::cmp::PartialEq for MMC_SORT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_SORT_DATA>()) == 0 }
+        self.nColIndex == other.nColIndex && self.dwSortOptions == other.dwSortOptions && self.ulReserved == other.ulReserved
     }
 }
 impl ::core::cmp::Eq for MMC_SORT_DATA {}
@@ -6757,7 +6749,7 @@ unsafe impl ::windows::core::Abi for MMC_SORT_SET_DATA {
 }
 impl ::core::cmp::PartialEq for MMC_SORT_SET_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_SORT_SET_DATA>()) == 0 }
+        self.cbSize == other.cbSize && self.nNumItems == other.nNumItems && self.pSortData == other.pSortData
     }
 }
 impl ::core::cmp::Eq for MMC_SORT_SET_DATA {}
@@ -6784,12 +6776,6 @@ impl ::core::clone::Clone for MMC_TASK {
 unsafe impl ::windows::core::Abi for MMC_TASK {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMC_TASK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK {}
 impl ::core::default::Default for MMC_TASK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6811,12 +6797,6 @@ impl ::core::clone::Clone for MMC_TASK_0 {
 unsafe impl ::windows::core::Abi for MMC_TASK_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMC_TASK_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_0 {}
 impl ::core::default::Default for MMC_TASK_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6844,7 +6824,7 @@ unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_BITMAP {
 }
 impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_BITMAP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_BITMAP>()) == 0 }
+        self.szMouseOverBitmap == other.szMouseOverBitmap && self.szMouseOffBitmap == other.szMouseOffBitmap
     }
 }
 impl ::core::cmp::Eq for MMC_TASK_DISPLAY_BITMAP {}
@@ -6868,12 +6848,6 @@ impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT {
 unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_OBJECT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_OBJECT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_DISPLAY_OBJECT {}
 impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6894,12 +6868,6 @@ impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT_0 {
 unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_OBJECT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_OBJECT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_OBJECT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_DISPLAY_OBJECT_0 {}
 impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6928,7 +6896,7 @@ unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_SYMBOL {
 }
 impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_SYMBOL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_SYMBOL>()) == 0 }
+        self.szFontFamilyName == other.szFontFamilyName && self.szURLtoEOT == other.szURLtoEOT && self.szSymbolString == other.szSymbolString
     }
 }
 impl ::core::cmp::Eq for MMC_TASK_DISPLAY_SYMBOL {}
@@ -6959,7 +6927,7 @@ unsafe impl ::windows::core::Abi for MMC_VISIBLE_COLUMNS {
 }
 impl ::core::cmp::PartialEq for MMC_VISIBLE_COLUMNS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_VISIBLE_COLUMNS>()) == 0 }
+        self.nVisibleColumns == other.nVisibleColumns && self.rgVisibleCols == other.rgVisibleCols
     }
 }
 impl ::core::cmp::Eq for MMC_VISIBLE_COLUMNS {}
@@ -7000,7 +6968,7 @@ unsafe impl ::windows::core::Abi for RDCOMPARE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RDCOMPARE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RDCOMPARE>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.nColumn == other.nColumn && self.lUserParam == other.lUserParam && self.prdch1 == other.prdch1 && self.prdch2 == other.prdch2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7040,7 +7008,7 @@ unsafe impl ::windows::core::Abi for RDITEMHDR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RDITEMHDR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RDITEMHDR>()) == 0 }
+        self.dwFlags == other.dwFlags && self.cookie == other.cookie && self.lpReserved == other.lpReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7087,7 +7055,7 @@ unsafe impl ::windows::core::Abi for RESULTDATAITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESULTDATAITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULTDATAITEM>()) == 0 }
+        self.mask == other.mask && self.bScopeItem == other.bScopeItem && self.itemID == other.itemID && self.nIndex == other.nIndex && self.nCol == other.nCol && self.str == other.str && self.nImage == other.nImage && self.nState == other.nState && self.lParam == other.lParam && self.iIndent == other.iIndent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7121,7 +7089,7 @@ unsafe impl ::windows::core::Abi for RESULTFINDINFO {
 }
 impl ::core::cmp::PartialEq for RESULTFINDINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULTFINDINFO>()) == 0 }
+        self.psz == other.psz && self.nStart == other.nStart && self.dwOptions == other.dwOptions
     }
 }
 impl ::core::cmp::Eq for RESULTFINDINFO {}
@@ -7151,12 +7119,6 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO {
 unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pstrPersistableViewDescription == other.pstrPersistableViewDescription && self.eViewType == other.eViewType && self.dwMiscOptions == other.dwMiscOptions && self.Anonymous == other.Anonymous
-    }
-}
-impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO {}
 impl ::core::default::Default for RESULT_VIEW_TYPE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7177,12 +7139,6 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0 {
 unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0 {}
 impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7210,7 +7166,7 @@ unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_0 {
 }
 impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO_0_0>()) == 0 }
+        self.dwHTMLOptions == other.dwHTMLOptions && self.pstrURL == other.pstrURL
     }
 }
 impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_0 {}
@@ -7284,7 +7240,7 @@ unsafe impl ::windows::core::Abi for SCOPEDATAITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCOPEDATAITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPEDATAITEM>()) == 0 }
+        self.mask == other.mask && self.displayname == other.displayname && self.nImage == other.nImage && self.nOpenImage == other.nOpenImage && self.nState == other.nState && self.cChildren == other.cChildren && self.lParam == other.lParam && self.relativeID == other.relativeID && self.ID == other.ID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7318,7 +7274,7 @@ unsafe impl ::windows::core::Abi for SColumnSetID {
 }
 impl ::core::cmp::PartialEq for SColumnSetID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SColumnSetID>()) == 0 }
+        self.dwFlags == other.dwFlags && self.cBytes == other.cBytes && self.id == other.id
     }
 }
 impl ::core::cmp::Eq for SColumnSetID {}
@@ -7386,7 +7342,7 @@ unsafe impl ::windows::core::Abi for SMMCObjectTypes {
 }
 impl ::core::cmp::PartialEq for SMMCObjectTypes {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMMCObjectTypes>()) == 0 }
+        self.count == other.count && self.guid == other.guid
     }
 }
 impl ::core::cmp::Eq for SMMCObjectTypes {}
@@ -7417,7 +7373,7 @@ unsafe impl ::windows::core::Abi for SNodeID {
 }
 impl ::core::cmp::PartialEq for SNodeID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SNodeID>()) == 0 }
+        self.cBytes == other.cBytes && self.id == other.id
     }
 }
 impl ::core::cmp::Eq for SNodeID {}
@@ -7449,7 +7405,7 @@ unsafe impl ::windows::core::Abi for SNodeID2 {
 }
 impl ::core::cmp::PartialEq for SNodeID2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SNodeID2>()) == 0 }
+        self.dwFlags == other.dwFlags && self.cBytes == other.cBytes && self.id == other.id
     }
 }
 impl ::core::cmp::Eq for SNodeID2 {}

@@ -541,7 +541,7 @@ unsafe impl ::windows::core::Abi for FILE_UNPROTECT_OPTIONS {
 }
 impl ::core::cmp::PartialEq for FILE_UNPROTECT_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_UNPROTECT_OPTIONS>()) == 0 }
+        self.audit == other.audit
     }
 }
 impl ::core::cmp::Eq for FILE_UNPROTECT_OPTIONS {}
@@ -578,7 +578,7 @@ unsafe impl ::windows::core::Abi for HTHREAD_NETWORK_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTHREAD_NETWORK_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTHREAD_NETWORK_CONTEXT>()) == 0 }
+        self.ThreadId == other.ThreadId && self.ThreadContext == other.ThreadContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -2024,7 +2024,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextRange {
 }
 impl ::core::cmp::PartialEq for CoreTextRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CoreTextRange>()) == 0 }
+        self.StartCaretPosition == other.StartCaretPosition && self.EndCaretPosition == other.EndCaretPosition
     }
 }
 impl ::core::cmp::Eq for CoreTextRange {}

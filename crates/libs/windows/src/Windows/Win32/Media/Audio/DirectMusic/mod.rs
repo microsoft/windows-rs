@@ -1610,7 +1610,7 @@ unsafe impl ::windows::core::Abi for CONNECTION {
 }
 impl ::core::cmp::PartialEq for CONNECTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTION>()) == 0 }
+        self.usSource == other.usSource && self.usControl == other.usControl && self.usDestination == other.usDestination && self.usTransform == other.usTransform && self.lScale == other.lScale
     }
 }
 impl ::core::cmp::Eq for CONNECTION {}
@@ -1641,7 +1641,7 @@ unsafe impl ::windows::core::Abi for CONNECTIONLIST {
 }
 impl ::core::cmp::PartialEq for CONNECTIONLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTIONLIST>()) == 0 }
+        self.cbSize == other.cbSize && self.cConnections == other.cConnections
     }
 }
 impl ::core::cmp::Eq for CONNECTIONLIST {}
@@ -1671,7 +1671,7 @@ unsafe impl ::windows::core::Abi for DLSHEADER {
 }
 impl ::core::cmp::PartialEq for DLSHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSHEADER>()) == 0 }
+        self.cInstruments == other.cInstruments
     }
 }
 impl ::core::cmp::Eq for DLSHEADER {}
@@ -1704,7 +1704,7 @@ unsafe impl ::windows::core::Abi for DLSID {
 }
 impl ::core::cmp::PartialEq for DLSID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSID>()) == 0 }
+        self.ulData1 == other.ulData1 && self.usData2 == other.usData2 && self.usData3 == other.usData3 && self.abData4 == other.abData4
     }
 }
 impl ::core::cmp::Eq for DLSID {}
@@ -1735,7 +1735,7 @@ unsafe impl ::windows::core::Abi for DLSVERSION {
 }
 impl ::core::cmp::PartialEq for DLSVERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLSVERSION>()) == 0 }
+        self.dwVersionMS == other.dwVersionMS && self.dwVersionLS == other.dwVersionLS
     }
 }
 impl ::core::cmp::Eq for DLSVERSION {}
@@ -1768,7 +1768,7 @@ unsafe impl ::windows::core::Abi for DMUS_ARTICPARAMS {
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICPARAMS>()) == 0 }
+        self.LFO == other.LFO && self.VolEG == other.VolEG && self.PitchEG == other.PitchEG && self.Misc == other.Misc
     }
 }
 impl ::core::cmp::Eq for DMUS_ARTICPARAMS {}
@@ -1799,7 +1799,7 @@ unsafe impl ::windows::core::Abi for DMUS_ARTICULATION {
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICULATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICULATION>()) == 0 }
+        self.ulArt1Idx == other.ulArt1Idx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx
     }
 }
 impl ::core::cmp::Eq for DMUS_ARTICULATION {}
@@ -1831,7 +1831,7 @@ unsafe impl ::windows::core::Abi for DMUS_ARTICULATION2 {
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICULATION2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_ARTICULATION2>()) == 0 }
+        self.ulArtIdx == other.ulArtIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.ulNextArtIdx == other.ulNextArtIdx
     }
 }
 impl ::core::cmp::Eq for DMUS_ARTICULATION2 {}
@@ -1864,7 +1864,7 @@ unsafe impl ::windows::core::Abi for DMUS_BUFFERDESC {
 }
 impl ::core::cmp::PartialEq for DMUS_BUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_BUFFERDESC>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidBufferFormat == other.guidBufferFormat && self.cbBuffer == other.cbBuffer
     }
 }
 impl ::core::cmp::Eq for DMUS_BUFFERDESC {}
@@ -1897,7 +1897,7 @@ unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO7 {
 }
 impl ::core::cmp::PartialEq for DMUS_CLOCKINFO7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_CLOCKINFO7>()) == 0 }
+        self.dwSize == other.dwSize && self.ctType == other.ctType && self.guidClock == other.guidClock && self.wszDescription == other.wszDescription
     }
 }
 impl ::core::cmp::Eq for DMUS_CLOCKINFO7 {}
@@ -1931,7 +1931,7 @@ unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO8 {
 }
 impl ::core::cmp::PartialEq for DMUS_CLOCKINFO8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_CLOCKINFO8>()) == 0 }
+        self.dwSize == other.dwSize && self.ctType == other.ctType && self.guidClock == other.guidClock && self.wszDescription == other.wszDescription && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for DMUS_CLOCKINFO8 {}
@@ -1962,7 +1962,7 @@ unsafe impl ::windows::core::Abi for DMUS_COPYRIGHT {
 }
 impl ::core::cmp::PartialEq for DMUS_COPYRIGHT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_COPYRIGHT>()) == 0 }
+        self.cbSize == other.cbSize && self.byCopyright == other.byCopyright
     }
 }
 impl ::core::cmp::Eq for DMUS_COPYRIGHT {}
@@ -1995,7 +1995,7 @@ unsafe impl ::windows::core::Abi for DMUS_DOWNLOADINFO {
 }
 impl ::core::cmp::PartialEq for DMUS_DOWNLOADINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_DOWNLOADINFO>()) == 0 }
+        self.dwDLType == other.dwDLType && self.dwDLId == other.dwDLId && self.dwNumOffsetTableEntries == other.dwNumOffsetTableEntries && self.cbSize == other.cbSize
     }
 }
 impl ::core::cmp::Eq for DMUS_DOWNLOADINFO {}
@@ -2021,12 +2021,6 @@ impl ::core::clone::Clone for DMUS_EVENTHEADER {
 unsafe impl ::windows::core::Abi for DMUS_EVENTHEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DMUS_EVENTHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_EVENTHEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_EVENTHEADER {}
 impl ::core::default::Default for DMUS_EVENTHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2056,7 +2050,7 @@ unsafe impl ::windows::core::Abi for DMUS_EXTENSIONCHUNK {
 }
 impl ::core::cmp::PartialEq for DMUS_EXTENSIONCHUNK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_EXTENSIONCHUNK>()) == 0 }
+        self.cbSize == other.cbSize && self.ulNextExtCkIdx == other.ulNextExtCkIdx && self.ExtCkID == other.ExtCkID && self.byExtCk == other.byExtCk
     }
 }
 impl ::core::cmp::Eq for DMUS_EXTENSIONCHUNK {}
@@ -2091,7 +2085,7 @@ unsafe impl ::windows::core::Abi for DMUS_INSTRUMENT {
 }
 impl ::core::cmp::PartialEq for DMUS_INSTRUMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_INSTRUMENT>()) == 0 }
+        self.ulPatch == other.ulPatch && self.ulFirstRegionIdx == other.ulFirstRegionIdx && self.ulGlobalArtIdx == other.ulGlobalArtIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.ulCopyrightIdx == other.ulCopyrightIdx && self.ulFlags == other.ulFlags
     }
 }
 impl ::core::cmp::Eq for DMUS_INSTRUMENT {}
@@ -2126,7 +2120,7 @@ unsafe impl ::windows::core::Abi for DMUS_LFOPARAMS {
 }
 impl ::core::cmp::PartialEq for DMUS_LFOPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_LFOPARAMS>()) == 0 }
+        self.pcFrequency == other.pcFrequency && self.tcDelay == other.tcDelay && self.gcVolumeScale == other.gcVolumeScale && self.pcPitchScale == other.pcPitchScale && self.gcMWToVolume == other.gcMWToVolume && self.pcMWToPitch == other.pcMWToPitch
     }
 }
 impl ::core::cmp::Eq for DMUS_LFOPARAMS {}
@@ -2156,7 +2150,7 @@ unsafe impl ::windows::core::Abi for DMUS_MSCPARAMS {
 }
 impl ::core::cmp::PartialEq for DMUS_MSCPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_MSCPARAMS>()) == 0 }
+        self.ptDefaultPan == other.ptDefaultPan
     }
 }
 impl ::core::cmp::Eq for DMUS_MSCPARAMS {}
@@ -2187,7 +2181,7 @@ unsafe impl ::windows::core::Abi for DMUS_NOTERANGE {
 }
 impl ::core::cmp::PartialEq for DMUS_NOTERANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_NOTERANGE>()) == 0 }
+        self.dwLowNote == other.dwLowNote && self.dwHighNote == other.dwHighNote
     }
 }
 impl ::core::cmp::Eq for DMUS_NOTERANGE {}
@@ -2217,7 +2211,7 @@ unsafe impl ::windows::core::Abi for DMUS_OFFSETTABLE {
 }
 impl ::core::cmp::PartialEq for DMUS_OFFSETTABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_OFFSETTABLE>()) == 0 }
+        self.ulOffsetTable == other.ulOffsetTable
     }
 }
 impl ::core::cmp::Eq for DMUS_OFFSETTABLE {}
@@ -2253,7 +2247,7 @@ unsafe impl ::windows::core::Abi for DMUS_PEGPARAMS {
 }
 impl ::core::cmp::PartialEq for DMUS_PEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PEGPARAMS>()) == 0 }
+        self.tcAttack == other.tcAttack && self.tcDecay == other.tcDecay && self.ptSustain == other.ptSustain && self.tcRelease == other.tcRelease && self.tcVel2Attack == other.tcVel2Attack && self.tcKey2Decay == other.tcKey2Decay && self.pcRange == other.pcRange
     }
 }
 impl ::core::cmp::Eq for DMUS_PEGPARAMS {}
@@ -2293,7 +2287,7 @@ unsafe impl ::windows::core::Abi for DMUS_PORTCAPS {
 }
 impl ::core::cmp::PartialEq for DMUS_PORTCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTCAPS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidPort == other.guidPort && self.dwClass == other.dwClass && self.dwType == other.dwType && self.dwMemorySize == other.dwMemorySize && self.dwMaxChannelGroups == other.dwMaxChannelGroups && self.dwMaxVoices == other.dwMaxVoices && self.dwMaxAudioChannels == other.dwMaxAudioChannels && self.dwEffectFlags == other.dwEffectFlags && self.wszDescription == other.wszDescription
     }
 }
 impl ::core::cmp::Eq for DMUS_PORTCAPS {}
@@ -2336,7 +2330,7 @@ unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS7 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_PORTPARAMS7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTPARAMS7>()) == 0 }
+        self.dwSize == other.dwSize && self.dwValidParams == other.dwValidParams && self.dwVoices == other.dwVoices && self.dwChannelGroups == other.dwChannelGroups && self.dwAudioChannels == other.dwAudioChannels && self.dwSampleRate == other.dwSampleRate && self.dwEffectFlags == other.dwEffectFlags && self.fShare == other.fShare
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2382,7 +2376,7 @@ unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS8 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_PORTPARAMS8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_PORTPARAMS8>()) == 0 }
+        self.dwSize == other.dwSize && self.dwValidParams == other.dwValidParams && self.dwVoices == other.dwVoices && self.dwChannelGroups == other.dwChannelGroups && self.dwAudioChannels == other.dwAudioChannels && self.dwSampleRate == other.dwSampleRate && self.dwEffectFlags == other.dwEffectFlags && self.fShare == other.fShare && self.dwFeatures == other.dwFeatures
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2423,7 +2417,7 @@ unsafe impl ::windows::core::Abi for DMUS_REGION {
 }
 impl ::core::cmp::PartialEq for DMUS_REGION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_REGION>()) == 0 }
+        self.RangeKey == other.RangeKey && self.RangeVelocity == other.RangeVelocity && self.fusOptions == other.fusOptions && self.usKeyGroup == other.usKeyGroup && self.ulRegionArtIdx == other.ulRegionArtIdx && self.ulNextRegionIdx == other.ulNextRegionIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.WaveLink == other.WaveLink && self.WSMP == other.WSMP && self.WLOOP == other.WLOOP
     }
 }
 impl ::core::cmp::Eq for DMUS_REGION {}
@@ -2460,7 +2454,7 @@ unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS {
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_SYNTHSTATS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwValidStats == other.dwValidStats && self.dwVoices == other.dwVoices && self.dwTotalCPU == other.dwTotalCPU && self.dwCPUPerVoice == other.dwCPUPerVoice && self.dwLostNotes == other.dwLostNotes && self.dwFreeMemory == other.dwFreeMemory && self.lPeakVolume == other.lPeakVolume
     }
 }
 impl ::core::cmp::Eq for DMUS_SYNTHSTATS {}
@@ -2498,7 +2492,7 @@ unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS8 {
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_SYNTHSTATS8>()) == 0 }
+        self.dwSize == other.dwSize && self.dwValidStats == other.dwValidStats && self.dwVoices == other.dwVoices && self.dwTotalCPU == other.dwTotalCPU && self.dwCPUPerVoice == other.dwCPUPerVoice && self.dwLostNotes == other.dwLostNotes && self.dwFreeMemory == other.dwFreeMemory && self.lPeakVolume == other.lPeakVolume && self.dwSynthMemUse == other.dwSynthMemUse
     }
 }
 impl ::core::cmp::Eq for DMUS_SYNTHSTATS8 {}
@@ -2533,7 +2527,7 @@ unsafe impl ::windows::core::Abi for DMUS_VEGPARAMS {
 }
 impl ::core::cmp::PartialEq for DMUS_VEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_VEGPARAMS>()) == 0 }
+        self.tcAttack == other.tcAttack && self.tcDecay == other.tcDecay && self.ptSustain == other.ptSustain && self.tcRelease == other.tcRelease && self.tcVel2Attack == other.tcVel2Attack && self.tcKey2Decay == other.tcKey2Decay
     }
 }
 impl ::core::cmp::Eq for DMUS_VEGPARAMS {}
@@ -2570,7 +2564,7 @@ unsafe impl ::windows::core::Abi for DMUS_VOICE_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_VOICE_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_VOICE_STATE>()) == 0 }
+        self.bExists == other.bExists && self.spPosition == other.spPosition
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2598,12 +2592,6 @@ impl ::core::clone::Clone for DMUS_WAVE {
 unsafe impl ::windows::core::Abi for DMUS_WAVE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DMUS_WAVE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DMUS_WAVE {}
 impl ::core::default::Default for DMUS_WAVE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2634,7 +2622,7 @@ unsafe impl ::windows::core::Abi for DMUS_WAVEARTDL {
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEARTDL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEARTDL>()) == 0 }
+        self.ulDownloadIdIdx == other.ulDownloadIdIdx && self.ulBus == other.ulBus && self.ulBuffers == other.ulBuffers && self.ulMasterDLId == other.ulMasterDLId && self.usOptions == other.usOptions
     }
 }
 impl ::core::cmp::Eq for DMUS_WAVEARTDL {}
@@ -2665,7 +2653,7 @@ unsafe impl ::windows::core::Abi for DMUS_WAVEDATA {
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEDATA>()) == 0 }
+        self.cbSize == other.cbSize && self.byData == other.byData
     }
 }
 impl ::core::cmp::Eq for DMUS_WAVEDATA {}
@@ -2695,7 +2683,7 @@ unsafe impl ::windows::core::Abi for DMUS_WAVEDL {
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEDL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVEDL>()) == 0 }
+        self.cbWaveData == other.cbWaveData
     }
 }
 impl ::core::cmp::Eq for DMUS_WAVEDL {}
@@ -2728,7 +2716,7 @@ unsafe impl ::windows::core::Abi for DMUS_WAVES_REVERB_PARAMS {
 }
 impl ::core::cmp::PartialEq for DMUS_WAVES_REVERB_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMUS_WAVES_REVERB_PARAMS>()) == 0 }
+        self.fInGain == other.fInGain && self.fReverbMix == other.fReverbMix && self.fReverbTime == other.fReverbTime && self.fHighFreqRTRatio == other.fHighFreqRTRatio
     }
 }
 impl ::core::cmp::Eq for DMUS_WAVES_REVERB_PARAMS {}
@@ -2772,7 +2760,7 @@ unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA>()) == 0 }
+        self.DeviceId == other.DeviceId && self.DescriptionA == other.DescriptionA && self.DescriptionW == other.DescriptionW && self.ModuleA == other.ModuleA && self.ModuleW == other.ModuleW && self.Type == other.Type && self.DataFlow == other.DataFlow && self.WaveDeviceId == other.WaveDeviceId && self.Devnode == other.Devnode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2810,7 +2798,7 @@ unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA>()) == 0 }
+        self.Type == other.Type && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId && self.Description == other.Description && self.Module == other.Module && self.Interface == other.Interface && self.WaveDeviceId == other.WaveDeviceId
     }
 }
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
@@ -2846,7 +2834,7 @@ unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA>()) == 0 }
+        self.Type == other.Type && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId && self.Description == other.Description && self.Module == other.Module && self.Interface == other.Interface && self.WaveDeviceId == other.WaveDeviceId
     }
 }
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
@@ -2873,21 +2861,13 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn default() -> Self {
@@ -2912,21 +2892,13 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     fn default() -> Self {
@@ -2951,21 +2923,13 @@ impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
+        f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn default() -> Self {
@@ -2995,7 +2959,7 @@ unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPP
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA>()) == 0 }
+        self.DeviceName == other.DeviceName && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId
     }
 }
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
@@ -3027,7 +2991,7 @@ unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPP
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA>()) == 0 }
+        self.DeviceName == other.DeviceName && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId
     }
 }
 impl ::core::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
@@ -3063,7 +3027,7 @@ unsafe impl ::windows::core::Abi for DVAudInfo {
 }
 impl ::core::cmp::PartialEq for DVAudInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVAudInfo>()) == 0 }
+        self.bAudStyle == other.bAudStyle && self.bAudQu == other.bAudQu && self.bNumAudPin == other.bNumAudPin && self.wAvgSamplesPerPinPerFrm == other.wAvgSamplesPerPinPerFrm && self.wBlkMode == other.wBlkMode && self.wDIFMode == other.wDIFMode && self.wBlkDiv == other.wBlkDiv
     }
 }
 impl ::core::cmp::Eq for DVAudInfo {}
@@ -3094,7 +3058,7 @@ unsafe impl ::windows::core::Abi for INSTHEADER {
 }
 impl ::core::cmp::PartialEq for INSTHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTHEADER>()) == 0 }
+        self.cRegions == other.cRegions && self.Locale == other.Locale
     }
 }
 impl ::core::cmp::Eq for INSTHEADER {}
@@ -3118,12 +3082,6 @@ impl ::core::clone::Clone for MDEVICECAPSEX {
 unsafe impl ::windows::core::Abi for MDEVICECAPSEX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MDEVICECAPSEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDEVICECAPSEX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MDEVICECAPSEX {}
 impl ::core::default::Default for MDEVICECAPSEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3151,7 +3109,7 @@ unsafe impl ::windows::core::Abi for MIDILOCALE {
 }
 impl ::core::cmp::PartialEq for MIDILOCALE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDILOCALE>()) == 0 }
+        self.ulBank == other.ulBank && self.ulInstrument == other.ulInstrument
     }
 }
 impl ::core::cmp::Eq for MIDILOCALE {}
@@ -3184,14 +3142,6 @@ unsafe impl ::windows::core::Abi for MIDIOPENDESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::PartialEq for MIDIOPENDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDIOPENDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Multimedia")]
-impl ::core::cmp::Eq for MIDIOPENDESC {}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for MIDIOPENDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3218,7 +3168,7 @@ unsafe impl ::windows::core::Abi for POOLCUE {
 }
 impl ::core::cmp::PartialEq for POOLCUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POOLCUE>()) == 0 }
+        self.ulOffset == other.ulOffset
     }
 }
 impl ::core::cmp::Eq for POOLCUE {}
@@ -3249,7 +3199,7 @@ unsafe impl ::windows::core::Abi for POOLTABLE {
 }
 impl ::core::cmp::PartialEq for POOLTABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POOLTABLE>()) == 0 }
+        self.cbSize == other.cbSize && self.cCues == other.cCues
     }
 }
 impl ::core::cmp::Eq for POOLTABLE {}
@@ -3282,7 +3232,7 @@ unsafe impl ::windows::core::Abi for RGNHEADER {
 }
 impl ::core::cmp::PartialEq for RGNHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RGNHEADER>()) == 0 }
+        self.RangeKey == other.RangeKey && self.RangeVelocity == other.RangeVelocity && self.fusOptions == other.fusOptions && self.usKeyGroup == other.usKeyGroup
     }
 }
 impl ::core::cmp::Eq for RGNHEADER {}
@@ -3313,7 +3263,7 @@ unsafe impl ::windows::core::Abi for RGNRANGE {
 }
 impl ::core::cmp::PartialEq for RGNRANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RGNRANGE>()) == 0 }
+        self.usLow == other.usLow && self.usHigh == other.usHigh
     }
 }
 impl ::core::cmp::Eq for RGNRANGE {}
@@ -3346,7 +3296,7 @@ unsafe impl ::windows::core::Abi for WAVELINK {
 }
 impl ::core::cmp::PartialEq for WAVELINK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WAVELINK>()) == 0 }
+        self.fusOptions == other.fusOptions && self.usPhaseGroup == other.usPhaseGroup && self.ulChannel == other.ulChannel && self.ulTableIndex == other.ulTableIndex
     }
 }
 impl ::core::cmp::Eq for WAVELINK {}
@@ -3379,7 +3329,7 @@ unsafe impl ::windows::core::Abi for WLOOP {
 }
 impl ::core::cmp::PartialEq for WLOOP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WLOOP>()) == 0 }
+        self.cbSize == other.cbSize && self.ulType == other.ulType && self.ulStart == other.ulStart && self.ulLength == other.ulLength
     }
 }
 impl ::core::cmp::Eq for WLOOP {}
@@ -3414,7 +3364,7 @@ unsafe impl ::windows::core::Abi for WSMPL {
 }
 impl ::core::cmp::PartialEq for WSMPL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMPL>()) == 0 }
+        self.cbSize == other.cbSize && self.usUnityNote == other.usUnityNote && self.sFineTune == other.sFineTune && self.lAttenuation == other.lAttenuation && self.fulOptions == other.fulOptions && self.cSampleLoops == other.cSampleLoops
     }
 }
 impl ::core::cmp::Eq for WSMPL {}

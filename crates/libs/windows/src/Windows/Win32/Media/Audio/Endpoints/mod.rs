@@ -764,12 +764,6 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
 unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIO_ENDPOINT_SHARED_CREATE_PARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
 impl ::core::default::Default for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

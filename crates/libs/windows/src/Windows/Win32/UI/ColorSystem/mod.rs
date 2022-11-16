@@ -1778,7 +1778,7 @@ unsafe impl ::windows::core::Abi for BlackInformation {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BlackInformation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BlackInformation>()) == 0 }
+        self.fBlackOnly == other.fBlackOnly && self.blackWeight == other.blackWeight
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1813,7 +1813,7 @@ unsafe impl ::windows::core::Abi for CMYKCOLOR {
 }
 impl ::core::cmp::PartialEq for CMYKCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMYKCOLOR>()) == 0 }
+        self.cyan == other.cyan && self.magenta == other.magenta && self.yellow == other.yellow && self.black == other.black
     }
 }
 impl ::core::cmp::Eq for CMYKCOLOR {}
@@ -1845,12 +1845,6 @@ impl ::core::clone::Clone for COLOR {
 unsafe impl ::windows::core::Abi for COLOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLOR {}
 impl ::core::default::Default for COLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1878,7 +1872,7 @@ unsafe impl ::windows::core::Abi for COLOR_0 {
 }
 impl ::core::cmp::PartialEq for COLOR_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLOR_0>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
     }
 }
 impl ::core::cmp::Eq for COLOR_0 {}
@@ -1938,9 +1932,7 @@ impl ::core::fmt::Debug for COLORMATCHSETUPA {
             .field("ccPrinterProfile", &self.ccPrinterProfile)
             .field("pTargetProfile", &self.pTargetProfile)
             .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lParam", &self.lParam)
-            .field("lpfnApplyCallback", &self.lpfnApplyCallback.map(|f| f as usize))
             .field("lParamApplyCallback", &self.lParamApplyCallback)
             .finish()
     }
@@ -1949,14 +1941,6 @@ impl ::core::fmt::Debug for COLORMATCHSETUPA {
 unsafe impl ::windows::core::Abi for COLORMATCHSETUPA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for COLORMATCHSETUPA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORMATCHSETUPA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for COLORMATCHSETUPA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for COLORMATCHSETUPA {
     fn default() -> Self {
@@ -2014,9 +1998,7 @@ impl ::core::fmt::Debug for COLORMATCHSETUPW {
             .field("ccPrinterProfile", &self.ccPrinterProfile)
             .field("pTargetProfile", &self.pTargetProfile)
             .field("ccTargetProfile", &self.ccTargetProfile)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lParam", &self.lParam)
-            .field("lpfnApplyCallback", &self.lpfnApplyCallback.map(|f| f as usize))
             .field("lParamApplyCallback", &self.lParamApplyCallback)
             .finish()
     }
@@ -2025,14 +2007,6 @@ impl ::core::fmt::Debug for COLORMATCHSETUPW {
 unsafe impl ::windows::core::Abi for COLORMATCHSETUPW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for COLORMATCHSETUPW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORMATCHSETUPW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for COLORMATCHSETUPW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for COLORMATCHSETUPW {
     fn default() -> Self {
@@ -2068,7 +2042,7 @@ unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for EMRCREATECOLORSPACE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRCREATECOLORSPACE>()) == 0 }
+        self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2111,7 +2085,7 @@ unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACEW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMRCREATECOLORSPACEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRCREATECOLORSPACEW>()) == 0 }
+        self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs && self.dwFlags == other.dwFlags && self.cbData == other.cbData && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2183,7 +2157,26 @@ unsafe impl ::windows::core::Abi for ENUMTYPEA {
 }
 impl ::core::cmp::PartialEq for ENUMTYPEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUMTYPEA>()) == 0 }
+        self.dwSize == other.dwSize
+            && self.dwVersion == other.dwVersion
+            && self.dwFields == other.dwFields
+            && self.pDeviceName == other.pDeviceName
+            && self.dwMediaType == other.dwMediaType
+            && self.dwDitheringMode == other.dwDitheringMode
+            && self.dwResolution == other.dwResolution
+            && self.dwCMMType == other.dwCMMType
+            && self.dwClass == other.dwClass
+            && self.dwDataColorSpace == other.dwDataColorSpace
+            && self.dwConnectionSpace == other.dwConnectionSpace
+            && self.dwSignature == other.dwSignature
+            && self.dwPlatform == other.dwPlatform
+            && self.dwProfileFlags == other.dwProfileFlags
+            && self.dwManufacturer == other.dwManufacturer
+            && self.dwModel == other.dwModel
+            && self.dwAttributes == other.dwAttributes
+            && self.dwRenderingIntent == other.dwRenderingIntent
+            && self.dwCreator == other.dwCreator
+            && self.dwDeviceClass == other.dwDeviceClass
     }
 }
 impl ::core::cmp::Eq for ENUMTYPEA {}
@@ -2253,7 +2246,26 @@ unsafe impl ::windows::core::Abi for ENUMTYPEW {
 }
 impl ::core::cmp::PartialEq for ENUMTYPEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUMTYPEW>()) == 0 }
+        self.dwSize == other.dwSize
+            && self.dwVersion == other.dwVersion
+            && self.dwFields == other.dwFields
+            && self.pDeviceName == other.pDeviceName
+            && self.dwMediaType == other.dwMediaType
+            && self.dwDitheringMode == other.dwDitheringMode
+            && self.dwResolution == other.dwResolution
+            && self.dwCMMType == other.dwCMMType
+            && self.dwClass == other.dwClass
+            && self.dwDataColorSpace == other.dwDataColorSpace
+            && self.dwConnectionSpace == other.dwConnectionSpace
+            && self.dwSignature == other.dwSignature
+            && self.dwPlatform == other.dwPlatform
+            && self.dwProfileFlags == other.dwProfileFlags
+            && self.dwManufacturer == other.dwManufacturer
+            && self.dwModel == other.dwModel
+            && self.dwAttributes == other.dwAttributes
+            && self.dwRenderingIntent == other.dwRenderingIntent
+            && self.dwCreator == other.dwCreator
+            && self.dwDeviceClass == other.dwDeviceClass
     }
 }
 impl ::core::cmp::Eq for ENUMTYPEW {}
@@ -2285,7 +2297,7 @@ unsafe impl ::windows::core::Abi for GENERIC3CHANNEL {
 }
 impl ::core::cmp::PartialEq for GENERIC3CHANNEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GENERIC3CHANNEL>()) == 0 }
+        self.ch1 == other.ch1 && self.ch2 == other.ch2 && self.ch3 == other.ch3
     }
 }
 impl ::core::cmp::Eq for GENERIC3CHANNEL {}
@@ -2315,7 +2327,7 @@ unsafe impl ::windows::core::Abi for GRAYCOLOR {
 }
 impl ::core::cmp::PartialEq for GRAYCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GRAYCOLOR>()) == 0 }
+        self.gray == other.gray
     }
 }
 impl ::core::cmp::Eq for GRAYCOLOR {}
@@ -2350,7 +2362,7 @@ unsafe impl ::windows::core::Abi for GamutBoundaryDescription {
 }
 impl ::core::cmp::PartialEq for GamutBoundaryDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamutBoundaryDescription>()) == 0 }
+        self.pPrimaries == other.pPrimaries && self.cNeutralSamples == other.cNeutralSamples && self.pNeutralSamples == other.pNeutralSamples && self.pReferenceShell == other.pReferenceShell && self.pPlausibleShell == other.pPlausibleShell && self.pPossibleShell == other.pPossibleShell
     }
 }
 impl ::core::cmp::Eq for GamutBoundaryDescription {}
@@ -2385,7 +2397,7 @@ unsafe impl ::windows::core::Abi for GamutShell {
 }
 impl ::core::cmp::PartialEq for GamutShell {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamutShell>()) == 0 }
+        self.JMin == other.JMin && self.JMax == other.JMax && self.cVertices == other.cVertices && self.cTriangles == other.cTriangles && self.pVertices == other.pVertices && self.pTriangles == other.pTriangles
     }
 }
 impl ::core::cmp::Eq for GamutShell {}
@@ -2415,7 +2427,7 @@ unsafe impl ::windows::core::Abi for GamutShellTriangle {
 }
 impl ::core::cmp::PartialEq for GamutShellTriangle {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamutShellTriangle>()) == 0 }
+        self.aVertexIndex == other.aVertexIndex
     }
 }
 impl ::core::cmp::Eq for GamutShellTriangle {}
@@ -2477,7 +2489,7 @@ unsafe impl ::windows::core::Abi for HiFiCOLOR {
 }
 impl ::core::cmp::PartialEq for HiFiCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HiFiCOLOR>()) == 0 }
+        self.channel == other.channel
     }
 }
 impl ::core::cmp::Eq for HiFiCOLOR {}
@@ -2509,7 +2521,7 @@ unsafe impl ::windows::core::Abi for JChColorF {
 }
 impl ::core::cmp::PartialEq for JChColorF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JChColorF>()) == 0 }
+        self.J == other.J && self.C == other.C && self.h == other.h
     }
 }
 impl ::core::cmp::Eq for JChColorF {}
@@ -2541,7 +2553,7 @@ unsafe impl ::windows::core::Abi for JabColorF {
 }
 impl ::core::cmp::PartialEq for JabColorF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JabColorF>()) == 0 }
+        self.J == other.J && self.a == other.a && self.b == other.b
     }
 }
 impl ::core::cmp::Eq for JabColorF {}
@@ -2586,7 +2598,7 @@ unsafe impl ::windows::core::Abi for LOGCOLORSPACEA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for LOGCOLORSPACEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGCOLORSPACEA>()) == 0 }
+        self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2633,7 +2645,7 @@ unsafe impl ::windows::core::Abi for LOGCOLORSPACEW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for LOGCOLORSPACEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGCOLORSPACEW>()) == 0 }
+        self.lcsSignature == other.lcsSignature && self.lcsVersion == other.lcsVersion && self.lcsSize == other.lcsSize && self.lcsCSType == other.lcsCSType && self.lcsIntent == other.lcsIntent && self.lcsEndpoints == other.lcsEndpoints && self.lcsGammaRed == other.lcsGammaRed && self.lcsGammaGreen == other.lcsGammaGreen && self.lcsGammaBlue == other.lcsGammaBlue && self.lcsFilename == other.lcsFilename
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2667,7 +2679,7 @@ unsafe impl ::windows::core::Abi for LabCOLOR {
 }
 impl ::core::cmp::PartialEq for LabCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LabCOLOR>()) == 0 }
+        self.L == other.L && self.a == other.a && self.b == other.b
     }
 }
 impl ::core::cmp::Eq for LabCOLOR {}
@@ -2697,7 +2709,7 @@ unsafe impl ::windows::core::Abi for NAMEDCOLOR {
 }
 impl ::core::cmp::PartialEq for NAMEDCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NAMEDCOLOR>()) == 0 }
+        self.dwIndex == other.dwIndex
     }
 }
 impl ::core::cmp::Eq for NAMEDCOLOR {}
@@ -2731,7 +2743,7 @@ unsafe impl ::windows::core::Abi for NAMED_PROFILE_INFO {
 }
 impl ::core::cmp::PartialEq for NAMED_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NAMED_PROFILE_INFO>()) == 0 }
+        self.dwFlags == other.dwFlags && self.dwCount == other.dwCount && self.dwCountDevCoordinates == other.dwCountDevCoordinates && self.szPrefix == other.szPrefix && self.szSuffix == other.szSuffix
     }
 }
 impl ::core::cmp::Eq for NAMED_PROFILE_INFO {}
@@ -2763,7 +2775,7 @@ unsafe impl ::windows::core::Abi for PROFILE {
 }
 impl ::core::cmp::PartialEq for PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILE>()) == 0 }
+        self.dwType == other.dwType && self.pProfileData == other.pProfileData && self.cbDataSize == other.cbDataSize
     }
 }
 impl ::core::cmp::Eq for PROFILE {}
@@ -2833,7 +2845,7 @@ unsafe impl ::windows::core::Abi for PROFILEHEADER {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for PROFILEHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILEHEADER>()) == 0 }
+        self.phSize == other.phSize && self.phCMMType == other.phCMMType && self.phVersion == other.phVersion && self.phClass == other.phClass && self.phDataColorSpace == other.phDataColorSpace && self.phConnectionSpace == other.phConnectionSpace && self.phDateTime == other.phDateTime && self.phSignature == other.phSignature && self.phPlatform == other.phPlatform && self.phProfileFlags == other.phProfileFlags && self.phManufacturer == other.phManufacturer && self.phModel == other.phModel && self.phAttributes == other.phAttributes && self.phRenderingIntent == other.phRenderingIntent && self.phIlluminant == other.phIlluminant && self.phCreator == other.phCreator && self.phReserved == other.phReserved
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2872,7 +2884,7 @@ unsafe impl ::windows::core::Abi for PrimaryJabColors {
 }
 impl ::core::cmp::PartialEq for PrimaryJabColors {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrimaryJabColors>()) == 0 }
+        self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
     }
 }
 impl ::core::cmp::Eq for PrimaryJabColors {}
@@ -2909,7 +2921,7 @@ unsafe impl ::windows::core::Abi for PrimaryXYZColors {
 }
 impl ::core::cmp::PartialEq for PrimaryXYZColors {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrimaryXYZColors>()) == 0 }
+        self.red == other.red && self.yellow == other.yellow && self.green == other.green && self.cyan == other.cyan && self.blue == other.blue && self.magenta == other.magenta && self.black == other.black && self.white == other.white
     }
 }
 impl ::core::cmp::Eq for PrimaryXYZColors {}
@@ -2941,7 +2953,7 @@ unsafe impl ::windows::core::Abi for RGBCOLOR {
 }
 impl ::core::cmp::PartialEq for RGBCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RGBCOLOR>()) == 0 }
+        self.red == other.red && self.green == other.green && self.blue == other.blue
     }
 }
 impl ::core::cmp::Eq for RGBCOLOR {}
@@ -2981,7 +2993,7 @@ unsafe impl ::windows::core::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCS_DEVICE_MHC2_CAPABILITIES>()) == 0 }
+        self.Size == other.Size && self.SupportsMhc2 == other.SupportsMhc2 && self.RegammaLutEntryCount == other.RegammaLutEntryCount && self.CscXyzMatrixRows == other.CscXyzMatrixRows && self.CscXyzMatrixColumns == other.CscXyzMatrixColumns
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3020,7 +3032,7 @@ unsafe impl ::windows::core::Abi for WCS_DEVICE_VCGT_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCS_DEVICE_VCGT_CAPABILITIES>()) == 0 }
+        self.Size == other.Size && self.SupportsVcgt == other.SupportsVcgt
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3054,7 +3066,7 @@ unsafe impl ::windows::core::Abi for XYZCOLOR {
 }
 impl ::core::cmp::PartialEq for XYZCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XYZCOLOR>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
 impl ::core::cmp::Eq for XYZCOLOR {}
@@ -3086,7 +3098,7 @@ unsafe impl ::windows::core::Abi for XYZColorF {
 }
 impl ::core::cmp::PartialEq for XYZColorF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XYZColorF>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
 impl ::core::cmp::Eq for XYZColorF {}
@@ -3118,7 +3130,7 @@ unsafe impl ::windows::core::Abi for YxyCOLOR {
 }
 impl ::core::cmp::PartialEq for YxyCOLOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<YxyCOLOR>()) == 0 }
+        self.Y == other.Y && self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for YxyCOLOR {}

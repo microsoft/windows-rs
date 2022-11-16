@@ -2443,7 +2443,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportProgress {
 }
 impl ::core::cmp::PartialEq for PhotoImportProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PhotoImportProgress>()) == 0 }
+        self.ItemsImported == other.ItemsImported && self.TotalItemsToImport == other.TotalItemsToImport && self.BytesImported == other.BytesImported && self.TotalBytesToImport == other.TotalBytesToImport && self.ImportProgress == other.ImportProgress
     }
 }
 impl ::core::cmp::Eq for PhotoImportProgress {}

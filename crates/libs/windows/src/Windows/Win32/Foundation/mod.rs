@@ -19934,7 +19934,7 @@ unsafe impl ::windows::core::Abi for APP_LOCAL_DEVICE_ID {
 }
 impl ::core::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_LOCAL_DEVICE_ID>()) == 0 }
+        self.value == other.value
     }
 }
 impl ::core::cmp::Eq for APP_LOCAL_DEVICE_ID {}
@@ -20204,12 +20204,6 @@ impl ::core::clone::Clone for DECIMAL {
 unsafe impl ::windows::core::Abi for DECIMAL {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DECIMAL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL {}
 impl ::core::default::Default for DECIMAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20230,12 +20224,6 @@ impl ::core::clone::Clone for DECIMAL_0 {
 unsafe impl ::windows::core::Abi for DECIMAL_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DECIMAL_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_0 {}
 impl ::core::default::Default for DECIMAL_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20263,7 +20251,7 @@ unsafe impl ::windows::core::Abi for DECIMAL_0_0 {
 }
 impl ::core::cmp::PartialEq for DECIMAL_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_0_0>()) == 0 }
+        self.scale == other.scale && self.sign == other.sign
     }
 }
 impl ::core::cmp::Eq for DECIMAL_0_0 {}
@@ -20287,12 +20275,6 @@ impl ::core::clone::Clone for DECIMAL_1 {
 unsafe impl ::windows::core::Abi for DECIMAL_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DECIMAL_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_1 {}
 impl ::core::default::Default for DECIMAL_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20320,7 +20302,7 @@ unsafe impl ::windows::core::Abi for DECIMAL_1_0 {
 }
 impl ::core::cmp::PartialEq for DECIMAL_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_1_0>()) == 0 }
+        self.Lo32 == other.Lo32 && self.Mid32 == other.Mid32
     }
 }
 impl ::core::cmp::Eq for DECIMAL_1_0 {}
@@ -20351,7 +20333,7 @@ unsafe impl ::windows::core::Abi for FILETIME {
 }
 impl ::core::cmp::PartialEq for FILETIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILETIME>()) == 0 }
+        self.dwLowDateTime == other.dwLowDateTime && self.dwHighDateTime == other.dwHighDateTime
     }
 }
 impl ::core::cmp::Eq for FILETIME {}
@@ -20382,7 +20364,7 @@ unsafe impl ::windows::core::Abi for FLOAT128 {
 }
 impl ::core::cmp::PartialEq for FLOAT128 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOAT128>()) == 0 }
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
 impl ::core::cmp::Eq for FLOAT128 {}
@@ -20503,7 +20485,7 @@ unsafe impl ::windows::core::Abi for HLSURF__ {
 }
 impl ::core::cmp::PartialEq for HLSURF__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HLSURF__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HLSURF__ {}
@@ -20565,7 +20547,7 @@ unsafe impl ::windows::core::Abi for HSPRITE__ {
 }
 impl ::core::cmp::PartialEq for HSPRITE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSPRITE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HSPRITE__ {}
@@ -20595,7 +20577,7 @@ unsafe impl ::windows::core::Abi for HSTR__ {
 }
 impl ::core::cmp::PartialEq for HSTR__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTR__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HSTR__ {}
@@ -20625,7 +20607,7 @@ unsafe impl ::windows::core::Abi for HUMPD__ {
 }
 impl ::core::cmp::PartialEq for HUMPD__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HUMPD__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HUMPD__ {}
@@ -20737,7 +20719,7 @@ unsafe impl ::windows::core::Abi for LUID {
 }
 impl ::core::cmp::PartialEq for LUID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LUID>()) == 0 }
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
 impl ::core::cmp::Eq for LUID {}
@@ -20827,7 +20809,7 @@ unsafe impl ::windows::core::Abi for POINT {
 }
 impl ::core::cmp::PartialEq for POINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINT>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for POINT {}
@@ -20858,7 +20840,7 @@ unsafe impl ::windows::core::Abi for POINTL {
 }
 impl ::core::cmp::PartialEq for POINTL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTL>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for POINTL {}
@@ -20889,7 +20871,7 @@ unsafe impl ::windows::core::Abi for POINTS {
 }
 impl ::core::cmp::PartialEq for POINTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTS>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for POINTS {}
@@ -20954,7 +20936,7 @@ unsafe impl ::windows::core::Abi for RECT {
 }
 impl ::core::cmp::PartialEq for RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECT>()) == 0 }
+        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
 impl ::core::cmp::Eq for RECT {}
@@ -20987,7 +20969,7 @@ unsafe impl ::windows::core::Abi for RECTL {
 }
 impl ::core::cmp::PartialEq for RECTL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECTL>()) == 0 }
+        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
 impl ::core::cmp::Eq for RECTL {}
@@ -21045,7 +21027,7 @@ unsafe impl ::windows::core::Abi for SIZE {
 }
 impl ::core::cmp::PartialEq for SIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIZE>()) == 0 }
+        self.cx == other.cx && self.cy == other.cy
     }
 }
 impl ::core::cmp::Eq for SIZE {}
@@ -21082,7 +21064,7 @@ unsafe impl ::windows::core::Abi for SYSTEMTIME {
 }
 impl ::core::cmp::PartialEq for SYSTEMTIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEMTIME>()) == 0 }
+        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
     }
 }
 impl ::core::cmp::Eq for SYSTEMTIME {}
@@ -21114,7 +21096,7 @@ unsafe impl ::windows::core::Abi for UNICODE_STRING {
 }
 impl ::core::cmp::PartialEq for UNICODE_STRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNICODE_STRING>()) == 0 }
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for UNICODE_STRING {}

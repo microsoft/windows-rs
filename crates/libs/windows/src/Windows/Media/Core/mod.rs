@@ -11665,7 +11665,7 @@ unsafe impl ::windows::core::RuntimeType for MseTimeRange {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for MseTimeRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MseTimeRange>()) == 0 }
+        self.Start == other.Start && self.End == other.End
     }
 }
 #[cfg(feature = "Foundation")]
@@ -11705,7 +11705,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextDouble {
 }
 impl ::core::cmp::PartialEq for TimedTextDouble {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimedTextDouble>()) == 0 }
+        self.Value == other.Value && self.Unit == other.Unit
     }
 }
 impl ::core::cmp::Eq for TimedTextDouble {}
@@ -11746,7 +11746,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextPadding {
 }
 impl ::core::cmp::PartialEq for TimedTextPadding {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimedTextPadding>()) == 0 }
+        self.Before == other.Before && self.After == other.After && self.Start == other.Start && self.End == other.End && self.Unit == other.Unit
     }
 }
 impl ::core::cmp::Eq for TimedTextPadding {}
@@ -11785,7 +11785,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextPoint {
 }
 impl ::core::cmp::PartialEq for TimedTextPoint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimedTextPoint>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Unit == other.Unit
     }
 }
 impl ::core::cmp::Eq for TimedTextPoint {}
@@ -11824,7 +11824,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextSize {
 }
 impl ::core::cmp::PartialEq for TimedTextSize {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimedTextSize>()) == 0 }
+        self.Height == other.Height && self.Width == other.Width && self.Unit == other.Unit
     }
 }
 impl ::core::cmp::Eq for TimedTextSize {}

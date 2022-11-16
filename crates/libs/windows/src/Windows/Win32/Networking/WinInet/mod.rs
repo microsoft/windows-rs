@@ -5791,7 +5791,7 @@ unsafe impl ::windows::core::Abi for APP_CACHE_DOWNLOAD_ENTRY {
 }
 impl ::core::cmp::PartialEq for APP_CACHE_DOWNLOAD_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_CACHE_DOWNLOAD_ENTRY>()) == 0 }
+        self.pwszUrl == other.pwszUrl && self.dwEntryType == other.dwEntryType
     }
 }
 impl ::core::cmp::Eq for APP_CACHE_DOWNLOAD_ENTRY {}
@@ -5822,7 +5822,7 @@ unsafe impl ::windows::core::Abi for APP_CACHE_DOWNLOAD_LIST {
 }
 impl ::core::cmp::PartialEq for APP_CACHE_DOWNLOAD_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_CACHE_DOWNLOAD_LIST>()) == 0 }
+        self.dwEntryCount == other.dwEntryCount && self.pEntries == other.pEntries
     }
 }
 impl ::core::cmp::Eq for APP_CACHE_DOWNLOAD_LIST {}
@@ -5860,7 +5860,7 @@ unsafe impl ::windows::core::Abi for APP_CACHE_GROUP_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for APP_CACHE_GROUP_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_CACHE_GROUP_INFO>()) == 0 }
+        self.pwszManifestUrl == other.pwszManifestUrl && self.ftLastAccessTime == other.ftLastAccessTime && self.ullSize == other.ullSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5899,7 +5899,7 @@ unsafe impl ::windows::core::Abi for APP_CACHE_GROUP_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for APP_CACHE_GROUP_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_CACHE_GROUP_LIST>()) == 0 }
+        self.dwAppCacheGroupCount == other.dwAppCacheGroupCount && self.pAppCacheGroups == other.pAppCacheGroups
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5933,7 +5933,7 @@ unsafe impl ::windows::core::Abi for AUTO_PROXY_SCRIPT_BUFFER {
 }
 impl ::core::cmp::PartialEq for AUTO_PROXY_SCRIPT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTO_PROXY_SCRIPT_BUFFER>()) == 0 }
+        self.dwStructSize == other.dwStructSize && self.lpszScriptBuffer == other.lpszScriptBuffer && self.dwScriptBufferSize == other.dwScriptBufferSize
     }
 }
 impl ::core::cmp::Eq for AUTO_PROXY_SCRIPT_BUFFER {}
@@ -5963,7 +5963,7 @@ unsafe impl ::windows::core::Abi for AutoProxyHelperFunctions {
 }
 impl ::core::cmp::PartialEq for AutoProxyHelperFunctions {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutoProxyHelperFunctions>()) == 0 }
+        self.lpVtbl == other.lpVtbl
     }
 }
 impl ::core::cmp::Eq for AutoProxyHelperFunctions {}
@@ -6001,7 +6001,7 @@ unsafe impl ::windows::core::Abi for AutoProxyHelperVtbl {
 }
 impl ::core::cmp::PartialEq for AutoProxyHelperVtbl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutoProxyHelperVtbl>()) == 0 }
+        self.IsResolvable == other.IsResolvable && self.GetIPAddress == other.GetIPAddress && self.ResolveHostName == other.ResolveHostName && self.IsInNet == other.IsInNet && self.IsResolvableEx == other.IsResolvableEx && self.GetIPAddressEx == other.GetIPAddressEx && self.ResolveHostNameEx == other.ResolveHostNameEx && self.IsInNetEx == other.IsInNetEx && self.SortIpList == other.SortIpList
     }
 }
 impl ::core::cmp::Eq for AutoProxyHelperVtbl {}
@@ -6043,7 +6043,7 @@ unsafe impl ::windows::core::Abi for COOKIE_DLG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COOKIE_DLG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COOKIE_DLG_INFO>()) == 0 }
+        self.pszServer == other.pszServer && self.pic == other.pic && self.dwStopWarning == other.dwStopWarning && self.cx == other.cx && self.cy == other.cy && self.pszHeader == other.pszHeader && self.dwOperation == other.dwOperation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6082,7 +6082,7 @@ unsafe impl ::windows::core::Abi for CookieDecision {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CookieDecision {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CookieDecision>()) == 0 }
+        self.dwCookieState == other.dwCookieState && self.fAllowSession == other.fAllowSession
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6115,7 +6115,7 @@ unsafe impl ::windows::core::Abi for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_ABSTRACT_ATTRIBUTE_TYPE>()) == 0 }
+        self.ShortAbstract == other.ShortAbstract && self.AbstractFile == other.AbstractFile
     }
 }
 impl ::core::cmp::Eq for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {}
@@ -6146,7 +6146,7 @@ unsafe impl ::windows::core::Abi for GOPHER_ADMIN_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_ADMIN_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_ADMIN_ATTRIBUTE_TYPE>()) == 0 }
+        self.Comment == other.Comment && self.EmailAddress == other.EmailAddress
     }
 }
 impl ::core::cmp::Eq for GOPHER_ADMIN_ATTRIBUTE_TYPE {}
@@ -6177,7 +6177,7 @@ unsafe impl ::windows::core::Abi for GOPHER_ASK_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_ASK_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_ASK_ATTRIBUTE_TYPE>()) == 0 }
+        self.QuestionType == other.QuestionType && self.QuestionText == other.QuestionText
     }
 }
 impl ::core::cmp::Eq for GOPHER_ASK_ATTRIBUTE_TYPE {}
@@ -6206,14 +6206,6 @@ impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE {
 unsafe impl ::windows::core::Abi for GOPHER_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GOPHER_ATTRIBUTE_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_ATTRIBUTE_TYPE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GOPHER_ATTRIBUTE_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GOPHER_ATTRIBUTE_TYPE {
     fn default() -> Self {
@@ -6255,14 +6247,6 @@ unsafe impl ::windows::core::Abi for GOPHER_ATTRIBUTE_TYPE_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GOPHER_ATTRIBUTE_TYPE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_ATTRIBUTE_TYPE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GOPHER_ATTRIBUTE_TYPE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GOPHER_ATTRIBUTE_TYPE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6300,7 +6284,7 @@ unsafe impl ::windows::core::Abi for GOPHER_FIND_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GOPHER_FIND_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_FIND_DATAA>()) == 0 }
+        self.DisplayString == other.DisplayString && self.GopherType == other.GopherType && self.SizeLow == other.SizeLow && self.SizeHigh == other.SizeHigh && self.LastModificationTime == other.LastModificationTime && self.Locator == other.Locator
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6343,7 +6327,7 @@ unsafe impl ::windows::core::Abi for GOPHER_FIND_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GOPHER_FIND_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_FIND_DATAW>()) == 0 }
+        self.DisplayString == other.DisplayString && self.GopherType == other.GopherType && self.SizeLow == other.SizeLow && self.SizeHigh == other.SizeHigh && self.LastModificationTime == other.LastModificationTime && self.Locator == other.Locator
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6380,7 +6364,7 @@ unsafe impl ::windows::core::Abi for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE
 }
 impl ::core::cmp::PartialEq for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE>()) == 0 }
+        self.DegreesNorth == other.DegreesNorth && self.MinutesNorth == other.MinutesNorth && self.SecondsNorth == other.SecondsNorth && self.DegreesEast == other.DegreesEast && self.MinutesEast == other.MinutesEast && self.SecondsEast == other.SecondsEast
     }
 }
 impl ::core::cmp::Eq for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {}
@@ -6410,7 +6394,7 @@ unsafe impl ::windows::core::Abi for GOPHER_LOCATION_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_LOCATION_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_LOCATION_ATTRIBUTE_TYPE>()) == 0 }
+        self.Location == other.Location
     }
 }
 impl ::core::cmp::Eq for GOPHER_LOCATION_ATTRIBUTE_TYPE {}
@@ -6446,7 +6430,7 @@ unsafe impl ::windows::core::Abi for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_MOD_DATE_ATTRIBUTE_TYPE>()) == 0 }
+        self.DateAndTime == other.DateAndTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6478,7 +6462,7 @@ unsafe impl ::windows::core::Abi for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_ORGANIZATION_ATTRIBUTE_TYPE>()) == 0 }
+        self.Organization == other.Organization
     }
 }
 impl ::core::cmp::Eq for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {}
@@ -6508,7 +6492,7 @@ unsafe impl ::windows::core::Abi for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_PROVIDER_ATTRIBUTE_TYPE>()) == 0 }
+        self.Provider == other.Provider
     }
 }
 impl ::core::cmp::Eq for GOPHER_PROVIDER_ATTRIBUTE_TYPE {}
@@ -6538,7 +6522,7 @@ unsafe impl ::windows::core::Abi for GOPHER_SCORE_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_SCORE_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_SCORE_ATTRIBUTE_TYPE>()) == 0 }
+        self.Score == other.Score
     }
 }
 impl ::core::cmp::Eq for GOPHER_SCORE_ATTRIBUTE_TYPE {}
@@ -6569,7 +6553,7 @@ unsafe impl ::windows::core::Abi for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE>()) == 0 }
+        self.LowerBound == other.LowerBound && self.UpperBound == other.UpperBound
     }
 }
 impl ::core::cmp::Eq for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {}
@@ -6599,7 +6583,7 @@ unsafe impl ::windows::core::Abi for GOPHER_SITE_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_SITE_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_SITE_ATTRIBUTE_TYPE>()) == 0 }
+        self.Site == other.Site
     }
 }
 impl ::core::cmp::Eq for GOPHER_SITE_ATTRIBUTE_TYPE {}
@@ -6629,7 +6613,7 @@ unsafe impl ::windows::core::Abi for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_TIMEZONE_ATTRIBUTE_TYPE>()) == 0 }
+        self.Zone == other.Zone
     }
 }
 impl ::core::cmp::Eq for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {}
@@ -6659,7 +6643,7 @@ unsafe impl ::windows::core::Abi for GOPHER_TTL_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_TTL_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_TTL_ATTRIBUTE_TYPE>()) == 0 }
+        self.Ttl == other.Ttl
     }
 }
 impl ::core::cmp::Eq for GOPHER_TTL_ATTRIBUTE_TYPE {}
@@ -6689,7 +6673,7 @@ unsafe impl ::windows::core::Abi for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_UNKNOWN_ATTRIBUTE_TYPE>()) == 0 }
+        self.Text == other.Text
     }
 }
 impl ::core::cmp::Eq for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {}
@@ -6725,7 +6709,7 @@ unsafe impl ::windows::core::Abi for GOPHER_VERONICA_ATTRIBUTE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GOPHER_VERONICA_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_VERONICA_ATTRIBUTE_TYPE>()) == 0 }
+        self.TreeWalk == other.TreeWalk
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6757,7 +6741,7 @@ unsafe impl ::windows::core::Abi for GOPHER_VERSION_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_VERSION_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_VERSION_ATTRIBUTE_TYPE>()) == 0 }
+        self.Version == other.Version
     }
 }
 impl ::core::cmp::Eq for GOPHER_VERSION_ATTRIBUTE_TYPE {}
@@ -6789,7 +6773,7 @@ unsafe impl ::windows::core::Abi for GOPHER_VIEW_ATTRIBUTE_TYPE {
 }
 impl ::core::cmp::PartialEq for GOPHER_VIEW_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GOPHER_VIEW_ATTRIBUTE_TYPE>()) == 0 }
+        self.ContentType == other.ContentType && self.Language == other.Language && self.Size == other.Size
     }
 }
 impl ::core::cmp::Eq for GOPHER_VIEW_ATTRIBUTE_TYPE {}
@@ -6826,7 +6810,7 @@ unsafe impl ::windows::core::Abi for HTTP_PUSH_NOTIFICATION_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_PUSH_NOTIFICATION_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_PUSH_NOTIFICATION_STATUS>()) == 0 }
+        self.ChannelStatusValid == other.ChannelStatusValid && self.ChannelStatus == other.ChannelStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6859,7 +6843,7 @@ unsafe impl ::windows::core::Abi for HTTP_PUSH_TRANSPORT_SETTING {
 }
 impl ::core::cmp::PartialEq for HTTP_PUSH_TRANSPORT_SETTING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_PUSH_TRANSPORT_SETTING>()) == 0 }
+        self.TransportSettingId == other.TransportSettingId && self.BrokerEventId == other.BrokerEventId
     }
 }
 impl ::core::cmp::Eq for HTTP_PUSH_TRANSPORT_SETTING {}
@@ -6922,7 +6906,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMES {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_TIMES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_TIMES>()) == 0 }
+        self.cTimes == other.cTimes && self.rgTimes == other.rgTimes
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_TIMES {}
@@ -6955,7 +6939,7 @@ unsafe impl ::windows::core::Abi for HTTP_WEB_SOCKET_ASYNC_RESULT {
 }
 impl ::core::cmp::PartialEq for HTTP_WEB_SOCKET_ASYNC_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_WEB_SOCKET_ASYNC_RESULT>()) == 0 }
+        self.AsyncResult == other.AsyncResult && self.Operation == other.Operation && self.BufferType == other.BufferType && self.dwBytesTransferred == other.dwBytesTransferred
     }
 }
 impl ::core::cmp::Eq for HTTP_WEB_SOCKET_ASYNC_RESULT {}
@@ -6986,7 +6970,7 @@ unsafe impl ::windows::core::Abi for INTERNET_ASYNC_RESULT {
 }
 impl ::core::cmp::PartialEq for INTERNET_ASYNC_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_ASYNC_RESULT>()) == 0 }
+        self.dwResult == other.dwResult && self.dwError == other.dwError
     }
 }
 impl ::core::cmp::Eq for INTERNET_ASYNC_RESULT {}
@@ -7011,18 +6995,12 @@ impl ::core::clone::Clone for INTERNET_AUTH_NOTIFY_DATA {
 }
 impl ::core::fmt::Debug for INTERNET_AUTH_NOTIFY_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERNET_AUTH_NOTIFY_DATA").field("cbStruct", &self.cbStruct).field("dwOptions", &self.dwOptions).field("pfnNotify", &self.pfnNotify.map(|f| f as usize)).field("dwContext", &self.dwContext).finish()
+        f.debug_struct("INTERNET_AUTH_NOTIFY_DATA").field("cbStruct", &self.cbStruct).field("dwOptions", &self.dwOptions).field("dwContext", &self.dwContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for INTERNET_AUTH_NOTIFY_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INTERNET_AUTH_NOTIFY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_AUTH_NOTIFY_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INTERNET_AUTH_NOTIFY_DATA {}
 impl ::core::default::Default for INTERNET_AUTH_NOTIFY_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7058,7 +7036,7 @@ unsafe impl ::windows::core::Abi for INTERNET_BUFFERSA {
 }
 impl ::core::cmp::PartialEq for INTERNET_BUFFERSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_BUFFERSA>()) == 0 }
+        self.dwStructSize == other.dwStructSize && self.Next == other.Next && self.lpcszHeader == other.lpcszHeader && self.dwHeadersLength == other.dwHeadersLength && self.dwHeadersTotal == other.dwHeadersTotal && self.lpvBuffer == other.lpvBuffer && self.dwBufferLength == other.dwBufferLength && self.dwBufferTotal == other.dwBufferTotal && self.dwOffsetLow == other.dwOffsetLow && self.dwOffsetHigh == other.dwOffsetHigh
     }
 }
 impl ::core::cmp::Eq for INTERNET_BUFFERSA {}
@@ -7097,7 +7075,7 @@ unsafe impl ::windows::core::Abi for INTERNET_BUFFERSW {
 }
 impl ::core::cmp::PartialEq for INTERNET_BUFFERSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_BUFFERSW>()) == 0 }
+        self.dwStructSize == other.dwStructSize && self.Next == other.Next && self.lpcszHeader == other.lpcszHeader && self.dwHeadersLength == other.dwHeadersLength && self.dwHeadersTotal == other.dwHeadersTotal && self.lpvBuffer == other.lpvBuffer && self.dwBufferLength == other.dwBufferLength && self.dwBufferTotal == other.dwBufferTotal && self.dwOffsetLow == other.dwOffsetLow && self.dwOffsetHigh == other.dwOffsetHigh
     }
 }
 impl ::core::cmp::Eq for INTERNET_BUFFERSW {}
@@ -7134,14 +7112,6 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7166,14 +7136,6 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA_0 {
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOA_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOA_0 {
     fn default() -> Self {
@@ -7208,7 +7170,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOA_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOA_0_0>()) == 0 }
+        self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7247,14 +7209,6 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7279,14 +7233,6 @@ impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0 {
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOW_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOW_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn default() -> Self {
@@ -7321,7 +7267,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOW_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOW_0_0>()) == 0 }
+        self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7360,7 +7306,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_PATH_ENTRYA>()) == 0 }
+        self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7393,7 +7339,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
 }
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_PATH_ENTRYW>()) == 0 }
+        self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
 impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_PATH_ENTRYW {}
@@ -7427,7 +7373,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONTAINER_INFOA {
 }
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONTAINER_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONTAINER_INFOA>()) == 0 }
+        self.dwCacheVersion == other.dwCacheVersion && self.lpszName == other.lpszName && self.lpszCachePrefix == other.lpszCachePrefix && self.lpszVolumeLabel == other.lpszVolumeLabel && self.lpszVolumeTitle == other.lpszVolumeTitle
     }
 }
 impl ::core::cmp::Eq for INTERNET_CACHE_CONTAINER_INFOA {}
@@ -7461,7 +7407,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONTAINER_INFOW {
 }
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONTAINER_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONTAINER_INFOW>()) == 0 }
+        self.dwCacheVersion == other.dwCacheVersion && self.lpszName == other.lpszName && self.lpszCachePrefix == other.lpszCachePrefix && self.lpszVolumeLabel == other.lpszVolumeLabel && self.lpszVolumeTitle == other.lpszVolumeTitle
     }
 }
 impl ::core::cmp::Eq for INTERNET_CACHE_CONTAINER_INFOW {}
@@ -7504,14 +7450,6 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_ENTRY_INFOA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_ENTRY_INFOA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_ENTRY_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7536,14 +7474,6 @@ impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA_0 {
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_ENTRY_INFOA_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_ENTRY_INFOA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_ENTRY_INFOA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn default() -> Self {
@@ -7584,14 +7514,6 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_ENTRY_INFOW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_ENTRY_INFOW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_ENTRY_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7616,14 +7538,6 @@ impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW_0 {
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_ENTRY_INFOW_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_ENTRY_INFOW_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CACHE_ENTRY_INFOW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn default() -> Self {
@@ -7663,7 +7577,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_GROUP_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_GROUP_INFOA>()) == 0 }
+        self.dwGroupSize == other.dwGroupSize && self.dwGroupFlags == other.dwGroupFlags && self.dwGroupType == other.dwGroupType && self.dwDiskUsage == other.dwDiskUsage && self.dwDiskQuota == other.dwDiskQuota && self.dwOwnerStorage == other.dwOwnerStorage && self.szGroupName == other.szGroupName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7701,7 +7615,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_GROUP_INFOW {
 }
 impl ::core::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_GROUP_INFOW>()) == 0 }
+        self.dwGroupSize == other.dwGroupSize && self.dwGroupFlags == other.dwGroupFlags && self.dwGroupType == other.dwGroupType && self.dwDiskUsage == other.dwDiskUsage && self.dwDiskQuota == other.dwDiskQuota && self.dwOwnerStorage == other.dwOwnerStorage && self.szGroupName == other.szGroupName
     }
 }
 impl ::core::cmp::Eq for INTERNET_CACHE_GROUP_INFOW {}
@@ -7738,7 +7652,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CACHE_TIMESTAMPS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_TIMESTAMPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_TIMESTAMPS>()) == 0 }
+        self.ftExpires == other.ftExpires && self.ftLastModified == other.ftLastModified
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7781,7 +7695,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CALLBACK_COOKIE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CALLBACK_COOKIE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CALLBACK_COOKIE>()) == 0 }
+        self.pcwszName == other.pcwszName && self.pcwszValue == other.pcwszValue && self.pcwszDomain == other.pcwszDomain && self.pcwszPath == other.pcwszPath && self.ftExpires == other.ftExpires && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7826,7 +7740,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CERTIFICATE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CERTIFICATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CERTIFICATE_INFO>()) == 0 }
+        self.ftExpiry == other.ftExpiry && self.ftStart == other.ftStart && self.lpszSubjectInfo == other.lpszSubjectInfo && self.lpszIssuerInfo == other.lpszIssuerInfo && self.lpszProtocolName == other.lpszProtocolName && self.lpszSignatureAlgName == other.lpszSignatureAlgName && self.lpszEncryptionAlgName == other.lpszEncryptionAlgName && self.dwKeySize == other.dwKeySize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7859,7 +7773,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CONNECTED_INFO {
 }
 impl ::core::cmp::PartialEq for INTERNET_CONNECTED_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CONNECTED_INFO>()) == 0 }
+        self.dwConnectedState == other.dwConnectedState && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for INTERNET_CONNECTED_INFO {}
@@ -7903,7 +7817,7 @@ unsafe impl ::windows::core::Abi for INTERNET_COOKIE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_COOKIE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_COOKIE>()) == 0 }
+        self.cbSize == other.cbSize && self.pszName == other.pszName && self.pszData == other.pszData && self.pszDomain == other.pszDomain && self.pszPath == other.pszPath && self.pftExpires == other.pftExpires && self.dwFlags == other.dwFlags && self.pszUrl == other.pszUrl && self.pszP3PPolicy == other.pszP3PPolicy
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7947,7 +7861,7 @@ unsafe impl ::windows::core::Abi for INTERNET_COOKIE2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_COOKIE2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_COOKIE2>()) == 0 }
+        self.pwszName == other.pwszName && self.pwszValue == other.pwszValue && self.pwszDomain == other.pwszDomain && self.pwszPath == other.pwszPath && self.dwFlags == other.dwFlags && self.ftExpires == other.ftExpires && self.fExpiresSet == other.fExpiresSet
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7983,14 +7897,6 @@ unsafe impl ::windows::core::Abi for INTERNET_CREDENTIALS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CREDENTIALS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CREDENTIALS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CREDENTIALS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CREDENTIALS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8015,14 +7921,6 @@ impl ::core::clone::Clone for INTERNET_CREDENTIALS_0 {
 unsafe impl ::windows::core::Abi for INTERNET_CREDENTIALS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_CREDENTIALS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CREDENTIALS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_CREDENTIALS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CREDENTIALS_0 {
     fn default() -> Self {
@@ -8057,7 +7955,7 @@ unsafe impl ::windows::core::Abi for INTERNET_CREDENTIALS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CREDENTIALS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CREDENTIALS_0_0>()) == 0 }
+        self.lpcwszUserName == other.lpcwszUserName && self.lpcwszPassword == other.lpcwszPassword
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8092,7 +7990,7 @@ unsafe impl ::windows::core::Abi for INTERNET_DIAGNOSTIC_SOCKET_INFO {
 }
 impl ::core::cmp::PartialEq for INTERNET_DIAGNOSTIC_SOCKET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_DIAGNOSTIC_SOCKET_INFO>()) == 0 }
+        self.Socket == other.Socket && self.SourcePort == other.SourcePort && self.DestPort == other.DestPort && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for INTERNET_DIAGNOSTIC_SOCKET_INFO {}
@@ -8129,7 +8027,7 @@ unsafe impl ::windows::core::Abi for INTERNET_DOWNLOAD_MODE_HANDLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_DOWNLOAD_MODE_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_DOWNLOAD_MODE_HANDLE>()) == 0 }
+        self.pcwszFileName == other.pcwszFileName && self.phFile == other.phFile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8162,7 +8060,7 @@ unsafe impl ::windows::core::Abi for INTERNET_END_BROWSER_SESSION_DATA {
 }
 impl ::core::cmp::PartialEq for INTERNET_END_BROWSER_SESSION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_END_BROWSER_SESSION_DATA>()) == 0 }
+        self.lpBuffer == other.lpBuffer && self.dwBufferLength == other.dwBufferLength
     }
 }
 impl ::core::cmp::Eq for INTERNET_END_BROWSER_SESSION_DATA {}
@@ -8191,14 +8089,6 @@ unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTIONA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_PER_CONN_OPTIONA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PER_CONN_OPTIONA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_PER_CONN_OPTIONA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_PER_CONN_OPTIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8225,14 +8115,6 @@ unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTIONA_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_PER_CONN_OPTIONA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PER_CONN_OPTIONA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_PER_CONN_OPTIONA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_PER_CONN_OPTIONA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8257,14 +8139,6 @@ impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW {
 unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTIONW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_PER_CONN_OPTIONW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PER_CONN_OPTIONW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_PER_CONN_OPTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_PER_CONN_OPTIONW {
     fn default() -> Self {
@@ -8291,14 +8165,6 @@ impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW_0 {
 unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTIONW_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for INTERNET_PER_CONN_OPTIONW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PER_CONN_OPTIONW_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for INTERNET_PER_CONN_OPTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_PER_CONN_OPTIONW_0 {
     fn default() -> Self {
@@ -8336,7 +8202,7 @@ unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTION_LISTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_PER_CONN_OPTION_LISTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PER_CONN_OPTION_LISTA>()) == 0 }
+        self.dwSize == other.dwSize && self.pszConnection == other.pszConnection && self.dwOptionCount == other.dwOptionCount && self.dwOptionError == other.dwOptionError && self.pOptions == other.pOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8378,7 +8244,7 @@ unsafe impl ::windows::core::Abi for INTERNET_PER_CONN_OPTION_LISTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_PER_CONN_OPTION_LISTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PER_CONN_OPTION_LISTW>()) == 0 }
+        self.dwSize == other.dwSize && self.pszConnection == other.pszConnection && self.dwOptionCount == other.dwOptionCount && self.dwOptionError == other.dwOptionError && self.pOptions == other.pOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8411,7 +8277,7 @@ unsafe impl ::windows::core::Abi for INTERNET_PREFETCH_STATUS {
 }
 impl ::core::cmp::PartialEq for INTERNET_PREFETCH_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PREFETCH_STATUS>()) == 0 }
+        self.dwStatus == other.dwStatus && self.dwSize == other.dwSize
     }
 }
 impl ::core::cmp::Eq for INTERNET_PREFETCH_STATUS {}
@@ -8443,7 +8309,7 @@ unsafe impl ::windows::core::Abi for INTERNET_PROXY_INFO {
 }
 impl ::core::cmp::PartialEq for INTERNET_PROXY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_PROXY_INFO>()) == 0 }
+        self.dwAccessType == other.dwAccessType && self.lpszProxy == other.lpszProxy && self.lpszProxyBypass == other.lpszProxyBypass
     }
 }
 impl ::core::cmp::Eq for INTERNET_PROXY_INFO {}
@@ -8482,7 +8348,7 @@ unsafe impl ::windows::core::Abi for INTERNET_SECURITY_CONNECTION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 impl ::core::cmp::PartialEq for INTERNET_SECURITY_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_SECURITY_CONNECTION_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.fSecure == other.fSecure && self.connectionInfo == other.connectionInfo && self.cipherInfo == other.cipherInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
@@ -8526,7 +8392,7 @@ unsafe impl ::windows::core::Abi for INTERNET_SECURITY_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for INTERNET_SECURITY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_SECURITY_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.pCertificate == other.pCertificate && self.pcCertChain == other.pcCertChain && self.connectionInfo == other.connectionInfo && self.cipherInfo == other.cipherInfo && self.pcUnverifiedCertChain == other.pcUnverifiedCertChain && self.channelBindingToken == other.channelBindingToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
@@ -8571,7 +8437,7 @@ unsafe impl ::windows::core::Abi for INTERNET_SERVER_CONNECTION_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_SERVER_CONNECTION_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_SERVER_CONNECTION_STATE>()) == 0 }
+        self.lpcwszHostName == other.lpcwszHostName && self.fProxy == other.fProxy && self.dwCounter == other.dwCounter && self.dwConnectionLimit == other.dwConnectionLimit && self.dwAvailableCreates == other.dwAvailableCreates && self.dwAvailableKeepAlives == other.dwAvailableKeepAlives && self.dwActiveConnections == other.dwActiveConnections && self.dwWaiters == other.dwWaiters
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8604,7 +8470,7 @@ unsafe impl ::windows::core::Abi for INTERNET_VERSION_INFO {
 }
 impl ::core::cmp::PartialEq for INTERNET_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_VERSION_INFO>()) == 0 }
+        self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion
     }
 }
 impl ::core::cmp::Eq for INTERNET_VERSION_INFO {}
@@ -8640,7 +8506,7 @@ unsafe impl ::windows::core::Abi for IncomingCookieState {
 }
 impl ::core::cmp::PartialEq for IncomingCookieState {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IncomingCookieState>()) == 0 }
+        self.cSession == other.cSession && self.cPersistent == other.cPersistent && self.cAccepted == other.cAccepted && self.cLeashed == other.cLeashed && self.cDowngraded == other.cDowngraded && self.cBlocked == other.cBlocked && self.pszLocation == other.pszLocation
     }
 }
 impl ::core::cmp::Eq for IncomingCookieState {}
@@ -8679,7 +8545,7 @@ unsafe impl ::windows::core::Abi for InternetCookieHistory {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for InternetCookieHistory {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InternetCookieHistory>()) == 0 }
+        self.fAccepted == other.fAccepted && self.fLeashed == other.fLeashed && self.fDowngraded == other.fDowngraded && self.fRejected == other.fRejected
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8713,7 +8579,7 @@ unsafe impl ::windows::core::Abi for OutgoingCookieState {
 }
 impl ::core::cmp::PartialEq for OutgoingCookieState {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OutgoingCookieState>()) == 0 }
+        self.cSent == other.cSent && self.cSuppressed == other.cSuppressed && self.pszLocation == other.pszLocation
     }
 }
 impl ::core::cmp::Eq for OutgoingCookieState {}
@@ -8746,7 +8612,7 @@ unsafe impl ::windows::core::Abi for ProofOfPossessionCookieInfo {
 }
 impl ::core::cmp::PartialEq for ProofOfPossessionCookieInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ProofOfPossessionCookieInfo>()) == 0 }
+        self.name == other.name && self.data == other.data && self.flags == other.flags && self.p3pHeader == other.p3pHeader
     }
 }
 impl ::core::cmp::Eq for ProofOfPossessionCookieInfo {}
@@ -8812,7 +8678,7 @@ unsafe impl ::windows::core::Abi for URLCACHE_ENTRY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for URLCACHE_ENTRY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<URLCACHE_ENTRY_INFO>()) == 0 }
+        self.pwszSourceUrlName == other.pwszSourceUrlName && self.pwszLocalFileName == other.pwszLocalFileName && self.dwCacheEntryType == other.dwCacheEntryType && self.dwUseCount == other.dwUseCount && self.dwHitRate == other.dwHitRate && self.dwSizeLow == other.dwSizeLow && self.dwSizeHigh == other.dwSizeHigh && self.ftLastModifiedTime == other.ftLastModifiedTime && self.ftExpireTime == other.ftExpireTime && self.ftLastAccessTime == other.ftLastAccessTime && self.ftLastSyncTime == other.ftLastSyncTime && self.pbHeaderInfo == other.pbHeaderInfo && self.cbHeaderInfoSize == other.cbHeaderInfoSize && self.pbExtraData == other.pbExtraData && self.cbExtraDataSize == other.cbExtraDataSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8874,7 +8740,7 @@ unsafe impl ::windows::core::Abi for URL_COMPONENTSA {
 }
 impl ::core::cmp::PartialEq for URL_COMPONENTSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<URL_COMPONENTSA>()) == 0 }
+        self.dwStructSize == other.dwStructSize && self.lpszScheme == other.lpszScheme && self.dwSchemeLength == other.dwSchemeLength && self.nScheme == other.nScheme && self.lpszHostName == other.lpszHostName && self.dwHostNameLength == other.dwHostNameLength && self.nPort == other.nPort && self.lpszUserName == other.lpszUserName && self.dwUserNameLength == other.dwUserNameLength && self.lpszPassword == other.lpszPassword && self.dwPasswordLength == other.dwPasswordLength && self.lpszUrlPath == other.lpszUrlPath && self.dwUrlPathLength == other.dwUrlPathLength && self.lpszExtraInfo == other.lpszExtraInfo && self.dwExtraInfoLength == other.dwExtraInfoLength
     }
 }
 impl ::core::cmp::Eq for URL_COMPONENTSA {}
@@ -8934,7 +8800,7 @@ unsafe impl ::windows::core::Abi for URL_COMPONENTSW {
 }
 impl ::core::cmp::PartialEq for URL_COMPONENTSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<URL_COMPONENTSW>()) == 0 }
+        self.dwStructSize == other.dwStructSize && self.lpszScheme == other.lpszScheme && self.dwSchemeLength == other.dwSchemeLength && self.nScheme == other.nScheme && self.lpszHostName == other.lpszHostName && self.dwHostNameLength == other.dwHostNameLength && self.nPort == other.nPort && self.lpszUserName == other.lpszUserName && self.dwUserNameLength == other.dwUserNameLength && self.lpszPassword == other.lpszPassword && self.dwPasswordLength == other.dwPasswordLength && self.lpszUrlPath == other.lpszUrlPath && self.dwUrlPathLength == other.dwUrlPathLength && self.lpszExtraInfo == other.lpszExtraInfo && self.dwExtraInfoLength == other.dwExtraInfoLength
     }
 }
 impl ::core::cmp::Eq for URL_COMPONENTSW {}
@@ -8974,7 +8840,7 @@ unsafe impl ::windows::core::Abi for WININET_PROXY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WININET_PROXY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WININET_PROXY_INFO>()) == 0 }
+        self.fProxy == other.fProxy && self.fBypass == other.fBypass && self.ProxyScheme == other.ProxyScheme && self.pwszProxy == other.pwszProxy && self.ProxyPort == other.ProxyPort
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9013,7 +8879,7 @@ unsafe impl ::windows::core::Abi for WININET_PROXY_INFO_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WININET_PROXY_INFO_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WININET_PROXY_INFO_LIST>()) == 0 }
+        self.dwProxyInfoCount == other.dwProxyInfoCount && self.pProxyInfo == other.pProxyInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]

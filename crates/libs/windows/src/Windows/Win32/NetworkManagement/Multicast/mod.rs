@@ -67,12 +67,6 @@ impl ::core::clone::Clone for IPNG_ADDRESS {
 unsafe impl ::windows::core::Abi for IPNG_ADDRESS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IPNG_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPNG_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IPNG_ADDRESS {}
 impl ::core::default::Default for IPNG_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -100,7 +94,7 @@ unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
 }
 impl ::core::cmp::PartialEq for MCAST_CLIENT_UID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_CLIENT_UID>()) == 0 }
+        self.ClientUID == other.ClientUID && self.ClientUIDLength == other.ClientUIDLength
     }
 }
 impl ::core::cmp::Eq for MCAST_CLIENT_UID {}
@@ -130,12 +124,6 @@ impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
 unsafe impl ::windows::core::Abi for MCAST_LEASE_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCAST_LEASE_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_LEASE_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCAST_LEASE_REQUEST {}
 impl ::core::default::Default for MCAST_LEASE_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -159,12 +147,6 @@ impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
 unsafe impl ::windows::core::Abi for MCAST_LEASE_RESPONSE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCAST_LEASE_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_LEASE_RESPONSE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCAST_LEASE_RESPONSE {}
 impl ::core::default::Default for MCAST_LEASE_RESPONSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -186,12 +168,6 @@ impl ::core::clone::Clone for MCAST_SCOPE_CTX {
 unsafe impl ::windows::core::Abi for MCAST_SCOPE_CTX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCAST_SCOPE_CTX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_SCOPE_CTX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCAST_SCOPE_CTX {}
 impl ::core::default::Default for MCAST_SCOPE_CTX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -218,14 +194,6 @@ impl ::core::clone::Clone for MCAST_SCOPE_ENTRY {
 unsafe impl ::windows::core::Abi for MCAST_SCOPE_ENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCAST_SCOPE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_SCOPE_ENTRY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCAST_SCOPE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCAST_SCOPE_ENTRY {
     fn default() -> Self {

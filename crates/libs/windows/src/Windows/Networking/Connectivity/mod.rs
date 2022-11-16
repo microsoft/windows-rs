@@ -3437,7 +3437,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkUsageStates {
 }
 impl ::core::cmp::PartialEq for NetworkUsageStates {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NetworkUsageStates>()) == 0 }
+        self.Roaming == other.Roaming && self.Shared == other.Shared
     }
 }
 impl ::core::cmp::Eq for NetworkUsageStates {}

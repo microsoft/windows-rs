@@ -515,7 +515,7 @@ unsafe impl ::windows::core::Abi for DEVPROP_FILTER_EXPRESSION {
 #[cfg(feature = "Win32_Devices_Properties")]
 impl ::core::cmp::PartialEq for DEVPROP_FILTER_EXPRESSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROP_FILTER_EXPRESSION>()) == 0 }
+        self.Operator == other.Operator && self.Property == other.Property
     }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -556,7 +556,7 @@ unsafe impl ::windows::core::Abi for DEV_OBJECT {
 #[cfg(feature = "Win32_Devices_Properties")]
 impl ::core::cmp::PartialEq for DEV_OBJECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_OBJECT>()) == 0 }
+        self.ObjectType == other.ObjectType && self.pszObjectId == other.pszObjectId && self.cPropertyCount == other.cPropertyCount && self.pProperties == other.pProperties
     }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -597,7 +597,7 @@ unsafe impl ::windows::core::Abi for DEV_QUERY_PARAMETER {
 #[cfg(feature = "Win32_Devices_Properties")]
 impl ::core::cmp::PartialEq for DEV_QUERY_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_QUERY_PARAMETER>()) == 0 }
+        self.Key == other.Key && self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -628,14 +628,6 @@ unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Devices_Properties")]
-impl ::core::cmp::PartialEq for DEV_QUERY_RESULT_ACTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_QUERY_RESULT_ACTION_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl ::core::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA {}
-#[cfg(feature = "Win32_Devices_Properties")]
 impl ::core::default::Default for DEV_QUERY_RESULT_ACTION_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -660,14 +652,6 @@ impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA_0 {
 unsafe impl ::windows::core::Abi for DEV_QUERY_RESULT_ACTION_DATA_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Devices_Properties")]
-impl ::core::cmp::PartialEq for DEV_QUERY_RESULT_ACTION_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEV_QUERY_RESULT_ACTION_DATA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Devices_Properties")]
-impl ::core::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA_0 {}
 #[cfg(feature = "Win32_Devices_Properties")]
 impl ::core::default::Default for DEV_QUERY_RESULT_ACTION_DATA_0 {
     fn default() -> Self {
@@ -695,7 +679,7 @@ unsafe impl ::windows::core::Abi for HDEVQUERY__ {
 }
 impl ::core::cmp::PartialEq for HDEVQUERY__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDEVQUERY__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HDEVQUERY__ {}

@@ -2926,12 +2926,6 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE {
 unsafe impl ::windows::core::Abi for RADIUS_ATTRIBUTE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RADIUS_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RADIUS_ATTRIBUTE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RADIUS_ATTRIBUTE {}
 impl ::core::default::Default for RADIUS_ATTRIBUTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2952,12 +2946,6 @@ impl ::core::clone::Clone for RADIUS_ATTRIBUTE_0 {
 unsafe impl ::windows::core::Abi for RADIUS_ATTRIBUTE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RADIUS_ATTRIBUTE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RADIUS_ATTRIBUTE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RADIUS_ATTRIBUTE_0 {}
 impl ::core::default::Default for RADIUS_ATTRIBUTE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2990,7 +2978,7 @@ unsafe impl ::windows::core::Abi for RADIUS_ATTRIBUTE_ARRAY {
 }
 impl ::core::cmp::PartialEq for RADIUS_ATTRIBUTE_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RADIUS_ATTRIBUTE_ARRAY>()) == 0 }
+        self.cbSize == other.cbSize && self.Add == other.Add && self.AttributeAt == other.AttributeAt && self.GetSize == other.GetSize && self.InsertAt == other.InsertAt && self.RemoveAt == other.RemoveAt && self.SetAt == other.SetAt
     }
 }
 impl ::core::cmp::Eq for RADIUS_ATTRIBUTE_ARRAY {}
@@ -3027,7 +3015,7 @@ unsafe impl ::windows::core::Abi for RADIUS_EXTENSION_CONTROL_BLOCK {
 }
 impl ::core::cmp::PartialEq for RADIUS_EXTENSION_CONTROL_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RADIUS_EXTENSION_CONTROL_BLOCK>()) == 0 }
+        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.repPoint == other.repPoint && self.rcRequestType == other.rcRequestType && self.rcResponseType == other.rcResponseType && self.GetRequest == other.GetRequest && self.GetResponse == other.GetResponse && self.SetResponseType == other.SetResponseType
     }
 }
 impl ::core::cmp::Eq for RADIUS_EXTENSION_CONTROL_BLOCK {}
@@ -3060,7 +3048,7 @@ unsafe impl ::windows::core::Abi for RADIUS_VSA_FORMAT {
 }
 impl ::core::cmp::PartialEq for RADIUS_VSA_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RADIUS_VSA_FORMAT>()) == 0 }
+        self.VendorId == other.VendorId && self.VendorType == other.VendorType && self.VendorLength == other.VendorLength && self.AttributeSpecific == other.AttributeSpecific
     }
 }
 impl ::core::cmp::Eq for RADIUS_VSA_FORMAT {}

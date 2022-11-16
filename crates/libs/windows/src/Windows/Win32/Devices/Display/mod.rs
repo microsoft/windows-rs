@@ -3707,7 +3707,7 @@ unsafe impl ::windows::core::Abi for Adapter {
 }
 impl ::core::cmp::PartialEq for Adapter {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Adapter>()) == 0 }
+        self.AdapterName == other.AdapterName && self.numSources == other.numSources && self.sources == other.sources
     }
 }
 impl ::core::cmp::Eq for Adapter {}
@@ -3738,7 +3738,7 @@ unsafe impl ::windows::core::Abi for Adapters {
 }
 impl ::core::cmp::PartialEq for Adapters {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Adapters>()) == 0 }
+        self.numAdapters == other.numAdapters && self.adapter == other.adapter
     }
 }
 impl ::core::cmp::Eq for Adapters {}
@@ -3770,7 +3770,7 @@ unsafe impl ::windows::core::Abi for BACKLIGHT_REDUCTION_GAMMA_RAMP {
 }
 impl ::core::cmp::PartialEq for BACKLIGHT_REDUCTION_GAMMA_RAMP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BACKLIGHT_REDUCTION_GAMMA_RAMP>()) == 0 }
+        self.R == other.R && self.G == other.G && self.B == other.B
     }
 }
 impl ::core::cmp::Eq for BACKLIGHT_REDUCTION_GAMMA_RAMP {}
@@ -3801,7 +3801,7 @@ unsafe impl ::windows::core::Abi for BANK_POSITION {
 }
 impl ::core::cmp::PartialEq for BANK_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BANK_POSITION>()) == 0 }
+        self.ReadBankPosition == other.ReadBankPosition && self.WriteBankPosition == other.WriteBankPosition
     }
 }
 impl ::core::cmp::Eq for BANK_POSITION {}
@@ -3837,7 +3837,7 @@ unsafe impl ::windows::core::Abi for BLENDOBJ {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for BLENDOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLENDOBJ>()) == 0 }
+        self.BlendFunction == other.BlendFunction
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3870,7 +3870,7 @@ unsafe impl ::windows::core::Abi for BRIGHTNESS_LEVEL {
 }
 impl ::core::cmp::PartialEq for BRIGHTNESS_LEVEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BRIGHTNESS_LEVEL>()) == 0 }
+        self.Count == other.Count && self.Level == other.Level
     }
 }
 impl ::core::cmp::Eq for BRIGHTNESS_LEVEL {}
@@ -3902,7 +3902,7 @@ unsafe impl ::windows::core::Abi for BRIGHTNESS_NIT_RANGE {
 }
 impl ::core::cmp::PartialEq for BRIGHTNESS_NIT_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BRIGHTNESS_NIT_RANGE>()) == 0 }
+        self.MinLevelInMillinit == other.MinLevelInMillinit && self.MaxLevelInMillinit == other.MaxLevelInMillinit && self.StepSizeInMillinit == other.StepSizeInMillinit
     }
 }
 impl ::core::cmp::Eq for BRIGHTNESS_NIT_RANGE {}
@@ -3935,7 +3935,7 @@ unsafe impl ::windows::core::Abi for BRIGHTNESS_NIT_RANGES {
 }
 impl ::core::cmp::PartialEq for BRIGHTNESS_NIT_RANGES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BRIGHTNESS_NIT_RANGES>()) == 0 }
+        self.NormalRangeCount == other.NormalRangeCount && self.RangeCount == other.RangeCount && self.PreferredMaximumBrightness == other.PreferredMaximumBrightness && self.SupportedRanges == other.SupportedRanges
     }
 }
 impl ::core::cmp::Eq for BRIGHTNESS_NIT_RANGES {}
@@ -3967,7 +3967,7 @@ unsafe impl ::windows::core::Abi for BRUSHOBJ {
 }
 impl ::core::cmp::PartialEq for BRUSHOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BRUSHOBJ>()) == 0 }
+        self.iSolidColor == other.iSolidColor && self.pvRbrush == other.pvRbrush && self.flColorType == other.flColorType
     }
 }
 impl ::core::cmp::Eq for BRUSHOBJ {}
@@ -4007,7 +4007,7 @@ unsafe impl ::windows::core::Abi for CDDDXGK_REDIRBITMAPPRESENTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CDDDXGK_REDIRBITMAPPRESENTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CDDDXGK_REDIRBITMAPPRESENTINFO>()) == 0 }
+        self.NumDirtyRects == other.NumDirtyRects && self.DirtyRect == other.DirtyRect && self.NumContexts == other.NumContexts && self.hContext == other.hContext && self.bDoNotSynchronizeWithDxContent == other.bDoNotSynchronizeWithDxContent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4038,14 +4038,6 @@ unsafe impl ::windows::core::Abi for CHAR_IMAGE_INFO {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
-impl ::core::cmp::PartialEq for CHAR_IMAGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHAR_IMAGE_INFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
-impl ::core::cmp::Eq for CHAR_IMAGE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::core::default::Default for CHAR_IMAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4073,7 +4065,7 @@ unsafe impl ::windows::core::Abi for CHROMATICITY_COORDINATE {
 }
 impl ::core::cmp::PartialEq for CHROMATICITY_COORDINATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHROMATICITY_COORDINATE>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for CHROMATICITY_COORDINATE {}
@@ -4105,7 +4097,7 @@ unsafe impl ::windows::core::Abi for CIECHROMA {
 }
 impl ::core::cmp::PartialEq for CIECHROMA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CIECHROMA>()) == 0 }
+        self.x == other.x && self.y == other.y && self.Y == other.Y
     }
 }
 impl ::core::cmp::Eq for CIECHROMA {}
@@ -4139,7 +4131,7 @@ unsafe impl ::windows::core::Abi for CLIPLINE {
 }
 impl ::core::cmp::PartialEq for CLIPLINE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIPLINE>()) == 0 }
+        self.ptfxA == other.ptfxA && self.ptfxB == other.ptfxB && self.lStyleState == other.lStyleState && self.c == other.c && self.arun == other.arun
     }
 }
 impl ::core::cmp::Eq for CLIPLINE {}
@@ -4180,7 +4172,7 @@ unsafe impl ::windows::core::Abi for CLIPOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLIPOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIPOBJ>()) == 0 }
+        self.iUniq == other.iUniq && self.rclBounds == other.rclBounds && self.iDComplexity == other.iDComplexity && self.iFComplexity == other.iFComplexity && self.iMode == other.iMode && self.fjOptions == other.fjOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4244,7 +4236,7 @@ unsafe impl ::windows::core::Abi for COLORINFO {
 }
 impl ::core::cmp::PartialEq for COLORINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORINFO>()) == 0 }
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue && self.Cyan == other.Cyan && self.Magenta == other.Magenta && self.Yellow == other.Yellow && self.AlignmentWhite == other.AlignmentWhite && self.RedGamma == other.RedGamma && self.GreenGamma == other.GreenGamma && self.BlueGamma == other.BlueGamma && self.MagentaInCyanDye == other.MagentaInCyanDye && self.YellowInCyanDye == other.YellowInCyanDye && self.CyanInMagentaDye == other.CyanInMagentaDye && self.YellowInMagentaDye == other.YellowInMagentaDye && self.CyanInYellowDye == other.CyanInYellowDye && self.MagentaInYellowDye == other.MagentaInYellowDye
     }
 }
 impl ::core::cmp::Eq for COLORINFO {}
@@ -4268,12 +4260,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4296,12 +4282,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_0 {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_0 {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4322,12 +4302,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_1DLUT_CAP {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_1DLUT_CAP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_1DLUT_CAP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_1DLUT_CAP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_1DLUT_CAP {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_1DLUT_CAP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4356,7 +4330,7 @@ unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_3x4 {
 }
 impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_3x4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_3x4>()) == 0 }
+        self.ColorMatrix3x4 == other.ColorMatrix3x4 && self.ScalarMultiplier == other.ScalarMultiplier && self.LookupTable1D == other.LookupTable1D
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_3x4 {}
@@ -4382,12 +4356,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_DATA_CAP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_DATA_CAP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4409,12 +4377,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0 {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_DATA_CAP_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0 {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_DATA_CAP_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4441,7 +4403,7 @@ unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
 }
 impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_DATA_CAP_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {}
@@ -4471,7 +4433,7 @@ unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
 }
 impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_DATA_CAP_0_1>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {}
@@ -4495,12 +4457,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_MATRIX_CAP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_MATRIX_CAP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4521,12 +4477,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_MATRIX_CAP_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4553,7 +4503,7 @@ unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
 }
 impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_MATRIX_CAP_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {}
@@ -4588,7 +4538,7 @@ unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_MATRIX_V2 {
 }
 impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_MATRIX_V2>()) == 0 }
+        self.StageControlLookupTable1DDegamma == other.StageControlLookupTable1DDegamma && self.LookupTable1DDegamma == other.LookupTable1DDegamma && self.StageControlColorMatrix3x3 == other.StageControlColorMatrix3x3 && self.ColorMatrix3x3 == other.ColorMatrix3x3 && self.StageControlLookupTable1DRegamma == other.StageControlLookupTable1DRegamma && self.LookupTable1DRegamma == other.LookupTable1DRegamma
     }
 }
 impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_V2 {}
@@ -4613,12 +4563,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_SET_INPUT {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_SET_INPUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_SET_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_SET_INPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_SET_INPUT {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_SET_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4641,12 +4585,6 @@ impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS {
 unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_TARGET_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSPACE_TRANSFORM_TARGET_CAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COLORSPACE_TRANSFORM_TARGET_CAPS {}
 impl ::core::default::Default for COLORSPACE_TRANSFORM_TARGET_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4677,7 +4615,7 @@ unsafe impl ::windows::core::Abi for DEVHTADJDATA {
 }
 impl ::core::cmp::PartialEq for DEVHTADJDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVHTADJDATA>()) == 0 }
+        self.DeviceFlags == other.DeviceFlags && self.DeviceXDPI == other.DeviceXDPI && self.DeviceYDPI == other.DeviceYDPI && self.pDefHTInfo == other.pDefHTInfo && self.pAdjHTInfo == other.pAdjHTInfo
     }
 }
 impl ::core::cmp::Eq for DEVHTADJDATA {}
@@ -4710,7 +4648,7 @@ unsafe impl ::windows::core::Abi for DEVHTINFO {
 }
 impl ::core::cmp::PartialEq for DEVHTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVHTINFO>()) == 0 }
+        self.HTFlags == other.HTFlags && self.HTPatternSize == other.HTPatternSize && self.DevPelsDPI == other.DevPelsDPI && self.ColorInfo == other.ColorInfo
     }
 }
 impl ::core::cmp::Eq for DEVHTINFO {}
@@ -4755,7 +4693,7 @@ unsafe impl ::windows::core::Abi for DEVINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for DEVINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVINFO>()) == 0 }
+        self.flGraphicsCaps == other.flGraphicsCaps && self.lfDefaultFont == other.lfDefaultFont && self.lfAnsiVarFont == other.lfAnsiVarFont && self.lfAnsiFixFont == other.lfAnsiFixFont && self.cFonts == other.cFonts && self.iDitherFormat == other.iDitherFormat && self.cxDither == other.cxDither && self.cyDither == other.cyDither && self.hpalDefault == other.hpalDefault && self.flGraphicsCaps2 == other.flGraphicsCaps2
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4852,7 +4790,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_2DREGION {
 }
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_2DREGION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_2DREGION>()) == 0 }
+        self.cx == other.cx && self.cy == other.cy
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_2DREGION {}
@@ -4889,7 +4827,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_ADAPTER_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_ADAPTER_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_ADAPTER_NAME>()) == 0 }
+        self.header == other.header && self.adapterDevicePath == other.adapterDevicePath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4929,7 +4867,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_DESKTOP_IMAGE_INFO>()) == 0 }
+        self.PathSourceSize == other.PathSourceSize && self.DesktopImageRegion == other.DesktopImageRegion && self.DesktopImageClip == other.DesktopImageClip
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4970,7 +4908,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_DEVICE_INFO_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_DEVICE_INFO_HEADER>()) == 0 }
+        self.r#type == other.r#type && self.size == other.size && self.adapterId == other.adapterId && self.id == other.id
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5003,14 +4941,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5035,14 +4965,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     fn default() -> Self {
@@ -5076,7 +4998,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5107,14 +5029,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5139,14 +5053,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     fn default() -> Self {
@@ -5180,7 +5086,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5213,14 +5119,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_MODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_MODE_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_MODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_MODE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5247,14 +5145,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_MODE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_MODE_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_MODE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_MODE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5280,14 +5170,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_INFO {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_PATH_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_PATH_INFO {
     fn default() -> Self {
@@ -5316,14 +5198,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_PATH_SOURCE_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_SOURCE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_PATH_SOURCE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5348,14 +5222,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_PATH_SOURCE_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     fn default() -> Self {
@@ -5389,7 +5255,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_PATH_SOURCE_INFO_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5428,14 +5294,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_TARGET_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_PATH_TARGET_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_TARGET_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_PATH_TARGET_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5460,14 +5318,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_PATH_TARGET_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_PATH_TARGET_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     fn default() -> Self {
@@ -5501,7 +5351,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_PATH_TARGET_INFO_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5534,7 +5384,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_RATIONAL {
 }
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_RATIONAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_RATIONAL>()) == 0 }
+        self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_RATIONAL {}
@@ -5571,7 +5421,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SDR_WHITE_LEVEL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_SDR_WHITE_LEVEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SDR_WHITE_LEVEL>()) == 0 }
+        self.header == other.header && self.SDRWhiteLevel == other.SDRWhiteLevel
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5602,14 +5452,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5634,14 +5476,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     fn default() -> Self {
@@ -5675,7 +5509,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5709,14 +5543,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5741,14 +5567,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     fn default() -> Self {
@@ -5782,7 +5600,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5813,14 +5631,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_TARGET_PERSISTENCE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5845,14 +5655,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     fn default() -> Self {
@@ -5886,7 +5688,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5925,7 +5727,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SOURCE_DEVICE_NAME>()) == 0 }
+        self.header == other.header && self.viewGdiDeviceName == other.viewGdiDeviceName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5966,7 +5768,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SOURCE_MODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_SOURCE_MODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SOURCE_MODE>()) == 0 }
+        self.width == other.width && self.height == other.height && self.pixelFormat == other.pixelFormat && self.position == other.position
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5997,14 +5799,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6029,14 +5823,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     fn default() -> Self {
@@ -6070,7 +5856,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6109,7 +5895,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_BASE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_BASE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_TARGET_BASE_TYPE>()) == 0 }
+        self.header == other.header && self.baseOutputTechnology == other.baseOutputTechnology
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6146,14 +5932,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_TARGET_DEVICE_NAME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_TARGET_DEVICE_NAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6173,12 +5951,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {}
 impl ::core::default::Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6199,12 +5971,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {}
 impl ::core::default::Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6231,7 +5997,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 
 }
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {}
@@ -6254,12 +6020,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_MODE {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_MODE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_TARGET_MODE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_MODE {}
 impl ::core::default::Default for DISPLAYCONFIG_TARGET_MODE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6287,14 +6047,6 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_TARGET_PREFERRED_MODE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6320,12 +6072,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_VIDEO_SIGNAL_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {}
 impl ::core::default::Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6346,12 +6092,6 @@ impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
 unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {}
 impl ::core::default::Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6378,7 +6118,7 @@ unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
 }
 impl ::core::cmp::PartialEq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {}
@@ -6410,7 +6150,7 @@ unsafe impl ::windows::core::Abi for DISPLAY_BRIGHTNESS {
 }
 impl ::core::cmp::PartialEq for DISPLAY_BRIGHTNESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPLAY_BRIGHTNESS>()) == 0 }
+        self.ucDisplayPolicy == other.ucDisplayPolicy && self.ucACBrightness == other.ucACBrightness && self.ucDCBrightness == other.ucDCBrightness
     }
 }
 impl ::core::cmp::Eq for DISPLAY_BRIGHTNESS {}
@@ -6447,7 +6187,7 @@ unsafe impl ::windows::core::Abi for DRH_APIBITMAPDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRH_APIBITMAPDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRH_APIBITMAPDATA>()) == 0 }
+        self.pso == other.pso && self.b == other.b
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6478,21 +6218,13 @@ impl ::core::clone::Clone for DRIVEROBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRIVEROBJ {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRIVEROBJ").field("pvObj", &self.pvObj).field("pFreeProc", &self.pFreeProc.map(|f| f as usize)).field("hdev", &self.hdev).field("dhpdev", &self.dhpdev).finish()
+        f.debug_struct("DRIVEROBJ").field("pvObj", &self.pvObj).field("hdev", &self.hdev).field("dhpdev", &self.dhpdev).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVEROBJ {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DRIVEROBJ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRIVEROBJ>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DRIVEROBJ {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRIVEROBJ {
     fn default() -> Self {
@@ -6522,7 +6254,7 @@ unsafe impl ::windows::core::Abi for DRVENABLEDATA {
 }
 impl ::core::cmp::PartialEq for DRVENABLEDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVENABLEDATA>()) == 0 }
+        self.iDriverVersion == other.iDriverVersion && self.c == other.c && self.pdrvfn == other.pdrvfn
     }
 }
 impl ::core::cmp::Eq for DRVENABLEDATA {}
@@ -6545,18 +6277,12 @@ impl ::core::clone::Clone for DRVFN {
 }
 impl ::core::fmt::Debug for DRVFN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DRVFN").field("iFunc", &self.iFunc).field("pfn", &self.pfn.map(|f| f as usize)).finish()
+        f.debug_struct("DRVFN").field("iFunc", &self.iFunc).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DRVFN {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DRVFN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVFN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRVFN {}
 impl ::core::default::Default for DRVFN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6587,7 +6313,7 @@ unsafe impl ::windows::core::Abi for DXGK_WIN32K_PARAM_DATA {
 }
 impl ::core::cmp::PartialEq for DXGK_WIN32K_PARAM_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGK_WIN32K_PARAM_DATA>()) == 0 }
+        self.PathsArray == other.PathsArray && self.ModesArray == other.ModesArray && self.NumPathArrayElements == other.NumPathArrayElements && self.NumModeArrayElements == other.NumModeArrayElements && self.SDCFlags == other.SDCFlags
     }
 }
 impl ::core::cmp::Eq for DXGK_WIN32K_PARAM_DATA {}
@@ -6616,14 +6342,6 @@ unsafe impl ::windows::core::Abi for DisplayMode {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for DisplayMode {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DisplayMode>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for DisplayMode {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DisplayMode {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6648,14 +6366,6 @@ impl ::core::clone::Clone for DisplayModes {
 unsafe impl ::windows::core::Abi for DisplayModes {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for DisplayModes {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DisplayModes>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for DisplayModes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DisplayModes {
     fn default() -> Self {
@@ -6692,7 +6402,7 @@ unsafe impl ::windows::core::Abi for EMFINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMFINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMFINFO>()) == 0 }
+        self.nSize == other.nSize && self.hdc == other.hdc && self.pvEMF == other.pvEMF && self.pvCurrentRecord == other.pvCurrentRecord
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6725,7 +6435,7 @@ unsafe impl ::windows::core::Abi for ENGSAFESEMAPHORE {
 }
 impl ::core::cmp::PartialEq for ENGSAFESEMAPHORE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENGSAFESEMAPHORE>()) == 0 }
+        self.hsem == other.hsem && self.lCount == other.lCount
     }
 }
 impl ::core::cmp::Eq for ENGSAFESEMAPHORE {}
@@ -6756,7 +6466,7 @@ unsafe impl ::windows::core::Abi for ENG_EVENT {
 }
 impl ::core::cmp::PartialEq for ENG_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENG_EVENT>()) == 0 }
+        self.pKEvent == other.pKEvent && self.fFlags == other.fFlags
     }
 }
 impl ::core::cmp::Eq for ENG_EVENT {}
@@ -6793,7 +6503,7 @@ unsafe impl ::windows::core::Abi for ENG_TIME_FIELDS {
 }
 impl ::core::cmp::PartialEq for ENG_TIME_FIELDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENG_TIME_FIELDS>()) == 0 }
+        self.usYear == other.usYear && self.usMonth == other.usMonth && self.usDay == other.usDay && self.usHour == other.usHour && self.usMinute == other.usMinute && self.usSecond == other.usSecond && self.usMilliseconds == other.usMilliseconds && self.usWeekday == other.usWeekday
     }
 }
 impl ::core::cmp::Eq for ENG_TIME_FIELDS {}
@@ -6830,7 +6540,7 @@ unsafe impl ::windows::core::Abi for ENUMRECTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENUMRECTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUMRECTS>()) == 0 }
+        self.c == other.c && self.arcl == other.arcl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6912,7 +6622,28 @@ unsafe impl ::windows::core::Abi for FD_DEVICEMETRICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FD_DEVICEMETRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_DEVICEMETRICS>()) == 0 }
+        self.flRealizedType == other.flRealizedType
+            && self.pteBase == other.pteBase
+            && self.pteSide == other.pteSide
+            && self.lD == other.lD
+            && self.fxMaxAscender == other.fxMaxAscender
+            && self.fxMaxDescender == other.fxMaxDescender
+            && self.ptlUnderline1 == other.ptlUnderline1
+            && self.ptlStrikeOut == other.ptlStrikeOut
+            && self.ptlULThickness == other.ptlULThickness
+            && self.ptlSOThickness == other.ptlSOThickness
+            && self.cxMax == other.cxMax
+            && self.cyMax == other.cyMax
+            && self.cjGlyphMax == other.cjGlyphMax
+            && self.fdxQuantized == other.fdxQuantized
+            && self.lNonLinearExtLeading == other.lNonLinearExtLeading
+            && self.lNonLinearIntLeading == other.lNonLinearIntLeading
+            && self.lNonLinearMaxCharWidth == other.lNonLinearMaxCharWidth
+            && self.lNonLinearAvgCharWidth == other.lNonLinearAvgCharWidth
+            && self.lMinA == other.lMinA
+            && self.lMinC == other.lMinC
+            && self.lMinD == other.lMinD
+            && self.alReserved == other.alReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6947,7 +6678,7 @@ unsafe impl ::windows::core::Abi for FD_GLYPHATTR {
 }
 impl ::core::cmp::PartialEq for FD_GLYPHATTR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_GLYPHATTR>()) == 0 }
+        self.cjThis == other.cjThis && self.cGlyphs == other.cGlyphs && self.iMode == other.iMode && self.aGlyphAttr == other.aGlyphAttr
     }
 }
 impl ::core::cmp::Eq for FD_GLYPHATTR {}
@@ -6981,7 +6712,7 @@ unsafe impl ::windows::core::Abi for FD_GLYPHSET {
 }
 impl ::core::cmp::PartialEq for FD_GLYPHSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_GLYPHSET>()) == 0 }
+        self.cjThis == other.cjThis && self.flAccel == other.flAccel && self.cGlyphsSupported == other.cGlyphsSupported && self.cRuns == other.cRuns && self.awcrun == other.awcrun
     }
 }
 impl ::core::cmp::Eq for FD_GLYPHSET {}
@@ -7013,7 +6744,7 @@ unsafe impl ::windows::core::Abi for FD_KERNINGPAIR {
 }
 impl ::core::cmp::PartialEq for FD_KERNINGPAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_KERNINGPAIR>()) == 0 }
+        self.wcFirst == other.wcFirst && self.wcSecond == other.wcSecond && self.fwdKern == other.fwdKern
     }
 }
 impl ::core::cmp::Eq for FD_KERNINGPAIR {}
@@ -7046,7 +6777,7 @@ unsafe impl ::windows::core::Abi for FD_LIGATURE {
 }
 impl ::core::cmp::PartialEq for FD_LIGATURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_LIGATURE>()) == 0 }
+        self.culThis == other.culThis && self.ulType == other.ulType && self.cLigatures == other.cLigatures && self.alig == other.alig
     }
 }
 impl ::core::cmp::Eq for FD_LIGATURE {}
@@ -7085,7 +6816,7 @@ unsafe impl ::windows::core::Abi for FD_XFORM {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for FD_XFORM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_XFORM>()) == 0 }
+        self.eXX == other.eXX && self.eXY == other.eXY && self.eYX == other.eYX && self.eYY == other.eYY
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -7126,7 +6857,7 @@ unsafe impl ::windows::core::Abi for FD_XFORM {
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FD_XFORM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_XFORM>()) == 0 }
+        self.eXX == other.eXX && self.eXY == other.eXY && self.eYX == other.eYX && self.eYY == other.eYY
     }
 }
 #[cfg(target_arch = "x86")]
@@ -7165,7 +6896,7 @@ unsafe impl ::windows::core::Abi for FLOATOBJ {
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FLOATOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOATOBJ>()) == 0 }
+        self.ul1 == other.ul1 && self.ul2 == other.ul2
     }
 }
 #[cfg(target_arch = "x86")]
@@ -7208,7 +6939,7 @@ unsafe impl ::windows::core::Abi for FLOATOBJ_XFORM {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for FLOATOBJ_XFORM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOATOBJ_XFORM>()) == 0 }
+        self.eM11 == other.eM11 && self.eM12 == other.eM12 && self.eM21 == other.eM21 && self.eM22 == other.eM22 && self.eDx == other.eDx && self.eDy == other.eDy
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -7251,7 +6982,7 @@ unsafe impl ::windows::core::Abi for FLOATOBJ_XFORM {
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FLOATOBJ_XFORM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOATOBJ_XFORM>()) == 0 }
+        self.eM11 == other.eM11 && self.eM12 == other.eM12 && self.eM21 == other.eM21 && self.eM22 == other.eM22 && self.eDx == other.eDx && self.eDy == other.eDy
     }
 }
 #[cfg(target_arch = "x86")]
@@ -7282,14 +7013,6 @@ unsafe impl ::windows::core::Abi for FLOAT_LONG {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for FLOAT_LONG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOAT_LONG>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for FLOAT_LONG {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FLOAT_LONG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7314,14 +7037,6 @@ impl ::core::clone::Clone for FLOAT_LONG {
 unsafe impl ::windows::core::Abi for FLOAT_LONG {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for FLOAT_LONG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOAT_LONG>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for FLOAT_LONG {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for FLOAT_LONG {
     fn default() -> Self {
@@ -7363,7 +7078,7 @@ unsafe impl ::windows::core::Abi for FONTDIFF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FONTDIFF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FONTDIFF>()) == 0 }
+        self.jReserved1 == other.jReserved1 && self.jReserved2 == other.jReserved2 && self.jReserved3 == other.jReserved3 && self.bWeight == other.bWeight && self.usWinWeight == other.usWinWeight && self.fsSelection == other.fsSelection && self.fwdAveCharWidth == other.fwdAveCharWidth && self.fwdMaxCharInc == other.fwdMaxCharInc && self.ptlCaret == other.ptlCaret
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7401,7 +7116,7 @@ unsafe impl ::windows::core::Abi for FONTINFO {
 }
 impl ::core::cmp::PartialEq for FONTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FONTINFO>()) == 0 }
+        self.cjThis == other.cjThis && self.flCaps == other.flCaps && self.cGlyphsSupported == other.cGlyphsSupported && self.cjMaxGlyph1 == other.cjMaxGlyph1 && self.cjMaxGlyph4 == other.cjMaxGlyph4 && self.cjMaxGlyph8 == other.cjMaxGlyph8 && self.cjMaxGlyph32 == other.cjMaxGlyph32
     }
 }
 impl ::core::cmp::Eq for FONTINFO {}
@@ -7446,7 +7161,7 @@ unsafe impl ::windows::core::Abi for FONTOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FONTOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FONTOBJ>()) == 0 }
+        self.iUniq == other.iUniq && self.iFace == other.iFace && self.cxMax == other.cxMax && self.flFontType == other.flFontType && self.iTTUniq == other.iTTUniq && self.iFile == other.iFile && self.sizLogResPpi == other.sizLogResPpi && self.ulStyleSize == other.ulStyleSize && self.pvConsumer == other.pvConsumer && self.pvProducer == other.pvProducer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7480,7 +7195,7 @@ unsafe impl ::windows::core::Abi for FONTSIM {
 }
 impl ::core::cmp::PartialEq for FONTSIM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FONTSIM>()) == 0 }
+        self.dpBold == other.dpBold && self.dpItalic == other.dpItalic && self.dpBoldItalic == other.dpBoldItalic
     }
 }
 impl ::core::cmp::Eq for FONTSIM {}
@@ -7517,7 +7232,7 @@ unsafe impl ::windows::core::Abi for FONT_IMAGE_INFO {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::PartialEq for FONT_IMAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FONT_IMAGE_INFO>()) == 0 }
+        self.FontSize == other.FontSize && self.ImageBits == other.ImageBits
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -7557,7 +7272,7 @@ unsafe impl ::windows::core::Abi for FSCNTL_SCREEN_INFO {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::PartialEq for FSCNTL_SCREEN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FSCNTL_SCREEN_INFO>()) == 0 }
+        self.Position == other.Position && self.ScreenSize == other.ScreenSize && self.nNumberOfChars == other.nNumberOfChars
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -7596,7 +7311,7 @@ unsafe impl ::windows::core::Abi for FSVIDEO_COPY_FRAME_BUFFER {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::PartialEq for FSVIDEO_COPY_FRAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FSVIDEO_COPY_FRAME_BUFFER>()) == 0 }
+        self.SrcScreen == other.SrcScreen && self.DestScreen == other.DestScreen
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -7629,7 +7344,7 @@ unsafe impl ::windows::core::Abi for FSVIDEO_CURSOR_POSITION {
 }
 impl ::core::cmp::PartialEq for FSVIDEO_CURSOR_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FSVIDEO_CURSOR_POSITION>()) == 0 }
+        self.Coord == other.Coord && self.dwType == other.dwType
     }
 }
 impl ::core::cmp::Eq for FSVIDEO_CURSOR_POSITION {}
@@ -7660,7 +7375,7 @@ unsafe impl ::windows::core::Abi for FSVIDEO_MODE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for FSVIDEO_MODE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FSVIDEO_MODE_INFORMATION>()) == 0 }
+        self.VideoMode == other.VideoMode && self.VideoMemory == other.VideoMemory
     }
 }
 impl ::core::cmp::Eq for FSVIDEO_MODE_INFORMATION {}
@@ -7697,7 +7412,7 @@ unsafe impl ::windows::core::Abi for FSVIDEO_REVERSE_MOUSE_POINTER {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::PartialEq for FSVIDEO_REVERSE_MOUSE_POINTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FSVIDEO_REVERSE_MOUSE_POINTER>()) == 0 }
+        self.Screen == other.Screen && self.dwType == other.dwType
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -7736,7 +7451,7 @@ unsafe impl ::windows::core::Abi for FSVIDEO_SCREEN_INFORMATION {
 #[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::PartialEq for FSVIDEO_SCREEN_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FSVIDEO_SCREEN_INFORMATION>()) == 0 }
+        self.ScreenSize == other.ScreenSize && self.FontSize == other.FontSize
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -7775,7 +7490,7 @@ unsafe impl ::windows::core::Abi for FSVIDEO_WRITE_TO_FRAME_BUFFER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::core::cmp::PartialEq for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FSVIDEO_WRITE_TO_FRAME_BUFFER>()) == 0 }
+        self.SrcBuffer == other.SrcBuffer && self.DestScreen == other.DestScreen
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
@@ -7809,7 +7524,7 @@ unsafe impl ::windows::core::Abi for GAMMARAMP {
 }
 impl ::core::cmp::PartialEq for GAMMARAMP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GAMMARAMP>()) == 0 }
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue
     }
 }
 impl ::core::cmp::Eq for GAMMARAMP {}
@@ -7841,7 +7556,7 @@ unsafe impl ::windows::core::Abi for GAMMA_RAMP_DXGI_1 {
 }
 impl ::core::cmp::PartialEq for GAMMA_RAMP_DXGI_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GAMMA_RAMP_DXGI_1>()) == 0 }
+        self.Scale == other.Scale && self.Offset == other.Offset && self.GammaCurve == other.GammaCurve
     }
 }
 impl ::core::cmp::Eq for GAMMA_RAMP_DXGI_1 {}
@@ -7873,7 +7588,7 @@ unsafe impl ::windows::core::Abi for GAMMA_RAMP_RGB {
 }
 impl ::core::cmp::PartialEq for GAMMA_RAMP_RGB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GAMMA_RAMP_RGB>()) == 0 }
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue
     }
 }
 impl ::core::cmp::Eq for GAMMA_RAMP_RGB {}
@@ -7905,7 +7620,7 @@ unsafe impl ::windows::core::Abi for GAMMA_RAMP_RGB256x3x16 {
 }
 impl ::core::cmp::PartialEq for GAMMA_RAMP_RGB256x3x16 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GAMMA_RAMP_RGB256x3x16>()) == 0 }
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue
     }
 }
 impl ::core::cmp::Eq for GAMMA_RAMP_RGB256x3x16 {}
@@ -8031,7 +7746,51 @@ unsafe impl ::windows::core::Abi for GDIINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GDIINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GDIINFO>()) == 0 }
+        self.ulVersion == other.ulVersion
+            && self.ulTechnology == other.ulTechnology
+            && self.ulHorzSize == other.ulHorzSize
+            && self.ulVertSize == other.ulVertSize
+            && self.ulHorzRes == other.ulHorzRes
+            && self.ulVertRes == other.ulVertRes
+            && self.cBitsPixel == other.cBitsPixel
+            && self.cPlanes == other.cPlanes
+            && self.ulNumColors == other.ulNumColors
+            && self.flRaster == other.flRaster
+            && self.ulLogPixelsX == other.ulLogPixelsX
+            && self.ulLogPixelsY == other.ulLogPixelsY
+            && self.flTextCaps == other.flTextCaps
+            && self.ulDACRed == other.ulDACRed
+            && self.ulDACGreen == other.ulDACGreen
+            && self.ulDACBlue == other.ulDACBlue
+            && self.ulAspectX == other.ulAspectX
+            && self.ulAspectY == other.ulAspectY
+            && self.ulAspectXY == other.ulAspectXY
+            && self.xStyleStep == other.xStyleStep
+            && self.yStyleStep == other.yStyleStep
+            && self.denStyleStep == other.denStyleStep
+            && self.ptlPhysOffset == other.ptlPhysOffset
+            && self.szlPhysSize == other.szlPhysSize
+            && self.ulNumPalReg == other.ulNumPalReg
+            && self.ciDevice == other.ciDevice
+            && self.ulDevicePelsDPI == other.ulDevicePelsDPI
+            && self.ulPrimaryOrder == other.ulPrimaryOrder
+            && self.ulHTPatternSize == other.ulHTPatternSize
+            && self.ulHTOutputFormat == other.ulHTOutputFormat
+            && self.flHTFlags == other.flHTFlags
+            && self.ulVRefresh == other.ulVRefresh
+            && self.ulBltAlignment == other.ulBltAlignment
+            && self.ulPanningHorzRes == other.ulPanningHorzRes
+            && self.ulPanningVertRes == other.ulPanningVertRes
+            && self.xPanningAlignment == other.xPanningAlignment
+            && self.yPanningAlignment == other.yPanningAlignment
+            && self.cxHTPat == other.cxHTPat
+            && self.cyHTPat == other.cyHTPat
+            && self.pHTPatA == other.pHTPatA
+            && self.pHTPatB == other.pHTPatB
+            && self.pHTPatC == other.pHTPatC
+            && self.flShadeBlend == other.flShadeBlend
+            && self.ulPhysicalPixelCharacteristics == other.ulPhysicalPixelCharacteristics
+            && self.ulPhysicalPixelGamma == other.ulPhysicalPixelGamma
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8071,7 +7830,7 @@ unsafe impl ::windows::core::Abi for GLYPHBITS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLYPHBITS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLYPHBITS>()) == 0 }
+        self.ptlOrigin == other.ptlOrigin && self.sizlBitmap == other.sizlBitmap && self.aj == other.aj
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8109,14 +7868,6 @@ unsafe impl ::windows::core::Abi for GLYPHDATA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GLYPHDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLYPHDATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GLYPHDATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GLYPHDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8141,14 +7892,6 @@ impl ::core::clone::Clone for GLYPHDEF {
 unsafe impl ::windows::core::Abi for GLYPHDEF {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GLYPHDEF {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLYPHDEF>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GLYPHDEF {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GLYPHDEF {
     fn default() -> Self {
@@ -8184,7 +7927,7 @@ unsafe impl ::windows::core::Abi for GLYPHPOS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLYPHPOS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLYPHPOS>()) == 0 }
+        self.hg == other.hg && self.pgdf == other.pgdf && self.ptl == other.ptl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8413,7 +8156,7 @@ unsafe impl ::windows::core::Abi for IFIEXTRA {
 }
 impl ::core::cmp::PartialEq for IFIEXTRA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFIEXTRA>()) == 0 }
+        self.ulIdentifier == other.ulIdentifier && self.dpFontSig == other.dpFontSig && self.cig == other.cig && self.dpDesignVector == other.dpDesignVector && self.dpAxesInfoW == other.dpAxesInfoW && self.aulReserved == other.aulReserved
     }
 }
 impl ::core::cmp::Eq for IFIEXTRA {}
@@ -8575,7 +8318,66 @@ unsafe impl ::windows::core::Abi for IFIMETRICS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IFIMETRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFIMETRICS>()) == 0 }
+        self.cjThis == other.cjThis
+            && self.cjIfiExtra == other.cjIfiExtra
+            && self.dpwszFamilyName == other.dpwszFamilyName
+            && self.dpwszStyleName == other.dpwszStyleName
+            && self.dpwszFaceName == other.dpwszFaceName
+            && self.dpwszUniqueName == other.dpwszUniqueName
+            && self.dpFontSim == other.dpFontSim
+            && self.lEmbedId == other.lEmbedId
+            && self.lItalicAngle == other.lItalicAngle
+            && self.lCharBias == other.lCharBias
+            && self.dpCharSets == other.dpCharSets
+            && self.jWinCharSet == other.jWinCharSet
+            && self.jWinPitchAndFamily == other.jWinPitchAndFamily
+            && self.usWinWeight == other.usWinWeight
+            && self.flInfo == other.flInfo
+            && self.fsSelection == other.fsSelection
+            && self.fsType == other.fsType
+            && self.fwdUnitsPerEm == other.fwdUnitsPerEm
+            && self.fwdLowestPPEm == other.fwdLowestPPEm
+            && self.fwdWinAscender == other.fwdWinAscender
+            && self.fwdWinDescender == other.fwdWinDescender
+            && self.fwdMacAscender == other.fwdMacAscender
+            && self.fwdMacDescender == other.fwdMacDescender
+            && self.fwdMacLineGap == other.fwdMacLineGap
+            && self.fwdTypoAscender == other.fwdTypoAscender
+            && self.fwdTypoDescender == other.fwdTypoDescender
+            && self.fwdTypoLineGap == other.fwdTypoLineGap
+            && self.fwdAveCharWidth == other.fwdAveCharWidth
+            && self.fwdMaxCharInc == other.fwdMaxCharInc
+            && self.fwdCapHeight == other.fwdCapHeight
+            && self.fwdXHeight == other.fwdXHeight
+            && self.fwdSubscriptXSize == other.fwdSubscriptXSize
+            && self.fwdSubscriptYSize == other.fwdSubscriptYSize
+            && self.fwdSubscriptXOffset == other.fwdSubscriptXOffset
+            && self.fwdSubscriptYOffset == other.fwdSubscriptYOffset
+            && self.fwdSuperscriptXSize == other.fwdSuperscriptXSize
+            && self.fwdSuperscriptYSize == other.fwdSuperscriptYSize
+            && self.fwdSuperscriptXOffset == other.fwdSuperscriptXOffset
+            && self.fwdSuperscriptYOffset == other.fwdSuperscriptYOffset
+            && self.fwdUnderscoreSize == other.fwdUnderscoreSize
+            && self.fwdUnderscorePosition == other.fwdUnderscorePosition
+            && self.fwdStrikeoutSize == other.fwdStrikeoutSize
+            && self.fwdStrikeoutPosition == other.fwdStrikeoutPosition
+            && self.chFirstChar == other.chFirstChar
+            && self.chLastChar == other.chLastChar
+            && self.chDefaultChar == other.chDefaultChar
+            && self.chBreakChar == other.chBreakChar
+            && self.wcFirstChar == other.wcFirstChar
+            && self.wcLastChar == other.wcLastChar
+            && self.wcDefaultChar == other.wcDefaultChar
+            && self.wcBreakChar == other.wcBreakChar
+            && self.ptlBaseline == other.ptlBaseline
+            && self.ptlAspect == other.ptlAspect
+            && self.ptlCaret == other.ptlCaret
+            && self.rclFontBox == other.rclFontBox
+            && self.achVendId == other.achVendId
+            && self.cKerningPairs == other.cKerningPairs
+            && self.ulPanoseCulture == other.ulPanoseCulture
+            && self.panose == other.panose
+            && self.Align == other.Align
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8739,7 +8541,65 @@ unsafe impl ::windows::core::Abi for IFIMETRICS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IFIMETRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFIMETRICS>()) == 0 }
+        self.cjThis == other.cjThis
+            && self.cjIfiExtra == other.cjIfiExtra
+            && self.dpwszFamilyName == other.dpwszFamilyName
+            && self.dpwszStyleName == other.dpwszStyleName
+            && self.dpwszFaceName == other.dpwszFaceName
+            && self.dpwszUniqueName == other.dpwszUniqueName
+            && self.dpFontSim == other.dpFontSim
+            && self.lEmbedId == other.lEmbedId
+            && self.lItalicAngle == other.lItalicAngle
+            && self.lCharBias == other.lCharBias
+            && self.dpCharSets == other.dpCharSets
+            && self.jWinCharSet == other.jWinCharSet
+            && self.jWinPitchAndFamily == other.jWinPitchAndFamily
+            && self.usWinWeight == other.usWinWeight
+            && self.flInfo == other.flInfo
+            && self.fsSelection == other.fsSelection
+            && self.fsType == other.fsType
+            && self.fwdUnitsPerEm == other.fwdUnitsPerEm
+            && self.fwdLowestPPEm == other.fwdLowestPPEm
+            && self.fwdWinAscender == other.fwdWinAscender
+            && self.fwdWinDescender == other.fwdWinDescender
+            && self.fwdMacAscender == other.fwdMacAscender
+            && self.fwdMacDescender == other.fwdMacDescender
+            && self.fwdMacLineGap == other.fwdMacLineGap
+            && self.fwdTypoAscender == other.fwdTypoAscender
+            && self.fwdTypoDescender == other.fwdTypoDescender
+            && self.fwdTypoLineGap == other.fwdTypoLineGap
+            && self.fwdAveCharWidth == other.fwdAveCharWidth
+            && self.fwdMaxCharInc == other.fwdMaxCharInc
+            && self.fwdCapHeight == other.fwdCapHeight
+            && self.fwdXHeight == other.fwdXHeight
+            && self.fwdSubscriptXSize == other.fwdSubscriptXSize
+            && self.fwdSubscriptYSize == other.fwdSubscriptYSize
+            && self.fwdSubscriptXOffset == other.fwdSubscriptXOffset
+            && self.fwdSubscriptYOffset == other.fwdSubscriptYOffset
+            && self.fwdSuperscriptXSize == other.fwdSuperscriptXSize
+            && self.fwdSuperscriptYSize == other.fwdSuperscriptYSize
+            && self.fwdSuperscriptXOffset == other.fwdSuperscriptXOffset
+            && self.fwdSuperscriptYOffset == other.fwdSuperscriptYOffset
+            && self.fwdUnderscoreSize == other.fwdUnderscoreSize
+            && self.fwdUnderscorePosition == other.fwdUnderscorePosition
+            && self.fwdStrikeoutSize == other.fwdStrikeoutSize
+            && self.fwdStrikeoutPosition == other.fwdStrikeoutPosition
+            && self.chFirstChar == other.chFirstChar
+            && self.chLastChar == other.chLastChar
+            && self.chDefaultChar == other.chDefaultChar
+            && self.chBreakChar == other.chBreakChar
+            && self.wcFirstChar == other.wcFirstChar
+            && self.wcLastChar == other.wcLastChar
+            && self.wcDefaultChar == other.wcDefaultChar
+            && self.wcBreakChar == other.wcBreakChar
+            && self.ptlBaseline == other.ptlBaseline
+            && self.ptlAspect == other.ptlAspect
+            && self.ptlCaret == other.ptlCaret
+            && self.rclFontBox == other.rclFontBox
+            && self.achVendId == other.achVendId
+            && self.cKerningPairs == other.cKerningPairs
+            && self.ulPanoseCulture == other.ulPanoseCulture
+            && self.panose == other.panose
     }
 }
 #[cfg(target_arch = "x86")]
@@ -8782,7 +8642,7 @@ unsafe impl ::windows::core::Abi for INDIRECT_DISPLAY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INDIRECT_DISPLAY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INDIRECT_DISPLAY_INFO>()) == 0 }
+        self.DisplayAdapterLuid == other.DisplayAdapterLuid && self.Flags == other.Flags && self.NumMonitors == other.NumMonitors && self.DisplayAdapterTargetBase == other.DisplayAdapterTargetBase
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8817,7 +8677,7 @@ unsafe impl ::windows::core::Abi for LIGATURE {
 }
 impl ::core::cmp::PartialEq for LIGATURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE>()) == 0 }
+        self.culSize == other.culSize && self.pwsz == other.pwsz && self.chglyph == other.chglyph && self.ahglyph == other.ahglyph
     }
 }
 impl ::core::cmp::Eq for LIGATURE {}
@@ -8852,14 +8712,6 @@ unsafe impl ::windows::core::Abi for LINEATTRS {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for LINEATTRS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEATTRS>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for LINEATTRS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for LINEATTRS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8891,14 +8743,6 @@ unsafe impl ::windows::core::Abi for LINEATTRS {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for LINEATTRS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEATTRS>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for LINEATTRS {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for LINEATTRS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8920,12 +8764,6 @@ impl ::core::clone::Clone for MC_TIMING_REPORT {
 unsafe impl ::windows::core::Abi for MC_TIMING_REPORT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MC_TIMING_REPORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MC_TIMING_REPORT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MC_TIMING_REPORT {}
 impl ::core::default::Default for MC_TIMING_REPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8988,7 +8826,24 @@ unsafe impl ::windows::core::Abi for MIPI_DSI_CAPS {
 }
 impl ::core::cmp::PartialEq for MIPI_DSI_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_CAPS>()) == 0 }
+        self.DSITypeMajor == other.DSITypeMajor
+            && self.DSITypeMinor == other.DSITypeMinor
+            && self.SpecVersionMajor == other.SpecVersionMajor
+            && self.SpecVersionMinor == other.SpecVersionMinor
+            && self.SpecVersionPatch == other.SpecVersionPatch
+            && self.TargetMaximumReturnPacketSize == other.TargetMaximumReturnPacketSize
+            && self.ResultCodeFlags == other.ResultCodeFlags
+            && self.ResultCodeStatus == other.ResultCodeStatus
+            && self.Revision == other.Revision
+            && self.Level == other.Level
+            && self.DeviceClassHi == other.DeviceClassHi
+            && self.DeviceClassLo == other.DeviceClassLo
+            && self.ManufacturerHi == other.ManufacturerHi
+            && self.ManufacturerLo == other.ManufacturerLo
+            && self.ProductHi == other.ProductHi
+            && self.ProductLo == other.ProductLo
+            && self.LengthHi == other.LengthHi
+            && self.LengthLo == other.LengthLo
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_CAPS {}
@@ -9014,12 +8869,6 @@ impl ::core::clone::Clone for MIPI_DSI_PACKET {
 unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MIPI_DSI_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_PACKET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIPI_DSI_PACKET {}
 impl ::core::default::Default for MIPI_DSI_PACKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9040,12 +8889,6 @@ impl ::core::clone::Clone for MIPI_DSI_PACKET_0 {
 unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_PACKET_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIPI_DSI_PACKET_0 {}
 impl ::core::default::Default for MIPI_DSI_PACKET_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9072,7 +8915,7 @@ unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_0_0 {
 }
 impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_PACKET_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_PACKET_0_0 {}
@@ -9096,12 +8939,6 @@ impl ::core::clone::Clone for MIPI_DSI_PACKET_1 {
 unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_PACKET_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIPI_DSI_PACKET_1 {}
 impl ::core::default::Default for MIPI_DSI_PACKET_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9129,7 +8966,7 @@ unsafe impl ::windows::core::Abi for MIPI_DSI_PACKET_1_0 {
 }
 impl ::core::cmp::PartialEq for MIPI_DSI_PACKET_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_PACKET_1_0>()) == 0 }
+        self.Data0 == other.Data0 && self.Data1 == other.Data1
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_PACKET_1_0 {}
@@ -9153,12 +8990,6 @@ impl ::core::clone::Clone for MIPI_DSI_RESET {
 unsafe impl ::windows::core::Abi for MIPI_DSI_RESET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MIPI_DSI_RESET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_RESET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIPI_DSI_RESET {}
 impl ::core::default::Default for MIPI_DSI_RESET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9179,12 +9010,6 @@ impl ::core::clone::Clone for MIPI_DSI_RESET_0 {
 unsafe impl ::windows::core::Abi for MIPI_DSI_RESET_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MIPI_DSI_RESET_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_RESET_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIPI_DSI_RESET_0 {}
 impl ::core::default::Default for MIPI_DSI_RESET_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9211,7 +9036,7 @@ unsafe impl ::windows::core::Abi for MIPI_DSI_RESET_0_0 {
 }
 impl ::core::cmp::PartialEq for MIPI_DSI_RESET_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_RESET_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_RESET_0_0 {}
@@ -9242,12 +9067,6 @@ impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION {
 unsafe impl ::windows::core::Abi for MIPI_DSI_TRANSMISSION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MIPI_DSI_TRANSMISSION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_TRANSMISSION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIPI_DSI_TRANSMISSION {}
 impl ::core::default::Default for MIPI_DSI_TRANSMISSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9274,7 +9093,7 @@ unsafe impl ::windows::core::Abi for MIPI_DSI_TRANSMISSION_0 {
 }
 impl ::core::cmp::PartialEq for MIPI_DSI_TRANSMISSION_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIPI_DSI_TRANSMISSION_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for MIPI_DSI_TRANSMISSION_0 {}
@@ -9305,7 +9124,7 @@ unsafe impl ::windows::core::Abi for OUTPUT_WIRE_FORMAT {
 }
 impl ::core::cmp::PartialEq for OUTPUT_WIRE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OUTPUT_WIRE_FORMAT>()) == 0 }
+        self.ColorEncoding == other.ColorEncoding && self.BitsPerPixel == other.BitsPerPixel
     }
 }
 impl ::core::cmp::Eq for OUTPUT_WIRE_FORMAT {}
@@ -9335,7 +9154,7 @@ unsafe impl ::windows::core::Abi for PALOBJ {
 }
 impl ::core::cmp::PartialEq for PALOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PALOBJ>()) == 0 }
+        self.ulReserved == other.ulReserved
     }
 }
 impl ::core::cmp::Eq for PALOBJ {}
@@ -9361,12 +9180,6 @@ impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA {
 unsafe impl ::windows::core::Abi for PANEL_BRIGHTNESS_SENSOR_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_BRIGHTNESS_SENSOR_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA {}
 impl ::core::default::Default for PANEL_BRIGHTNESS_SENSOR_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9387,12 +9200,6 @@ impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
 unsafe impl ::windows::core::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_BRIGHTNESS_SENSOR_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA_0 {}
 impl ::core::default::Default for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9419,7 +9226,7 @@ unsafe impl ::windows::core::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
 }
 impl ::core::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_BRIGHTNESS_SENSOR_DATA_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {}
@@ -9451,7 +9258,7 @@ unsafe impl ::windows::core::Abi for PANEL_GET_BACKLIGHT_REDUCTION {
 }
 impl ::core::cmp::PartialEq for PANEL_GET_BACKLIGHT_REDUCTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_GET_BACKLIGHT_REDUCTION>()) == 0 }
+        self.BacklightUsersetting == other.BacklightUsersetting && self.BacklightEffective == other.BacklightEffective && self.GammaRamp == other.GammaRamp
     }
 }
 impl ::core::cmp::Eq for PANEL_GET_BACKLIGHT_REDUCTION {}
@@ -9475,12 +9282,6 @@ impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS {
 unsafe impl ::windows::core::Abi for PANEL_GET_BRIGHTNESS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_GET_BRIGHTNESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_GET_BRIGHTNESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_GET_BRIGHTNESS {}
 impl ::core::default::Default for PANEL_GET_BRIGHTNESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9501,12 +9302,6 @@ impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS_0 {
 unsafe impl ::windows::core::Abi for PANEL_GET_BRIGHTNESS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_GET_BRIGHTNESS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_GET_BRIGHTNESS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_GET_BRIGHTNESS_0 {}
 impl ::core::default::Default for PANEL_GET_BRIGHTNESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9534,7 +9329,7 @@ unsafe impl ::windows::core::Abi for PANEL_GET_BRIGHTNESS_0_0 {
 }
 impl ::core::cmp::PartialEq for PANEL_GET_BRIGHTNESS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_GET_BRIGHTNESS_0_0>()) == 0 }
+        self.CurrentInMillinits == other.CurrentInMillinits && self.TargetInMillinits == other.TargetInMillinits
     }
 }
 impl ::core::cmp::Eq for PANEL_GET_BRIGHTNESS_0_0 {}
@@ -9558,12 +9353,6 @@ impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS {
 unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_CAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_QUERY_BRIGHTNESS_CAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS {}
 impl ::core::default::Default for PANEL_QUERY_BRIGHTNESS_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9584,12 +9373,6 @@ impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
 unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_QUERY_BRIGHTNESS_CAPS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS_0 {}
 impl ::core::default::Default for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9616,7 +9399,7 @@ unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
 }
 impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_QUERY_BRIGHTNESS_CAPS_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {}
@@ -9640,12 +9423,6 @@ impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES {
 unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_RANGES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_RANGES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_QUERY_BRIGHTNESS_RANGES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_RANGES {}
 impl ::core::default::Default for PANEL_QUERY_BRIGHTNESS_RANGES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9666,12 +9443,6 @@ impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
 unsafe impl ::windows::core::Abi for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_QUERY_BRIGHTNESS_RANGES_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_QUERY_BRIGHTNESS_RANGES_0 {}
 impl ::core::default::Default for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9698,7 +9469,7 @@ unsafe impl ::windows::core::Abi for PANEL_SET_BACKLIGHT_OPTIMIZATION {
 }
 impl ::core::cmp::PartialEq for PANEL_SET_BACKLIGHT_OPTIMIZATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_SET_BACKLIGHT_OPTIMIZATION>()) == 0 }
+        self.Level == other.Level
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BACKLIGHT_OPTIMIZATION {}
@@ -9722,12 +9493,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS {
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_SET_BRIGHTNESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS {}
 impl ::core::default::Default for PANEL_SET_BRIGHTNESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9748,12 +9513,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0 {
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_SET_BRIGHTNESS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_0 {}
 impl ::core::default::Default for PANEL_SET_BRIGHTNESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9775,12 +9534,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0_0 {
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_SET_BRIGHTNESS_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_0_0 {}
 impl ::core::default::Default for PANEL_SET_BRIGHTNESS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9800,12 +9553,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE {
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_STATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_SET_BRIGHTNESS_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE {}
 impl ::core::default::Default for PANEL_SET_BRIGHTNESS_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9826,12 +9573,6 @@ impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE_0 {
 unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_STATE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_SET_BRIGHTNESS_STATE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE_0 {}
 impl ::core::default::Default for PANEL_SET_BRIGHTNESS_STATE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9858,7 +9599,7 @@ unsafe impl ::windows::core::Abi for PANEL_SET_BRIGHTNESS_STATE_0_0 {
 }
 impl ::core::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PANEL_SET_BRIGHTNESS_STATE_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE_0_0 {}
@@ -9890,7 +9631,7 @@ unsafe impl ::windows::core::Abi for PATHDATA {
 }
 impl ::core::cmp::PartialEq for PATHDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATHDATA>()) == 0 }
+        self.flags == other.flags && self.count == other.count && self.pptfx == other.pptfx
     }
 }
 impl ::core::cmp::Eq for PATHDATA {}
@@ -9921,7 +9662,7 @@ unsafe impl ::windows::core::Abi for PATHOBJ {
 }
 impl ::core::cmp::PartialEq for PATHOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATHOBJ>()) == 0 }
+        self.fl == other.fl && self.cCurves == other.cCurves
     }
 }
 impl ::core::cmp::Eq for PATHOBJ {}
@@ -9960,7 +9701,7 @@ unsafe impl ::windows::core::Abi for PERBANDINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERBANDINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PERBANDINFO>()) == 0 }
+        self.bRepeatThisBand == other.bRepeatThisBand && self.szlBand == other.szlBand && self.ulHorzRes == other.ulHorzRes && self.ulVertRes == other.ulVertRes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9990,14 +9731,6 @@ impl ::core::clone::Clone for PHYSICAL_MONITOR {
 unsafe impl ::windows::core::Abi for PHYSICAL_MONITOR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PHYSICAL_MONITOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHYSICAL_MONITOR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PHYSICAL_MONITOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PHYSICAL_MONITOR {
     fn default() -> Self {
@@ -10032,7 +9765,7 @@ unsafe impl ::windows::core::Abi for POINTE {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for POINTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTE>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10071,7 +9804,7 @@ unsafe impl ::windows::core::Abi for POINTE {
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for POINTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTE>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 #[cfg(target_arch = "x86")]
@@ -10104,7 +9837,7 @@ unsafe impl ::windows::core::Abi for POINTFIX {
 }
 impl ::core::cmp::PartialEq for POINTFIX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTFIX>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for POINTFIX {}
@@ -10135,7 +9868,7 @@ unsafe impl ::windows::core::Abi for POINTQF {
 }
 impl ::core::cmp::PartialEq for POINTQF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTQF>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for POINTQF {}
@@ -10168,7 +9901,7 @@ unsafe impl ::windows::core::Abi for RECTFX {
 }
 impl ::core::cmp::PartialEq for RECTFX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECTFX>()) == 0 }
+        self.xLeft == other.xLeft && self.yTop == other.yTop && self.xRight == other.xRight && self.yBottom == other.yBottom
     }
 }
 impl ::core::cmp::Eq for RECTFX {}
@@ -10199,7 +9932,7 @@ unsafe impl ::windows::core::Abi for RUN {
 }
 impl ::core::cmp::PartialEq for RUN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RUN>()) == 0 }
+        self.iStart == other.iStart && self.iStop == other.iStop
     }
 }
 impl ::core::cmp::Eq for RUN {}
@@ -10229,7 +9962,7 @@ unsafe impl ::windows::core::Abi for SET_ACTIVE_COLOR_PROFILE_NAME {
 }
 impl ::core::cmp::PartialEq for SET_ACTIVE_COLOR_PROFILE_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SET_ACTIVE_COLOR_PROFILE_NAME>()) == 0 }
+        self.ColorProfileName == other.ColorProfileName
     }
 }
 impl ::core::cmp::Eq for SET_ACTIVE_COLOR_PROFILE_NAME {}
@@ -10270,7 +10003,7 @@ unsafe impl ::windows::core::Abi for STROBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STROBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STROBJ>()) == 0 }
+        self.cGlyphs == other.cGlyphs && self.flAccel == other.flAccel && self.ulCharInc == other.ulCharInc && self.rclBkGround == other.rclBkGround && self.pgp == other.pgp && self.pwszOrg == other.pwszOrg
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10320,7 +10053,7 @@ unsafe impl ::windows::core::Abi for SURFOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SURFOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SURFOBJ>()) == 0 }
+        self.dhsurf == other.dhsurf && self.hsurf == other.hsurf && self.dhpdev == other.dhpdev && self.hdev == other.hdev && self.sizlBitmap == other.sizlBitmap && self.cjBits == other.cjBits && self.pvBits == other.pvBits && self.pvScan0 == other.pvScan0 && self.lDelta == other.lDelta && self.iUniq == other.iUniq && self.iBitmapFormat == other.iBitmapFormat && self.iType == other.iType && self.fjBitmap == other.fjBitmap
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10354,7 +10087,7 @@ unsafe impl ::windows::core::Abi for Sources {
 }
 impl ::core::cmp::PartialEq for Sources {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Sources>()) == 0 }
+        self.sourceId == other.sourceId && self.numTargets == other.numTargets && self.aTargets == other.aTargets
     }
 }
 impl ::core::cmp::Eq for Sources {}
@@ -10392,7 +10125,7 @@ unsafe impl ::windows::core::Abi for TYPE1_FONT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TYPE1_FONT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TYPE1_FONT>()) == 0 }
+        self.hPFM == other.hPFM && self.hPFB == other.hPFB && self.ulIdentifier == other.ulIdentifier
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10431,7 +10164,7 @@ unsafe impl ::windows::core::Abi for VGA_CHAR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VGA_CHAR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VGA_CHAR>()) == 0 }
+        self.Char == other.Char && self.Attributes == other.Attributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10509,7 +10242,29 @@ unsafe impl ::windows::core::Abi for VIDEOPARAMETERS {
 }
 impl ::core::cmp::PartialEq for VIDEOPARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOPARAMETERS>()) == 0 }
+        self.Guid == other.Guid
+            && self.dwOffset == other.dwOffset
+            && self.dwCommand == other.dwCommand
+            && self.dwFlags == other.dwFlags
+            && self.dwMode == other.dwMode
+            && self.dwTVStandard == other.dwTVStandard
+            && self.dwAvailableModes == other.dwAvailableModes
+            && self.dwAvailableTVStandard == other.dwAvailableTVStandard
+            && self.dwFlickerFilter == other.dwFlickerFilter
+            && self.dwOverScanX == other.dwOverScanX
+            && self.dwOverScanY == other.dwOverScanY
+            && self.dwMaxUnscaledX == other.dwMaxUnscaledX
+            && self.dwMaxUnscaledY == other.dwMaxUnscaledY
+            && self.dwPositionX == other.dwPositionX
+            && self.dwPositionY == other.dwPositionY
+            && self.dwBrightness == other.dwBrightness
+            && self.dwContrast == other.dwContrast
+            && self.dwCPType == other.dwCPType
+            && self.dwCPCommand == other.dwCPCommand
+            && self.dwCPStandard == other.dwCPStandard
+            && self.dwCPKey == other.dwCPKey
+            && self.bCP_APSTriggerBits == other.bCP_APSTriggerBits
+            && self.bOEMCopyProtection == other.bOEMCopyProtection
     }
 }
 impl ::core::cmp::Eq for VIDEOPARAMETERS {}
@@ -10565,7 +10320,7 @@ unsafe impl ::windows::core::Abi for VIDEO_BANK_SELECT {
 }
 impl ::core::cmp::PartialEq for VIDEO_BANK_SELECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_BANK_SELECT>()) == 0 }
+        self.Length == other.Length && self.Size == other.Size && self.BankingFlags == other.BankingFlags && self.BankingType == other.BankingType && self.PlanarHCBankingType == other.PlanarHCBankingType && self.BitmapWidthInBytes == other.BitmapWidthInBytes && self.BitmapSize == other.BitmapSize && self.Granularity == other.Granularity && self.PlanarHCGranularity == other.PlanarHCGranularity && self.CodeOffset == other.CodeOffset && self.PlanarHCBankCodeOffset == other.PlanarHCBankCodeOffset && self.PlanarHCEnableCodeOffset == other.PlanarHCEnableCodeOffset && self.PlanarHCDisableCodeOffset == other.PlanarHCDisableCodeOffset
     }
 }
 impl ::core::cmp::Eq for VIDEO_BANK_SELECT {}
@@ -10603,7 +10358,7 @@ unsafe impl ::windows::core::Abi for VIDEO_BRIGHTNESS_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_BRIGHTNESS_POLICY>()) == 0 }
+        self.DefaultToBiosPolicy == other.DefaultToBiosPolicy && self.LevelCount == other.LevelCount && self.Level == other.Level
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10642,7 +10397,7 @@ unsafe impl ::windows::core::Abi for VIDEO_BRIGHTNESS_POLICY_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_BRIGHTNESS_POLICY_0>()) == 0 }
+        self.BatteryLevel == other.BatteryLevel && self.Brightness == other.Brightness
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10669,12 +10424,6 @@ impl ::core::clone::Clone for VIDEO_CLUT {
 unsafe impl ::windows::core::Abi for VIDEO_CLUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIDEO_CLUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_CLUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIDEO_CLUT {}
 impl ::core::default::Default for VIDEO_CLUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10695,12 +10444,6 @@ impl ::core::clone::Clone for VIDEO_CLUT_0 {
 unsafe impl ::windows::core::Abi for VIDEO_CLUT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIDEO_CLUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_CLUT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIDEO_CLUT_0 {}
 impl ::core::default::Default for VIDEO_CLUT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10730,7 +10473,7 @@ unsafe impl ::windows::core::Abi for VIDEO_CLUTDATA {
 }
 impl ::core::cmp::PartialEq for VIDEO_CLUTDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_CLUTDATA>()) == 0 }
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for VIDEO_CLUTDATA {}
@@ -10796,7 +10539,24 @@ unsafe impl ::windows::core::Abi for VIDEO_COLOR_CAPABILITIES {
 }
 impl ::core::cmp::PartialEq for VIDEO_COLOR_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_COLOR_CAPABILITIES>()) == 0 }
+        self.Length == other.Length
+            && self.AttributeFlags == other.AttributeFlags
+            && self.RedPhosphoreDecay == other.RedPhosphoreDecay
+            && self.GreenPhosphoreDecay == other.GreenPhosphoreDecay
+            && self.BluePhosphoreDecay == other.BluePhosphoreDecay
+            && self.WhiteChromaticity_x == other.WhiteChromaticity_x
+            && self.WhiteChromaticity_y == other.WhiteChromaticity_y
+            && self.WhiteChromaticity_Y == other.WhiteChromaticity_Y
+            && self.RedChromaticity_x == other.RedChromaticity_x
+            && self.RedChromaticity_y == other.RedChromaticity_y
+            && self.GreenChromaticity_x == other.GreenChromaticity_x
+            && self.GreenChromaticity_y == other.GreenChromaticity_y
+            && self.BlueChromaticity_x == other.BlueChromaticity_x
+            && self.BlueChromaticity_y == other.BlueChromaticity_y
+            && self.WhiteGamma == other.WhiteGamma
+            && self.RedGamma == other.RedGamma
+            && self.GreenGamma == other.GreenGamma
+            && self.BlueGamma == other.BlueGamma
     }
 }
 impl ::core::cmp::Eq for VIDEO_COLOR_CAPABILITIES {}
@@ -10828,7 +10588,7 @@ unsafe impl ::windows::core::Abi for VIDEO_COLOR_LUT_DATA {
 }
 impl ::core::cmp::PartialEq for VIDEO_COLOR_LUT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_COLOR_LUT_DATA>()) == 0 }
+        self.Length == other.Length && self.LutDataFormat == other.LutDataFormat && self.LutData == other.LutData
     }
 }
 impl ::core::cmp::Eq for VIDEO_COLOR_LUT_DATA {}
@@ -10863,7 +10623,7 @@ unsafe impl ::windows::core::Abi for VIDEO_CURSOR_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for VIDEO_CURSOR_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_CURSOR_ATTRIBUTES>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Column == other.Column && self.Row == other.Row && self.Rate == other.Rate && self.Enable == other.Enable
     }
 }
 impl ::core::cmp::Eq for VIDEO_CURSOR_ATTRIBUTES {}
@@ -10894,7 +10654,7 @@ unsafe impl ::windows::core::Abi for VIDEO_CURSOR_POSITION {
 }
 impl ::core::cmp::PartialEq for VIDEO_CURSOR_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_CURSOR_POSITION>()) == 0 }
+        self.Column == other.Column && self.Row == other.Row
     }
 }
 impl ::core::cmp::Eq for VIDEO_CURSOR_POSITION {}
@@ -10925,7 +10685,7 @@ unsafe impl ::windows::core::Abi for VIDEO_DEVICE_SESSION_STATUS {
 }
 impl ::core::cmp::PartialEq for VIDEO_DEVICE_SESSION_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_DEVICE_SESSION_STATUS>()) == 0 }
+        self.bEnable == other.bEnable && self.bSuccess == other.bSuccess
     }
 }
 impl ::core::cmp::Eq for VIDEO_DEVICE_SESSION_STATUS {}
@@ -10956,7 +10716,7 @@ unsafe impl ::windows::core::Abi for VIDEO_HARDWARE_STATE {
 }
 impl ::core::cmp::PartialEq for VIDEO_HARDWARE_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_HARDWARE_STATE>()) == 0 }
+        self.StateHeader == other.StateHeader && self.StateLength == other.StateLength
     }
 }
 impl ::core::cmp::Eq for VIDEO_HARDWARE_STATE {}
@@ -11046,7 +10806,36 @@ unsafe impl ::windows::core::Abi for VIDEO_HARDWARE_STATE_HEADER {
 }
 impl ::core::cmp::PartialEq for VIDEO_HARDWARE_STATE_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_HARDWARE_STATE_HEADER>()) == 0 }
+        self.Length == other.Length
+            && self.PortValue == other.PortValue
+            && self.AttribIndexDataState == other.AttribIndexDataState
+            && self.BasicSequencerOffset == other.BasicSequencerOffset
+            && self.BasicCrtContOffset == other.BasicCrtContOffset
+            && self.BasicGraphContOffset == other.BasicGraphContOffset
+            && self.BasicAttribContOffset == other.BasicAttribContOffset
+            && self.BasicDacOffset == other.BasicDacOffset
+            && self.BasicLatchesOffset == other.BasicLatchesOffset
+            && self.ExtendedSequencerOffset == other.ExtendedSequencerOffset
+            && self.ExtendedCrtContOffset == other.ExtendedCrtContOffset
+            && self.ExtendedGraphContOffset == other.ExtendedGraphContOffset
+            && self.ExtendedAttribContOffset == other.ExtendedAttribContOffset
+            && self.ExtendedDacOffset == other.ExtendedDacOffset
+            && self.ExtendedValidatorStateOffset == other.ExtendedValidatorStateOffset
+            && self.ExtendedMiscDataOffset == other.ExtendedMiscDataOffset
+            && self.PlaneLength == other.PlaneLength
+            && self.Plane1Offset == other.Plane1Offset
+            && self.Plane2Offset == other.Plane2Offset
+            && self.Plane3Offset == other.Plane3Offset
+            && self.Plane4Offset == other.Plane4Offset
+            && self.VGAStateFlags == other.VGAStateFlags
+            && self.DIBOffset == other.DIBOffset
+            && self.DIBBitsPerPixel == other.DIBBitsPerPixel
+            && self.DIBXResolution == other.DIBXResolution
+            && self.DIBYResolution == other.DIBYResolution
+            && self.DIBXlatOffset == other.DIBXlatOffset
+            && self.DIBXlatLength == other.DIBXlatLength
+            && self.VesaInfoOffset == other.VesaInfoOffset
+            && self.FrameBufferData == other.FrameBufferData
     }
 }
 impl ::core::cmp::Eq for VIDEO_HARDWARE_STATE_HEADER {}
@@ -11079,7 +10868,7 @@ unsafe impl ::windows::core::Abi for VIDEO_LOAD_FONT_INFORMATION {
 }
 impl ::core::cmp::PartialEq for VIDEO_LOAD_FONT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_LOAD_FONT_INFORMATION>()) == 0 }
+        self.WidthInPixels == other.WidthInPixels && self.HeightInPixels == other.HeightInPixels && self.FontSize == other.FontSize && self.Font == other.Font
     }
 }
 impl ::core::cmp::Eq for VIDEO_LOAD_FONT_INFORMATION {}
@@ -11111,7 +10900,7 @@ unsafe impl ::windows::core::Abi for VIDEO_LUT_RGB256WORDS {
 }
 impl ::core::cmp::PartialEq for VIDEO_LUT_RGB256WORDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_LUT_RGB256WORDS>()) == 0 }
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue
     }
 }
 impl ::core::cmp::Eq for VIDEO_LUT_RGB256WORDS {}
@@ -11141,7 +10930,7 @@ unsafe impl ::windows::core::Abi for VIDEO_MEMORY {
 }
 impl ::core::cmp::PartialEq for VIDEO_MEMORY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_MEMORY>()) == 0 }
+        self.RequestedVirtualAddress == other.RequestedVirtualAddress
     }
 }
 impl ::core::cmp::Eq for VIDEO_MEMORY {}
@@ -11174,7 +10963,7 @@ unsafe impl ::windows::core::Abi for VIDEO_MEMORY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for VIDEO_MEMORY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_MEMORY_INFORMATION>()) == 0 }
+        self.VideoRamBase == other.VideoRamBase && self.VideoRamLength == other.VideoRamLength && self.FrameBufferBase == other.FrameBufferBase && self.FrameBufferLength == other.FrameBufferLength
     }
 }
 impl ::core::cmp::Eq for VIDEO_MEMORY_INFORMATION {}
@@ -11204,7 +10993,7 @@ unsafe impl ::windows::core::Abi for VIDEO_MODE {
 }
 impl ::core::cmp::PartialEq for VIDEO_MODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_MODE>()) == 0 }
+        self.RequestedMode == other.RequestedMode
     }
 }
 impl ::core::cmp::Eq for VIDEO_MODE {}
@@ -11274,7 +11063,26 @@ unsafe impl ::windows::core::Abi for VIDEO_MODE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for VIDEO_MODE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_MODE_INFORMATION>()) == 0 }
+        self.Length == other.Length
+            && self.ModeIndex == other.ModeIndex
+            && self.VisScreenWidth == other.VisScreenWidth
+            && self.VisScreenHeight == other.VisScreenHeight
+            && self.ScreenStride == other.ScreenStride
+            && self.NumberOfPlanes == other.NumberOfPlanes
+            && self.BitsPerPlane == other.BitsPerPlane
+            && self.Frequency == other.Frequency
+            && self.XMillimeter == other.XMillimeter
+            && self.YMillimeter == other.YMillimeter
+            && self.NumberRedBits == other.NumberRedBits
+            && self.NumberGreenBits == other.NumberGreenBits
+            && self.NumberBlueBits == other.NumberBlueBits
+            && self.RedMask == other.RedMask
+            && self.GreenMask == other.GreenMask
+            && self.BlueMask == other.BlueMask
+            && self.AttributeFlags == other.AttributeFlags
+            && self.VideoMemoryBitmapWidth == other.VideoMemoryBitmapWidth
+            && self.VideoMemoryBitmapHeight == other.VideoMemoryBitmapHeight
+            && self.DriverSpecificAttributeFlags == other.DriverSpecificAttributeFlags
     }
 }
 impl ::core::cmp::Eq for VIDEO_MODE_INFORMATION {}
@@ -11305,7 +11113,7 @@ unsafe impl ::windows::core::Abi for VIDEO_MONITOR_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for VIDEO_MONITOR_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_MONITOR_DESCRIPTOR>()) == 0 }
+        self.DescriptorSize == other.DescriptorSize && self.Descriptor == other.Descriptor
     }
 }
 impl ::core::cmp::Eq for VIDEO_MONITOR_DESCRIPTOR {}
@@ -11336,7 +11144,7 @@ unsafe impl ::windows::core::Abi for VIDEO_NUM_MODES {
 }
 impl ::core::cmp::PartialEq for VIDEO_NUM_MODES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_NUM_MODES>()) == 0 }
+        self.NumModes == other.NumModes && self.ModeInformationLength == other.ModeInformationLength
     }
 }
 impl ::core::cmp::Eq for VIDEO_NUM_MODES {}
@@ -11368,7 +11176,7 @@ unsafe impl ::windows::core::Abi for VIDEO_PALETTE_DATA {
 }
 impl ::core::cmp::PartialEq for VIDEO_PALETTE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_PALETTE_DATA>()) == 0 }
+        self.NumEntries == other.NumEntries && self.FirstEntry == other.FirstEntry && self.Colors == other.Colors
     }
 }
 impl ::core::cmp::Eq for VIDEO_PALETTE_DATA {}
@@ -11440,7 +11248,27 @@ unsafe impl ::windows::core::Abi for VIDEO_PERFORMANCE_COUNTER {
 }
 impl ::core::cmp::PartialEq for VIDEO_PERFORMANCE_COUNTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_PERFORMANCE_COUNTER>()) == 0 }
+        self.NbOfAllocationEvicted == other.NbOfAllocationEvicted
+            && self.NbOfAllocationMarked == other.NbOfAllocationMarked
+            && self.NbOfAllocationRestored == other.NbOfAllocationRestored
+            && self.KBytesEvicted == other.KBytesEvicted
+            && self.KBytesMarked == other.KBytesMarked
+            && self.KBytesRestored == other.KBytesRestored
+            && self.NbProcessCommited == other.NbProcessCommited
+            && self.NbAllocationCommited == other.NbAllocationCommited
+            && self.NbAllocationMarked == other.NbAllocationMarked
+            && self.KBytesAllocated == other.KBytesAllocated
+            && self.KBytesAvailable == other.KBytesAvailable
+            && self.KBytesCurMarked == other.KBytesCurMarked
+            && self.Reference == other.Reference
+            && self.Unreference == other.Unreference
+            && self.TrueReference == other.TrueReference
+            && self.NbOfPageIn == other.NbOfPageIn
+            && self.KBytesPageIn == other.KBytesPageIn
+            && self.NbOfPageOut == other.NbOfPageOut
+            && self.KBytesPageOut == other.KBytesPageOut
+            && self.NbOfRotateOut == other.NbOfRotateOut
+            && self.KBytesRotateOut == other.KBytesRotateOut
     }
 }
 impl ::core::cmp::Eq for VIDEO_PERFORMANCE_COUNTER {}
@@ -11477,7 +11305,7 @@ unsafe impl ::windows::core::Abi for VIDEO_POINTER_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for VIDEO_POINTER_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_POINTER_ATTRIBUTES>()) == 0 }
+        self.Flags == other.Flags && self.Width == other.Width && self.Height == other.Height && self.WidthInBytes == other.WidthInBytes && self.Enable == other.Enable && self.Column == other.Column && self.Row == other.Row && self.Pixels == other.Pixels
     }
 }
 impl ::core::cmp::Eq for VIDEO_POINTER_ATTRIBUTES {}
@@ -11511,7 +11339,7 @@ unsafe impl ::windows::core::Abi for VIDEO_POINTER_CAPABILITIES {
 }
 impl ::core::cmp::PartialEq for VIDEO_POINTER_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_POINTER_CAPABILITIES>()) == 0 }
+        self.Flags == other.Flags && self.MaxWidth == other.MaxWidth && self.MaxHeight == other.MaxHeight && self.HWPtrBitmapStart == other.HWPtrBitmapStart && self.HWPtrBitmapEnd == other.HWPtrBitmapEnd
     }
 }
 impl ::core::cmp::Eq for VIDEO_POINTER_CAPABILITIES {}
@@ -11542,7 +11370,7 @@ unsafe impl ::windows::core::Abi for VIDEO_POINTER_POSITION {
 }
 impl ::core::cmp::PartialEq for VIDEO_POINTER_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_POINTER_POSITION>()) == 0 }
+        self.Column == other.Column && self.Row == other.Row
     }
 }
 impl ::core::cmp::Eq for VIDEO_POINTER_POSITION {}
@@ -11574,7 +11402,7 @@ unsafe impl ::windows::core::Abi for VIDEO_POWER_MANAGEMENT {
 }
 impl ::core::cmp::PartialEq for VIDEO_POWER_MANAGEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_POWER_MANAGEMENT>()) == 0 }
+        self.Length == other.Length && self.DPMSVersion == other.DPMSVersion && self.PowerState == other.PowerState
     }
 }
 impl ::core::cmp::Eq for VIDEO_POWER_MANAGEMENT {}
@@ -11606,7 +11434,7 @@ unsafe impl ::windows::core::Abi for VIDEO_PUBLIC_ACCESS_RANGES {
 }
 impl ::core::cmp::PartialEq for VIDEO_PUBLIC_ACCESS_RANGES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_PUBLIC_ACCESS_RANGES>()) == 0 }
+        self.InIoSpace == other.InIoSpace && self.MappedInIoSpace == other.MappedInIoSpace && self.VirtualAddress == other.VirtualAddress
     }
 }
 impl ::core::cmp::Eq for VIDEO_PUBLIC_ACCESS_RANGES {}
@@ -11637,7 +11465,7 @@ unsafe impl ::windows::core::Abi for VIDEO_QUERY_PERFORMANCE_COUNTER {
 }
 impl ::core::cmp::PartialEq for VIDEO_QUERY_PERFORMANCE_COUNTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_QUERY_PERFORMANCE_COUNTER>()) == 0 }
+        self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for VIDEO_QUERY_PERFORMANCE_COUNTER {}
@@ -11667,7 +11495,7 @@ unsafe impl ::windows::core::Abi for VIDEO_REGISTER_VDM {
 }
 impl ::core::cmp::PartialEq for VIDEO_REGISTER_VDM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_REGISTER_VDM>()) == 0 }
+        self.MinimumStateSize == other.MinimumStateSize
     }
 }
 impl ::core::cmp::Eq for VIDEO_REGISTER_VDM {}
@@ -11706,7 +11534,7 @@ unsafe impl ::windows::core::Abi for VIDEO_SHARE_MEMORY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VIDEO_SHARE_MEMORY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_SHARE_MEMORY>()) == 0 }
+        self.ProcessHandle == other.ProcessHandle && self.ViewOffset == other.ViewOffset && self.ViewSize == other.ViewSize && self.RequestedVirtualAddress == other.RequestedVirtualAddress
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11740,7 +11568,7 @@ unsafe impl ::windows::core::Abi for VIDEO_SHARE_MEMORY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for VIDEO_SHARE_MEMORY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_SHARE_MEMORY_INFORMATION>()) == 0 }
+        self.SharedViewOffset == other.SharedViewOffset && self.SharedViewSize == other.SharedViewSize && self.VirtualAddress == other.VirtualAddress
     }
 }
 impl ::core::cmp::Eq for VIDEO_SHARE_MEMORY_INFORMATION {}
@@ -11776,7 +11604,7 @@ unsafe impl ::windows::core::Abi for VIDEO_VDM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VIDEO_VDM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_VDM>()) == 0 }
+        self.ProcessHandle == other.ProcessHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11808,21 +11636,13 @@ impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VIDEO_WIN32K_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VIDEO_WIN32K_CALLBACKS").field("PhysDisp", &self.PhysDisp).field("Callout", &self.Callout.map(|f| f as usize)).field("bACPI", &self.bACPI).field("pPhysDeviceObject", &self.pPhysDeviceObject).field("DualviewFlags", &self.DualviewFlags).finish()
+        f.debug_struct("VIDEO_WIN32K_CALLBACKS").field("PhysDisp", &self.PhysDisp).field("bACPI", &self.bACPI).field("pPhysDeviceObject", &self.pPhysDeviceObject).field("DualviewFlags", &self.DualviewFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_WIN32K_CALLBACKS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for VIDEO_WIN32K_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDEO_WIN32K_CALLBACKS {
     fn default() -> Self {
@@ -11863,7 +11683,7 @@ unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEO_WIN32K_CALLBACKS_PARAMS>()) == 0 }
+        self.CalloutType == other.CalloutType && self.PhysDisp == other.PhysDisp && self.Param == other.Param && self.Status == other.Status && self.LockUserSession == other.LockUserSession && self.IsPostDevice == other.IsPostDevice && self.SurpriseRemoval == other.SurpriseRemoval && self.WaitForQueueReady == other.WaitForQueueReady
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11897,7 +11717,7 @@ unsafe impl ::windows::core::Abi for WCRUN {
 }
 impl ::core::cmp::PartialEq for WCRUN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCRUN>()) == 0 }
+        self.wcLow == other.wcLow && self.cGlyphs == other.cGlyphs && self.phg == other.phg
     }
 }
 impl ::core::cmp::Eq for WCRUN {}
@@ -11936,7 +11756,7 @@ unsafe impl ::windows::core::Abi for WNDOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WNDOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDOBJ>()) == 0 }
+        self.coClient == other.coClient && self.pvConsumer == other.pvConsumer && self.rclClient == other.rclClient && self.psoOwner == other.psoOwner
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11979,7 +11799,7 @@ unsafe impl ::windows::core::Abi for XFORML {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for XFORML {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XFORML>()) == 0 }
+        self.eM11 == other.eM11 && self.eM12 == other.eM12 && self.eM21 == other.eM21 && self.eM22 == other.eM22 && self.eDx == other.eDx && self.eDy == other.eDy
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12022,7 +11842,7 @@ unsafe impl ::windows::core::Abi for XFORML {
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for XFORML {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XFORML>()) == 0 }
+        self.eM11 == other.eM11 && self.eM12 == other.eM12 && self.eM21 == other.eM21 && self.eM22 == other.eM22 && self.eDx == other.eDx && self.eDy == other.eDy
     }
 }
 #[cfg(target_arch = "x86")]
@@ -12054,7 +11874,7 @@ unsafe impl ::windows::core::Abi for XFORMOBJ {
 }
 impl ::core::cmp::PartialEq for XFORMOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XFORMOBJ>()) == 0 }
+        self.ulReserved == other.ulReserved
     }
 }
 impl ::core::cmp::Eq for XFORMOBJ {}
@@ -12089,7 +11909,7 @@ unsafe impl ::windows::core::Abi for XLATEOBJ {
 }
 impl ::core::cmp::PartialEq for XLATEOBJ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XLATEOBJ>()) == 0 }
+        self.iUniq == other.iUniq && self.flXlate == other.flXlate && self.iSrcType == other.iSrcType && self.iDstType == other.iDstType && self.cEntries == other.cEntries && self.pulXlate == other.pulXlate
     }
 }
 impl ::core::cmp::Eq for XLATEOBJ {}

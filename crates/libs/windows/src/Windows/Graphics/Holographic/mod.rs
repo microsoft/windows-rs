@@ -2950,7 +2950,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicAdapterId {
 }
 impl ::core::cmp::PartialEq for HolographicAdapterId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HolographicAdapterId>()) == 0 }
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
 impl ::core::cmp::Eq for HolographicAdapterId {}
@@ -2987,7 +2987,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFrameId {
 }
 impl ::core::cmp::PartialEq for HolographicFrameId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HolographicFrameId>()) == 0 }
+        self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for HolographicFrameId {}
@@ -3032,7 +3032,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicStereoTransform {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for HolographicStereoTransform {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HolographicStereoTransform>()) == 0 }
+        self.Left == other.Left && self.Right == other.Right
     }
 }
 #[cfg(feature = "Foundation_Numerics")]

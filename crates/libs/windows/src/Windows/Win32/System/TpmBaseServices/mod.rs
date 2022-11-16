@@ -219,7 +219,7 @@ unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS>()) == 0 }
+        self.version == other.version
     }
 }
 impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS {}
@@ -243,12 +243,6 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2 {}
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -269,12 +263,6 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS2_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0 {}
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -301,7 +289,7 @@ unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TBS_CONTEXT_PARAMS2_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0_0 {}
@@ -334,7 +322,7 @@ unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
 }
 impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TPM_DEVICE_INFO>()) == 0 }
+        self.structVersion == other.structVersion && self.tpmVersion == other.tpmVersion && self.tpmInterfaceType == other.tpmInterfaceType && self.tpmImpRevision == other.tpmImpRevision
     }
 }
 impl ::core::cmp::Eq for TPM_DEVICE_INFO {}
@@ -365,7 +353,7 @@ unsafe impl ::windows::core::Abi for TPM_WNF_PROVISIONING {
 }
 impl ::core::cmp::PartialEq for TPM_WNF_PROVISIONING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TPM_WNF_PROVISIONING>()) == 0 }
+        self.status == other.status && self.message == other.message
     }
 }
 impl ::core::cmp::Eq for TPM_WNF_PROVISIONING {}

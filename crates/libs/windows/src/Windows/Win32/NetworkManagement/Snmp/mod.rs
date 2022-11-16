@@ -1099,14 +1099,6 @@ unsafe impl ::windows::core::Abi for AsnAny {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AsnAny {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnAny>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AsnAny {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1142,14 +1134,6 @@ unsafe impl ::windows::core::Abi for AsnAny_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AsnAny_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnAny_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AsnAny_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1170,12 +1154,6 @@ impl ::core::clone::Clone for AsnObjectIdentifier {
 unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AsnObjectIdentifier {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnObjectIdentifier>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AsnObjectIdentifier {}
 impl ::core::default::Default for AsnObjectIdentifier {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1202,14 +1180,6 @@ unsafe impl ::windows::core::Abi for AsnOctetString {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AsnOctetString {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnOctetString>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AsnOctetString {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnOctetString {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1235,14 +1205,6 @@ unsafe impl ::windows::core::Abi for SnmpVarBind {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SnmpVarBind {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SnmpVarBind>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SnmpVarBind {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBind {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1267,14 +1229,6 @@ impl ::core::clone::Clone for SnmpVarBindList {
 unsafe impl ::windows::core::Abi for SnmpVarBindList {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SnmpVarBindList {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SnmpVarBindList>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SnmpVarBindList {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBindList {
     fn default() -> Self {
@@ -1303,7 +1257,7 @@ unsafe impl ::windows::core::Abi for smiCNTR64 {
 }
 impl ::core::cmp::PartialEq for smiCNTR64 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiCNTR64>()) == 0 }
+        self.hipart == other.hipart && self.lopart == other.lopart
     }
 }
 impl ::core::cmp::Eq for smiCNTR64 {}
@@ -1334,7 +1288,7 @@ unsafe impl ::windows::core::Abi for smiOCTETS {
 }
 impl ::core::cmp::PartialEq for smiOCTETS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiOCTETS>()) == 0 }
+        self.len == other.len && self.ptr == other.ptr
     }
 }
 impl ::core::cmp::Eq for smiOCTETS {}
@@ -1365,7 +1319,7 @@ unsafe impl ::windows::core::Abi for smiOID {
 }
 impl ::core::cmp::PartialEq for smiOID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiOID>()) == 0 }
+        self.len == other.len && self.ptr == other.ptr
     }
 }
 impl ::core::cmp::Eq for smiOID {}
@@ -1389,12 +1343,6 @@ impl ::core::clone::Clone for smiVALUE {
 unsafe impl ::windows::core::Abi for smiVALUE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for smiVALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiVALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for smiVALUE {}
 impl ::core::default::Default for smiVALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1419,12 +1367,6 @@ impl ::core::clone::Clone for smiVALUE_0 {
 unsafe impl ::windows::core::Abi for smiVALUE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for smiVALUE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiVALUE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for smiVALUE_0 {}
 impl ::core::default::Default for smiVALUE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1461,7 +1403,7 @@ unsafe impl ::windows::core::Abi for smiVENDORINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for smiVENDORINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiVENDORINFO>()) == 0 }
+        self.vendorName == other.vendorName && self.vendorContact == other.vendorContact && self.vendorVersionId == other.vendorVersionId && self.vendorVersionDate == other.vendorVersionDate && self.vendorEnterprise == other.vendorEnterprise
     }
 }
 #[cfg(feature = "Win32_Foundation")]

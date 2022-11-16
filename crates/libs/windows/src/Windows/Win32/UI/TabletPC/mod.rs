@@ -13736,7 +13736,7 @@ unsafe impl ::windows::core::Abi for CHARACTER_RANGE {
 }
 impl ::core::cmp::PartialEq for CHARACTER_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARACTER_RANGE>()) == 0 }
+        self.wcLow == other.wcLow && self.cChars == other.cChars
     }
 }
 impl ::core::cmp::Eq for CHARACTER_RANGE {}
@@ -13796,7 +13796,7 @@ unsafe impl ::windows::core::Abi for FLICK_DATA {
 }
 impl ::core::cmp::PartialEq for FLICK_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLICK_DATA>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for FLICK_DATA {}
@@ -13826,7 +13826,7 @@ unsafe impl ::windows::core::Abi for FLICK_POINT {
 }
 impl ::core::cmp::PartialEq for FLICK_POINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLICK_POINT>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for FLICK_POINT {}
@@ -13858,7 +13858,7 @@ unsafe impl ::windows::core::Abi for GESTURE_DATA {
 }
 impl ::core::cmp::PartialEq for GESTURE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTURE_DATA>()) == 0 }
+        self.gestureId == other.gestureId && self.recoConfidence == other.recoConfidence && self.strokeCount == other.strokeCount
     }
 }
 impl ::core::cmp::Eq for GESTURE_DATA {}
@@ -14047,14 +14047,6 @@ unsafe impl ::windows::core::Abi for IEC_GESTUREINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
-impl ::core::cmp::PartialEq for IEC_GESTUREINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nmhdr == other.nmhdr && self.Cursor == other.Cursor && self.Strokes == other.Strokes && self.Gestures == other.Gestures
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
-impl ::core::cmp::Eq for IEC_GESTUREINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 impl ::core::default::Default for IEC_GESTUREINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14166,7 +14158,7 @@ unsafe impl ::windows::core::Abi for INKMETRIC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INKMETRIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INKMETRIC>()) == 0 }
+        self.iHeight == other.iHeight && self.iFontAscent == other.iFontAscent && self.iFontDescent == other.iFontDescent && self.dwFlags == other.dwFlags && self.color == other.color
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14208,7 +14200,7 @@ unsafe impl ::windows::core::Abi for InkRecoGuide {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for InkRecoGuide {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InkRecoGuide>()) == 0 }
+        self.rectWritingBox == other.rectWritingBox && self.rectDrawnBox == other.rectDrawnBox && self.cRows == other.cRows && self.cColumns == other.cColumns && self.midline == other.midline
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14247,7 +14239,7 @@ unsafe impl ::windows::core::Abi for LATTICE_METRICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LATTICE_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LATTICE_METRICS>()) == 0 }
+        self.lsBaseline == other.lsBaseline && self.iMidlineOffset == other.iMidlineOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14286,7 +14278,7 @@ unsafe impl ::windows::core::Abi for LINE_SEGMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LINE_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINE_SEGMENT>()) == 0 }
+        self.PtA == other.PtA && self.PtB == other.PtB
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14322,7 +14314,7 @@ unsafe impl ::windows::core::Abi for PACKET_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for PACKET_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKET_DESCRIPTION>()) == 0 }
+        self.cbPacketSize == other.cbPacketSize && self.cPacketProperties == other.cPacketProperties && self.pPacketProperties == other.pPacketProperties && self.cButtons == other.cButtons && self.pguidButtons == other.pguidButtons
     }
 }
 impl ::core::cmp::Eq for PACKET_DESCRIPTION {}
@@ -14353,7 +14345,7 @@ unsafe impl ::windows::core::Abi for PACKET_PROPERTY {
 }
 impl ::core::cmp::PartialEq for PACKET_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKET_PROPERTY>()) == 0 }
+        self.guid == other.guid && self.PropertyMetrics == other.PropertyMetrics
     }
 }
 impl ::core::cmp::Eq for PACKET_PROPERTY {}
@@ -14386,7 +14378,7 @@ unsafe impl ::windows::core::Abi for PROPERTY_METRICS {
 }
 impl ::core::cmp::PartialEq for PROPERTY_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROPERTY_METRICS>()) == 0 }
+        self.nLogicalMin == other.nLogicalMin && self.nLogicalMax == other.nLogicalMax && self.Units == other.Units && self.fResolution == other.fResolution
     }
 }
 impl ::core::cmp::Eq for PROPERTY_METRICS {}
@@ -14419,7 +14411,7 @@ unsafe impl ::windows::core::Abi for RECO_ATTRS {
 }
 impl ::core::cmp::PartialEq for RECO_ATTRS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_ATTRS>()) == 0 }
+        self.dwRecoCapabilityFlags == other.dwRecoCapabilityFlags && self.awcVendorName == other.awcVendorName && self.awcFriendlyName == other.awcFriendlyName && self.awLanguageId == other.awLanguageId
     }
 }
 impl ::core::cmp::Eq for RECO_ATTRS {}
@@ -14457,7 +14449,7 @@ unsafe impl ::windows::core::Abi for RECO_GUIDE {
 }
 impl ::core::cmp::PartialEq for RECO_GUIDE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_GUIDE>()) == 0 }
+        self.xOrigin == other.xOrigin && self.yOrigin == other.yOrigin && self.cxBox == other.cxBox && self.cyBox == other.cyBox && self.cxBase == other.cxBase && self.cyBase == other.cyBase && self.cHorzBox == other.cHorzBox && self.cVertBox == other.cVertBox && self.cyMid == other.cyMid
     }
 }
 impl ::core::cmp::Eq for RECO_GUIDE {}
@@ -14493,7 +14485,7 @@ unsafe impl ::windows::core::Abi for RECO_LATTICE {
 }
 impl ::core::cmp::PartialEq for RECO_LATTICE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_LATTICE>()) == 0 }
+        self.ulColumnCount == other.ulColumnCount && self.pLatticeColumns == other.pLatticeColumns && self.ulPropertyCount == other.ulPropertyCount && self.pGuidProperties == other.pGuidProperties && self.ulBestResultColumnCount == other.ulBestResultColumnCount && self.pulBestResultColumns == other.pulBestResultColumns && self.pulBestResultIndexes == other.pulBestResultIndexes
     }
 }
 impl ::core::cmp::Eq for RECO_LATTICE {}
@@ -14528,7 +14520,7 @@ unsafe impl ::windows::core::Abi for RECO_LATTICE_COLUMN {
 }
 impl ::core::cmp::PartialEq for RECO_LATTICE_COLUMN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_LATTICE_COLUMN>()) == 0 }
+        self.key == other.key && self.cpProp == other.cpProp && self.cStrokes == other.cStrokes && self.pStrokes == other.pStrokes && self.cLatticeElements == other.cLatticeElements && self.pLatticeElements == other.pLatticeElements
     }
 }
 impl ::core::cmp::Eq for RECO_LATTICE_COLUMN {}
@@ -14563,7 +14555,7 @@ unsafe impl ::windows::core::Abi for RECO_LATTICE_ELEMENT {
 }
 impl ::core::cmp::PartialEq for RECO_LATTICE_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_LATTICE_ELEMENT>()) == 0 }
+        self.score == other.score && self.r#type == other.r#type && self.pData == other.pData && self.ulNextColumn == other.ulNextColumn && self.ulStrokeNumber == other.ulStrokeNumber && self.epProp == other.epProp
     }
 }
 impl ::core::cmp::Eq for RECO_LATTICE_ELEMENT {}
@@ -14594,7 +14586,7 @@ unsafe impl ::windows::core::Abi for RECO_LATTICE_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for RECO_LATTICE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_LATTICE_PROPERTIES>()) == 0 }
+        self.cProperties == other.cProperties && self.apProps == other.apProps
     }
 }
 impl ::core::cmp::Eq for RECO_LATTICE_PROPERTIES {}
@@ -14626,7 +14618,7 @@ unsafe impl ::windows::core::Abi for RECO_LATTICE_PROPERTY {
 }
 impl ::core::cmp::PartialEq for RECO_LATTICE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_LATTICE_PROPERTY>()) == 0 }
+        self.guidProperty == other.guidProperty && self.cbPropertyValue == other.cbPropertyValue && self.pPropertyValue == other.pPropertyValue
     }
 }
 impl ::core::cmp::Eq for RECO_LATTICE_PROPERTY {}
@@ -14657,7 +14649,7 @@ unsafe impl ::windows::core::Abi for RECO_RANGE {
 }
 impl ::core::cmp::PartialEq for RECO_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECO_RANGE>()) == 0 }
+        self.iwcBegin == other.iwcBegin && self.cCount == other.cCount
     }
 }
 impl ::core::cmp::Eq for RECO_RANGE {}
@@ -14688,7 +14680,7 @@ unsafe impl ::windows::core::Abi for STROKE_RANGE {
 }
 impl ::core::cmp::PartialEq for STROKE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STROKE_RANGE>()) == 0 }
+        self.iStrokeBegin == other.iStrokeBegin && self.iStrokeEnd == other.iStrokeEnd
     }
 }
 impl ::core::cmp::Eq for STROKE_RANGE {}
@@ -14723,7 +14715,7 @@ unsafe impl ::windows::core::Abi for SYSTEM_EVENT_DATA {
 }
 impl ::core::cmp::PartialEq for SYSTEM_EVENT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_EVENT_DATA>()) == 0 }
+        self.bModifier == other.bModifier && self.wKey == other.wKey && self.xPos == other.xPos && self.yPos == other.yPos && self.bCursorMode == other.bCursorMode && self.dwButtonState == other.dwButtonState
     }
 }
 impl ::core::cmp::Eq for SYSTEM_EVENT_DATA {}
@@ -14761,7 +14753,7 @@ unsafe impl ::windows::core::Abi for StylusInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for StylusInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<StylusInfo>()) == 0 }
+        self.tcid == other.tcid && self.cid == other.cid && self.bIsInvertedCursor == other.bIsInvertedCursor
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -8506,7 +8506,7 @@ unsafe impl ::windows::core::Abi for IMMP_MPV_STORE_DRIVER_HANDLE {
 }
 impl ::core::cmp::PartialEq for IMMP_MPV_STORE_DRIVER_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMMP_MPV_STORE_DRIVER_HANDLE>()) == 0 }
+        self.guidSignature == other.guidSignature
     }
 }
 impl ::core::cmp::Eq for IMMP_MPV_STORE_DRIVER_HANDLE {}
@@ -8537,7 +8537,7 @@ unsafe impl ::windows::core::Abi for SPropAttrArray {
 }
 impl ::core::cmp::PartialEq for SPropAttrArray {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPropAttrArray>()) == 0 }
+        self.cValues == other.cValues && self.aPropAttr == other.aPropAttr
     }
 }
 impl ::core::cmp::Eq for SPropAttrArray {}
@@ -8571,7 +8571,7 @@ unsafe impl ::windows::core::Abi for tagIMMPID_GUIDLIST_ITEM {
 }
 impl ::core::cmp::PartialEq for tagIMMPID_GUIDLIST_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tagIMMPID_GUIDLIST_ITEM>()) == 0 }
+        self.pguid == other.pguid && self.dwStart == other.dwStart && self.dwLast == other.dwLast
     }
 }
 impl ::core::cmp::Eq for tagIMMPID_GUIDLIST_ITEM {}

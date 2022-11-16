@@ -15434,14 +15434,6 @@ unsafe impl ::windows::core::Abi for ARRAYDESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ARRAYDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARRAYDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ARRAYDESC {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for ARRAYDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15469,7 +15461,7 @@ unsafe impl ::windows::core::Abi for CADWORD {
 }
 impl ::core::cmp::PartialEq for CADWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CADWORD>()) == 0 }
+        self.cElems == other.cElems && self.pElems == other.pElems
     }
 }
 impl ::core::cmp::Eq for CADWORD {}
@@ -15500,7 +15492,7 @@ unsafe impl ::windows::core::Abi for CALPOLESTR {
 }
 impl ::core::cmp::PartialEq for CALPOLESTR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALPOLESTR>()) == 0 }
+        self.cElems == other.cElems && self.pElems == other.pElems
     }
 }
 impl ::core::cmp::Eq for CALPOLESTR {}
@@ -15531,7 +15523,7 @@ unsafe impl ::windows::core::Abi for CAUUID {
 }
 impl ::core::cmp::PartialEq for CAUUID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUUID>()) == 0 }
+        self.cElems == other.cElems && self.pElems == other.pElems
     }
 }
 impl ::core::cmp::Eq for CAUUID {}
@@ -15601,7 +15593,7 @@ unsafe impl ::windows::core::Abi for CONTROLINFO {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::PartialEq for CONTROLINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTROLINFO>()) == 0 }
+        self.cb == other.cb && self.hAccel == other.hAccel && self.cAccel == other.cAccel && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -15634,7 +15626,7 @@ unsafe impl ::windows::core::Abi for DVASPECTINFO {
 }
 impl ::core::cmp::PartialEq for DVASPECTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVASPECTINFO>()) == 0 }
+        self.cb == other.cb && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for DVASPECTINFO {}
@@ -15672,7 +15664,7 @@ unsafe impl ::windows::core::Abi for DVEXTENTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DVEXTENTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVEXTENTINFO>()) == 0 }
+        self.cb == other.cb && self.dwExtentMode == other.dwExtentMode && self.sizelProposed == other.sizelProposed
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15709,14 +15701,6 @@ unsafe impl ::windows::core::Abi for FONTDESC {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for FONTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FONTDESC>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for FONTDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for FONTDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15750,7 +15734,7 @@ unsafe impl ::windows::core::Abi for INTERFACEDATA {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for INTERFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERFACEDATA>()) == 0 }
+        self.pmethdata == other.pmethdata && self.cMembers == other.cMembers
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15790,7 +15774,7 @@ unsafe impl ::windows::core::Abi for LICINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LICINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LICINFO>()) == 0 }
+        self.cbLicInfo == other.cbLicInfo && self.fRuntimeKeyAvail == other.fRuntimeKeyAvail && self.fLicVerified == other.fLicVerified
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15835,7 +15819,7 @@ unsafe impl ::windows::core::Abi for METHODDATA {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for METHODDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<METHODDATA>()) == 0 }
+        self.szName == other.szName && self.ppdata == other.ppdata && self.dispid == other.dispid && self.iMeth == other.iMeth && self.cc == other.cc && self.cArgs == other.cArgs && self.wFlags == other.wFlags && self.vtReturn == other.vtReturn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15872,7 +15856,7 @@ unsafe impl ::windows::core::Abi for NUMPARSE {
 }
 impl ::core::cmp::PartialEq for NUMPARSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NUMPARSE>()) == 0 }
+        self.cDig == other.cDig && self.dwInFlags == other.dwInFlags && self.dwOutFlags == other.dwOutFlags && self.cchUsed == other.cchUsed && self.nBaseShift == other.nBaseShift && self.nPwr10 == other.nPwr10
     }
 }
 impl ::core::cmp::Eq for NUMPARSE {}
@@ -15915,7 +15899,7 @@ unsafe impl ::windows::core::Abi for OBJECTDESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OBJECTDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBJECTDESCRIPTOR>()) == 0 }
+        self.cbSize == other.cbSize && self.clsid == other.clsid && self.dwDrawAspect == other.dwDrawAspect && self.sizel == other.sizel && self.pointl == other.pointl && self.dwStatus == other.dwStatus && self.dwFullUserTypeName == other.dwFullUserTypeName && self.dwSrcOfCopy == other.dwSrcOfCopy
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15963,7 +15947,7 @@ unsafe impl ::windows::core::Abi for OCPFIPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OCPFIPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OCPFIPARAMS>()) == 0 }
+        self.cbStructSize == other.cbStructSize && self.hWndOwner == other.hWndOwner && self.x == other.x && self.y == other.y && self.lpszCaption == other.lpszCaption && self.cObjects == other.cObjects && self.lplpUnk == other.lplpUnk && self.cPages == other.cPages && self.lpPages == other.lpPages && self.lcid == other.lcid && self.dispidInitialProperty == other.dispidInitialProperty
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15996,7 +15980,7 @@ unsafe impl ::windows::core::Abi for OLECMD {
 }
 impl ::core::cmp::PartialEq for OLECMD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLECMD>()) == 0 }
+        self.cmdID == other.cmdID && self.cmdf == other.cmdf
     }
 }
 impl ::core::cmp::Eq for OLECMD {}
@@ -16029,7 +16013,7 @@ unsafe impl ::windows::core::Abi for OLECMDTEXT {
 }
 impl ::core::cmp::PartialEq for OLECMDTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLECMDTEXT>()) == 0 }
+        self.cmdtextf == other.cmdtextf && self.cwActual == other.cwActual && self.cwBuf == other.cwBuf && self.rgwz == other.rgwz
     }
 }
 impl ::core::cmp::Eq for OLECMDTEXT {}
@@ -16069,7 +16053,7 @@ unsafe impl ::windows::core::Abi for OLEINPLACEFRAMEINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for OLEINPLACEFRAMEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEINPLACEFRAMEINFO>()) == 0 }
+        self.cb == other.cb && self.fMDIApp == other.fMDIApp && self.hwndFrame == other.hwndFrame && self.haccel == other.haccel && self.cAccelEntries == other.cAccelEntries
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -16101,7 +16085,7 @@ unsafe impl ::windows::core::Abi for OLEMENUGROUPWIDTHS {
 }
 impl ::core::cmp::PartialEq for OLEMENUGROUPWIDTHS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEMENUGROUPWIDTHS>()) == 0 }
+        self.width == other.width
     }
 }
 impl ::core::cmp::Eq for OLEMENUGROUPWIDTHS {}
@@ -16137,21 +16121,13 @@ impl ::core::clone::Clone for OLEUIBUSYA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 impl ::core::fmt::Debug for OLEUIBUSYA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIBUSYA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
+        f.debug_struct("OLEUIBUSYA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 unsafe impl ::windows::core::Abi for OLEUIBUSYA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
-impl ::core::cmp::PartialEq for OLEUIBUSYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIBUSYA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
-impl ::core::cmp::Eq for OLEUIBUSYA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 impl ::core::default::Default for OLEUIBUSYA {
     fn default() -> Self {
@@ -16185,21 +16161,13 @@ impl ::core::clone::Clone for OLEUIBUSYW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 impl ::core::fmt::Debug for OLEUIBUSYW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIBUSYW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
+        f.debug_struct("OLEUIBUSYW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hTask", &self.hTask).field("lphWndDialog", &self.lphWndDialog).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 unsafe impl ::windows::core::Abi for OLEUIBUSYW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
-impl ::core::cmp::PartialEq for OLEUIBUSYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIBUSYW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
-impl ::core::cmp::Eq for OLEUIBUSYW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 impl ::core::default::Default for OLEUIBUSYW {
     fn default() -> Self {
@@ -16235,35 +16203,13 @@ impl ::core::clone::Clone for OLEUICHANGEICONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OLEUICHANGEICONA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUICHANGEICONA")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwFlags", &self.dwFlags)
-            .field("hWndOwner", &self.hWndOwner)
-            .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
-            .field("lCustData", &self.lCustData)
-            .field("hInstance", &self.hInstance)
-            .field("lpszTemplate", &self.lpszTemplate)
-            .field("hResource", &self.hResource)
-            .field("hMetaPict", &self.hMetaPict)
-            .field("clsid", &self.clsid)
-            .field("szIconExe", &self.szIconExe)
-            .field("cchIconExe", &self.cchIconExe)
-            .finish()
+        f.debug_struct("OLEUICHANGEICONA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hMetaPict", &self.hMetaPict).field("clsid", &self.clsid).field("szIconExe", &self.szIconExe).field("cchIconExe", &self.cchIconExe).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICHANGEICONA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OLEUICHANGEICONA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUICHANGEICONA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OLEUICHANGEICONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUICHANGEICONA {
     fn default() -> Self {
@@ -16299,35 +16245,13 @@ impl ::core::clone::Clone for OLEUICHANGEICONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OLEUICHANGEICONW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUICHANGEICONW")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwFlags", &self.dwFlags)
-            .field("hWndOwner", &self.hWndOwner)
-            .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
-            .field("lCustData", &self.lCustData)
-            .field("hInstance", &self.hInstance)
-            .field("lpszTemplate", &self.lpszTemplate)
-            .field("hResource", &self.hResource)
-            .field("hMetaPict", &self.hMetaPict)
-            .field("clsid", &self.clsid)
-            .field("szIconExe", &self.szIconExe)
-            .field("cchIconExe", &self.cchIconExe)
-            .finish()
+        f.debug_struct("OLEUICHANGEICONW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("hMetaPict", &self.hMetaPict).field("clsid", &self.clsid).field("szIconExe", &self.szIconExe).field("cchIconExe", &self.cchIconExe).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICHANGEICONW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OLEUICHANGEICONW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUICHANGEICONW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OLEUICHANGEICONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUICHANGEICONW {
     fn default() -> Self {
@@ -16388,7 +16312,6 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -16408,14 +16331,6 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEA {
 unsafe impl ::windows::core::Abi for OLEUICHANGESOURCEA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-impl ::core::cmp::PartialEq for OLEUICHANGESOURCEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.hWndOwner == other.hWndOwner && self.lpszCaption == other.lpszCaption && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lCustData == other.lCustData && self.hInstance == other.hInstance && self.lpszTemplate == other.lpszTemplate && self.hResource == other.hResource && self.lpOFN == other.lpOFN && self.dwReserved1 == other.dwReserved1 && self.lpOleUILinkContainer == other.lpOleUILinkContainer && self.dwLink == other.dwLink && self.lpszDisplayName == other.lpszDisplayName && self.nFileLength == other.nFileLength && self.lpszFrom == other.lpszFrom && self.lpszTo == other.lpszTo
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-impl ::core::cmp::Eq for OLEUICHANGESOURCEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 impl ::core::default::Default for OLEUICHANGESOURCEA {
     fn default() -> Self {
@@ -16476,7 +16391,6 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -16496,14 +16410,6 @@ impl ::core::fmt::Debug for OLEUICHANGESOURCEW {
 unsafe impl ::windows::core::Abi for OLEUICHANGESOURCEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-impl ::core::cmp::PartialEq for OLEUICHANGESOURCEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.hWndOwner == other.hWndOwner && self.lpszCaption == other.lpszCaption && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lCustData == other.lCustData && self.hInstance == other.hInstance && self.lpszTemplate == other.lpszTemplate && self.hResource == other.hResource && self.lpOFN == other.lpOFN && self.dwReserved1 == other.dwReserved1 && self.lpOleUILinkContainer == other.lpOleUILinkContainer && self.dwLink == other.dwLink && self.lpszDisplayName == other.lpszDisplayName && self.nFileLength == other.nFileLength && self.lpszFrom == other.lpszFrom && self.lpszTo == other.lpszTo
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-impl ::core::cmp::Eq for OLEUICHANGESOURCEW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 impl ::core::default::Default for OLEUICHANGESOURCEW {
     fn default() -> Self {
@@ -16553,7 +16459,6 @@ impl ::core::fmt::Debug for OLEUICONVERTA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -16578,14 +16483,6 @@ impl ::core::fmt::Debug for OLEUICONVERTA {
 unsafe impl ::windows::core::Abi for OLEUICONVERTA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OLEUICONVERTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUICONVERTA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OLEUICONVERTA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUICONVERTA {
     fn default() -> Self {
@@ -16635,7 +16532,6 @@ impl ::core::fmt::Debug for OLEUICONVERTW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -16660,14 +16556,6 @@ impl ::core::fmt::Debug for OLEUICONVERTW {
 unsafe impl ::windows::core::Abi for OLEUICONVERTW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OLEUICONVERTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUICONVERTW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OLEUICONVERTW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUICONVERTW {
     fn default() -> Self {
@@ -16709,21 +16597,13 @@ impl ::core::clone::Clone for OLEUIEDITLINKSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OLEUIEDITLINKSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIEDITLINKSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
+        f.debug_struct("OLEUIEDITLINKSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUIEDITLINKSA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OLEUIEDITLINKSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.hWndOwner == other.hWndOwner && self.lpszCaption == other.lpszCaption && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lCustData == other.lCustData && self.hInstance == other.hInstance && self.lpszTemplate == other.lpszTemplate && self.hResource == other.hResource && self.lpOleUILinkContainer == other.lpOleUILinkContainer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OLEUIEDITLINKSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUIEDITLINKSA {
     fn default() -> Self {
@@ -16765,21 +16645,13 @@ impl ::core::clone::Clone for OLEUIEDITLINKSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OLEUIEDITLINKSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIEDITLINKSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
+        f.debug_struct("OLEUIEDITLINKSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hWndOwner", &self.hWndOwner).field("lpszCaption", &self.lpszCaption).field("lCustData", &self.lCustData).field("hInstance", &self.hInstance).field("lpszTemplate", &self.lpszTemplate).field("hResource", &self.hResource).field("lpOleUILinkContainer", &self.lpOleUILinkContainer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUIEDITLINKSW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OLEUIEDITLINKSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.hWndOwner == other.hWndOwner && self.lpszCaption == other.lpszCaption && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lCustData == other.lCustData && self.hInstance == other.hInstance && self.lpszTemplate == other.lpszTemplate && self.hResource == other.hResource && self.lpOleUILinkContainer == other.lpOleUILinkContainer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OLEUIEDITLINKSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OLEUIEDITLINKSW {
     fn default() -> Self {
@@ -16809,21 +16681,13 @@ impl ::core::clone::Clone for OLEUIGNRLPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIGNRLPROPSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIGNRLPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUIGNRLPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIGNRLPROPSA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OLEUIGNRLPROPSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIGNRLPROPSA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OLEUIGNRLPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OLEUIGNRLPROPSA {
     fn default() -> Self {
@@ -16853,21 +16717,13 @@ impl ::core::clone::Clone for OLEUIGNRLPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIGNRLPROPSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIGNRLPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUIGNRLPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIGNRLPROPSW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OLEUIGNRLPROPSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIGNRLPROPSW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OLEUIGNRLPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OLEUIGNRLPROPSW {
     fn default() -> Self {
@@ -16938,7 +16794,6 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -16963,35 +16818,6 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTA {
 unsafe impl ::windows::core::Abi for OLEUIINSERTOBJECTA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for OLEUIINSERTOBJECTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwFlags == other.dwFlags
-            && self.hWndOwner == other.hWndOwner
-            && self.lpszCaption == other.lpszCaption
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lCustData == other.lCustData
-            && self.hInstance == other.hInstance
-            && self.lpszTemplate == other.lpszTemplate
-            && self.hResource == other.hResource
-            && self.clsid == other.clsid
-            && self.lpszFile == other.lpszFile
-            && self.cchFile == other.cchFile
-            && self.cClsidExclude == other.cClsidExclude
-            && self.lpClsidExclude == other.lpClsidExclude
-            && self.iid == other.iid
-            && self.oleRender == other.oleRender
-            && self.lpFormatEtc == other.lpFormatEtc
-            && self.lpIOleClientSite == other.lpIOleClientSite
-            && self.lpIStorage == other.lpIStorage
-            && self.ppvObj == other.ppvObj
-            && self.sc == other.sc
-            && self.hMetaPict == other.hMetaPict
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for OLEUIINSERTOBJECTA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for OLEUIINSERTOBJECTA {
     fn default() -> Self {
@@ -17062,7 +16888,6 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -17087,35 +16912,6 @@ impl ::core::fmt::Debug for OLEUIINSERTOBJECTW {
 unsafe impl ::windows::core::Abi for OLEUIINSERTOBJECTW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for OLEUIINSERTOBJECTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwFlags == other.dwFlags
-            && self.hWndOwner == other.hWndOwner
-            && self.lpszCaption == other.lpszCaption
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lCustData == other.lCustData
-            && self.hInstance == other.hInstance
-            && self.lpszTemplate == other.lpszTemplate
-            && self.hResource == other.hResource
-            && self.clsid == other.clsid
-            && self.lpszFile == other.lpszFile
-            && self.cchFile == other.cchFile
-            && self.cClsidExclude == other.cClsidExclude
-            && self.lpClsidExclude == other.lpClsidExclude
-            && self.iid == other.iid
-            && self.oleRender == other.oleRender
-            && self.lpFormatEtc == other.lpFormatEtc
-            && self.lpIOleClientSite == other.lpIOleClientSite
-            && self.lpIStorage == other.lpIStorage
-            && self.ppvObj == other.ppvObj
-            && self.sc == other.sc
-            && self.hMetaPict == other.hMetaPict
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for OLEUIINSERTOBJECTW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for OLEUIINSERTOBJECTW {
     fn default() -> Self {
@@ -17145,21 +16941,13 @@ impl ::core::clone::Clone for OLEUILINKPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUILINKPROPSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUILINKPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUILINKPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUILINKPROPSA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OLEUILINKPROPSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUILINKPROPSA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OLEUILINKPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OLEUILINKPROPSA {
     fn default() -> Self {
@@ -17189,21 +16977,13 @@ impl ::core::clone::Clone for OLEUILINKPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUILINKPROPSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUILINKPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
+        f.debug_struct("OLEUILINKPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUILINKPROPSW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OLEUILINKPROPSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUILINKPROPSW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OLEUILINKPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OLEUILINKPROPSW {
     fn default() -> Self {
@@ -17353,7 +17133,7 @@ unsafe impl ::windows::core::Abi for OLEUIPASTEENTRYA {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for OLEUIPASTEENTRYA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIPASTEENTRYA>()) == 0 }
+        self.fmtetc == other.fmtetc && self.lpstrFormatName == other.lpstrFormatName && self.lpstrResultText == other.lpstrResultText && self.dwFlags == other.dwFlags && self.dwScratchSpace == other.dwScratchSpace
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17395,7 +17175,7 @@ unsafe impl ::windows::core::Abi for OLEUIPASTEENTRYW {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for OLEUIPASTEENTRYW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIPASTEENTRYW>()) == 0 }
+        self.fmtetc == other.fmtetc && self.lpstrFormatName == other.lpstrFormatName && self.lpstrResultText == other.lpstrResultText && self.dwFlags == other.dwFlags && self.dwScratchSpace == other.dwScratchSpace
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17466,7 +17246,6 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALA {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -17489,33 +17268,6 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALA {
 unsafe impl ::windows::core::Abi for OLEUIPASTESPECIALA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for OLEUIPASTESPECIALA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwFlags == other.dwFlags
-            && self.hWndOwner == other.hWndOwner
-            && self.lpszCaption == other.lpszCaption
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lCustData == other.lCustData
-            && self.hInstance == other.hInstance
-            && self.lpszTemplate == other.lpszTemplate
-            && self.hResource == other.hResource
-            && self.lpSrcDataObj == other.lpSrcDataObj
-            && self.arrPasteEntries == other.arrPasteEntries
-            && self.cPasteEntries == other.cPasteEntries
-            && self.arrLinkTypes == other.arrLinkTypes
-            && self.cLinkTypes == other.cLinkTypes
-            && self.cClsidExclude == other.cClsidExclude
-            && self.lpClsidExclude == other.lpClsidExclude
-            && self.nSelectedIndex == other.nSelectedIndex
-            && self.fLink == other.fLink
-            && self.hMetaPict == other.hMetaPict
-            && self.sizel == other.sizel
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for OLEUIPASTESPECIALA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for OLEUIPASTESPECIALA {
     fn default() -> Self {
@@ -17582,7 +17334,6 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALW {
             .field("dwFlags", &self.dwFlags)
             .field("hWndOwner", &self.hWndOwner)
             .field("lpszCaption", &self.lpszCaption)
-            .field("lpfnHook", &self.lpfnHook.map(|f| f as usize))
             .field("lCustData", &self.lCustData)
             .field("hInstance", &self.hInstance)
             .field("lpszTemplate", &self.lpszTemplate)
@@ -17605,33 +17356,6 @@ impl ::core::fmt::Debug for OLEUIPASTESPECIALW {
 unsafe impl ::windows::core::Abi for OLEUIPASTESPECIALW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for OLEUIPASTESPECIALW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwFlags == other.dwFlags
-            && self.hWndOwner == other.hWndOwner
-            && self.lpszCaption == other.lpszCaption
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lCustData == other.lCustData
-            && self.hInstance == other.hInstance
-            && self.lpszTemplate == other.lpszTemplate
-            && self.hResource == other.hResource
-            && self.lpSrcDataObj == other.lpSrcDataObj
-            && self.arrPasteEntries == other.arrPasteEntries
-            && self.cPasteEntries == other.cPasteEntries
-            && self.arrLinkTypes == other.arrLinkTypes
-            && self.cLinkTypes == other.cLinkTypes
-            && self.cClsidExclude == other.cClsidExclude
-            && self.lpClsidExclude == other.lpClsidExclude
-            && self.nSelectedIndex == other.nSelectedIndex
-            && self.fLink == other.fLink
-            && self.hMetaPict == other.hMetaPict
-            && self.sizel == other.sizel
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for OLEUIPASTESPECIALW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for OLEUIPASTESPECIALW {
     fn default() -> Self {
@@ -17663,21 +17387,13 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIVIEWPROPSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIVIEWPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
+        f.debug_struct("OLEUIVIEWPROPSA").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIVIEWPROPSA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OLEUIVIEWPROPSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIVIEWPROPSA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OLEUIVIEWPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OLEUIVIEWPROPSA {
     fn default() -> Self {
@@ -17709,21 +17425,13 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::fmt::Debug for OLEUIVIEWPROPSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLEUIVIEWPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lpfnHook", &self.lpfnHook.map(|f| f as usize)).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
+        f.debug_struct("OLEUIVIEWPROPSW").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("lCustData", &self.lCustData).field("dwReserved2", &self.dwReserved2).field("lpOP", &self.lpOP).field("nScaleMin", &self.nScaleMin).field("nScaleMax", &self.nScaleMax).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIVIEWPROPSW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OLEUIVIEWPROPSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEUIVIEWPROPSW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OLEUIVIEWPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OLEUIVIEWPROPSW {
     fn default() -> Self {
@@ -17760,7 +17468,7 @@ unsafe impl ::windows::core::Abi for OLEVERB {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::PartialEq for OLEVERB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLEVERB>()) == 0 }
+        self.lVerb == other.lVerb && self.lpszVerbName == other.lpszVerbName && self.fuFlags == other.fuFlags && self.grfAttribs == other.grfAttribs
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -17825,7 +17533,7 @@ unsafe impl ::windows::core::Abi for PAGERANGE {
 }
 impl ::core::cmp::PartialEq for PAGERANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGERANGE>()) == 0 }
+        self.nFromPage == other.nFromPage && self.nToPage == other.nToPage
     }
 }
 impl ::core::cmp::Eq for PAGERANGE {}
@@ -17865,7 +17573,7 @@ unsafe impl ::windows::core::Abi for PAGESET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAGESET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESET>()) == 0 }
+        self.cbStruct == other.cbStruct && self.fOddPages == other.fOddPages && self.fEvenPages == other.fEvenPages && self.cPageRange == other.cPageRange && self.rgPages == other.rgPages
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17904,7 +17612,7 @@ unsafe impl ::windows::core::Abi for PARAMDATA {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for PARAMDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PARAMDATA>()) == 0 }
+        self.szName == other.szName && self.vt == other.vt
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17943,7 +17651,7 @@ unsafe impl ::windows::core::Abi for PARAMDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for PARAMDESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PARAMDESC>()) == 0 }
+        self.pparamdescex == other.pparamdescex && self.wParamFlags == other.wParamFlags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -17972,14 +17680,6 @@ unsafe impl ::windows::core::Abi for PARAMDESCEX {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for PARAMDESCEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cBytes == other.cBytes && self.varDefaultValue == other.varDefaultValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for PARAMDESCEX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for PARAMDESCEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18005,14 +17705,6 @@ impl ::core::clone::Clone for PICTDESC {
 unsafe impl ::windows::core::Abi for PICTDESC {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for PICTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PICTDESC>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for PICTDESC {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PICTDESC {
     fn default() -> Self {
@@ -18040,14 +17732,6 @@ impl ::core::clone::Clone for PICTDESC_0 {
 unsafe impl ::windows::core::Abi for PICTDESC_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for PICTDESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PICTDESC_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for PICTDESC_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PICTDESC_0 {
     fn default() -> Self {
@@ -18082,7 +17766,7 @@ unsafe impl ::windows::core::Abi for PICTDESC_0_0 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for PICTDESC_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PICTDESC_0_0>()) == 0 }
+        self.hbitmap == other.hbitmap && self.hpal == other.hpal
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -18120,7 +17804,7 @@ unsafe impl ::windows::core::Abi for PICTDESC_0_1 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for PICTDESC_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PICTDESC_0_1>()) == 0 }
+        self.hemf == other.hemf
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -18158,7 +17842,7 @@ unsafe impl ::windows::core::Abi for PICTDESC_0_2 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for PICTDESC_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PICTDESC_0_2>()) == 0 }
+        self.hicon == other.hicon
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -18198,7 +17882,7 @@ unsafe impl ::windows::core::Abi for PICTDESC_0_3 {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for PICTDESC_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PICTDESC_0_3>()) == 0 }
+        self.hmeta == other.hmeta && self.xExt == other.xExt && self.yExt == other.yExt
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -18231,7 +17915,7 @@ unsafe impl ::windows::core::Abi for POINTF {
 }
 impl ::core::cmp::PartialEq for POINTF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTF>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for POINTF {}
@@ -18272,7 +17956,7 @@ unsafe impl ::windows::core::Abi for PROPPAGEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROPPAGEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROPPAGEINFO>()) == 0 }
+        self.cb == other.cb && self.pszTitle == other.pszTitle && self.size == other.size && self.pszDocString == other.pszDocString && self.pszHelpFile == other.pszHelpFile && self.dwHelpContext == other.dwHelpContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18394,7 +18078,7 @@ unsafe impl ::windows::core::Abi for QACONTROL {
 }
 impl ::core::cmp::PartialEq for QACONTROL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QACONTROL>()) == 0 }
+        self.cbSize == other.cbSize && self.dwMiscStatus == other.dwMiscStatus && self.dwViewStatus == other.dwViewStatus && self.dwEventCookie == other.dwEventCookie && self.dwPropNotifyCookie == other.dwPropNotifyCookie && self.dwPointerActivationPolicy == other.dwPointerActivationPolicy
     }
 }
 impl ::core::cmp::Eq for QACONTROL {}
@@ -18422,14 +18106,6 @@ impl ::core::clone::Clone for SAFEARRAYUNION {
 unsafe impl ::windows::core::Abi for SAFEARRAYUNION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for SAFEARRAYUNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAYUNION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for SAFEARRAYUNION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SAFEARRAYUNION {
     fn default() -> Self {
@@ -18464,14 +18140,6 @@ unsafe impl ::windows::core::Abi for SAFEARRAYUNION_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for SAFEARRAYUNION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAYUNION_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for SAFEARRAYUNION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SAFEARRAYUNION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18499,7 +18167,7 @@ unsafe impl ::windows::core::Abi for SAFEARR_BRECORD {
 }
 impl ::core::cmp::PartialEq for SAFEARR_BRECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_BRECORD>()) == 0 }
+        self.Size == other.Size && self.aRecord == other.aRecord
     }
 }
 impl ::core::cmp::Eq for SAFEARR_BRECORD {}
@@ -18536,7 +18204,7 @@ unsafe impl ::windows::core::Abi for SAFEARR_BSTR {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SAFEARR_BSTR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_BSTR>()) == 0 }
+        self.Size == other.Size && self.aBstr == other.aBstr
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18575,7 +18243,7 @@ unsafe impl ::windows::core::Abi for SAFEARR_DISPATCH {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SAFEARR_DISPATCH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_DISPATCH>()) == 0 }
+        self.Size == other.Size && self.apDispatch == other.apDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18609,7 +18277,7 @@ unsafe impl ::windows::core::Abi for SAFEARR_HAVEIID {
 }
 impl ::core::cmp::PartialEq for SAFEARR_HAVEIID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_HAVEIID>()) == 0 }
+        self.Size == other.Size && self.apUnknown == other.apUnknown && self.iid == other.iid
     }
 }
 impl ::core::cmp::Eq for SAFEARR_HAVEIID {}
@@ -18640,7 +18308,7 @@ unsafe impl ::windows::core::Abi for SAFEARR_UNKNOWN {
 }
 impl ::core::cmp::PartialEq for SAFEARR_UNKNOWN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_UNKNOWN>()) == 0 }
+        self.Size == other.Size && self.apUnknown == other.apUnknown
     }
 }
 impl ::core::cmp::Eq for SAFEARR_UNKNOWN {}
@@ -18677,7 +18345,7 @@ unsafe impl ::windows::core::Abi for SAFEARR_VARIANT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SAFEARR_VARIANT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARR_VARIANT>()) == 0 }
+        self.Size == other.Size && self.aVariant == other.aVariant
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -18716,7 +18384,7 @@ unsafe impl ::windows::core::Abi for UDATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UDATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UDATE>()) == 0 }
+        self.st == other.st && self.wDayOfYear == other.wDayOfYear
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18783,14 +18451,6 @@ unsafe impl ::windows::core::Abi for _wireSAFEARRAY {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for _wireSAFEARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireSAFEARRAY>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for _wireSAFEARRAY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for _wireSAFEARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18826,14 +18486,6 @@ impl ::core::clone::Clone for _wireVARIANT {
 unsafe impl ::windows::core::Abi for _wireVARIANT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for _wireVARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        self.clSize == other.clSize && self.rpcReserved == other.rpcReserved && self.vt == other.vt && self.wReserved1 == other.wReserved1 && self.wReserved2 == other.wReserved2 && self.wReserved3 == other.wReserved3 && self.Anonymous == other.Anonymous
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for _wireVARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for _wireVARIANT {
     fn default() -> Self {
@@ -18899,14 +18551,6 @@ impl ::core::clone::Clone for _wireVARIANT_0 {
 unsafe impl ::windows::core::Abi for _wireVARIANT_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for _wireVARIANT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_wireVARIANT_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for _wireVARIANT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for _wireVARIANT_0 {
     fn default() -> Self {

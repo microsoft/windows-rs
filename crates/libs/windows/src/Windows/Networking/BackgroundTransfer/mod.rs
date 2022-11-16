@@ -2981,7 +2981,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundDownloadProgress {
 }
 impl ::core::cmp::PartialEq for BackgroundDownloadProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BackgroundDownloadProgress>()) == 0 }
+        self.BytesReceived == other.BytesReceived && self.TotalBytesToReceive == other.TotalBytesToReceive && self.Status == other.Status && self.HasResponseChanged == other.HasResponseChanged && self.HasRestarted == other.HasRestarted
     }
 }
 impl ::core::cmp::Eq for BackgroundDownloadProgress {}
@@ -3019,7 +3019,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferFileRange {
 }
 impl ::core::cmp::PartialEq for BackgroundTransferFileRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BackgroundTransferFileRange>()) == 0 }
+        self.Offset == other.Offset && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferFileRange {}
@@ -3062,7 +3062,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundUploadProgress {
 }
 impl ::core::cmp::PartialEq for BackgroundUploadProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BackgroundUploadProgress>()) == 0 }
+        self.BytesReceived == other.BytesReceived && self.BytesSent == other.BytesSent && self.TotalBytesToReceive == other.TotalBytesToReceive && self.TotalBytesToSend == other.TotalBytesToSend && self.Status == other.Status && self.HasResponseChanged == other.HasResponseChanged && self.HasRestarted == other.HasRestarted
     }
 }
 impl ::core::cmp::Eq for BackgroundUploadProgress {}

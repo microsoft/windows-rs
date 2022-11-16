@@ -341,7 +341,7 @@ unsafe impl ::windows::core::Abi for MANAGEMENT_REGISTRATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MANAGEMENT_REGISTRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MANAGEMENT_REGISTRATION_INFO>()) == 0 }
+        self.fDeviceRegisteredWithManagement == other.fDeviceRegisteredWithManagement && self.dwDeviceRegistionKind == other.dwDeviceRegistionKind && self.pszUPN == other.pszUPN && self.pszMDMServiceUri == other.pszMDMServiceUri
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -374,7 +374,7 @@ unsafe impl ::windows::core::Abi for MANAGEMENT_SERVICE_INFO {
 }
 impl ::core::cmp::PartialEq for MANAGEMENT_SERVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MANAGEMENT_SERVICE_INFO>()) == 0 }
+        self.pszMDMServiceUri == other.pszMDMServiceUri && self.pszAuthenticationUri == other.pszAuthenticationUri
     }
 }
 impl ::core::cmp::Eq for MANAGEMENT_SERVICE_INFO {}

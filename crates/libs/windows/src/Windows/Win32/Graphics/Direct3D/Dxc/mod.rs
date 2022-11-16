@@ -1776,7 +1776,7 @@ unsafe impl ::windows::core::Abi for DxcArgPair {
 }
 impl ::core::cmp::PartialEq for DxcArgPair {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcArgPair>()) == 0 }
+        self.pName == other.pName && self.pValue == other.pValue
     }
 }
 impl ::core::cmp::Eq for DxcArgPair {}
@@ -1808,7 +1808,7 @@ unsafe impl ::windows::core::Abi for DxcBuffer {
 }
 impl ::core::cmp::PartialEq for DxcBuffer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcBuffer>()) == 0 }
+        self.Ptr == other.Ptr && self.Size == other.Size && self.Encoding == other.Encoding
     }
 }
 impl ::core::cmp::Eq for DxcBuffer {}
@@ -1839,7 +1839,7 @@ unsafe impl ::windows::core::Abi for DxcDefine {
 }
 impl ::core::cmp::PartialEq for DxcDefine {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcDefine>()) == 0 }
+        self.Name == other.Name && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for DxcDefine {}
@@ -1870,7 +1870,7 @@ unsafe impl ::windows::core::Abi for DxcShaderHash {
 }
 impl ::core::cmp::PartialEq for DxcShaderHash {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DxcShaderHash>()) == 0 }
+        self.Flags == other.Flags && self.HashDigest == other.HashDigest
     }
 }
 impl ::core::cmp::Eq for DxcShaderHash {}

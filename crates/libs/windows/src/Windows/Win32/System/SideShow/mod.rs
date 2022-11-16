@@ -838,12 +838,6 @@ impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
 unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for APPLICATION_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APPLICATION_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for APPLICATION_EVENT_DATA {}
 impl ::core::default::Default for APPLICATION_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -866,12 +860,6 @@ impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
 unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CONTENT_MISSING_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTENT_MISSING_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONTENT_MISSING_EVENT_DATA {}
 impl ::core::default::Default for CONTENT_MISSING_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -892,12 +880,6 @@ impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
 unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_USER_CHANGE_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DEVICE_USER_CHANGE_EVENT_DATA {}
 impl ::core::default::Default for DEVICE_USER_CHANGE_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -920,12 +902,6 @@ impl ::core::clone::Clone for EVENT_DATA_HEADER {
 unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_DATA_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_DATA_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_DATA_HEADER {}
 impl ::core::default::Default for EVENT_DATA_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -946,12 +922,6 @@ impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
 unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NEW_EVENT_DATA_AVAILABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NEW_EVENT_DATA_AVAILABLE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NEW_EVENT_DATA_AVAILABLE {}
 impl ::core::default::Default for NEW_EVENT_DATA_AVAILABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -982,7 +952,7 @@ unsafe impl ::windows::core::Abi for SCF_CONTEXTMENU_EVENT {
 }
 impl ::core::cmp::PartialEq for SCF_CONTEXTMENU_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCF_CONTEXTMENU_EVENT>()) == 0 }
+        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.PreviousItemId == other.PreviousItemId && self.MenuPage == other.MenuPage && self.MenuItemId == other.MenuItemId
     }
 }
 impl ::core::cmp::Eq for SCF_CONTEXTMENU_EVENT {}
@@ -1013,7 +983,7 @@ unsafe impl ::windows::core::Abi for SCF_EVENT_HEADER {
 }
 impl ::core::cmp::PartialEq for SCF_EVENT_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCF_EVENT_HEADER>()) == 0 }
+        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage
     }
 }
 impl ::core::cmp::Eq for SCF_EVENT_HEADER {}
@@ -1046,7 +1016,7 @@ unsafe impl ::windows::core::Abi for SCF_MENUACTION_EVENT {
 }
 impl ::core::cmp::PartialEq for SCF_MENUACTION_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCF_MENUACTION_EVENT>()) == 0 }
+        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.Button == other.Button && self.ItemId == other.ItemId
     }
 }
 impl ::core::cmp::Eq for SCF_MENUACTION_EVENT {}
@@ -1078,7 +1048,7 @@ unsafe impl ::windows::core::Abi for SCF_NAVIGATION_EVENT {
 }
 impl ::core::cmp::PartialEq for SCF_NAVIGATION_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCF_NAVIGATION_EVENT>()) == 0 }
+        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.Button == other.Button
     }
 }
 impl ::core::cmp::Eq for SCF_NAVIGATION_EVENT {}

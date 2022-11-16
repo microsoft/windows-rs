@@ -350,7 +350,7 @@ unsafe impl ::windows::core::Abi for COMDLG_FILTERSPEC {
 }
 impl ::core::cmp::PartialEq for COMDLG_FILTERSPEC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMDLG_FILTERSPEC>()) == 0 }
+        self.pszName == other.pszName && self.pszSpec == other.pszSpec
     }
 }
 impl ::core::cmp::Eq for COMDLG_FILTERSPEC {}
@@ -373,12 +373,6 @@ impl ::core::clone::Clone for ITEMIDLIST {
 unsafe impl ::windows::core::Abi for ITEMIDLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ITEMIDLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ITEMIDLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ITEMIDLIST {}
 impl ::core::default::Default for ITEMIDLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -400,12 +394,6 @@ impl ::core::clone::Clone for SHELLDETAILS {
 unsafe impl ::windows::core::Abi for SHELLDETAILS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SHELLDETAILS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHELLDETAILS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SHELLDETAILS {}
 impl ::core::default::Default for SHELLDETAILS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -426,12 +414,6 @@ impl ::core::clone::Clone for SHITEMID {
 unsafe impl ::windows::core::Abi for SHITEMID {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SHITEMID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHITEMID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SHITEMID {}
 impl ::core::default::Default for SHITEMID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -452,12 +434,6 @@ impl ::core::clone::Clone for STRRET {
 unsafe impl ::windows::core::Abi for STRRET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for STRRET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STRRET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for STRRET {}
 impl ::core::default::Default for STRRET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -479,12 +455,6 @@ impl ::core::clone::Clone for STRRET_0 {
 unsafe impl ::windows::core::Abi for STRRET_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for STRRET_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STRRET_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for STRRET_0 {}
 impl ::core::default::Default for STRRET_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

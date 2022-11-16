@@ -1913,7 +1913,7 @@ unsafe impl ::windows::core::Abi for HTTP2_SETTINGS_LIMITS_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP2_SETTINGS_LIMITS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP2_SETTINGS_LIMITS_PARAM>()) == 0 }
+        self.Http2MaxSettingsPerFrame == other.Http2MaxSettingsPerFrame && self.Http2MaxSettingsPerMinute == other.Http2MaxSettingsPerMinute
     }
 }
 impl ::core::cmp::Eq for HTTP2_SETTINGS_LIMITS_PARAM {}
@@ -1943,7 +1943,7 @@ unsafe impl ::windows::core::Abi for HTTP2_WINDOW_SIZE_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP2_WINDOW_SIZE_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP2_WINDOW_SIZE_PARAM>()) == 0 }
+        self.Http2ReceiveWindowSize == other.Http2ReceiveWindowSize
     }
 }
 impl ::core::cmp::Eq for HTTP2_WINDOW_SIZE_PARAM {}
@@ -1974,7 +1974,7 @@ unsafe impl ::windows::core::Abi for HTTPAPI_VERSION {
 }
 impl ::core::cmp::PartialEq for HTTPAPI_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTPAPI_VERSION>()) == 0 }
+        self.HttpApiMajorVersion == other.HttpApiMajorVersion && self.HttpApiMinorVersion == other.HttpApiMinorVersion
     }
 }
 impl ::core::cmp::Eq for HTTPAPI_VERSION {}
@@ -2005,7 +2005,7 @@ unsafe impl ::windows::core::Abi for HTTP_BANDWIDTH_LIMIT_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_BANDWIDTH_LIMIT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_BANDWIDTH_LIMIT_INFO>()) == 0 }
+        self.Flags == other.Flags && self.MaxBandwidth == other.MaxBandwidth
     }
 }
 impl ::core::cmp::Eq for HTTP_BANDWIDTH_LIMIT_INFO {}
@@ -2042,7 +2042,7 @@ unsafe impl ::windows::core::Abi for HTTP_BINDING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_BINDING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_BINDING_INFO>()) == 0 }
+        self.Flags == other.Flags && self.RequestQueueHandle == other.RequestQueueHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2075,7 +2075,7 @@ unsafe impl ::windows::core::Abi for HTTP_BYTE_RANGE {
 }
 impl ::core::cmp::PartialEq for HTTP_BYTE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_BYTE_RANGE>()) == 0 }
+        self.StartingOffset == other.StartingOffset && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for HTTP_BYTE_RANGE {}
@@ -2106,7 +2106,7 @@ unsafe impl ::windows::core::Abi for HTTP_CACHE_POLICY {
 }
 impl ::core::cmp::PartialEq for HTTP_CACHE_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_CACHE_POLICY>()) == 0 }
+        self.Policy == other.Policy && self.SecondsToLive == other.SecondsToLive
     }
 }
 impl ::core::cmp::Eq for HTTP_CACHE_POLICY {}
@@ -2139,7 +2139,7 @@ unsafe impl ::windows::core::Abi for HTTP_CHANNEL_BIND_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_CHANNEL_BIND_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_CHANNEL_BIND_INFO>()) == 0 }
+        self.Hardening == other.Hardening && self.Flags == other.Flags && self.ServiceNames == other.ServiceNames && self.NumberOfServiceNames == other.NumberOfServiceNames
     }
 }
 impl ::core::cmp::Eq for HTTP_CHANNEL_BIND_INFO {}
@@ -2170,7 +2170,7 @@ unsafe impl ::windows::core::Abi for HTTP_CONNECTION_LIMIT_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_CONNECTION_LIMIT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_CONNECTION_LIMIT_INFO>()) == 0 }
+        self.Flags == other.Flags && self.MaxConnections == other.MaxConnections
     }
 }
 impl ::core::cmp::Eq for HTTP_CONNECTION_LIMIT_INFO {}
@@ -2207,7 +2207,7 @@ unsafe impl ::windows::core::Abi for HTTP_COOKED_URL {
 }
 impl ::core::cmp::PartialEq for HTTP_COOKED_URL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_COOKED_URL>()) == 0 }
+        self.FullUrlLength == other.FullUrlLength && self.HostLength == other.HostLength && self.AbsPathLength == other.AbsPathLength && self.QueryStringLength == other.QueryStringLength && self.pFullUrl == other.pFullUrl && self.pHost == other.pHost && self.pAbsPath == other.pAbsPath && self.pQueryString == other.pQueryString
     }
 }
 impl ::core::cmp::Eq for HTTP_COOKED_URL {}
@@ -2239,7 +2239,7 @@ unsafe impl ::windows::core::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO>()) == 0 }
+        self.PropertyId == other.PropertyId && self.PropertyInfoLength == other.PropertyInfoLength && self.PropertyInfo == other.PropertyInfo
     }
 }
 impl ::core::cmp::Eq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {}
@@ -2268,14 +2268,6 @@ unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HTTP_DATA_CHUNK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_DATA_CHUNK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2303,14 +2295,6 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_0 {
 unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_DATA_CHUNK_0 {
     fn default() -> Self {
@@ -2345,7 +2329,7 @@ unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK_0_0>()) == 0 }
+        self.ByteRange == other.ByteRange && self.FileHandle == other.FileHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2384,7 +2368,7 @@ unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK_0_1>()) == 0 }
+        self.ByteRange == other.ByteRange && self.pFragmentName == other.pFragmentName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2423,7 +2407,7 @@ unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK_0_2>()) == 0 }
+        self.FragmentNameLength == other.FragmentNameLength && self.pFragmentName == other.pFragmentName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2462,7 +2446,7 @@ unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK_0_3>()) == 0 }
+        self.pBuffer == other.pBuffer && self.BufferLength == other.BufferLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2501,7 +2485,7 @@ unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK_0_4>()) == 0 }
+        self.TrailerCount == other.TrailerCount && self.pTrailers == other.pTrailers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2535,7 +2519,7 @@ unsafe impl ::windows::core::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DELEGATE_REQUEST_PROPERTY_INFO>()) == 0 }
+        self.PropertyId == other.PropertyId && self.PropertyInfoLength == other.PropertyInfoLength && self.PropertyInfo == other.PropertyInfo
     }
 }
 impl ::core::cmp::Eq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {}
@@ -2567,7 +2551,7 @@ unsafe impl ::windows::core::Abi for HTTP_ERROR_HEADERS_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP_ERROR_HEADERS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_ERROR_HEADERS_PARAM>()) == 0 }
+        self.StatusCode == other.StatusCode && self.HeaderCount == other.HeaderCount && self.Headers == other.Headers
     }
 }
 impl ::core::cmp::Eq for HTTP_ERROR_HEADERS_PARAM {}
@@ -2600,7 +2584,7 @@ unsafe impl ::windows::core::Abi for HTTP_FLOWRATE_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_FLOWRATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FLOWRATE_INFO>()) == 0 }
+        self.Flags == other.Flags && self.MaxBandwidth == other.MaxBandwidth && self.MaxPeakBandwidth == other.MaxPeakBandwidth && self.BurstSize == other.BurstSize
     }
 }
 impl ::core::cmp::Eq for HTTP_FLOWRATE_INFO {}
@@ -2631,7 +2615,7 @@ unsafe impl ::windows::core::Abi for HTTP_KNOWN_HEADER {
 }
 impl ::core::cmp::PartialEq for HTTP_KNOWN_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_KNOWN_HEADER>()) == 0 }
+        self.RawValueLength == other.RawValueLength && self.pRawValue == other.pRawValue
     }
 }
 impl ::core::cmp::Eq for HTTP_KNOWN_HEADER {}
@@ -2668,7 +2652,7 @@ unsafe impl ::windows::core::Abi for HTTP_LISTEN_ENDPOINT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_LISTEN_ENDPOINT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_LISTEN_ENDPOINT_INFO>()) == 0 }
+        self.Flags == other.Flags && self.EnableSharing == other.EnableSharing
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2734,7 +2718,7 @@ unsafe impl ::windows::core::Abi for HTTP_LOGGING_INFO {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for HTTP_LOGGING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_LOGGING_INFO>()) == 0 }
+        self.Flags == other.Flags && self.LoggingFlags == other.LoggingFlags && self.SoftwareName == other.SoftwareName && self.SoftwareNameLength == other.SoftwareNameLength && self.DirectoryNameLength == other.DirectoryNameLength && self.DirectoryName == other.DirectoryName && self.Format == other.Format && self.Fields == other.Fields && self.pExtFields == other.pExtFields && self.NumOfExtFields == other.NumOfExtFields && self.MaxRecordSize == other.MaxRecordSize && self.RolloverType == other.RolloverType && self.RolloverSize == other.RolloverSize && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -2766,7 +2750,7 @@ unsafe impl ::windows::core::Abi for HTTP_LOG_DATA {
 }
 impl ::core::cmp::PartialEq for HTTP_LOG_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_LOG_DATA>()) == 0 }
+        self.Type == other.Type
     }
 }
 impl ::core::cmp::Eq for HTTP_LOG_DATA {}
@@ -2856,7 +2840,36 @@ unsafe impl ::windows::core::Abi for HTTP_LOG_FIELDS_DATA {
 }
 impl ::core::cmp::PartialEq for HTTP_LOG_FIELDS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_LOG_FIELDS_DATA>()) == 0 }
+        self.Base == other.Base
+            && self.UserNameLength == other.UserNameLength
+            && self.UriStemLength == other.UriStemLength
+            && self.ClientIpLength == other.ClientIpLength
+            && self.ServerNameLength == other.ServerNameLength
+            && self.ServiceNameLength == other.ServiceNameLength
+            && self.ServerIpLength == other.ServerIpLength
+            && self.MethodLength == other.MethodLength
+            && self.UriQueryLength == other.UriQueryLength
+            && self.HostLength == other.HostLength
+            && self.UserAgentLength == other.UserAgentLength
+            && self.CookieLength == other.CookieLength
+            && self.ReferrerLength == other.ReferrerLength
+            && self.UserName == other.UserName
+            && self.UriStem == other.UriStem
+            && self.ClientIp == other.ClientIp
+            && self.ServerName == other.ServerName
+            && self.ServiceName == other.ServiceName
+            && self.ServerIp == other.ServerIp
+            && self.Method == other.Method
+            && self.UriQuery == other.UriQuery
+            && self.Host == other.Host
+            && self.UserAgent == other.UserAgent
+            && self.Cookie == other.Cookie
+            && self.Referrer == other.Referrer
+            && self.ServerPort == other.ServerPort
+            && self.ProtocolStatus == other.ProtocolStatus
+            && self.Win32Status == other.Win32Status
+            && self.MethodNum == other.MethodNum
+            && self.SubStatus == other.SubStatus
     }
 }
 impl ::core::cmp::Eq for HTTP_LOG_FIELDS_DATA {}
@@ -2889,7 +2902,7 @@ unsafe impl ::windows::core::Abi for HTTP_MULTIPLE_KNOWN_HEADERS {
 }
 impl ::core::cmp::PartialEq for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_MULTIPLE_KNOWN_HEADERS>()) == 0 }
+        self.HeaderId == other.HeaderId && self.Flags == other.Flags && self.KnownHeaderCount == other.KnownHeaderCount && self.KnownHeaders == other.KnownHeaders
     }
 }
 impl ::core::cmp::Eq for HTTP_MULTIPLE_KNOWN_HEADERS {}
@@ -2921,7 +2934,7 @@ unsafe impl ::windows::core::Abi for HTTP_PERFORMANCE_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP_PERFORMANCE_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_PERFORMANCE_PARAM>()) == 0 }
+        self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for HTTP_PERFORMANCE_PARAM {}
@@ -2951,7 +2964,7 @@ unsafe impl ::windows::core::Abi for HTTP_PROPERTY_FLAGS {
 }
 impl ::core::cmp::PartialEq for HTTP_PROPERTY_FLAGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_PROPERTY_FLAGS>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for HTTP_PROPERTY_FLAGS {}
@@ -2982,7 +2995,7 @@ unsafe impl ::windows::core::Abi for HTTP_PROTECTION_LEVEL_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_PROTECTION_LEVEL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_PROTECTION_LEVEL_INFO>()) == 0 }
+        self.Flags == other.Flags && self.Level == other.Level
     }
 }
 impl ::core::cmp::Eq for HTTP_PROTECTION_LEVEL_INFO {}
@@ -3013,7 +3026,7 @@ unsafe impl ::windows::core::Abi for HTTP_QOS_SETTING_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_QOS_SETTING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_QOS_SETTING_INFO>()) == 0 }
+        self.QosType == other.QosType && self.QosSetting == other.QosSetting
     }
 }
 impl ::core::cmp::Eq for HTTP_QOS_SETTING_INFO {}
@@ -3043,7 +3056,7 @@ unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
 }
 impl ::core::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_QUERY_REQUEST_QUALIFIER_QUIC>()) == 0 }
+        self.Freshness == other.Freshness
     }
 }
 impl ::core::cmp::Eq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {}
@@ -3073,7 +3086,7 @@ unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
 }
 impl ::core::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_QUERY_REQUEST_QUALIFIER_TCP>()) == 0 }
+        self.Freshness == other.Freshness
     }
 }
 impl ::core::cmp::Eq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {}
@@ -3104,7 +3117,7 @@ unsafe impl ::windows::core::Abi for HTTP_QUIC_API_TIMINGS {
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_QUIC_API_TIMINGS>()) == 0 }
+        self.ConnectionTimings == other.ConnectionTimings && self.StreamTimings == other.StreamTimings
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_API_TIMINGS {}
@@ -3160,7 +3173,7 @@ unsafe impl ::windows::core::Abi for HTTP_QUIC_CONNECTION_API_TIMINGS {
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_CONNECTION_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_QUIC_CONNECTION_API_TIMINGS>()) == 0 }
+        self.OpenTime == other.OpenTime && self.CloseTime == other.CloseTime && self.StartTime == other.StartTime && self.ShutdownTime == other.ShutdownTime && self.SecConfigCreateTime == other.SecConfigCreateTime && self.SecConfigDeleteTime == other.SecConfigDeleteTime && self.GetParamCount == other.GetParamCount && self.GetParamSum == other.GetParamSum && self.SetParamCount == other.SetParamCount && self.SetParamSum == other.SetParamSum && self.SetCallbackHandlerCount == other.SetCallbackHandlerCount && self.SetCallbackHandlerSum == other.SetCallbackHandlerSum && self.ControlStreamTimings == other.ControlStreamTimings
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_CONNECTION_API_TIMINGS {}
@@ -3226,7 +3239,7 @@ unsafe impl ::windows::core::Abi for HTTP_QUIC_STREAM_API_TIMINGS {
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_STREAM_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_QUIC_STREAM_API_TIMINGS>()) == 0 }
+        self.OpenCount == other.OpenCount && self.OpenSum == other.OpenSum && self.CloseCount == other.CloseCount && self.CloseSum == other.CloseSum && self.StartCount == other.StartCount && self.StartSum == other.StartSum && self.ShutdownCount == other.ShutdownCount && self.ShutdownSum == other.ShutdownSum && self.SendCount == other.SendCount && self.SendSum == other.SendSum && self.ReceiveSetEnabledCount == other.ReceiveSetEnabledCount && self.ReceiveSetEnabledSum == other.ReceiveSetEnabledSum && self.GetParamCount == other.GetParamCount && self.GetParamSum == other.GetParamSum && self.SetParamCount == other.SetParamCount && self.SetParamSum == other.SetParamSum && self.SetCallbackHandlerCount == other.SetCallbackHandlerCount && self.SetCallbackHandlerSum == other.SetCallbackHandlerSum
     }
 }
 impl ::core::cmp::Eq for HTTP_QUIC_STREAM_API_TIMINGS {}
@@ -3288,7 +3301,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_AUTH_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_AUTH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_AUTH_INFO>()) == 0 }
+        self.AuthStatus == other.AuthStatus && self.SecStatus == other.SecStatus && self.Flags == other.Flags && self.AuthType == other.AuthType && self.AccessToken == other.AccessToken && self.ContextAttributes == other.ContextAttributes && self.PackedContextLength == other.PackedContextLength && self.PackedContextType == other.PackedContextType && self.PackedContext == other.PackedContext && self.MutualAuthDataLength == other.MutualAuthDataLength && self.pMutualAuthData == other.pMutualAuthData && self.PackageNameLength == other.PackageNameLength && self.pPackageName == other.pPackageName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3323,7 +3336,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_CHANNEL_BIND_STATUS {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_CHANNEL_BIND_STATUS>()) == 0 }
+        self.ServiceName == other.ServiceName && self.ChannelToken == other.ChannelToken && self.ChannelTokenSize == other.ChannelTokenSize && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_CHANNEL_BIND_STATUS {}
@@ -3357,7 +3370,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_HEADERS {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_HEADERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_HEADERS>()) == 0 }
+        self.UnknownHeaderCount == other.UnknownHeaderCount && self.pUnknownHeaders == other.pUnknownHeaders && self.TrailerCount == other.TrailerCount && self.pTrailers == other.pTrailers && self.KnownHeaders == other.KnownHeaders
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_HEADERS {}
@@ -3389,7 +3402,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_INFO>()) == 0 }
+        self.InfoType == other.InfoType && self.InfoLength == other.InfoLength && self.pInfo == other.pInfo
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_INFO {}
@@ -3420,7 +3433,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_SNI {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_PROPERTY_SNI {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_PROPERTY_SNI>()) == 0 }
+        self.Hostname == other.Hostname && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_PROPERTY_SNI {}
@@ -3450,7 +3463,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_PROPERTY_STREAM_ERROR>()) == 0 }
+        self.ErrorCode == other.ErrorCode
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {}
@@ -3483,7 +3496,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_SIZING_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_SIZING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_SIZING_INFO>()) == 0 }
+        self.Flags == other.Flags && self.RequestIndex == other.RequestIndex && self.RequestSizingCount == other.RequestSizingCount && self.RequestSizing == other.RequestSizing
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_SIZING_INFO {}
@@ -3514,7 +3527,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMING_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_TIMING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_TIMING_INFO>()) == 0 }
+        self.RequestTimingCount == other.RequestTimingCount && self.RequestTiming == other.RequestTiming
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_TIMING_INFO {}
@@ -3548,7 +3561,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_TOKEN_BINDING_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_TOKEN_BINDING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_TOKEN_BINDING_INFO>()) == 0 }
+        self.TokenBinding == other.TokenBinding && self.TokenBindingSize == other.TokenBindingSize && self.EKM == other.EKM && self.EKMSize == other.EKMSize && self.KeyType == other.KeyType
     }
 }
 impl ::core::cmp::Eq for HTTP_REQUEST_TOKEN_BINDING_INFO {}
@@ -3620,7 +3633,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_V1>()) == 0 }
+        self.Flags == other.Flags && self.ConnectionId == other.ConnectionId && self.RequestId == other.RequestId && self.UrlContext == other.UrlContext && self.Version == other.Version && self.Verb == other.Verb && self.UnknownVerbLength == other.UnknownVerbLength && self.RawUrlLength == other.RawUrlLength && self.pUnknownVerb == other.pUnknownVerb && self.pRawUrl == other.pRawUrl && self.CookedUrl == other.CookedUrl && self.Address == other.Address && self.Headers == other.Headers && self.BytesReceived == other.BytesReceived && self.EntityChunkCount == other.EntityChunkCount && self.pEntityChunks == other.pEntityChunks && self.RawConnectionId == other.RawConnectionId && self.pSslInfo == other.pSslInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3660,7 +3673,7 @@ unsafe impl ::windows::core::Abi for HTTP_REQUEST_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_REQUEST_V2>()) == 0 }
+        self.Base == other.Base && self.RequestInfoCount == other.RequestInfoCount && self.pRequestInfo == other.pRequestInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3696,7 +3709,7 @@ unsafe impl ::windows::core::Abi for HTTP_RESPONSE_HEADERS {
 }
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_HEADERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_RESPONSE_HEADERS>()) == 0 }
+        self.UnknownHeaderCount == other.UnknownHeaderCount && self.pUnknownHeaders == other.pUnknownHeaders && self.TrailerCount == other.TrailerCount && self.pTrailers == other.pTrailers && self.KnownHeaders == other.KnownHeaders
     }
 }
 impl ::core::cmp::Eq for HTTP_RESPONSE_HEADERS {}
@@ -3728,7 +3741,7 @@ unsafe impl ::windows::core::Abi for HTTP_RESPONSE_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_RESPONSE_INFO>()) == 0 }
+        self.Type == other.Type && self.Length == other.Length && self.pInfo == other.pInfo
     }
 }
 impl ::core::cmp::Eq for HTTP_RESPONSE_INFO {}
@@ -3771,7 +3784,7 @@ unsafe impl ::windows::core::Abi for HTTP_RESPONSE_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_RESPONSE_V1>()) == 0 }
+        self.Flags == other.Flags && self.Version == other.Version && self.StatusCode == other.StatusCode && self.ReasonLength == other.ReasonLength && self.pReason == other.pReason && self.Headers == other.Headers && self.EntityChunkCount == other.EntityChunkCount && self.pEntityChunks == other.pEntityChunks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3811,7 +3824,7 @@ unsafe impl ::windows::core::Abi for HTTP_RESPONSE_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_RESPONSE_V2>()) == 0 }
+        self.Base == other.Base && self.ResponseInfoCount == other.ResponseInfoCount && self.pResponseInfo == other.pResponseInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3844,7 +3857,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS>()) == 0 }
+        self.RealmLength == other.RealmLength && self.Realm == other.Realm
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {}
@@ -3877,7 +3890,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS>()) == 0 }
+        self.DomainNameLength == other.DomainNameLength && self.DomainName == other.DomainName && self.RealmLength == other.RealmLength && self.Realm == other.Realm
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {}
@@ -3920,7 +3933,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVER_AUTHENTICATION_INFO>()) == 0 }
+        self.Flags == other.Flags && self.AuthSchemes == other.AuthSchemes && self.ReceiveMutualAuth == other.ReceiveMutualAuth && self.ReceiveContextHandle == other.ReceiveContextHandle && self.DisableNTLMCredentialCaching == other.DisableNTLMCredentialCaching && self.ExFlags == other.ExFlags && self.DigestParams == other.DigestParams && self.BasicParams == other.BasicParams
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3954,7 +3967,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_A {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_BINDING_A>()) == 0 }
+        self.Base == other.Base && self.Buffer == other.Buffer && self.BufferSize == other.BufferSize
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_A {}
@@ -3984,7 +3997,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_BASE {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_BASE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_BINDING_BASE>()) == 0 }
+        self.Type == other.Type
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_BASE {}
@@ -4016,7 +4029,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_W {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_BINDING_W>()) == 0 }
+        self.Base == other.Base && self.Buffer == other.Buffer && self.BufferSize == other.BufferSize
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_BINDING_W {}
@@ -4047,7 +4060,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_CACHE_SET {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_CACHE_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_CACHE_SET>()) == 0 }
+        self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_CACHE_SET {}
@@ -4084,7 +4097,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM>()) == 0 }
+        self.AddrLength == other.AddrLength && self.pAddress == other.pAddress
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4123,7 +4136,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY>()) == 0 }
+        self.AddrCount == other.AddrCount && self.AddrList == other.AddrList
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4156,7 +4169,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SETTING_SET {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SETTING_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SETTING_SET>()) == 0 }
+        self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SETTING_SET {}
@@ -4192,7 +4205,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_CCS_KEY>()) == 0 }
+        self.LocalAddress == other.LocalAddress
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4232,7 +4245,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_CCS_QUERY>()) == 0 }
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4273,7 +4286,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX>()) == 0 }
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken && self.ParamType == other.ParamType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4312,7 +4325,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_CCS_SET>()) == 0 }
+        self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4342,14 +4355,6 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn default() -> Self {
@@ -4383,7 +4388,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_KEY>()) == 0 }
+        self.pIpPort == other.pIpPort
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4421,7 +4426,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_KEY_EX>()) == 0 }
+        self.IpPort == other.IpPort
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4473,7 +4478,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_PARAM>()) == 0 }
+        self.SslHashLength == other.SslHashLength && self.pSslHash == other.pSslHash && self.AppId == other.AppId && self.pSslCertStoreName == other.pSslCertStoreName && self.DefaultCertCheckMode == other.DefaultCertCheckMode && self.DefaultRevocationFreshnessTime == other.DefaultRevocationFreshnessTime && self.DefaultRevocationUrlRetrievalTimeout == other.DefaultRevocationUrlRetrievalTimeout && self.pDefaultSslCtlIdentifier == other.pDefaultSslCtlIdentifier && self.pDefaultSslCtlStoreName == other.pDefaultSslCtlStoreName && self.DefaultFlags == other.DefaultFlags
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM {}
@@ -4498,12 +4503,6 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_PARAM_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4528,12 +4527,6 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {}
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4568,7 +4561,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_QUERY>()) == 0 }
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4609,7 +4602,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_QUERY_EX>()) == 0 }
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken && self.ParamType == other.ParamType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4648,7 +4641,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_SET>()) == 0 }
+        self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4678,14 +4671,6 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET_EX {
 unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SET_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_SET_EX>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn default() -> Self {
@@ -4720,7 +4705,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_SNI_KEY>()) == 0 }
+        self.IpPort == other.IpPort && self.Host == other.Host
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4760,7 +4745,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_SNI_QUERY>()) == 0 }
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4801,7 +4786,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX>()) == 0 }
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken && self.ParamType == other.ParamType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4840,7 +4825,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_SNI_SET>()) == 0 }
+        self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4871,14 +4856,6 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4906,7 +4883,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_TIMEOUT_SET>()) == 0 }
+        self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {}
@@ -4936,7 +4913,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_KEY {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_KEY>()) == 0 }
+        self.pUrlPrefix == other.pUrlPrefix
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_KEY {}
@@ -4966,7 +4943,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_PARAM>()) == 0 }
+        self.pStringSecurityDescriptor == other.pStringSecurityDescriptor
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_PARAM {}
@@ -4998,7 +4975,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_QUERY {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_QUERY>()) == 0 }
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_QUERY {}
@@ -5029,7 +5006,7 @@ unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_SET {
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SERVICE_CONFIG_URLACL_SET>()) == 0 }
+        self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
 impl ::core::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_SET {}
@@ -5069,7 +5046,7 @@ unsafe impl ::windows::core::Abi for HTTP_SSL_CLIENT_CERT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SSL_CLIENT_CERT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SSL_CLIENT_CERT_INFO>()) == 0 }
+        self.CertFlags == other.CertFlags && self.CertEncodedSize == other.CertEncodedSize && self.pCertEncoded == other.pCertEncoded && self.Token == other.Token && self.CertDeniedByMapper == other.CertDeniedByMapper
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5114,7 +5091,7 @@ unsafe impl ::windows::core::Abi for HTTP_SSL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SSL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SSL_INFO>()) == 0 }
+        self.ServerCertKeySize == other.ServerCertKeySize && self.ConnectionKeySize == other.ConnectionKeySize && self.ServerCertIssuerSize == other.ServerCertIssuerSize && self.ServerCertSubjectSize == other.ServerCertSubjectSize && self.pServerCertIssuer == other.pServerCertIssuer && self.pServerCertSubject == other.pServerCertSubject && self.pClientCertInfo == other.pClientCertInfo && self.SslClientCertNegotiated == other.SslClientCertNegotiated
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5152,7 +5129,7 @@ unsafe impl ::windows::core::Abi for HTTP_SSL_PROTOCOL_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_SSL_PROTOCOL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_SSL_PROTOCOL_INFO>()) == 0 }
+        self.Protocol == other.Protocol && self.CipherType == other.CipherType && self.CipherStrength == other.CipherStrength && self.HashType == other.HashType && self.HashStrength == other.HashStrength && self.KeyExchangeType == other.KeyExchangeType && self.KeyExchangeStrength == other.KeyExchangeStrength
     }
 }
 impl ::core::cmp::Eq for HTTP_SSL_PROTOCOL_INFO {}
@@ -5183,7 +5160,7 @@ unsafe impl ::windows::core::Abi for HTTP_STATE_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_STATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_STATE_INFO>()) == 0 }
+        self.Flags == other.Flags && self.State == other.State
     }
 }
 impl ::core::cmp::Eq for HTTP_STATE_INFO {}
@@ -5219,7 +5196,7 @@ unsafe impl ::windows::core::Abi for HTTP_TIMEOUT_LIMIT_INFO {
 }
 impl ::core::cmp::PartialEq for HTTP_TIMEOUT_LIMIT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_TIMEOUT_LIMIT_INFO>()) == 0 }
+        self.Flags == other.Flags && self.EntityBody == other.EntityBody && self.DrainEntityBody == other.DrainEntityBody && self.RequestQueue == other.RequestQueue && self.IdleConnection == other.IdleConnection && self.HeaderWait == other.HeaderWait && self.MinSendRate == other.MinSendRate
     }
 }
 impl ::core::cmp::Eq for HTTP_TIMEOUT_LIMIT_INFO {}
@@ -5250,7 +5227,7 @@ unsafe impl ::windows::core::Abi for HTTP_TLS_RESTRICTIONS_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP_TLS_RESTRICTIONS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_TLS_RESTRICTIONS_PARAM>()) == 0 }
+        self.RestrictionCount == other.RestrictionCount && self.TlsRestrictions == other.TlsRestrictions
     }
 }
 impl ::core::cmp::Eq for HTTP_TLS_RESTRICTIONS_PARAM {}
@@ -5281,7 +5258,7 @@ unsafe impl ::windows::core::Abi for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
 }
 impl ::core::cmp::PartialEq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_TLS_SESSION_TICKET_KEYS_PARAM>()) == 0 }
+        self.SessionTicketKeyCount == other.SessionTicketKeyCount && self.SessionTicketKeys == other.SessionTicketKeys
     }
 }
 impl ::core::cmp::Eq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {}
@@ -5318,7 +5295,7 @@ unsafe impl ::windows::core::Abi for HTTP_TRANSPORT_ADDRESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_TRANSPORT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_TRANSPORT_ADDRESS>()) == 0 }
+        self.pRemoteAddress == other.pRemoteAddress && self.pLocalAddress == other.pLocalAddress
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -5353,7 +5330,7 @@ unsafe impl ::windows::core::Abi for HTTP_UNKNOWN_HEADER {
 }
 impl ::core::cmp::PartialEq for HTTP_UNKNOWN_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_UNKNOWN_HEADER>()) == 0 }
+        self.NameLength == other.NameLength && self.RawValueLength == other.RawValueLength && self.pName == other.pName && self.pRawValue == other.pRawValue
     }
 }
 impl ::core::cmp::Eq for HTTP_UNKNOWN_HEADER {}
@@ -5384,7 +5361,7 @@ unsafe impl ::windows::core::Abi for HTTP_VERSION {
 }
 impl ::core::cmp::PartialEq for HTTP_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_VERSION>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
 impl ::core::cmp::Eq for HTTP_VERSION {}
@@ -5438,7 +5415,7 @@ unsafe impl ::windows::core::Abi for HTTP_WSK_API_TIMINGS {
 }
 impl ::core::cmp::PartialEq for HTTP_WSK_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_WSK_API_TIMINGS>()) == 0 }
+        self.ConnectCount == other.ConnectCount && self.ConnectSum == other.ConnectSum && self.DisconnectCount == other.DisconnectCount && self.DisconnectSum == other.DisconnectSum && self.SendCount == other.SendCount && self.SendSum == other.SendSum && self.ReceiveCount == other.ReceiveCount && self.ReceiveSum == other.ReceiveSum && self.ReleaseCount == other.ReleaseCount && self.ReleaseSum == other.ReleaseSum && self.ControlSocketCount == other.ControlSocketCount && self.ControlSocketSum == other.ControlSocketSum
     }
 }
 impl ::core::cmp::Eq for HTTP_WSK_API_TIMINGS {}

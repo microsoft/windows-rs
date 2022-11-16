@@ -282,7 +282,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3DMultisampleDescription {
 }
 impl ::core::cmp::PartialEq for Direct3DMultisampleDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Direct3DMultisampleDescription>()) == 0 }
+        self.Count == other.Count && self.Quality == other.Quality
     }
 }
 impl ::core::cmp::Eq for Direct3DMultisampleDescription {}
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3DSurfaceDescription {
 }
 impl ::core::cmp::PartialEq for Direct3DSurfaceDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Direct3DSurfaceDescription>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.MultisampleDescription == other.MultisampleDescription
     }
 }
 impl ::core::cmp::Eq for Direct3DSurfaceDescription {}

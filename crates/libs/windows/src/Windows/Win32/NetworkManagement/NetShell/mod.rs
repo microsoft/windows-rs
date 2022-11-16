@@ -292,21 +292,13 @@ impl ::core::clone::Clone for CMD_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMD_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("pfnCmdHandler", &self.pfnCmdHandler.map(|f| f as usize)).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).field("pOsVersionCheck", &self.pOsVersionCheck.map(|f| f as usize)).finish()
+        f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CMD_ENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CMD_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMD_ENTRY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CMD_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_ENTRY {
     fn default() -> Self {
@@ -335,21 +327,13 @@ impl ::core::clone::Clone for CMD_GROUP_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).field("pOsVersionCheck", &self.pOsVersionCheck.map(|f| f as usize)).finish()
+        f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CMD_GROUP_ENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CMD_GROUP_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMD_GROUP_ENTRY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CMD_GROUP_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_GROUP_ENTRY {
     fn default() -> Self {
@@ -388,14 +372,6 @@ unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_CONTEXT_ATTRIBUTES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -420,14 +396,6 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
 unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_CONTEXT_ATTRIBUTES_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
     fn default() -> Self {
@@ -462,7 +430,7 @@ unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_CONTEXT_ATTRIBUTES_0_0>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -490,12 +458,6 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
 unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_HELPER_ATTRIBUTES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES {}
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -516,12 +478,6 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0 {
 unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_HELPER_ATTRIBUTES_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0 {}
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -549,7 +505,7 @@ unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
 }
 impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_HELPER_ATTRIBUTES_0_0>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0_0 {}
@@ -587,7 +543,7 @@ unsafe impl ::windows::core::Abi for TAG_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAG_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAG_TYPE>()) == 0 }
+        self.pwszTag == other.pwszTag && self.dwRequired == other.dwRequired && self.bPresent == other.bPresent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -620,7 +576,7 @@ unsafe impl ::windows::core::Abi for TOKEN_VALUE {
 }
 impl ::core::cmp::PartialEq for TOKEN_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOKEN_VALUE>()) == 0 }
+        self.pwszToken == other.pwszToken && self.dwValue == other.dwValue
     }
 }
 impl ::core::cmp::Eq for TOKEN_VALUE {}

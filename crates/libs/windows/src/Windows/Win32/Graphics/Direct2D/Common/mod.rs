@@ -515,7 +515,7 @@ unsafe impl ::windows::core::Abi for D2D1_BEZIER_SEGMENT {
 }
 impl ::core::cmp::PartialEq for D2D1_BEZIER_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BEZIER_SEGMENT>()) == 0 }
+        self.point1 == other.point1 && self.point2 == other.point2 && self.point3 == other.point3
     }
 }
 impl ::core::cmp::Eq for D2D1_BEZIER_SEGMENT {}
@@ -548,7 +548,7 @@ unsafe impl ::windows::core::Abi for D2D1_COLOR_F {
 }
 impl ::core::cmp::PartialEq for D2D1_COLOR_F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_COLOR_F>()) == 0 }
+        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
     }
 }
 impl ::core::cmp::Eq for D2D1_COLOR_F {}
@@ -585,7 +585,7 @@ unsafe impl ::windows::core::Abi for D2D1_PIXEL_FORMAT {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D2D1_PIXEL_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_PIXEL_FORMAT>()) == 0 }
+        self.format == other.format && self.alphaMode == other.alphaMode
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -620,7 +620,7 @@ unsafe impl ::windows::core::Abi for D2D_COLOR_F {
 }
 impl ::core::cmp::PartialEq for D2D_COLOR_F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_COLOR_F>()) == 0 }
+        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
     }
 }
 impl ::core::cmp::Eq for D2D_COLOR_F {}
@@ -643,12 +643,6 @@ impl ::core::clone::Clone for D2D_MATRIX_4X3_F {
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_4X3_F>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D_MATRIX_4X3_F {}
 impl ::core::default::Default for D2D_MATRIX_4X3_F {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -669,12 +663,6 @@ impl ::core::clone::Clone for D2D_MATRIX_4X3_F_0 {
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_4X3_F_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D_MATRIX_4X3_F_0 {}
 impl ::core::default::Default for D2D_MATRIX_4X3_F_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -712,7 +700,7 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0_0 {
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_4X3_F_0_0>()) == 0 }
+        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X3_F_0_0 {}
@@ -735,12 +723,6 @@ impl ::core::clone::Clone for D2D_MATRIX_4X4_F {
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_4X4_F>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D_MATRIX_4X4_F {}
 impl ::core::default::Default for D2D_MATRIX_4X4_F {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -761,12 +743,6 @@ impl ::core::clone::Clone for D2D_MATRIX_4X4_F_0 {
 unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_4X4_F_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D_MATRIX_4X4_F_0 {}
 impl ::core::default::Default for D2D_MATRIX_4X4_F_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -808,7 +784,7 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0_0 {
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_4X4_F_0_0>()) == 0 }
+        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_4X4_F_0_0 {}
@@ -831,12 +807,6 @@ impl ::core::clone::Clone for D2D_MATRIX_5X4_F {
 unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_5X4_F>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D_MATRIX_5X4_F {}
 impl ::core::default::Default for D2D_MATRIX_5X4_F {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -857,12 +827,6 @@ impl ::core::clone::Clone for D2D_MATRIX_5X4_F_0 {
 unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_5X4_F_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D_MATRIX_5X4_F_0 {}
 impl ::core::default::Default for D2D_MATRIX_5X4_F_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -929,7 +893,7 @@ unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0_0 {
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_MATRIX_5X4_F_0_0>()) == 0 }
+        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44 && self._51 == other._51 && self._52 == other._52 && self._53 == other._53 && self._54 == other._54
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_5X4_F_0_0 {}
@@ -960,7 +924,7 @@ unsafe impl ::windows::core::Abi for D2D_POINT_2F {
 }
 impl ::core::cmp::PartialEq for D2D_POINT_2F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_POINT_2F>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for D2D_POINT_2F {}
@@ -991,7 +955,7 @@ unsafe impl ::windows::core::Abi for D2D_POINT_2U {
 }
 impl ::core::cmp::PartialEq for D2D_POINT_2U {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_POINT_2U>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for D2D_POINT_2U {}
@@ -1024,7 +988,7 @@ unsafe impl ::windows::core::Abi for D2D_RECT_F {
 }
 impl ::core::cmp::PartialEq for D2D_RECT_F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_RECT_F>()) == 0 }
+        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
 impl ::core::cmp::Eq for D2D_RECT_F {}
@@ -1057,7 +1021,7 @@ unsafe impl ::windows::core::Abi for D2D_RECT_U {
 }
 impl ::core::cmp::PartialEq for D2D_RECT_U {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_RECT_U>()) == 0 }
+        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
 impl ::core::cmp::Eq for D2D_RECT_U {}
@@ -1088,7 +1052,7 @@ unsafe impl ::windows::core::Abi for D2D_SIZE_F {
 }
 impl ::core::cmp::PartialEq for D2D_SIZE_F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_SIZE_F>()) == 0 }
+        self.width == other.width && self.height == other.height
     }
 }
 impl ::core::cmp::Eq for D2D_SIZE_F {}
@@ -1119,7 +1083,7 @@ unsafe impl ::windows::core::Abi for D2D_SIZE_U {
 }
 impl ::core::cmp::PartialEq for D2D_SIZE_U {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_SIZE_U>()) == 0 }
+        self.width == other.width && self.height == other.height
     }
 }
 impl ::core::cmp::Eq for D2D_SIZE_U {}
@@ -1150,7 +1114,7 @@ unsafe impl ::windows::core::Abi for D2D_VECTOR_2F {
 }
 impl ::core::cmp::PartialEq for D2D_VECTOR_2F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_VECTOR_2F>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for D2D_VECTOR_2F {}
@@ -1182,7 +1146,7 @@ unsafe impl ::windows::core::Abi for D2D_VECTOR_3F {
 }
 impl ::core::cmp::PartialEq for D2D_VECTOR_3F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_VECTOR_3F>()) == 0 }
+        self.x == other.x && self.y == other.y && self.z == other.z
     }
 }
 impl ::core::cmp::Eq for D2D_VECTOR_3F {}
@@ -1215,7 +1179,7 @@ unsafe impl ::windows::core::Abi for D2D_VECTOR_4F {
 }
 impl ::core::cmp::PartialEq for D2D_VECTOR_4F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D_VECTOR_4F>()) == 0 }
+        self.x == other.x && self.y == other.y && self.z == other.z && self.w == other.w
     }
 }
 impl ::core::cmp::Eq for D2D_VECTOR_4F {}

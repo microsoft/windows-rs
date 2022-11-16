@@ -453,7 +453,7 @@ unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
 }
 impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_ENTRY>()) == 0 }
+        self.OwningPartitionId == other.OwningPartitionId && self.TargetPartitionId == other.TargetPartitionId && self.Protocol == other.Protocol && self.Priority == other.Priority && self.ReservationType == other.ReservationType && self.SharingFlags == other.SharingFlags && self.DeliveryMode == other.DeliveryMode && self.StartingPort == other.StartingPort && self.EndingPort == other.EndingPort
     }
 }
 impl ::core::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
@@ -484,7 +484,7 @@ unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
 }
 impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_RESERVATION>()) == 0 }
+        self.startingPort == other.startingPort && self.endingPort == other.endingPort
     }
 }
 impl ::core::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}

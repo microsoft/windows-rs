@@ -3696,7 +3696,7 @@ unsafe impl ::windows::core::Abi for DOS_IMAGE_INFO {
 }
 impl ::core::cmp::PartialEq for DOS_IMAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOS_IMAGE_INFO>()) == 0 }
+        self.PdbName == other.PdbName && self.ImageBaseAddress == other.ImageBaseAddress && self.ImageSize == other.ImageSize && self.Timestamp == other.Timestamp
     }
 }
 impl ::core::cmp::Eq for DOS_IMAGE_INFO {}
@@ -3727,7 +3727,7 @@ unsafe impl ::windows::core::Abi for GPA_MEMORY_CHUNK {
 }
 impl ::core::cmp::PartialEq for GPA_MEMORY_CHUNK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GPA_MEMORY_CHUNK>()) == 0 }
+        self.GuestPhysicalStartPageIndex == other.GuestPhysicalStartPageIndex && self.PageCount == other.PageCount
     }
 }
 impl ::core::cmp::Eq for GPA_MEMORY_CHUNK {}
@@ -3752,12 +3752,6 @@ impl ::core::clone::Clone for GUEST_OS_INFO {
 unsafe impl ::windows::core::Abi for GUEST_OS_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GUEST_OS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GUEST_OS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GUEST_OS_INFO {}
 impl ::core::default::Default for GUEST_OS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3784,7 +3778,7 @@ unsafe impl ::windows::core::Abi for GUEST_OS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for GUEST_OS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GUEST_OS_INFO_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for GUEST_OS_INFO_0 {}
@@ -3814,7 +3808,7 @@ unsafe impl ::windows::core::Abi for GUEST_OS_INFO_1 {
 }
 impl ::core::cmp::PartialEq for GUEST_OS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GUEST_OS_INFO_1>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for GUEST_OS_INFO_1 {}
@@ -3846,30 +3840,12 @@ impl ::core::clone::Clone for HDV_PCI_DEVICE_INTERFACE {
 }
 impl ::core::fmt::Debug for HDV_PCI_DEVICE_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HDV_PCI_DEVICE_INTERFACE")
-            .field("Version", &self.Version)
-            .field("Initialize", &self.Initialize.map(|f| f as usize))
-            .field("Teardown", &self.Teardown.map(|f| f as usize))
-            .field("SetConfiguration", &self.SetConfiguration.map(|f| f as usize))
-            .field("GetDetails", &self.GetDetails.map(|f| f as usize))
-            .field("Start", &self.Start.map(|f| f as usize))
-            .field("Stop", &self.Stop.map(|f| f as usize))
-            .field("ReadConfigSpace", &self.ReadConfigSpace.map(|f| f as usize))
-            .field("WriteConfigSpace", &self.WriteConfigSpace.map(|f| f as usize))
-            .field("ReadInterceptedMemory", &self.ReadInterceptedMemory.map(|f| f as usize))
-            .field("WriteInterceptedMemory", &self.WriteInterceptedMemory.map(|f| f as usize))
-            .finish()
+        f.debug_struct("HDV_PCI_DEVICE_INTERFACE").field("Version", &self.Version).finish()
     }
 }
 unsafe impl ::windows::core::Abi for HDV_PCI_DEVICE_INTERFACE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HDV_PCI_DEVICE_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDV_PCI_DEVICE_INTERFACE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HDV_PCI_DEVICE_INTERFACE {}
 impl ::core::default::Default for HDV_PCI_DEVICE_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3903,7 +3879,7 @@ unsafe impl ::windows::core::Abi for HDV_PCI_PNP_ID {
 }
 impl ::core::cmp::PartialEq for HDV_PCI_PNP_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDV_PCI_PNP_ID>()) == 0 }
+        self.VendorID == other.VendorID && self.DeviceID == other.DeviceID && self.RevisionID == other.RevisionID && self.ProgIf == other.ProgIf && self.SubClass == other.SubClass && self.BaseClass == other.BaseClass && self.SubVendorID == other.SubVendorID && self.SubSystemID == other.SubSystemID
     }
 }
 impl ::core::cmp::Eq for HDV_PCI_PNP_ID {}
@@ -3936,7 +3912,7 @@ unsafe impl ::windows::core::Abi for HVSOCKET_ADDRESS_INFO {
 }
 impl ::core::cmp::PartialEq for HVSOCKET_ADDRESS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HVSOCKET_ADDRESS_INFO>()) == 0 }
+        self.SystemId == other.SystemId && self.VirtualMachineId == other.VirtualMachineId && self.SiloId == other.SiloId && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for HVSOCKET_ADDRESS_INFO {}
@@ -3967,7 +3943,7 @@ unsafe impl ::windows::core::Abi for MODULE_INFO {
 }
 impl ::core::cmp::PartialEq for MODULE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODULE_INFO>()) == 0 }
+        self.ProcessImageName == other.ProcessImageName && self.Image == other.Image
     }
 }
 impl ::core::cmp::Eq for MODULE_INFO {}
@@ -4000,7 +3976,7 @@ unsafe impl ::windows::core::Abi for SOCKADDR_HV {
 }
 impl ::core::cmp::PartialEq for SOCKADDR_HV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOCKADDR_HV>()) == 0 }
+        self.Family == other.Family && self.Reserved == other.Reserved && self.VmId == other.VmId && self.ServiceId == other.ServiceId
     }
 }
 impl ::core::cmp::Eq for SOCKADDR_HV {}
@@ -4028,12 +4004,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4061,7 +4031,7 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_0 {
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_0>()) == 0 }
+        self.Low64 == other.Low64 && self.High64 == other.High64
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_0 {}
@@ -4087,12 +4057,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1 {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1 {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4117,12 +4081,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0 {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_0 {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4143,12 +4101,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4176,7 +4128,7 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_0_0_0>()) == 0 }
+        self.LastFpEip == other.LastFpEip && self.LastFpCs == other.LastFpCs
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {}
@@ -4202,12 +4154,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1 {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_1 {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4228,12 +4174,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4260,7 +4200,7 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_1_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {}
@@ -4291,7 +4231,7 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_2 {
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_2>()) == 0 }
+        self.Limit == other.Limit && self.Base == other.Base
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_2 {}
@@ -4316,12 +4256,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3 {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_3 {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4342,12 +4276,6 @@ impl ::core::clone::Clone for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
 unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_3_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {}
 impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4375,7 +4303,7 @@ unsafe impl ::windows::core::Abi for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
 }
 impl ::core::cmp::PartialEq for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIRTUAL_PROCESSOR_REGISTER_1_3_0_0>()) == 0 }
+        self.LastFpDp == other.LastFpDp && self.LastFpDs == other.LastFpDs
     }
 }
 impl ::core::cmp::Eq for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {}
@@ -4406,7 +4334,7 @@ unsafe impl ::windows::core::Abi for VM_GENCOUNTER {
 }
 impl ::core::cmp::PartialEq for VM_GENCOUNTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VM_GENCOUNTER>()) == 0 }
+        self.GenerationCount == other.GenerationCount && self.GenerationCountHigh == other.GenerationCountHigh
     }
 }
 impl ::core::cmp::Eq for VM_GENCOUNTER {}
@@ -4430,12 +4358,6 @@ impl ::core::clone::Clone for WHV_ACCESS_GPA_CONTROLS {
 unsafe impl ::windows::core::Abi for WHV_ACCESS_GPA_CONTROLS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_ACCESS_GPA_CONTROLS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_ACCESS_GPA_CONTROLS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_ACCESS_GPA_CONTROLS {}
 impl ::core::default::Default for WHV_ACCESS_GPA_CONTROLS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4463,7 +4385,7 @@ unsafe impl ::windows::core::Abi for WHV_ACCESS_GPA_CONTROLS_0 {
 }
 impl ::core::cmp::PartialEq for WHV_ACCESS_GPA_CONTROLS_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_ACCESS_GPA_CONTROLS_0>()) == 0 }
+        self.CacheType == other.CacheType && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WHV_ACCESS_GPA_CONTROLS_0 {}
@@ -4486,12 +4408,6 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE {
 unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_ADVISE_GPA_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_ADVISE_GPA_RANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_ADVISE_GPA_RANGE {}
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4512,12 +4428,6 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE {
 unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_ADVISE_GPA_RANGE_POPULATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_ADVISE_GPA_RANGE_POPULATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_ADVISE_GPA_RANGE_POPULATE {}
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_POPULATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4538,12 +4448,6 @@ impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
 unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {}
 impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4570,7 +4474,7 @@ unsafe impl ::windows::core::Abi for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
 }
 impl ::core::cmp::PartialEq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {}
@@ -4614,14 +4518,6 @@ unsafe impl ::windows::core::Abi for WHV_CAPABILITY {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WHV_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_CAPABILITY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WHV_CAPABILITY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WHV_CAPABILITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4642,12 +4538,6 @@ impl ::core::clone::Clone for WHV_CAPABILITY_FEATURES {
 unsafe impl ::windows::core::Abi for WHV_CAPABILITY_FEATURES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_CAPABILITY_FEATURES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_CAPABILITY_FEATURES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_CAPABILITY_FEATURES {}
 impl ::core::default::Default for WHV_CAPABILITY_FEATURES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4674,7 +4564,7 @@ unsafe impl ::windows::core::Abi for WHV_CAPABILITY_FEATURES_0 {
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_CAPABILITY_FEATURES_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_CAPABILITY_FEATURES_0 {}
@@ -4708,7 +4598,7 @@ unsafe impl ::windows::core::Abi for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP>()) == 0 }
+        self._bitfield == other._bitfield && self.HighestFrequencyMhz == other.HighestFrequencyMhz && self.NominalFrequencyMhz == other.NominalFrequencyMhz && self.LowestFrequencyMhz == other.LowestFrequencyMhz && self.FrequencyStepMhz == other.FrequencyStepMhz
     }
 }
 impl ::core::cmp::Eq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {}
@@ -4741,7 +4631,7 @@ unsafe impl ::windows::core::Abi for WHV_CPUID_OUTPUT {
 }
 impl ::core::cmp::PartialEq for WHV_CPUID_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_CPUID_OUTPUT>()) == 0 }
+        self.Eax == other.Eax && self.Ebx == other.Ebx && self.Ecx == other.Ecx && self.Edx == other.Edx
     }
 }
 impl ::core::cmp::Eq for WHV_CPUID_OUTPUT {}
@@ -4774,7 +4664,7 @@ unsafe impl ::windows::core::Abi for WHV_DOORBELL_MATCH_DATA {
 }
 impl ::core::cmp::PartialEq for WHV_DOORBELL_MATCH_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_DOORBELL_MATCH_DATA>()) == 0 }
+        self.GuestAddress == other.GuestAddress && self.Value == other.Value && self.Length == other.Length && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_DOORBELL_MATCH_DATA {}
@@ -4802,26 +4692,12 @@ impl ::core::clone::Clone for WHV_EMULATOR_CALLBACKS {
 }
 impl ::core::fmt::Debug for WHV_EMULATOR_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WHV_EMULATOR_CALLBACKS")
-            .field("Size", &self.Size)
-            .field("Reserved", &self.Reserved)
-            .field("WHvEmulatorIoPortCallback", &self.WHvEmulatorIoPortCallback.map(|f| f as usize))
-            .field("WHvEmulatorMemoryCallback", &self.WHvEmulatorMemoryCallback.map(|f| f as usize))
-            .field("WHvEmulatorGetVirtualProcessorRegisters", &self.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize))
-            .field("WHvEmulatorSetVirtualProcessorRegisters", &self.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize))
-            .field("WHvEmulatorTranslateGvaPage", &self.WHvEmulatorTranslateGvaPage.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WHV_EMULATOR_CALLBACKS").field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_CALLBACKS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_EMULATOR_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_EMULATOR_CALLBACKS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_EMULATOR_CALLBACKS {}
 impl ::core::default::Default for WHV_EMULATOR_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4851,7 +4727,7 @@ unsafe impl ::windows::core::Abi for WHV_EMULATOR_IO_ACCESS_INFO {
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_IO_ACCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_EMULATOR_IO_ACCESS_INFO>()) == 0 }
+        self.Direction == other.Direction && self.Port == other.Port && self.AccessSize == other.AccessSize && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for WHV_EMULATOR_IO_ACCESS_INFO {}
@@ -4884,7 +4760,7 @@ unsafe impl ::windows::core::Abi for WHV_EMULATOR_MEMORY_ACCESS_INFO {
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_EMULATOR_MEMORY_ACCESS_INFO>()) == 0 }
+        self.GpaAddress == other.GpaAddress && self.Direction == other.Direction && self.AccessSize == other.AccessSize && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for WHV_EMULATOR_MEMORY_ACCESS_INFO {}
@@ -4908,12 +4784,6 @@ impl ::core::clone::Clone for WHV_EMULATOR_STATUS {
 unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_EMULATOR_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_EMULATOR_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_EMULATOR_STATUS {}
 impl ::core::default::Default for WHV_EMULATOR_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4940,7 +4810,7 @@ unsafe impl ::windows::core::Abi for WHV_EMULATOR_STATUS_0 {
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_STATUS_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_EMULATOR_STATUS_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_EMULATOR_STATUS_0 {}
@@ -4964,12 +4834,6 @@ impl ::core::clone::Clone for WHV_EXTENDED_VM_EXITS {
 unsafe impl ::windows::core::Abi for WHV_EXTENDED_VM_EXITS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_EXTENDED_VM_EXITS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_EXTENDED_VM_EXITS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_EXTENDED_VM_EXITS {}
 impl ::core::default::Default for WHV_EXTENDED_VM_EXITS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4996,7 +4860,7 @@ unsafe impl ::windows::core::Abi for WHV_EXTENDED_VM_EXITS_0 {
 }
 impl ::core::cmp::PartialEq for WHV_EXTENDED_VM_EXITS_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_EXTENDED_VM_EXITS_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_EXTENDED_VM_EXITS_0 {}
@@ -5028,12 +4892,6 @@ impl ::core::clone::Clone for WHV_HYPERCALL_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_HYPERCALL_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_HYPERCALL_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_HYPERCALL_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_HYPERCALL_CONTEXT {}
 impl ::core::default::Default for WHV_HYPERCALL_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5054,12 +4912,6 @@ impl ::core::clone::Clone for WHV_INTERNAL_ACTIVITY_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_INTERNAL_ACTIVITY_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_INTERNAL_ACTIVITY_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_INTERNAL_ACTIVITY_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_INTERNAL_ACTIVITY_REGISTER {}
 impl ::core::default::Default for WHV_INTERNAL_ACTIVITY_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5086,7 +4938,7 @@ unsafe impl ::windows::core::Abi for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
 }
 impl ::core::cmp::PartialEq for WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_INTERNAL_ACTIVITY_REGISTER_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_INTERNAL_ACTIVITY_REGISTER_0 {}
@@ -5118,7 +4970,7 @@ unsafe impl ::windows::core::Abi for WHV_INTERRUPT_CONTROL {
 }
 impl ::core::cmp::PartialEq for WHV_INTERRUPT_CONTROL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_INTERRUPT_CONTROL>()) == 0 }
+        self._bitfield == other._bitfield && self.Destination == other.Destination && self.Vector == other.Vector
     }
 }
 impl ::core::cmp::Eq for WHV_INTERRUPT_CONTROL {}
@@ -5146,12 +4998,6 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_MEMORY_ACCESS_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_MEMORY_ACCESS_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_MEMORY_ACCESS_CONTEXT {}
 impl ::core::default::Default for WHV_MEMORY_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5172,12 +5018,6 @@ impl ::core::clone::Clone for WHV_MEMORY_ACCESS_INFO {
 unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_MEMORY_ACCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_MEMORY_ACCESS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_MEMORY_ACCESS_INFO {}
 impl ::core::default::Default for WHV_MEMORY_ACCESS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5204,7 +5044,7 @@ unsafe impl ::windows::core::Abi for WHV_MEMORY_ACCESS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for WHV_MEMORY_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_MEMORY_ACCESS_INFO_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_MEMORY_ACCESS_INFO_0 {}
@@ -5235,7 +5075,7 @@ unsafe impl ::windows::core::Abi for WHV_MEMORY_RANGE_ENTRY {
 }
 impl ::core::cmp::PartialEq for WHV_MEMORY_RANGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_MEMORY_RANGE_ENTRY>()) == 0 }
+        self.GuestAddress == other.GuestAddress && self.SizeInBytes == other.SizeInBytes
     }
 }
 impl ::core::cmp::Eq for WHV_MEMORY_RANGE_ENTRY {}
@@ -5268,7 +5108,7 @@ unsafe impl ::windows::core::Abi for WHV_MSR_ACTION_ENTRY {
 }
 impl ::core::cmp::PartialEq for WHV_MSR_ACTION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_MSR_ACTION_ENTRY>()) == 0 }
+        self.Index == other.Index && self.ReadAction == other.ReadAction && self.WriteAction == other.WriteAction && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WHV_MSR_ACTION_ENTRY {}
@@ -5293,12 +5133,6 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS {
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_NOTIFICATION_PORT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_NOTIFICATION_PORT_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_NOTIFICATION_PORT_PARAMETERS {}
 impl ::core::default::Default for WHV_NOTIFICATION_PORT_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5319,12 +5153,6 @@ impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_NOTIFICATION_PORT_PARAMETERS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_NOTIFICATION_PORT_PARAMETERS_0 {}
 impl ::core::default::Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5351,7 +5179,7 @@ unsafe impl ::windows::core::Abi for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
 }
 impl ::core::cmp::PartialEq for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_NOTIFICATION_PORT_PARAMETERS_0_0>()) == 0 }
+        self.ConnectionId == other.ConnectionId
     }
 }
 impl ::core::cmp::Eq for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {}
@@ -5415,7 +5243,7 @@ unsafe impl ::windows::core::Abi for WHV_PARTITION_MEMORY_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PARTITION_MEMORY_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PARTITION_MEMORY_COUNTERS>()) == 0 }
+        self.Mapped4KPageCount == other.Mapped4KPageCount && self.Mapped2MPageCount == other.Mapped2MPageCount && self.Mapped1GPageCount == other.Mapped1GPageCount
     }
 }
 impl ::core::cmp::Eq for WHV_PARTITION_MEMORY_COUNTERS {}
@@ -5472,14 +5300,6 @@ unsafe impl ::windows::core::Abi for WHV_PARTITION_PROPERTY {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WHV_PARTITION_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PARTITION_PROPERTY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WHV_PARTITION_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WHV_PARTITION_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5510,7 +5330,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_APIC_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_APIC_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_APIC_COUNTERS>()) == 0 }
+        self.MmioAccessCount == other.MmioAccessCount && self.EoiAccessCount == other.EoiAccessCount && self.TprAccessCount == other.TprAccessCount && self.SentIpiCount == other.SentIpiCount && self.SelfIpiCount == other.SelfIpiCount
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_APIC_COUNTERS {}
@@ -5542,7 +5362,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_EVENT_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_EVENT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_EVENT_COUNTERS>()) == 0 }
+        self.PageFaultCount == other.PageFaultCount && self.ExceptionCount == other.ExceptionCount && self.InterruptCount == other.InterruptCount
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_EVENT_COUNTERS {}
@@ -5566,12 +5386,6 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES {
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_FEATURES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES {}
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5598,7 +5412,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_0 {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_FEATURES_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES_0 {}
@@ -5622,12 +5436,6 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES1 {
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_FEATURES1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES1 {}
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5654,7 +5462,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES1_0 {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_FEATURES1_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES1_0 {}
@@ -5679,12 +5487,6 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS {
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES_BANKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_FEATURES_BANKS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES_BANKS {}
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5705,12 +5507,6 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0 {
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES_BANKS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_FEATURES_BANKS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES_BANKS_0 {}
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5731,12 +5527,6 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_FEATURES_BANKS_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_PROCESSOR_FEATURES_BANKS_0_0 {}
 impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5764,7 +5554,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTER {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_INTERCEPT_COUNTER>()) == 0 }
+        self.Count == other.Count && self.Time100ns == other.Time100ns
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_INTERCEPT_COUNTER {}
@@ -5822,7 +5612,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_INTERCEPT_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_INTERCEPT_COUNTERS>()) == 0 }
+        self.PageInvalidations == other.PageInvalidations && self.ControlRegisterAccesses == other.ControlRegisterAccesses && self.IoInstructions == other.IoInstructions && self.HaltInstructions == other.HaltInstructions && self.CpuidInstructions == other.CpuidInstructions && self.MsrAccesses == other.MsrAccesses && self.OtherIntercepts == other.OtherIntercepts && self.PendingInterrupts == other.PendingInterrupts && self.EmulatedInstructions == other.EmulatedInstructions && self.DebugRegisterAccesses == other.DebugRegisterAccesses && self.PageFaultIntercepts == other.PageFaultIntercepts && self.NestedPageFaultIntercepts == other.NestedPageFaultIntercepts && self.Hypercalls == other.Hypercalls && self.RdpmcInstructions == other.RdpmcInstructions
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_INTERCEPT_COUNTERS {}
@@ -5846,12 +5636,6 @@ impl ::core::clone::Clone for WHV_PROCESSOR_PERFMON_FEATURES {
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_PERFMON_FEATURES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_PROCESSOR_PERFMON_FEATURES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_PERFMON_FEATURES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_PROCESSOR_PERFMON_FEATURES {}
 impl ::core::default::Default for WHV_PROCESSOR_PERFMON_FEATURES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5878,7 +5662,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_PERFMON_FEATURES_0 {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_PERFMON_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_PERFMON_FEATURES_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_PERFMON_FEATURES_0 {}
@@ -5909,7 +5693,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_RUNTIME_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_RUNTIME_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_RUNTIME_COUNTERS>()) == 0 }
+        self.TotalRuntime100ns == other.TotalRuntime100ns && self.HypervisorRuntime100ns == other.HypervisorRuntime100ns
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_RUNTIME_COUNTERS {}
@@ -5951,7 +5735,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS>()) == 0 }
+        self.SyntheticInterruptsCount == other.SyntheticInterruptsCount && self.LongSpinWaitHypercallsCount == other.LongSpinWaitHypercallsCount && self.OtherHypercallsCount == other.OtherHypercallsCount && self.SyntheticInterruptHypercallsCount == other.SyntheticInterruptHypercallsCount && self.VirtualInterruptHypercallsCount == other.VirtualInterruptHypercallsCount && self.VirtualMmuHypercallsCount == other.VirtualMmuHypercallsCount
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {}
@@ -5975,12 +5759,6 @@ impl ::core::clone::Clone for WHV_PROCESSOR_XSAVE_FEATURES {
 unsafe impl ::windows::core::Abi for WHV_PROCESSOR_XSAVE_FEATURES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_PROCESSOR_XSAVE_FEATURES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_XSAVE_FEATURES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_PROCESSOR_XSAVE_FEATURES {}
 impl ::core::default::Default for WHV_PROCESSOR_XSAVE_FEATURES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6007,7 +5785,7 @@ unsafe impl ::windows::core::Abi for WHV_PROCESSOR_XSAVE_FEATURES_0 {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_XSAVE_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_PROCESSOR_XSAVE_FEATURES_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_XSAVE_FEATURES_0 {}
@@ -6046,12 +5824,6 @@ impl ::core::clone::Clone for WHV_REGISTER_VALUE {
 unsafe impl ::windows::core::Abi for WHV_REGISTER_VALUE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_REGISTER_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_REGISTER_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_REGISTER_VALUE {}
 impl ::core::default::Default for WHV_REGISTER_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6078,7 +5850,7 @@ unsafe impl ::windows::core::Abi for WHV_RUN_VP_CANCELED_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_RUN_VP_CANCELED_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_RUN_VP_CANCELED_CONTEXT>()) == 0 }
+        self.CancelReason == other.CancelReason
     }
 }
 impl ::core::cmp::Eq for WHV_RUN_VP_CANCELED_CONTEXT {}
@@ -6104,12 +5876,6 @@ impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_RUN_VP_EXIT_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_RUN_VP_EXIT_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_RUN_VP_EXIT_CONTEXT {}
 impl ::core::default::Default for WHV_RUN_VP_EXIT_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6143,12 +5909,6 @@ impl ::core::clone::Clone for WHV_RUN_VP_EXIT_CONTEXT_0 {
 unsafe impl ::windows::core::Abi for WHV_RUN_VP_EXIT_CONTEXT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_RUN_VP_EXIT_CONTEXT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_RUN_VP_EXIT_CONTEXT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_RUN_VP_EXIT_CONTEXT_0 {}
 impl ::core::default::Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6169,12 +5929,6 @@ impl ::core::clone::Clone for WHV_SCHEDULER_FEATURES {
 unsafe impl ::windows::core::Abi for WHV_SCHEDULER_FEATURES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_SCHEDULER_FEATURES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SCHEDULER_FEATURES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_SCHEDULER_FEATURES {}
 impl ::core::default::Default for WHV_SCHEDULER_FEATURES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6201,7 +5955,7 @@ unsafe impl ::windows::core::Abi for WHV_SCHEDULER_FEATURES_0 {
 }
 impl ::core::cmp::PartialEq for WHV_SCHEDULER_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SCHEDULER_FEATURES_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_SCHEDULER_FEATURES_0 {}
@@ -6240,7 +5994,7 @@ unsafe impl ::windows::core::Abi for WHV_SRIOV_RESOURCE_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SRIOV_RESOURCE_DESCRIPTOR>()) == 0 }
+        self.PnpInstanceId == other.PnpInstanceId && self.VirtualFunctionId == other.VirtualFunctionId && self.VirtualFunctionIndex == other.VirtualFunctionIndex && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6275,7 +6029,7 @@ unsafe impl ::windows::core::Abi for WHV_SYNIC_EVENT_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for WHV_SYNIC_EVENT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SYNIC_EVENT_PARAMETERS>()) == 0 }
+        self.VpIndex == other.VpIndex && self.TargetSint == other.TargetSint && self.Reserved == other.Reserved && self.FlagNumber == other.FlagNumber
     }
 }
 impl ::core::cmp::Eq for WHV_SYNIC_EVENT_PARAMETERS {}
@@ -6307,7 +6061,7 @@ unsafe impl ::windows::core::Abi for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SYNIC_SINT_DELIVERABLE_CONTEXT>()) == 0 }
+        self.DeliverableSints == other.DeliverableSints && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {}
@@ -6331,12 +6085,6 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES {
 unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SYNTHETIC_PROCESSOR_FEATURES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_SYNTHETIC_PROCESSOR_FEATURES {}
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6363,7 +6111,7 @@ unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
 }
 impl ::core::cmp::PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SYNTHETIC_PROCESSOR_FEATURES_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {}
@@ -6388,12 +6136,6 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
 unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {}
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6414,12 +6156,6 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
 unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {}
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6439,12 +6175,6 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
 unsafe impl ::windows::core::Abi for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {}
 impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6472,7 +6202,7 @@ unsafe impl ::windows::core::Abi for WHV_TRANSLATE_GVA_RESULT {
 }
 impl ::core::cmp::PartialEq for WHV_TRANSLATE_GVA_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_TRANSLATE_GVA_RESULT>()) == 0 }
+        self.ResultCode == other.ResultCode && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WHV_TRANSLATE_GVA_RESULT {}
@@ -6497,12 +6227,6 @@ impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS {
 unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_TRIGGER_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_TRIGGER_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_TRIGGER_PARAMETERS {}
 impl ::core::default::Default for WHV_TRIGGER_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6524,12 +6248,6 @@ impl ::core::clone::Clone for WHV_TRIGGER_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_TRIGGER_PARAMETERS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_TRIGGER_PARAMETERS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_TRIGGER_PARAMETERS_0 {}
 impl ::core::default::Default for WHV_TRIGGER_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6559,7 +6277,7 @@ unsafe impl ::windows::core::Abi for WHV_TRIGGER_PARAMETERS_0_0 {
 }
 impl ::core::cmp::PartialEq for WHV_TRIGGER_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_TRIGGER_PARAMETERS_0_0>()) == 0 }
+        self.LogicalDeviceId == other.LogicalDeviceId && self.MsiAddress == other.MsiAddress && self.MsiData == other.MsiData && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WHV_TRIGGER_PARAMETERS_0_0 {}
@@ -6583,12 +6301,6 @@ impl ::core::clone::Clone for WHV_UINT128 {
 unsafe impl ::windows::core::Abi for WHV_UINT128 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_UINT128 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_UINT128>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_UINT128 {}
 impl ::core::default::Default for WHV_UINT128 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6616,7 +6328,7 @@ unsafe impl ::windows::core::Abi for WHV_UINT128_0 {
 }
 impl ::core::cmp::PartialEq for WHV_UINT128_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_UINT128_0>()) == 0 }
+        self.Low64 == other.Low64 && self.High64 == other.High64
     }
 }
 impl ::core::cmp::Eq for WHV_UINT128_0 {}
@@ -6641,12 +6353,6 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY {
 unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_VIRTUAL_PROCESSOR_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VIRTUAL_PROCESSOR_PROPERTY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_VIRTUAL_PROCESSOR_PROPERTY {}
 impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6667,12 +6373,6 @@ impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
 unsafe impl ::windows::core::Abi for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VIRTUAL_PROCESSOR_PROPERTY_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {}
 impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6694,12 +6394,6 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION {
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_VPCI_DEVICE_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VPCI_DEVICE_NOTIFICATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_VPCI_DEVICE_NOTIFICATION {}
 impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6719,12 +6413,6 @@ impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION_0 {
 unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_VPCI_DEVICE_NOTIFICATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VPCI_DEVICE_NOTIFICATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_VPCI_DEVICE_NOTIFICATION_0 {}
 impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6753,7 +6441,7 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_DEVICE_REGISTER {
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_DEVICE_REGISTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VPCI_DEVICE_REGISTER>()) == 0 }
+        self.Location == other.Location && self.SizeInBytes == other.SizeInBytes && self.OffsetInBytes == other.OffsetInBytes
     }
 }
 impl ::core::cmp::Eq for WHV_VPCI_DEVICE_REGISTER {}
@@ -6790,7 +6478,7 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_HARDWARE_IDS {
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_HARDWARE_IDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VPCI_HARDWARE_IDS>()) == 0 }
+        self.VendorID == other.VendorID && self.DeviceID == other.DeviceID && self.RevisionID == other.RevisionID && self.ProgIf == other.ProgIf && self.SubClass == other.SubClass && self.BaseClass == other.BaseClass && self.SubVendorID == other.SubVendorID && self.SubSystemID == other.SubSystemID
     }
 }
 impl ::core::cmp::Eq for WHV_VPCI_HARDWARE_IDS {}
@@ -6823,7 +6511,7 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_INTERRUPT_TARGET {
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_INTERRUPT_TARGET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VPCI_INTERRUPT_TARGET>()) == 0 }
+        self.Vector == other.Vector && self.Flags == other.Flags && self.ProcessorCount == other.ProcessorCount && self.Processors == other.Processors
     }
 }
 impl ::core::cmp::Eq for WHV_VPCI_INTERRUPT_TARGET {}
@@ -6857,7 +6545,7 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_MMIO_MAPPING {
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_MMIO_MAPPING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VPCI_MMIO_MAPPING>()) == 0 }
+        self.Location == other.Location && self.Flags == other.Flags && self.SizeInBytes == other.SizeInBytes && self.OffsetInBytes == other.OffsetInBytes && self.VirtualAddress == other.VirtualAddress
     }
 }
 impl ::core::cmp::Eq for WHV_VPCI_MMIO_MAPPING {}
@@ -6887,7 +6575,7 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_PROBED_BARS {
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_PROBED_BARS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VPCI_PROBED_BARS>()) == 0 }
+        self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for WHV_VPCI_PROBED_BARS {}
@@ -6917,12 +6605,6 @@ impl ::core::clone::Clone for WHV_VP_EXCEPTION_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_VP_EXCEPTION_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VP_EXCEPTION_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_VP_EXCEPTION_CONTEXT {}
 impl ::core::default::Default for WHV_VP_EXCEPTION_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6943,12 +6625,6 @@ impl ::core::clone::Clone for WHV_VP_EXCEPTION_INFO {
 unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_VP_EXCEPTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VP_EXCEPTION_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_VP_EXCEPTION_INFO {}
 impl ::core::default::Default for WHV_VP_EXCEPTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6975,7 +6651,7 @@ unsafe impl ::windows::core::Abi for WHV_VP_EXCEPTION_INFO_0 {
 }
 impl ::core::cmp::PartialEq for WHV_VP_EXCEPTION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VP_EXCEPTION_INFO_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_VP_EXCEPTION_INFO_0 {}
@@ -7004,12 +6680,6 @@ impl ::core::clone::Clone for WHV_VP_EXIT_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_VP_EXIT_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_VP_EXIT_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_VP_EXIT_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_VP_EXIT_CONTEXT {}
 impl ::core::default::Default for WHV_VP_EXIT_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7036,7 +6706,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_EOI_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_EOI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_APIC_EOI_CONTEXT>()) == 0 }
+        self.InterruptVector == other.InterruptVector
     }
 }
 impl ::core::cmp::Eq for WHV_X64_APIC_EOI_CONTEXT {}
@@ -7066,7 +6736,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_INIT_SIPI_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_INIT_SIPI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_APIC_INIT_SIPI_CONTEXT>()) == 0 }
+        self.ApicIcr == other.ApicIcr
     }
 }
 impl ::core::cmp::Eq for WHV_X64_APIC_INIT_SIPI_CONTEXT {}
@@ -7096,7 +6766,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_SMI_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_SMI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_APIC_SMI_CONTEXT>()) == 0 }
+        self.ApicIcr == other.ApicIcr
     }
 }
 impl ::core::cmp::Eq for WHV_X64_APIC_SMI_CONTEXT {}
@@ -7128,7 +6798,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_APIC_WRITE_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_APIC_WRITE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_APIC_WRITE_CONTEXT>()) == 0 }
+        self.Type == other.Type && self.Reserved == other.Reserved && self.WriteValue == other.WriteValue
     }
 }
 impl ::core::cmp::Eq for WHV_X64_APIC_WRITE_CONTEXT {}
@@ -7165,7 +6835,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_CPUID_ACCESS_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_ACCESS_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_CPUID_ACCESS_CONTEXT>()) == 0 }
+        self.Rax == other.Rax && self.Rcx == other.Rcx && self.Rdx == other.Rdx && self.Rbx == other.Rbx && self.DefaultResultRax == other.DefaultResultRax && self.DefaultResultRcx == other.DefaultResultRcx && self.DefaultResultRdx == other.DefaultResultRdx && self.DefaultResultRbx == other.DefaultResultRbx
     }
 }
 impl ::core::cmp::Eq for WHV_X64_CPUID_ACCESS_CONTEXT {}
@@ -7200,7 +6870,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_CPUID_RESULT>()) == 0 }
+        self.Function == other.Function && self.Reserved == other.Reserved && self.Eax == other.Eax && self.Ebx == other.Ebx && self.Ecx == other.Ecx && self.Edx == other.Edx
     }
 }
 impl ::core::cmp::Eq for WHV_X64_CPUID_RESULT {}
@@ -7235,7 +6905,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT2 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_RESULT2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_CPUID_RESULT2>()) == 0 }
+        self.Function == other.Function && self.Index == other.Index && self.VpIndex == other.VpIndex && self.Flags == other.Flags && self.Output == other.Output && self.Mask == other.Mask
     }
 }
 impl ::core::cmp::Eq for WHV_X64_CPUID_RESULT2 {}
@@ -7259,12 +6929,6 @@ impl ::core::clone::Clone for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {}
 impl ::core::default::Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7291,7 +6955,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGIST
 }
 impl ::core::cmp::PartialEq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {}
@@ -7315,12 +6979,6 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_FP_CONTROL_STATUS_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_FP_CONTROL_STATUS_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_FP_CONTROL_STATUS_REGISTER {}
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7345,12 +7003,6 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
 unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_FP_CONTROL_STATUS_REGISTER_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {}
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7371,12 +7023,6 @@ impl ::core::clone::Clone for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
 unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {}
 impl ::core::default::Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7405,7 +7051,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0>()) == 0 }
+        self.LastFpEip == other.LastFpEip && self.LastFpCs == other.LastFpCs && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {}
@@ -7429,12 +7075,6 @@ impl ::core::clone::Clone for WHV_X64_FP_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_X64_FP_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_FP_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_FP_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_FP_REGISTER {}
 impl ::core::default::Default for WHV_X64_FP_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7462,7 +7102,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_FP_REGISTER_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_FP_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_FP_REGISTER_0>()) == 0 }
+        self.Mantissa == other.Mantissa && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_FP_REGISTER_0 {}
@@ -7492,7 +7132,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT>()) == 0 }
+        self.DeliverableType == other.DeliverableType
     }
 }
 impl ::core::cmp::Eq for WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {}
@@ -7516,12 +7156,6 @@ impl ::core::clone::Clone for WHV_X64_INTERRUPT_STATE_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPT_STATE_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_INTERRUPT_STATE_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_INTERRUPT_STATE_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_INTERRUPT_STATE_REGISTER {}
 impl ::core::default::Default for WHV_X64_INTERRUPT_STATE_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7548,7 +7182,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_INTERRUPT_STATE_REGISTER_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_INTERRUPT_STATE_REGISTER_0 {}
@@ -7582,12 +7216,6 @@ impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_IO_PORT_ACCESS_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_IO_PORT_ACCESS_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_IO_PORT_ACCESS_CONTEXT {}
 impl ::core::default::Default for WHV_X64_IO_PORT_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7608,12 +7236,6 @@ impl ::core::clone::Clone for WHV_X64_IO_PORT_ACCESS_INFO {
 unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_IO_PORT_ACCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_IO_PORT_ACCESS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_IO_PORT_ACCESS_INFO {}
 impl ::core::default::Default for WHV_X64_IO_PORT_ACCESS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7640,7 +7262,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_IO_PORT_ACCESS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_IO_PORT_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_IO_PORT_ACCESS_INFO_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_IO_PORT_ACCESS_INFO_0 {}
@@ -7666,12 +7288,6 @@ impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_MSR_ACCESS_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_MSR_ACCESS_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_MSR_ACCESS_CONTEXT {}
 impl ::core::default::Default for WHV_X64_MSR_ACCESS_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7692,12 +7308,6 @@ impl ::core::clone::Clone for WHV_X64_MSR_ACCESS_INFO {
 unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_MSR_ACCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_MSR_ACCESS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_MSR_ACCESS_INFO {}
 impl ::core::default::Default for WHV_X64_MSR_ACCESS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7724,7 +7334,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_MSR_ACCESS_INFO_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_MSR_ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_MSR_ACCESS_INFO_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_MSR_ACCESS_INFO_0 {}
@@ -7748,12 +7358,6 @@ impl ::core::clone::Clone for WHV_X64_MSR_EXIT_BITMAP {
 unsafe impl ::windows::core::Abi for WHV_X64_MSR_EXIT_BITMAP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_MSR_EXIT_BITMAP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_MSR_EXIT_BITMAP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_MSR_EXIT_BITMAP {}
 impl ::core::default::Default for WHV_X64_MSR_EXIT_BITMAP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7780,7 +7384,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_MSR_EXIT_BITMAP_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_MSR_EXIT_BITMAP_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_MSR_EXIT_BITMAP_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_MSR_EXIT_BITMAP_0 {}
@@ -7804,12 +7408,6 @@ impl ::core::clone::Clone for WHV_X64_PENDING_DEBUG_EXCEPTION {
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_DEBUG_EXCEPTION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_PENDING_DEBUG_EXCEPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_DEBUG_EXCEPTION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_PENDING_DEBUG_EXCEPTION {}
 impl ::core::default::Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7836,7 +7434,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_DEBUG_EXCEPTION_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {}
@@ -7860,12 +7458,6 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXCEPTION_EVENT {
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXCEPTION_EVENT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXCEPTION_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_EXCEPTION_EVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_PENDING_EXCEPTION_EVENT {}
 impl ::core::default::Default for WHV_X64_PENDING_EXCEPTION_EVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7894,7 +7486,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_EXCEPTION_EVENT_0>()) == 0 }
+        self._bitfield == other._bitfield && self.ErrorCode == other.ErrorCode && self.ExceptionParameter == other.ExceptionParameter
     }
 }
 impl ::core::cmp::Eq for WHV_X64_PENDING_EXCEPTION_EVENT_0 {}
@@ -7918,12 +7510,6 @@ impl ::core::clone::Clone for WHV_X64_PENDING_EXT_INT_EVENT {
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXT_INT_EVENT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXT_INT_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_EXT_INT_EVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_PENDING_EXT_INT_EVENT {}
 impl ::core::default::Default for WHV_X64_PENDING_EXT_INT_EVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7951,7 +7537,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_EXT_INT_EVENT_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_EXT_INT_EVENT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_EXT_INT_EVENT_0>()) == 0 }
+        self._bitfield == other._bitfield && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for WHV_X64_PENDING_EXT_INT_EVENT_0 {}
@@ -7975,12 +7561,6 @@ impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_PENDING_INTERRUPTION_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_INTERRUPTION_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_PENDING_INTERRUPTION_REGISTER {}
 impl ::core::default::Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8008,7 +7588,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_PENDING_INTERRUPTION_REGISTER_0>()) == 0 }
+        self._bitfield == other._bitfield && self.ErrorCode == other.ErrorCode
     }
 }
 impl ::core::cmp::Eq for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {}
@@ -8035,12 +7615,6 @@ impl ::core::clone::Clone for WHV_X64_RDTSC_CONTEXT {
 unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_RDTSC_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_RDTSC_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_RDTSC_CONTEXT {}
 impl ::core::default::Default for WHV_X64_RDTSC_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8061,12 +7635,6 @@ impl ::core::clone::Clone for WHV_X64_RDTSC_INFO {
 unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_RDTSC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_RDTSC_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_RDTSC_INFO {}
 impl ::core::default::Default for WHV_X64_RDTSC_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8093,7 +7661,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_RDTSC_INFO_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_RDTSC_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_RDTSC_INFO_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_RDTSC_INFO_0 {}
@@ -8119,12 +7687,6 @@ impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_SEGMENT_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_SEGMENT_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_SEGMENT_REGISTER {}
 impl ::core::default::Default for WHV_X64_SEGMENT_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8145,12 +7707,6 @@ impl ::core::clone::Clone for WHV_X64_SEGMENT_REGISTER_0 {
 unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_SEGMENT_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_SEGMENT_REGISTER_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_SEGMENT_REGISTER_0 {}
 impl ::core::default::Default for WHV_X64_SEGMENT_REGISTER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8177,7 +7733,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_SEGMENT_REGISTER_0_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_SEGMENT_REGISTER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_SEGMENT_REGISTER_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_SEGMENT_REGISTER_0_0 {}
@@ -8209,7 +7765,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_TABLE_REGISTER {
 }
 impl ::core::cmp::PartialEq for WHV_X64_TABLE_REGISTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_TABLE_REGISTER>()) == 0 }
+        self.Pad == other.Pad && self.Limit == other.Limit && self.Base == other.Base
     }
 }
 impl ::core::cmp::Eq for WHV_X64_TABLE_REGISTER {}
@@ -8241,7 +7797,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
 }
 impl ::core::cmp::PartialEq for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_UNSUPPORTED_FEATURE_CONTEXT>()) == 0 }
+        self.FeatureCode == other.FeatureCode && self.Reserved == other.Reserved && self.FeatureParameter == other.FeatureParameter
     }
 }
 impl ::core::cmp::Eq for WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {}
@@ -8265,12 +7821,6 @@ impl ::core::clone::Clone for WHV_X64_VP_EXECUTION_STATE {
 unsafe impl ::windows::core::Abi for WHV_X64_VP_EXECUTION_STATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_VP_EXECUTION_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_VP_EXECUTION_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_VP_EXECUTION_STATE {}
 impl ::core::default::Default for WHV_X64_VP_EXECUTION_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8297,7 +7847,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_VP_EXECUTION_STATE_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_VP_EXECUTION_STATE_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_VP_EXECUTION_STATE_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for WHV_X64_VP_EXECUTION_STATE_0 {}
@@ -8321,12 +7871,6 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
 unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_XMM_CONTROL_STATUS_REGISTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_XMM_CONTROL_STATUS_REGISTER {}
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8348,12 +7892,6 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
 unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_XMM_CONTROL_STATUS_REGISTER_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {}
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8374,12 +7912,6 @@ impl ::core::clone::Clone for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
 unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {}
 impl ::core::default::Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8408,7 +7940,7 @@ unsafe impl ::windows::core::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
 }
 impl ::core::cmp::PartialEq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0>()) == 0 }
+        self.LastFpDp == other.LastFpDp && self.LastFpDs == other.LastFpDs && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {}

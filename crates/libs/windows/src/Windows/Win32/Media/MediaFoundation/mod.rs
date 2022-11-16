@@ -46574,12 +46574,6 @@ impl ::core::clone::Clone for ASF_FLAT_PICTURE {
 unsafe impl ::windows::core::Abi for ASF_FLAT_PICTURE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ASF_FLAT_PICTURE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ASF_FLAT_PICTURE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ASF_FLAT_PICTURE {}
 impl ::core::default::Default for ASF_FLAT_PICTURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -46601,12 +46595,6 @@ impl ::core::clone::Clone for ASF_FLAT_SYNCHRONISED_LYRICS {
 unsafe impl ::windows::core::Abi for ASF_FLAT_SYNCHRONISED_LYRICS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ASF_FLAT_SYNCHRONISED_LYRICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ASF_FLAT_SYNCHRONISED_LYRICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ASF_FLAT_SYNCHRONISED_LYRICS {}
 impl ::core::default::Default for ASF_FLAT_SYNCHRONISED_LYRICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -46636,7 +46624,7 @@ unsafe impl ::windows::core::Abi for ASF_INDEX_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for ASF_INDEX_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ASF_INDEX_DESCRIPTOR>()) == 0 }
+        self.Identifier == other.Identifier && self.cPerEntryBytes == other.cPerEntryBytes && self.szDescription == other.szDescription && self.dwInterval == other.dwInterval
     }
 }
 impl ::core::cmp::Eq for ASF_INDEX_DESCRIPTOR {}
@@ -46667,7 +46655,7 @@ unsafe impl ::windows::core::Abi for ASF_INDEX_IDENTIFIER {
 }
 impl ::core::cmp::PartialEq for ASF_INDEX_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ASF_INDEX_IDENTIFIER>()) == 0 }
+        self.guidIndexType == other.guidIndexType && self.wStreamNumber == other.wStreamNumber
     }
 }
 impl ::core::cmp::Eq for ASF_INDEX_IDENTIFIER {}
@@ -46698,7 +46686,7 @@ unsafe impl ::windows::core::Abi for ASF_MUX_STATISTICS {
 }
 impl ::core::cmp::PartialEq for ASF_MUX_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ASF_MUX_STATISTICS>()) == 0 }
+        self.cFramesWritten == other.cFramesWritten && self.cFramesDropped == other.cFramesDropped
     }
 }
 impl ::core::cmp::Eq for ASF_MUX_STATISTICS {}
@@ -46766,7 +46754,25 @@ unsafe impl ::windows::core::Abi for AecQualityMetrics_Struct {
 }
 impl ::core::cmp::PartialEq for AecQualityMetrics_Struct {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AecQualityMetrics_Struct>()) == 0 }
+        self.i64Timestamp == other.i64Timestamp
+            && self.ConvergenceFlag == other.ConvergenceFlag
+            && self.MicClippedFlag == other.MicClippedFlag
+            && self.MicSilenceFlag == other.MicSilenceFlag
+            && self.PstvFeadbackFlag == other.PstvFeadbackFlag
+            && self.SpkClippedFlag == other.SpkClippedFlag
+            && self.SpkMuteFlag == other.SpkMuteFlag
+            && self.GlitchFlag == other.GlitchFlag
+            && self.DoubleTalkFlag == other.DoubleTalkFlag
+            && self.uGlitchCount == other.uGlitchCount
+            && self.uMicClipCount == other.uMicClipCount
+            && self.fDuration == other.fDuration
+            && self.fTSVariance == other.fTSVariance
+            && self.fTSDriftRate == other.fTSDriftRate
+            && self.fVoiceLevel == other.fVoiceLevel
+            && self.fNoiseLevel == other.fNoiseLevel
+            && self.fERLE == other.fERLE
+            && self.fAvgERLE == other.fAvgERLE
+            && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for AecQualityMetrics_Struct {}
@@ -46798,7 +46804,7 @@ unsafe impl ::windows::core::Abi for CodecAPIEventData {
 }
 impl ::core::cmp::PartialEq for CodecAPIEventData {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CodecAPIEventData>()) == 0 }
+        self.guid == other.guid && self.dataLength == other.dataLength && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for CodecAPIEventData {}
@@ -46834,7 +46840,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE>()) == 0 }
+        self.IOCoherent == other.IOCoherent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -46874,7 +46880,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE 
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE>()) == 0 }
+        self.VideoDecoderHeapDesc == other.VideoDecoderHeapDesc && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -46915,7 +46921,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1>()) == 0 }
+        self.VideoDecoderHeapDesc == other.VideoDecoderHeapDesc && self.Protected == other.Protected && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -46960,7 +46966,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.DecodeSample == other.DecodeSample && self.OutputFormat == other.OutputFormat && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate && self.SupportFlags == other.SupportFlags && self.ScaleSupport == other.ScaleSupport
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -47001,7 +47007,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.FormatCount == other.FormatCount && self.pOutputFormats == other.pOutputFormats
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -47035,7 +47041,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUN
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.FormatCount == other.FormatCount
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {}
@@ -47078,7 +47084,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.DecodeProfile == other.DecodeProfile && self.Width == other.Width && self.Height == other.Height && self.DecodeFormat == other.DecodeFormat && self.Components == other.Components && self.BinCount == other.BinCount && self.CounterBitDepth == other.CounterBitDepth
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -47112,7 +47118,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.ProfileCount == other.ProfileCount && self.pProfiles == other.pProfiles
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {}
@@ -47143,7 +47149,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COU
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.ProfileCount == other.ProfileCount
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {}
@@ -47175,7 +47181,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_R
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.SupportFlags == other.SupportFlags
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {}
@@ -47220,7 +47226,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Configuration == other.Configuration && self.Width == other.Width && self.Height == other.Height && self.DecodeFormat == other.DecodeFormat && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate && self.SupportFlags == other.SupportFlags && self.ConfigurationFlags == other.ConfigurationFlags && self.DecodeTier == other.DecodeTier
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -47260,7 +47266,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.IsSupported == other.IsSupported
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -47294,14 +47300,6 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONF
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -47329,14 +47327,6 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CON
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     fn default() -> Self {
@@ -47367,14 +47357,6 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBR
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -47401,14 +47383,6 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     fn default() -> Self {
@@ -47438,14 +47412,6 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORM
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -47474,14 +47440,6 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MOD
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     fn default() -> Self {
@@ -47533,7 +47491,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RES
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.ResolutionRatiosCount == other.ResolutionRatiosCount && self.IsSupported == other.IsSupported && self.MinResolutionSupported == other.MinResolutionSupported && self.MaxResolutionSupported == other.MaxResolutionSupported && self.ResolutionWidthMultipleRequirement == other.ResolutionWidthMultipleRequirement && self.ResolutionHeightMultipleRequirement == other.ResolutionHeightMultipleRequirement && self.pResolutionRatios == other.pResolutionRatios
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -47567,7 +47525,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RES
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.ResolutionRatiosCount == other.ResolutionRatiosCount
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {}
@@ -47599,14 +47557,6 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     fn default() -> Self {
@@ -47643,7 +47593,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTR
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.RateControlMode == other.RateControlMode && self.IsSupported == other.IsSupported
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -47678,7 +47628,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS>()) == 0 }
+        self.MaxSubregionsNumber == other.MaxSubregionsNumber && self.MaxIntraRefreshFrameDuration == other.MaxIntraRefreshFrameDuration && self.SubregionBlockPixelsSize == other.SubregionBlockPixelsSize && self.QPMapRegionPixelsSize == other.QPMapRegionPixelsSize
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {}
@@ -47713,14 +47663,6 @@ impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREM
 unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     fn default() -> Self {
@@ -47761,14 +47703,6 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -47803,7 +47737,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.CommandCount == other.CommandCount && self.pCommandInfos == other.pCommandInfos
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -47836,7 +47770,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.CommandCount == other.CommandCount
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {}
@@ -47869,7 +47803,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS>()) == 0 }
+        self.CommandId == other.CommandId && self.Stage == other.Stage && self.ParameterCount == other.ParameterCount && self.pParameterInfos == other.pParameterInfos
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {}
@@ -47902,7 +47836,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT>()) == 0 }
+        self.CommandId == other.CommandId && self.Stage == other.Stage && self.ParameterCount == other.ParameterCount && self.ParameterPacking == other.ParameterPacking
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {}
@@ -47937,7 +47871,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.CommandId == other.CommandId && self.pCreationParameters == other.pCreationParameters && self.CreationParametersSizeInBytes == other.CreationParametersSizeInBytes && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {}
@@ -47972,7 +47906,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.CommandId == other.CommandId && self.pInputData == other.pInputData && self.InputDataSizeInBytes == other.InputDataSizeInBytes && self.pOutputData == other.pOutputData && self.OutputDataSizeInBytes == other.OutputDataSizeInBytes
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {}
@@ -48011,7 +47945,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPO
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.VideoDecodeSupport == other.VideoDecodeSupport && self.VideoProcessSupport == other.VideoProcessSupport && self.VideoEncodeSupport == other.VideoEncodeSupport
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -48053,7 +47987,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.InputFormat == other.InputFormat && self.BlockSizeFlags == other.BlockSizeFlags && self.PrecisionFlags == other.PrecisionFlags && self.SizeRange == other.SizeRange
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -48086,7 +48020,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_P
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.SupportFlags == other.SupportFlags
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {}
@@ -48142,7 +48076,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_S
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.InputFormat == other.InputFormat && self.BlockSize == other.BlockSize && self.Precision == other.Precision && self.SizeRange == other.SizeRange && self.Protected == other.Protected && self.MotionVectorHeapMemoryPoolL0Size == other.MotionVectorHeapMemoryPoolL0Size && self.MotionVectorHeapMemoryPoolL1Size == other.MotionVectorHeapMemoryPoolL1Size && self.MotionEstimatorMemoryPoolL0Size == other.MotionEstimatorMemoryPoolL0Size && self.MotionEstimatorMemoryPoolL1Size == other.MotionEstimatorMemoryPoolL1Size
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -48185,7 +48119,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE>()) == 0 }
+        self.NodeMask == other.NodeMask && self.pOutputStreamDesc == other.pOutputStreamDesc && self.NumInputStreamDescs == other.NumInputStreamDescs && self.pInputStreamDescs == other.pInputStreamDescs && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -48229,7 +48163,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1>()) == 0 }
+        self.NodeMask == other.NodeMask && self.pOutputStreamDesc == other.pOutputStreamDesc && self.NumInputStreamDescs == other.NumInputStreamDescs && self.pInputStreamDescs == other.pInputStreamDescs && self.Protected == other.Protected && self.MemoryPoolL0Size == other.MemoryPoolL0Size && self.MemoryPoolL1Size == other.MemoryPoolL1Size
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -48262,7 +48196,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.MaxInputStreams == other.MaxInputStreams
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {}
@@ -48293,7 +48227,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.SupportFlags == other.SupportFlags
     }
 }
 impl ::core::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {}
@@ -48337,7 +48271,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.DeinterlaceMode == other.DeinterlaceMode && self.Filters == other.Filters && self.FeatureSupport == other.FeatureSupport && self.InputFrameRate == other.InputFrameRate && self.OutputFrameRate == other.OutputFrameRate && self.EnableAutoProcessing == other.EnableAutoProcessing && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -48405,7 +48339,7 @@ unsafe impl ::windows::core::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT>()) == 0 }
+        self.NodeIndex == other.NodeIndex && self.InputSample == other.InputSample && self.InputFieldType == other.InputFieldType && self.InputStereoFormat == other.InputStereoFormat && self.InputFrameRate == other.InputFrameRate && self.OutputFormat == other.OutputFormat && self.OutputStereoFormat == other.OutputStereoFormat && self.OutputFrameRate == other.OutputFrameRate && self.SupportFlags == other.SupportFlags && self.ScaleSupport == other.ScaleSupport && self.FeatureSupport == other.FeatureSupport && self.DeinterlaceSupport == other.DeinterlaceSupport && self.AutoProcessingSupport == other.AutoProcessingSupport && self.FilterSupport == other.FilterSupport && self.FilterRangeSupport == other.FilterRangeSupport
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -48446,7 +48380,7 @@ unsafe impl ::windows::core::Abi for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS>()) == 0 }
+        self.Status == other.Status && self.NumMacroblocksAffected == other.NumMacroblocksAffected && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -48556,7 +48490,7 @@ unsafe impl ::windows::core::Abi for D3D12_RESOURCE_COORDINATE {
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_COORDINATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_RESOURCE_COORDINATE>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.SubresourceIndex == other.SubresourceIndex
     }
 }
 impl ::core::cmp::Eq for D3D12_RESOURCE_COORDINATE {}
@@ -48587,7 +48521,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODER_DESC {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_DECODER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_DECODER_DESC>()) == 0 }
+        self.NodeMask == other.NodeMask && self.Configuration == other.Configuration
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_DECODER_DESC {}
@@ -48630,7 +48564,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODER_HEAP_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_DECODER_HEAP_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_DECODER_HEAP_DESC>()) == 0 }
+        self.NodeMask == other.NodeMask && self.Configuration == other.Configuration && self.DecodeWidth == other.DecodeWidth && self.DecodeHeight == other.DecodeHeight && self.Format == other.Format && self.FrameRate == other.FrameRate && self.BitRate == other.BitRate && self.MaxDecodePictureBufferCount == other.MaxDecodePictureBufferCount
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -48702,7 +48636,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_CONFIGURATION {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_DECODE_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_DECODE_CONFIGURATION>()) == 0 }
+        self.DecodeProfile == other.DecodeProfile && self.BitstreamEncryption == other.BitstreamEncryption && self.InterlaceType == other.InterlaceType
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_DECODE_CONFIGURATION {}
@@ -48830,7 +48764,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_DECODE_FRAME_ARGUMENT>()) == 0 }
+        self.Type == other.Type && self.Size == other.Size && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {}
@@ -49038,7 +48972,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_DECODE_REFERENCE_FRAMES>()) == 0 }
+        self.NumTexture2Ds == other.NumTexture2Ds && self.ppTexture2Ds == other.ppTexture2Ds && self.pSubresources == other.pSubresources && self.ppHeaps == other.ppHeaps
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -49064,12 +48998,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49090,12 +49018,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49124,7 +49046,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H26
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264>()) == 0 }
+        self.ConfigurationFlags == other.ConfigurationFlags && self.DirectModeConfig == other.DirectModeConfig && self.DisableDeblockingFilterConfig == other.DisableDeblockingFilterConfig
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {}
@@ -49168,7 +49090,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEV
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC>()) == 0 }
+        self.ConfigurationFlags == other.ConfigurationFlags && self.MinLumaCodingUnitSize == other.MinLumaCodingUnitSize && self.MaxLumaCodingUnitSize == other.MaxLumaCodingUnitSize && self.MinLumaTransformUnitSize == other.MinLumaTransformUnitSize && self.MaxLumaTransformUnitSize == other.MaxLumaTransformUnitSize && self.max_transform_hierarchy_depth_inter == other.max_transform_hierarchy_depth_inter && self.max_transform_hierarchy_depth_intra == other.max_transform_hierarchy_depth_intra
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {}
@@ -49192,12 +49114,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49218,12 +49134,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49251,7 +49161,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUP
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264>()) == 0 }
+        self.SupportFlags == other.SupportFlags && self.DisableDeblockingFilterSupportedModes == other.DisableDeblockingFilterSupportedModes
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {}
@@ -49295,7 +49205,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUP
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC>()) == 0 }
+        self.SupportFlags == other.SupportFlags && self.MinLumaCodingUnitSize == other.MinLumaCodingUnitSize && self.MaxLumaCodingUnitSize == other.MaxLumaCodingUnitSize && self.MinLumaTransformUnitSize == other.MinLumaTransformUnitSize && self.MaxLumaTransformUnitSize == other.MaxLumaTransformUnitSize && self.max_transform_hierarchy_depth_inter == other.max_transform_hierarchy_depth_inter && self.max_transform_hierarchy_depth_intra == other.max_transform_hierarchy_depth_intra
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {}
@@ -49319,12 +49229,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT 
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49345,12 +49249,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49381,7 +49279,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_S
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264>()) == 0 }
+        self.MaxL0ReferencesForP == other.MaxL0ReferencesForP && self.MaxL0ReferencesForB == other.MaxL0ReferencesForB && self.MaxL1ReferencesForB == other.MaxL1ReferencesForB && self.MaxLongTermReferences == other.MaxLongTermReferences && self.MaxDPBCapacity == other.MaxDPBCapacity
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {}
@@ -49415,7 +49313,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_S
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC>()) == 0 }
+        self.MaxL0ReferencesForP == other.MaxL0ReferencesForP && self.MaxL0ReferencesForB == other.MaxL0ReferencesForB && self.MaxL1ReferencesForB == other.MaxL1ReferencesForB && self.MaxLongTermReferences == other.MaxLongTermReferences && self.MaxDPBCapacity == other.MaxDPBCapacity
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {}
@@ -49486,14 +49384,6 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_DESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_DESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49525,14 +49415,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.SequenceControlDesc == other.SequenceControlDesc && self.PictureControlDesc == other.PictureControlDesc && self.pInputFrame == other.pInputFrame && self.InputFrameSubresource == other.InputFrameSubresource && self.CurrentFrameBitstreamMetadataSize == other.CurrentFrameBitstreamMetadataSize
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     fn default() -> Self {
@@ -49641,7 +49523,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADAT
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA>()) == 0 }
+        self.bSize == other.bSize && self.bStartOffset == other.bStartOffset && self.bHeaderSize == other.bHeaderSize
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {}
@@ -49670,12 +49552,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_HEAP_DESC {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_HEAP_DESC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_HEAP_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_HEAP_DESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_HEAP_DESC {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_HEAP_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49703,7 +49579,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_INTRA_REFRESH>()) == 0 }
+        self.Mode == other.Mode && self.IntraRefreshDuration == other.IntraRefreshDuration
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_INTRA_REFRESH {}
@@ -49727,12 +49603,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_LEVEL_SETTING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_LEVEL_SETTING {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49753,12 +49623,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_LEVEL_SETTING_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49786,7 +49650,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC>()) == 0 }
+        self.Level == other.Level && self.Tier == other.Tier
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {}
@@ -49819,7 +49683,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_OUTPUT_METADATA>()) == 0 }
+        self.EncodeErrorFlags == other.EncodeErrorFlags && self.EncodeStats == other.EncodeStats && self.EncodedBitstreamWrittenBytesCount == other.EncodedBitstreamWrittenBytesCount && self.WrittenSubregionsCount == other.WrittenSubregionsCount
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {}
@@ -49854,7 +49718,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATIST
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS>()) == 0 }
+        self.AverageQP == other.AverageQP && self.IntraCodingUnitsCount == other.IntraCodingUnitsCount && self.InterCodingUnitsCount == other.InterCodingUnitsCount && self.SkipCodingUnitsCount == other.SkipCodingUnitsCount && self.AverageMotionEstimationXDirection == other.AverageMotionEstimationXDirection && self.AverageMotionEstimationYDirection == other.AverageMotionEstimationYDirection
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {}
@@ -49883,14 +49747,6 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_D
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -49915,14 +49771,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     fn default() -> Self {
@@ -50000,7 +49848,28 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_D
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264>()) == 0 }
+        self.Flags == other.Flags
+            && self.FrameType == other.FrameType
+            && self.pic_parameter_set_id == other.pic_parameter_set_id
+            && self.idr_pic_id == other.idr_pic_id
+            && self.PictureOrderCountNumber == other.PictureOrderCountNumber
+            && self.FrameDecodingOrderNumber == other.FrameDecodingOrderNumber
+            && self.TemporalLayerIndex == other.TemporalLayerIndex
+            && self.List0ReferenceFramesCount == other.List0ReferenceFramesCount
+            && self.pList0ReferenceFrames == other.pList0ReferenceFrames
+            && self.List1ReferenceFramesCount == other.List1ReferenceFramesCount
+            && self.pList1ReferenceFrames == other.pList1ReferenceFrames
+            && self.ReferenceFramesReconPictureDescriptorsCount == other.ReferenceFramesReconPictureDescriptorsCount
+            && self.pReferenceFramesReconPictureDescriptors == other.pReferenceFramesReconPictureDescriptors
+            && self.adaptive_ref_pic_marking_mode_flag == other.adaptive_ref_pic_marking_mode_flag
+            && self.RefPicMarkingOperationsCommandsCount == other.RefPicMarkingOperationsCommandsCount
+            && self.pRefPicMarkingOperationsCommands == other.pRefPicMarkingOperationsCommands
+            && self.List0RefPicModificationsCount == other.List0RefPicModificationsCount
+            && self.pList0RefPicModifications == other.pList0RefPicModifications
+            && self.List1RefPicModificationsCount == other.List1RefPicModificationsCount
+            && self.pList1RefPicModifications == other.pList1RefPicModifications
+            && self.QPMapValuesCount == other.QPMapValuesCount
+            && self.pRateControlQPMap == other.pRateControlQPMap
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -50034,7 +49903,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_D
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION>()) == 0 }
+        self.modification_of_pic_nums_idc == other.modification_of_pic_nums_idc && self.abs_diff_pic_num_minus1 == other.abs_diff_pic_num_minus1 && self.long_term_pic_num == other.long_term_pic_num
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {}
@@ -50068,7 +49937,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_D
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION>()) == 0 }
+        self.memory_management_control_operation == other.memory_management_control_operation && self.difference_of_pic_nums_minus1 == other.difference_of_pic_nums_minus1 && self.long_term_pic_num == other.long_term_pic_num && self.long_term_frame_idx == other.long_term_frame_idx && self.max_long_term_frame_idx_plus1 == other.max_long_term_frame_idx_plus1
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {}
@@ -50138,7 +50007,23 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_D
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC>()) == 0 }
+        self.Flags == other.Flags
+            && self.FrameType == other.FrameType
+            && self.slice_pic_parameter_set_id == other.slice_pic_parameter_set_id
+            && self.PictureOrderCountNumber == other.PictureOrderCountNumber
+            && self.TemporalLayerIndex == other.TemporalLayerIndex
+            && self.List0ReferenceFramesCount == other.List0ReferenceFramesCount
+            && self.pList0ReferenceFrames == other.pList0ReferenceFrames
+            && self.List1ReferenceFramesCount == other.List1ReferenceFramesCount
+            && self.pList1ReferenceFrames == other.pList1ReferenceFrames
+            && self.ReferenceFramesReconPictureDescriptorsCount == other.ReferenceFramesReconPictureDescriptorsCount
+            && self.pReferenceFramesReconPictureDescriptors == other.pReferenceFramesReconPictureDescriptors
+            && self.List0RefPicModificationsCount == other.List0RefPicModificationsCount
+            && self.pList0RefPicModifications == other.pList0RefPicModifications
+            && self.List1RefPicModificationsCount == other.List1RefPicModificationsCount
+            && self.pList1RefPicModifications == other.pList1RefPicModifications
+            && self.QPMapValuesCount == other.QPMapValuesCount
+            && self.pRateControlQPMap == other.pRateControlQPMap
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -50171,14 +50056,6 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50199,12 +50076,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAY
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50225,12 +50096,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAY
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50250,12 +50115,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAY
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50278,12 +50137,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAY
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50311,7 +50164,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {}
@@ -50342,7 +50195,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATI
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC>()) == 0 }
+        self.WidthRatio == other.WidthRatio && self.HeightRatio == other.HeightRatio
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {}
@@ -50366,12 +50219,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_DESC {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PROFILE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PROFILE_DESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PROFILE_DESC {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50392,12 +50239,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_PROFILE_DESC_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50424,14 +50265,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_RATE_CONTROL>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     fn default() -> Self {
@@ -50465,7 +50298,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR>()) == 0 }
+        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetBitRate == other.TargetBitRate && self.VBVCapacity == other.VBVCapacity && self.InitialVBVFullness == other.InitialVBVFullness
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {}
@@ -50489,12 +50322,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PAR
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50517,12 +50344,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PAR
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50551,7 +50372,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP>()) == 0 }
+        self.ConstantQP_FullIntracodedFrame == other.ConstantQP_FullIntracodedFrame && self.ConstantQP_InterPredictedFrame_PrevRefOnly == other.ConstantQP_InterPredictedFrame_PrevRefOnly && self.ConstantQP_InterPredictedFrame_BiDirectionalRef == other.ConstantQP_InterPredictedFrame_BiDirectionalRef
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {}
@@ -50587,7 +50408,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR>()) == 0 }
+        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetAvgBitRate == other.TargetAvgBitRate && self.PeakBitRate == other.PeakBitRate && self.ConstantQualityTarget == other.ConstantQualityTarget
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {}
@@ -50624,7 +50445,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR>()) == 0 }
+        self.InitialQP == other.InitialQP && self.MinQP == other.MinQP && self.MaxQP == other.MaxQP && self.MaxFrameBitSize == other.MaxFrameBitSize && self.TargetAvgBitRate == other.TargetAvgBitRate && self.PeakBitRate == other.PeakBitRate && self.VBVCapacity == other.VBVCapacity && self.InitialVBVFullness == other.InitialVBVFullness
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {}
@@ -50702,7 +50523,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCR
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264>()) == 0 }
+        self.ReconstructedPictureResourceIndex == other.ReconstructedPictureResourceIndex && self.IsLongTermReference == other.IsLongTermReference && self.LongTermPictureIdx == other.LongTermPictureIdx && self.PictureOrderCountNumber == other.PictureOrderCountNumber && self.FrameDecodingOrderNumber == other.FrameDecodingOrderNumber && self.TemporalLayerIndex == other.TemporalLayerIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -50744,7 +50565,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCR
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC>()) == 0 }
+        self.ReconstructedPictureResourceIndex == other.ReconstructedPictureResourceIndex && self.IsRefUsedByCurrentPic == other.IsRefUsedByCurrentPic && self.IsLongTermReference == other.IsLongTermReference && self.PictureOrderCountNumber == other.PictureOrderCountNumber && self.TemporalLayerIndex == other.TemporalLayerIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -50781,14 +50602,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMEN
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.EncoderCodec == other.EncoderCodec && self.EncoderProfile == other.EncoderProfile && self.EncoderInputFormat == other.EncoderInputFormat && self.EncodedPictureEffectiveResolution == other.EncodedPictureEffectiveResolution && self.HWLayoutMetadata == other.HWLayoutMetadata
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     fn default() -> Self {
@@ -50856,14 +50669,6 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50884,12 +50689,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50910,12 +50709,6 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
 unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {}
 impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -50946,7 +50739,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264>()) == 0 }
+        self.GOPLength == other.GOPLength && self.PPicturePeriod == other.PPicturePeriod && self.pic_order_cnt_type == other.pic_order_cnt_type && self.log2_max_frame_num_minus4 == other.log2_max_frame_num_minus4 && self.log2_max_pic_order_cnt_lsb_minus4 == other.log2_max_pic_order_cnt_lsb_minus4
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {}
@@ -50978,7 +50771,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC>()) == 0 }
+        self.GOPLength == other.GOPLength && self.PPicturePeriod == other.PPicturePeriod && self.log2_max_pic_order_cnt_lsb_minus4 == other.log2_max_pic_order_cnt_lsb_minus4
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {}
@@ -51016,7 +50809,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_ENCODE_REFERENCE_FRAMES>()) == 0 }
+        self.NumTexture2Ds == other.NumTexture2Ds && self.ppTexture2Ds == other.ppTexture2Ds && self.pSubresources == other.pSubresources
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -51049,7 +50842,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_EXTENSION_COMMAND_DESC>()) == 0 }
+        self.NodeMask == other.NodeMask && self.CommandId == other.CommandId
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_EXTENSION_COMMAND_DESC {}
@@ -51087,7 +50880,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_EXTENSION_COMMAND_INFO>()) == 0 }
+        self.CommandId == other.CommandId && self.Name == other.Name && self.CommandListSupportFlags == other.CommandListSupportFlags
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -51121,7 +50914,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INF
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO>()) == 0 }
+        self.Name == other.Name && self.Type == other.Type && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {}
@@ -51158,7 +50951,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_FORMAT {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_FORMAT>()) == 0 }
+        self.Format == other.Format && self.ColorSpace == other.ColorSpace
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -51200,7 +50993,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_MOTION_ESTIMATOR_DESC>()) == 0 }
+        self.NodeMask == other.NodeMask && self.InputFormat == other.InputFormat && self.BlockSize == other.BlockSize && self.Precision == other.Precision && self.SizeRange == other.SizeRange
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -51324,7 +51117,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC>()) == 0 }
+        self.NodeMask == other.NodeMask && self.InputFormat == other.InputFormat && self.BlockSize == other.BlockSize && self.Precision == other.Precision && self.SizeRange == other.SizeRange
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -51363,7 +51156,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_ALPHA_BLENDING>()) == 0 }
+        self.Enable == other.Enable && self.Alpha == other.Alpha
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -51398,7 +51191,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_FILTER_RANGE {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_FILTER_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_FILTER_RANGE>()) == 0 }
+        self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.Default == other.Default && self.Multiplier == other.Multiplier
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_PROCESS_FILTER_RANGE {}
@@ -51604,7 +51397,23 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC>()) == 0 }
+        self.Format == other.Format
+            && self.ColorSpace == other.ColorSpace
+            && self.SourceAspectRatio == other.SourceAspectRatio
+            && self.DestinationAspectRatio == other.DestinationAspectRatio
+            && self.FrameRate == other.FrameRate
+            && self.SourceSizeRange == other.SourceSizeRange
+            && self.DestinationSizeRange == other.DestinationSizeRange
+            && self.EnableOrientation == other.EnableOrientation
+            && self.FilterFlags == other.FilterFlags
+            && self.StereoFormat == other.StereoFormat
+            && self.FieldType == other.FieldType
+            && self.DeinterlaceMode == other.DeinterlaceMode
+            && self.EnableAlphaBlending == other.EnableAlphaBlending
+            && self.LumaKey == other.LumaKey
+            && self.NumPastFrames == other.NumPastFrames
+            && self.NumFutureFrames == other.NumFutureFrames
+            && self.EnableAutoProcessing == other.EnableAutoProcessing
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -51637,7 +51446,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE>()) == 0 }
+        self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {}
@@ -51675,7 +51484,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_LUMA_KEY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_LUMA_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_LUMA_KEY>()) == 0 }
+        self.Enable == other.Enable && self.Lower == other.Lower && self.Upper == other.Upper
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -51793,7 +51602,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC>()) == 0 }
+        self.Format == other.Format && self.ColorSpace == other.ColorSpace && self.AlphaFillMode == other.AlphaFillMode && self.AlphaFillModeSourceStreamIndex == other.AlphaFillModeSourceStreamIndex && self.BackgroundColor == other.BackgroundColor && self.FrameRate == other.FrameRate && self.EnableStereo == other.EnableStereo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -51836,7 +51645,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_REFERENCE_SET {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_REFERENCE_SET>()) == 0 }
+        self.NumPastFrames == other.NumPastFrames && self.ppPastFrames == other.ppPastFrames && self.pPastSubresources == other.pPastSubresources && self.NumFutureFrames == other.NumFutureFrames && self.ppFutureFrames == other.ppFutureFrames && self.pFutureSubresources == other.pFutureSubresources
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -51876,7 +51685,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_TRANSFORM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_PROCESS_TRANSFORM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_PROCESS_TRANSFORM>()) == 0 }
+        self.SourceRectangle == other.SourceRectangle && self.DestinationRectangle == other.DestinationRectangle && self.Orientation == other.Orientation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -51916,7 +51725,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_SAMPLE {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_VIDEO_SAMPLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_SAMPLE>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -51949,7 +51758,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_SCALE_SUPPORT {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_SCALE_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_SCALE_SUPPORT>()) == 0 }
+        self.OutputSizeRange == other.OutputSizeRange && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_SCALE_SUPPORT {}
@@ -51982,7 +51791,7 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_SIZE_RANGE {
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_SIZE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D12_VIDEO_SIZE_RANGE>()) == 0 }
+        self.MaxWidth == other.MaxWidth && self.MaxHeight == other.MaxHeight && self.MinWidth == other.MinWidth && self.MinHeight == other.MinHeight
     }
 }
 impl ::core::cmp::Eq for D3D12_VIDEO_SIZE_RANGE {}
@@ -52014,14 +51823,6 @@ unsafe impl ::windows::core::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3DCONTENTPROTECTIONCAPS>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for D3DCONTENTPROTECTIONCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52049,14 +51850,6 @@ impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
 unsafe impl ::windows::core::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3DCONTENTPROTECTIONCAPS>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for D3DCONTENTPROTECTIONCAPS {
     fn default() -> Self {
@@ -52086,7 +51879,7 @@ unsafe impl ::windows::core::Abi for D3DOVERLAYCAPS {
 }
 impl ::core::cmp::PartialEq for D3DOVERLAYCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3DOVERLAYCAPS>()) == 0 }
+        self.Caps == other.Caps && self.MaxOverlayDisplayWidth == other.MaxOverlayDisplayWidth && self.MaxOverlayDisplayHeight == other.MaxOverlayDisplayHeight
     }
 }
 impl ::core::cmp::Eq for D3DOVERLAYCAPS {}
@@ -52163,7 +51956,7 @@ unsafe impl ::windows::core::Abi for DIRTYRECT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIRTYRECT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIRTYRECT_INFO>()) == 0 }
+        self.FrameNumber == other.FrameNumber && self.NumDirtyRects == other.NumDirtyRects && self.DirtyRects == other.DirtyRects
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -52196,7 +51989,7 @@ unsafe impl ::windows::core::Abi for DXVA2_AES_CTR_IV {
 }
 impl ::core::cmp::PartialEq for DXVA2_AES_CTR_IV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_AES_CTR_IV>()) == 0 }
+        self.IV == other.IV && self.Count == other.Count
     }
 }
 impl ::core::cmp::Eq for DXVA2_AES_CTR_IV {}
@@ -52229,7 +52022,7 @@ unsafe impl ::windows::core::Abi for DXVA2_AYUVSample16 {
 }
 impl ::core::cmp::PartialEq for DXVA2_AYUVSample16 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_AYUVSample16>()) == 0 }
+        self.Cr == other.Cr && self.Cb == other.Cb && self.Y == other.Y && self.Alpha == other.Alpha
     }
 }
 impl ::core::cmp::Eq for DXVA2_AYUVSample16 {}
@@ -52262,7 +52055,7 @@ unsafe impl ::windows::core::Abi for DXVA2_AYUVSample8 {
 }
 impl ::core::cmp::PartialEq for DXVA2_AYUVSample8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_AYUVSample8>()) == 0 }
+        self.Cr == other.Cr && self.Cb == other.Cb && self.Y == other.Y && self.Alpha == other.Alpha
     }
 }
 impl ::core::cmp::Eq for DXVA2_AYUVSample8 {}
@@ -52326,7 +52119,23 @@ unsafe impl ::windows::core::Abi for DXVA2_ConfigPictureDecode {
 }
 impl ::core::cmp::PartialEq for DXVA2_ConfigPictureDecode {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_ConfigPictureDecode>()) == 0 }
+        self.guidConfigBitstreamEncryption == other.guidConfigBitstreamEncryption
+            && self.guidConfigMBcontrolEncryption == other.guidConfigMBcontrolEncryption
+            && self.guidConfigResidDiffEncryption == other.guidConfigResidDiffEncryption
+            && self.ConfigBitstreamRaw == other.ConfigBitstreamRaw
+            && self.ConfigMBcontrolRasterOrder == other.ConfigMBcontrolRasterOrder
+            && self.ConfigResidDiffHost == other.ConfigResidDiffHost
+            && self.ConfigSpatialResid8 == other.ConfigSpatialResid8
+            && self.ConfigResid8Subtraction == other.ConfigResid8Subtraction
+            && self.ConfigSpatialHost8or9Clipping == other.ConfigSpatialHost8or9Clipping
+            && self.ConfigSpatialResidInterleaved == other.ConfigSpatialResidInterleaved
+            && self.ConfigIntraResidUnsigned == other.ConfigIntraResidUnsigned
+            && self.ConfigResidDiffAccelerator == other.ConfigResidDiffAccelerator
+            && self.ConfigHostInverseScan == other.ConfigHostInverseScan
+            && self.ConfigSpecificIDCT == other.ConfigSpecificIDCT
+            && self.Config4GroupedCoefs == other.Config4GroupedCoefs
+            && self.ConfigMinRenderTargetBuffCount == other.ConfigMinRenderTargetBuffCount
+            && self.ConfigDecoderSpecific == other.ConfigDecoderSpecific
     }
 }
 impl ::core::cmp::Eq for DXVA2_ConfigPictureDecode {}
@@ -52366,7 +52175,7 @@ unsafe impl ::windows::core::Abi for DXVA2_DecodeBufferDesc {
 }
 impl ::core::cmp::PartialEq for DXVA2_DecodeBufferDesc {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_DecodeBufferDesc>()) == 0 }
+        self.CompressedBufferType == other.CompressedBufferType && self.BufferIndex == other.BufferIndex && self.DataOffset == other.DataOffset && self.DataSize == other.DataSize && self.FirstMBaddress == other.FirstMBaddress && self.NumMBsInBuffer == other.NumMBsInBuffer && self.Width == other.Width && self.Height == other.Height && self.Stride == other.Stride && self.ReservedBits == other.ReservedBits && self.pvPVPState == other.pvPVPState
     }
 }
 impl ::core::cmp::Eq for DXVA2_DecodeBufferDesc {}
@@ -52398,7 +52207,7 @@ unsafe impl ::windows::core::Abi for DXVA2_DecodeExecuteParams {
 }
 impl ::core::cmp::PartialEq for DXVA2_DecodeExecuteParams {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_DecodeExecuteParams>()) == 0 }
+        self.NumCompBuffers == other.NumCompBuffers && self.pCompressedBuffers == other.pCompressedBuffers && self.pExtensionData == other.pExtensionData
     }
 }
 impl ::core::cmp::Eq for DXVA2_DecodeExecuteParams {}
@@ -52432,7 +52241,7 @@ unsafe impl ::windows::core::Abi for DXVA2_DecodeExtensionData {
 }
 impl ::core::cmp::PartialEq for DXVA2_DecodeExtensionData {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_DecodeExtensionData>()) == 0 }
+        self.Function == other.Function && self.pPrivateInputData == other.pPrivateInputData && self.PrivateInputDataSize == other.PrivateInputDataSize && self.pPrivateOutputData == other.pPrivateOutputData && self.PrivateOutputDataSize == other.PrivateOutputDataSize
     }
 }
 impl ::core::cmp::Eq for DXVA2_DecodeExtensionData {}
@@ -52455,12 +52264,6 @@ impl ::core::clone::Clone for DXVA2_ExtendedFormat {
 unsafe impl ::windows::core::Abi for DXVA2_ExtendedFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA2_ExtendedFormat {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_ExtendedFormat>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA2_ExtendedFormat {}
 impl ::core::default::Default for DXVA2_ExtendedFormat {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52481,12 +52284,6 @@ impl ::core::clone::Clone for DXVA2_ExtendedFormat_0 {
 unsafe impl ::windows::core::Abi for DXVA2_ExtendedFormat_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA2_ExtendedFormat_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_ExtendedFormat_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA2_ExtendedFormat_0 {}
 impl ::core::default::Default for DXVA2_ExtendedFormat_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52513,7 +52310,7 @@ unsafe impl ::windows::core::Abi for DXVA2_ExtendedFormat_0_0 {
 }
 impl ::core::cmp::PartialEq for DXVA2_ExtendedFormat_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_ExtendedFormat_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DXVA2_ExtendedFormat_0_0 {}
@@ -52538,12 +52335,6 @@ impl ::core::clone::Clone for DXVA2_FilterValues {
 unsafe impl ::windows::core::Abi for DXVA2_FilterValues {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA2_FilterValues {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_FilterValues>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA2_FilterValues {}
 impl ::core::default::Default for DXVA2_FilterValues {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52563,12 +52354,6 @@ impl ::core::clone::Clone for DXVA2_Fixed32 {
 unsafe impl ::windows::core::Abi for DXVA2_Fixed32 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA2_Fixed32 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_Fixed32>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA2_Fixed32 {}
 impl ::core::default::Default for DXVA2_Fixed32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52589,12 +52374,6 @@ impl ::core::clone::Clone for DXVA2_Fixed32_0 {
 unsafe impl ::windows::core::Abi for DXVA2_Fixed32_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA2_Fixed32_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_Fixed32_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA2_Fixed32_0 {}
 impl ::core::default::Default for DXVA2_Fixed32_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52622,7 +52401,7 @@ unsafe impl ::windows::core::Abi for DXVA2_Fixed32_0_0 {
 }
 impl ::core::cmp::PartialEq for DXVA2_Fixed32_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_Fixed32_0_0>()) == 0 }
+        self.Fraction == other.Fraction && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for DXVA2_Fixed32_0_0 {}
@@ -52653,7 +52432,7 @@ unsafe impl ::windows::core::Abi for DXVA2_Frequency {
 }
 impl ::core::cmp::PartialEq for DXVA2_Frequency {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_Frequency>()) == 0 }
+        self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
 impl ::core::cmp::Eq for DXVA2_Frequency {}
@@ -52679,12 +52458,6 @@ impl ::core::clone::Clone for DXVA2_ProcAmpValues {
 unsafe impl ::windows::core::Abi for DXVA2_ProcAmpValues {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA2_ProcAmpValues {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_ProcAmpValues>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA2_ProcAmpValues {}
 impl ::core::default::Default for DXVA2_ProcAmpValues {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52707,12 +52480,6 @@ impl ::core::clone::Clone for DXVA2_ValueRange {
 unsafe impl ::windows::core::Abi for DXVA2_ValueRange {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA2_ValueRange {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_ValueRange>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA2_ValueRange {}
 impl ::core::default::Default for DXVA2_ValueRange {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52743,14 +52510,6 @@ impl ::core::clone::Clone for DXVA2_VideoDesc {
 unsafe impl ::windows::core::Abi for DXVA2_VideoDesc {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::cmp::PartialEq for DXVA2_VideoDesc {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_VideoDesc>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::cmp::Eq for DXVA2_VideoDesc {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for DXVA2_VideoDesc {
     fn default() -> Self {
@@ -52787,14 +52546,6 @@ impl ::core::clone::Clone for DXVA2_VideoProcessBltParams {
 unsafe impl ::windows::core::Abi for DXVA2_VideoProcessBltParams {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DXVA2_VideoProcessBltParams {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_VideoProcessBltParams>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DXVA2_VideoProcessBltParams {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXVA2_VideoProcessBltParams {
     fn default() -> Self {
@@ -52848,7 +52599,7 @@ unsafe impl ::windows::core::Abi for DXVA2_VideoProcessorCaps {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVA2_VideoProcessorCaps {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA2_VideoProcessorCaps>()) == 0 }
+        self.DeviceCaps == other.DeviceCaps && self.InputPool == other.InputPool && self.NumForwardRefSamples == other.NumForwardRefSamples && self.NumBackwardRefSamples == other.NumBackwardRefSamples && self.Reserved == other.Reserved && self.DeinterlaceTechnology == other.DeinterlaceTechnology && self.ProcAmpControlCaps == other.ProcAmpControlCaps && self.VideoProcessorOperations == other.VideoProcessorOperations && self.NoiseFilterTechnology == other.NoiseFilterTechnology && self.DetailFilterTechnology == other.DetailFilterTechnology
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -52894,14 +52645,6 @@ unsafe impl ::windows::core::Abi for DXVA2_VideoSample {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::cmp::PartialEq for DXVA2_VideoSample {
-    fn eq(&self, other: &Self) -> bool {
-        self.Start == other.Start && self.End == other.End && self.SampleFormat == other.SampleFormat && self.SrcSurface == other.SrcSurface && self.SrcRect == other.SrcRect && self.DstRect == other.DstRect && self.Pal == other.Pal && self.PlanarAlpha == other.PlanarAlpha && self.SampleData == other.SampleData
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::cmp::Eq for DXVA2_VideoSample {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::default::Default for DXVA2_VideoSample {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52930,7 +52673,7 @@ unsafe impl ::windows::core::Abi for DXVABufferInfo {
 }
 impl ::core::cmp::PartialEq for DXVABufferInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVABufferInfo>()) == 0 }
+        self.pCompSurface == other.pCompSurface && self.DataOffset == other.DataOffset && self.DataSize == other.DataSize
     }
 }
 impl ::core::cmp::Eq for DXVABufferInfo {}
@@ -52972,7 +52715,7 @@ unsafe impl ::windows::core::Abi for DXVACompBufferInfo {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVACompBufferInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVACompBufferInfo>()) == 0 }
+        self.NumCompBuffers == other.NumCompBuffers && self.WidthToCreate == other.WidthToCreate && self.HeightToCreate == other.HeightToCreate && self.BytesToAllocate == other.BytesToAllocate && self.Usage == other.Usage && self.Pool == other.Pool && self.Format == other.Format
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -53006,7 +52749,7 @@ unsafe impl ::windows::core::Abi for DXVAHDETW_CREATEVIDEOPROCESSOR {
 }
 impl ::core::cmp::PartialEq for DXVAHDETW_CREATEVIDEOPROCESSOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHDETW_CREATEVIDEOPROCESSOR>()) == 0 }
+        self.pObject == other.pObject && self.pD3D9Ex == other.pD3D9Ex && self.VPGuid == other.VPGuid
     }
 }
 impl ::core::cmp::Eq for DXVAHDETW_CREATEVIDEOPROCESSOR {}
@@ -53036,7 +52779,7 @@ unsafe impl ::windows::core::Abi for DXVAHDETW_DESTROYVIDEOPROCESSOR {
 }
 impl ::core::cmp::PartialEq for DXVAHDETW_DESTROYVIDEOPROCESSOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHDETW_DESTROYVIDEOPROCESSOR>()) == 0 }
+        self.pObject == other.pObject
     }
 }
 impl ::core::cmp::Eq for DXVAHDETW_DESTROYVIDEOPROCESSOR {}
@@ -53079,7 +52822,7 @@ unsafe impl ::windows::core::Abi for DXVAHDETW_VIDEOPROCESSBLTHD {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::cmp::PartialEq for DXVAHDETW_VIDEOPROCESSBLTHD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHDETW_VIDEOPROCESSBLTHD>()) == 0 }
+        self.pObject == other.pObject && self.pOutputSurface == other.pOutputSurface && self.TargetRect == other.TargetRect && self.OutputFormat == other.OutputFormat && self.ColorSpace == other.ColorSpace && self.OutputFrame == other.OutputFrame && self.StreamCount == other.StreamCount && self.Enter == other.Enter
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -53141,7 +52884,7 @@ unsafe impl ::windows::core::Abi for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::cmp::PartialEq for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHDETW_VIDEOPROCESSBLTHD_STREAM>()) == 0 }
+        self.pObject == other.pObject && self.pInputSurface == other.pInputSurface && self.SourceRect == other.SourceRect && self.DestinationRect == other.DestinationRect && self.InputFormat == other.InputFormat && self.FrameFormat == other.FrameFormat && self.ColorSpace == other.ColorSpace && self.StreamNumber == other.StreamNumber && self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -53182,7 +52925,7 @@ unsafe impl ::windows::core::Abi for DXVAHDETW_VIDEOPROCESSBLTSTATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHDETW_VIDEOPROCESSBLTSTATE>()) == 0 }
+        self.pObject == other.pObject && self.State == other.State && self.DataSize == other.DataSize && self.SetState == other.SetState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53224,7 +52967,7 @@ unsafe impl ::windows::core::Abi for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHDETW_VIDEOPROCESSSTREAMSTATE>()) == 0 }
+        self.pObject == other.pObject && self.StreamNumber == other.StreamNumber && self.State == other.State && self.DataSize == other.DataSize && self.SetState == other.SetState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53267,38 +53010,13 @@ impl ::core::clone::Clone for DXVAHDSW_CALLBACKS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::fmt::Debug for DXVAHDSW_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DXVAHDSW_CALLBACKS")
-            .field("CreateDevice", &self.CreateDevice.map(|f| f as usize))
-            .field("ProposeVideoPrivateFormat", &self.ProposeVideoPrivateFormat.map(|f| f as usize))
-            .field("GetVideoProcessorDeviceCaps", &self.GetVideoProcessorDeviceCaps.map(|f| f as usize))
-            .field("GetVideoProcessorOutputFormats", &self.GetVideoProcessorOutputFormats.map(|f| f as usize))
-            .field("GetVideoProcessorInputFormats", &self.GetVideoProcessorInputFormats.map(|f| f as usize))
-            .field("GetVideoProcessorCaps", &self.GetVideoProcessorCaps.map(|f| f as usize))
-            .field("GetVideoProcessorCustomRates", &self.GetVideoProcessorCustomRates.map(|f| f as usize))
-            .field("GetVideoProcessorFilterRange", &self.GetVideoProcessorFilterRange.map(|f| f as usize))
-            .field("DestroyDevice", &self.DestroyDevice.map(|f| f as usize))
-            .field("CreateVideoProcessor", &self.CreateVideoProcessor.map(|f| f as usize))
-            .field("SetVideoProcessBltState", &self.SetVideoProcessBltState.map(|f| f as usize))
-            .field("GetVideoProcessBltStatePrivate", &self.GetVideoProcessBltStatePrivate.map(|f| f as usize))
-            .field("SetVideoProcessStreamState", &self.SetVideoProcessStreamState.map(|f| f as usize))
-            .field("GetVideoProcessStreamStatePrivate", &self.GetVideoProcessStreamStatePrivate.map(|f| f as usize))
-            .field("VideoProcessBltHD", &self.VideoProcessBltHD.map(|f| f as usize))
-            .field("DestroyVideoProcessor", &self.DestroyVideoProcessor.map(|f| f as usize))
-            .finish()
+        f.debug_struct("DXVAHDSW_CALLBACKS").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 unsafe impl ::windows::core::Abi for DXVAHDSW_CALLBACKS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::cmp::PartialEq for DXVAHDSW_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHDSW_CALLBACKS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-impl ::core::cmp::Eq for DXVAHDSW_CALLBACKS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::default::Default for DXVAHDSW_CALLBACKS {
     fn default() -> Self {
@@ -53327,7 +53045,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_ALPHA_FILL_DATA>()) == 0 }
+        self.Mode == other.Mode && self.StreamNumber == other.StreamNumber
     }
 }
 impl ::core::cmp::Eq for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {}
@@ -53355,14 +53073,6 @@ impl ::core::clone::Clone for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     fn default() -> Self {
@@ -53397,7 +53107,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_CONSTRICTION_DATA>()) == 0 }
+        self.Enable == other.Enable && self.Size == other.Size
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53422,12 +53132,6 @@ impl ::core::clone::Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {}
 impl ::core::default::Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53448,12 +53152,6 @@ impl ::core::clone::Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
 unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {}
 impl ::core::default::Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53480,7 +53178,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_
 }
 impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {}
@@ -53512,7 +53210,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_PRIVATE_DATA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_PRIVATE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_PRIVATE_DATA>()) == 0 }
+        self.Guid == other.Guid && self.DataSize == other.DataSize && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for DXVAHD_BLT_STATE_PRIVATE_DATA {}
@@ -53549,7 +53247,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_BLT_STATE_TARGET_RECT_DATA>()) == 0 }
+        self.Enable == other.Enable && self.TargetRect == other.TargetRect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53575,12 +53273,6 @@ impl ::core::clone::Clone for DXVAHD_COLOR {
 unsafe impl ::windows::core::Abi for DXVAHD_COLOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVAHD_COLOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_COLOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVAHD_COLOR {}
 impl ::core::default::Default for DXVAHD_COLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53610,7 +53302,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_COLOR_RGBA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_COLOR_RGBA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_COLOR_RGBA>()) == 0 }
+        self.R == other.R && self.G == other.G && self.B == other.B && self.A == other.A
     }
 }
 impl ::core::cmp::Eq for DXVAHD_COLOR_RGBA {}
@@ -53643,7 +53335,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_COLOR_YCbCrA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_COLOR_YCbCrA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_COLOR_YCbCrA>()) == 0 }
+        self.Y == other.Y && self.Cb == other.Cb && self.Cr == other.Cr && self.A == other.A
     }
 }
 impl ::core::cmp::Eq for DXVAHD_COLOR_YCbCrA {}
@@ -53679,7 +53371,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_CONTENT_DESC {
 }
 impl ::core::cmp::PartialEq for DXVAHD_CONTENT_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_CONTENT_DESC>()) == 0 }
+        self.InputFrameFormat == other.InputFrameFormat && self.InputFrameRate == other.InputFrameRate && self.InputWidth == other.InputWidth && self.InputHeight == other.InputHeight && self.OutputFrameRate == other.OutputFrameRate && self.OutputWidth == other.OutputWidth && self.OutputHeight == other.OutputHeight
     }
 }
 impl ::core::cmp::Eq for DXVAHD_CONTENT_DESC {}
@@ -53718,7 +53410,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_CUSTOM_RATE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_CUSTOM_RATE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_CUSTOM_RATE_DATA>()) == 0 }
+        self.CustomRate == other.CustomRate && self.OutputFrames == other.OutputFrames && self.InputInterlaced == other.InputInterlaced && self.InputFramesOrFields == other.InputFramesOrFields
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53753,7 +53445,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_FILTER_RANGE_DATA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_FILTER_RANGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_FILTER_RANGE_DATA>()) == 0 }
+        self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.Default == other.Default && self.Multiplier == other.Multiplier
     }
 }
 impl ::core::cmp::Eq for DXVAHD_FILTER_RANGE_DATA {}
@@ -53784,7 +53476,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_RATIONAL {
 }
 impl ::core::cmp::PartialEq for DXVAHD_RATIONAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_RATIONAL>()) == 0 }
+        self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
 impl ::core::cmp::Eq for DXVAHD_RATIONAL {}
@@ -53873,7 +53565,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_ALPHA_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_ALPHA_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_ALPHA_DATA>()) == 0 }
+        self.Enable == other.Enable && self.Alpha == other.Alpha
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53913,7 +53605,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA>()) == 0 }
+        self.Enable == other.Enable && self.SourceAspectRatio == other.SourceAspectRatio && self.DestinationAspectRatio == other.DestinationAspectRatio
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53951,7 +53643,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_D3DFORMAT_DATA>()) == 0 }
+        self.Format == other.Format
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -53990,7 +53682,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA>()) == 0 }
+        self.Enable == other.Enable && self.DestinationRect == other.DestinationRect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54029,7 +53721,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_FILTER_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_FILTER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_FILTER_DATA>()) == 0 }
+        self.Enable == other.Enable && self.Level == other.Level
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54061,7 +53753,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA>()) == 0 }
+        self.FrameFormat == other.FrameFormat
     }
 }
 impl ::core::cmp::Eq for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {}
@@ -54084,12 +53776,6 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {}
 impl ::core::default::Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -54110,12 +53796,6 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
 unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {}
 impl ::core::default::Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -54142,7 +53822,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_
 }
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {}
@@ -54180,7 +53860,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_LUMA_KEY_DATA>()) == 0 }
+        self.Enable == other.Enable && self.Lower == other.Lower && self.Upper == other.Upper
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54220,7 +53900,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA>()) == 0 }
+        self.RepeatFrame == other.RepeatFrame && self.OutputRate == other.OutputRate && self.CustomRate == other.CustomRate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54253,7 +53933,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_PALETTE_DATA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_PALETTE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_PALETTE_DATA>()) == 0 }
+        self.Count == other.Count && self.pEntries == other.pEntries
     }
 }
 impl ::core::cmp::Eq for DXVAHD_STREAM_STATE_PALETTE_DATA {}
@@ -54285,7 +53965,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_PRIVATE_DATA {
 }
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_PRIVATE_DATA>()) == 0 }
+        self.Guid == other.Guid && self.DataSize == other.DataSize && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for DXVAHD_STREAM_STATE_PRIVATE_DATA {}
@@ -54324,7 +54004,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA>()) == 0 }
+        self.Enable == other.Enable && self.ITelecineFlags == other.ITelecineFlags && self.Frames == other.Frames && self.InputField == other.InputField
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54363,7 +54043,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_STREAM_STATE_SOURCE_RECT_DATA>()) == 0 }
+        self.Enable == other.Enable && self.SourceRect == other.SourceRect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54400,7 +54080,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_VPCAPS {
 }
 impl ::core::cmp::PartialEq for DXVAHD_VPCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_VPCAPS>()) == 0 }
+        self.VPGuid == other.VPGuid && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames && self.ProcessorCaps == other.ProcessorCaps && self.ITelecineCaps == other.ITelecineCaps && self.CustomRateCount == other.CustomRateCount
     }
 }
 impl ::core::cmp::Eq for DXVAHD_VPCAPS {}
@@ -54458,7 +54138,7 @@ unsafe impl ::windows::core::Abi for DXVAHD_VPDEVCAPS {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVAHD_VPDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAHD_VPDEVCAPS>()) == 0 }
+        self.DeviceType == other.DeviceType && self.DeviceCaps == other.DeviceCaps && self.FeatureCaps == other.FeatureCaps && self.FilterCaps == other.FilterCaps && self.InputFormatCaps == other.InputFormatCaps && self.InputPool == other.InputPool && self.OutputFormatCount == other.OutputFormatCount && self.InputFormatCount == other.InputFormatCount && self.VideoProcessorCount == other.VideoProcessorCount && self.MaxInputStreams == other.MaxInputStreams && self.MaxStreamStates == other.MaxStreamStates
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -54498,7 +54178,7 @@ unsafe impl ::windows::core::Abi for DXVAUncompDataInfo {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVAUncompDataInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVAUncompDataInfo>()) == 0 }
+        self.UncompWidth == other.UncompWidth && self.UncompHeight == other.UncompHeight && self.UncompFormat == other.UncompFormat
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -54533,7 +54213,7 @@ unsafe impl ::windows::core::Abi for DXVA_AYUVsample2 {
 }
 impl ::core::cmp::PartialEq for DXVA_AYUVsample2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_AYUVsample2>()) == 0 }
+        self.bCrValue == other.bCrValue && self.bCbValue == other.bCbValue && self.bY_Value == other.bY_Value && self.bSampleAlpha8 == other.bSampleAlpha8
     }
 }
 impl ::core::cmp::Eq for DXVA_AYUVsample2 {}
@@ -54565,12 +54245,6 @@ impl ::core::clone::Clone for DXVA_BufferDescription {
 unsafe impl ::windows::core::Abi for DXVA_BufferDescription {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA_BufferDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_BufferDescription>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA_BufferDescription {}
 impl ::core::default::Default for DXVA_BufferDescription {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -54601,7 +54275,7 @@ unsafe impl ::windows::core::Abi for DXVA_COPPCommand {
 }
 impl ::core::cmp::PartialEq for DXVA_COPPCommand {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_COPPCommand>()) == 0 }
+        self.macKDI == other.macKDI && self.guidCommandID == other.guidCommandID && self.dwSequence == other.dwSequence && self.cbSizeData == other.cbSizeData && self.CommandData == other.CommandData
     }
 }
 impl ::core::cmp::Eq for DXVA_COPPCommand {}
@@ -54631,7 +54305,7 @@ unsafe impl ::windows::core::Abi for DXVA_COPPSignature {
 }
 impl ::core::cmp::PartialEq for DXVA_COPPSignature {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_COPPSignature>()) == 0 }
+        self.Signature == other.Signature
     }
 }
 impl ::core::cmp::Eq for DXVA_COPPSignature {}
@@ -54665,7 +54339,7 @@ unsafe impl ::windows::core::Abi for DXVA_COPPStatusInput {
 }
 impl ::core::cmp::PartialEq for DXVA_COPPStatusInput {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_COPPStatusInput>()) == 0 }
+        self.rApp == other.rApp && self.guidStatusRequestID == other.guidStatusRequestID && self.dwSequence == other.dwSequence && self.cbSizeData == other.cbSizeData && self.StatusData == other.StatusData
     }
 }
 impl ::core::cmp::Eq for DXVA_COPPStatusInput {}
@@ -54697,7 +54371,7 @@ unsafe impl ::windows::core::Abi for DXVA_COPPStatusOutput {
 }
 impl ::core::cmp::PartialEq for DXVA_COPPStatusOutput {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_COPPStatusOutput>()) == 0 }
+        self.macKDI == other.macKDI && self.cbSizeData == other.cbSizeData && self.COPPStatus == other.COPPStatus
     }
 }
 impl ::core::cmp::Eq for DXVA_COPPStatusOutput {}
@@ -54736,12 +54410,6 @@ impl ::core::clone::Clone for DXVA_ConfigPictureDecode {
 unsafe impl ::windows::core::Abi for DXVA_ConfigPictureDecode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA_ConfigPictureDecode {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_ConfigPictureDecode>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA_ConfigPictureDecode {}
 impl ::core::default::Default for DXVA_ConfigPictureDecode {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -54781,7 +54449,7 @@ unsafe impl ::windows::core::Abi for DXVA_DeinterlaceBlt {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_DeinterlaceBlt {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_DeinterlaceBlt>()) == 0 }
+        self.Size == other.Size && self.Reserved == other.Reserved && self.rtTarget == other.rtTarget && self.DstRect == other.DstRect && self.SrcRect == other.SrcRect && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54827,7 +54495,7 @@ unsafe impl ::windows::core::Abi for DXVA_DeinterlaceBltEx {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_DeinterlaceBltEx {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_DeinterlaceBltEx>()) == 0 }
+        self.Size == other.Size && self.BackgroundColor == other.BackgroundColor && self.rcTarget == other.rcTarget && self.rtTarget == other.rtTarget && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source && self.DestinationFormat == other.DestinationFormat && self.DestinationFlags == other.DestinationFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -54879,7 +54547,7 @@ unsafe impl ::windows::core::Abi for DXVA_DeinterlaceBltEx32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_DeinterlaceBltEx32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_DeinterlaceBltEx32>()) == 0 }
+        self.Size == other.Size && self.BackgroundColor == other.BackgroundColor && self.rcTarget == other.rcTarget && self.rtTarget == other.rtTarget && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source && self.DestinationFormat == other.DestinationFormat && self.DestinationFlags == other.DestinationFlags
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -54926,7 +54594,7 @@ unsafe impl ::windows::core::Abi for DXVA_DeinterlaceCaps {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVA_DeinterlaceCaps {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_DeinterlaceCaps>()) == 0 }
+        self.Size == other.Size && self.NumPreviousOutputFrames == other.NumPreviousOutputFrames && self.InputPool == other.InputPool && self.NumForwardRefSamples == other.NumForwardRefSamples && self.NumBackwardRefSamples == other.NumBackwardRefSamples && self.d3dOutputFormat == other.d3dOutputFormat && self.VideoProcessingCaps == other.VideoProcessingCaps && self.DeinterlaceTechnology == other.DeinterlaceTechnology
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -54960,7 +54628,7 @@ unsafe impl ::windows::core::Abi for DXVA_DeinterlaceQueryAvailableModes {
 }
 impl ::core::cmp::PartialEq for DXVA_DeinterlaceQueryAvailableModes {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_DeinterlaceQueryAvailableModes>()) == 0 }
+        self.Size == other.Size && self.NumGuids == other.NumGuids && self.Guids == other.Guids
     }
 }
 impl ::core::cmp::Eq for DXVA_DeinterlaceQueryAvailableModes {}
@@ -54998,7 +54666,7 @@ unsafe impl ::windows::core::Abi for DXVA_DeinterlaceQueryModeCaps {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVA_DeinterlaceQueryModeCaps {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_DeinterlaceQueryModeCaps>()) == 0 }
+        self.Size == other.Size && self.Guid == other.Guid && self.VideoDesc == other.VideoDesc
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -55030,7 +54698,7 @@ unsafe impl ::windows::core::Abi for DXVA_ExtendedFormat {
 }
 impl ::core::cmp::PartialEq for DXVA_ExtendedFormat {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_ExtendedFormat>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DXVA_ExtendedFormat {}
@@ -55061,7 +54729,7 @@ unsafe impl ::windows::core::Abi for DXVA_Frequency {
 }
 impl ::core::cmp::PartialEq for DXVA_Frequency {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_Frequency>()) == 0 }
+        self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
 impl ::core::cmp::Eq for DXVA_Frequency {}
@@ -55119,12 +54787,6 @@ impl ::core::clone::Clone for DXVA_PictureParameters {
 unsafe impl ::windows::core::Abi for DXVA_PictureParameters {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DXVA_PictureParameters {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_PictureParameters>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DXVA_PictureParameters {}
 impl ::core::default::Default for DXVA_PictureParameters {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -55164,7 +54826,7 @@ unsafe impl ::windows::core::Abi for DXVA_ProcAmpControlBlt {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_ProcAmpControlBlt {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_ProcAmpControlBlt>()) == 0 }
+        self.Size == other.Size && self.DstRect == other.DstRect && self.SrcRect == other.SrcRect && self.Alpha == other.Alpha && self.Brightness == other.Brightness && self.Contrast == other.Contrast && self.Hue == other.Hue && self.Saturation == other.Saturation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -55206,7 +54868,7 @@ unsafe impl ::windows::core::Abi for DXVA_ProcAmpControlCaps {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVA_ProcAmpControlCaps {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_ProcAmpControlCaps>()) == 0 }
+        self.Size == other.Size && self.InputPool == other.InputPool && self.d3dOutputFormat == other.d3dOutputFormat && self.ProcAmpControlProps == other.ProcAmpControlProps && self.VideoProcessingCaps == other.VideoProcessingCaps
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -55246,7 +54908,7 @@ unsafe impl ::windows::core::Abi for DXVA_ProcAmpControlQueryRange {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVA_ProcAmpControlQueryRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_ProcAmpControlQueryRange>()) == 0 }
+        self.Size == other.Size && self.ProcAmpControlProp == other.ProcAmpControlProp && self.VideoDesc == other.VideoDesc
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -55290,7 +54952,7 @@ unsafe impl ::windows::core::Abi for DXVA_VideoDesc {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVA_VideoDesc {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoDesc>()) == 0 }
+        self.Size == other.Size && self.SampleWidth == other.SampleWidth && self.SampleHeight == other.SampleHeight && self.SampleFormat == other.SampleFormat && self.d3dFormat == other.d3dFormat && self.InputSampleFreq == other.InputSampleFreq && self.OutputFrameFreq == other.OutputFrameFreq
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -55325,7 +54987,7 @@ unsafe impl ::windows::core::Abi for DXVA_VideoPropertyRange {
 }
 impl ::core::cmp::PartialEq for DXVA_VideoPropertyRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoPropertyRange>()) == 0 }
+        self.MinValue == other.MinValue && self.MaxValue == other.MaxValue && self.DefaultValue == other.DefaultValue && self.StepSize == other.StepSize
     }
 }
 impl ::core::cmp::Eq for DXVA_VideoPropertyRange {}
@@ -55358,7 +55020,7 @@ unsafe impl ::windows::core::Abi for DXVA_VideoSample {
 }
 impl ::core::cmp::PartialEq for DXVA_VideoSample {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoSample>()) == 0 }
+        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.lpDDSSrcSurface == other.lpDDSSrcSurface
     }
 }
 impl ::core::cmp::Eq for DXVA_VideoSample {}
@@ -55409,7 +55071,7 @@ unsafe impl ::windows::core::Abi for DXVA_VideoSample2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoSample2>()) == 0 }
+        self.Size == other.Size && self.Reserved == other.Reserved && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -55462,7 +55124,7 @@ unsafe impl ::windows::core::Abi for DXVA_VideoSample2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoSample2>()) == 0 }
+        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
 #[cfg(target_arch = "x86")]
@@ -55515,7 +55177,7 @@ unsafe impl ::windows::core::Abi for DXVA_VideoSample32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_VideoSample32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoSample32>()) == 0 }
+        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -55551,7 +55213,7 @@ unsafe impl ::windows::core::Abi for DigitalWindowSetting {
 }
 impl ::core::cmp::PartialEq for DigitalWindowSetting {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DigitalWindowSetting>()) == 0 }
+        self.OriginX == other.OriginX && self.OriginY == other.OriginY && self.WindowSize == other.WindowSize
     }
 }
 impl ::core::cmp::Eq for DigitalWindowSetting {}
@@ -55584,7 +55246,7 @@ unsafe impl ::windows::core::Abi for MACROBLOCK_DATA {
 }
 impl ::core::cmp::PartialEq for MACROBLOCK_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MACROBLOCK_DATA>()) == 0 }
+        self.flags == other.flags && self.motionVectorX == other.motionVectorX && self.motionVectorY == other.motionVectorY && self.QPDelta == other.QPDelta
     }
 }
 impl ::core::cmp::Eq for MACROBLOCK_DATA {}
@@ -55617,7 +55279,7 @@ unsafe impl ::windows::core::Abi for MFARGB {
 }
 impl ::core::cmp::PartialEq for MFARGB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFARGB>()) == 0 }
+        self.rgbBlue == other.rgbBlue && self.rgbGreen == other.rgbGreen && self.rgbRed == other.rgbRed && self.rgbAlpha == other.rgbAlpha
     }
 }
 impl ::core::cmp::Eq for MFARGB {}
@@ -55650,7 +55312,7 @@ unsafe impl ::windows::core::Abi for MFAYUVSample {
 }
 impl ::core::cmp::PartialEq for MFAYUVSample {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFAYUVSample>()) == 0 }
+        self.bCrValue == other.bCrValue && self.bCbValue == other.bCbValue && self.bYValue == other.bYValue && self.bSampleAlpha8 == other.bSampleAlpha8
     }
 }
 impl ::core::cmp::Eq for MFAYUVSample {}
@@ -55681,7 +55343,7 @@ unsafe impl ::windows::core::Abi for MFAudioDecoderDegradationInfo {
 }
 impl ::core::cmp::PartialEq for MFAudioDecoderDegradationInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFAudioDecoderDegradationInfo>()) == 0 }
+        self.eDegradationReason == other.eDegradationReason && self.eType == other.eType
     }
 }
 impl ::core::cmp::Eq for MFAudioDecoderDegradationInfo {}
@@ -55718,7 +55380,7 @@ unsafe impl ::windows::core::Abi for MFBYTESTREAM_BUFFERING_PARAMS {
 }
 impl ::core::cmp::PartialEq for MFBYTESTREAM_BUFFERING_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFBYTESTREAM_BUFFERING_PARAMS>()) == 0 }
+        self.cbTotalFileSize == other.cbTotalFileSize && self.cbPlayableDataSize == other.cbPlayableDataSize && self.prgBuckets == other.prgBuckets && self.cBuckets == other.cBuckets && self.qwNetBufferingTime == other.qwNetBufferingTime && self.qwExtraBufferingTimeDuringSeek == other.qwExtraBufferingTimeDuringSeek && self.qwPlayDuration == other.qwPlayDuration && self.dRate == other.dRate
     }
 }
 impl ::core::cmp::Eq for MFBYTESTREAM_BUFFERING_PARAMS {}
@@ -55753,7 +55415,7 @@ unsafe impl ::windows::core::Abi for MFCLOCK_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for MFCLOCK_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCLOCK_PROPERTIES>()) == 0 }
+        self.qwCorrelationRate == other.qwCorrelationRate && self.guidClockId == other.guidClockId && self.dwClockFlags == other.dwClockFlags && self.qwClockFrequency == other.qwClockFrequency && self.dwClockTolerance == other.dwClockTolerance && self.dwClockJitter == other.dwClockJitter
     }
 }
 impl ::core::cmp::Eq for MFCLOCK_PROPERTIES {}
@@ -55787,7 +55449,7 @@ unsafe impl ::windows::core::Abi for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
 }
 impl ::core::cmp::PartialEq for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCONTENTPROTECTIONDEVICE_INPUT_DATA>()) == 0 }
+        self.HWProtectionFunctionID == other.HWProtectionFunctionID && self.PrivateDataByteCount == other.PrivateDataByteCount && self.HWProtectionDataByteCount == other.HWProtectionDataByteCount && self.Reserved == other.Reserved && self.InputData == other.InputData
     }
 }
 impl ::core::cmp::Eq for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {}
@@ -55831,7 +55493,7 @@ unsafe impl ::windows::core::Abi for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
 }
 impl ::core::cmp::PartialEq for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA>()) == 0 }
+        self.PrivateDataByteCount == other.PrivateDataByteCount && self.MaxHWProtectionDataByteCount == other.MaxHWProtectionDataByteCount && self.HWProtectionDataByteCount == other.HWProtectionDataByteCount && self.Status == other.Status && self.TransportTimeInHundredsOfNanoseconds == other.TransportTimeInHundredsOfNanoseconds && self.ExecutionTimeInHundredsOfNanoseconds == other.ExecutionTimeInHundredsOfNanoseconds && self.OutputData == other.OutputData
     }
 }
 impl ::core::cmp::Eq for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {}
@@ -55863,7 +55525,7 @@ unsafe impl ::windows::core::Abi for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DA
 }
 impl ::core::cmp::PartialEq for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA>()) == 0 }
+        self.TaskIndex == other.TaskIndex && self.ClassName == other.ClassName && self.BasePriority == other.BasePriority
     }
 }
 impl ::core::cmp::Eq for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {}
@@ -55895,7 +55557,7 @@ unsafe impl ::windows::core::Abi for MFCameraExtrinsic_CalibratedTransform {
 }
 impl ::core::cmp::PartialEq for MFCameraExtrinsic_CalibratedTransform {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCameraExtrinsic_CalibratedTransform>()) == 0 }
+        self.CalibrationId == other.CalibrationId && self.Position == other.Position && self.Orientation == other.Orientation
     }
 }
 impl ::core::cmp::Eq for MFCameraExtrinsic_CalibratedTransform {}
@@ -55926,7 +55588,7 @@ unsafe impl ::windows::core::Abi for MFCameraExtrinsics {
 }
 impl ::core::cmp::PartialEq for MFCameraExtrinsics {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCameraExtrinsics>()) == 0 }
+        self.TransformCount == other.TransformCount && self.CalibratedTransforms == other.CalibratedTransforms
     }
 }
 impl ::core::cmp::Eq for MFCameraExtrinsics {}
@@ -55959,7 +55621,7 @@ unsafe impl ::windows::core::Abi for MFCameraIntrinsic_CameraModel {
 }
 impl ::core::cmp::PartialEq for MFCameraIntrinsic_CameraModel {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCameraIntrinsic_CameraModel>()) == 0 }
+        self.FocalLength_x == other.FocalLength_x && self.FocalLength_y == other.FocalLength_y && self.PrincipalPoint_x == other.PrincipalPoint_x && self.PrincipalPoint_y == other.PrincipalPoint_y
     }
 }
 impl ::core::cmp::Eq for MFCameraIntrinsic_CameraModel {}
@@ -55993,7 +55655,7 @@ unsafe impl ::windows::core::Abi for MFCameraIntrinsic_DistortionModel {
 }
 impl ::core::cmp::PartialEq for MFCameraIntrinsic_DistortionModel {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCameraIntrinsic_DistortionModel>()) == 0 }
+        self.Radial_k1 == other.Radial_k1 && self.Radial_k2 == other.Radial_k2 && self.Radial_k3 == other.Radial_k3 && self.Tangential_p1 == other.Tangential_p1 && self.Tangential_p2 == other.Tangential_p2
     }
 }
 impl ::core::cmp::Eq for MFCameraIntrinsic_DistortionModel {}
@@ -56030,7 +55692,7 @@ unsafe impl ::windows::core::Abi for MFCameraIntrinsic_DistortionModel6KT {
 }
 impl ::core::cmp::PartialEq for MFCameraIntrinsic_DistortionModel6KT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCameraIntrinsic_DistortionModel6KT>()) == 0 }
+        self.Radial_k1 == other.Radial_k1 && self.Radial_k2 == other.Radial_k2 && self.Radial_k3 == other.Radial_k3 && self.Radial_k4 == other.Radial_k4 && self.Radial_k5 == other.Radial_k5 && self.Radial_k6 == other.Radial_k6 && self.Tangential_p1 == other.Tangential_p1 && self.Tangential_p2 == other.Tangential_p2
     }
 }
 impl ::core::cmp::Eq for MFCameraIntrinsic_DistortionModel6KT {}
@@ -56064,7 +55726,7 @@ unsafe impl ::windows::core::Abi for MFCameraIntrinsic_DistortionModelArcTan {
 }
 impl ::core::cmp::PartialEq for MFCameraIntrinsic_DistortionModelArcTan {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCameraIntrinsic_DistortionModelArcTan>()) == 0 }
+        self.Radial_k0 == other.Radial_k0 && self.DistortionCenter_x == other.DistortionCenter_x && self.DistortionCenter_y == other.DistortionCenter_y && self.Tangential_x == other.Tangential_x && self.Tangential_y == other.Tangential_y
     }
 }
 impl ::core::cmp::Eq for MFCameraIntrinsic_DistortionModelArcTan {}
@@ -56095,7 +55757,7 @@ unsafe impl ::windows::core::Abi for MFCameraIntrinsic_PinholeCameraModel {
 }
 impl ::core::cmp::PartialEq for MFCameraIntrinsic_PinholeCameraModel {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCameraIntrinsic_PinholeCameraModel>()) == 0 }
+        self.FocalLength == other.FocalLength && self.PrincipalPoint == other.PrincipalPoint
     }
 }
 impl ::core::cmp::Eq for MFCameraIntrinsic_PinholeCameraModel {}
@@ -56128,7 +55790,7 @@ unsafe impl ::windows::core::Abi for MFExtendedCameraIntrinsic_IntrinsicModel {
 }
 impl ::core::cmp::PartialEq for MFExtendedCameraIntrinsic_IntrinsicModel {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFExtendedCameraIntrinsic_IntrinsicModel>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.SplitFrameId == other.SplitFrameId && self.CameraModel == other.CameraModel
     }
 }
 impl ::core::cmp::Eq for MFExtendedCameraIntrinsic_IntrinsicModel {}
@@ -56162,7 +55824,7 @@ unsafe impl ::windows::core::Abi for MFFOLDDOWN_MATRIX {
 }
 impl ::core::cmp::PartialEq for MFFOLDDOWN_MATRIX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFFOLDDOWN_MATRIX>()) == 0 }
+        self.cbSize == other.cbSize && self.cSrcChannels == other.cSrcChannels && self.cDstChannels == other.cDstChannels && self.dwChannelMask == other.dwChannelMask && self.Coeff == other.Coeff
     }
 }
 impl ::core::cmp::Eq for MFFOLDDOWN_MATRIX {}
@@ -56194,7 +55856,7 @@ unsafe impl ::windows::core::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
 }
 impl ::core::cmp::PartialEq for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFINPUTTRUSTAUTHORITY_ACCESS_ACTION>()) == 0 }
+        self.Action == other.Action && self.pbTicket == other.pbTicket && self.cbTicket == other.cbTicket
     }
 }
 impl ::core::cmp::Eq for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {}
@@ -56231,7 +55893,7 @@ unsafe impl ::windows::core::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
 }
 impl ::core::cmp::PartialEq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwVer == other.dwVer && self.cbSignatureOffset == other.cbSignatureOffset && self.cbSignatureSize == other.cbSignatureSize && self.cbExtensionOffset == other.cbExtensionOffset && self.cbExtensionSize == other.cbExtensionSize && self.cActions == other.cActions && self.rgOutputActions == other.rgOutputActions
     }
 }
 impl ::core::cmp::Eq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {}
@@ -56295,7 +55957,7 @@ unsafe impl ::windows::core::Abi for MFMPEG2DLNASINKSTATS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MFMPEG2DLNASINKSTATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFMPEG2DLNASINKSTATS>()) == 0 }
+        self.cBytesWritten == other.cBytesWritten && self.fPAL == other.fPAL && self.fccVideo == other.fccVideo && self.dwVideoWidth == other.dwVideoWidth && self.dwVideoHeight == other.dwVideoHeight && self.cVideoFramesReceived == other.cVideoFramesReceived && self.cVideoFramesEncoded == other.cVideoFramesEncoded && self.cVideoFramesSkipped == other.cVideoFramesSkipped && self.cBlackVideoFramesEncoded == other.cBlackVideoFramesEncoded && self.cVideoFramesDuplicated == other.cVideoFramesDuplicated && self.cAudioSamplesPerSec == other.cAudioSamplesPerSec && self.cAudioChannels == other.cAudioChannels && self.cAudioBytesReceived == other.cAudioBytesReceived && self.cAudioFramesEncoded == other.cAudioFramesEncoded
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -56329,7 +55991,7 @@ unsafe impl ::windows::core::Abi for MFMediaKeyStatus {
 }
 impl ::core::cmp::PartialEq for MFMediaKeyStatus {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFMediaKeyStatus>()) == 0 }
+        self.pbKeyId == other.pbKeyId && self.cbKeyId == other.cbKeyId && self.eMediaKeyStatus == other.eMediaKeyStatus
     }
 }
 impl ::core::cmp::Eq for MFMediaKeyStatus {}
@@ -56372,7 +56034,7 @@ unsafe impl ::windows::core::Abi for MFNetCredentialManagerGetParam {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MFNetCredentialManagerGetParam {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFNetCredentialManagerGetParam>()) == 0 }
+        self.hrOp == other.hrOp && self.fAllowLoggedOnUser == other.fAllowLoggedOnUser && self.fClearTextPackage == other.fClearTextPackage && self.pszUrl == other.pszUrl && self.pszSite == other.pszSite && self.pszRealm == other.pszRealm && self.pszPackage == other.pszPackage && self.nRetries == other.nRetries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -56405,7 +56067,7 @@ unsafe impl ::windows::core::Abi for MFOffset {
 }
 impl ::core::cmp::PartialEq for MFOffset {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFOffset>()) == 0 }
+        self.fract == other.fract && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for MFOffset {}
@@ -56992,12 +56654,6 @@ impl ::core::clone::Clone for MFPaletteEntry {
 unsafe impl ::windows::core::Abi for MFPaletteEntry {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MFPaletteEntry {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFPaletteEntry>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MFPaletteEntry {}
 impl ::core::default::Default for MFPaletteEntry {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -57027,7 +56683,7 @@ unsafe impl ::windows::core::Abi for MFPinholeCameraIntrinsic_IntrinsicModel {
 }
 impl ::core::cmp::PartialEq for MFPinholeCameraIntrinsic_IntrinsicModel {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFPinholeCameraIntrinsic_IntrinsicModel>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.CameraModel == other.CameraModel && self.DistortionModel == other.DistortionModel
     }
 }
 impl ::core::cmp::Eq for MFPinholeCameraIntrinsic_IntrinsicModel {}
@@ -57058,7 +56714,7 @@ unsafe impl ::windows::core::Abi for MFPinholeCameraIntrinsics {
 }
 impl ::core::cmp::PartialEq for MFPinholeCameraIntrinsics {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFPinholeCameraIntrinsics>()) == 0 }
+        self.IntrinsicModelCount == other.IntrinsicModelCount && self.IntrinsicModels == other.IntrinsicModels
     }
 }
 impl ::core::cmp::Eq for MFPinholeCameraIntrinsics {}
@@ -57090,7 +56746,7 @@ unsafe impl ::windows::core::Abi for MFRR_COMPONENTS {
 }
 impl ::core::cmp::PartialEq for MFRR_COMPONENTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFRR_COMPONENTS>()) == 0 }
+        self.dwRRInfoVersion == other.dwRRInfoVersion && self.dwRRComponents == other.dwRRComponents && self.pRRComponents == other.pRRComponents
     }
 }
 impl ::core::cmp::Eq for MFRR_COMPONENTS {}
@@ -57123,7 +56779,7 @@ unsafe impl ::windows::core::Abi for MFRR_COMPONENT_HASH_INFO {
 }
 impl ::core::cmp::PartialEq for MFRR_COMPONENT_HASH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFRR_COMPONENT_HASH_INFO>()) == 0 }
+        self.ulReason == other.ulReason && self.rgHeaderHash == other.rgHeaderHash && self.rgPublicKeyHash == other.rgPublicKeyHash && self.wszName == other.wszName
     }
 }
 impl ::core::cmp::Eq for MFRR_COMPONENT_HASH_INFO {}
@@ -57154,7 +56810,7 @@ unsafe impl ::windows::core::Abi for MFRatio {
 }
 impl ::core::cmp::PartialEq for MFRatio {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFRatio>()) == 0 }
+        self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
 impl ::core::cmp::Eq for MFRatio {}
@@ -57180,12 +56836,6 @@ impl ::core::clone::Clone for MFTOPONODE_ATTRIBUTE_UPDATE {
 unsafe impl ::windows::core::Abi for MFTOPONODE_ATTRIBUTE_UPDATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MFTOPONODE_ATTRIBUTE_UPDATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFTOPONODE_ATTRIBUTE_UPDATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MFTOPONODE_ATTRIBUTE_UPDATE {}
 impl ::core::default::Default for MFTOPONODE_ATTRIBUTE_UPDATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -57207,12 +56857,6 @@ impl ::core::clone::Clone for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 unsafe impl ::windows::core::Abi for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFTOPONODE_ATTRIBUTE_UPDATE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MFTOPONODE_ATTRIBUTE_UPDATE_0 {}
 impl ::core::default::Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -57243,7 +56887,7 @@ unsafe impl ::windows::core::Abi for MFT_INPUT_STREAM_INFO {
 }
 impl ::core::cmp::PartialEq for MFT_INPUT_STREAM_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFT_INPUT_STREAM_INFO>()) == 0 }
+        self.hnsMaxLatency == other.hnsMaxLatency && self.dwFlags == other.dwFlags && self.cbSize == other.cbSize && self.cbMaxLookahead == other.cbMaxLookahead && self.cbAlignment == other.cbAlignment
     }
 }
 impl ::core::cmp::Eq for MFT_INPUT_STREAM_INFO {}
@@ -57307,7 +56951,7 @@ unsafe impl ::windows::core::Abi for MFT_OUTPUT_STREAM_INFO {
 }
 impl ::core::cmp::PartialEq for MFT_OUTPUT_STREAM_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFT_OUTPUT_STREAM_INFO>()) == 0 }
+        self.dwFlags == other.dwFlags && self.cbSize == other.cbSize && self.cbAlignment == other.cbAlignment
     }
 }
 impl ::core::cmp::Eq for MFT_OUTPUT_STREAM_INFO {}
@@ -57338,7 +56982,7 @@ unsafe impl ::windows::core::Abi for MFT_REGISTER_TYPE_INFO {
 }
 impl ::core::cmp::PartialEq for MFT_REGISTER_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFT_REGISTER_TYPE_INFO>()) == 0 }
+        self.guidMajorType == other.guidMajorType && self.guidSubtype == other.guidSubtype
     }
 }
 impl ::core::cmp::Eq for MFT_REGISTER_TYPE_INFO {}
@@ -57375,7 +57019,7 @@ unsafe impl ::windows::core::Abi for MFT_REGISTRATION_INFO {
 }
 impl ::core::cmp::PartialEq for MFT_REGISTRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFT_REGISTRATION_INFO>()) == 0 }
+        self.clsid == other.clsid && self.guidCategory == other.guidCategory && self.uiFlags == other.uiFlags && self.pszName == other.pszName && self.cInTypes == other.cInTypes && self.pInTypes == other.pInTypes && self.cOutTypes == other.cOutTypes && self.pOutTypes == other.pOutTypes
     }
 }
 impl ::core::cmp::Eq for MFT_REGISTRATION_INFO {}
@@ -57406,7 +57050,7 @@ unsafe impl ::windows::core::Abi for MFT_STREAM_STATE_PARAM {
 }
 impl ::core::cmp::PartialEq for MFT_STREAM_STATE_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFT_STREAM_STATE_PARAM>()) == 0 }
+        self.StreamId == other.StreamId && self.State == other.State
     }
 }
 impl ::core::cmp::Eq for MFT_STREAM_STATE_PARAM {}
@@ -57438,14 +57082,6 @@ unsafe impl ::windows::core::Abi for MFVIDEOFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MFVIDEOFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVIDEOFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MFVIDEOFORMAT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MFVIDEOFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -57470,14 +57106,6 @@ unsafe impl ::windows::core::Abi for MFVideoAlphaBitmap {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MFVideoAlphaBitmap {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetBitmapFromDC == other.GetBitmapFromDC && self.bitmap == other.bitmap && self.params == other.params
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MFVideoAlphaBitmap {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MFVideoAlphaBitmap {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -57500,14 +57128,6 @@ impl ::core::clone::Clone for MFVideoAlphaBitmap_0 {
 unsafe impl ::windows::core::Abi for MFVideoAlphaBitmap_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MFVideoAlphaBitmap_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVideoAlphaBitmap_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MFVideoAlphaBitmap_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MFVideoAlphaBitmap_0 {
     fn default() -> Self {
@@ -57546,7 +57166,7 @@ unsafe impl ::windows::core::Abi for MFVideoAlphaBitmapParams {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MFVideoAlphaBitmapParams {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVideoAlphaBitmapParams>()) == 0 }
+        self.dwFlags == other.dwFlags && self.clrSrcKey == other.clrSrcKey && self.rcSrc == other.rcSrc && self.nrcDest == other.nrcDest && self.fAlpha == other.fAlpha && self.dwFilterMode == other.dwFilterMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -57586,7 +57206,7 @@ unsafe impl ::windows::core::Abi for MFVideoArea {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MFVideoArea {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVideoArea>()) == 0 }
+        self.OffsetX == other.OffsetX && self.OffsetY == other.OffsetY && self.Area == other.Area
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -57620,7 +57240,7 @@ unsafe impl ::windows::core::Abi for MFVideoCompressedInfo {
 }
 impl ::core::cmp::PartialEq for MFVideoCompressedInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVideoCompressedInfo>()) == 0 }
+        self.AvgBitrate == other.AvgBitrate && self.AvgBitErrorRate == other.AvgBitErrorRate && self.MaxKeyFrameSpacing == other.MaxKeyFrameSpacing
     }
 }
 impl ::core::cmp::Eq for MFVideoCompressedInfo {}
@@ -57686,7 +57306,7 @@ unsafe impl ::windows::core::Abi for MFVideoInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MFVideoInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVideoInfo>()) == 0 }
+        self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.PixelAspectRatio == other.PixelAspectRatio && self.SourceChromaSubsampling == other.SourceChromaSubsampling && self.InterlaceMode == other.InterlaceMode && self.TransferFunction == other.TransferFunction && self.ColorPrimaries == other.ColorPrimaries && self.TransferMatrix == other.TransferMatrix && self.SourceLighting == other.SourceLighting && self.FramesPerSecond == other.FramesPerSecond && self.NominalRange == other.NominalRange && self.GeometricAperture == other.GeometricAperture && self.MinimumDisplayAperture == other.MinimumDisplayAperture && self.PanScanAperture == other.PanScanAperture && self.VideoFlags == other.VideoFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -57721,7 +57341,7 @@ unsafe impl ::windows::core::Abi for MFVideoNormalizedRect {
 }
 impl ::core::cmp::PartialEq for MFVideoNormalizedRect {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVideoNormalizedRect>()) == 0 }
+        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
 impl ::core::cmp::Eq for MFVideoNormalizedRect {}
@@ -57746,12 +57366,6 @@ impl ::core::clone::Clone for MFVideoSurfaceInfo {
 unsafe impl ::windows::core::Abi for MFVideoSurfaceInfo {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MFVideoSurfaceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFVideoSurfaceInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MFVideoSurfaceInfo {}
 impl ::core::default::Default for MFVideoSurfaceInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -57779,7 +57393,7 @@ unsafe impl ::windows::core::Abi for MF_BYTE_STREAM_CACHE_RANGE {
 }
 impl ::core::cmp::PartialEq for MF_BYTE_STREAM_CACHE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MF_BYTE_STREAM_CACHE_RANGE>()) == 0 }
+        self.qwStartOffset == other.qwStartOffset && self.qwEndOffset == other.qwEndOffset
     }
 }
 impl ::core::cmp::Eq for MF_BYTE_STREAM_CACHE_RANGE {}
@@ -57810,7 +57424,7 @@ unsafe impl ::windows::core::Abi for MF_FLOAT2 {
 }
 impl ::core::cmp::PartialEq for MF_FLOAT2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MF_FLOAT2>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for MF_FLOAT2 {}
@@ -57842,7 +57456,7 @@ unsafe impl ::windows::core::Abi for MF_FLOAT3 {
 }
 impl ::core::cmp::PartialEq for MF_FLOAT3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MF_FLOAT3>()) == 0 }
+        self.x == other.x && self.y == other.y && self.z == other.z
     }
 }
 impl ::core::cmp::Eq for MF_FLOAT3 {}
@@ -57873,7 +57487,7 @@ unsafe impl ::windows::core::Abi for MF_LEAKY_BUCKET_PAIR {
 }
 impl ::core::cmp::PartialEq for MF_LEAKY_BUCKET_PAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MF_LEAKY_BUCKET_PAIR>()) == 0 }
+        self.dwBitrate == other.dwBitrate && self.msBufferWindow == other.msBufferWindow
     }
 }
 impl ::core::cmp::Eq for MF_LEAKY_BUCKET_PAIR {}
@@ -57906,7 +57520,7 @@ unsafe impl ::windows::core::Abi for MF_QUATERNION {
 }
 impl ::core::cmp::PartialEq for MF_QUATERNION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MF_QUATERNION>()) == 0 }
+        self.x == other.x && self.y == other.y && self.z == other.z && self.w == other.w
     }
 }
 impl ::core::cmp::Eq for MF_QUATERNION {}
@@ -57968,7 +57582,22 @@ unsafe impl ::windows::core::Abi for MF_SINK_WRITER_STATISTICS {
 }
 impl ::core::cmp::PartialEq for MF_SINK_WRITER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MF_SINK_WRITER_STATISTICS>()) == 0 }
+        self.cb == other.cb
+            && self.llLastTimestampReceived == other.llLastTimestampReceived
+            && self.llLastTimestampEncoded == other.llLastTimestampEncoded
+            && self.llLastTimestampProcessed == other.llLastTimestampProcessed
+            && self.llLastStreamTickReceived == other.llLastStreamTickReceived
+            && self.llLastSinkSampleRequest == other.llLastSinkSampleRequest
+            && self.qwNumSamplesReceived == other.qwNumSamplesReceived
+            && self.qwNumSamplesEncoded == other.qwNumSamplesEncoded
+            && self.qwNumSamplesProcessed == other.qwNumSamplesProcessed
+            && self.qwNumStreamTicksReceived == other.qwNumStreamTicksReceived
+            && self.dwByteCountQueued == other.dwByteCountQueued
+            && self.qwByteCountProcessed == other.qwByteCountProcessed
+            && self.dwNumOutstandingSinkSampleRequests == other.dwNumOutstandingSinkSampleRequests
+            && self.dwAverageSampleRateReceived == other.dwAverageSampleRateReceived
+            && self.dwAverageSampleRateEncoded == other.dwAverageSampleRateEncoded
+            && self.dwAverageSampleRateProcessed == other.dwAverageSampleRateProcessed
     }
 }
 impl ::core::cmp::Eq for MF_SINK_WRITER_STATISTICS {}
@@ -58037,7 +57666,7 @@ unsafe impl ::windows::core::Abi for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
 }
 impl ::core::cmp::PartialEq for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MF_VIDEO_SPHERICAL_VIEWDIRECTION>()) == 0 }
+        self.iHeading == other.iHeading && self.iPitch == other.iPitch && self.iRoll == other.iRoll
     }
 }
 impl ::core::cmp::Eq for MF_VIDEO_SPHERICAL_VIEWDIRECTION {}
@@ -58075,7 +57704,7 @@ unsafe impl ::windows::core::Abi for MOVEREGION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MOVEREGION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOVEREGION_INFO>()) == 0 }
+        self.FrameNumber == other.FrameNumber && self.NumMoveRegions == other.NumMoveRegions && self.MoveRegions == other.MoveRegions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -58114,7 +57743,7 @@ unsafe impl ::windows::core::Abi for MOVE_RECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MOVE_RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOVE_RECT>()) == 0 }
+        self.SourcePoint == other.SourcePoint && self.DestRect == other.DestRect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -58155,7 +57784,7 @@ unsafe impl ::windows::core::Abi for MPEG1VIDEOINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for MPEG1VIDEOINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPEG1VIDEOINFO>()) == 0 }
+        self.hdr == other.hdr && self.dwStartTimeCode == other.dwStartTimeCode && self.cbSequenceHeader == other.cbSequenceHeader && self.bSequenceHeader == other.bSequenceHeader
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -58190,14 +57819,6 @@ impl ::core::clone::Clone for MPEG2VIDEOINFO {
 unsafe impl ::windows::core::Abi for MPEG2VIDEOINFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MPEG2VIDEOINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPEG2VIDEOINFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MPEG2VIDEOINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MPEG2VIDEOINFO {
     fn default() -> Self {
@@ -58236,7 +57857,7 @@ unsafe impl ::windows::core::Abi for MT_ARBITRARY_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MT_ARBITRARY_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MT_ARBITRARY_HEADER>()) == 0 }
+        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -58275,7 +57896,7 @@ unsafe impl ::windows::core::Abi for MT_CUSTOM_VIDEO_PRIMARIES {
 }
 impl ::core::cmp::PartialEq for MT_CUSTOM_VIDEO_PRIMARIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MT_CUSTOM_VIDEO_PRIMARIES>()) == 0 }
+        self.fRx == other.fRx && self.fRy == other.fRy && self.fGx == other.fGx && self.fGy == other.fGy && self.fBx == other.fBx && self.fBy == other.fBy && self.fWx == other.fWx && self.fWy == other.fWy
     }
 }
 impl ::core::cmp::Eq for MT_CUSTOM_VIDEO_PRIMARIES {}
@@ -58310,12 +57931,6 @@ impl ::core::clone::Clone for OPM_ACP_AND_CGMSA_SIGNALING {
 unsafe impl ::windows::core::Abi for OPM_ACP_AND_CGMSA_SIGNALING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_ACP_AND_CGMSA_SIGNALING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_ACP_AND_CGMSA_SIGNALING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_ACP_AND_CGMSA_SIGNALING {}
 impl ::core::default::Default for OPM_ACP_AND_CGMSA_SIGNALING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58347,14 +57962,6 @@ unsafe impl ::windows::core::Abi for OPM_ACTUAL_OUTPUT_FORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::cmp::PartialEq for OPM_ACTUAL_OUTPUT_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_ACTUAL_OUTPUT_FORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl ::core::cmp::Eq for OPM_ACTUAL_OUTPUT_FORMAT {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::default::Default for OPM_ACTUAL_OUTPUT_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58378,12 +57985,6 @@ impl ::core::clone::Clone for OPM_CONFIGURE_PARAMETERS {
 unsafe impl ::windows::core::Abi for OPM_CONFIGURE_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_CONFIGURE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_CONFIGURE_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_CONFIGURE_PARAMETERS {}
 impl ::core::default::Default for OPM_CONFIGURE_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58409,12 +58010,6 @@ impl ::core::clone::Clone for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
 unsafe impl ::windows::core::Abi for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_CONNECTED_HDCP_DEVICE_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {}
 impl ::core::default::Default for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58438,12 +58033,6 @@ impl ::core::clone::Clone for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
 unsafe impl ::windows::core::Abi for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
 impl ::core::default::Default for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58470,7 +58059,7 @@ unsafe impl ::windows::core::Abi for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_ENCRYPTED_INITIALIZATION_PARAMETERS>()) == 0 }
+        self.abEncryptedInitializationParameters == other.abEncryptedInitializationParameters
     }
 }
 impl ::core::cmp::Eq for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {}
@@ -58494,12 +58083,6 @@ impl ::core::clone::Clone for OPM_GET_CODEC_INFO_INFORMATION {
 unsafe impl ::windows::core::Abi for OPM_GET_CODEC_INFO_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_GET_CODEC_INFO_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_GET_CODEC_INFO_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_GET_CODEC_INFO_INFORMATION {}
 impl ::core::default::Default for OPM_GET_CODEC_INFO_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58520,12 +58103,6 @@ impl ::core::clone::Clone for OPM_GET_CODEC_INFO_PARAMETERS {
 unsafe impl ::windows::core::Abi for OPM_GET_CODEC_INFO_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_GET_CODEC_INFO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_GET_CODEC_INFO_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_GET_CODEC_INFO_PARAMETERS {}
 impl ::core::default::Default for OPM_GET_CODEC_INFO_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58550,12 +58127,6 @@ impl ::core::clone::Clone for OPM_GET_INFO_PARAMETERS {
 unsafe impl ::windows::core::Abi for OPM_GET_INFO_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_GET_INFO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_GET_INFO_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_GET_INFO_PARAMETERS {}
 impl ::core::default::Default for OPM_GET_INFO_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58582,7 +58153,7 @@ unsafe impl ::windows::core::Abi for OPM_HDCP_KEY_SELECTION_VECTOR {
 }
 impl ::core::cmp::PartialEq for OPM_HDCP_KEY_SELECTION_VECTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_HDCP_KEY_SELECTION_VECTOR>()) == 0 }
+        self.abKeySelectionVector == other.abKeySelectionVector
     }
 }
 impl ::core::cmp::Eq for OPM_HDCP_KEY_SELECTION_VECTOR {}
@@ -58612,7 +58183,7 @@ unsafe impl ::windows::core::Abi for OPM_OMAC {
 }
 impl ::core::cmp::PartialEq for OPM_OMAC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_OMAC>()) == 0 }
+        self.abOMAC == other.abOMAC
     }
 }
 impl ::core::cmp::Eq for OPM_OMAC {}
@@ -58637,12 +58208,6 @@ impl ::core::clone::Clone for OPM_OUTPUT_ID_DATA {
 unsafe impl ::windows::core::Abi for OPM_OUTPUT_ID_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_OUTPUT_ID_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_OUTPUT_ID_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_OUTPUT_ID_DATA {}
 impl ::core::default::Default for OPM_OUTPUT_ID_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58669,7 +58234,7 @@ unsafe impl ::windows::core::Abi for OPM_RANDOM_NUMBER {
 }
 impl ::core::cmp::PartialEq for OPM_RANDOM_NUMBER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_RANDOM_NUMBER>()) == 0 }
+        self.abRandomNumber == other.abRandomNumber
     }
 }
 impl ::core::cmp::Eq for OPM_RANDOM_NUMBER {}
@@ -58694,12 +58259,6 @@ impl ::core::clone::Clone for OPM_REQUESTED_INFORMATION {
 unsafe impl ::windows::core::Abi for OPM_REQUESTED_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_REQUESTED_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_REQUESTED_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_REQUESTED_INFORMATION {}
 impl ::core::default::Default for OPM_REQUESTED_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58728,12 +58287,6 @@ impl ::core::clone::Clone for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
 unsafe impl ::windows::core::Abi for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {}
 impl ::core::default::Default for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58753,12 +58306,6 @@ impl ::core::clone::Clone for OPM_SET_HDCP_SRM_PARAMETERS {
 unsafe impl ::windows::core::Abi for OPM_SET_HDCP_SRM_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_SET_HDCP_SRM_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_SET_HDCP_SRM_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_SET_HDCP_SRM_PARAMETERS {}
 impl ::core::default::Default for OPM_SET_HDCP_SRM_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58781,12 +58328,6 @@ impl ::core::clone::Clone for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
 unsafe impl ::windows::core::Abi for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_SET_PROTECTION_LEVEL_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_SET_PROTECTION_LEVEL_PARAMETERS {}
 impl ::core::default::Default for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58810,12 +58351,6 @@ impl ::core::clone::Clone for OPM_STANDARD_INFORMATION {
 unsafe impl ::windows::core::Abi for OPM_STANDARD_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OPM_STANDARD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPM_STANDARD_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OPM_STANDARD_INFORMATION {}
 impl ::core::default::Default for OPM_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -58849,7 +58384,7 @@ unsafe impl ::windows::core::Abi for ROI_AREA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ROI_AREA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ROI_AREA>()) == 0 }
+        self.rect == other.rect && self.QPDelta == other.QPDelta
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -58883,7 +58418,7 @@ unsafe impl ::windows::core::Abi for SENSORPROFILEID {
 }
 impl ::core::cmp::PartialEq for SENSORPROFILEID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SENSORPROFILEID>()) == 0 }
+        self.Type == other.Type && self.Index == other.Index && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for SENSORPROFILEID {}
@@ -58914,7 +58449,7 @@ unsafe impl ::windows::core::Abi for STREAM_MEDIUM {
 }
 impl ::core::cmp::PartialEq for STREAM_MEDIUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STREAM_MEDIUM>()) == 0 }
+        self.gidMedium == other.gidMedium && self.unMediumInstance == other.unMediumInstance
     }
 }
 impl ::core::cmp::Eq for STREAM_MEDIUM {}
@@ -58947,7 +58482,7 @@ unsafe impl ::windows::core::Abi for TOC_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for TOC_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOC_DESCRIPTOR>()) == 0 }
+        self.guidID == other.guidID && self.wStreamNumber == other.wStreamNumber && self.guidType == other.guidType && self.wLanguageIndex == other.wLanguageIndex
     }
 }
 impl ::core::cmp::Eq for TOC_DESCRIPTOR {}
@@ -58981,7 +58516,7 @@ unsafe impl ::windows::core::Abi for TOC_ENTRY_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for TOC_ENTRY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOC_ENTRY_DESCRIPTOR>()) == 0 }
+        self.qwStartTime == other.qwStartTime && self.qwEndTime == other.qwEndTime && self.qwStartPacketOffset == other.qwStartPacketOffset && self.qwEndPacketOffset == other.qwEndPacketOffset && self.qwRepresentativeFrameTime == other.qwRepresentativeFrameTime
     }
 }
 impl ::core::cmp::Eq for TOC_ENTRY_DESCRIPTOR {}
@@ -59022,7 +58557,7 @@ unsafe impl ::windows::core::Abi for VIDEOINFOHEADER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for VIDEOINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOINFOHEADER>()) == 0 }
+        self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.bmiHeader == other.bmiHeader
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -59063,14 +58598,6 @@ unsafe impl ::windows::core::Abi for VIDEOINFOHEADER2 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for VIDEOINFOHEADER2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOINFOHEADER2>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for VIDEOINFOHEADER2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for VIDEOINFOHEADER2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -59095,14 +58622,6 @@ impl ::core::clone::Clone for VIDEOINFOHEADER2_0 {
 unsafe impl ::windows::core::Abi for VIDEOINFOHEADER2_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for VIDEOINFOHEADER2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOINFOHEADER2_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for VIDEOINFOHEADER2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for VIDEOINFOHEADER2_0 {
     fn default() -> Self {

@@ -5449,7 +5449,7 @@ unsafe impl ::windows::core::Abi for PROPERTYKEY {
 }
 impl ::core::cmp::PartialEq for PROPERTYKEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROPERTYKEY>()) == 0 }
+        self.fmtid == other.fmtid && self.pid == other.pid
     }
 }
 impl ::core::cmp::Eq for PROPERTYKEY {}
@@ -5487,14 +5487,6 @@ impl ::core::clone::Clone for PROPPRG {
 unsafe impl ::windows::core::Abi for PROPPRG {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PROPPRG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROPPRG>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PROPPRG {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROPPRG {
     fn default() -> Self {

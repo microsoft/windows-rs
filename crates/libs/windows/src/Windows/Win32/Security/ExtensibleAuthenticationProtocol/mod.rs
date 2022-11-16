@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::Abi for EAPHOST_AUTH_INFO {
 }
 impl ::core::cmp::PartialEq for EAPHOST_AUTH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAPHOST_AUTH_INFO>()) == 0 }
+        self.status == other.status && self.dwErrorCode == other.dwErrorCode && self.dwReasonCode == other.dwReasonCode
     }
 }
 impl ::core::cmp::Eq for EAPHOST_AUTH_INFO {}
@@ -2241,7 +2241,7 @@ unsafe impl ::windows::core::Abi for EAPHOST_IDENTITY_UI_PARAMS {
 }
 impl ::core::cmp::PartialEq for EAPHOST_IDENTITY_UI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAPHOST_IDENTITY_UI_PARAMS>()) == 0 }
+        self.eapMethodType == other.eapMethodType && self.dwFlags == other.dwFlags && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.dwSizeofUserDataOut == other.dwSizeofUserDataOut && self.pUserDataOut == other.pUserDataOut && self.pwszIdentity == other.pwszIdentity && self.dwError == other.dwError && self.pEapError == other.pEapError
     }
 }
 impl ::core::cmp::Eq for EAPHOST_IDENTITY_UI_PARAMS {}
@@ -2276,7 +2276,7 @@ unsafe impl ::windows::core::Abi for EAPHOST_INTERACTIVE_UI_PARAMS {
 }
 impl ::core::cmp::PartialEq for EAPHOST_INTERACTIVE_UI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAPHOST_INTERACTIVE_UI_PARAMS>()) == 0 }
+        self.dwSizeofContextData == other.dwSizeofContextData && self.pContextData == other.pContextData && self.dwSizeofInteractiveUIData == other.dwSizeofInteractiveUIData && self.pInteractiveUIData == other.pInteractiveUIData && self.dwError == other.dwError && self.pEapError == other.pEapError
     }
 }
 impl ::core::cmp::Eq for EAPHOST_INTERACTIVE_UI_PARAMS {}
@@ -2308,7 +2308,7 @@ unsafe impl ::windows::core::Abi for EAP_ATTRIBUTE {
 }
 impl ::core::cmp::PartialEq for EAP_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_ATTRIBUTE>()) == 0 }
+        self.eaType == other.eaType && self.dwLength == other.dwLength && self.pValue == other.pValue
     }
 }
 impl ::core::cmp::Eq for EAP_ATTRIBUTE {}
@@ -2339,7 +2339,7 @@ unsafe impl ::windows::core::Abi for EAP_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for EAP_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_ATTRIBUTES>()) == 0 }
+        self.dwNumberOfAttributes == other.dwNumberOfAttributes && self.pAttribs == other.pAttribs
     }
 }
 impl ::core::cmp::Eq for EAP_ATTRIBUTES {}
@@ -2393,7 +2393,18 @@ unsafe impl ::windows::core::Abi for EAP_AUTHENTICATOR_METHOD_ROUTINES {
 }
 impl ::core::cmp::PartialEq for EAP_AUTHENTICATOR_METHOD_ROUTINES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_AUTHENTICATOR_METHOD_ROUTINES>()) == 0 }
+        self.dwSizeInBytes == other.dwSizeInBytes
+            && self.pEapType == other.pEapType
+            && self.EapMethodAuthenticatorInitialize == other.EapMethodAuthenticatorInitialize
+            && self.EapMethodAuthenticatorBeginSession == other.EapMethodAuthenticatorBeginSession
+            && self.EapMethodAuthenticatorUpdateInnerMethodParams == other.EapMethodAuthenticatorUpdateInnerMethodParams
+            && self.EapMethodAuthenticatorReceivePacket == other.EapMethodAuthenticatorReceivePacket
+            && self.EapMethodAuthenticatorSendPacket == other.EapMethodAuthenticatorSendPacket
+            && self.EapMethodAuthenticatorGetAttributes == other.EapMethodAuthenticatorGetAttributes
+            && self.EapMethodAuthenticatorSetAttributes == other.EapMethodAuthenticatorSetAttributes
+            && self.EapMethodAuthenticatorGetResult == other.EapMethodAuthenticatorGetResult
+            && self.EapMethodAuthenticatorEndSession == other.EapMethodAuthenticatorEndSession
+            && self.EapMethodAuthenticatorShutdown == other.EapMethodAuthenticatorShutdown
     }
 }
 impl ::core::cmp::Eq for EAP_AUTHENTICATOR_METHOD_ROUTINES {}
@@ -2425,7 +2436,7 @@ unsafe impl ::windows::core::Abi for EAP_CONFIG_INPUT_FIELD_ARRAY {
 }
 impl ::core::cmp::PartialEq for EAP_CONFIG_INPUT_FIELD_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_CONFIG_INPUT_FIELD_ARRAY>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwNumberOfFields == other.dwNumberOfFields && self.pFields == other.pFields
     }
 }
 impl ::core::cmp::Eq for EAP_CONFIG_INPUT_FIELD_ARRAY {}
@@ -2461,7 +2472,7 @@ unsafe impl ::windows::core::Abi for EAP_CONFIG_INPUT_FIELD_DATA {
 }
 impl ::core::cmp::PartialEq for EAP_CONFIG_INPUT_FIELD_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_CONFIG_INPUT_FIELD_DATA>()) == 0 }
+        self.dwSize == other.dwSize && self.Type == other.Type && self.dwFlagProps == other.dwFlagProps && self.pwszLabel == other.pwszLabel && self.pwszData == other.pwszData && self.dwMinDataLength == other.dwMinDataLength && self.dwMaxDataLength == other.dwMaxDataLength
     }
 }
 impl ::core::cmp::Eq for EAP_CONFIG_INPUT_FIELD_DATA {}
@@ -2492,7 +2503,7 @@ unsafe impl ::windows::core::Abi for EAP_CRED_EXPIRY_REQ {
 }
 impl ::core::cmp::PartialEq for EAP_CRED_EXPIRY_REQ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_CRED_EXPIRY_REQ>()) == 0 }
+        self.curCreds == other.curCreds && self.newCreds == other.newCreds
     }
 }
 impl ::core::cmp::Eq for EAP_CRED_EXPIRY_REQ {}
@@ -2529,7 +2540,7 @@ unsafe impl ::windows::core::Abi for EAP_ERROR {
 }
 impl ::core::cmp::PartialEq for EAP_ERROR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_ERROR>()) == 0 }
+        self.dwWinError == other.dwWinError && self.r#type == other.r#type && self.dwReasonCode == other.dwReasonCode && self.rootCauseGuid == other.rootCauseGuid && self.repairGuid == other.repairGuid && self.helpLinkGuid == other.helpLinkGuid && self.pRootCauseString == other.pRootCauseString && self.pRepairString == other.pRepairString
     }
 }
 impl ::core::cmp::Eq for EAP_ERROR {}
@@ -2556,12 +2567,6 @@ impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA {
 unsafe impl ::windows::core::Abi for EAP_INTERACTIVE_UI_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EAP_INTERACTIVE_UI_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_INTERACTIVE_UI_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EAP_INTERACTIVE_UI_DATA {}
 impl ::core::default::Default for EAP_INTERACTIVE_UI_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2596,7 +2601,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_AUTHENTICATOR_RESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EAP_METHOD_AUTHENTICATOR_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_AUTHENTICATOR_RESULT>()) == 0 }
+        self.fIsSuccess == other.fIsSuccess && self.dwFailureReason == other.dwFailureReason && self.pAuthAttribs == other.pAuthAttribs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2632,7 +2637,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_INFO {
 }
 impl ::core::cmp::PartialEq for EAP_METHOD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_INFO>()) == 0 }
+        self.eaptype == other.eaptype && self.pwszAuthorName == other.pwszAuthorName && self.pwszFriendlyName == other.pwszFriendlyName && self.eapProperties == other.eapProperties && self.pInnerMethodInfo == other.pInnerMethodInfo
     }
 }
 impl ::core::cmp::Eq for EAP_METHOD_INFO {}
@@ -2663,7 +2668,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_INFO_ARRAY {
 }
 impl ::core::cmp::PartialEq for EAP_METHOD_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_INFO_ARRAY>()) == 0 }
+        self.dwNumberOfMethods == other.dwNumberOfMethods && self.pEapMethods == other.pEapMethods
     }
 }
 impl ::core::cmp::Eq for EAP_METHOD_INFO_ARRAY {}
@@ -2694,7 +2699,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_INFO_ARRAY_EX {
 }
 impl ::core::cmp::PartialEq for EAP_METHOD_INFO_ARRAY_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_INFO_ARRAY_EX>()) == 0 }
+        self.dwNumberOfMethods == other.dwNumberOfMethods && self.pEapMethods == other.pEapMethods
     }
 }
 impl ::core::cmp::Eq for EAP_METHOD_INFO_ARRAY_EX {}
@@ -2728,7 +2733,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_INFO_EX {
 }
 impl ::core::cmp::PartialEq for EAP_METHOD_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_INFO_EX>()) == 0 }
+        self.eaptype == other.eaptype && self.pwszAuthorName == other.pwszAuthorName && self.pwszFriendlyName == other.pwszFriendlyName && self.eapProperties == other.eapProperties && self.pInnerMethodInfoArray == other.pInnerMethodInfoArray
     }
 }
 impl ::core::cmp::Eq for EAP_METHOD_INFO_EX {}
@@ -2757,14 +2762,6 @@ impl ::core::clone::Clone for EAP_METHOD_PROPERTY {
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EAP_METHOD_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_PROPERTY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EAP_METHOD_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EAP_METHOD_PROPERTY {
     fn default() -> Self {
@@ -2799,7 +2796,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EAP_METHOD_PROPERTY_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_PROPERTY_ARRAY>()) == 0 }
+        self.dwNumberOfProperties == other.dwNumberOfProperties && self.pMethodProperty == other.pMethodProperty
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2830,14 +2827,6 @@ impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE {
 unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EAP_METHOD_PROPERTY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_PROPERTY_VALUE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EAP_METHOD_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EAP_METHOD_PROPERTY_VALUE {
     fn default() -> Self {
@@ -2872,7 +2861,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_BOOL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EAP_METHOD_PROPERTY_VALUE_BOOL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_PROPERTY_VALUE_BOOL>()) == 0 }
+        self.length == other.length && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2905,7 +2894,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_DWORD {
 }
 impl ::core::cmp::PartialEq for EAP_METHOD_PROPERTY_VALUE_DWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_PROPERTY_VALUE_DWORD>()) == 0 }
+        self.length == other.length && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for EAP_METHOD_PROPERTY_VALUE_DWORD {}
@@ -2936,7 +2925,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_PROPERTY_VALUE_STRING {
 }
 impl ::core::cmp::PartialEq for EAP_METHOD_PROPERTY_VALUE_STRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_PROPERTY_VALUE_STRING>()) == 0 }
+        self.length == other.length && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for EAP_METHOD_PROPERTY_VALUE_STRING {}
@@ -2967,7 +2956,7 @@ unsafe impl ::windows::core::Abi for EAP_METHOD_TYPE {
 }
 impl ::core::cmp::PartialEq for EAP_METHOD_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_METHOD_TYPE>()) == 0 }
+        self.eapType == other.eapType && self.dwAuthorId == other.dwAuthorId
     }
 }
 impl ::core::cmp::Eq for EAP_METHOD_TYPE {}
@@ -3027,7 +3016,21 @@ unsafe impl ::windows::core::Abi for EAP_PEER_METHOD_ROUTINES {
 }
 impl ::core::cmp::PartialEq for EAP_PEER_METHOD_ROUTINES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_PEER_METHOD_ROUTINES>()) == 0 }
+        self.dwVersion == other.dwVersion
+            && self.pEapType == other.pEapType
+            && self.EapPeerInitialize == other.EapPeerInitialize
+            && self.EapPeerGetIdentity == other.EapPeerGetIdentity
+            && self.EapPeerBeginSession == other.EapPeerBeginSession
+            && self.EapPeerSetCredentials == other.EapPeerSetCredentials
+            && self.EapPeerProcessRequestPacket == other.EapPeerProcessRequestPacket
+            && self.EapPeerGetResponsePacket == other.EapPeerGetResponsePacket
+            && self.EapPeerGetResult == other.EapPeerGetResult
+            && self.EapPeerGetUIContext == other.EapPeerGetUIContext
+            && self.EapPeerSetUIContext == other.EapPeerSetUIContext
+            && self.EapPeerGetResponseAttributes == other.EapPeerGetResponseAttributes
+            && self.EapPeerSetResponseAttributes == other.EapPeerSetResponseAttributes
+            && self.EapPeerEndSession == other.EapPeerEndSession
+            && self.EapPeerShutdown == other.EapPeerShutdown
     }
 }
 impl ::core::cmp::Eq for EAP_PEER_METHOD_ROUTINES {}
@@ -3059,7 +3062,7 @@ unsafe impl ::windows::core::Abi for EAP_TYPE {
 }
 impl ::core::cmp::PartialEq for EAP_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_TYPE>()) == 0 }
+        self.r#type == other.r#type && self.dwVendorId == other.dwVendorId && self.dwVendorType == other.dwVendorType
     }
 }
 impl ::core::cmp::Eq for EAP_TYPE {}
@@ -3084,12 +3087,6 @@ impl ::core::clone::Clone for EAP_UI_DATA_FORMAT {
 unsafe impl ::windows::core::Abi for EAP_UI_DATA_FORMAT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EAP_UI_DATA_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EAP_UI_DATA_FORMAT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EAP_UI_DATA_FORMAT {}
 impl ::core::default::Default for EAP_UI_DATA_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3117,7 +3114,7 @@ unsafe impl ::windows::core::Abi for EapCertificateCredential {
 }
 impl ::core::cmp::PartialEq for EapCertificateCredential {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapCertificateCredential>()) == 0 }
+        self.certHash == other.certHash && self.password == other.password
     }
 }
 impl ::core::cmp::Eq for EapCertificateCredential {}
@@ -3141,12 +3138,6 @@ impl ::core::clone::Clone for EapCredential {
 unsafe impl ::windows::core::Abi for EapCredential {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EapCredential {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapCredential>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EapCredential {}
 impl ::core::default::Default for EapCredential {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3168,12 +3159,6 @@ impl ::core::clone::Clone for EapCredentialTypeData {
 unsafe impl ::windows::core::Abi for EapCredentialTypeData {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EapCredentialTypeData {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapCredentialTypeData>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EapCredentialTypeData {}
 impl ::core::default::Default for EapCredentialTypeData {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3230,7 +3215,7 @@ unsafe impl ::windows::core::Abi for EapHostPeerMethodResult {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EapHostPeerMethodResult {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapHostPeerMethodResult>()) == 0 }
+        self.fIsSuccess == other.fIsSuccess && self.dwFailureReasonCode == other.dwFailureReasonCode && self.fSaveConnectionData == other.fSaveConnectionData && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.fSaveUserData == other.fSaveUserData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.pAttribArray == other.pAttribArray && self.isolationState == other.isolationState && self.pEapMethodInfo == other.pEapMethodInfo && self.pEapError == other.pEapError
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3265,7 +3250,7 @@ unsafe impl ::windows::core::Abi for EapPacket {
 }
 impl ::core::cmp::PartialEq for EapPacket {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapPacket>()) == 0 }
+        self.Code == other.Code && self.Id == other.Id && self.Length == other.Length && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for EapPacket {}
@@ -3302,7 +3287,7 @@ unsafe impl ::windows::core::Abi for EapPeerMethodOutput {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EapPeerMethodOutput {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapPeerMethodOutput>()) == 0 }
+        self.action == other.action && self.fAllowNotifications == other.fAllowNotifications
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3364,7 +3349,7 @@ unsafe impl ::windows::core::Abi for EapPeerMethodResult {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for EapPeerMethodResult {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapPeerMethodResult>()) == 0 }
+        self.fIsSuccess == other.fIsSuccess && self.dwFailureReasonCode == other.dwFailureReasonCode && self.fSaveConnectionData == other.fSaveConnectionData && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.fSaveUserData == other.fSaveUserData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.pAttribArray == other.pAttribArray && self.pEapError == other.pEapError && self.pNgcKerbTicket == other.pNgcKerbTicket && self.fSaveToCredMan == other.fSaveToCredMan
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -3396,7 +3381,7 @@ unsafe impl ::windows::core::Abi for EapSimCredential {
 }
 impl ::core::cmp::PartialEq for EapSimCredential {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapSimCredential>()) == 0 }
+        self.iccID == other.iccID
     }
 }
 impl ::core::cmp::Eq for EapSimCredential {}
@@ -3427,7 +3412,7 @@ unsafe impl ::windows::core::Abi for EapUsernamePasswordCredential {
 }
 impl ::core::cmp::PartialEq for EapUsernamePasswordCredential {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EapUsernamePasswordCredential>()) == 0 }
+        self.username == other.username && self.password == other.password
     }
 }
 impl ::core::cmp::Eq for EapUsernamePasswordCredential {}
@@ -3477,7 +3462,7 @@ unsafe impl ::windows::core::Abi for LEGACY_IDENTITY_UI_PARAMS {
 }
 impl ::core::cmp::PartialEq for LEGACY_IDENTITY_UI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LEGACY_IDENTITY_UI_PARAMS>()) == 0 }
+        self.eapType == other.eapType && self.dwFlags == other.dwFlags && self.dwSizeofConnectionData == other.dwSizeofConnectionData && self.pConnectionData == other.pConnectionData && self.dwSizeofUserData == other.dwSizeofUserData && self.pUserData == other.pUserData && self.dwSizeofUserDataOut == other.dwSizeofUserDataOut && self.pUserDataOut == other.pUserDataOut && self.pwszIdentity == other.pwszIdentity && self.dwError == other.dwError
     }
 }
 impl ::core::cmp::Eq for LEGACY_IDENTITY_UI_PARAMS {}
@@ -3512,7 +3497,7 @@ unsafe impl ::windows::core::Abi for LEGACY_INTERACTIVE_UI_PARAMS {
 }
 impl ::core::cmp::PartialEq for LEGACY_INTERACTIVE_UI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LEGACY_INTERACTIVE_UI_PARAMS>()) == 0 }
+        self.eapType == other.eapType && self.dwSizeofContextData == other.dwSizeofContextData && self.pContextData == other.pContextData && self.dwSizeofInteractiveUIData == other.dwSizeofInteractiveUIData && self.pInteractiveUIData == other.pInteractiveUIData && self.dwError == other.dwError
     }
 }
 impl ::core::cmp::Eq for LEGACY_INTERACTIVE_UI_PARAMS {}
@@ -3550,7 +3535,7 @@ unsafe impl ::windows::core::Abi for NgcTicketContext {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for NgcTicketContext {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NgcTicketContext>()) == 0 }
+        self.wszTicket == other.wszTicket && self.hKey == other.hKey && self.hImpersonateToken == other.hImpersonateToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -3587,7 +3572,7 @@ unsafe impl ::windows::core::Abi for PPP_EAP_INFO {
 }
 impl ::core::cmp::PartialEq for PPP_EAP_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_EAP_INFO>()) == 0 }
+        self.dwSizeInBytes == other.dwSizeInBytes && self.dwEapTypeId == other.dwEapTypeId && self.RasEapInitialize == other.RasEapInitialize && self.RasEapBegin == other.RasEapBegin && self.RasEapEnd == other.RasEapEnd && self.RasEapMakeMessage == other.RasEapMakeMessage
     }
 }
 impl ::core::cmp::Eq for PPP_EAP_INFO {}
@@ -3665,7 +3650,27 @@ unsafe impl ::windows::core::Abi for PPP_EAP_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PPP_EAP_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_EAP_INPUT>()) == 0 }
+        self.dwSizeInBytes == other.dwSizeInBytes
+            && self.fFlags == other.fFlags
+            && self.fAuthenticator == other.fAuthenticator
+            && self.pwszIdentity == other.pwszIdentity
+            && self.pwszPassword == other.pwszPassword
+            && self.bInitialId == other.bInitialId
+            && self.pUserAttributes == other.pUserAttributes
+            && self.fAuthenticationComplete == other.fAuthenticationComplete
+            && self.dwAuthResultCode == other.dwAuthResultCode
+            && self.hTokenImpersonateUser == other.hTokenImpersonateUser
+            && self.fSuccessPacketReceived == other.fSuccessPacketReceived
+            && self.fDataReceivedFromInteractiveUI == other.fDataReceivedFromInteractiveUI
+            && self.pDataFromInteractiveUI == other.pDataFromInteractiveUI
+            && self.dwSizeOfDataFromInteractiveUI == other.dwSizeOfDataFromInteractiveUI
+            && self.pConnectionData == other.pConnectionData
+            && self.dwSizeOfConnectionData == other.dwSizeOfConnectionData
+            && self.pUserData == other.pUserData
+            && self.dwSizeOfUserData == other.dwSizeOfUserData
+            && self.hReserved == other.hReserved
+            && self.guidConnectionId == other.guidConnectionId
+            && self.isVpn == other.isVpn
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3733,7 +3738,7 @@ unsafe impl ::windows::core::Abi for PPP_EAP_OUTPUT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for PPP_EAP_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_EAP_OUTPUT>()) == 0 }
+        self.dwSizeInBytes == other.dwSizeInBytes && self.Action == other.Action && self.dwAuthResultCode == other.dwAuthResultCode && self.pUserAttributes == other.pUserAttributes && self.fInvokeInteractiveUI == other.fInvokeInteractiveUI && self.pUIContextData == other.pUIContextData && self.dwSizeOfUIContextData == other.dwSizeOfUIContextData && self.fSaveConnectionData == other.fSaveConnectionData && self.pConnectionData == other.pConnectionData && self.dwSizeOfConnectionData == other.dwSizeOfConnectionData && self.fSaveUserData == other.fSaveUserData && self.pUserData == other.pUserData && self.dwSizeOfUserData == other.dwSizeOfUserData && self.pNgcKerbTicket == other.pNgcKerbTicket && self.fSaveToCredMan == other.fSaveToCredMan
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -3768,7 +3773,7 @@ unsafe impl ::windows::core::Abi for PPP_EAP_PACKET {
 }
 impl ::core::cmp::PartialEq for PPP_EAP_PACKET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PPP_EAP_PACKET>()) == 0 }
+        self.Code == other.Code && self.Id == other.Id && self.Length == other.Length && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for PPP_EAP_PACKET {}
@@ -3800,7 +3805,7 @@ unsafe impl ::windows::core::Abi for RAS_AUTH_ATTRIBUTE {
 }
 impl ::core::cmp::PartialEq for RAS_AUTH_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAS_AUTH_ATTRIBUTE>()) == 0 }
+        self.raaType == other.raaType && self.dwLength == other.dwLength && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for RAS_AUTH_ATTRIBUTE {}

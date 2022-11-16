@@ -9780,7 +9780,7 @@ unsafe impl ::windows::core::Abi for MI_Application {
 }
 impl ::core::cmp::PartialEq for MI_Application {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Application>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_Application {}
@@ -9832,7 +9832,7 @@ unsafe impl ::windows::core::Abi for MI_ApplicationFT {
 }
 impl ::core::cmp::PartialEq for MI_ApplicationFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ApplicationFT>()) == 0 }
+        self.Close == other.Close && self.NewSession == other.NewSession && self.NewHostedProvider == other.NewHostedProvider && self.NewInstance == other.NewInstance && self.NewDestinationOptions == other.NewDestinationOptions && self.NewOperationOptions == other.NewOperationOptions && self.NewSubscriptionDeliveryOptions == other.NewSubscriptionDeliveryOptions && self.NewSerializer == other.NewSerializer && self.NewDeserializer == other.NewDeserializer && self.NewInstanceFromClass == other.NewInstanceFromClass && self.NewClass == other.NewClass
     }
 }
 impl ::core::cmp::Eq for MI_ApplicationFT {}
@@ -9863,7 +9863,7 @@ unsafe impl ::windows::core::Abi for MI_Array {
 }
 impl ::core::cmp::PartialEq for MI_Array {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Array>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Array {}
@@ -9895,7 +9895,7 @@ unsafe impl ::windows::core::Abi for MI_ArrayField {
 }
 impl ::core::cmp::PartialEq for MI_ArrayField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ArrayField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ArrayField {}
@@ -9926,7 +9926,7 @@ unsafe impl ::windows::core::Abi for MI_BooleanA {
 }
 impl ::core::cmp::PartialEq for MI_BooleanA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_BooleanA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_BooleanA {}
@@ -9958,7 +9958,7 @@ unsafe impl ::windows::core::Abi for MI_BooleanAField {
 }
 impl ::core::cmp::PartialEq for MI_BooleanAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_BooleanAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_BooleanAField {}
@@ -9990,7 +9990,7 @@ unsafe impl ::windows::core::Abi for MI_BooleanField {
 }
 impl ::core::cmp::PartialEq for MI_BooleanField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_BooleanField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_BooleanField {}
@@ -10021,7 +10021,7 @@ unsafe impl ::windows::core::Abi for MI_Char16A {
 }
 impl ::core::cmp::PartialEq for MI_Char16A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Char16A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Char16A {}
@@ -10053,7 +10053,7 @@ unsafe impl ::windows::core::Abi for MI_Char16AField {
 }
 impl ::core::cmp::PartialEq for MI_Char16AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Char16AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Char16AField {}
@@ -10085,7 +10085,7 @@ unsafe impl ::windows::core::Abi for MI_Char16Field {
 }
 impl ::core::cmp::PartialEq for MI_Char16Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Char16Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Char16Field {}
@@ -10119,7 +10119,7 @@ unsafe impl ::windows::core::Abi for MI_Class {
 }
 impl ::core::cmp::PartialEq for MI_Class {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Class>()) == 0 }
+        self.ft == other.ft && self.classDecl == other.classDecl && self.namespaceName == other.namespaceName && self.serverName == other.serverName && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for MI_Class {}
@@ -10179,7 +10179,7 @@ unsafe impl ::windows::core::Abi for MI_ClassDecl {
 }
 impl ::core::cmp::PartialEq for MI_ClassDecl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ClassDecl>()) == 0 }
+        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.properties == other.properties && self.numProperties == other.numProperties && self.size == other.size && self.superClass == other.superClass && self.superClassDecl == other.superClassDecl && self.methods == other.methods && self.numMethods == other.numMethods && self.schema == other.schema && self.providerFT == other.providerFT && self.owningClass == other.owningClass
     }
 }
 impl ::core::cmp::Eq for MI_ClassDecl {}
@@ -10237,7 +10237,7 @@ unsafe impl ::windows::core::Abi for MI_ClassFT {
 }
 impl ::core::cmp::PartialEq for MI_ClassFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ClassFT>()) == 0 }
+        self.GetClassNameA == other.GetClassNameA && self.GetNameSpace == other.GetNameSpace && self.GetServerName == other.GetServerName && self.GetElementCount == other.GetElementCount && self.GetElement == other.GetElement && self.GetElementAt == other.GetElementAt && self.GetClassQualifierSet == other.GetClassQualifierSet && self.GetMethodCount == other.GetMethodCount && self.GetMethodAt == other.GetMethodAt && self.GetMethod == other.GetMethod && self.GetParentClassName == other.GetParentClassName && self.GetParentClass == other.GetParentClass && self.Delete == other.Delete && self.Clone == other.Clone
     }
 }
 impl ::core::cmp::Eq for MI_ClassFT {}
@@ -10287,7 +10287,7 @@ unsafe impl ::windows::core::Abi for MI_ClientFT_V1 {
 }
 impl ::core::cmp::PartialEq for MI_ClientFT_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ClientFT_V1>()) == 0 }
+        self.applicationFT == other.applicationFT && self.sessionFT == other.sessionFT && self.operationFT == other.operationFT && self.hostedProviderFT == other.hostedProviderFT && self.serializerFT == other.serializerFT && self.deserializerFT == other.deserializerFT && self.subscribeDeliveryOptionsFT == other.subscribeDeliveryOptionsFT && self.destinationOptionsFT == other.destinationOptionsFT && self.operationOptionsFT == other.operationOptionsFT && self.utilitiesFT == other.utilitiesFT
     }
 }
 impl ::core::cmp::Eq for MI_ClientFT_V1 {}
@@ -10318,7 +10318,7 @@ unsafe impl ::windows::core::Abi for MI_ConstBooleanA {
 }
 impl ::core::cmp::PartialEq for MI_ConstBooleanA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstBooleanA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstBooleanA {}
@@ -10350,7 +10350,7 @@ unsafe impl ::windows::core::Abi for MI_ConstBooleanAField {
 }
 impl ::core::cmp::PartialEq for MI_ConstBooleanAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstBooleanAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstBooleanAField {}
@@ -10382,7 +10382,7 @@ unsafe impl ::windows::core::Abi for MI_ConstBooleanField {
 }
 impl ::core::cmp::PartialEq for MI_ConstBooleanField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstBooleanField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstBooleanField {}
@@ -10413,7 +10413,7 @@ unsafe impl ::windows::core::Abi for MI_ConstChar16A {
 }
 impl ::core::cmp::PartialEq for MI_ConstChar16A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstChar16A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstChar16A {}
@@ -10445,7 +10445,7 @@ unsafe impl ::windows::core::Abi for MI_ConstChar16AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstChar16AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstChar16AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstChar16AField {}
@@ -10477,7 +10477,7 @@ unsafe impl ::windows::core::Abi for MI_ConstChar16Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstChar16Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstChar16Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstChar16Field {}
@@ -10508,7 +10508,7 @@ unsafe impl ::windows::core::Abi for MI_ConstDatetimeA {
 }
 impl ::core::cmp::PartialEq for MI_ConstDatetimeA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstDatetimeA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstDatetimeA {}
@@ -10540,7 +10540,7 @@ unsafe impl ::windows::core::Abi for MI_ConstDatetimeAField {
 }
 impl ::core::cmp::PartialEq for MI_ConstDatetimeAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstDatetimeAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstDatetimeAField {}
@@ -10565,12 +10565,6 @@ impl ::core::clone::Clone for MI_ConstDatetimeField {
 unsafe impl ::windows::core::Abi for MI_ConstDatetimeField {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_ConstDatetimeField {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstDatetimeField>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_ConstDatetimeField {}
 impl ::core::default::Default for MI_ConstDatetimeField {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10598,7 +10592,7 @@ unsafe impl ::windows::core::Abi for MI_ConstInstanceA {
 }
 impl ::core::cmp::PartialEq for MI_ConstInstanceA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstInstanceA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstInstanceA {}
@@ -10630,7 +10624,7 @@ unsafe impl ::windows::core::Abi for MI_ConstInstanceAField {
 }
 impl ::core::cmp::PartialEq for MI_ConstInstanceAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstInstanceAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstInstanceAField {}
@@ -10662,7 +10656,7 @@ unsafe impl ::windows::core::Abi for MI_ConstInstanceField {
 }
 impl ::core::cmp::PartialEq for MI_ConstInstanceField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstInstanceField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstInstanceField {}
@@ -10693,7 +10687,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReal32A {
 }
 impl ::core::cmp::PartialEq for MI_ConstReal32A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReal32A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstReal32A {}
@@ -10725,7 +10719,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReal32AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstReal32AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReal32AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstReal32AField {}
@@ -10757,7 +10751,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReal32Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstReal32Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReal32Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstReal32Field {}
@@ -10788,7 +10782,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReal64A {
 }
 impl ::core::cmp::PartialEq for MI_ConstReal64A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReal64A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstReal64A {}
@@ -10820,7 +10814,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReal64AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstReal64AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReal64AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstReal64AField {}
@@ -10852,7 +10846,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReal64Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstReal64Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReal64Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstReal64Field {}
@@ -10883,7 +10877,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReferenceA {
 }
 impl ::core::cmp::PartialEq for MI_ConstReferenceA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReferenceA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstReferenceA {}
@@ -10915,7 +10909,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReferenceAField {
 }
 impl ::core::cmp::PartialEq for MI_ConstReferenceAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReferenceAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstReferenceAField {}
@@ -10947,7 +10941,7 @@ unsafe impl ::windows::core::Abi for MI_ConstReferenceField {
 }
 impl ::core::cmp::PartialEq for MI_ConstReferenceField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstReferenceField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstReferenceField {}
@@ -10978,7 +10972,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint16A {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint16A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint16A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint16A {}
@@ -11010,7 +11004,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint16AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint16AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint16AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint16AField {}
@@ -11042,7 +11036,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint16Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint16Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint16Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint16Field {}
@@ -11073,7 +11067,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint32A {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint32A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint32A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint32A {}
@@ -11105,7 +11099,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint32AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint32AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint32AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint32AField {}
@@ -11137,7 +11131,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint32Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint32Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint32Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint32Field {}
@@ -11168,7 +11162,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint64A {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint64A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint64A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint64A {}
@@ -11200,7 +11194,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint64AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint64AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint64AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint64AField {}
@@ -11232,7 +11226,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint64Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint64Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint64Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint64Field {}
@@ -11263,7 +11257,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint8A {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint8A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint8A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint8A {}
@@ -11295,7 +11289,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint8AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint8AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint8AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint8AField {}
@@ -11327,7 +11321,7 @@ unsafe impl ::windows::core::Abi for MI_ConstSint8Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstSint8Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstSint8Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstSint8Field {}
@@ -11358,7 +11352,7 @@ unsafe impl ::windows::core::Abi for MI_ConstStringA {
 }
 impl ::core::cmp::PartialEq for MI_ConstStringA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstStringA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstStringA {}
@@ -11390,7 +11384,7 @@ unsafe impl ::windows::core::Abi for MI_ConstStringAField {
 }
 impl ::core::cmp::PartialEq for MI_ConstStringAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstStringAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstStringAField {}
@@ -11422,7 +11416,7 @@ unsafe impl ::windows::core::Abi for MI_ConstStringField {
 }
 impl ::core::cmp::PartialEq for MI_ConstStringField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstStringField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstStringField {}
@@ -11453,7 +11447,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint16A {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint16A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint16A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint16A {}
@@ -11485,7 +11479,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint16AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint16AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint16AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint16AField {}
@@ -11517,7 +11511,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint16Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint16Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint16Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint16Field {}
@@ -11548,7 +11542,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint32A {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint32A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint32A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint32A {}
@@ -11580,7 +11574,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint32AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint32AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint32AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint32AField {}
@@ -11612,7 +11606,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint32Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint32Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint32Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint32Field {}
@@ -11643,7 +11637,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint64A {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint64A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint64A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint64A {}
@@ -11675,7 +11669,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint64AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint64AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint64AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint64AField {}
@@ -11707,7 +11701,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint64Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint64Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint64Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint64Field {}
@@ -11738,7 +11732,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint8A {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint8A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint8A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint8A {}
@@ -11770,7 +11764,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint8AField {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint8AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint8AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint8AField {}
@@ -11802,7 +11796,7 @@ unsafe impl ::windows::core::Abi for MI_ConstUint8Field {
 }
 impl ::core::cmp::PartialEq for MI_ConstUint8Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ConstUint8Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ConstUint8Field {}
@@ -11833,7 +11827,7 @@ unsafe impl ::windows::core::Abi for MI_Context {
 }
 impl ::core::cmp::PartialEq for MI_Context {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Context>()) == 0 }
+        self.ft == other.ft && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for MI_Context {}
@@ -11923,7 +11917,36 @@ unsafe impl ::windows::core::Abi for MI_ContextFT {
 }
 impl ::core::cmp::PartialEq for MI_ContextFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ContextFT>()) == 0 }
+        self.PostResult == other.PostResult
+            && self.PostInstance == other.PostInstance
+            && self.PostIndication == other.PostIndication
+            && self.ConstructInstance == other.ConstructInstance
+            && self.ConstructParameters == other.ConstructParameters
+            && self.NewInstance == other.NewInstance
+            && self.NewDynamicInstance == other.NewDynamicInstance
+            && self.NewParameters == other.NewParameters
+            && self.Canceled == other.Canceled
+            && self.GetLocale == other.GetLocale
+            && self.RegisterCancel == other.RegisterCancel
+            && self.RequestUnload == other.RequestUnload
+            && self.RefuseUnload == other.RefuseUnload
+            && self.GetLocalSession == other.GetLocalSession
+            && self.SetStringOption == other.SetStringOption
+            && self.GetStringOption == other.GetStringOption
+            && self.GetNumberOption == other.GetNumberOption
+            && self.GetCustomOption == other.GetCustomOption
+            && self.GetCustomOptionCount == other.GetCustomOptionCount
+            && self.GetCustomOptionAt == other.GetCustomOptionAt
+            && self.WriteMessage == other.WriteMessage
+            && self.WriteProgress == other.WriteProgress
+            && self.WriteStreamParameter == other.WriteStreamParameter
+            && self.WriteCimError == other.WriteCimError
+            && self.PromptUser == other.PromptUser
+            && self.ShouldProcess == other.ShouldProcess
+            && self.ShouldContinue == other.ShouldContinue
+            && self.PostError == other.PostError
+            && self.PostCimError == other.PostCimError
+            && self.WriteError == other.WriteError
     }
 }
 impl ::core::cmp::Eq for MI_ContextFT {}
@@ -11947,12 +11970,6 @@ impl ::core::clone::Clone for MI_Datetime {
 unsafe impl ::windows::core::Abi for MI_Datetime {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_Datetime {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Datetime>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_Datetime {}
 impl ::core::default::Default for MI_Datetime {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11973,12 +11990,6 @@ impl ::core::clone::Clone for MI_Datetime_0 {
 unsafe impl ::windows::core::Abi for MI_Datetime_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_Datetime_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Datetime_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_Datetime_0 {}
 impl ::core::default::Default for MI_Datetime_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12006,7 +12017,7 @@ unsafe impl ::windows::core::Abi for MI_DatetimeA {
 }
 impl ::core::cmp::PartialEq for MI_DatetimeA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_DatetimeA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_DatetimeA {}
@@ -12038,7 +12049,7 @@ unsafe impl ::windows::core::Abi for MI_DatetimeAField {
 }
 impl ::core::cmp::PartialEq for MI_DatetimeAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_DatetimeAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_DatetimeAField {}
@@ -12063,12 +12074,6 @@ impl ::core::clone::Clone for MI_DatetimeField {
 unsafe impl ::windows::core::Abi for MI_DatetimeField {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_DatetimeField {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_DatetimeField>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_DatetimeField {}
 impl ::core::default::Default for MI_DatetimeField {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12096,7 +12101,7 @@ unsafe impl ::windows::core::Abi for MI_Deserializer {
 }
 impl ::core::cmp::PartialEq for MI_Deserializer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Deserializer>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
     }
 }
 impl ::core::cmp::Eq for MI_Deserializer {}
@@ -12131,7 +12136,7 @@ unsafe impl ::windows::core::Abi for MI_DeserializerFT {
 }
 impl ::core::cmp::PartialEq for MI_DeserializerFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_DeserializerFT>()) == 0 }
+        self.Close == other.Close && self.DeserializeClass == other.DeserializeClass && self.Class_GetClassName == other.Class_GetClassName && self.Class_GetParentClassName == other.Class_GetParentClassName && self.DeserializeInstance == other.DeserializeInstance && self.Instance_GetClassName == other.Instance_GetClassName
     }
 }
 impl ::core::cmp::Eq for MI_DeserializerFT {}
@@ -12163,7 +12168,7 @@ unsafe impl ::windows::core::Abi for MI_DestinationOptions {
 }
 impl ::core::cmp::PartialEq for MI_DestinationOptions {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_DestinationOptions>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_DestinationOptions {}
@@ -12223,7 +12228,7 @@ unsafe impl ::windows::core::Abi for MI_DestinationOptionsFT {
 }
 impl ::core::cmp::PartialEq for MI_DestinationOptionsFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_DestinationOptionsFT>()) == 0 }
+        self.Delete == other.Delete && self.SetString == other.SetString && self.SetNumber == other.SetNumber && self.AddCredentials == other.AddCredentials && self.GetString == other.GetString && self.GetNumber == other.GetNumber && self.GetOptionCount == other.GetOptionCount && self.GetOptionAt == other.GetOptionAt && self.GetOption == other.GetOption && self.GetCredentialsCount == other.GetCredentialsCount && self.GetCredentialsAt == other.GetCredentialsAt && self.GetCredentialsPasswordAt == other.GetCredentialsPasswordAt && self.Clone == other.Clone && self.SetInterval == other.SetInterval && self.GetInterval == other.GetInterval
     }
 }
 impl ::core::cmp::Eq for MI_DestinationOptionsFT {}
@@ -12257,7 +12262,7 @@ unsafe impl ::windows::core::Abi for MI_FeatureDecl {
 }
 impl ::core::cmp::PartialEq for MI_FeatureDecl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_FeatureDecl>()) == 0 }
+        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers
     }
 }
 impl ::core::cmp::Eq for MI_FeatureDecl {}
@@ -12288,7 +12293,7 @@ unsafe impl ::windows::core::Abi for MI_Filter {
 }
 impl ::core::cmp::PartialEq for MI_Filter {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Filter>()) == 0 }
+        self.ft == other.ft && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for MI_Filter {}
@@ -12319,7 +12324,7 @@ unsafe impl ::windows::core::Abi for MI_FilterFT {
 }
 impl ::core::cmp::PartialEq for MI_FilterFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_FilterFT>()) == 0 }
+        self.Evaluate == other.Evaluate && self.GetExpression == other.GetExpression
     }
 }
 impl ::core::cmp::Eq for MI_FilterFT {}
@@ -12351,7 +12356,7 @@ unsafe impl ::windows::core::Abi for MI_HostedProvider {
 }
 impl ::core::cmp::PartialEq for MI_HostedProvider {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_HostedProvider>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_HostedProvider {}
@@ -12382,7 +12387,7 @@ unsafe impl ::windows::core::Abi for MI_HostedProviderFT {
 }
 impl ::core::cmp::PartialEq for MI_HostedProviderFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_HostedProviderFT>()) == 0 }
+        self.Close == other.Close && self.GetApplication == other.GetApplication
     }
 }
 impl ::core::cmp::Eq for MI_HostedProviderFT {}
@@ -12416,7 +12421,7 @@ unsafe impl ::windows::core::Abi for MI_Instance {
 }
 impl ::core::cmp::PartialEq for MI_Instance {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Instance>()) == 0 }
+        self.ft == other.ft && self.classDecl == other.classDecl && self.serverName == other.serverName && self.nameSpace == other.nameSpace && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for MI_Instance {}
@@ -12447,7 +12452,7 @@ unsafe impl ::windows::core::Abi for MI_InstanceA {
 }
 impl ::core::cmp::PartialEq for MI_InstanceA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_InstanceA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_InstanceA {}
@@ -12479,7 +12484,7 @@ unsafe impl ::windows::core::Abi for MI_InstanceAField {
 }
 impl ::core::cmp::PartialEq for MI_InstanceAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_InstanceAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_InstanceAField {}
@@ -12510,7 +12515,7 @@ unsafe impl ::windows::core::Abi for MI_InstanceExFT {
 }
 impl ::core::cmp::PartialEq for MI_InstanceExFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_InstanceExFT>()) == 0 }
+        self.parent == other.parent && self.Normalize == other.Normalize
     }
 }
 impl ::core::cmp::Eq for MI_InstanceExFT {}
@@ -12576,7 +12581,7 @@ unsafe impl ::windows::core::Abi for MI_InstanceFT {
 }
 impl ::core::cmp::PartialEq for MI_InstanceFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_InstanceFT>()) == 0 }
+        self.Clone == other.Clone && self.Destruct == other.Destruct && self.Delete == other.Delete && self.IsA == other.IsA && self.GetClassNameA == other.GetClassNameA && self.SetNameSpace == other.SetNameSpace && self.GetNameSpace == other.GetNameSpace && self.GetElementCount == other.GetElementCount && self.AddElement == other.AddElement && self.SetElement == other.SetElement && self.SetElementAt == other.SetElementAt && self.GetElement == other.GetElement && self.GetElementAt == other.GetElementAt && self.ClearElement == other.ClearElement && self.ClearElementAt == other.ClearElementAt && self.GetServerName == other.GetServerName && self.SetServerName == other.SetServerName && self.GetClass == other.GetClass
     }
 }
 impl ::core::cmp::Eq for MI_InstanceFT {}
@@ -12608,7 +12613,7 @@ unsafe impl ::windows::core::Abi for MI_InstanceField {
 }
 impl ::core::cmp::PartialEq for MI_InstanceField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_InstanceField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_InstanceField {}
@@ -12645,7 +12650,7 @@ unsafe impl ::windows::core::Abi for MI_Interval {
 }
 impl ::core::cmp::PartialEq for MI_Interval {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Interval>()) == 0 }
+        self.days == other.days && self.hours == other.hours && self.minutes == other.minutes && self.seconds == other.seconds && self.microseconds == other.microseconds && self.__padding1 == other.__padding1 && self.__padding2 == other.__padding2 && self.__padding3 == other.__padding3
     }
 }
 impl ::core::cmp::Eq for MI_Interval {}
@@ -12679,32 +12684,12 @@ impl ::core::clone::Clone for MI_MethodDecl {
 }
 impl ::core::fmt::Debug for MI_MethodDecl {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_MethodDecl")
-            .field("flags", &self.flags)
-            .field("code", &self.code)
-            .field("name", &self.name)
-            .field("qualifiers", &self.qualifiers)
-            .field("numQualifiers", &self.numQualifiers)
-            .field("parameters", &self.parameters)
-            .field("numParameters", &self.numParameters)
-            .field("size", &self.size)
-            .field("returnType", &self.returnType)
-            .field("origin", &self.origin)
-            .field("propagator", &self.propagator)
-            .field("schema", &self.schema)
-            .field("function", &self.function.map(|f| f as usize))
-            .finish()
+        f.debug_struct("MI_MethodDecl").field("flags", &self.flags).field("code", &self.code).field("name", &self.name).field("qualifiers", &self.qualifiers).field("numQualifiers", &self.numQualifiers).field("parameters", &self.parameters).field("numParameters", &self.numParameters).field("size", &self.size).field("returnType", &self.returnType).field("origin", &self.origin).field("propagator", &self.propagator).field("schema", &self.schema).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_MethodDecl {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_MethodDecl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_MethodDecl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_MethodDecl {}
 impl ::core::default::Default for MI_MethodDecl {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12730,18 +12715,12 @@ impl ::core::clone::Clone for MI_Module {
 }
 impl ::core::fmt::Debug for MI_Module {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_Module").field("version", &self.version).field("generatorVersion", &self.generatorVersion).field("flags", &self.flags).field("charSize", &self.charSize).field("schemaDecl", &self.schemaDecl).field("Load", &self.Load.map(|f| f as usize)).field("Unload", &self.Unload.map(|f| f as usize)).field("dynamicProviderFT", &self.dynamicProviderFT).finish()
+        f.debug_struct("MI_Module").field("version", &self.version).field("generatorVersion", &self.generatorVersion).field("flags", &self.flags).field("charSize", &self.charSize).field("schemaDecl", &self.schemaDecl).field("dynamicProviderFT", &self.dynamicProviderFT).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_Module {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_Module {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Module>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_Module {}
 impl ::core::default::Default for MI_Module {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12777,7 +12756,7 @@ unsafe impl ::windows::core::Abi for MI_ObjectDecl {
 }
 impl ::core::cmp::PartialEq for MI_ObjectDecl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ObjectDecl>()) == 0 }
+        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.properties == other.properties && self.numProperties == other.numProperties && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ObjectDecl {}
@@ -12809,7 +12788,7 @@ unsafe impl ::windows::core::Abi for MI_Operation {
 }
 impl ::core::cmp::PartialEq for MI_Operation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Operation>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_Operation {}
@@ -12839,28 +12818,12 @@ impl ::core::clone::Clone for MI_OperationCallbacks {
 }
 impl ::core::fmt::Debug for MI_OperationCallbacks {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_OperationCallbacks")
-            .field("callbackContext", &self.callbackContext)
-            .field("promptUser", &self.promptUser.map(|f| f as usize))
-            .field("writeError", &self.writeError.map(|f| f as usize))
-            .field("writeMessage", &self.writeMessage.map(|f| f as usize))
-            .field("writeProgress", &self.writeProgress.map(|f| f as usize))
-            .field("instanceResult", &self.instanceResult.map(|f| f as usize))
-            .field("indicationResult", &self.indicationResult.map(|f| f as usize))
-            .field("classResult", &self.classResult.map(|f| f as usize))
-            .field("streamedParameterResult", &self.streamedParameterResult.map(|f| f as usize))
-            .finish()
+        f.debug_struct("MI_OperationCallbacks").field("callbackContext", &self.callbackContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_OperationCallbacks {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_OperationCallbacks {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_OperationCallbacks>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_OperationCallbacks {}
 impl ::core::default::Default for MI_OperationCallbacks {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12892,7 +12855,7 @@ unsafe impl ::windows::core::Abi for MI_OperationFT {
 }
 impl ::core::cmp::PartialEq for MI_OperationFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_OperationFT>()) == 0 }
+        self.Close == other.Close && self.Cancel == other.Cancel && self.GetSession == other.GetSession && self.GetInstance == other.GetInstance && self.GetIndication == other.GetIndication && self.GetClass == other.GetClass
     }
 }
 impl ::core::cmp::Eq for MI_OperationFT {}
@@ -12924,7 +12887,7 @@ unsafe impl ::windows::core::Abi for MI_OperationOptions {
 }
 impl ::core::cmp::PartialEq for MI_OperationOptions {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_OperationOptions>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_OperationOptions {}
@@ -12980,7 +12943,7 @@ unsafe impl ::windows::core::Abi for MI_OperationOptionsFT {
 }
 impl ::core::cmp::PartialEq for MI_OperationOptionsFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_OperationOptionsFT>()) == 0 }
+        self.Delete == other.Delete && self.SetString == other.SetString && self.SetNumber == other.SetNumber && self.SetCustomOption == other.SetCustomOption && self.GetString == other.GetString && self.GetNumber == other.GetNumber && self.GetOptionCount == other.GetOptionCount && self.GetOptionAt == other.GetOptionAt && self.GetOption == other.GetOption && self.GetEnabledChannels == other.GetEnabledChannels && self.Clone == other.Clone && self.SetInterval == other.SetInterval && self.GetInterval == other.GetInterval
     }
 }
 impl ::core::cmp::Eq for MI_OperationOptionsFT {}
@@ -13018,7 +12981,7 @@ unsafe impl ::windows::core::Abi for MI_ParameterDecl {
 }
 impl ::core::cmp::PartialEq for MI_ParameterDecl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ParameterDecl>()) == 0 }
+        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.r#type == other.r#type && self.className == other.className && self.subscript == other.subscript && self.offset == other.offset
     }
 }
 impl ::core::cmp::Eq for MI_ParameterDecl {}
@@ -13050,7 +13013,7 @@ unsafe impl ::windows::core::Abi for MI_ParameterSet {
 }
 impl ::core::cmp::PartialEq for MI_ParameterSet {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ParameterSet>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_ParameterSet {}
@@ -13083,7 +13046,7 @@ unsafe impl ::windows::core::Abi for MI_ParameterSetFT {
 }
 impl ::core::cmp::PartialEq for MI_ParameterSetFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ParameterSetFT>()) == 0 }
+        self.GetMethodReturnType == other.GetMethodReturnType && self.GetParameterCount == other.GetParameterCount && self.GetParameterAt == other.GetParameterAt && self.GetParameter == other.GetParameter
     }
 }
 impl ::core::cmp::Eq for MI_ParameterSetFT {}
@@ -13124,7 +13087,7 @@ unsafe impl ::windows::core::Abi for MI_PropertyDecl {
 }
 impl ::core::cmp::PartialEq for MI_PropertyDecl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_PropertyDecl>()) == 0 }
+        self.flags == other.flags && self.code == other.code && self.name == other.name && self.qualifiers == other.qualifiers && self.numQualifiers == other.numQualifiers && self.r#type == other.r#type && self.className == other.className && self.subscript == other.subscript && self.offset == other.offset && self.origin == other.origin && self.propagator == other.propagator && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for MI_PropertyDecl {}
@@ -13155,7 +13118,7 @@ unsafe impl ::windows::core::Abi for MI_PropertySet {
 }
 impl ::core::cmp::PartialEq for MI_PropertySet {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_PropertySet>()) == 0 }
+        self.ft == other.ft && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for MI_PropertySet {}
@@ -13192,7 +13155,7 @@ unsafe impl ::windows::core::Abi for MI_PropertySetFT {
 }
 impl ::core::cmp::PartialEq for MI_PropertySetFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_PropertySetFT>()) == 0 }
+        self.GetElementCount == other.GetElementCount && self.ContainsElement == other.ContainsElement && self.AddElement == other.AddElement && self.GetElementAt == other.GetElementAt && self.Clear == other.Clear && self.Destruct == other.Destruct && self.Delete == other.Delete && self.Clone == other.Clone
     }
 }
 impl ::core::cmp::Eq for MI_PropertySetFT {}
@@ -13227,33 +13190,12 @@ impl ::core::clone::Clone for MI_ProviderFT {
 }
 impl ::core::fmt::Debug for MI_ProviderFT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MI_ProviderFT")
-            .field("Load", &self.Load.map(|f| f as usize))
-            .field("Unload", &self.Unload.map(|f| f as usize))
-            .field("GetInstance", &self.GetInstance.map(|f| f as usize))
-            .field("EnumerateInstances", &self.EnumerateInstances.map(|f| f as usize))
-            .field("CreateInstance", &self.CreateInstance.map(|f| f as usize))
-            .field("ModifyInstance", &self.ModifyInstance.map(|f| f as usize))
-            .field("DeleteInstance", &self.DeleteInstance.map(|f| f as usize))
-            .field("AssociatorInstances", &self.AssociatorInstances.map(|f| f as usize))
-            .field("ReferenceInstances", &self.ReferenceInstances.map(|f| f as usize))
-            .field("EnableIndications", &self.EnableIndications.map(|f| f as usize))
-            .field("DisableIndications", &self.DisableIndications.map(|f| f as usize))
-            .field("Subscribe", &self.Subscribe.map(|f| f as usize))
-            .field("Unsubscribe", &self.Unsubscribe.map(|f| f as usize))
-            .field("Invoke", &self.Invoke.map(|f| f as usize))
-            .finish()
+        f.debug_struct("MI_ProviderFT").finish()
     }
 }
 unsafe impl ::windows::core::Abi for MI_ProviderFT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_ProviderFT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ProviderFT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_ProviderFT {}
 impl ::core::default::Default for MI_ProviderFT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13283,7 +13225,7 @@ unsafe impl ::windows::core::Abi for MI_Qualifier {
 }
 impl ::core::cmp::PartialEq for MI_Qualifier {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Qualifier>()) == 0 }
+        self.name == other.name && self.r#type == other.r#type && self.flavor == other.flavor && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for MI_Qualifier {}
@@ -13318,7 +13260,7 @@ unsafe impl ::windows::core::Abi for MI_QualifierDecl {
 }
 impl ::core::cmp::PartialEq for MI_QualifierDecl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_QualifierDecl>()) == 0 }
+        self.name == other.name && self.r#type == other.r#type && self.scope == other.scope && self.flavor == other.flavor && self.subscript == other.subscript && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for MI_QualifierDecl {}
@@ -13350,7 +13292,7 @@ unsafe impl ::windows::core::Abi for MI_QualifierSet {
 }
 impl ::core::cmp::PartialEq for MI_QualifierSet {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_QualifierSet>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_QualifierSet {}
@@ -13382,7 +13324,7 @@ unsafe impl ::windows::core::Abi for MI_QualifierSetFT {
 }
 impl ::core::cmp::PartialEq for MI_QualifierSetFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_QualifierSetFT>()) == 0 }
+        self.GetQualifierCount == other.GetQualifierCount && self.GetQualifierAt == other.GetQualifierAt && self.GetQualifier == other.GetQualifier
     }
 }
 impl ::core::cmp::Eq for MI_QualifierSetFT {}
@@ -13413,7 +13355,7 @@ unsafe impl ::windows::core::Abi for MI_Real32A {
 }
 impl ::core::cmp::PartialEq for MI_Real32A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Real32A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Real32A {}
@@ -13445,7 +13387,7 @@ unsafe impl ::windows::core::Abi for MI_Real32AField {
 }
 impl ::core::cmp::PartialEq for MI_Real32AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Real32AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Real32AField {}
@@ -13477,7 +13419,7 @@ unsafe impl ::windows::core::Abi for MI_Real32Field {
 }
 impl ::core::cmp::PartialEq for MI_Real32Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Real32Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Real32Field {}
@@ -13508,7 +13450,7 @@ unsafe impl ::windows::core::Abi for MI_Real64A {
 }
 impl ::core::cmp::PartialEq for MI_Real64A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Real64A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Real64A {}
@@ -13540,7 +13482,7 @@ unsafe impl ::windows::core::Abi for MI_Real64AField {
 }
 impl ::core::cmp::PartialEq for MI_Real64AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Real64AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Real64AField {}
@@ -13572,7 +13514,7 @@ unsafe impl ::windows::core::Abi for MI_Real64Field {
 }
 impl ::core::cmp::PartialEq for MI_Real64Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Real64Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Real64Field {}
@@ -13603,7 +13545,7 @@ unsafe impl ::windows::core::Abi for MI_ReferenceA {
 }
 impl ::core::cmp::PartialEq for MI_ReferenceA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ReferenceA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_ReferenceA {}
@@ -13635,7 +13577,7 @@ unsafe impl ::windows::core::Abi for MI_ReferenceAField {
 }
 impl ::core::cmp::PartialEq for MI_ReferenceAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ReferenceAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ReferenceAField {}
@@ -13667,7 +13609,7 @@ unsafe impl ::windows::core::Abi for MI_ReferenceField {
 }
 impl ::core::cmp::PartialEq for MI_ReferenceField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ReferenceField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_ReferenceField {}
@@ -13700,7 +13642,7 @@ unsafe impl ::windows::core::Abi for MI_SchemaDecl {
 }
 impl ::core::cmp::PartialEq for MI_SchemaDecl {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_SchemaDecl>()) == 0 }
+        self.qualifierDecls == other.qualifierDecls && self.numQualifierDecls == other.numQualifierDecls && self.classDecls == other.classDecls && self.numClassDecls == other.numClassDecls
     }
 }
 impl ::core::cmp::Eq for MI_SchemaDecl {}
@@ -13731,7 +13673,7 @@ unsafe impl ::windows::core::Abi for MI_Serializer {
 }
 impl ::core::cmp::PartialEq for MI_Serializer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Serializer>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2
     }
 }
 impl ::core::cmp::Eq for MI_Serializer {}
@@ -13763,7 +13705,7 @@ unsafe impl ::windows::core::Abi for MI_SerializerFT {
 }
 impl ::core::cmp::PartialEq for MI_SerializerFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_SerializerFT>()) == 0 }
+        self.Close == other.Close && self.SerializeClass == other.SerializeClass && self.SerializeInstance == other.SerializeInstance
     }
 }
 impl ::core::cmp::Eq for MI_SerializerFT {}
@@ -13797,7 +13739,7 @@ unsafe impl ::windows::core::Abi for MI_Server {
 }
 impl ::core::cmp::PartialEq for MI_Server {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Server>()) == 0 }
+        self.serverFT == other.serverFT && self.contextFT == other.contextFT && self.instanceFT == other.instanceFT && self.propertySetFT == other.propertySetFT && self.filterFT == other.filterFT
     }
 }
 impl ::core::cmp::Eq for MI_Server {}
@@ -13828,7 +13770,7 @@ unsafe impl ::windows::core::Abi for MI_ServerFT {
 }
 impl ::core::cmp::PartialEq for MI_ServerFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_ServerFT>()) == 0 }
+        self.GetVersion == other.GetVersion && self.GetSystemName == other.GetSystemName
     }
 }
 impl ::core::cmp::Eq for MI_ServerFT {}
@@ -13860,7 +13802,7 @@ unsafe impl ::windows::core::Abi for MI_Session {
 }
 impl ::core::cmp::PartialEq for MI_Session {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Session>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_Session {}
@@ -13892,7 +13834,7 @@ unsafe impl ::windows::core::Abi for MI_SessionCallbacks {
 }
 impl ::core::cmp::PartialEq for MI_SessionCallbacks {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_SessionCallbacks>()) == 0 }
+        self.callbackContext == other.callbackContext && self.writeMessage == other.writeMessage && self.writeError == other.writeError
     }
 }
 impl ::core::cmp::Eq for MI_SessionCallbacks {}
@@ -13952,7 +13894,7 @@ unsafe impl ::windows::core::Abi for MI_SessionFT {
 }
 impl ::core::cmp::PartialEq for MI_SessionFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_SessionFT>()) == 0 }
+        self.Close == other.Close && self.GetApplication == other.GetApplication && self.GetInstance == other.GetInstance && self.ModifyInstance == other.ModifyInstance && self.CreateInstance == other.CreateInstance && self.DeleteInstance == other.DeleteInstance && self.Invoke == other.Invoke && self.EnumerateInstances == other.EnumerateInstances && self.QueryInstances == other.QueryInstances && self.AssociatorInstances == other.AssociatorInstances && self.ReferenceInstances == other.ReferenceInstances && self.Subscribe == other.Subscribe && self.GetClass == other.GetClass && self.EnumerateClasses == other.EnumerateClasses && self.TestConnection == other.TestConnection
     }
 }
 impl ::core::cmp::Eq for MI_SessionFT {}
@@ -13983,7 +13925,7 @@ unsafe impl ::windows::core::Abi for MI_Sint16A {
 }
 impl ::core::cmp::PartialEq for MI_Sint16A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint16A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Sint16A {}
@@ -14015,7 +13957,7 @@ unsafe impl ::windows::core::Abi for MI_Sint16AField {
 }
 impl ::core::cmp::PartialEq for MI_Sint16AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint16AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint16AField {}
@@ -14047,7 +13989,7 @@ unsafe impl ::windows::core::Abi for MI_Sint16Field {
 }
 impl ::core::cmp::PartialEq for MI_Sint16Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint16Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint16Field {}
@@ -14078,7 +14020,7 @@ unsafe impl ::windows::core::Abi for MI_Sint32A {
 }
 impl ::core::cmp::PartialEq for MI_Sint32A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint32A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Sint32A {}
@@ -14110,7 +14052,7 @@ unsafe impl ::windows::core::Abi for MI_Sint32AField {
 }
 impl ::core::cmp::PartialEq for MI_Sint32AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint32AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint32AField {}
@@ -14142,7 +14084,7 @@ unsafe impl ::windows::core::Abi for MI_Sint32Field {
 }
 impl ::core::cmp::PartialEq for MI_Sint32Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint32Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint32Field {}
@@ -14173,7 +14115,7 @@ unsafe impl ::windows::core::Abi for MI_Sint64A {
 }
 impl ::core::cmp::PartialEq for MI_Sint64A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint64A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Sint64A {}
@@ -14205,7 +14147,7 @@ unsafe impl ::windows::core::Abi for MI_Sint64AField {
 }
 impl ::core::cmp::PartialEq for MI_Sint64AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint64AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint64AField {}
@@ -14237,7 +14179,7 @@ unsafe impl ::windows::core::Abi for MI_Sint64Field {
 }
 impl ::core::cmp::PartialEq for MI_Sint64Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint64Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint64Field {}
@@ -14268,7 +14210,7 @@ unsafe impl ::windows::core::Abi for MI_Sint8A {
 }
 impl ::core::cmp::PartialEq for MI_Sint8A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint8A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Sint8A {}
@@ -14300,7 +14242,7 @@ unsafe impl ::windows::core::Abi for MI_Sint8AField {
 }
 impl ::core::cmp::PartialEq for MI_Sint8AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint8AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint8AField {}
@@ -14332,7 +14274,7 @@ unsafe impl ::windows::core::Abi for MI_Sint8Field {
 }
 impl ::core::cmp::PartialEq for MI_Sint8Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Sint8Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Sint8Field {}
@@ -14363,7 +14305,7 @@ unsafe impl ::windows::core::Abi for MI_StringA {
 }
 impl ::core::cmp::PartialEq for MI_StringA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_StringA>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_StringA {}
@@ -14395,7 +14337,7 @@ unsafe impl ::windows::core::Abi for MI_StringAField {
 }
 impl ::core::cmp::PartialEq for MI_StringAField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_StringAField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_StringAField {}
@@ -14427,7 +14369,7 @@ unsafe impl ::windows::core::Abi for MI_StringField {
 }
 impl ::core::cmp::PartialEq for MI_StringField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_StringField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_StringField {}
@@ -14459,7 +14401,7 @@ unsafe impl ::windows::core::Abi for MI_SubscriptionDeliveryOptions {
 }
 impl ::core::cmp::PartialEq for MI_SubscriptionDeliveryOptions {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_SubscriptionDeliveryOptions>()) == 0 }
+        self.reserved1 == other.reserved1 && self.reserved2 == other.reserved2 && self.ft == other.ft
     }
 }
 impl ::core::cmp::Eq for MI_SubscriptionDeliveryOptions {}
@@ -14523,7 +14465,7 @@ unsafe impl ::windows::core::Abi for MI_SubscriptionDeliveryOptionsFT {
 }
 impl ::core::cmp::PartialEq for MI_SubscriptionDeliveryOptionsFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_SubscriptionDeliveryOptionsFT>()) == 0 }
+        self.SetString == other.SetString && self.SetNumber == other.SetNumber && self.SetDateTime == other.SetDateTime && self.SetInterval == other.SetInterval && self.AddCredentials == other.AddCredentials && self.Delete == other.Delete && self.GetString == other.GetString && self.GetNumber == other.GetNumber && self.GetDateTime == other.GetDateTime && self.GetInterval == other.GetInterval && self.GetOptionCount == other.GetOptionCount && self.GetOptionAt == other.GetOptionAt && self.GetOption == other.GetOption && self.GetCredentialsCount == other.GetCredentialsCount && self.GetCredentialsAt == other.GetCredentialsAt && self.GetCredentialsPasswordAt == other.GetCredentialsPasswordAt && self.Clone == other.Clone
     }
 }
 impl ::core::cmp::Eq for MI_SubscriptionDeliveryOptionsFT {}
@@ -14560,7 +14502,7 @@ unsafe impl ::windows::core::Abi for MI_Timestamp {
 }
 impl ::core::cmp::PartialEq for MI_Timestamp {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Timestamp>()) == 0 }
+        self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.microseconds == other.microseconds && self.utc == other.utc
     }
 }
 impl ::core::cmp::Eq for MI_Timestamp {}
@@ -14591,7 +14533,7 @@ unsafe impl ::windows::core::Abi for MI_Uint16A {
 }
 impl ::core::cmp::PartialEq for MI_Uint16A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint16A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Uint16A {}
@@ -14623,7 +14565,7 @@ unsafe impl ::windows::core::Abi for MI_Uint16AField {
 }
 impl ::core::cmp::PartialEq for MI_Uint16AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint16AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint16AField {}
@@ -14655,7 +14597,7 @@ unsafe impl ::windows::core::Abi for MI_Uint16Field {
 }
 impl ::core::cmp::PartialEq for MI_Uint16Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint16Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint16Field {}
@@ -14686,7 +14628,7 @@ unsafe impl ::windows::core::Abi for MI_Uint32A {
 }
 impl ::core::cmp::PartialEq for MI_Uint32A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint32A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Uint32A {}
@@ -14718,7 +14660,7 @@ unsafe impl ::windows::core::Abi for MI_Uint32AField {
 }
 impl ::core::cmp::PartialEq for MI_Uint32AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint32AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint32AField {}
@@ -14750,7 +14692,7 @@ unsafe impl ::windows::core::Abi for MI_Uint32Field {
 }
 impl ::core::cmp::PartialEq for MI_Uint32Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint32Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint32Field {}
@@ -14781,7 +14723,7 @@ unsafe impl ::windows::core::Abi for MI_Uint64A {
 }
 impl ::core::cmp::PartialEq for MI_Uint64A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint64A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Uint64A {}
@@ -14813,7 +14755,7 @@ unsafe impl ::windows::core::Abi for MI_Uint64AField {
 }
 impl ::core::cmp::PartialEq for MI_Uint64AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint64AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint64AField {}
@@ -14845,7 +14787,7 @@ unsafe impl ::windows::core::Abi for MI_Uint64Field {
 }
 impl ::core::cmp::PartialEq for MI_Uint64Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint64Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint64Field {}
@@ -14876,7 +14818,7 @@ unsafe impl ::windows::core::Abi for MI_Uint8A {
 }
 impl ::core::cmp::PartialEq for MI_Uint8A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint8A>()) == 0 }
+        self.data == other.data && self.size == other.size
     }
 }
 impl ::core::cmp::Eq for MI_Uint8A {}
@@ -14908,7 +14850,7 @@ unsafe impl ::windows::core::Abi for MI_Uint8AField {
 }
 impl ::core::cmp::PartialEq for MI_Uint8AField {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint8AField>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint8AField {}
@@ -14940,7 +14882,7 @@ unsafe impl ::windows::core::Abi for MI_Uint8Field {
 }
 impl ::core::cmp::PartialEq for MI_Uint8Field {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Uint8Field>()) == 0 }
+        self.value == other.value && self.exists == other.exists && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for MI_Uint8Field {}
@@ -14964,12 +14906,6 @@ impl ::core::clone::Clone for MI_UserCredentials {
 unsafe impl ::windows::core::Abi for MI_UserCredentials {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_UserCredentials {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_UserCredentials>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_UserCredentials {}
 impl ::core::default::Default for MI_UserCredentials {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14990,12 +14926,6 @@ impl ::core::clone::Clone for MI_UserCredentials_0 {
 unsafe impl ::windows::core::Abi for MI_UserCredentials_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_UserCredentials_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_UserCredentials_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_UserCredentials_0 {}
 impl ::core::default::Default for MI_UserCredentials_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15024,7 +14954,7 @@ unsafe impl ::windows::core::Abi for MI_UsernamePasswordCreds {
 }
 impl ::core::cmp::PartialEq for MI_UsernamePasswordCreds {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_UsernamePasswordCreds>()) == 0 }
+        self.domain == other.domain && self.username == other.username && self.password == other.password
     }
 }
 impl ::core::cmp::Eq for MI_UsernamePasswordCreds {}
@@ -15055,7 +14985,7 @@ unsafe impl ::windows::core::Abi for MI_UtilitiesFT {
 }
 impl ::core::cmp::PartialEq for MI_UtilitiesFT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_UtilitiesFT>()) == 0 }
+        self.MapErrorToMiErrorCategory == other.MapErrorToMiErrorCategory && self.CimErrorFromErrorCode == other.CimErrorFromErrorCode
     }
 }
 impl ::core::cmp::Eq for MI_UtilitiesFT {}
@@ -15110,12 +15040,6 @@ impl ::core::clone::Clone for MI_Value {
 unsafe impl ::windows::core::Abi for MI_Value {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MI_Value {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MI_Value>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MI_Value {}
 impl ::core::default::Default for MI_Value {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15154,7 +15078,7 @@ unsafe impl ::windows::core::Abi for SWbemAnalysisMatrix {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SWbemAnalysisMatrix {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemAnalysisMatrix>()) == 0 }
+        self.m_uVersion == other.m_uVersion && self.m_uMatrixType == other.m_uMatrixType && self.m_pszProperty == other.m_pszProperty && self.m_uPropertyType == other.m_uPropertyType && self.m_uEntries == other.m_uEntries && self.m_pValues == other.m_pValues && self.m_pbTruthTable == other.m_pbTruthTable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15195,7 +15119,7 @@ unsafe impl ::windows::core::Abi for SWbemAnalysisMatrixList {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SWbemAnalysisMatrixList {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemAnalysisMatrixList>()) == 0 }
+        self.m_uVersion == other.m_uVersion && self.m_uMatrixType == other.m_uMatrixType && self.m_uNumMatrices == other.m_uNumMatrices && self.m_pMatrices == other.m_pMatrices
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15305,7 +15229,7 @@ unsafe impl ::windows::core::Abi for SWbemQueryQualifiedName {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SWbemQueryQualifiedName {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemQueryQualifiedName>()) == 0 }
+        self.m_uVersion == other.m_uVersion && self.m_uTokenType == other.m_uTokenType && self.m_uNameListSize == other.m_uNameListSize && self.m_ppszNameList == other.m_ppszNameList && self.m_bArraysUsed == other.m_bArraysUsed && self.m_pbArrayElUsed == other.m_pbArrayElUsed && self.m_puArrayIndex == other.m_puArrayIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15340,14 +15264,6 @@ impl ::core::clone::Clone for SWbemRpnConst {
 unsafe impl ::windows::core::Abi for SWbemRpnConst {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SWbemRpnConst {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemRpnConst>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SWbemRpnConst {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SWbemRpnConst {
     fn default() -> Self {
@@ -15417,7 +15333,24 @@ unsafe impl ::windows::core::Abi for SWbemRpnEncodedQuery {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SWbemRpnEncodedQuery {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemRpnEncodedQuery>()) == 0 }
+        self.m_uVersion == other.m_uVersion
+            && self.m_uTokenType == other.m_uTokenType
+            && self.m_uParsedFeatureMask == other.m_uParsedFeatureMask
+            && self.m_uDetectedArraySize == other.m_uDetectedArraySize
+            && self.m_puDetectedFeatures == other.m_puDetectedFeatures
+            && self.m_uSelectListSize == other.m_uSelectListSize
+            && self.m_ppSelectList == other.m_ppSelectList
+            && self.m_uFromTargetType == other.m_uFromTargetType
+            && self.m_pszOptionalFromPath == other.m_pszOptionalFromPath
+            && self.m_uFromListSize == other.m_uFromListSize
+            && self.m_ppszFromList == other.m_ppszFromList
+            && self.m_uWhereClauseSize == other.m_uWhereClauseSize
+            && self.m_ppRpnWhereClause == other.m_ppRpnWhereClause
+            && self.m_dblWithinPolling == other.m_dblWithinPolling
+            && self.m_dblWithinWindow == other.m_dblWithinWindow
+            && self.m_uOrderByListSize == other.m_uOrderByListSize
+            && self.m_ppszOrderByList == other.m_ppszOrderByList
+            && self.m_uOrderDirectionEl == other.m_uOrderDirectionEl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15458,14 +15391,6 @@ unsafe impl ::windows::core::Abi for SWbemRpnQueryToken {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SWbemRpnQueryToken {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemRpnQueryToken>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SWbemRpnQueryToken {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SWbemRpnQueryToken {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15494,7 +15419,7 @@ unsafe impl ::windows::core::Abi for SWbemRpnTokenList {
 }
 impl ::core::cmp::PartialEq for SWbemRpnTokenList {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SWbemRpnTokenList>()) == 0 }
+        self.m_uVersion == other.m_uVersion && self.m_uTokenType == other.m_uTokenType && self.m_uNumTokens == other.m_uNumTokens
     }
 }
 impl ::core::cmp::Eq for SWbemRpnTokenList {}
@@ -15529,7 +15454,7 @@ unsafe impl ::windows::core::Abi for WBEM_COMPILE_STATUS_INFO {
 }
 impl ::core::cmp::PartialEq for WBEM_COMPILE_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WBEM_COMPILE_STATUS_INFO>()) == 0 }
+        self.lPhaseError == other.lPhaseError && self.hRes == other.hRes && self.ObjectNum == other.ObjectNum && self.FirstLine == other.FirstLine && self.LastLine == other.LastLine && self.dwOutFlags == other.dwOutFlags
     }
 }
 impl ::core::cmp::Eq for WBEM_COMPILE_STATUS_INFO {}

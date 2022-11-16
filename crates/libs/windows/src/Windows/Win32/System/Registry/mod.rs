@@ -3200,7 +3200,7 @@ unsafe impl ::windows::core::Abi for DSKTLSYSTEMTIME {
 }
 impl ::core::cmp::PartialEq for DSKTLSYSTEMTIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSKTLSYSTEMTIME>()) == 0 }
+        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds && self.wResult == other.wResult
     }
 }
 impl ::core::cmp::Eq for DSKTLSYSTEMTIME {}
@@ -3265,7 +3265,7 @@ unsafe impl ::windows::core::Abi for PVALUEA {
 }
 impl ::core::cmp::PartialEq for PVALUEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PVALUEA>()) == 0 }
+        self.pv_valuename == other.pv_valuename && self.pv_valuelen == other.pv_valuelen && self.pv_value_context == other.pv_value_context && self.pv_type == other.pv_type
     }
 }
 impl ::core::cmp::Eq for PVALUEA {}
@@ -3298,7 +3298,7 @@ unsafe impl ::windows::core::Abi for PVALUEW {
 }
 impl ::core::cmp::PartialEq for PVALUEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PVALUEW>()) == 0 }
+        self.pv_valuename == other.pv_valuename && self.pv_valuelen == other.pv_valuelen && self.pv_value_context == other.pv_value_context && self.pv_type == other.pv_type
     }
 }
 impl ::core::cmp::Eq for PVALUEW {}
@@ -3325,18 +3325,12 @@ impl ::core::clone::Clone for REG_PROVIDER {
 }
 impl ::core::fmt::Debug for REG_PROVIDER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REG_PROVIDER").field("pi_R0_1val", &self.pi_R0_1val.map(|f| f as usize)).field("pi_R0_allvals", &self.pi_R0_allvals.map(|f| f as usize)).field("pi_R3_1val", &self.pi_R3_1val.map(|f| f as usize)).field("pi_R3_allvals", &self.pi_R3_allvals.map(|f| f as usize)).field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
+        f.debug_struct("REG_PROVIDER").field("pi_flags", &self.pi_flags).field("pi_key_context", &self.pi_key_context).finish()
     }
 }
 unsafe impl ::windows::core::Abi for REG_PROVIDER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for REG_PROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REG_PROVIDER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for REG_PROVIDER {}
 impl ::core::default::Default for REG_PROVIDER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3366,7 +3360,7 @@ unsafe impl ::windows::core::Abi for VALENTA {
 }
 impl ::core::cmp::PartialEq for VALENTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VALENTA>()) == 0 }
+        self.ve_valuename == other.ve_valuename && self.ve_valuelen == other.ve_valuelen && self.ve_valueptr == other.ve_valueptr && self.ve_type == other.ve_type
     }
 }
 impl ::core::cmp::Eq for VALENTA {}
@@ -3399,7 +3393,7 @@ unsafe impl ::windows::core::Abi for VALENTW {
 }
 impl ::core::cmp::PartialEq for VALENTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VALENTW>()) == 0 }
+        self.ve_valuename == other.ve_valuename && self.ve_valuelen == other.ve_valuelen && self.ve_valueptr == other.ve_valueptr && self.ve_type == other.ve_type
     }
 }
 impl ::core::cmp::Eq for VALENTW {}
@@ -3431,7 +3425,7 @@ unsafe impl ::windows::core::Abi for val_context {
 }
 impl ::core::cmp::PartialEq for val_context {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<val_context>()) == 0 }
+        self.valuelen == other.valuelen && self.value_context == other.value_context && self.val_buff_ptr == other.val_buff_ptr
     }
 }
 impl ::core::cmp::Eq for val_context {}

@@ -11179,7 +11179,7 @@ unsafe impl ::windows::core::Abi for ACTCTXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTCTXA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTCTXA>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpSource == other.lpSource && self.wProcessorArchitecture == other.wProcessorArchitecture && self.wLangId == other.wLangId && self.lpAssemblyDirectory == other.lpAssemblyDirectory && self.lpResourceName == other.lpResourceName && self.lpApplicationName == other.lpApplicationName && self.hModule == other.hModule
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11225,7 +11225,7 @@ unsafe impl ::windows::core::Abi for ACTCTXW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTCTXW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTCTXW>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpSource == other.lpSource && self.wProcessorArchitecture == other.wProcessorArchitecture && self.wLangId == other.wLangId && self.lpAssemblyDirectory == other.lpAssemblyDirectory && self.lpResourceName == other.lpResourceName && self.lpApplicationName == other.lpApplicationName && self.hModule == other.hModule
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11287,7 +11287,7 @@ unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTCTX_SECTION_KEYED_DATA>()) == 0 }
+        self.cbSize == other.cbSize && self.ulDataFormatVersion == other.ulDataFormatVersion && self.lpData == other.lpData && self.ulLength == other.ulLength && self.lpSectionGlobalData == other.lpSectionGlobalData && self.ulSectionGlobalDataLength == other.ulSectionGlobalDataLength && self.lpSectionBase == other.lpSectionBase && self.ulSectionTotalLength == other.ulSectionTotalLength && self.hActCtx == other.hActCtx && self.ulAssemblyRosterIndex == other.ulAssemblyRosterIndex && self.ulFlags == other.ulFlags && self.AssemblyMetadata == other.AssemblyMetadata
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -11357,7 +11357,25 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORM
 }
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION>()) == 0 }
+        self.ulFlags == other.ulFlags
+            && self.ulEncodedAssemblyIdentityLength == other.ulEncodedAssemblyIdentityLength
+            && self.ulManifestPathType == other.ulManifestPathType
+            && self.ulManifestPathLength == other.ulManifestPathLength
+            && self.liManifestLastWriteTime == other.liManifestLastWriteTime
+            && self.ulPolicyPathType == other.ulPolicyPathType
+            && self.ulPolicyPathLength == other.ulPolicyPathLength
+            && self.liPolicyLastWriteTime == other.liPolicyLastWriteTime
+            && self.ulMetadataSatelliteRosterIndex == other.ulMetadataSatelliteRosterIndex
+            && self.ulManifestVersionMajor == other.ulManifestVersionMajor
+            && self.ulManifestVersionMinor == other.ulManifestVersionMinor
+            && self.ulPolicyVersionMajor == other.ulPolicyVersionMajor
+            && self.ulPolicyVersionMinor == other.ulPolicyVersionMinor
+            && self.ulAssemblyDirectoryNameLength == other.ulAssemblyDirectoryNameLength
+            && self.lpAssemblyEncodedAssemblyIdentity == other.lpAssemblyEncodedAssemblyIdentity
+            && self.lpAssemblyManifestPath == other.lpAssemblyManifestPath
+            && self.lpAssemblyPolicyPath == other.lpAssemblyPolicyPath
+            && self.lpAssemblyDirectoryName == other.lpAssemblyDirectoryName
+            && self.ulFileCount == other.ulFileCount
     }
 }
 impl ::core::cmp::Eq for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {}
@@ -11388,7 +11406,7 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATIO
 }
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION>()) == 0 }
+        self.ElementCount == other.ElementCount && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
@@ -11442,7 +11460,7 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
 }
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTIVATION_CONTEXT_DETAILED_INFORMATION>()) == 0 }
+        self.dwFlags == other.dwFlags && self.ulFormatVersion == other.ulFormatVersion && self.ulAssemblyCount == other.ulAssemblyCount && self.ulRootManifestPathType == other.ulRootManifestPathType && self.ulRootManifestPathChars == other.ulRootManifestPathChars && self.ulRootConfigurationPathType == other.ulRootConfigurationPathType && self.ulRootConfigurationPathChars == other.ulRootConfigurationPathChars && self.ulAppDirPathType == other.ulAppDirPathType && self.ulAppDirPathChars == other.ulAppDirPathChars && self.lpRootManifestPath == other.lpRootManifestPath && self.lpRootConfigurationPath == other.lpRootConfigurationPath && self.lpAppDirPath == other.lpAppDirPath
     }
 }
 impl ::core::cmp::Eq for ACTIVATION_CONTEXT_DETAILED_INFORMATION {}
@@ -11473,7 +11491,7 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_QUERY_INDEX {
 }
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_QUERY_INDEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTIVATION_CONTEXT_QUERY_INDEX>()) == 0 }
+        self.ulAssemblyIndex == other.ulAssemblyIndex && self.ulFileIndexInAssembly == other.ulFileIndexInAssembly
     }
 }
 impl ::core::cmp::Eq for ACTIVATION_CONTEXT_QUERY_INDEX {}
@@ -11505,7 +11523,7 @@ unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION>()) == 0 }
+        self.ulFlags == other.ulFlags && self.RunLevel == other.RunLevel && self.UiAccess == other.UiAccess
     }
 }
 impl ::core::cmp::Eq for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {}
@@ -11539,7 +11557,7 @@ unsafe impl ::windows::core::Abi for ASSEMBLY_FILE_DETAILED_INFORMATION {
 }
 impl ::core::cmp::PartialEq for ASSEMBLY_FILE_DETAILED_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ASSEMBLY_FILE_DETAILED_INFORMATION>()) == 0 }
+        self.ulFlags == other.ulFlags && self.ulFilenameLength == other.ulFilenameLength && self.ulPathLength == other.ulPathLength && self.lpFileName == other.lpFileName && self.lpFilePath == other.lpFilePath
     }
 }
 impl ::core::cmp::Eq for ASSEMBLY_FILE_DETAILED_INFORMATION {}
@@ -11573,7 +11591,7 @@ unsafe impl ::windows::core::Abi for ASSEMBLY_INFO {
 }
 impl ::core::cmp::PartialEq for ASSEMBLY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ASSEMBLY_INFO>()) == 0 }
+        self.cbAssemblyInfo == other.cbAssemblyInfo && self.dwAssemblyFlags == other.dwAssemblyFlags && self.uliAssemblySizeInKB == other.uliAssemblySizeInKB && self.pszCurrentAssemblyPathBuf == other.pszCurrentAssemblyPathBuf && self.cchBuf == other.cchBuf
     }
 }
 impl ::core::cmp::Eq for ASSEMBLY_INFO {}
@@ -11605,7 +11623,7 @@ unsafe impl ::windows::core::Abi for COMPATIBILITY_CONTEXT_ELEMENT {
 }
 impl ::core::cmp::PartialEq for COMPATIBILITY_CONTEXT_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPATIBILITY_CONTEXT_ELEMENT>()) == 0 }
+        self.Id == other.Id && self.Type == other.Type && self.MaxVersionTested == other.MaxVersionTested
     }
 }
 impl ::core::cmp::Eq for COMPATIBILITY_CONTEXT_ELEMENT {}
@@ -11636,7 +11654,7 @@ unsafe impl ::windows::core::Abi for DELTA_HASH {
 }
 impl ::core::cmp::PartialEq for DELTA_HASH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELTA_HASH>()) == 0 }
+        self.HashSize == other.HashSize && self.HashValue == other.HashValue
     }
 }
 impl ::core::cmp::Eq for DELTA_HASH {}
@@ -11678,7 +11696,7 @@ unsafe impl ::windows::core::Abi for DELTA_HEADER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DELTA_HEADER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELTA_HEADER_INFO>()) == 0 }
+        self.FileTypeSet == other.FileTypeSet && self.FileType == other.FileType && self.Flags == other.Flags && self.TargetSize == other.TargetSize && self.TargetFileTime == other.TargetFileTime && self.TargetHashAlgId == other.TargetHashAlgId && self.TargetHash == other.TargetHash
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11710,14 +11728,6 @@ unsafe impl ::windows::core::Abi for DELTA_INPUT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DELTA_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELTA_INPUT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DELTA_INPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DELTA_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11742,14 +11752,6 @@ impl ::core::clone::Clone for DELTA_INPUT_0 {
 unsafe impl ::windows::core::Abi for DELTA_INPUT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DELTA_INPUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELTA_INPUT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DELTA_INPUT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DELTA_INPUT_0 {
     fn default() -> Self {
@@ -11778,7 +11780,7 @@ unsafe impl ::windows::core::Abi for DELTA_OUTPUT {
 }
 impl ::core::cmp::PartialEq for DELTA_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELTA_OUTPUT>()) == 0 }
+        self.lpStart == other.lpStart && self.uSize == other.uSize
     }
 }
 impl ::core::cmp::Eq for DELTA_OUTPUT {}
@@ -11812,7 +11814,7 @@ unsafe impl ::windows::core::Abi for FUSION_INSTALL_REFERENCE {
 }
 impl ::core::cmp::PartialEq for FUSION_INSTALL_REFERENCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FUSION_INSTALL_REFERENCE>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.guidScheme == other.guidScheme && self.szIdentifier == other.szIdentifier && self.szNonCannonicalData == other.szNonCannonicalData
     }
 }
 impl ::core::cmp::Eq for FUSION_INSTALL_REFERENCE {}
@@ -11843,7 +11845,7 @@ unsafe impl ::windows::core::Abi for MSIFILEHASHINFO {
 }
 impl ::core::cmp::PartialEq for MSIFILEHASHINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSIFILEHASHINFO>()) == 0 }
+        self.dwFileHashInfoSize == other.dwFileHashInfoSize && self.dwData == other.dwData
     }
 }
 impl ::core::cmp::Eq for MSIFILEHASHINFO {}
@@ -11908,7 +11910,7 @@ unsafe impl ::windows::core::Abi for MSIPATCHSEQUENCEINFOA {
 }
 impl ::core::cmp::PartialEq for MSIPATCHSEQUENCEINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSIPATCHSEQUENCEINFOA>()) == 0 }
+        self.szPatchData == other.szPatchData && self.ePatchDataType == other.ePatchDataType && self.dwOrder == other.dwOrder && self.uStatus == other.uStatus
     }
 }
 impl ::core::cmp::Eq for MSIPATCHSEQUENCEINFOA {}
@@ -11941,7 +11943,7 @@ unsafe impl ::windows::core::Abi for MSIPATCHSEQUENCEINFOW {
 }
 impl ::core::cmp::PartialEq for MSIPATCHSEQUENCEINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSIPATCHSEQUENCEINFOW>()) == 0 }
+        self.szPatchData == other.szPatchData && self.ePatchDataType == other.ePatchDataType && self.dwOrder == other.dwOrder && self.uStatus == other.uStatus
     }
 }
 impl ::core::cmp::Eq for MSIPATCHSEQUENCEINFOW {}
@@ -11972,7 +11974,7 @@ unsafe impl ::windows::core::Abi for PATCH_IGNORE_RANGE {
 }
 impl ::core::cmp::PartialEq for PATCH_IGNORE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_IGNORE_RANGE>()) == 0 }
+        self.OffsetInOldFile == other.OffsetInOldFile && self.LengthInBytes == other.LengthInBytes
     }
 }
 impl ::core::cmp::Eq for PATCH_IGNORE_RANGE {}
@@ -12003,7 +12005,7 @@ unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP {
 }
 impl ::core::cmp::PartialEq for PATCH_INTERLEAVE_MAP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_INTERLEAVE_MAP>()) == 0 }
+        self.CountRanges == other.CountRanges && self.Range == other.Range
     }
 }
 impl ::core::cmp::Eq for PATCH_INTERLEAVE_MAP {}
@@ -12035,7 +12037,7 @@ unsafe impl ::windows::core::Abi for PATCH_INTERLEAVE_MAP_0 {
 }
 impl ::core::cmp::PartialEq for PATCH_INTERLEAVE_MAP_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_INTERLEAVE_MAP_0>()) == 0 }
+        self.OldOffset == other.OldOffset && self.OldLength == other.OldLength && self.NewLength == other.NewLength
     }
 }
 impl ::core::cmp::Eq for PATCH_INTERLEAVE_MAP_0 {}
@@ -12068,14 +12070,6 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PATCH_OLD_FILE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_OLD_FILE_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PATCH_OLD_FILE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PATCH_OLD_FILE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12101,14 +12095,6 @@ impl ::core::clone::Clone for PATCH_OLD_FILE_INFO_0 {
 unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PATCH_OLD_FILE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_OLD_FILE_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PATCH_OLD_FILE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PATCH_OLD_FILE_INFO_0 {
     fn default() -> Self {
@@ -12141,7 +12127,7 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_A {
 }
 impl ::core::cmp::PartialEq for PATCH_OLD_FILE_INFO_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_OLD_FILE_INFO_A>()) == 0 }
+        self.SizeOfThisStruct == other.SizeOfThisStruct && self.OldFileName == other.OldFileName && self.IgnoreRangeCount == other.IgnoreRangeCount && self.IgnoreRangeArray == other.IgnoreRangeArray && self.RetainRangeCount == other.RetainRangeCount && self.RetainRangeArray == other.RetainRangeArray
     }
 }
 impl ::core::cmp::Eq for PATCH_OLD_FILE_INFO_A {}
@@ -12182,7 +12168,7 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_H {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PATCH_OLD_FILE_INFO_H {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_OLD_FILE_INFO_H>()) == 0 }
+        self.SizeOfThisStruct == other.SizeOfThisStruct && self.OldFileHandle == other.OldFileHandle && self.IgnoreRangeCount == other.IgnoreRangeCount && self.IgnoreRangeArray == other.IgnoreRangeArray && self.RetainRangeCount == other.RetainRangeCount && self.RetainRangeArray == other.RetainRangeArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12219,7 +12205,7 @@ unsafe impl ::windows::core::Abi for PATCH_OLD_FILE_INFO_W {
 }
 impl ::core::cmp::PartialEq for PATCH_OLD_FILE_INFO_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_OLD_FILE_INFO_W>()) == 0 }
+        self.SizeOfThisStruct == other.SizeOfThisStruct && self.OldFileName == other.OldFileName && self.IgnoreRangeCount == other.IgnoreRangeCount && self.IgnoreRangeArray == other.IgnoreRangeArray && self.RetainRangeCount == other.RetainRangeCount && self.RetainRangeArray == other.RetainRangeArray
     }
 }
 impl ::core::cmp::Eq for PATCH_OLD_FILE_INFO_W {}
@@ -12253,31 +12239,13 @@ impl ::core::clone::Clone for PATCH_OPTION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PATCH_OPTION_DATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PATCH_OPTION_DATA")
-            .field("SizeOfThisStruct", &self.SizeOfThisStruct)
-            .field("SymbolOptionFlags", &self.SymbolOptionFlags)
-            .field("NewFileSymbolPath", &self.NewFileSymbolPath)
-            .field("OldFileSymbolPathArray", &self.OldFileSymbolPathArray)
-            .field("ExtendedOptionFlags", &self.ExtendedOptionFlags)
-            .field("SymLoadCallback", &self.SymLoadCallback.map(|f| f as usize))
-            .field("SymLoadContext", &self.SymLoadContext)
-            .field("InterleaveMapArray", &self.InterleaveMapArray)
-            .field("MaxLzxWindowSize", &self.MaxLzxWindowSize)
-            .finish()
+        f.debug_struct("PATCH_OPTION_DATA").field("SizeOfThisStruct", &self.SizeOfThisStruct).field("SymbolOptionFlags", &self.SymbolOptionFlags).field("NewFileSymbolPath", &self.NewFileSymbolPath).field("OldFileSymbolPathArray", &self.OldFileSymbolPathArray).field("ExtendedOptionFlags", &self.ExtendedOptionFlags).field("SymLoadContext", &self.SymLoadContext).field("InterleaveMapArray", &self.InterleaveMapArray).field("MaxLzxWindowSize", &self.MaxLzxWindowSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PATCH_OPTION_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PATCH_OPTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_OPTION_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PATCH_OPTION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PATCH_OPTION_DATA {
     fn default() -> Self {
@@ -12307,7 +12275,7 @@ unsafe impl ::windows::core::Abi for PATCH_RETAIN_RANGE {
 }
 impl ::core::cmp::PartialEq for PATCH_RETAIN_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PATCH_RETAIN_RANGE>()) == 0 }
+        self.OffsetInOldFile == other.OffsetInOldFile && self.LengthInBytes == other.LengthInBytes && self.OffsetInNewFile == other.OffsetInNewFile
     }
 }
 impl ::core::cmp::Eq for PATCH_RETAIN_RANGE {}
@@ -12337,7 +12305,7 @@ unsafe impl ::windows::core::Abi for PMSIHANDLE {
 }
 impl ::core::cmp::PartialEq for PMSIHANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PMSIHANDLE>()) == 0 }
+        self.m_h == other.m_h
     }
 }
 impl ::core::cmp::Eq for PMSIHANDLE {}
@@ -12368,7 +12336,7 @@ unsafe impl ::windows::core::Abi for PM_APPTASKTYPE {
 }
 impl ::core::cmp::PartialEq for PM_APPTASKTYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_APPTASKTYPE>()) == 0 }
+        self.ProductID == other.ProductID && self.TaskType == other.TaskType
     }
 }
 impl ::core::cmp::Eq for PM_APPTASKTYPE {}
@@ -12451,12 +12419,6 @@ impl ::core::clone::Clone for PM_ENUM_FILTER {
 unsafe impl ::windows::core::Abi for PM_ENUM_FILTER {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for PM_ENUM_FILTER {
-    fn eq(&self, other: &Self) -> bool {
-        self.FilterType == other.FilterType && self.FilterParameter == other.FilterParameter
-    }
-}
-impl ::core::cmp::Eq for PM_ENUM_FILTER {}
 impl ::core::default::Default for PM_ENUM_FILTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12491,12 +12453,6 @@ impl ::core::clone::Clone for PM_ENUM_FILTER_0 {
 unsafe impl ::windows::core::Abi for PM_ENUM_FILTER_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for PM_ENUM_FILTER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PM_ENUM_FILTER_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PM_ENUM_FILTER_0 {}
 impl ::core::default::Default for PM_ENUM_FILTER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12856,7 +12812,7 @@ unsafe impl ::windows::core::Abi for PROTECTED_FILE_DATA {
 }
 impl ::core::cmp::PartialEq for PROTECTED_FILE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTECTED_FILE_DATA>()) == 0 }
+        self.FileName == other.FileName && self.FileNumber == other.FileNumber
     }
 }
 impl ::core::cmp::Eq for PROTECTED_FILE_DATA {}

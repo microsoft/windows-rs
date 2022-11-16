@@ -1897,7 +1897,7 @@ unsafe impl ::windows::core::Abi for D3DVECTOR {
 }
 impl ::core::cmp::PartialEq for D3DVECTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3DVECTOR>()) == 0 }
+        self.x == other.x && self.y == other.y && self.z == other.z
     }
 }
 impl ::core::cmp::Eq for D3DVECTOR {}
@@ -1928,7 +1928,7 @@ unsafe impl ::windows::core::Abi for D3D_SHADER_MACRO {
 }
 impl ::core::cmp::PartialEq for D3D_SHADER_MACRO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D_SHADER_MACRO>()) == 0 }
+        self.Name == other.Name && self.Definition == other.Definition
     }
 }
 impl ::core::cmp::Eq for D3D_SHADER_MACRO {}

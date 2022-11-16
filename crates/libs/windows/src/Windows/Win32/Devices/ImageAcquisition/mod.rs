@@ -4827,7 +4827,7 @@ unsafe impl ::windows::core::Abi for RANGEVALUE {
 }
 impl ::core::cmp::PartialEq for RANGEVALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RANGEVALUE>()) == 0 }
+        self.lMin == other.lMin && self.lMax == other.lMax && self.lStep == other.lStep
     }
 }
 impl ::core::cmp::Eq for RANGEVALUE {}
@@ -4935,7 +4935,42 @@ unsafe impl ::windows::core::Abi for SCANINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCANINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCANINFO>()) == 0 }
+        self.ADF == other.ADF
+            && self.TPA == other.TPA
+            && self.Endorser == other.Endorser
+            && self.OpticalXResolution == other.OpticalXResolution
+            && self.OpticalYResolution == other.OpticalYResolution
+            && self.BedWidth == other.BedWidth
+            && self.BedHeight == other.BedHeight
+            && self.IntensityRange == other.IntensityRange
+            && self.ContrastRange == other.ContrastRange
+            && self.SupportedCompressionType == other.SupportedCompressionType
+            && self.SupportedDataTypes == other.SupportedDataTypes
+            && self.WidthPixels == other.WidthPixels
+            && self.WidthBytes == other.WidthBytes
+            && self.Lines == other.Lines
+            && self.DataType == other.DataType
+            && self.PixelBits == other.PixelBits
+            && self.Intensity == other.Intensity
+            && self.Contrast == other.Contrast
+            && self.Xresolution == other.Xresolution
+            && self.Yresolution == other.Yresolution
+            && self.Window == other.Window
+            && self.DitherPattern == other.DitherPattern
+            && self.Negative == other.Negative
+            && self.Mirror == other.Mirror
+            && self.AutoBack == other.AutoBack
+            && self.ColorDitherPattern == other.ColorDitherPattern
+            && self.ToneMap == other.ToneMap
+            && self.Compression == other.Compression
+            && self.RawDataFormat == other.RawDataFormat
+            && self.RawPixelOrder == other.RawPixelOrder
+            && self.bNeedDataAlignment == other.bNeedDataAlignment
+            && self.DelayBetweenRead == other.DelayBetweenRead
+            && self.MaxBufferSize == other.MaxBufferSize
+            && self.DeviceIOHandles == other.DeviceIOHandles
+            && self.lReserved == other.lReserved
+            && self.pMicroDriverContext == other.pMicroDriverContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4970,7 +5005,7 @@ unsafe impl ::windows::core::Abi for SCANWINDOW {
 }
 impl ::core::cmp::PartialEq for SCANWINDOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCANWINDOW>()) == 0 }
+        self.xPos == other.xPos && self.yPos == other.yPos && self.xExtent == other.xExtent && self.yExtent == other.yExtent
     }
 }
 impl ::core::cmp::Eq for SCANWINDOW {}
@@ -5007,7 +5042,7 @@ unsafe impl ::windows::core::Abi for TWAIN_CAPABILITY {
 }
 impl ::core::cmp::PartialEq for TWAIN_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TWAIN_CAPABILITY>()) == 0 }
+        self.lSize == other.lSize && self.lMSG == other.lMSG && self.lCapID == other.lCapID && self.lConType == other.lConType && self.lRC == other.lRC && self.lCC == other.lCC && self.lDataSize == other.lDataSize && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for TWAIN_CAPABILITY {}
@@ -5051,7 +5086,7 @@ unsafe impl ::windows::core::Abi for VAL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VAL>()) == 0 }
+        self.lVal == other.lVal && self.dblVal == other.dblVal && self.pGuid == other.pGuid && self.pScanInfo == other.pScanInfo && self.handle == other.handle && self.ppButtonNames == other.ppButtonNames && self.pHandle == other.pHandle && self.lReserved == other.lReserved && self.szVal == other.szVal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5082,14 +5117,6 @@ unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.bChanged == other.bChanged && self.vt == other.vt && self.Old == other.Old && self.Current == other.Current
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5115,14 +5142,6 @@ unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_CHANGED_VALUE_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5147,14 +5166,6 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
 unsafe impl ::windows::core::Abi for WIAS_CHANGED_VALUE_INFO_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WIAS_CHANGED_VALUE_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_CHANGED_VALUE_INFO_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WIAS_CHANGED_VALUE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WIAS_CHANGED_VALUE_INFO_1 {
     fn default() -> Self {
@@ -5206,7 +5217,7 @@ unsafe impl ::windows::core::Abi for WIAS_DOWN_SAMPLE_INFO {
 }
 impl ::core::cmp::PartialEq for WIAS_DOWN_SAMPLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_DOWN_SAMPLE_INFO>()) == 0 }
+        self.ulOriginalWidth == other.ulOriginalWidth && self.ulOriginalHeight == other.ulOriginalHeight && self.ulBitsPerPixel == other.ulBitsPerPixel && self.ulXRes == other.ulXRes && self.ulYRes == other.ulYRes && self.ulDownSampledWidth == other.ulDownSampledWidth && self.ulDownSampledHeight == other.ulDownSampledHeight && self.ulActualSize == other.ulActualSize && self.ulDestBufSize == other.ulDestBufSize && self.ulSrcBufSize == other.ulSrcBufSize && self.pSrcBuffer == other.pSrcBuffer && self.pDestBuffer == other.pDestBuffer
     }
 }
 impl ::core::cmp::Eq for WIAS_DOWN_SAMPLE_INFO {}
@@ -5238,7 +5249,7 @@ unsafe impl ::windows::core::Abi for WIAS_ENDORSER_INFO {
 }
 impl ::core::cmp::PartialEq for WIAS_ENDORSER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_ENDORSER_INFO>()) == 0 }
+        self.ulPageCount == other.ulPageCount && self.ulNumEndorserValues == other.ulNumEndorserValues && self.pEndorserValues == other.pEndorserValues
     }
 }
 impl ::core::cmp::Eq for WIAS_ENDORSER_INFO {}
@@ -5269,7 +5280,7 @@ unsafe impl ::windows::core::Abi for WIAS_ENDORSER_VALUE {
 }
 impl ::core::cmp::PartialEq for WIAS_ENDORSER_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIAS_ENDORSER_VALUE>()) == 0 }
+        self.wszTokenName == other.wszTokenName && self.wszValue == other.wszValue
     }
 }
 impl ::core::cmp::Eq for WIAS_ENDORSER_VALUE {}
@@ -5303,7 +5314,7 @@ unsafe impl ::windows::core::Abi for WIA_BARCODES {
 }
 impl ::core::cmp::PartialEq for WIA_BARCODES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_BARCODES>()) == 0 }
+        self.Tag == other.Tag && self.Version == other.Version && self.Size == other.Size && self.Count == other.Count && self.Barcodes == other.Barcodes
     }
 }
 impl ::core::cmp::Eq for WIA_BARCODES {}
@@ -5341,7 +5352,7 @@ unsafe impl ::windows::core::Abi for WIA_BARCODE_INFO {
 }
 impl ::core::cmp::PartialEq for WIA_BARCODE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_BARCODE_INFO>()) == 0 }
+        self.Size == other.Size && self.Type == other.Type && self.Page == other.Page && self.Confidence == other.Confidence && self.XOffset == other.XOffset && self.YOffset == other.YOffset && self.Rotation == other.Rotation && self.Length == other.Length && self.Text == other.Text
     }
 }
 impl ::core::cmp::Eq for WIA_BARCODE_INFO {}
@@ -5374,7 +5385,7 @@ unsafe impl ::windows::core::Abi for WIA_DATA_CALLBACK_HEADER {
 }
 impl ::core::cmp::PartialEq for WIA_DATA_CALLBACK_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DATA_CALLBACK_HEADER>()) == 0 }
+        self.lSize == other.lSize && self.guidFormatID == other.guidFormatID && self.lBufferSize == other.lBufferSize && self.lPageCount == other.lPageCount
     }
 }
 impl ::core::cmp::Eq for WIA_DATA_CALLBACK_HEADER {}
@@ -5416,7 +5427,7 @@ unsafe impl ::windows::core::Abi for WIA_DATA_TRANSFER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_DATA_TRANSFER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DATA_TRANSFER_INFO>()) == 0 }
+        self.ulSize == other.ulSize && self.ulSection == other.ulSection && self.ulBufferSize == other.ulBufferSize && self.bDoubleBuffer == other.bDoubleBuffer && self.ulReserved1 == other.ulReserved1 && self.ulReserved2 == other.ulReserved2 && self.ulReserved3 == other.ulReserved3
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5493,7 +5504,7 @@ unsafe impl ::windows::core::Abi for WIA_DEV_CAP_DRV {
 }
 impl ::core::cmp::PartialEq for WIA_DEV_CAP_DRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_DEV_CAP_DRV>()) == 0 }
+        self.guid == other.guid && self.ulFlags == other.ulFlags && self.wszName == other.wszName && self.wszDescription == other.wszDescription && self.wszIcon == other.wszIcon
     }
 }
 impl ::core::cmp::Eq for WIA_DEV_CAP_DRV {}
@@ -5568,7 +5579,7 @@ unsafe impl ::windows::core::Abi for WIA_EXTENDED_TRANSFER_INFO {
 }
 impl ::core::cmp::PartialEq for WIA_EXTENDED_TRANSFER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_EXTENDED_TRANSFER_INFO>()) == 0 }
+        self.ulSize == other.ulSize && self.ulMinBufferSize == other.ulMinBufferSize && self.ulOptimalBufferSize == other.ulOptimalBufferSize && self.ulMaxBufferSize == other.ulMaxBufferSize && self.ulNumBuffers == other.ulNumBuffers
     }
 }
 impl ::core::cmp::Eq for WIA_EXTENDED_TRANSFER_INFO {}
@@ -5599,7 +5610,7 @@ unsafe impl ::windows::core::Abi for WIA_FORMAT_INFO {
 }
 impl ::core::cmp::PartialEq for WIA_FORMAT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_FORMAT_INFO>()) == 0 }
+        self.guidFormatID == other.guidFormatID && self.lTymed == other.lTymed
     }
 }
 impl ::core::cmp::Eq for WIA_FORMAT_INFO {}
@@ -5635,7 +5646,7 @@ unsafe impl ::windows::core::Abi for WIA_MICR {
 }
 impl ::core::cmp::PartialEq for WIA_MICR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_MICR>()) == 0 }
+        self.Tag == other.Tag && self.Version == other.Version && self.Size == other.Size && self.Placeholder == other.Placeholder && self.Reserved == other.Reserved && self.Count == other.Count && self.Micr == other.Micr
     }
 }
 impl ::core::cmp::Eq for WIA_MICR {}
@@ -5668,7 +5679,7 @@ unsafe impl ::windows::core::Abi for WIA_MICR_INFO {
 }
 impl ::core::cmp::PartialEq for WIA_MICR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_MICR_INFO>()) == 0 }
+        self.Size == other.Size && self.Page == other.Page && self.Length == other.Length && self.Text == other.Text
     }
 }
 impl ::core::cmp::Eq for WIA_MICR_INFO {}
@@ -5702,7 +5713,7 @@ unsafe impl ::windows::core::Abi for WIA_PATCH_CODES {
 }
 impl ::core::cmp::PartialEq for WIA_PATCH_CODES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PATCH_CODES>()) == 0 }
+        self.Tag == other.Tag && self.Version == other.Version && self.Size == other.Size && self.Count == other.Count && self.PatchCodes == other.PatchCodes
     }
 }
 impl ::core::cmp::Eq for WIA_PATCH_CODES {}
@@ -5732,7 +5743,7 @@ unsafe impl ::windows::core::Abi for WIA_PATCH_CODE_INFO {
 }
 impl ::core::cmp::PartialEq for WIA_PATCH_CODE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PATCH_CODE_INFO>()) == 0 }
+        self.Type == other.Type
     }
 }
 impl ::core::cmp::Eq for WIA_PATCH_CODE_INFO {}
@@ -5770,7 +5781,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_CONTEXT>()) == 0 }
+        self.cProps == other.cProps && self.pProps == other.pProps && self.pChanged == other.pChanged
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5800,14 +5811,6 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.lAccessFlags == other.lAccessFlags && self.vt == other.vt && self.ValidVal == other.ValidVal
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for WIA_PROPERTY_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for WIA_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5836,14 +5839,6 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0 {
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0 {
     fn default() -> Self {
@@ -5878,7 +5873,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_0 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_0>()) == 0 }
+        self.Nom == other.Nom && self.ValidBits == other.ValidBits
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5956,7 +5951,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_2 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_2>()) == 0 }
+        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5996,7 +5991,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_3 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_3>()) == 0 }
+        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6036,7 +6031,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_4 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_4>()) == 0 }
+        self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6074,7 +6069,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_5 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_5>()) == 0 }
+        self.Dummy == other.Dummy
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6115,7 +6110,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_6 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_6>()) == 0 }
+        self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6156,7 +6151,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_7 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_7>()) == 0 }
+        self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6189,7 +6184,7 @@ unsafe impl ::windows::core::Abi for WIA_PROPID_TO_NAME {
 }
 impl ::core::cmp::PartialEq for WIA_PROPID_TO_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPID_TO_NAME>()) == 0 }
+        self.propid == other.propid && self.pszName == other.pszName
     }
 }
 impl ::core::cmp::Eq for WIA_PROPID_TO_NAME {}
@@ -6257,7 +6252,7 @@ unsafe impl ::windows::core::Abi for WIA_RAW_HEADER {
 }
 impl ::core::cmp::PartialEq for WIA_RAW_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_RAW_HEADER>()) == 0 }
+        self.Tag == other.Tag && self.Version == other.Version && self.HeaderSize == other.HeaderSize && self.XRes == other.XRes && self.YRes == other.YRes && self.XExtent == other.XExtent && self.YExtent == other.YExtent && self.BytesPerLine == other.BytesPerLine && self.BitsPerPixel == other.BitsPerPixel && self.ChannelsPerPixel == other.ChannelsPerPixel && self.DataType == other.DataType && self.BitsPerChannel == other.BitsPerChannel && self.Compression == other.Compression && self.PhotometricInterp == other.PhotometricInterp && self.LineOrder == other.LineOrder && self.RawDataOffset == other.RawDataOffset && self.RawDataSize == other.RawDataSize && self.PaletteOffset == other.PaletteOffset && self.PaletteSize == other.PaletteSize
     }
 }
 impl ::core::cmp::Eq for WIA_RAW_HEADER {}
@@ -6290,7 +6285,7 @@ unsafe impl ::windows::core::Abi for WiaTransferParams {
 }
 impl ::core::cmp::PartialEq for WiaTransferParams {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WiaTransferParams>()) == 0 }
+        self.lMessage == other.lMessage && self.lPercentComplete == other.lPercentComplete && self.ulTransferredBytes == other.ulTransferredBytes && self.hrErrorStatus == other.hrErrorStatus
     }
 }
 impl ::core::cmp::Eq for WiaTransferParams {}

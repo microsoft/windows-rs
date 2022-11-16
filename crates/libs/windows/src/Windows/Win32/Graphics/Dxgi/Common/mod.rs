@@ -507,7 +507,7 @@ unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL {
 }
 impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_GAMMA_CONTROL>()) == 0 }
+        self.Scale == other.Scale && self.Offset == other.Offset && self.GammaCurve == other.GammaCurve
     }
 }
 impl ::core::cmp::Eq for DXGI_GAMMA_CONTROL {}
@@ -547,7 +547,7 @@ unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_GAMMA_CONTROL_CAPABILITIES>()) == 0 }
+        self.ScaleAndOffsetSupported == other.ScaleAndOffsetSupported && self.MaxConvertedValue == other.MaxConvertedValue && self.MinConvertedValue == other.MinConvertedValue && self.NumGammaControlPoints == other.NumGammaControlPoints && self.ControlPointPositions == other.ControlPointPositions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -580,7 +580,7 @@ unsafe impl ::windows::core::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
 }
 impl ::core::cmp::PartialEq for DXGI_JPEG_AC_HUFFMAN_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_JPEG_AC_HUFFMAN_TABLE>()) == 0 }
+        self.CodeCounts == other.CodeCounts && self.CodeValues == other.CodeValues
     }
 }
 impl ::core::cmp::Eq for DXGI_JPEG_AC_HUFFMAN_TABLE {}
@@ -611,7 +611,7 @@ unsafe impl ::windows::core::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
 }
 impl ::core::cmp::PartialEq for DXGI_JPEG_DC_HUFFMAN_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_JPEG_DC_HUFFMAN_TABLE>()) == 0 }
+        self.CodeCounts == other.CodeCounts && self.CodeValues == other.CodeValues
     }
 }
 impl ::core::cmp::Eq for DXGI_JPEG_DC_HUFFMAN_TABLE {}
@@ -641,7 +641,7 @@ unsafe impl ::windows::core::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
 }
 impl ::core::cmp::PartialEq for DXGI_JPEG_QUANTIZATION_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_JPEG_QUANTIZATION_TABLE>()) == 0 }
+        self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DXGI_JPEG_QUANTIZATION_TABLE {}
@@ -676,7 +676,7 @@ unsafe impl ::windows::core::Abi for DXGI_MODE_DESC {
 }
 impl ::core::cmp::PartialEq for DXGI_MODE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_MODE_DESC>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.RefreshRate == other.RefreshRate && self.Format == other.Format && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling
     }
 }
 impl ::core::cmp::Eq for DXGI_MODE_DESC {}
@@ -707,7 +707,7 @@ unsafe impl ::windows::core::Abi for DXGI_RATIONAL {
 }
 impl ::core::cmp::PartialEq for DXGI_RATIONAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_RATIONAL>()) == 0 }
+        self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
 impl ::core::cmp::Eq for DXGI_RATIONAL {}
@@ -739,7 +739,7 @@ unsafe impl ::windows::core::Abi for DXGI_RGB {
 }
 impl ::core::cmp::PartialEq for DXGI_RGB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_RGB>()) == 0 }
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue
     }
 }
 impl ::core::cmp::Eq for DXGI_RGB {}
@@ -770,7 +770,7 @@ unsafe impl ::windows::core::Abi for DXGI_SAMPLE_DESC {
 }
 impl ::core::cmp::PartialEq for DXGI_SAMPLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_SAMPLE_DESC>()) == 0 }
+        self.Count == other.Count && self.Quality == other.Quality
     }
 }
 impl ::core::cmp::Eq for DXGI_SAMPLE_DESC {}

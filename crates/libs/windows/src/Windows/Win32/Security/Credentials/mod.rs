@@ -2138,7 +2138,7 @@ unsafe impl ::windows::core::Abi for BINARY_BLOB_CREDENTIAL_INFO {
 }
 impl ::core::cmp::PartialEq for BINARY_BLOB_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BINARY_BLOB_CREDENTIAL_INFO>()) == 0 }
+        self.cbBlob == other.cbBlob && self.pbBlob == other.pbBlob
     }
 }
 impl ::core::cmp::Eq for BINARY_BLOB_CREDENTIAL_INFO {}
@@ -2169,7 +2169,7 @@ unsafe impl ::windows::core::Abi for CERT_CREDENTIAL_INFO {
 }
 impl ::core::cmp::PartialEq for CERT_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CERT_CREDENTIAL_INFO>()) == 0 }
+        self.cbSize == other.cbSize && self.rgbHashOfCert == other.rgbHashOfCert
     }
 }
 impl ::core::cmp::Eq for CERT_CREDENTIAL_INFO {}
@@ -2229,7 +2229,7 @@ unsafe impl ::windows::core::Abi for CREDENTIALA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREDENTIALA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDENTIALA>()) == 0 }
+        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2291,7 +2291,7 @@ unsafe impl ::windows::core::Abi for CREDENTIALW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREDENTIALW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDENTIALW>()) == 0 }
+        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2326,7 +2326,7 @@ unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEA {
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDENTIAL_ATTRIBUTEA>()) == 0 }
+        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for CREDENTIAL_ATTRIBUTEA {}
@@ -2359,7 +2359,7 @@ unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEW {
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDENTIAL_ATTRIBUTEW>()) == 0 }
+        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for CREDENTIAL_ATTRIBUTEW {}
@@ -2398,7 +2398,7 @@ unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONA {
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDENTIAL_TARGET_INFORMATIONA>()) == 0 }
+        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
     }
 }
 impl ::core::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONA {}
@@ -2437,7 +2437,7 @@ unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONW {
 }
 impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDENTIAL_TARGET_INFORMATIONW>()) == 0 }
+        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
     }
 }
 impl ::core::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONW {}
@@ -2469,7 +2469,7 @@ unsafe impl ::windows::core::Abi for CREDSSP_CRED {
 }
 impl ::core::cmp::PartialEq for CREDSSP_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDSSP_CRED>()) == 0 }
+        self.Type == other.Type && self.pSchannelCred == other.pSchannelCred && self.pSpnegoCred == other.pSpnegoCred
     }
 }
 impl ::core::cmp::Eq for CREDSSP_CRED {}
@@ -2503,7 +2503,7 @@ unsafe impl ::windows::core::Abi for CREDSSP_CRED_EX {
 }
 impl ::core::cmp::PartialEq for CREDSSP_CRED_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDSSP_CRED_EX>()) == 0 }
+        self.Type == other.Type && self.Version == other.Version && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Cred == other.Cred
     }
 }
 impl ::core::cmp::Eq for CREDSSP_CRED_EX {}
@@ -2543,7 +2543,7 @@ unsafe impl ::windows::core::Abi for CREDUI_INFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CREDUI_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDUI_INFOA>()) == 0 }
+        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2585,7 +2585,7 @@ unsafe impl ::windows::core::Abi for CREDUI_INFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CREDUI_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREDUI_INFOW>()) == 0 }
+        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2617,7 +2617,7 @@ unsafe impl ::windows::core::Abi for KeyCredentialManagerInfo {
 }
 impl ::core::cmp::PartialEq for KeyCredentialManagerInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KeyCredentialManagerInfo>()) == 0 }
+        self.containerId == other.containerId
     }
 }
 impl ::core::cmp::Eq for KeyCredentialManagerInfo {}
@@ -2685,9 +2685,6 @@ impl ::core::fmt::Debug for OPENCARDNAMEA {
             .field("dwShareMode", &self.dwShareMode)
             .field("dwPreferredProtocols", &self.dwPreferredProtocols)
             .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("lpfnConnect", &self.lpfnConnect.map(|f| f as usize))
-            .field("lpfnCheck", &self.lpfnCheck.map(|f| f as usize))
-            .field("lpfnDisconnect", &self.lpfnDisconnect.map(|f| f as usize))
             .field("hCardHandle", &self.hCardHandle)
             .finish()
     }
@@ -2696,14 +2693,6 @@ impl ::core::fmt::Debug for OPENCARDNAMEA {
 unsafe impl ::windows::core::Abi for OPENCARDNAMEA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENCARDNAMEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENCARDNAMEA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENCARDNAMEA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARDNAMEA {
     fn default() -> Self {
@@ -2769,9 +2758,6 @@ impl ::core::fmt::Debug for OPENCARDNAMEW {
             .field("dwShareMode", &self.dwShareMode)
             .field("dwPreferredProtocols", &self.dwPreferredProtocols)
             .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("lpfnConnect", &self.lpfnConnect.map(|f| f as usize))
-            .field("lpfnCheck", &self.lpfnCheck.map(|f| f as usize))
-            .field("lpfnDisconnect", &self.lpfnDisconnect.map(|f| f as usize))
             .field("hCardHandle", &self.hCardHandle)
             .finish()
     }
@@ -2780,14 +2766,6 @@ impl ::core::fmt::Debug for OPENCARDNAMEW {
 unsafe impl ::windows::core::Abi for OPENCARDNAMEW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENCARDNAMEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENCARDNAMEW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENCARDNAMEW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARDNAMEW {
     fn default() -> Self {
@@ -2837,7 +2815,6 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXA {
             .field("lpstrSearchDesc", &self.lpstrSearchDesc)
             .field("hIcon", &self.hIcon)
             .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
-            .field("lpfnConnect", &self.lpfnConnect.map(|f| f as usize))
             .field("pvUserData", &self.pvUserData)
             .field("dwShareMode", &self.dwShareMode)
             .field("dwPreferredProtocols", &self.dwPreferredProtocols)
@@ -2854,14 +2831,6 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXA {
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OPENCARDNAME_EXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENCARDNAME_EXA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OPENCARDNAME_EXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OPENCARDNAME_EXA {
     fn default() -> Self {
@@ -2911,7 +2880,6 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXW {
             .field("lpstrSearchDesc", &self.lpstrSearchDesc)
             .field("hIcon", &self.hIcon)
             .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
-            .field("lpfnConnect", &self.lpfnConnect.map(|f| f as usize))
             .field("pvUserData", &self.pvUserData)
             .field("dwShareMode", &self.dwShareMode)
             .field("dwPreferredProtocols", &self.dwPreferredProtocols)
@@ -2928,14 +2896,6 @@ impl ::core::fmt::Debug for OPENCARDNAME_EXW {
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for OPENCARDNAME_EXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENCARDNAME_EXW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for OPENCARDNAME_EXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OPENCARDNAME_EXW {
     fn default() -> Self {
@@ -2979,9 +2939,6 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAA {
             .field("cguidInterfaces", &self.cguidInterfaces)
             .field("lpstrCardNames", &self.lpstrCardNames)
             .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("lpfnCheck", &self.lpfnCheck.map(|f| f as usize))
-            .field("lpfnConnect", &self.lpfnConnect.map(|f| f as usize))
-            .field("lpfnDisconnect", &self.lpfnDisconnect.map(|f| f as usize))
             .field("pvUserData", &self.pvUserData)
             .field("dwShareMode", &self.dwShareMode)
             .field("dwPreferredProtocols", &self.dwPreferredProtocols)
@@ -2992,14 +2949,6 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAA {
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENCARD_SEARCH_CRITERIAA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARD_SEARCH_CRITERIAA {
     fn default() -> Self {
@@ -3043,9 +2992,6 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAW {
             .field("cguidInterfaces", &self.cguidInterfaces)
             .field("lpstrCardNames", &self.lpstrCardNames)
             .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("lpfnCheck", &self.lpfnCheck.map(|f| f as usize))
-            .field("lpfnConnect", &self.lpfnConnect.map(|f| f as usize))
-            .field("lpfnDisconnect", &self.lpfnDisconnect.map(|f| f as usize))
             .field("pvUserData", &self.pvUserData)
             .field("dwShareMode", &self.dwShareMode)
             .field("dwPreferredProtocols", &self.dwPreferredProtocols)
@@ -3056,14 +3002,6 @@ impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAW {
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENCARD_SEARCH_CRITERIAW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENCARD_SEARCH_CRITERIAW {
     fn default() -> Self {
@@ -3087,12 +3025,6 @@ impl ::core::clone::Clone for READER_SEL_REQUEST {
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for READER_SEL_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<READER_SEL_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for READER_SEL_REQUEST {}
 impl ::core::default::Default for READER_SEL_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3113,12 +3045,6 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_0 {
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<READER_SEL_REQUEST_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for READER_SEL_REQUEST_0 {}
 impl ::core::default::Default for READER_SEL_REQUEST_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3150,7 +3076,7 @@ unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_0 {
 }
 impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<READER_SEL_REQUEST_0_0>()) == 0 }
+        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbContainerNameOffset == other.cbContainerNameOffset && self.cchContainerNameLength == other.cchContainerNameLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion && self.dwCspFlags == other.dwCspFlags
     }
 }
 impl ::core::cmp::Eq for READER_SEL_REQUEST_0_0 {}
@@ -3182,7 +3108,7 @@ unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_1 {
 }
 impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<READER_SEL_REQUEST_0_1>()) == 0 }
+        self.cbSerialNumberOffset == other.cbSerialNumberOffset && self.cbSerialNumberLength == other.cbSerialNumberLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion
     }
 }
 impl ::core::cmp::Eq for READER_SEL_REQUEST_0_1 {}
@@ -3215,7 +3141,7 @@ unsafe impl ::windows::core::Abi for READER_SEL_RESPONSE {
 }
 impl ::core::cmp::PartialEq for READER_SEL_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<READER_SEL_RESPONSE>()) == 0 }
+        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbCardNameOffset == other.cbCardNameOffset && self.cchCardNameLength == other.cchCardNameLength
     }
 }
 impl ::core::cmp::Eq for READER_SEL_RESPONSE {}
@@ -3247,7 +3173,7 @@ unsafe impl ::windows::core::Abi for SCARD_ATRMASK {
 }
 impl ::core::cmp::PartialEq for SCARD_ATRMASK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_ATRMASK>()) == 0 }
+        self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr && self.rgbMask == other.rgbMask
     }
 }
 impl ::core::cmp::Eq for SCARD_ATRMASK {}
@@ -3278,7 +3204,7 @@ unsafe impl ::windows::core::Abi for SCARD_IO_REQUEST {
 }
 impl ::core::cmp::PartialEq for SCARD_IO_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_IO_REQUEST>()) == 0 }
+        self.dwProtocol == other.dwProtocol && self.cbPciLength == other.cbPciLength
     }
 }
 impl ::core::cmp::Eq for SCARD_IO_REQUEST {}
@@ -3313,7 +3239,7 @@ unsafe impl ::windows::core::Abi for SCARD_READERSTATEA {
 }
 impl ::core::cmp::PartialEq for SCARD_READERSTATEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_READERSTATEA>()) == 0 }
+        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
     }
 }
 impl ::core::cmp::Eq for SCARD_READERSTATEA {}
@@ -3348,7 +3274,7 @@ unsafe impl ::windows::core::Abi for SCARD_READERSTATEW {
 }
 impl ::core::cmp::PartialEq for SCARD_READERSTATEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_READERSTATEW>()) == 0 }
+        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
     }
 }
 impl ::core::cmp::Eq for SCARD_READERSTATEW {}
@@ -3382,7 +3308,7 @@ unsafe impl ::windows::core::Abi for SCARD_T0_COMMAND {
 }
 impl ::core::cmp::PartialEq for SCARD_T0_COMMAND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_T0_COMMAND>()) == 0 }
+        self.bCla == other.bCla && self.bIns == other.bIns && self.bP1 == other.bP1 && self.bP2 == other.bP2 && self.bP3 == other.bP3
     }
 }
 impl ::core::cmp::Eq for SCARD_T0_COMMAND {}
@@ -3408,12 +3334,6 @@ impl ::core::clone::Clone for SCARD_T0_REQUEST {
 unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SCARD_T0_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_T0_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SCARD_T0_REQUEST {}
 impl ::core::default::Default for SCARD_T0_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3434,12 +3354,6 @@ impl ::core::clone::Clone for SCARD_T0_REQUEST_0 {
 unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SCARD_T0_REQUEST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_T0_REQUEST_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SCARD_T0_REQUEST_0 {}
 impl ::core::default::Default for SCARD_T0_REQUEST_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3466,7 +3380,7 @@ unsafe impl ::windows::core::Abi for SCARD_T1_REQUEST {
 }
 impl ::core::cmp::PartialEq for SCARD_T1_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCARD_T1_REQUEST>()) == 0 }
+        self.ioRequest == other.ioRequest
     }
 }
 impl ::core::cmp::Eq for SCARD_T1_REQUEST {}
@@ -3497,7 +3411,7 @@ unsafe impl ::windows::core::Abi for SecHandle {
 }
 impl ::core::cmp::PartialEq for SecHandle {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecHandle>()) == 0 }
+        self.dwLower == other.dwLower && self.dwUpper == other.dwUpper
     }
 }
 impl ::core::cmp::Eq for SecHandle {}
@@ -3528,7 +3442,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ClientCreds {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ClientCreds {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ClientCreds>()) == 0 }
+        self.AuthBufferLen == other.AuthBufferLen && self.AuthBuffer == other.AuthBuffer
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ClientCreds {}
@@ -3558,7 +3472,7 @@ unsafe impl ::windows::core::Abi for USERNAME_TARGET_CREDENTIAL_INFO {
 }
 impl ::core::cmp::PartialEq for USERNAME_TARGET_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USERNAME_TARGET_CREDENTIAL_INFO>()) == 0 }
+        self.UserName == other.UserName
     }
 }
 impl ::core::cmp::Eq for USERNAME_TARGET_CREDENTIAL_INFO {}

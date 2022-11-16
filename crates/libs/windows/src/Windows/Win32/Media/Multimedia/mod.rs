@@ -11188,12 +11188,6 @@ impl ::core::clone::Clone for ADPCMCOEFSET {
 unsafe impl ::windows::core::Abi for ADPCMCOEFSET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ADPCMCOEFSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMCOEFSET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADPCMCOEFSET {}
 impl ::core::default::Default for ADPCMCOEFSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11218,14 +11212,6 @@ impl ::core::clone::Clone for ADPCMEWAVEFORMAT {
 unsafe impl ::windows::core::Abi for ADPCMEWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for ADPCMEWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMEWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for ADPCMEWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ADPCMEWAVEFORMAT {
     fn default() -> Self {
@@ -11254,14 +11240,6 @@ unsafe impl ::windows::core::Abi for ADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for ADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11285,14 +11263,6 @@ impl ::core::clone::Clone for APTXWAVEFORMAT {
 unsafe impl ::windows::core::Abi for APTXWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for APTXWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APTXWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for APTXWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for APTXWAVEFORMAT {
     fn default() -> Self {
@@ -11318,14 +11288,6 @@ unsafe impl ::windows::core::Abi for AUDIOFILE_AF10WAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for AUDIOFILE_AF10WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIOFILE_AF10WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for AUDIOFILE_AF10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for AUDIOFILE_AF10WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11349,14 +11311,6 @@ impl ::core::clone::Clone for AUDIOFILE_AF36WAVEFORMAT {
 unsafe impl ::windows::core::Abi for AUDIOFILE_AF36WAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for AUDIOFILE_AF36WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIOFILE_AF36WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for AUDIOFILE_AF36WAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for AUDIOFILE_AF36WAVEFORMAT {
     fn default() -> Self {
@@ -11394,7 +11348,7 @@ unsafe impl ::windows::core::Abi for AVICOMPRESSOPTIONS {
 }
 impl ::core::cmp::PartialEq for AVICOMPRESSOPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVICOMPRESSOPTIONS>()) == 0 }
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwKeyFrameEvery == other.dwKeyFrameEvery && self.dwQuality == other.dwQuality && self.dwBytesPerSecond == other.dwBytesPerSecond && self.dwFlags == other.dwFlags && self.lpFormat == other.lpFormat && self.cbFormat == other.cbFormat && self.lpParms == other.lpParms && self.cbParms == other.cbParms && self.dwInterleaveEvery == other.dwInterleaveEvery
     }
 }
 impl ::core::cmp::Eq for AVICOMPRESSOPTIONS {}
@@ -11454,7 +11408,7 @@ unsafe impl ::windows::core::Abi for AVIFILEINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVIFILEINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVIFILEINFOA>()) == 0 }
+        self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwLength == other.dwLength && self.dwEditCount == other.dwEditCount && self.szFileType == other.szFileType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11510,7 +11464,7 @@ unsafe impl ::windows::core::Abi for AVIFILEINFOW {
 }
 impl ::core::cmp::PartialEq for AVIFILEINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVIFILEINFOW>()) == 0 }
+        self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwLength == other.dwLength && self.dwEditCount == other.dwEditCount && self.szFileType == other.szFileType
     }
 }
 impl ::core::cmp::Eq for AVIFILEINFOW {}
@@ -11582,7 +11536,7 @@ unsafe impl ::windows::core::Abi for AVISTREAMINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVISTREAMINFOA>()) == 0 }
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.wPriority == other.wPriority && self.wLanguage == other.wLanguage && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwStart == other.dwStart && self.dwLength == other.dwLength && self.dwInitialFrames == other.dwInitialFrames && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwQuality == other.dwQuality && self.dwSampleSize == other.dwSampleSize && self.rcFrame == other.rcFrame && self.dwEditCount == other.dwEditCount && self.dwFormatChangeCount == other.dwFormatChangeCount && self.szName == other.szName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11656,7 +11610,7 @@ unsafe impl ::windows::core::Abi for AVISTREAMINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVISTREAMINFOW>()) == 0 }
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.wPriority == other.wPriority && self.wLanguage == other.wLanguage && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwStart == other.dwStart && self.dwLength == other.dwLength && self.dwInitialFrames == other.dwInitialFrames && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwQuality == other.dwQuality && self.dwSampleSize == other.dwSampleSize && self.rcFrame == other.rcFrame && self.dwEditCount == other.dwEditCount && self.dwFormatChangeCount == other.dwFormatChangeCount && self.szName == other.szName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11716,7 +11670,7 @@ unsafe impl ::windows::core::Abi for CAPDRIVERCAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAPDRIVERCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPDRIVERCAPS>()) == 0 }
+        self.wDeviceIndex == other.wDeviceIndex && self.fHasOverlay == other.fHasOverlay && self.fHasDlgVideoSource == other.fHasDlgVideoSource && self.fHasDlgVideoFormat == other.fHasDlgVideoFormat && self.fHasDlgVideoDisplay == other.fHasDlgVideoDisplay && self.fCaptureInitialized == other.fCaptureInitialized && self.fDriverSuppliesPalettes == other.fDriverSuppliesPalettes && self.hVideoIn == other.hVideoIn && self.hVideoOut == other.hVideoOut && self.hVideoExtIn == other.hVideoExtIn && self.hVideoExtOut == other.hVideoExtOut
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11750,7 +11704,7 @@ unsafe impl ::windows::core::Abi for CAPINFOCHUNK {
 }
 impl ::core::cmp::PartialEq for CAPINFOCHUNK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPINFOCHUNK>()) == 0 }
+        self.fccInfoID == other.fccInfoID && self.lpData == other.lpData && self.cbData == other.cbData
     }
 }
 impl ::core::cmp::Eq for CAPINFOCHUNK {}
@@ -11822,7 +11776,24 @@ unsafe impl ::windows::core::Abi for CAPSTATUS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CAPSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPSTATUS>()) == 0 }
+        self.uiImageWidth == other.uiImageWidth
+            && self.uiImageHeight == other.uiImageHeight
+            && self.fLiveWindow == other.fLiveWindow
+            && self.fOverlayWindow == other.fOverlayWindow
+            && self.fScale == other.fScale
+            && self.ptScroll == other.ptScroll
+            && self.fUsingDefaultPalette == other.fUsingDefaultPalette
+            && self.fAudioHardware == other.fAudioHardware
+            && self.fCapFileExists == other.fCapFileExists
+            && self.dwCurrentVideoFrame == other.dwCurrentVideoFrame
+            && self.dwCurrentVideoFramesDropped == other.dwCurrentVideoFramesDropped
+            && self.dwCurrentWaveSamples == other.dwCurrentWaveSamples
+            && self.dwCurrentTimeElapsedMS == other.dwCurrentTimeElapsedMS
+            && self.hPalCurrent == other.hPalCurrent
+            && self.fCapturingNow == other.fCapturingNow
+            && self.dwReturn == other.dwReturn
+            && self.wNumVideoAllocated == other.wNumVideoAllocated
+            && self.wNumAudioAllocated == other.wNumAudioAllocated
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11908,7 +11879,30 @@ unsafe impl ::windows::core::Abi for CAPTUREPARMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAPTUREPARMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPTUREPARMS>()) == 0 }
+        self.dwRequestMicroSecPerFrame == other.dwRequestMicroSecPerFrame
+            && self.fMakeUserHitOKToCapture == other.fMakeUserHitOKToCapture
+            && self.wPercentDropForError == other.wPercentDropForError
+            && self.fYield == other.fYield
+            && self.dwIndexSize == other.dwIndexSize
+            && self.wChunkGranularity == other.wChunkGranularity
+            && self.fUsingDOSMemory == other.fUsingDOSMemory
+            && self.wNumVideoRequested == other.wNumVideoRequested
+            && self.fCaptureAudio == other.fCaptureAudio
+            && self.wNumAudioRequested == other.wNumAudioRequested
+            && self.vKeyAbort == other.vKeyAbort
+            && self.fAbortLeftMouse == other.fAbortLeftMouse
+            && self.fAbortRightMouse == other.fAbortRightMouse
+            && self.fLimitEnabled == other.fLimitEnabled
+            && self.wTimeLimit == other.wTimeLimit
+            && self.fMCIControl == other.fMCIControl
+            && self.fStepMCIDevice == other.fStepMCIDevice
+            && self.dwMCIStartTime == other.dwMCIStartTime
+            && self.dwMCIStopTime == other.dwMCIStopTime
+            && self.fStepCaptureAt2x == other.fStepCaptureAt2x
+            && self.wStepCaptureAverageFrames == other.wStepCaptureAverageFrames
+            && self.dwAudioBufferSize == other.dwAudioBufferSize
+            && self.fDisableWriteCache == other.fDisableWriteCache
+            && self.AVStreamMaster == other.AVStreamMaster
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11948,7 +11942,7 @@ unsafe impl ::windows::core::Abi for CHANNEL_CAPS {
 }
 impl ::core::cmp::PartialEq for CHANNEL_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_CAPS>()) == 0 }
+        self.dwFlags == other.dwFlags && self.dwSrcRectXMod == other.dwSrcRectXMod && self.dwSrcRectYMod == other.dwSrcRectYMod && self.dwSrcRectWidthMod == other.dwSrcRectWidthMod && self.dwSrcRectHeightMod == other.dwSrcRectHeightMod && self.dwDstRectXMod == other.dwDstRectXMod && self.dwDstRectYMod == other.dwDstRectYMod && self.dwDstRectWidthMod == other.dwDstRectWidthMod && self.dwDstRectHeightMod == other.dwDstRectHeightMod
     }
 }
 impl ::core::cmp::Eq for CHANNEL_CAPS {}
@@ -12016,7 +12010,7 @@ unsafe impl ::windows::core::Abi for COMPVARS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for COMPVARS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPVARS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hic == other.hic && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.lpbiIn == other.lpbiIn && self.lpbiOut == other.lpbiOut && self.lpBitsOut == other.lpBitsOut && self.lpBitsPrev == other.lpBitsPrev && self.lFrame == other.lFrame && self.lKey == other.lKey && self.lDataRate == other.lDataRate && self.lQ == other.lQ && self.lKeyCount == other.lKeyCount && self.lpState == other.lpState && self.cbState == other.cbState
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12047,14 +12041,6 @@ unsafe impl ::windows::core::Abi for CONTRESCR10WAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CONTRESCR10WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTRESCR10WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CONTRESCR10WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CONTRESCR10WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12079,14 +12065,6 @@ impl ::core::clone::Clone for CONTRESVQLPCWAVEFORMAT {
 unsafe impl ::windows::core::Abi for CONTRESVQLPCWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CONTRESVQLPCWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTRESVQLPCWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CONTRESVQLPCWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CONTRESVQLPCWAVEFORMAT {
     fn default() -> Self {
@@ -12113,14 +12091,6 @@ unsafe impl ::windows::core::Abi for CREATIVEADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CREATIVEADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CREATIVEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12145,14 +12115,6 @@ impl ::core::clone::Clone for CREATIVEFASTSPEECH10WAVEFORMAT {
 unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH10WAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH10WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEFASTSPEECH10WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CREATIVEFASTSPEECH10WAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn default() -> Self {
@@ -12179,14 +12141,6 @@ unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CREATIVEFASTSPEECH8WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATIVEFASTSPEECH8WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CREATIVEFASTSPEECH8WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12211,14 +12165,6 @@ unsafe impl ::windows::core::Abi for CSIMAADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for CSIMAADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSIMAADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for CSIMAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12242,14 +12188,6 @@ impl ::core::clone::Clone for DIALOGICOKIADPCMWAVEFORMAT {
 unsafe impl ::windows::core::Abi for DIALOGICOKIADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIALOGICOKIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIALOGICOKIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIALOGICOKIADPCMWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
     fn default() -> Self {
@@ -12276,14 +12214,6 @@ unsafe impl ::windows::core::Abi for DIGIADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12307,14 +12237,6 @@ impl ::core::clone::Clone for DIGIFIXWAVEFORMAT {
 unsafe impl ::windows::core::Abi for DIGIFIXWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGIFIXWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIFIXWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGIFIXWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIFIXWAVEFORMAT {
     fn default() -> Self {
@@ -12341,14 +12263,6 @@ unsafe impl ::windows::core::Abi for DIGIREALWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGIREALWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGIREALWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGIREALWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIREALWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12372,14 +12286,6 @@ impl ::core::clone::Clone for DIGISTDWAVEFORMAT {
 unsafe impl ::windows::core::Abi for DIGISTDWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DIGISTDWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIGISTDWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DIGISTDWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGISTDWAVEFORMAT {
     fn default() -> Self {
@@ -12405,14 +12311,6 @@ impl ::core::clone::Clone for DOLBYAC2WAVEFORMAT {
 unsafe impl ::windows::core::Abi for DOLBYAC2WAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DOLBYAC2WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOLBYAC2WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DOLBYAC2WAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DOLBYAC2WAVEFORMAT {
     fn default() -> Self {
@@ -12446,7 +12344,7 @@ unsafe impl ::windows::core::Abi for DRAWDIBTIME {
 }
 impl ::core::cmp::PartialEq for DRAWDIBTIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRAWDIBTIME>()) == 0 }
+        self.timeCount == other.timeCount && self.timeDraw == other.timeDraw && self.timeDecompress == other.timeDecompress && self.timeDither == other.timeDither && self.timeStretch == other.timeStretch && self.timeBlt == other.timeBlt && self.timeSetDIBits == other.timeSetDIBits
     }
 }
 impl ::core::cmp::Eq for DRAWDIBTIME {}
@@ -12477,14 +12375,6 @@ unsafe impl ::windows::core::Abi for DRMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DRMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DRMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DRMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12506,12 +12396,6 @@ impl ::core::clone::Clone for DRVCONFIGINFO {
 unsafe impl ::windows::core::Abi for DRVCONFIGINFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DRVCONFIGINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVCONFIGINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRVCONFIGINFO {}
 impl ::core::default::Default for DRVCONFIGINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12534,12 +12418,6 @@ impl ::core::clone::Clone for DRVCONFIGINFOEX {
 unsafe impl ::windows::core::Abi for DRVCONFIGINFOEX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DRVCONFIGINFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVCONFIGINFOEX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRVCONFIGINFOEX {}
 impl ::core::default::Default for DRVCONFIGINFOEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12560,12 +12438,6 @@ impl ::core::clone::Clone for DRVM_IOCTL_DATA {
 unsafe impl ::windows::core::Abi for DRVM_IOCTL_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DRVM_IOCTL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRVM_IOCTL_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DRVM_IOCTL_DATA {}
 impl ::core::default::Default for DRVM_IOCTL_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12591,14 +12463,6 @@ unsafe impl ::windows::core::Abi for DVIADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for DVIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for DVIADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DVIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12622,14 +12486,6 @@ impl ::core::clone::Clone for ECHOSC1WAVEFORMAT {
 unsafe impl ::windows::core::Abi for ECHOSC1WAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for ECHOSC1WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ECHOSC1WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for ECHOSC1WAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ECHOSC1WAVEFORMAT {
     fn default() -> Self {
@@ -12656,14 +12512,6 @@ unsafe impl ::windows::core::Abi for EXBMINFOHEADER {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for EXBMINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXBMINFOHEADER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for EXBMINFOHEADER {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for EXBMINFOHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12689,14 +12537,6 @@ unsafe impl ::windows::core::Abi for FMTOWNS_SND_WAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for FMTOWNS_SND_WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FMTOWNS_SND_WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for FMTOWNS_SND_WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for FMTOWNS_SND_WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12721,14 +12561,6 @@ impl ::core::clone::Clone for G721_ADPCMWAVEFORMAT {
 unsafe impl ::windows::core::Abi for G721_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for G721_ADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<G721_ADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for G721_ADPCMWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for G721_ADPCMWAVEFORMAT {
     fn default() -> Self {
@@ -12756,14 +12588,6 @@ unsafe impl ::windows::core::Abi for G723_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for G723_ADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<G723_ADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for G723_ADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for G723_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12788,14 +12612,6 @@ impl ::core::clone::Clone for GSM610WAVEFORMAT {
 unsafe impl ::windows::core::Abi for GSM610WAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for GSM610WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GSM610WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for GSM610WAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for GSM610WAVEFORMAT {
     fn default() -> Self {
@@ -12968,7 +12784,7 @@ unsafe impl ::windows::core::Abi for ICCOMPRESS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICCOMPRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICCOMPRESS>()) == 0 }
+        self.dwFlags == other.dwFlags && self.lpbiOutput == other.lpbiOutput && self.lpOutput == other.lpOutput && self.lpbiInput == other.lpbiInput && self.lpInput == other.lpInput && self.lpckid == other.lpckid && self.lpdwFlags == other.lpdwFlags && self.lFrameNum == other.lFrameNum && self.dwFrameSize == other.dwFrameSize && self.dwQuality == other.dwQuality && self.lpbiPrev == other.lpbiPrev && self.lpPrev == other.lpPrev
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -13038,7 +12854,7 @@ unsafe impl ::windows::core::Abi for ICCOMPRESSFRAMES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICCOMPRESSFRAMES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICCOMPRESSFRAMES>()) == 0 }
+        self.dwFlags == other.dwFlags && self.lpbiOutput == other.lpbiOutput && self.lOutput == other.lOutput && self.lpbiInput == other.lpbiInput && self.lInput == other.lInput && self.lStartFrame == other.lStartFrame && self.lFrameCount == other.lFrameCount && self.lQuality == other.lQuality && self.lDataRate == other.lDataRate && self.lKeyRate == other.lKeyRate && self.dwRate == other.dwRate && self.dwScale == other.dwScale && self.dwOverheadPerFrame == other.dwOverheadPerFrame && self.dwReserved2 == other.dwReserved2 && self.GetData == other.GetData && self.PutData == other.PutData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13081,7 +12897,7 @@ unsafe impl ::windows::core::Abi for ICDECOMPRESS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICDECOMPRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDECOMPRESS>()) == 0 }
+        self.dwFlags == other.dwFlags && self.lpbiInput == other.lpbiInput && self.lpInput == other.lpInput && self.lpbiOutput == other.lpbiOutput && self.lpOutput == other.lpOutput && self.ckid == other.ckid
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -13131,7 +12947,7 @@ unsafe impl ::windows::core::Abi for ICDECOMPRESSEX {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICDECOMPRESSEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDECOMPRESSEX>()) == 0 }
+        self.dwFlags == other.dwFlags && self.lpbiSrc == other.lpbiSrc && self.lpSrc == other.lpSrc && self.lpbiDst == other.lpbiDst && self.lpDst == other.lpDst && self.xDst == other.xDst && self.yDst == other.yDst && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -13167,7 +12983,7 @@ unsafe impl ::windows::core::Abi for ICDRAW {
 }
 impl ::core::cmp::PartialEq for ICDRAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAW>()) == 0 }
+        self.dwFlags == other.dwFlags && self.lpFormat == other.lpFormat && self.lpData == other.lpData && self.cbData == other.cbData && self.lTime == other.lTime
     }
 }
 impl ::core::cmp::Eq for ICDRAW {}
@@ -13217,7 +13033,7 @@ unsafe impl ::windows::core::Abi for ICDRAWBEGIN {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICDRAWBEGIN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAWBEGIN>()) == 0 }
+        self.dwFlags == other.dwFlags && self.hpal == other.hpal && self.hwnd == other.hwnd && self.hdc == other.hdc && self.xDst == other.xDst && self.yDst == other.yDst && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.lpbi == other.lpbi && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc && self.dwRate == other.dwRate && self.dwScale == other.dwScale
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13261,7 +13077,7 @@ unsafe impl ::windows::core::Abi for ICDRAWSUGGEST {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICDRAWSUGGEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICDRAWSUGGEST>()) == 0 }
+        self.lpbiIn == other.lpbiIn && self.lpbiSuggest == other.lpbiSuggest && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.hicDecompressor == other.hicDecompressor
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -13301,7 +13117,7 @@ unsafe impl ::windows::core::Abi for ICINFO {
 }
 impl ::core::cmp::PartialEq for ICINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICINFO>()) == 0 }
+        self.dwSize == other.dwSize && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwVersion == other.dwVersion && self.dwVersionICM == other.dwVersionICM && self.szName == other.szName && self.szDescription == other.szDescription && self.szDriver == other.szDriver
     }
 }
 impl ::core::cmp::Eq for ICINFO {}
@@ -13345,7 +13161,7 @@ unsafe impl ::windows::core::Abi for ICOPEN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ICOPEN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICOPEN>()) == 0 }
+        self.dwSize == other.dwSize && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.dwError == other.dwError && self.pV1Reserved == other.pV1Reserved && self.pV2Reserved == other.pV2Reserved && self.dnDevNode == other.dnDevNode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13386,7 +13202,7 @@ unsafe impl ::windows::core::Abi for ICPALETTE {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICPALETTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICPALETTE>()) == 0 }
+        self.dwFlags == other.dwFlags && self.iStart == other.iStart && self.iLen == other.iLen && self.lppe == other.lppe
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -13426,7 +13242,7 @@ unsafe impl ::windows::core::Abi for ICSETSTATUSPROC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ICSETSTATUSPROC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICSETSTATUSPROC>()) == 0 }
+        self.dwFlags == other.dwFlags && self.lParam == other.lParam && self.Status == other.Status
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13456,14 +13272,6 @@ impl ::core::clone::Clone for IMAADPCMWAVEFORMAT {
 unsafe impl ::windows::core::Abi for IMAADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for IMAADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for IMAADPCMWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for IMAADPCMWAVEFORMAT {
     fn default() -> Self {
@@ -13515,14 +13323,6 @@ unsafe impl ::windows::core::Abi for JOYCAPS2A {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JOYCAPS2A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPS2A>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JOYCAPS2A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JOYCAPS2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13568,12 +13368,6 @@ impl ::core::clone::Clone for JOYCAPS2W {
 unsafe impl ::windows::core::Abi for JOYCAPS2W {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JOYCAPS2W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPS2W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYCAPS2W {}
 impl ::core::default::Default for JOYCAPS2W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13621,14 +13415,6 @@ unsafe impl ::windows::core::Abi for JOYCAPSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JOYCAPSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JOYCAPSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JOYCAPSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13671,12 +13457,6 @@ impl ::core::clone::Clone for JOYCAPSW {
 unsafe impl ::windows::core::Abi for JOYCAPSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JOYCAPSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCAPSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYCAPSW {}
 impl ::core::default::Default for JOYCAPSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13699,12 +13479,6 @@ impl ::core::clone::Clone for JOYINFO {
 unsafe impl ::windows::core::Abi for JOYINFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JOYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYINFO {}
 impl ::core::default::Default for JOYINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13736,12 +13510,6 @@ impl ::core::clone::Clone for JOYINFOEX {
 unsafe impl ::windows::core::Abi for JOYINFOEX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JOYINFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYINFOEX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JOYINFOEX {}
 impl ::core::default::Default for JOYINFOEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13766,12 +13534,6 @@ impl ::core::clone::Clone for JPEGINFOHEADER {
 unsafe impl ::windows::core::Abi for JPEGINFOHEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JPEGINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JPEGINFOHEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JPEGINFOHEADER {}
 impl ::core::default::Default for JPEGINFOHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13801,14 +13563,6 @@ impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_OPEN_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_OPEN_PARMSA {
     fn default() -> Self {
@@ -13840,14 +13594,6 @@ unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_OPEN_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13870,12 +13616,6 @@ impl ::core::clone::Clone for MCI_ANIM_PLAY_PARMS {
 unsafe impl ::windows::core::Abi for MCI_ANIM_PLAY_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_ANIM_PLAY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_PLAY_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_ANIM_PLAY_PARMS {}
 impl ::core::default::Default for MCI_ANIM_PLAY_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13901,14 +13641,6 @@ unsafe impl ::windows::core::Abi for MCI_ANIM_RECT_PARMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_RECT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_RECT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_RECT_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13929,12 +13661,6 @@ impl ::core::clone::Clone for MCI_ANIM_STEP_PARMS {
 unsafe impl ::windows::core::Abi for MCI_ANIM_STEP_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_ANIM_STEP_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_STEP_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_ANIM_STEP_PARMS {}
 impl ::core::default::Default for MCI_ANIM_STEP_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13960,14 +13686,6 @@ impl ::core::clone::Clone for MCI_ANIM_UPDATE_PARMS {
 unsafe impl ::windows::core::Abi for MCI_ANIM_UPDATE_PARMS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MCI_ANIM_UPDATE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_UPDATE_PARMS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MCI_ANIM_UPDATE_PARMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MCI_ANIM_UPDATE_PARMS {
     fn default() -> Self {
@@ -13996,14 +13714,6 @@ unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_WINDOW_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14031,14 +13741,6 @@ unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_ANIM_WINDOW_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_ANIM_WINDOW_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_ANIM_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14064,14 +13766,6 @@ impl ::core::clone::Clone for MCI_BREAK_PARMS {
 unsafe impl ::windows::core::Abi for MCI_BREAK_PARMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_BREAK_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_BREAK_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_BREAK_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_BREAK_PARMS {
     fn default() -> Self {
@@ -14099,14 +13793,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CAPTURE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14132,14 +13818,6 @@ impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_CAPTURE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CAPTURE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_CAPTURE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSW {
     fn default() -> Self {
@@ -14170,14 +13848,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_COPY_PARMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_COPY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_COPY_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_COPY_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_COPY_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14198,12 +13868,6 @@ impl ::core::clone::Clone for MCI_DGV_CUE_PARMS {
 unsafe impl ::windows::core::Abi for MCI_DGV_CUE_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_CUE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CUE_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_CUE_PARMS {}
 impl ::core::default::Default for MCI_DGV_CUE_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14232,14 +13896,6 @@ impl ::core::clone::Clone for MCI_DGV_CUT_PARMS {
 unsafe impl ::windows::core::Abi for MCI_DGV_CUT_PARMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_CUT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_CUT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_CUT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_CUT_PARMS {
     fn default() -> Self {
@@ -14270,14 +13926,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_DELETE_PARMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_DELETE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_DELETE_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_DELETE_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_DELETE_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14300,12 +13948,6 @@ impl ::core::clone::Clone for MCI_DGV_INFO_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_INFO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSA {}
 impl ::core::default::Default for MCI_DGV_INFO_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14328,12 +13970,6 @@ impl ::core::clone::Clone for MCI_DGV_INFO_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_INFO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_INFO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_INFO_PARMSW {}
 impl ::core::default::Default for MCI_DGV_INFO_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14358,12 +13994,6 @@ impl ::core::clone::Clone for MCI_DGV_LIST_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_LIST_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSA {}
 impl ::core::default::Default for MCI_DGV_LIST_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14388,12 +14018,6 @@ impl ::core::clone::Clone for MCI_DGV_LIST_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_LIST_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_LIST_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_LIST_PARMSW {}
 impl ::core::default::Default for MCI_DGV_LIST_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14415,12 +14039,6 @@ impl ::core::clone::Clone for MCI_DGV_MONITOR_PARMS {
 unsafe impl ::windows::core::Abi for MCI_DGV_MONITOR_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_MONITOR_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_MONITOR_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_MONITOR_PARMS {}
 impl ::core::default::Default for MCI_DGV_MONITOR_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14450,14 +14068,6 @@ impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_OPEN_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_OPEN_PARMSA {
     fn default() -> Self {
@@ -14489,14 +14099,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_OPEN_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14525,14 +14127,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_PASTE_PARMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_PASTE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_PASTE_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_PASTE_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_PASTE_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14556,12 +14150,6 @@ impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_QUALITY_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSA {}
 impl ::core::default::Default for MCI_DGV_QUALITY_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14585,12 +14173,6 @@ impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_QUALITY_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_QUALITY_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_QUALITY_PARMSW {}
 impl ::core::default::Default for MCI_DGV_QUALITY_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14620,14 +14202,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_RECORD_PARMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RECORD_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RECORD_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RECORD_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RECORD_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14653,14 +14227,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_RECT_PARMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RECT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RECT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RECT_PARMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RECT_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14682,12 +14248,6 @@ impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESERVE_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSA {}
 impl ::core::default::Default for MCI_DGV_RESERVE_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14709,12 +14269,6 @@ impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_RESERVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESERVE_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_RESERVE_PARMSW {}
 impl ::core::default::Default for MCI_DGV_RESERVE_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14740,14 +14294,6 @@ impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESTORE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RESTORE_PARMSA {
     fn default() -> Self {
@@ -14775,14 +14321,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_RESTORE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_RESTORE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_RESTORE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RESTORE_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14808,14 +14346,6 @@ impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SAVE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_SAVE_PARMSA {
     fn default() -> Self {
@@ -14843,14 +14373,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_SAVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SAVE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_SAVE_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14875,12 +14397,6 @@ impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETAUDIO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSA {}
 impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14905,12 +14421,6 @@ impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_SETAUDIO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETAUDIO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETAUDIO_PARMSW {}
 impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14936,12 +14446,6 @@ impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETVIDEO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSA {}
 impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14967,12 +14471,6 @@ impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_SETVIDEO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SETVIDEO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SETVIDEO_PARMSW {}
 impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14996,12 +14494,6 @@ impl ::core::clone::Clone for MCI_DGV_SET_PARMS {
 unsafe impl ::windows::core::Abi for MCI_DGV_SET_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SET_PARMS {}
 impl ::core::default::Default for MCI_DGV_SET_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15024,12 +14516,6 @@ impl ::core::clone::Clone for MCI_DGV_SIGNAL_PARMS {
 unsafe impl ::windows::core::Abi for MCI_DGV_SIGNAL_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_SIGNAL_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_SIGNAL_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_SIGNAL_PARMS {}
 impl ::core::default::Default for MCI_DGV_SIGNAL_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15054,12 +14540,6 @@ impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STATUS_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSA {}
 impl ::core::default::Default for MCI_DGV_STATUS_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15084,12 +14564,6 @@ impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_STATUS_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STATUS_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_STATUS_PARMSW {}
 impl ::core::default::Default for MCI_DGV_STATUS_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15110,12 +14584,6 @@ impl ::core::clone::Clone for MCI_DGV_STEP_PARMS {
 unsafe impl ::windows::core::Abi for MCI_DGV_STEP_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_DGV_STEP_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_STEP_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_DGV_STEP_PARMS {}
 impl ::core::default::Default for MCI_DGV_STEP_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15141,14 +14609,6 @@ impl ::core::clone::Clone for MCI_DGV_UPDATE_PARMS {
 unsafe impl ::windows::core::Abi for MCI_DGV_UPDATE_PARMS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MCI_DGV_UPDATE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_UPDATE_PARMS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MCI_DGV_UPDATE_PARMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MCI_DGV_UPDATE_PARMS {
     fn default() -> Self {
@@ -15177,14 +14637,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_WINDOW_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15212,14 +14664,6 @@ unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_DGV_WINDOW_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_DGV_WINDOW_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_DGV_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15239,12 +14683,6 @@ impl ::core::clone::Clone for MCI_GENERIC_PARMS {
 unsafe impl ::windows::core::Abi for MCI_GENERIC_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_GENERIC_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_GENERIC_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_GENERIC_PARMS {}
 impl ::core::default::Default for MCI_GENERIC_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15266,12 +14704,6 @@ impl ::core::clone::Clone for MCI_GETDEVCAPS_PARMS {
 unsafe impl ::windows::core::Abi for MCI_GETDEVCAPS_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_GETDEVCAPS_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_GETDEVCAPS_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_GETDEVCAPS_PARMS {}
 impl ::core::default::Default for MCI_GETDEVCAPS_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15293,12 +14725,6 @@ impl ::core::clone::Clone for MCI_INFO_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_INFO_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_INFO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_INFO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_INFO_PARMSA {}
 impl ::core::default::Default for MCI_INFO_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15320,12 +14746,6 @@ impl ::core::clone::Clone for MCI_INFO_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_INFO_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_INFO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_INFO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_INFO_PARMSW {}
 impl ::core::default::Default for MCI_INFO_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15346,12 +14766,6 @@ impl ::core::clone::Clone for MCI_LOAD_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_LOAD_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_LOAD_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_LOAD_PARMSA {}
 impl ::core::default::Default for MCI_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15372,12 +14786,6 @@ impl ::core::clone::Clone for MCI_LOAD_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_LOAD_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_LOAD_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_LOAD_PARMSW {}
 impl ::core::default::Default for MCI_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15400,12 +14808,6 @@ impl ::core::clone::Clone for MCI_OPEN_DRIVER_PARMS {
 unsafe impl ::windows::core::Abi for MCI_OPEN_DRIVER_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_OPEN_DRIVER_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_DRIVER_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_OPEN_DRIVER_PARMS {}
 impl ::core::default::Default for MCI_OPEN_DRIVER_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15429,12 +14831,6 @@ impl ::core::clone::Clone for MCI_OPEN_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_OPEN_PARMSA {}
 impl ::core::default::Default for MCI_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15458,12 +14854,6 @@ impl ::core::clone::Clone for MCI_OPEN_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OPEN_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_OPEN_PARMSW {}
 impl ::core::default::Default for MCI_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15490,14 +14880,6 @@ unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_LOAD_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15523,14 +14905,6 @@ impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_LOAD_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_LOAD_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_LOAD_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_LOAD_PARMSW {
     fn default() -> Self {
@@ -15562,14 +14936,6 @@ unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_OPEN_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15600,14 +14966,6 @@ unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_OPEN_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_OPEN_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15632,14 +14990,6 @@ impl ::core::clone::Clone for MCI_OVLY_RECT_PARMS {
 unsafe impl ::windows::core::Abi for MCI_OVLY_RECT_PARMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_RECT_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_RECT_PARMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_RECT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_RECT_PARMS {
     fn default() -> Self {
@@ -15667,14 +15017,6 @@ unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_SAVE_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15700,14 +15042,6 @@ impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_SAVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_SAVE_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_SAVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_SAVE_PARMSW {
     fn default() -> Self {
@@ -15736,14 +15070,6 @@ unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_WINDOW_PARMSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15771,14 +15097,6 @@ unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MCI_OVLY_WINDOW_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_OVLY_WINDOW_PARMSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MCI_OVLY_WINDOW_PARMSW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15800,12 +15118,6 @@ impl ::core::clone::Clone for MCI_PLAY_PARMS {
 unsafe impl ::windows::core::Abi for MCI_PLAY_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_PLAY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_PLAY_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_PLAY_PARMS {}
 impl ::core::default::Default for MCI_PLAY_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15827,12 +15139,6 @@ impl ::core::clone::Clone for MCI_RECORD_PARMS {
 unsafe impl ::windows::core::Abi for MCI_RECORD_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_RECORD_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_RECORD_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_RECORD_PARMS {}
 impl ::core::default::Default for MCI_RECORD_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15853,12 +15159,6 @@ impl ::core::clone::Clone for MCI_SAVE_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_SAVE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SAVE_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SAVE_PARMSA {}
 impl ::core::default::Default for MCI_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15879,12 +15179,6 @@ impl ::core::clone::Clone for MCI_SAVE_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_SAVE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SAVE_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SAVE_PARMSW {}
 impl ::core::default::Default for MCI_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15905,12 +15199,6 @@ impl ::core::clone::Clone for MCI_SEEK_PARMS {
 unsafe impl ::windows::core::Abi for MCI_SEEK_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_SEEK_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SEEK_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SEEK_PARMS {}
 impl ::core::default::Default for MCI_SEEK_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15937,12 +15225,6 @@ impl ::core::clone::Clone for MCI_SEQ_SET_PARMS {
 unsafe impl ::windows::core::Abi for MCI_SEQ_SET_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_SEQ_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SEQ_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SEQ_SET_PARMS {}
 impl ::core::default::Default for MCI_SEQ_SET_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15964,12 +15246,6 @@ impl ::core::clone::Clone for MCI_SET_PARMS {
 unsafe impl ::windows::core::Abi for MCI_SET_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SET_PARMS {}
 impl ::core::default::Default for MCI_SET_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15992,12 +15268,6 @@ impl ::core::clone::Clone for MCI_STATUS_PARMS {
 unsafe impl ::windows::core::Abi for MCI_STATUS_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_STATUS_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_STATUS_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_STATUS_PARMS {}
 impl ::core::default::Default for MCI_STATUS_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16021,12 +15291,6 @@ impl ::core::clone::Clone for MCI_SYSINFO_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SYSINFO_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SYSINFO_PARMSA {}
 impl ::core::default::Default for MCI_SYSINFO_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16050,12 +15314,6 @@ impl ::core::clone::Clone for MCI_SYSINFO_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_SYSINFO_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_SYSINFO_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_SYSINFO_PARMSW {}
 impl ::core::default::Default for MCI_SYSINFO_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16076,12 +15334,6 @@ impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_ESCAPE_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSA {}
 impl ::core::default::Default for MCI_VD_ESCAPE_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16102,12 +15354,6 @@ impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_VD_ESCAPE_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_ESCAPE_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_ESCAPE_PARMSW {}
 impl ::core::default::Default for MCI_VD_ESCAPE_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16130,12 +15376,6 @@ impl ::core::clone::Clone for MCI_VD_PLAY_PARMS {
 unsafe impl ::windows::core::Abi for MCI_VD_PLAY_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_VD_PLAY_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_PLAY_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_PLAY_PARMS {}
 impl ::core::default::Default for MCI_VD_PLAY_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16156,12 +15396,6 @@ impl ::core::clone::Clone for MCI_VD_STEP_PARMS {
 unsafe impl ::windows::core::Abi for MCI_VD_STEP_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_VD_STEP_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_VD_STEP_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_VD_STEP_PARMS {}
 impl ::core::default::Default for MCI_VD_STEP_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16183,12 +15417,6 @@ impl ::core::clone::Clone for MCI_WAVE_DELETE_PARMS {
 unsafe impl ::windows::core::Abi for MCI_WAVE_DELETE_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_WAVE_DELETE_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_DELETE_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_DELETE_PARMS {}
 impl ::core::default::Default for MCI_WAVE_DELETE_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16213,12 +15441,6 @@ impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSA {
 unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_OPEN_PARMSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSA {}
 impl ::core::default::Default for MCI_WAVE_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16243,12 +15465,6 @@ impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSW {
 unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_WAVE_OPEN_PARMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_OPEN_PARMSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_OPEN_PARMSW {}
 impl ::core::default::Default for MCI_WAVE_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16282,12 +15498,6 @@ impl ::core::clone::Clone for MCI_WAVE_SET_PARMS {
 unsafe impl ::windows::core::Abi for MCI_WAVE_SET_PARMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MCI_WAVE_SET_PARMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCI_WAVE_SET_PARMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MCI_WAVE_SET_PARMS {}
 impl ::core::default::Default for MCI_WAVE_SET_PARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16313,14 +15523,6 @@ unsafe impl ::windows::core::Abi for MEDIASPACEADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for MEDIASPACEADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEDIASPACEADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for MEDIASPACEADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MEDIASPACEADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16341,12 +15543,6 @@ impl ::core::clone::Clone for MIDIOPENSTRMID {
 unsafe impl ::windows::core::Abi for MIDIOPENSTRMID {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MIDIOPENSTRMID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIDIOPENSTRMID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MIDIOPENSTRMID {}
 impl ::core::default::Default for MIDIOPENSTRMID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16375,14 +15571,6 @@ unsafe impl ::windows::core::Abi for MIXEROPENDESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for MIXEROPENDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MIXEROPENDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for MIXEROPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MIXEROPENDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16406,12 +15594,6 @@ impl ::core::clone::Clone for MMCKINFO {
 unsafe impl ::windows::core::Abi for MMCKINFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMCKINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMCKINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMCKINFO {}
 impl ::core::default::Default for MMCKINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16451,14 +15633,6 @@ unsafe impl ::windows::core::Abi for MMIOINFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MMIOINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMIOINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MMIOINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MMIOINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16485,14 +15659,6 @@ unsafe impl ::windows::core::Abi for MSAUDIO1WAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for MSAUDIO1WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSAUDIO1WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for MSAUDIO1WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MSAUDIO1WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16518,14 +15684,6 @@ unsafe impl ::windows::core::Abi for NMS_VBXADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for NMS_VBXADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NMS_VBXADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for NMS_VBXADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for NMS_VBXADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16549,14 +15707,6 @@ impl ::core::clone::Clone for OLIADPCMWAVEFORMAT {
 unsafe impl ::windows::core::Abi for OLIADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLIADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLIADPCMWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIADPCMWAVEFORMAT {
     fn default() -> Self {
@@ -16582,14 +15732,6 @@ unsafe impl ::windows::core::Abi for OLICELPWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLICELPWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLICELPWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLICELPWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLICELPWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16613,14 +15755,6 @@ impl ::core::clone::Clone for OLIGSMWAVEFORMAT {
 unsafe impl ::windows::core::Abi for OLIGSMWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLIGSMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIGSMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLIGSMWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIGSMWAVEFORMAT {
     fn default() -> Self {
@@ -16646,14 +15780,6 @@ unsafe impl ::windows::core::Abi for OLIOPRWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLIOPRWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLIOPRWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLIOPRWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIOPRWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16677,14 +15803,6 @@ impl ::core::clone::Clone for OLISBCWAVEFORMAT {
 unsafe impl ::windows::core::Abi for OLISBCWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for OLISBCWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLISBCWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for OLISBCWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLISBCWAVEFORMAT {
     fn default() -> Self {
@@ -16711,14 +15829,6 @@ unsafe impl ::windows::core::Abi for SIERRAADPCMWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for SIERRAADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIERRAADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for SIERRAADPCMWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for SIERRAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16744,14 +15854,6 @@ unsafe impl ::windows::core::Abi for SONARCWAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for SONARCWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SONARCWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for SONARCWAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for SONARCWAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16776,12 +15878,6 @@ impl ::core::clone::Clone for TIMEREVENT {
 unsafe impl ::windows::core::Abi for TIMEREVENT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TIMEREVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMEREVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TIMEREVENT {}
 impl ::core::default::Default for TIMEREVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16808,14 +15904,6 @@ impl ::core::clone::Clone for TRUESPEECHWAVEFORMAT {
 unsafe impl ::windows::core::Abi for TRUESPEECHWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for TRUESPEECHWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUESPEECHWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for TRUESPEECHWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
@@ -16849,7 +15937,7 @@ unsafe impl ::windows::core::Abi for VIDEOHDR {
 }
 impl ::core::cmp::PartialEq for VIDEOHDR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOHDR>()) == 0 }
+        self.lpData == other.lpData && self.dwBufferLength == other.dwBufferLength && self.dwBytesUsed == other.dwBytesUsed && self.dwTimeCaptured == other.dwTimeCaptured && self.dwUser == other.dwUser && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for VIDEOHDR {}
@@ -16882,14 +15970,6 @@ unsafe impl ::windows::core::Abi for WAVEOPENDESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for WAVEOPENDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WAVEOPENDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for WAVEOPENDESC {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WAVEOPENDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16916,14 +15996,6 @@ impl ::core::clone::Clone for WMAUDIO2WAVEFORMAT {
 unsafe impl ::windows::core::Abi for WMAUDIO2WAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for WMAUDIO2WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMAUDIO2WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for WMAUDIO2WAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WMAUDIO2WAVEFORMAT {
     fn default() -> Self {
@@ -16955,14 +16027,6 @@ unsafe impl ::windows::core::Abi for WMAUDIO3WAVEFORMAT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for WMAUDIO3WAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMAUDIO3WAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for WMAUDIO3WAVEFORMAT {}
-#[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WMAUDIO3WAVEFORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16986,14 +16050,6 @@ impl ::core::clone::Clone for YAMAHA_ADPCMWAVEFORMAT {
 unsafe impl ::windows::core::Abi for YAMAHA_ADPCMWAVEFORMAT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::PartialEq for YAMAHA_ADPCMWAVEFORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<YAMAHA_ADPCMWAVEFORMAT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl ::core::cmp::Eq for YAMAHA_ADPCMWAVEFORMAT {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for YAMAHA_ADPCMWAVEFORMAT {
     fn default() -> Self {
@@ -17033,7 +16089,7 @@ unsafe impl ::windows::core::Abi for s_RIFFWAVE_inst {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for s_RIFFWAVE_inst {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<s_RIFFWAVE_inst>()) == 0 }
+        self.bUnshiftedNote == other.bUnshiftedNote && self.chFineTune == other.chFineTune && self.chGain == other.chGain && self.bLowNote == other.bLowNote && self.bHighNote == other.bHighNote && self.bLowVelocity == other.bLowVelocity && self.bHighVelocity == other.bHighVelocity
     }
 }
 #[cfg(feature = "Win32_Foundation")]

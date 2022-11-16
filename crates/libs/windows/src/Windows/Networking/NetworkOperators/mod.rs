@@ -10117,7 +10117,7 @@ unsafe impl ::windows::core::RuntimeType for ESimProfileInstallProgress {
 }
 impl ::core::cmp::PartialEq for ESimProfileInstallProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ESimProfileInstallProgress>()) == 0 }
+        self.TotalSizeInBytes == other.TotalSizeInBytes && self.InstalledSizeInBytes == other.InstalledSizeInBytes
     }
 }
 impl ::core::cmp::Eq for ESimProfileInstallProgress {}
@@ -10162,7 +10162,7 @@ unsafe impl ::windows::core::RuntimeType for ProfileUsage {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ProfileUsage {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ProfileUsage>()) == 0 }
+        self.UsageInMegabytes == other.UsageInMegabytes && self.LastSyncTime == other.LastSyncTime
     }
 }
 #[cfg(feature = "Foundation")]

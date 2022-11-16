@@ -1338,7 +1338,7 @@ unsafe impl ::windows::core::RuntimeType for Color {
 }
 impl ::core::cmp::PartialEq for Color {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Color>()) == 0 }
+        self.A == other.A && self.R == other.R && self.G == other.G && self.B == other.B
     }
 }
 impl ::core::cmp::Eq for Color {}
@@ -1375,7 +1375,7 @@ unsafe impl ::windows::core::RuntimeType for WindowId {
 }
 impl ::core::cmp::PartialEq for WindowId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WindowId>()) == 0 }
+        self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for WindowId {}

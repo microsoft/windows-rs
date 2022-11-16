@@ -7697,7 +7697,7 @@ unsafe impl ::windows::core::Abi for AUDIT_POLICY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for AUDIT_POLICY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_POLICY_INFORMATION>()) == 0 }
+        self.AuditSubCategoryGuid == other.AuditSubCategoryGuid && self.AuditingInformation == other.AuditingInformation && self.AuditCategoryGuid == other.AuditCategoryGuid
     }
 }
 impl ::core::cmp::Eq for AUDIT_POLICY_INFORMATION {}
@@ -7739,7 +7739,7 @@ unsafe impl ::windows::core::Abi for CENTRAL_ACCESS_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CENTRAL_ACCESS_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CENTRAL_ACCESS_POLICY>()) == 0 }
+        self.CAPID == other.CAPID && self.Name == other.Name && self.Description == other.Description && self.ChangeId == other.ChangeId && self.Flags == other.Flags && self.CAPECount == other.CAPECount && self.CAPEs == other.CAPEs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7786,7 +7786,7 @@ unsafe impl ::windows::core::Abi for CENTRAL_ACCESS_POLICY_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CENTRAL_ACCESS_POLICY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CENTRAL_ACCESS_POLICY_ENTRY>()) == 0 }
+        self.Name == other.Name && self.Description == other.Description && self.ChangeId == other.ChangeId && self.LengthAppliesTo == other.LengthAppliesTo && self.AppliesTo == other.AppliesTo && self.LengthSD == other.LengthSD && self.SD == other.SD && self.LengthStagedSD == other.LengthStagedSD && self.StagedSD == other.StagedSD && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7824,7 +7824,7 @@ unsafe impl ::windows::core::Abi for CLEAR_BLOCK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLEAR_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLEAR_BLOCK>()) == 0 }
+        self.data == other.data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7860,7 +7860,7 @@ unsafe impl ::windows::core::Abi for DOMAIN_PASSWORD_INFORMATION {
 }
 impl ::core::cmp::PartialEq for DOMAIN_PASSWORD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAIN_PASSWORD_INFORMATION>()) == 0 }
+        self.MinPasswordLength == other.MinPasswordLength && self.PasswordHistoryLength == other.PasswordHistoryLength && self.PasswordProperties == other.PasswordProperties && self.MaxPasswordAge == other.MaxPasswordAge && self.MinPasswordAge == other.MinPasswordAge
     }
 }
 impl ::core::cmp::Eq for DOMAIN_PASSWORD_INFORMATION {}
@@ -7897,7 +7897,7 @@ unsafe impl ::windows::core::Abi for ENCRYPTED_CREDENTIALW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for ENCRYPTED_CREDENTIALW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTED_CREDENTIALW>()) == 0 }
+        self.Cred == other.Cred && self.ClearCredentialBlobSize == other.ClearCredentialBlobSize
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -7943,7 +7943,7 @@ unsafe impl ::windows::core::Abi for KDC_PROXY_CACHE_ENTRY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KDC_PROXY_CACHE_ENTRY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KDC_PROXY_CACHE_ENTRY_DATA>()) == 0 }
+        self.SinceLastUsed == other.SinceLastUsed && self.DomainName == other.DomainName && self.ProxyServerName == other.ProxyServerName && self.ProxyServerVdir == other.ProxyServerVdir && self.ProxyServerPort == other.ProxyServerPort && self.LogonId == other.LogonId && self.CredUserName == other.CredUserName && self.CredDomainName == other.CredDomainName && self.GlobalCache == other.GlobalCache
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7985,7 +7985,7 @@ unsafe impl ::windows::core::Abi for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.RealmName == other.RealmName && self.KdcAddress == other.KdcAddress && self.AddressType == other.AddressType && self.DcFlags == other.DcFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8026,7 +8026,7 @@ unsafe impl ::windows::core::Abi for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_ADD_BINDING_CACHE_ENTRY_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.RealmName == other.RealmName && self.KdcAddress == other.KdcAddress && self.AddressType == other.AddressType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8069,7 +8069,7 @@ unsafe impl ::windows::core::Abi for KERB_ADD_CREDENTIALS_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_CREDENTIALS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_ADD_CREDENTIALS_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.UserName == other.UserName && self.DomainName == other.DomainName && self.Password == other.Password && self.LogonId == other.LogonId && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8109,7 +8109,7 @@ unsafe impl ::windows::core::Abi for KERB_ADD_CREDENTIALS_REQUEST_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_CREDENTIALS_REQUEST_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_ADD_CREDENTIALS_REQUEST_EX>()) == 0 }
+        self.Credentials == other.Credentials && self.PrincipalNameCount == other.PrincipalNameCount && self.PrincipalNames == other.PrincipalNames
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8143,7 +8143,7 @@ unsafe impl ::windows::core::Abi for KERB_AUTH_DATA {
 }
 impl ::core::cmp::PartialEq for KERB_AUTH_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_AUTH_DATA>()) == 0 }
+        self.Type == other.Type && self.Length == other.Length && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for KERB_AUTH_DATA {}
@@ -8186,7 +8186,7 @@ unsafe impl ::windows::core::Abi for KERB_BINDING_CACHE_ENTRY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_BINDING_CACHE_ENTRY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_BINDING_CACHE_ENTRY_DATA>()) == 0 }
+        self.DiscoveryTime == other.DiscoveryTime && self.RealmName == other.RealmName && self.KdcAddress == other.KdcAddress && self.AddressType == other.AddressType && self.Flags == other.Flags && self.DcFlags == other.DcFlags && self.CacheFlags == other.CacheFlags && self.KdcName == other.KdcName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8219,7 +8219,7 @@ unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_HASHINFO {
 }
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_HASHINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CERTIFICATE_HASHINFO>()) == 0 }
+        self.StoreNameLength == other.StoreNameLength && self.HashLength == other.HashLength
     }
 }
 impl ::core::cmp::Eq for KERB_CERTIFICATE_HASHINFO {}
@@ -8250,7 +8250,7 @@ unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_INFO {
 }
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CERTIFICATE_INFO>()) == 0 }
+        self.CertInfoSize == other.CertInfoSize && self.InfoType == other.InfoType
     }
 }
 impl ::core::cmp::Eq for KERB_CERTIFICATE_INFO {}
@@ -8292,7 +8292,7 @@ unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CERTIFICATE_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.DomainName == other.DomainName && self.UserName == other.UserName && self.Pin == other.Pin && self.Flags == other.Flags && self.CspDataLength == other.CspDataLength && self.CspData == other.CspData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8335,7 +8335,7 @@ unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_S4U_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_S4U_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CERTIFICATE_S4U_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.UserPrincipalName == other.UserPrincipalName && self.DomainName == other.DomainName && self.CertificateLength == other.CertificateLength && self.Certificate == other.Certificate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8374,7 +8374,7 @@ unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_UNLOCK_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_UNLOCK_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CERTIFICATE_UNLOCK_LOGON>()) == 0 }
+        self.Logon == other.Logon && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8417,7 +8417,7 @@ unsafe impl ::windows::core::Abi for KERB_CHANGEPASSWORD_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CHANGEPASSWORD_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CHANGEPASSWORD_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.DomainName == other.DomainName && self.AccountName == other.AccountName && self.OldPassword == other.OldPassword && self.NewPassword == other.NewPassword && self.Impersonating == other.Impersonating
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8456,7 +8456,7 @@ unsafe impl ::windows::core::Abi for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8488,7 +8488,7 @@ unsafe impl ::windows::core::Abi for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
 }
 impl ::core::cmp::PartialEq for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CLOUD_KERBEROS_DEBUG_DATA_V0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {}
@@ -8525,7 +8525,7 @@ unsafe impl ::windows::core::Abi for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CLOUD_KERBEROS_DEBUG_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8560,7 +8560,7 @@ unsafe impl ::windows::core::Abi for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
 }
 impl ::core::cmp::PartialEq for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CLOUD_KERBEROS_DEBUG_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.Version == other.Version && self.Length == other.Length && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {}
@@ -8592,7 +8592,7 @@ unsafe impl ::windows::core::Abi for KERB_CRYPTO_KEY {
 }
 impl ::core::cmp::PartialEq for KERB_CRYPTO_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CRYPTO_KEY>()) == 0 }
+        self.KeyType == other.KeyType && self.Length == other.Length && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for KERB_CRYPTO_KEY {}
@@ -8624,7 +8624,7 @@ unsafe impl ::windows::core::Abi for KERB_CRYPTO_KEY32 {
 }
 impl ::core::cmp::PartialEq for KERB_CRYPTO_KEY32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_CRYPTO_KEY32>()) == 0 }
+        self.KeyType == other.KeyType && self.Length == other.Length && self.Offset == other.Offset
     }
 }
 impl ::core::cmp::Eq for KERB_CRYPTO_KEY32 {}
@@ -8669,7 +8669,7 @@ unsafe impl ::windows::core::Abi for KERB_DECRYPT_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_DECRYPT_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_DECRYPT_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId && self.Flags == other.Flags && self.CryptoType == other.CryptoType && self.KeyUsage == other.KeyUsage && self.Key == other.Key && self.EncryptedDataSize == other.EncryptedDataSize && self.InitialVectorSize == other.InitialVectorSize && self.InitialVector == other.InitialVector && self.EncryptedData == other.EncryptedData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8701,7 +8701,7 @@ unsafe impl ::windows::core::Abi for KERB_DECRYPT_RESPONSE {
 }
 impl ::core::cmp::PartialEq for KERB_DECRYPT_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_DECRYPT_RESPONSE>()) == 0 }
+        self.DecryptedData == other.DecryptedData
     }
 }
 impl ::core::cmp::Eq for KERB_DECRYPT_RESPONSE {}
@@ -8739,7 +8739,7 @@ unsafe impl ::windows::core::Abi for KERB_EXTERNAL_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_EXTERNAL_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_EXTERNAL_NAME>()) == 0 }
+        self.NameType == other.NameType && self.NameCount == other.NameCount && self.Names == other.Names
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8809,7 +8809,7 @@ unsafe impl ::windows::core::Abi for KERB_EXTERNAL_TICKET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_EXTERNAL_TICKET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_EXTERNAL_TICKET>()) == 0 }
+        self.ServiceName == other.ServiceName && self.TargetName == other.TargetName && self.ClientName == other.ClientName && self.DomainName == other.DomainName && self.TargetDomainName == other.TargetDomainName && self.AltTargetDomainName == other.AltTargetDomainName && self.SessionKey == other.SessionKey && self.TicketFlags == other.TicketFlags && self.Flags == other.Flags && self.KeyExpirationTime == other.KeyExpirationTime && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.RenewUntil == other.RenewUntil && self.TimeSkew == other.TimeSkew && self.EncodedTicketSize == other.EncodedTicketSize && self.EncodedTicket == other.EncodedTicket
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8850,7 +8850,7 @@ unsafe impl ::windows::core::Abi for KERB_INTERACTIVE_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_INTERACTIVE_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_INTERACTIVE_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonDomainName == other.LogonDomainName && self.UserName == other.UserName && self.Password == other.Password
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8920,7 +8920,7 @@ unsafe impl ::windows::core::Abi for KERB_INTERACTIVE_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_INTERACTIVE_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_INTERACTIVE_PROFILE>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonCount == other.LogonCount && self.BadPasswordCount == other.BadPasswordCount && self.LogonTime == other.LogonTime && self.LogoffTime == other.LogoffTime && self.KickOffTime == other.KickOffTime && self.PasswordLastSet == other.PasswordLastSet && self.PasswordCanChange == other.PasswordCanChange && self.PasswordMustChange == other.PasswordMustChange && self.LogonScript == other.LogonScript && self.HomeDirectory == other.HomeDirectory && self.FullName == other.FullName && self.ProfilePath == other.ProfilePath && self.HomeDirectoryDrive == other.HomeDirectoryDrive && self.LogonServer == other.LogonServer && self.UserFlags == other.UserFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8959,7 +8959,7 @@ unsafe impl ::windows::core::Abi for KERB_INTERACTIVE_UNLOCK_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_INTERACTIVE_UNLOCK_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_INTERACTIVE_UNLOCK_LOGON>()) == 0 }
+        self.Logon == other.Logon && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8993,7 +8993,7 @@ unsafe impl ::windows::core::Abi for KERB_NET_ADDRESS {
 }
 impl ::core::cmp::PartialEq for KERB_NET_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_NET_ADDRESS>()) == 0 }
+        self.Family == other.Family && self.Length == other.Length && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for KERB_NET_ADDRESS {}
@@ -9024,7 +9024,7 @@ unsafe impl ::windows::core::Abi for KERB_NET_ADDRESSES {
 }
 impl ::core::cmp::PartialEq for KERB_NET_ADDRESSES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_NET_ADDRESSES>()) == 0 }
+        self.Number == other.Number && self.Addresses == other.Addresses
     }
 }
 impl ::core::cmp::Eq for KERB_NET_ADDRESSES {}
@@ -9054,7 +9054,7 @@ unsafe impl ::windows::core::Abi for KERB_PURGE_BINDING_CACHE_REQUEST {
 }
 impl ::core::cmp::PartialEq for KERB_PURGE_BINDING_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_PURGE_BINDING_CACHE_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType
     }
 }
 impl ::core::cmp::Eq for KERB_PURGE_BINDING_CACHE_REQUEST {}
@@ -9092,7 +9092,7 @@ unsafe impl ::windows::core::Abi for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_PURGE_KDC_PROXY_CACHE_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9125,7 +9125,7 @@ unsafe impl ::windows::core::Abi for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
 }
 impl ::core::cmp::PartialEq for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_PURGE_KDC_PROXY_CACHE_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfPurged == other.CountOfPurged
     }
 }
 impl ::core::cmp::Eq for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {}
@@ -9164,7 +9164,7 @@ unsafe impl ::windows::core::Abi for KERB_PURGE_TKT_CACHE_EX_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_PURGE_TKT_CACHE_EX_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_PURGE_TKT_CACHE_EX_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId && self.Flags == other.Flags && self.TicketTemplate == other.TicketTemplate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9205,7 +9205,7 @@ unsafe impl ::windows::core::Abi for KERB_PURGE_TKT_CACHE_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_PURGE_TKT_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_PURGE_TKT_CACHE_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId && self.ServerName == other.ServerName && self.RealmName == other.RealmName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9237,7 +9237,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_BINDING_CACHE_REQUEST {
 }
 impl ::core::cmp::PartialEq for KERB_QUERY_BINDING_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_BINDING_CACHE_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType
     }
 }
 impl ::core::cmp::Eq for KERB_QUERY_BINDING_CACHE_REQUEST {}
@@ -9275,7 +9275,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_BINDING_CACHE_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_BINDING_CACHE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_BINDING_CACHE_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfEntries == other.CountOfEntries && self.Entries == other.Entries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9315,7 +9315,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.DomainName == other.DomainName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9350,7 +9350,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONS
 }
 impl ::core::cmp::PartialEq for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.ExtendedPolicies == other.ExtendedPolicies && self.DsFlags == other.DsFlags
     }
 }
 impl ::core::cmp::Eq for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {}
@@ -9388,7 +9388,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_KDC_PROXY_CACHE_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9428,7 +9428,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_KDC_PROXY_CACHE_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfEntries == other.CountOfEntries && self.Entries == other.Entries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9468,7 +9468,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_S4U2PROXY_CACHE_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9508,7 +9508,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_S4U2PROXY_CACHE_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfCreds == other.CountOfCreds && self.Creds == other.Creds
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9548,7 +9548,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_TKT_CACHE_EX2_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfTickets == other.CountOfTickets && self.Tickets == other.Tickets
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9588,7 +9588,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_TKT_CACHE_EX3_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfTickets == other.CountOfTickets && self.Tickets == other.Tickets
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9628,7 +9628,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_TKT_CACHE_EX_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfTickets == other.CountOfTickets && self.Tickets == other.Tickets
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9667,7 +9667,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_TKT_CACHE_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9707,7 +9707,7 @@ unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_QUERY_TKT_CACHE_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CountOfTickets == other.CountOfTickets && self.Tickets == other.Tickets
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9740,7 +9740,7 @@ unsafe impl ::windows::core::Abi for KERB_REFRESH_POLICY_REQUEST {
 }
 impl ::core::cmp::PartialEq for KERB_REFRESH_POLICY_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_REFRESH_POLICY_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for KERB_REFRESH_POLICY_REQUEST {}
@@ -9771,7 +9771,7 @@ unsafe impl ::windows::core::Abi for KERB_REFRESH_POLICY_RESPONSE {
 }
 impl ::core::cmp::PartialEq for KERB_REFRESH_POLICY_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_REFRESH_POLICY_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for KERB_REFRESH_POLICY_RESPONSE {}
@@ -9810,7 +9810,7 @@ unsafe impl ::windows::core::Abi for KERB_REFRESH_SCCRED_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_REFRESH_SCCRED_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_REFRESH_SCCRED_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.CredentialBlob == other.CredentialBlob && self.LogonId == other.LogonId && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9852,7 +9852,7 @@ unsafe impl ::windows::core::Abi for KERB_RETRIEVE_KEY_TAB_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_KEY_TAB_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_RETRIEVE_KEY_TAB_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.UserName == other.UserName && self.DomainName == other.DomainName && self.Password == other.Password
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9886,7 +9886,7 @@ unsafe impl ::windows::core::Abi for KERB_RETRIEVE_KEY_TAB_RESPONSE {
 }
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_KEY_TAB_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_RETRIEVE_KEY_TAB_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.KeyTabLength == other.KeyTabLength && self.KeyTab == other.KeyTab
     }
 }
 impl ::core::cmp::Eq for KERB_RETRIEVE_KEY_TAB_RESPONSE {}
@@ -9928,7 +9928,7 @@ unsafe impl ::windows::core::Abi for KERB_RETRIEVE_TKT_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_TKT_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_RETRIEVE_TKT_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId && self.TargetName == other.TargetName && self.TicketFlags == other.TicketFlags && self.CacheOptions == other.CacheOptions && self.EncryptionType == other.EncryptionType && self.CredentialsHandle == other.CredentialsHandle
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -9966,7 +9966,7 @@ unsafe impl ::windows::core::Abi for KERB_RETRIEVE_TKT_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_TKT_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_RETRIEVE_TKT_RESPONSE>()) == 0 }
+        self.Ticket == other.Ticket
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10007,7 +10007,7 @@ unsafe impl ::windows::core::Abi for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_S4U2PROXY_CACHE_ENTRY_INFO>()) == 0 }
+        self.ServerName == other.ServerName && self.Flags == other.Flags && self.LastStatus == other.LastStatus && self.Expiry == other.Expiry
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10051,7 +10051,7 @@ unsafe impl ::windows::core::Abi for KERB_S4U2PROXY_CRED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_S4U2PROXY_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_S4U2PROXY_CRED>()) == 0 }
+        self.UserName == other.UserName && self.DomainName == other.DomainName && self.Flags == other.Flags && self.LastStatus == other.LastStatus && self.Expiry == other.Expiry && self.CountOfEntries == other.CountOfEntries && self.Entries == other.Entries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10092,7 +10092,7 @@ unsafe impl ::windows::core::Abi for KERB_S4U_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_S4U_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_S4U_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.ClientUpn == other.ClientUpn && self.ClientRealm == other.ClientRealm
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10154,7 +10154,7 @@ unsafe impl ::windows::core::Abi for KERB_SETPASSWORD_EX_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for KERB_SETPASSWORD_EX_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_SETPASSWORD_EX_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId && self.CredentialsHandle == other.CredentialsHandle && self.Flags == other.Flags && self.AccountRealm == other.AccountRealm && self.AccountName == other.AccountName && self.Password == other.Password && self.ClientRealm == other.ClientRealm && self.ClientName == other.ClientName && self.Impersonating == other.Impersonating && self.KdcAddress == other.KdcAddress && self.KdcAddressType == other.KdcAddressType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -10198,7 +10198,7 @@ unsafe impl ::windows::core::Abi for KERB_SETPASSWORD_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for KERB_SETPASSWORD_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_SETPASSWORD_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId && self.CredentialsHandle == other.CredentialsHandle && self.Flags == other.Flags && self.DomainName == other.DomainName && self.AccountName == other.AccountName && self.Password == other.Password
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -10239,7 +10239,7 @@ unsafe impl ::windows::core::Abi for KERB_SMART_CARD_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SMART_CARD_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_SMART_CARD_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.Pin == other.Pin && self.CspDataLength == other.CspDataLength && self.CspData == other.CspData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10279,7 +10279,7 @@ unsafe impl ::windows::core::Abi for KERB_SMART_CARD_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SMART_CARD_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_SMART_CARD_PROFILE>()) == 0 }
+        self.Profile == other.Profile && self.CertificateSize == other.CertificateSize && self.CertificateData == other.CertificateData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10318,7 +10318,7 @@ unsafe impl ::windows::core::Abi for KERB_SMART_CARD_UNLOCK_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SMART_CARD_UNLOCK_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_SMART_CARD_UNLOCK_LOGON>()) == 0 }
+        self.Logon == other.Logon && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10361,7 +10361,7 @@ unsafe impl ::windows::core::Abi for KERB_SUBMIT_TKT_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SUBMIT_TKT_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_SUBMIT_TKT_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId && self.Flags == other.Flags && self.Key == other.Key && self.KerbCredSize == other.KerbCredSize && self.KerbCredOffset == other.KerbCredOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10405,7 +10405,7 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TICKET_CACHE_INFO>()) == 0 }
+        self.ServerName == other.ServerName && self.RealmName == other.RealmName && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.RenewTime == other.RenewTime && self.EncryptionType == other.EncryptionType && self.TicketFlags == other.TicketFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10451,7 +10451,7 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TICKET_CACHE_INFO_EX>()) == 0 }
+        self.ClientName == other.ClientName && self.ClientRealm == other.ClientRealm && self.ServerName == other.ServerName && self.ServerRealm == other.ServerRealm && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.RenewTime == other.RenewTime && self.EncryptionType == other.EncryptionType && self.TicketFlags == other.TicketFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10499,7 +10499,7 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO_EX2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO_EX2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TICKET_CACHE_INFO_EX2>()) == 0 }
+        self.ClientName == other.ClientName && self.ClientRealm == other.ClientRealm && self.ServerName == other.ServerName && self.ServerRealm == other.ServerRealm && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.RenewTime == other.RenewTime && self.EncryptionType == other.EncryptionType && self.TicketFlags == other.TicketFlags && self.SessionKeyType == other.SessionKeyType && self.BranchId == other.BranchId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10563,7 +10563,7 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO_EX3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO_EX3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TICKET_CACHE_INFO_EX3>()) == 0 }
+        self.ClientName == other.ClientName && self.ClientRealm == other.ClientRealm && self.ServerName == other.ServerName && self.ServerRealm == other.ServerRealm && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.RenewTime == other.RenewTime && self.EncryptionType == other.EncryptionType && self.TicketFlags == other.TicketFlags && self.SessionKeyType == other.SessionKeyType && self.BranchId == other.BranchId && self.CacheFlags == other.CacheFlags && self.KdcCalled == other.KdcCalled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10600,7 +10600,7 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_LOGON {
 }
 impl ::core::cmp::PartialEq for KERB_TICKET_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TICKET_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.ServiceTicketLength == other.ServiceTicketLength && self.TicketGrantingTicketLength == other.TicketGrantingTicketLength && self.ServiceTicket == other.ServiceTicket && self.TicketGrantingTicket == other.TicketGrantingTicket
     }
 }
 impl ::core::cmp::Eq for KERB_TICKET_LOGON {}
@@ -10637,7 +10637,7 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TICKET_PROFILE>()) == 0 }
+        self.Profile == other.Profile && self.SessionKey == other.SessionKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10676,7 +10676,7 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_UNLOCK_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_UNLOCK_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TICKET_UNLOCK_LOGON>()) == 0 }
+        self.Logon == other.Logon && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10717,7 +10717,7 @@ unsafe impl ::windows::core::Abi for KERB_TRANSFER_CRED_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TRANSFER_CRED_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KERB_TRANSFER_CRED_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.OriginLogonId == other.OriginLogonId && self.DestinationLogonId == other.DestinationLogonId && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10759,7 +10759,7 @@ unsafe impl ::windows::core::Abi for KSEC_LIST_ENTRY {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for KSEC_LIST_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSEC_LIST_ENTRY>()) == 0 }
+        self.List == other.List && self.RefCount == other.RefCount && self.Signature == other.Signature && self.OwningList == other.OwningList && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -10792,7 +10792,7 @@ unsafe impl ::windows::core::Abi for LOGON_HOURS {
 }
 impl ::core::cmp::PartialEq for LOGON_HOURS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGON_HOURS>()) == 0 }
+        self.UnitsPerWeek == other.UnitsPerWeek && self.LogonHours == other.LogonHours
     }
 }
 impl ::core::cmp::Eq for LOGON_HOURS {}
@@ -10825,7 +10825,7 @@ unsafe impl ::windows::core::Abi for LSA_AUTH_INFORMATION {
 }
 impl ::core::cmp::PartialEq for LSA_AUTH_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_AUTH_INFORMATION>()) == 0 }
+        self.LastUpdateTime == other.LastUpdateTime && self.AuthType == other.AuthType && self.AuthInfoLength == other.AuthInfoLength && self.AuthInfo == other.AuthInfo
     }
 }
 impl ::core::cmp::Eq for LSA_AUTH_INFORMATION {}
@@ -10861,33 +10861,13 @@ impl ::core::clone::Clone for LSA_DISPATCH_TABLE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for LSA_DISPATCH_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LSA_DISPATCH_TABLE")
-            .field("CreateLogonSession", &self.CreateLogonSession.map(|f| f as usize))
-            .field("DeleteLogonSession", &self.DeleteLogonSession.map(|f| f as usize))
-            .field("AddCredential", &self.AddCredential.map(|f| f as usize))
-            .field("GetCredentials", &self.GetCredentials.map(|f| f as usize))
-            .field("DeleteCredential", &self.DeleteCredential.map(|f| f as usize))
-            .field("AllocateLsaHeap", &self.AllocateLsaHeap.map(|f| f as usize))
-            .field("FreeLsaHeap", &self.FreeLsaHeap.map(|f| f as usize))
-            .field("AllocateClientBuffer", &self.AllocateClientBuffer.map(|f| f as usize))
-            .field("FreeClientBuffer", &self.FreeClientBuffer.map(|f| f as usize))
-            .field("CopyToClientBuffer", &self.CopyToClientBuffer.map(|f| f as usize))
-            .field("CopyFromClientBuffer", &self.CopyFromClientBuffer.map(|f| f as usize))
-            .finish()
+        f.debug_struct("LSA_DISPATCH_TABLE").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for LSA_DISPATCH_TABLE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for LSA_DISPATCH_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_DISPATCH_TABLE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for LSA_DISPATCH_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LSA_DISPATCH_TABLE {
     fn default() -> Self {
@@ -10921,7 +10901,7 @@ unsafe impl ::windows::core::Abi for LSA_ENUMERATION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_ENUMERATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_ENUMERATION_INFORMATION>()) == 0 }
+        self.Sid == other.Sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10954,7 +10934,7 @@ unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_BINARY_DATA {
 }
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_BINARY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_FOREST_TRUST_BINARY_DATA>()) == 0 }
+        self.Length == other.Length && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for LSA_FOREST_TRUST_BINARY_DATA {}
@@ -10991,7 +10971,7 @@ unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_COLLISION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_COLLISION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_FOREST_TRUST_COLLISION_INFORMATION>()) == 0 }
+        self.RecordCount == other.RecordCount && self.Entries == other.Entries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11032,7 +11012,7 @@ unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_COLLISION_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_COLLISION_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_FOREST_TRUST_COLLISION_RECORD>()) == 0 }
+        self.Index == other.Index && self.Type == other.Type && self.Flags == other.Flags && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11072,7 +11052,7 @@ unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_DOMAIN_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_DOMAIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_FOREST_TRUST_DOMAIN_INFO>()) == 0 }
+        self.Sid == other.Sid && self.DnsName == other.DnsName && self.NetbiosName == other.NetbiosName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11111,7 +11091,7 @@ unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_FOREST_TRUST_INFORMATION>()) == 0 }
+        self.RecordCount == other.RecordCount && self.Entries == other.Entries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11144,14 +11124,6 @@ unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_FOREST_TRUST_RECORD>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LSA_FOREST_TRUST_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LSA_FOREST_TRUST_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11177,14 +11149,6 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_0 {
 unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_RECORD_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_FOREST_TRUST_RECORD_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LSA_FOREST_TRUST_RECORD_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_0 {
     fn default() -> Self {
@@ -11246,7 +11210,7 @@ unsafe impl ::windows::core::Abi for LSA_LAST_INTER_LOGON_INFO {
 }
 impl ::core::cmp::PartialEq for LSA_LAST_INTER_LOGON_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_LAST_INTER_LOGON_INFO>()) == 0 }
+        self.LastSuccessfulLogon == other.LastSuccessfulLogon && self.LastFailedLogon == other.LastFailedLogon && self.FailedAttemptCountSinceLastSuccessfulLogon == other.FailedAttemptCountSinceLastSuccessfulLogon
     }
 }
 impl ::core::cmp::Eq for LSA_LAST_INTER_LOGON_INFO {}
@@ -11283,7 +11247,7 @@ unsafe impl ::windows::core::Abi for LSA_REFERENCED_DOMAIN_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_REFERENCED_DOMAIN_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_REFERENCED_DOMAIN_LIST>()) == 0 }
+        self.Entries == other.Entries && self.Domains == other.Domains
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11373,85 +11337,13 @@ impl ::core::clone::Clone for LSA_SECPKG_FUNCTION_TABLE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::fmt::Debug for LSA_SECPKG_FUNCTION_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LSA_SECPKG_FUNCTION_TABLE")
-            .field("CreateLogonSession", &self.CreateLogonSession.map(|f| f as usize))
-            .field("DeleteLogonSession", &self.DeleteLogonSession.map(|f| f as usize))
-            .field("AddCredential", &self.AddCredential.map(|f| f as usize))
-            .field("GetCredentials", &self.GetCredentials.map(|f| f as usize))
-            .field("DeleteCredential", &self.DeleteCredential.map(|f| f as usize))
-            .field("AllocateLsaHeap", &self.AllocateLsaHeap.map(|f| f as usize))
-            .field("FreeLsaHeap", &self.FreeLsaHeap.map(|f| f as usize))
-            .field("AllocateClientBuffer", &self.AllocateClientBuffer.map(|f| f as usize))
-            .field("FreeClientBuffer", &self.FreeClientBuffer.map(|f| f as usize))
-            .field("CopyToClientBuffer", &self.CopyToClientBuffer.map(|f| f as usize))
-            .field("CopyFromClientBuffer", &self.CopyFromClientBuffer.map(|f| f as usize))
-            .field("ImpersonateClient", &self.ImpersonateClient.map(|f| f as usize))
-            .field("UnloadPackage", &self.UnloadPackage.map(|f| f as usize))
-            .field("DuplicateHandle", &self.DuplicateHandle.map(|f| f as usize))
-            .field("SaveSupplementalCredentials", &self.SaveSupplementalCredentials.map(|f| f as usize))
-            .field("CreateThread", &self.CreateThread.map(|f| f as usize))
-            .field("GetClientInfo", &self.GetClientInfo.map(|f| f as usize))
-            .field("RegisterNotification", &self.RegisterNotification.map(|f| f as usize))
-            .field("CancelNotification", &self.CancelNotification.map(|f| f as usize))
-            .field("MapBuffer", &self.MapBuffer.map(|f| f as usize))
-            .field("CreateToken", &self.CreateToken.map(|f| f as usize))
-            .field("AuditLogon", &self.AuditLogon.map(|f| f as usize))
-            .field("CallPackage", &self.CallPackage.map(|f| f as usize))
-            .field("FreeReturnBuffer", &self.FreeReturnBuffer.map(|f| f as usize))
-            .field("GetCallInfo", &self.GetCallInfo.map(|f| f as usize))
-            .field("CallPackageEx", &self.CallPackageEx.map(|f| f as usize))
-            .field("CreateSharedMemory", &self.CreateSharedMemory.map(|f| f as usize))
-            .field("AllocateSharedMemory", &self.AllocateSharedMemory.map(|f| f as usize))
-            .field("FreeSharedMemory", &self.FreeSharedMemory.map(|f| f as usize))
-            .field("DeleteSharedMemory", &self.DeleteSharedMemory.map(|f| f as usize))
-            .field("OpenSamUser", &self.OpenSamUser.map(|f| f as usize))
-            .field("GetUserCredentials", &self.GetUserCredentials.map(|f| f as usize))
-            .field("GetUserAuthData", &self.GetUserAuthData.map(|f| f as usize))
-            .field("CloseSamUser", &self.CloseSamUser.map(|f| f as usize))
-            .field("ConvertAuthDataToToken", &self.ConvertAuthDataToToken.map(|f| f as usize))
-            .field("ClientCallback", &self.ClientCallback.map(|f| f as usize))
-            .field("UpdateCredentials", &self.UpdateCredentials.map(|f| f as usize))
-            .field("GetAuthDataForUser", &self.GetAuthDataForUser.map(|f| f as usize))
-            .field("CrackSingleName", &self.CrackSingleName.map(|f| f as usize))
-            .field("AuditAccountLogon", &self.AuditAccountLogon.map(|f| f as usize))
-            .field("CallPackagePassthrough", &self.CallPackagePassthrough.map(|f| f as usize))
-            .field("CrediRead", &self.CrediRead.map(|f| f as usize))
-            .field("CrediReadDomainCredentials", &self.CrediReadDomainCredentials.map(|f| f as usize))
-            .field("CrediFreeCredentials", &self.CrediFreeCredentials.map(|f| f as usize))
-            .field("LsaProtectMemory", &self.LsaProtectMemory.map(|f| f as usize))
-            .field("LsaUnprotectMemory", &self.LsaUnprotectMemory.map(|f| f as usize))
-            .field("OpenTokenByLogonId", &self.OpenTokenByLogonId.map(|f| f as usize))
-            .field("ExpandAuthDataForDomain", &self.ExpandAuthDataForDomain.map(|f| f as usize))
-            .field("AllocatePrivateHeap", &self.AllocatePrivateHeap.map(|f| f as usize))
-            .field("FreePrivateHeap", &self.FreePrivateHeap.map(|f| f as usize))
-            .field("CreateTokenEx", &self.CreateTokenEx.map(|f| f as usize))
-            .field("CrediWrite", &self.CrediWrite.map(|f| f as usize))
-            .field("CrediUnmarshalandDecodeString", &self.CrediUnmarshalandDecodeString.map(|f| f as usize))
-            .field("DummyFunction6", &self.DummyFunction6.map(|f| f as usize))
-            .field("GetExtendedCallFlags", &self.GetExtendedCallFlags.map(|f| f as usize))
-            .field("DuplicateTokenHandle", &self.DuplicateTokenHandle.map(|f| f as usize))
-            .field("GetServiceAccountPassword", &self.GetServiceAccountPassword.map(|f| f as usize))
-            .field("DummyFunction7", &self.DummyFunction7.map(|f| f as usize))
-            .field("AuditLogonEx", &self.AuditLogonEx.map(|f| f as usize))
-            .field("CheckProtectedUserByToken", &self.CheckProtectedUserByToken.map(|f| f as usize))
-            .field("QueryClientRequest", &self.QueryClientRequest.map(|f| f as usize))
-            .field("GetAppModeInfo", &self.GetAppModeInfo.map(|f| f as usize))
-            .field("SetAppModeInfo", &self.SetAppModeInfo.map(|f| f as usize))
-            .finish()
+        f.debug_struct("LSA_SECPKG_FUNCTION_TABLE").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for LSA_SECPKG_FUNCTION_TABLE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl ::core::cmp::PartialEq for LSA_SECPKG_FUNCTION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_SECPKG_FUNCTION_TABLE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl ::core::cmp::Eq for LSA_SECPKG_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::default::Default for LSA_SECPKG_FUNCTION_TABLE {
     fn default() -> Self {
@@ -11486,7 +11378,7 @@ unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_NULL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TOKEN_INFORMATION_NULL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_TOKEN_INFORMATION_NULL>()) == 0 }
+        self.ExpirationTime == other.ExpirationTime && self.Groups == other.Groups
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11530,7 +11422,7 @@ unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TOKEN_INFORMATION_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_TOKEN_INFORMATION_V1>()) == 0 }
+        self.ExpirationTime == other.ExpirationTime && self.User == other.User && self.Groups == other.Groups && self.PrimaryGroup == other.PrimaryGroup && self.Privileges == other.Privileges && self.Owner == other.Owner && self.DefaultDacl == other.DefaultDacl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11577,7 +11469,7 @@ unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_V3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TOKEN_INFORMATION_V3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_TOKEN_INFORMATION_V3>()) == 0 }
+        self.ExpirationTime == other.ExpirationTime && self.User == other.User && self.Groups == other.Groups && self.PrimaryGroup == other.PrimaryGroup && self.Privileges == other.Privileges && self.Owner == other.Owner && self.DefaultDacl == other.DefaultDacl && self.UserClaims == other.UserClaims && self.DeviceClaims == other.DeviceClaims && self.DeviceGroups == other.DeviceGroups
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11617,7 +11509,7 @@ unsafe impl ::windows::core::Abi for LSA_TRANSLATED_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TRANSLATED_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_TRANSLATED_NAME>()) == 0 }
+        self.Use == other.Use && self.Name == other.Name && self.DomainIndex == other.DomainIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11651,7 +11543,7 @@ unsafe impl ::windows::core::Abi for LSA_TRANSLATED_SID {
 }
 impl ::core::cmp::PartialEq for LSA_TRANSLATED_SID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_TRANSLATED_SID>()) == 0 }
+        self.Use == other.Use && self.RelativeId == other.RelativeId && self.DomainIndex == other.DomainIndex
     }
 }
 impl ::core::cmp::Eq for LSA_TRANSLATED_SID {}
@@ -11690,7 +11582,7 @@ unsafe impl ::windows::core::Abi for LSA_TRANSLATED_SID2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TRANSLATED_SID2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_TRANSLATED_SID2>()) == 0 }
+        self.Use == other.Use && self.Sid == other.Sid && self.DomainIndex == other.DomainIndex && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11729,7 +11621,7 @@ unsafe impl ::windows::core::Abi for LSA_TRUST_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TRUST_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LSA_TRUST_INFORMATION>()) == 0 }
+        self.Name == other.Name && self.Sid == other.Sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11762,7 +11654,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_AV_PAIR {
 }
 impl ::core::cmp::PartialEq for MSV1_0_AV_PAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_AV_PAIR>()) == 0 }
+        self.AvId == other.AvId && self.AvLen == other.AvLen
     }
 }
 impl ::core::cmp::Eq for MSV1_0_AV_PAIR {}
@@ -11803,7 +11695,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_CHANGEPASSWORD_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_CHANGEPASSWORD_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_CHANGEPASSWORD_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.DomainName == other.DomainName && self.AccountName == other.AccountName && self.OldPassword == other.OldPassword && self.NewPassword == other.NewPassword && self.Impersonating == other.Impersonating
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11843,7 +11735,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_CHANGEPASSWORD_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_CHANGEPASSWORD_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_CHANGEPASSWORD_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.PasswordInfoValid == other.PasswordInfoValid && self.DomainPasswordInfo == other.DomainPasswordInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11875,7 +11767,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_CREDENTIAL_KEY {
 }
 impl ::core::cmp::PartialEq for MSV1_0_CREDENTIAL_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_CREDENTIAL_KEY>()) == 0 }
+        self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for MSV1_0_CREDENTIAL_KEY {}
@@ -11914,7 +11806,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_INTERACTIVE_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_INTERACTIVE_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_INTERACTIVE_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonDomainName == other.LogonDomainName && self.UserName == other.UserName && self.Password == other.Password
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11984,7 +11876,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_INTERACTIVE_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_INTERACTIVE_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_INTERACTIVE_PROFILE>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonCount == other.LogonCount && self.BadPasswordCount == other.BadPasswordCount && self.LogonTime == other.LogonTime && self.LogoffTime == other.LogoffTime && self.KickOffTime == other.KickOffTime && self.PasswordLastSet == other.PasswordLastSet && self.PasswordCanChange == other.PasswordCanChange && self.PasswordMustChange == other.PasswordMustChange && self.LogonScript == other.LogonScript && self.HomeDirectory == other.HomeDirectory && self.FullName == other.FullName && self.ProfilePath == other.ProfilePath && self.HomeDirectoryDrive == other.HomeDirectoryDrive && self.LogonServer == other.LogonServer && self.UserFlags == other.UserFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12018,7 +11910,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL>()) == 0 }
+        self.Version == other.Version && self.EncryptedCredsSize == other.EncryptedCredsSize && self.EncryptedCreds == other.EncryptedCreds
     }
 }
 impl ::core::cmp::Eq for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {}
@@ -12061,7 +11953,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_LM20_LOGON {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MSV1_0_LM20_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_LM20_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonDomainName == other.LogonDomainName && self.UserName == other.UserName && self.Workstation == other.Workstation && self.ChallengeToClient == other.ChallengeToClient && self.CaseSensitiveChallengeResponse == other.CaseSensitiveChallengeResponse && self.CaseInsensitiveChallengeResponse == other.CaseInsensitiveChallengeResponse && self.ParameterControl == other.ParameterControl
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -12107,7 +11999,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_LM20_LOGON_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_LM20_LOGON_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_LM20_LOGON_PROFILE>()) == 0 }
+        self.MessageType == other.MessageType && self.KickOffTime == other.KickOffTime && self.LogoffTime == other.LogoffTime && self.UserFlags == other.UserFlags && self.UserSessionKey == other.UserSessionKey && self.LogonDomainName == other.LogonDomainName && self.LanmanSessionKey == other.LanmanSessionKey && self.LogonServer == other.LogonServer && self.UserParameters == other.UserParameters
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12147,7 +12039,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_NTLM3_RESPONSE {
 }
 impl ::core::cmp::PartialEq for MSV1_0_NTLM3_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_NTLM3_RESPONSE>()) == 0 }
+        self.Response == other.Response && self.RespType == other.RespType && self.HiRespType == other.HiRespType && self.Flags == other.Flags && self.MsgWord == other.MsgWord && self.TimeStamp == other.TimeStamp && self.ChallengeFromClient == other.ChallengeFromClient && self.AvPairsOff == other.AvPairsOff && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for MSV1_0_NTLM3_RESPONSE {}
@@ -12188,7 +12080,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_PASSTHROUGH_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_PASSTHROUGH_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_PASSTHROUGH_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.DomainName == other.DomainName && self.PackageName == other.PackageName && self.DataLength == other.DataLength && self.LogonData == other.LogonData && self.Pad == other.Pad
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12223,7 +12115,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_PASSTHROUGH_RESPONSE {
 }
 impl ::core::cmp::PartialEq for MSV1_0_PASSTHROUGH_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_PASSTHROUGH_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.Pad == other.Pad && self.DataLength == other.DataLength && self.ValidationData == other.ValidationData
     }
 }
 impl ::core::cmp::Eq for MSV1_0_PASSTHROUGH_RESPONSE {}
@@ -12251,12 +12143,6 @@ impl ::core::clone::Clone for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
 unsafe impl ::windows::core::Abi for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {}
 impl ::core::default::Default for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12292,7 +12178,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_S4U_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_S4U_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_S4U_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.UserPrincipalName == other.UserPrincipalName && self.DomainName == other.DomainName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12338,7 +12224,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_SUBAUTH_LOGON {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MSV1_0_SUBAUTH_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_SUBAUTH_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonDomainName == other.LogonDomainName && self.UserName == other.UserName && self.Workstation == other.Workstation && self.ChallengeToClient == other.ChallengeToClient && self.AuthenticationInfo1 == other.AuthenticationInfo1 && self.AuthenticationInfo2 == other.AuthenticationInfo2 && self.ParameterControl == other.ParameterControl && self.SubAuthPackageId == other.SubAuthPackageId
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -12373,7 +12259,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_SUBAUTH_REQUEST {
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUBAUTH_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_SUBAUTH_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.SubAuthPackageId == other.SubAuthPackageId && self.SubAuthInfoLength == other.SubAuthInfoLength && self.SubAuthSubmitBuffer == other.SubAuthSubmitBuffer
     }
 }
 impl ::core::cmp::Eq for MSV1_0_SUBAUTH_REQUEST {}
@@ -12405,7 +12291,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_SUBAUTH_RESPONSE {
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUBAUTH_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_SUBAUTH_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.SubAuthInfoLength == other.SubAuthInfoLength && self.SubAuthReturnBuffer == other.SubAuthReturnBuffer
     }
 }
 impl ::core::cmp::Eq for MSV1_0_SUBAUTH_RESPONSE {}
@@ -12438,7 +12324,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_SUPPLEMENTAL_CREDENTIAL>()) == 0 }
+        self.Version == other.Version && self.Flags == other.Flags && self.LmPassword == other.LmPassword && self.NtPassword == other.NtPassword
     }
 }
 impl ::core::cmp::Eq for MSV1_0_SUPPLEMENTAL_CREDENTIAL {}
@@ -12471,7 +12357,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2>()) == 0 }
+        self.Version == other.Version && self.Flags == other.Flags && self.NtPassword == other.NtPassword && self.CredentialKey == other.CredentialKey
     }
 }
 impl ::core::cmp::Eq for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {}
@@ -12506,7 +12392,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3>()) == 0 }
+        self.Version == other.Version && self.Flags == other.Flags && self.CredentialKeyType == other.CredentialKeyType && self.NtPassword == other.NtPassword && self.CredentialKey == other.CredentialKey && self.ShaPassword == other.ShaPassword
     }
 }
 impl ::core::cmp::Eq for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {}
@@ -12550,7 +12436,7 @@ unsafe impl ::windows::core::Abi for MSV1_0_VALIDATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for MSV1_0_VALIDATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSV1_0_VALIDATION_INFO>()) == 0 }
+        self.LogoffTime == other.LogoffTime && self.KickoffTime == other.KickoffTime && self.LogonServer == other.LogonServer && self.LogonDomainName == other.LogonDomainName && self.SessionKey == other.SessionKey && self.Authoritative == other.Authoritative && self.UserFlags == other.UserFlags && self.WhichFields == other.WhichFields && self.UserId == other.UserId
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
@@ -12589,7 +12475,7 @@ unsafe impl ::windows::core::Abi for NEGOTIATE_CALLER_NAME_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NEGOTIATE_CALLER_NAME_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NEGOTIATE_CALLER_NAME_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.LogonId == other.LogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12622,7 +12508,7 @@ unsafe impl ::windows::core::Abi for NEGOTIATE_CALLER_NAME_RESPONSE {
 }
 impl ::core::cmp::PartialEq for NEGOTIATE_CALLER_NAME_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NEGOTIATE_CALLER_NAME_RESPONSE>()) == 0 }
+        self.MessageType == other.MessageType && self.CallerName == other.CallerName
     }
 }
 impl ::core::cmp::Eq for NEGOTIATE_CALLER_NAME_RESPONSE {}
@@ -12656,7 +12542,7 @@ unsafe impl ::windows::core::Abi for NEGOTIATE_PACKAGE_PREFIX {
 }
 impl ::core::cmp::PartialEq for NEGOTIATE_PACKAGE_PREFIX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NEGOTIATE_PACKAGE_PREFIX>()) == 0 }
+        self.PackageId == other.PackageId && self.PackageDataA == other.PackageDataA && self.PackageDataW == other.PackageDataW && self.PrefixLen == other.PrefixLen && self.Prefix == other.Prefix
     }
 }
 impl ::core::cmp::Eq for NEGOTIATE_PACKAGE_PREFIX {}
@@ -12689,7 +12575,7 @@ unsafe impl ::windows::core::Abi for NEGOTIATE_PACKAGE_PREFIXES {
 }
 impl ::core::cmp::PartialEq for NEGOTIATE_PACKAGE_PREFIXES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NEGOTIATE_PACKAGE_PREFIXES>()) == 0 }
+        self.MessageType == other.MessageType && self.PrefixCount == other.PrefixCount && self.Offset == other.Offset && self.Pad == other.Pad
     }
 }
 impl ::core::cmp::Eq for NEGOTIATE_PACKAGE_PREFIXES {}
@@ -12728,7 +12614,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_GENERIC_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETLOGON_GENERIC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_GENERIC_INFO>()) == 0 }
+        self.Identity == other.Identity && self.PackageName == other.PackageName && self.DataLength == other.DataLength && self.LogonData == other.LogonData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12768,7 +12654,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_INTERACTIVE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for NETLOGON_INTERACTIVE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_INTERACTIVE_INFO>()) == 0 }
+        self.Identity == other.Identity && self.LmOwfPassword == other.LmOwfPassword && self.NtOwfPassword == other.NtOwfPassword
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
@@ -12810,7 +12696,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_LOGON_IDENTITY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETLOGON_LOGON_IDENTITY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_LOGON_IDENTITY_INFO>()) == 0 }
+        self.LogonDomainName == other.LogonDomainName && self.ParameterControl == other.ParameterControl && self.LogonId == other.LogonId && self.UserName == other.UserName && self.Workstation == other.Workstation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12851,7 +12737,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_NETWORK_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for NETLOGON_NETWORK_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_NETWORK_INFO>()) == 0 }
+        self.Identity == other.Identity && self.LmChallenge == other.LmChallenge && self.NtChallengeResponse == other.NtChallengeResponse && self.LmChallengeResponse == other.LmChallengeResponse
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -12891,7 +12777,7 @@ unsafe impl ::windows::core::Abi for NETLOGON_SERVICE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for NETLOGON_SERVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETLOGON_SERVICE_INFO>()) == 0 }
+        self.Identity == other.Identity && self.LmOwfPassword == other.LmOwfPassword && self.NtOwfPassword == other.NtOwfPassword
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
@@ -12934,7 +12820,7 @@ unsafe impl ::windows::core::Abi for PKU2U_CERTIFICATE_S4U_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PKU2U_CERTIFICATE_S4U_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PKU2U_CERTIFICATE_S4U_LOGON>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.UserPrincipalName == other.UserPrincipalName && self.DomainName == other.DomainName && self.CertificateLength == other.CertificateLength && self.Certificate == other.Certificate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12967,7 +12853,7 @@ unsafe impl ::windows::core::Abi for PKU2U_CERT_BLOB {
 }
 impl ::core::cmp::PartialEq for PKU2U_CERT_BLOB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PKU2U_CERT_BLOB>()) == 0 }
+        self.CertOffset == other.CertOffset && self.CertLength == other.CertLength
     }
 }
 impl ::core::cmp::Eq for PKU2U_CERT_BLOB {}
@@ -13001,7 +12887,7 @@ unsafe impl ::windows::core::Abi for PKU2U_CREDUI_CONTEXT {
 }
 impl ::core::cmp::PartialEq for PKU2U_CREDUI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PKU2U_CREDUI_CONTEXT>()) == 0 }
+        self.Version == other.Version && self.cbHeaderLength == other.cbHeaderLength && self.cbStructureLength == other.cbStructureLength && self.CertArrayCount == other.CertArrayCount && self.CertArrayOffset == other.CertArrayOffset
     }
 }
 impl ::core::cmp::Eq for PKU2U_CREDUI_CONTEXT {}
@@ -13038,7 +12924,7 @@ unsafe impl ::windows::core::Abi for POLICY_ACCOUNT_DOMAIN_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_ACCOUNT_DOMAIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_ACCOUNT_DOMAIN_INFO>()) == 0 }
+        self.DomainName == other.DomainName && self.DomainSid == other.DomainSid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13071,7 +12957,7 @@ unsafe impl ::windows::core::Abi for POLICY_AUDIT_CATEGORIES_INFO {
 }
 impl ::core::cmp::PartialEq for POLICY_AUDIT_CATEGORIES_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_AUDIT_CATEGORIES_INFO>()) == 0 }
+        self.MaximumCategoryCount == other.MaximumCategoryCount && self.SubCategoriesInfo == other.SubCategoriesInfo
     }
 }
 impl ::core::cmp::Eq for POLICY_AUDIT_CATEGORIES_INFO {}
@@ -13109,7 +12995,7 @@ unsafe impl ::windows::core::Abi for POLICY_AUDIT_EVENTS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_EVENTS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_AUDIT_EVENTS_INFO>()) == 0 }
+        self.AuditingMode == other.AuditingMode && self.EventAuditingOptions == other.EventAuditingOptions && self.MaximumAuditEventCount == other.MaximumAuditEventCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13148,7 +13034,7 @@ unsafe impl ::windows::core::Abi for POLICY_AUDIT_FULL_QUERY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_FULL_QUERY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_AUDIT_FULL_QUERY_INFO>()) == 0 }
+        self.ShutDownOnFull == other.ShutDownOnFull && self.LogIsFull == other.LogIsFull
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13186,7 +13072,7 @@ unsafe impl ::windows::core::Abi for POLICY_AUDIT_FULL_SET_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_FULL_SET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_AUDIT_FULL_SET_INFO>()) == 0 }
+        self.ShutDownOnFull == other.ShutDownOnFull
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13229,7 +13115,7 @@ unsafe impl ::windows::core::Abi for POLICY_AUDIT_LOG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_LOG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_AUDIT_LOG_INFO>()) == 0 }
+        self.AuditLogPercentFull == other.AuditLogPercentFull && self.MaximumLogSize == other.MaximumLogSize && self.AuditRetentionPeriod == other.AuditRetentionPeriod && self.AuditLogFullShutdownInProgress == other.AuditLogFullShutdownInProgress && self.TimeToShutdown == other.TimeToShutdown && self.NextAuditRecordId == other.NextAuditRecordId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13268,7 +13154,7 @@ unsafe impl ::windows::core::Abi for POLICY_AUDIT_SID_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_SID_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_AUDIT_SID_ARRAY>()) == 0 }
+        self.UsersCount == other.UsersCount && self.UserSidArray == other.UserSidArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13301,7 +13187,7 @@ unsafe impl ::windows::core::Abi for POLICY_AUDIT_SUBCATEGORIES_INFO {
 }
 impl ::core::cmp::PartialEq for POLICY_AUDIT_SUBCATEGORIES_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_AUDIT_SUBCATEGORIES_INFO>()) == 0 }
+        self.MaximumSubCategoryCount == other.MaximumSubCategoryCount && self.EventAuditingOptions == other.EventAuditingOptions
     }
 }
 impl ::core::cmp::Eq for POLICY_AUDIT_SUBCATEGORIES_INFO {}
@@ -13331,7 +13217,7 @@ unsafe impl ::windows::core::Abi for POLICY_DEFAULT_QUOTA_INFO {
 }
 impl ::core::cmp::PartialEq for POLICY_DEFAULT_QUOTA_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_DEFAULT_QUOTA_INFO>()) == 0 }
+        self.QuotaLimits == other.QuotaLimits
     }
 }
 impl ::core::cmp::Eq for POLICY_DEFAULT_QUOTA_INFO {}
@@ -13371,7 +13257,7 @@ unsafe impl ::windows::core::Abi for POLICY_DNS_DOMAIN_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_DNS_DOMAIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_DNS_DOMAIN_INFO>()) == 0 }
+        self.Name == other.Name && self.DnsDomainName == other.DnsDomainName && self.DnsForestName == other.DnsForestName && self.DomainGuid == other.DomainGuid && self.Sid == other.Sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13404,7 +13290,7 @@ unsafe impl ::windows::core::Abi for POLICY_DOMAIN_EFS_INFO {
 }
 impl ::core::cmp::PartialEq for POLICY_DOMAIN_EFS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_DOMAIN_EFS_INFO>()) == 0 }
+        self.InfoLength == other.InfoLength && self.EfsBlob == other.EfsBlob
     }
 }
 impl ::core::cmp::Eq for POLICY_DOMAIN_EFS_INFO {}
@@ -13439,7 +13325,7 @@ unsafe impl ::windows::core::Abi for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
 }
 impl ::core::cmp::PartialEq for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_DOMAIN_KERBEROS_TICKET_INFO>()) == 0 }
+        self.AuthenticationOptions == other.AuthenticationOptions && self.MaxServiceTicketAge == other.MaxServiceTicketAge && self.MaxTicketAge == other.MaxTicketAge && self.MaxRenewAge == other.MaxRenewAge && self.MaxClockSkew == other.MaxClockSkew && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for POLICY_DOMAIN_KERBEROS_TICKET_INFO {}
@@ -13469,7 +13355,7 @@ unsafe impl ::windows::core::Abi for POLICY_LSA_SERVER_ROLE_INFO {
 }
 impl ::core::cmp::PartialEq for POLICY_LSA_SERVER_ROLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_LSA_SERVER_ROLE_INFO>()) == 0 }
+        self.LsaServerRole == other.LsaServerRole
     }
 }
 impl ::core::cmp::Eq for POLICY_LSA_SERVER_ROLE_INFO {}
@@ -13506,7 +13392,7 @@ unsafe impl ::windows::core::Abi for POLICY_MACHINE_ACCT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_MACHINE_ACCT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_MACHINE_ACCT_INFO>()) == 0 }
+        self.Rid == other.Rid && self.Sid == other.Sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13539,7 +13425,7 @@ unsafe impl ::windows::core::Abi for POLICY_MODIFICATION_INFO {
 }
 impl ::core::cmp::PartialEq for POLICY_MODIFICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_MODIFICATION_INFO>()) == 0 }
+        self.ModifiedId == other.ModifiedId && self.DatabaseCreationTime == other.DatabaseCreationTime
     }
 }
 impl ::core::cmp::Eq for POLICY_MODIFICATION_INFO {}
@@ -13575,7 +13461,7 @@ unsafe impl ::windows::core::Abi for POLICY_PD_ACCOUNT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_PD_ACCOUNT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_PD_ACCOUNT_INFO>()) == 0 }
+        self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13614,7 +13500,7 @@ unsafe impl ::windows::core::Abi for POLICY_PRIMARY_DOMAIN_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_PRIMARY_DOMAIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_PRIMARY_DOMAIN_INFO>()) == 0 }
+        self.Name == other.Name && self.Sid == other.Sid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13653,7 +13539,7 @@ unsafe impl ::windows::core::Abi for POLICY_REPLICA_SOURCE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_REPLICA_SOURCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICY_REPLICA_SOURCE_INFO>()) == 0 }
+        self.ReplicaSource == other.ReplicaSource && self.ReplicaAccountName == other.ReplicaAccountName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13687,7 +13573,7 @@ unsafe impl ::windows::core::Abi for PctPublicKey {
 }
 impl ::core::cmp::PartialEq for PctPublicKey {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PctPublicKey>()) == 0 }
+        self.Type == other.Type && self.cbKey == other.cbKey && self.pKey == other.pKey
     }
 }
 impl ::core::cmp::Eq for PctPublicKey {}
@@ -13725,7 +13611,7 @@ unsafe impl ::windows::core::Abi for SAM_REGISTER_MAPPING_ELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAM_REGISTER_MAPPING_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAM_REGISTER_MAPPING_ELEMENT>()) == 0 }
+        self.Original == other.Original && self.Mapped == other.Mapped && self.Continuable == other.Continuable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13764,7 +13650,7 @@ unsafe impl ::windows::core::Abi for SAM_REGISTER_MAPPING_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAM_REGISTER_MAPPING_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAM_REGISTER_MAPPING_LIST>()) == 0 }
+        self.Count == other.Count && self.Elements == other.Elements
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13803,7 +13689,7 @@ unsafe impl ::windows::core::Abi for SAM_REGISTER_MAPPING_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAM_REGISTER_MAPPING_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAM_REGISTER_MAPPING_TABLE>()) == 0 }
+        self.Count == other.Count && self.Lists == other.Lists
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13837,7 +13723,7 @@ unsafe impl ::windows::core::Abi for SCHANNEL_ALERT_TOKEN {
 }
 impl ::core::cmp::PartialEq for SCHANNEL_ALERT_TOKEN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHANNEL_ALERT_TOKEN>()) == 0 }
+        self.dwTokenType == other.dwTokenType && self.dwAlertType == other.dwAlertType && self.dwAlertNumber == other.dwAlertNumber
     }
 }
 impl ::core::cmp::Eq for SCHANNEL_ALERT_TOKEN {}
@@ -13870,7 +13756,7 @@ unsafe impl ::windows::core::Abi for SCHANNEL_CERT_HASH {
 }
 impl ::core::cmp::PartialEq for SCHANNEL_CERT_HASH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHANNEL_CERT_HASH>()) == 0 }
+        self.dwLength == other.dwLength && self.dwFlags == other.dwFlags && self.hProv == other.hProv && self.ShaHash == other.ShaHash
     }
 }
 impl ::core::cmp::Eq for SCHANNEL_CERT_HASH {}
@@ -13904,7 +13790,7 @@ unsafe impl ::windows::core::Abi for SCHANNEL_CERT_HASH_STORE {
 }
 impl ::core::cmp::PartialEq for SCHANNEL_CERT_HASH_STORE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHANNEL_CERT_HASH_STORE>()) == 0 }
+        self.dwLength == other.dwLength && self.dwFlags == other.dwFlags && self.hProv == other.hProv && self.ShaHash == other.ShaHash && self.pwszStoreName == other.pwszStoreName
     }
 }
 impl ::core::cmp::Eq for SCHANNEL_CERT_HASH_STORE {}
@@ -13938,7 +13824,7 @@ unsafe impl ::windows::core::Abi for SCHANNEL_CLIENT_SIGNATURE {
 }
 impl ::core::cmp::PartialEq for SCHANNEL_CLIENT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHANNEL_CLIENT_SIGNATURE>()) == 0 }
+        self.cbLength == other.cbLength && self.aiHash == other.aiHash && self.cbHash == other.cbHash && self.HashValue == other.HashValue && self.CertThumbprint == other.CertThumbprint
     }
 }
 impl ::core::cmp::Eq for SCHANNEL_CLIENT_SIGNATURE {}
@@ -14002,7 +13888,7 @@ unsafe impl ::windows::core::Abi for SCHANNEL_CRED {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SCHANNEL_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHANNEL_CRED>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cCreds == other.cCreds && self.paCred == other.paCred && self.hRootStore == other.hRootStore && self.cMappers == other.cMappers && self.aphMappers == other.aphMappers && self.cSupportedAlgs == other.cSupportedAlgs && self.palgSupportedAlgs == other.palgSupportedAlgs && self.grbitEnabledProtocols == other.grbitEnabledProtocols && self.dwMinimumCipherStrength == other.dwMinimumCipherStrength && self.dwMaximumCipherStrength == other.dwMaximumCipherStrength && self.dwSessionLifespan == other.dwSessionLifespan && self.dwFlags == other.dwFlags && self.dwCredFormat == other.dwCredFormat
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -14035,7 +13921,7 @@ unsafe impl ::windows::core::Abi for SCHANNEL_SESSION_TOKEN {
 }
 impl ::core::cmp::PartialEq for SCHANNEL_SESSION_TOKEN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHANNEL_SESSION_TOKEN>()) == 0 }
+        self.dwTokenType == other.dwTokenType && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for SCHANNEL_SESSION_TOKEN {}
@@ -14070,7 +13956,7 @@ unsafe impl ::windows::core::Abi for SCH_CRED {
 }
 impl ::core::cmp::PartialEq for SCH_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCH_CRED>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cCreds == other.cCreds && self.paSecret == other.paSecret && self.paPublic == other.paPublic && self.cMappers == other.cMappers && self.aphMappers == other.aphMappers
     }
 }
 impl ::core::cmp::Eq for SCH_CRED {}
@@ -14102,7 +13988,7 @@ unsafe impl ::windows::core::Abi for SCH_CRED_PUBLIC_CERTCHAIN {
 }
 impl ::core::cmp::PartialEq for SCH_CRED_PUBLIC_CERTCHAIN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCH_CRED_PUBLIC_CERTCHAIN>()) == 0 }
+        self.dwType == other.dwType && self.cbCertChain == other.cbCertChain && self.pCertChain == other.pCertChain
     }
 }
 impl ::core::cmp::Eq for SCH_CRED_PUBLIC_CERTCHAIN {}
@@ -14133,7 +14019,7 @@ unsafe impl ::windows::core::Abi for SCH_CRED_SECRET_CAPI {
 }
 impl ::core::cmp::PartialEq for SCH_CRED_SECRET_CAPI {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCH_CRED_SECRET_CAPI>()) == 0 }
+        self.dwType == other.dwType && self.hProv == other.hProv
     }
 }
 impl ::core::cmp::Eq for SCH_CRED_SECRET_CAPI {}
@@ -14166,7 +14052,7 @@ unsafe impl ::windows::core::Abi for SCH_CRED_SECRET_PRIVKEY {
 }
 impl ::core::cmp::PartialEq for SCH_CRED_SECRET_PRIVKEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCH_CRED_SECRET_PRIVKEY>()) == 0 }
+        self.dwType == other.dwType && self.pPrivateKey == other.pPrivateKey && self.cbPrivateKey == other.cbPrivateKey && self.pszPassword == other.pszPassword
     }
 }
 impl ::core::cmp::Eq for SCH_CRED_SECRET_PRIVKEY {}
@@ -14198,7 +14084,7 @@ unsafe impl ::windows::core::Abi for SCH_EXTENSION_DATA {
 }
 impl ::core::cmp::PartialEq for SCH_EXTENSION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCH_EXTENSION_DATA>()) == 0 }
+        self.ExtensionType == other.ExtensionType && self.pExtData == other.pExtData && self.cbExtData == other.cbExtData
     }
 }
 impl ::core::cmp::Eq for SCH_EXTENSION_DATA {}
@@ -14238,7 +14124,7 @@ unsafe impl ::windows::core::Abi for SECPKG_APP_MODE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_APP_MODE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_APP_MODE_INFO>()) == 0 }
+        self.UserFunction == other.UserFunction && self.Argument1 == other.Argument1 && self.Argument2 == other.Argument2 && self.UserData == other.UserData && self.ReturnToLsa == other.ReturnToLsa
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14271,7 +14157,7 @@ unsafe impl ::windows::core::Abi for SECPKG_BYTE_VECTOR {
 }
 impl ::core::cmp::PartialEq for SECPKG_BYTE_VECTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_BYTE_VECTOR>()) == 0 }
+        self.ByteArrayOffset == other.ByteArrayOffset && self.ByteArrayLength == other.ByteArrayLength
     }
 }
 impl ::core::cmp::Eq for SECPKG_BYTE_VECTOR {}
@@ -14305,7 +14191,7 @@ unsafe impl ::windows::core::Abi for SECPKG_CALL_INFO {
 }
 impl ::core::cmp::PartialEq for SECPKG_CALL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_CALL_INFO>()) == 0 }
+        self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.Attributes == other.Attributes && self.CallCount == other.CallCount && self.MechOid == other.MechOid
     }
 }
 impl ::core::cmp::Eq for SECPKG_CALL_INFO {}
@@ -14345,7 +14231,7 @@ unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_CALL_PACKAGE_PIN_DC_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags && self.DomainName == other.DomainName && self.DcName == other.DcName && self.DcFlags == other.DcFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14386,7 +14272,7 @@ unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.OriginLogonId == other.OriginLogonId && self.DestinationLogonId == other.DestinationLogonId && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14419,7 +14305,7 @@ unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
 }
 impl ::core::cmp::PartialEq for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST>()) == 0 }
+        self.MessageType == other.MessageType && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {}
@@ -14463,7 +14349,7 @@ unsafe impl ::windows::core::Abi for SECPKG_CLIENT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CLIENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_CLIENT_INFO>()) == 0 }
+        self.LogonId == other.LogonId && self.ProcessID == other.ProcessID && self.ThreadID == other.ThreadID && self.HasTcbPrivilege == other.HasTcbPrivilege && self.Impersonating == other.Impersonating && self.Restricted == other.Restricted && self.ClientFlags == other.ClientFlags && self.ImpersonationLevel == other.ImpersonationLevel && self.ClientToken == other.ClientToken
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14496,7 +14382,7 @@ unsafe impl ::windows::core::Abi for SECPKG_CONTEXT_THUNKS {
 }
 impl ::core::cmp::PartialEq for SECPKG_CONTEXT_THUNKS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_CONTEXT_THUNKS>()) == 0 }
+        self.InfoLevelCount == other.InfoLevelCount && self.Levels == other.Levels
     }
 }
 impl ::core::cmp::Eq for SECPKG_CONTEXT_THUNKS {}
@@ -14560,7 +14446,7 @@ unsafe impl ::windows::core::Abi for SECPKG_CREDENTIAL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_CREDENTIAL>()) == 0 }
+        self.Version == other.Version && self.cbHeaderLength == other.cbHeaderLength && self.cbStructureLength == other.cbStructureLength && self.ClientProcess == other.ClientProcess && self.ClientThread == other.ClientThread && self.LogonId == other.LogonId && self.ClientToken == other.ClientToken && self.SessionId == other.SessionId && self.ModifiedId == other.ModifiedId && self.fCredentials == other.fCredentials && self.Flags == other.Flags && self.PrincipalName == other.PrincipalName && self.PackageList == other.PackageList && self.MarshaledSuppliedCreds == other.MarshaledSuppliedCreds
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14591,21 +14477,13 @@ impl ::core::clone::Clone for SECPKG_DLL_FUNCTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SECPKG_DLL_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECPKG_DLL_FUNCTIONS").field("AllocateHeap", &self.AllocateHeap.map(|f| f as usize)).field("FreeHeap", &self.FreeHeap.map(|f| f as usize)).field("RegisterCallback", &self.RegisterCallback.map(|f| f as usize)).field("LocatePackageById", &self.LocatePackageById.map(|f| f as usize)).finish()
+        f.debug_struct("SECPKG_DLL_FUNCTIONS").finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SECPKG_DLL_FUNCTIONS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SECPKG_DLL_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_DLL_FUNCTIONS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SECPKG_DLL_FUNCTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_DLL_FUNCTIONS {
     fn default() -> Self {
@@ -14637,7 +14515,7 @@ unsafe impl ::windows::core::Abi for SECPKG_EVENT_NOTIFY {
 }
 impl ::core::cmp::PartialEq for SECPKG_EVENT_NOTIFY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_EVENT_NOTIFY>()) == 0 }
+        self.EventClass == other.EventClass && self.Reserved == other.Reserved && self.EventDataSize == other.EventDataSize && self.EventData == other.EventData && self.PackageParameter == other.PackageParameter
     }
 }
 impl ::core::cmp::Eq for SECPKG_EVENT_NOTIFY {}
@@ -14675,7 +14553,7 @@ unsafe impl ::windows::core::Abi for SECPKG_EVENT_PACKAGE_CHANGE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_EVENT_PACKAGE_CHANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_EVENT_PACKAGE_CHANGE>()) == 0 }
+        self.ChangeType == other.ChangeType && self.PackageId == other.PackageId && self.PackageName == other.PackageName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14708,7 +14586,7 @@ unsafe impl ::windows::core::Abi for SECPKG_EVENT_ROLE_CHANGE {
 }
 impl ::core::cmp::PartialEq for SECPKG_EVENT_ROLE_CHANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_EVENT_ROLE_CHANGE>()) == 0 }
+        self.PreviousRole == other.PreviousRole && self.NewRole == other.NewRole
     }
 }
 impl ::core::cmp::Eq for SECPKG_EVENT_ROLE_CHANGE {}
@@ -14736,14 +14614,6 @@ impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION {
 unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SECPKG_EXTENDED_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_EXTENDED_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SECPKG_EXTENDED_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION {
     fn default() -> Self {
@@ -14774,14 +14644,6 @@ unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SECPKG_EXTENDED_INFORMATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_EXTENDED_INFORMATION_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SECPKG_EXTENDED_INFORMATION_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14809,7 +14671,7 @@ unsafe impl ::windows::core::Abi for SECPKG_EXTRA_OIDS {
 }
 impl ::core::cmp::PartialEq for SECPKG_EXTRA_OIDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_EXTRA_OIDS>()) == 0 }
+        self.OidCount == other.OidCount && self.Oids == other.Oids
     }
 }
 impl ::core::cmp::Eq for SECPKG_EXTRA_OIDS {}
@@ -14876,64 +14738,13 @@ impl ::core::clone::Clone for SECPKG_FUNCTION_TABLE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::fmt::Debug for SECPKG_FUNCTION_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECPKG_FUNCTION_TABLE")
-            .field("InitializePackage", &self.InitializePackage.map(|f| f as usize))
-            .field("LogonUserA", &self.LogonUserA.map(|f| f as usize))
-            .field("CallPackage", &self.CallPackage.map(|f| f as usize))
-            .field("LogonTerminated", &self.LogonTerminated.map(|f| f as usize))
-            .field("CallPackageUntrusted", &self.CallPackageUntrusted.map(|f| f as usize))
-            .field("CallPackagePassthrough", &self.CallPackagePassthrough.map(|f| f as usize))
-            .field("LogonUserExA", &self.LogonUserExA.map(|f| f as usize))
-            .field("LogonUserEx2", &self.LogonUserEx2.map(|f| f as usize))
-            .field("Initialize", &self.Initialize.map(|f| f as usize))
-            .field("Shutdown", &self.Shutdown.map(|f| f as usize))
-            .field("GetInfo", &self.GetInfo.map(|f| f as usize))
-            .field("AcceptCredentials", &self.AcceptCredentials.map(|f| f as usize))
-            .field("AcquireCredentialsHandleA", &self.AcquireCredentialsHandleA.map(|f| f as usize))
-            .field("QueryCredentialsAttributesA", &self.QueryCredentialsAttributesA.map(|f| f as usize))
-            .field("FreeCredentialsHandle", &self.FreeCredentialsHandle.map(|f| f as usize))
-            .field("SaveCredentials", &self.SaveCredentials.map(|f| f as usize))
-            .field("GetCredentials", &self.GetCredentials.map(|f| f as usize))
-            .field("DeleteCredentials", &self.DeleteCredentials.map(|f| f as usize))
-            .field("InitLsaModeContext", &self.InitLsaModeContext.map(|f| f as usize))
-            .field("AcceptLsaModeContext", &self.AcceptLsaModeContext.map(|f| f as usize))
-            .field("DeleteContext", &self.DeleteContext.map(|f| f as usize))
-            .field("ApplyControlToken", &self.ApplyControlToken.map(|f| f as usize))
-            .field("GetUserInfo", &self.GetUserInfo.map(|f| f as usize))
-            .field("GetExtendedInformation", &self.GetExtendedInformation.map(|f| f as usize))
-            .field("QueryContextAttributesA", &self.QueryContextAttributesA.map(|f| f as usize))
-            .field("AddCredentialsA", &self.AddCredentialsA.map(|f| f as usize))
-            .field("SetExtendedInformation", &self.SetExtendedInformation.map(|f| f as usize))
-            .field("SetContextAttributesA", &self.SetContextAttributesA.map(|f| f as usize))
-            .field("SetCredentialsAttributesA", &self.SetCredentialsAttributesA.map(|f| f as usize))
-            .field("ChangeAccountPasswordA", &self.ChangeAccountPasswordA.map(|f| f as usize))
-            .field("QueryMetaData", &self.QueryMetaData.map(|f| f as usize))
-            .field("ExchangeMetaData", &self.ExchangeMetaData.map(|f| f as usize))
-            .field("GetCredUIContext", &self.GetCredUIContext.map(|f| f as usize))
-            .field("UpdateCredentials", &self.UpdateCredentials.map(|f| f as usize))
-            .field("ValidateTargetInfo", &self.ValidateTargetInfo.map(|f| f as usize))
-            .field("PostLogonUser", &self.PostLogonUser.map(|f| f as usize))
-            .field("GetRemoteCredGuardLogonBuffer", &self.GetRemoteCredGuardLogonBuffer.map(|f| f as usize))
-            .field("GetRemoteCredGuardSupplementalCreds", &self.GetRemoteCredGuardSupplementalCreds.map(|f| f as usize))
-            .field("GetTbalSupplementalCreds", &self.GetTbalSupplementalCreds.map(|f| f as usize))
-            .field("LogonUserEx3", &self.LogonUserEx3.map(|f| f as usize))
-            .field("PreLogonUserSurrogate", &self.PreLogonUserSurrogate.map(|f| f as usize))
-            .field("PostLogonUserSurrogate", &self.PostLogonUserSurrogate.map(|f| f as usize))
-            .finish()
+        f.debug_struct("SECPKG_FUNCTION_TABLE").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for SECPKG_FUNCTION_TABLE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl ::core::cmp::PartialEq for SECPKG_FUNCTION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_FUNCTION_TABLE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl ::core::cmp::Eq for SECPKG_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::default::Default for SECPKG_FUNCTION_TABLE {
     fn default() -> Self {
@@ -14962,7 +14773,7 @@ unsafe impl ::windows::core::Abi for SECPKG_GSS_INFO {
 }
 impl ::core::cmp::PartialEq for SECPKG_GSS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_GSS_INFO>()) == 0 }
+        self.EncodedIdLength == other.EncodedIdLength && self.EncodedId == other.EncodedId
     }
 }
 impl ::core::cmp::Eq for SECPKG_GSS_INFO {}
@@ -14996,31 +14807,13 @@ impl ::core::clone::Clone for SECPKG_KERNEL_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for SECPKG_KERNEL_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECPKG_KERNEL_FUNCTIONS")
-            .field("AllocateHeap", &self.AllocateHeap.map(|f| f as usize))
-            .field("FreeHeap", &self.FreeHeap.map(|f| f as usize))
-            .field("CreateContextList", &self.CreateContextList.map(|f| f as usize))
-            .field("InsertListEntry", &self.InsertListEntry.map(|f| f as usize))
-            .field("ReferenceListEntry", &self.ReferenceListEntry.map(|f| f as usize))
-            .field("DereferenceListEntry", &self.DereferenceListEntry.map(|f| f as usize))
-            .field("SerializeWinntAuthData", &self.SerializeWinntAuthData.map(|f| f as usize))
-            .field("SerializeSchannelAuthData", &self.SerializeSchannelAuthData.map(|f| f as usize))
-            .field("LocatePackageById", &self.LocatePackageById.map(|f| f as usize))
-            .finish()
+        f.debug_struct("SECPKG_KERNEL_FUNCTIONS").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for SECPKG_KERNEL_FUNCTIONS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for SECPKG_KERNEL_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_KERNEL_FUNCTIONS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for SECPKG_KERNEL_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for SECPKG_KERNEL_FUNCTIONS {
     fn default() -> Self {
@@ -15058,37 +14851,13 @@ impl ::core::clone::Clone for SECPKG_KERNEL_FUNCTION_TABLE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for SECPKG_KERNEL_FUNCTION_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECPKG_KERNEL_FUNCTION_TABLE")
-            .field("Initialize", &self.Initialize.map(|f| f as usize))
-            .field("DeleteContext", &self.DeleteContext.map(|f| f as usize))
-            .field("InitContext", &self.InitContext.map(|f| f as usize))
-            .field("MapHandle", &self.MapHandle.map(|f| f as usize))
-            .field("Sign", &self.Sign.map(|f| f as usize))
-            .field("Verify", &self.Verify.map(|f| f as usize))
-            .field("Seal", &self.Seal.map(|f| f as usize))
-            .field("Unseal", &self.Unseal.map(|f| f as usize))
-            .field("GetToken", &self.GetToken.map(|f| f as usize))
-            .field("QueryAttributes", &self.QueryAttributes.map(|f| f as usize))
-            .field("CompleteToken", &self.CompleteToken.map(|f| f as usize))
-            .field("ExportContext", &self.ExportContext.map(|f| f as usize))
-            .field("ImportContext", &self.ImportContext.map(|f| f as usize))
-            .field("SetPackagePagingMode", &self.SetPackagePagingMode.map(|f| f as usize))
-            .field("SerializeAuthData", &self.SerializeAuthData.map(|f| f as usize))
-            .finish()
+        f.debug_struct("SECPKG_KERNEL_FUNCTION_TABLE").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for SECPKG_KERNEL_FUNCTION_TABLE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for SECPKG_KERNEL_FUNCTION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_KERNEL_FUNCTION_TABLE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for SECPKG_KERNEL_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for SECPKG_KERNEL_FUNCTION_TABLE {
     fn default() -> Self {
@@ -15116,7 +14885,7 @@ unsafe impl ::windows::core::Abi for SECPKG_MUTUAL_AUTH_LEVEL {
 }
 impl ::core::cmp::PartialEq for SECPKG_MUTUAL_AUTH_LEVEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_MUTUAL_AUTH_LEVEL>()) == 0 }
+        self.MutualAuthLevel == other.MutualAuthLevel
     }
 }
 impl ::core::cmp::Eq for SECPKG_MUTUAL_AUTH_LEVEL {}
@@ -15147,7 +14916,7 @@ unsafe impl ::windows::core::Abi for SECPKG_NEGO2_INFO {
 }
 impl ::core::cmp::PartialEq for SECPKG_NEGO2_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_NEGO2_INFO>()) == 0 }
+        self.AuthScheme == other.AuthScheme && self.PackageFlags == other.PackageFlags
     }
 }
 impl ::core::cmp::Eq for SECPKG_NEGO2_INFO {}
@@ -15189,7 +14958,7 @@ unsafe impl ::windows::core::Abi for SECPKG_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_PARAMETERS>()) == 0 }
+        self.Version == other.Version && self.MachineState == other.MachineState && self.SetupMode == other.SetupMode && self.DomainSid == other.DomainSid && self.DomainName == other.DomainName && self.DnsDomainName == other.DnsDomainName && self.DomainGuid == other.DomainGuid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15229,7 +14998,7 @@ unsafe impl ::windows::core::Abi for SECPKG_POST_LOGON_USER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_POST_LOGON_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_POST_LOGON_USER_INFO>()) == 0 }
+        self.Flags == other.Flags && self.LogonId == other.LogonId && self.LinkedLogonId == other.LinkedLogonId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15295,7 +15064,7 @@ unsafe impl ::windows::core::Abi for SECPKG_PRIMARY_CRED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_PRIMARY_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_PRIMARY_CRED>()) == 0 }
+        self.LogonId == other.LogonId && self.DownlevelName == other.DownlevelName && self.DomainName == other.DomainName && self.Password == other.Password && self.OldPassword == other.OldPassword && self.UserSid == other.UserSid && self.Flags == other.Flags && self.DnsDomainName == other.DnsDomainName && self.Upn == other.Upn && self.LogonServer == other.LogonServer && self.Spare1 == other.Spare1 && self.Spare2 == other.Spare2 && self.Spare3 == other.Spare3 && self.Spare4 == other.Spare4
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15367,7 +15136,7 @@ unsafe impl ::windows::core::Abi for SECPKG_PRIMARY_CRED_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_PRIMARY_CRED_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_PRIMARY_CRED_EX>()) == 0 }
+        self.LogonId == other.LogonId && self.DownlevelName == other.DownlevelName && self.DomainName == other.DomainName && self.Password == other.Password && self.OldPassword == other.OldPassword && self.UserSid == other.UserSid && self.Flags == other.Flags && self.DnsDomainName == other.DnsDomainName && self.Upn == other.Upn && self.LogonServer == other.LogonServer && self.Spare1 == other.Spare1 && self.Spare2 == other.Spare2 && self.Spare3 == other.Spare3 && self.Spare4 == other.Spare4 && self.PackageId == other.PackageId && self.PrevLogonId == other.PrevLogonId && self.FlagsEx == other.FlagsEx
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15401,29 +15170,13 @@ impl ::core::clone::Clone for SECPKG_REDIRECTED_LOGON_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SECPKG_REDIRECTED_LOGON_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECPKG_REDIRECTED_LOGON_BUFFER")
-            .field("RedirectedLogonGuid", &self.RedirectedLogonGuid)
-            .field("RedirectedLogonHandle", &self.RedirectedLogonHandle)
-            .field("Init", &self.Init.map(|f| f as usize))
-            .field("Callback", &self.Callback.map(|f| f as usize))
-            .field("CleanupCallback", &self.CleanupCallback.map(|f| f as usize))
-            .field("GetLogonCreds", &self.GetLogonCreds.map(|f| f as usize))
-            .field("GetSupplementalCreds", &self.GetSupplementalCreds.map(|f| f as usize))
-            .finish()
+        f.debug_struct("SECPKG_REDIRECTED_LOGON_BUFFER").field("RedirectedLogonGuid", &self.RedirectedLogonGuid).field("RedirectedLogonHandle", &self.RedirectedLogonHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SECPKG_REDIRECTED_LOGON_BUFFER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SECPKG_REDIRECTED_LOGON_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_REDIRECTED_LOGON_BUFFER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SECPKG_REDIRECTED_LOGON_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_REDIRECTED_LOGON_BUFFER {
     fn default() -> Self {
@@ -15453,7 +15206,7 @@ unsafe impl ::windows::core::Abi for SECPKG_SERIALIZED_OID {
 }
 impl ::core::cmp::PartialEq for SECPKG_SERIALIZED_OID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_SERIALIZED_OID>()) == 0 }
+        self.OidLength == other.OidLength && self.OidAttributes == other.OidAttributes && self.OidValue == other.OidValue
     }
 }
 impl ::core::cmp::Eq for SECPKG_SERIALIZED_OID {}
@@ -15484,7 +15237,7 @@ unsafe impl ::windows::core::Abi for SECPKG_SHORT_VECTOR {
 }
 impl ::core::cmp::PartialEq for SECPKG_SHORT_VECTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_SHORT_VECTOR>()) == 0 }
+        self.ShortArrayOffset == other.ShortArrayOffset && self.ShortArrayCount == other.ShortArrayCount
     }
 }
 impl ::core::cmp::Eq for SECPKG_SHORT_VECTOR {}
@@ -15522,7 +15275,7 @@ unsafe impl ::windows::core::Abi for SECPKG_SUPPLEMENTAL_CRED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_SUPPLEMENTAL_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_SUPPLEMENTAL_CRED>()) == 0 }
+        self.PackageName == other.PackageName && self.CredentialSize == other.CredentialSize && self.Credentials == other.Credentials
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15561,7 +15314,7 @@ unsafe impl ::windows::core::Abi for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_SUPPLEMENTAL_CRED_ARRAY>()) == 0 }
+        self.CredentialCount == other.CredentialCount && self.Credentials == other.Credentials
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15598,7 +15351,7 @@ unsafe impl ::windows::core::Abi for SECPKG_SUPPLIED_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for SECPKG_SUPPLIED_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_SUPPLIED_CREDENTIAL>()) == 0 }
+        self.cbHeaderLength == other.cbHeaderLength && self.cbStructureLength == other.cbStructureLength && self.UserName == other.UserName && self.DomainName == other.DomainName && self.PackedCredentials == other.PackedCredentials && self.CredFlags == other.CredFlags
     }
 }
 impl ::core::cmp::Eq for SECPKG_SUPPLIED_CREDENTIAL {}
@@ -15637,7 +15390,7 @@ unsafe impl ::windows::core::Abi for SECPKG_SURROGATE_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_SURROGATE_LOGON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_SURROGATE_LOGON>()) == 0 }
+        self.Version == other.Version && self.SurrogateLogonID == other.SurrogateLogonID && self.EntryCount == other.EntryCount && self.Entries == other.Entries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15670,7 +15423,7 @@ unsafe impl ::windows::core::Abi for SECPKG_SURROGATE_LOGON_ENTRY {
 }
 impl ::core::cmp::PartialEq for SECPKG_SURROGATE_LOGON_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_SURROGATE_LOGON_ENTRY>()) == 0 }
+        self.Type == other.Type && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for SECPKG_SURROGATE_LOGON_ENTRY {}
@@ -15707,7 +15460,7 @@ unsafe impl ::windows::core::Abi for SECPKG_TARGETINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_TARGETINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_TARGETINFO>()) == 0 }
+        self.DomainSid == other.DomainSid && self.ComputerName == other.ComputerName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15749,37 +15502,13 @@ impl ::core::clone::Clone for SECPKG_USER_FUNCTION_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SECPKG_USER_FUNCTION_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECPKG_USER_FUNCTION_TABLE")
-            .field("InstanceInit", &self.InstanceInit.map(|f| f as usize))
-            .field("InitUserModeContext", &self.InitUserModeContext.map(|f| f as usize))
-            .field("MakeSignature", &self.MakeSignature.map(|f| f as usize))
-            .field("VerifySignature", &self.VerifySignature.map(|f| f as usize))
-            .field("SealMessage", &self.SealMessage.map(|f| f as usize))
-            .field("UnsealMessage", &self.UnsealMessage.map(|f| f as usize))
-            .field("GetContextToken", &self.GetContextToken.map(|f| f as usize))
-            .field("QueryContextAttributesA", &self.QueryContextAttributesA.map(|f| f as usize))
-            .field("CompleteAuthToken", &self.CompleteAuthToken.map(|f| f as usize))
-            .field("DeleteUserModeContext", &self.DeleteUserModeContext.map(|f| f as usize))
-            .field("FormatCredentials", &self.FormatCredentials.map(|f| f as usize))
-            .field("MarshallSupplementalCreds", &self.MarshallSupplementalCreds.map(|f| f as usize))
-            .field("ExportContext", &self.ExportContext.map(|f| f as usize))
-            .field("ImportContext", &self.ImportContext.map(|f| f as usize))
-            .field("MarshalAttributeData", &self.MarshalAttributeData.map(|f| f as usize))
-            .finish()
+        f.debug_struct("SECPKG_USER_FUNCTION_TABLE").finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SECPKG_USER_FUNCTION_TABLE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SECPKG_USER_FUNCTION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_USER_FUNCTION_TABLE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SECPKG_USER_FUNCTION_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_USER_FUNCTION_TABLE {
     fn default() -> Self {
@@ -15813,7 +15542,7 @@ unsafe impl ::windows::core::Abi for SECPKG_WOW_CLIENT_DLL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_WOW_CLIENT_DLL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECPKG_WOW_CLIENT_DLL>()) == 0 }
+        self.WowClientDllPath == other.WowClientDllPath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15897,7 +15626,29 @@ unsafe impl ::windows::core::Abi for SECURITY_LOGON_SESSION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECURITY_LOGON_SESSION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECURITY_LOGON_SESSION_DATA>()) == 0 }
+        self.Size == other.Size
+            && self.LogonId == other.LogonId
+            && self.UserName == other.UserName
+            && self.LogonDomain == other.LogonDomain
+            && self.AuthenticationPackage == other.AuthenticationPackage
+            && self.LogonType == other.LogonType
+            && self.Session == other.Session
+            && self.Sid == other.Sid
+            && self.LogonTime == other.LogonTime
+            && self.LogonServer == other.LogonServer
+            && self.DnsDomainName == other.DnsDomainName
+            && self.Upn == other.Upn
+            && self.UserFlags == other.UserFlags
+            && self.LastLogonInfo == other.LastLogonInfo
+            && self.LogonScript == other.LogonScript
+            && self.ProfilePath == other.ProfilePath
+            && self.HomeDirectory == other.HomeDirectory
+            && self.HomeDirectoryDrive == other.HomeDirectoryDrive
+            && self.LogoffTime == other.LogoffTime
+            && self.KickOffTime == other.KickOffTime
+            && self.PasswordLastSet == other.PasswordLastSet
+            && self.PasswordCanChange == other.PasswordCanChange
+            && self.PasswordMustChange == other.PasswordMustChange
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15933,7 +15684,7 @@ unsafe impl ::windows::core::Abi for SECURITY_PACKAGE_OPTIONS {
 }
 impl ::core::cmp::PartialEq for SECURITY_PACKAGE_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECURITY_PACKAGE_OPTIONS>()) == 0 }
+        self.Size == other.Size && self.Type == other.Type && self.Flags == other.Flags && self.SignatureSize == other.SignatureSize && self.Signature == other.Signature
     }
 }
 impl ::core::cmp::Eq for SECURITY_PACKAGE_OPTIONS {}
@@ -15972,7 +15723,7 @@ unsafe impl ::windows::core::Abi for SECURITY_USER_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECURITY_USER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECURITY_USER_DATA>()) == 0 }
+        self.UserName == other.UserName && self.LogonDomainName == other.LogonDomainName && self.LogonServer == other.LogonServer && self.pSid == other.pSid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16005,7 +15756,7 @@ unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOLS {
 }
 impl ::core::cmp::PartialEq for SEC_APPLICATION_PROTOCOLS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_APPLICATION_PROTOCOLS>()) == 0 }
+        self.ProtocolListsSize == other.ProtocolListsSize && self.ProtocolLists == other.ProtocolLists
     }
 }
 impl ::core::cmp::Eq for SEC_APPLICATION_PROTOCOLS {}
@@ -16037,7 +15788,7 @@ unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_LIST {
 }
 impl ::core::cmp::PartialEq for SEC_APPLICATION_PROTOCOL_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_APPLICATION_PROTOCOL_LIST>()) == 0 }
+        self.ProtoNegoExt == other.ProtoNegoExt && self.ProtocolListSize == other.ProtocolListSize && self.ProtocolList == other.ProtocolList
     }
 }
 impl ::core::cmp::Eq for SEC_APPLICATION_PROTOCOL_LIST {}
@@ -16083,7 +15834,7 @@ unsafe impl ::windows::core::Abi for SEC_CHANNEL_BINDINGS {
 }
 impl ::core::cmp::PartialEq for SEC_CHANNEL_BINDINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_CHANNEL_BINDINGS>()) == 0 }
+        self.dwInitiatorAddrType == other.dwInitiatorAddrType && self.cbInitiatorLength == other.cbInitiatorLength && self.dwInitiatorOffset == other.dwInitiatorOffset && self.dwAcceptorAddrType == other.dwAcceptorAddrType && self.cbAcceptorLength == other.cbAcceptorLength && self.dwAcceptorOffset == other.dwAcceptorOffset && self.cbApplicationDataLength == other.cbApplicationDataLength && self.dwApplicationDataOffset == other.dwApplicationDataOffset
     }
 }
 impl ::core::cmp::Eq for SEC_CHANNEL_BINDINGS {}
@@ -16113,7 +15864,7 @@ unsafe impl ::windows::core::Abi for SEC_DTLS_MTU {
 }
 impl ::core::cmp::PartialEq for SEC_DTLS_MTU {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_DTLS_MTU>()) == 0 }
+        self.PathMTU == other.PathMTU
     }
 }
 impl ::core::cmp::Eq for SEC_DTLS_MTU {}
@@ -16143,7 +15894,7 @@ unsafe impl ::windows::core::Abi for SEC_FLAGS {
 }
 impl ::core::cmp::PartialEq for SEC_FLAGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_FLAGS>()) == 0 }
+        self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for SEC_FLAGS {}
@@ -16176,7 +15927,7 @@ unsafe impl ::windows::core::Abi for SEC_NEGOTIATION_INFO {
 }
 impl ::core::cmp::PartialEq for SEC_NEGOTIATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_NEGOTIATION_INFO>()) == 0 }
+        self.Size == other.Size && self.NameLength == other.NameLength && self.Name == other.Name && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for SEC_NEGOTIATION_INFO {}
@@ -16207,7 +15958,7 @@ unsafe impl ::windows::core::Abi for SEC_PRESHAREDKEY {
 }
 impl ::core::cmp::PartialEq for SEC_PRESHAREDKEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_PRESHAREDKEY>()) == 0 }
+        self.KeySize == other.KeySize && self.Key == other.Key
     }
 }
 impl ::core::cmp::Eq for SEC_PRESHAREDKEY {}
@@ -16238,7 +15989,7 @@ unsafe impl ::windows::core::Abi for SEC_PRESHAREDKEY_IDENTITY {
 }
 impl ::core::cmp::PartialEq for SEC_PRESHAREDKEY_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_PRESHAREDKEY_IDENTITY>()) == 0 }
+        self.KeyIdentitySize == other.KeyIdentitySize && self.KeyIdentity == other.KeyIdentity
     }
 }
 impl ::core::cmp::Eq for SEC_PRESHAREDKEY_IDENTITY {}
@@ -16269,7 +16020,7 @@ unsafe impl ::windows::core::Abi for SEC_SRTP_MASTER_KEY_IDENTIFIER {
 }
 impl ::core::cmp::PartialEq for SEC_SRTP_MASTER_KEY_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_SRTP_MASTER_KEY_IDENTIFIER>()) == 0 }
+        self.MasterKeyIdentifierSize == other.MasterKeyIdentifierSize && self.MasterKeyIdentifier == other.MasterKeyIdentifier
     }
 }
 impl ::core::cmp::Eq for SEC_SRTP_MASTER_KEY_IDENTIFIER {}
@@ -16300,7 +16051,7 @@ unsafe impl ::windows::core::Abi for SEC_SRTP_PROTECTION_PROFILES {
 }
 impl ::core::cmp::PartialEq for SEC_SRTP_PROTECTION_PROFILES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_SRTP_PROTECTION_PROFILES>()) == 0 }
+        self.ProfilesSize == other.ProfilesSize && self.ProfilesList == other.ProfilesList
     }
 }
 impl ::core::cmp::Eq for SEC_SRTP_PROTECTION_PROFILES {}
@@ -16333,7 +16084,7 @@ unsafe impl ::windows::core::Abi for SEC_TOKEN_BINDING {
 }
 impl ::core::cmp::PartialEq for SEC_TOKEN_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_TOKEN_BINDING>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.KeyParametersSize == other.KeyParametersSize && self.KeyParameters == other.KeyParameters
     }
 }
 impl ::core::cmp::Eq for SEC_TOKEN_BINDING {}
@@ -16372,7 +16123,7 @@ unsafe impl ::windows::core::Abi for SEC_TRAFFIC_SECRETS {
 }
 impl ::core::cmp::PartialEq for SEC_TRAFFIC_SECRETS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_TRAFFIC_SECRETS>()) == 0 }
+        self.SymmetricAlgId == other.SymmetricAlgId && self.ChainingMode == other.ChainingMode && self.HashAlgId == other.HashAlgId && self.KeySize == other.KeySize && self.IvSize == other.IvSize && self.MsgSequenceStart == other.MsgSequenceStart && self.MsgSequenceEnd == other.MsgSequenceEnd && self.TrafficSecretType == other.TrafficSecretType && self.TrafficSecretSize == other.TrafficSecretSize && self.TrafficSecret == other.TrafficSecret
     }
 }
 impl ::core::cmp::Eq for SEC_TRAFFIC_SECRETS {}
@@ -16408,7 +16159,7 @@ unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY32 {
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY32>()) == 0 }
+        self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY32 {}
@@ -16462,7 +16213,7 @@ unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EX2 {
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EX2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY_EX2>()) == 0 }
+        self.Version == other.Version && self.cbHeaderLength == other.cbHeaderLength && self.cbStructureLength == other.cbStructureLength && self.UserOffset == other.UserOffset && self.UserLength == other.UserLength && self.DomainOffset == other.DomainOffset && self.DomainLength == other.DomainLength && self.PackedCredentialsOffset == other.PackedCredentialsOffset && self.PackedCredentialsLength == other.PackedCredentialsLength && self.Flags == other.Flags && self.PackageListOffset == other.PackageListOffset && self.PackageListLength == other.PackageListLength
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_EX2 {}
@@ -16502,7 +16253,7 @@ unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EX32 {
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EX32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY_EX32>()) == 0 }
+        self.Version == other.Version && self.Length == other.Length && self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags && self.PackageList == other.PackageList && self.PackageListLength == other.PackageListLength
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_EX32 {}
@@ -16542,7 +16293,7 @@ unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EXA {
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EXA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY_EXA>()) == 0 }
+        self.Version == other.Version && self.Length == other.Length && self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags && self.PackageList == other.PackageList && self.PackageListLength == other.PackageListLength
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_EXA {}
@@ -16582,7 +16333,7 @@ unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EXW {
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EXW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY_EXW>()) == 0 }
+        self.Version == other.Version && self.Length == other.Length && self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags && self.PackageList == other.PackageList && self.PackageListLength == other.PackageListLength
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_EXW {}
@@ -16614,14 +16365,6 @@ unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Rpc")]
-impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_WINNT_AUTH_IDENTITY_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Rpc")]
-impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_INFO {}
-#[cfg(feature = "Win32_System_Rpc")]
 impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16652,7 +16395,7 @@ unsafe impl ::windows::core::Abi for SEND_GENERIC_TLS_EXTENSION {
 }
 impl ::core::cmp::PartialEq for SEND_GENERIC_TLS_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEND_GENERIC_TLS_EXTENSION>()) == 0 }
+        self.ExtensionType == other.ExtensionType && self.HandshakeType == other.HandshakeType && self.Flags == other.Flags && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for SEND_GENERIC_TLS_EXTENSION {}
@@ -16686,7 +16429,7 @@ unsafe impl ::windows::core::Abi for SE_ADT_ACCESS_REASON {
 }
 impl ::core::cmp::PartialEq for SE_ADT_ACCESS_REASON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SE_ADT_ACCESS_REASON>()) == 0 }
+        self.AccessMask == other.AccessMask && self.AccessReasons == other.AccessReasons && self.ObjectTypeIndex == other.ObjectTypeIndex && self.AccessGranted == other.AccessGranted && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
 impl ::core::cmp::Eq for SE_ADT_ACCESS_REASON {}
@@ -16717,7 +16460,7 @@ unsafe impl ::windows::core::Abi for SE_ADT_CLAIMS {
 }
 impl ::core::cmp::PartialEq for SE_ADT_CLAIMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SE_ADT_CLAIMS>()) == 0 }
+        self.Length == other.Length && self.Claims == other.Claims
     }
 }
 impl ::core::cmp::Eq for SE_ADT_CLAIMS {}
@@ -16750,7 +16493,7 @@ unsafe impl ::windows::core::Abi for SE_ADT_OBJECT_TYPE {
 }
 impl ::core::cmp::PartialEq for SE_ADT_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SE_ADT_OBJECT_TYPE>()) == 0 }
+        self.ObjectType == other.ObjectType && self.Flags == other.Flags && self.Level == other.Level && self.AccessMask == other.AccessMask
     }
 }
 impl ::core::cmp::Eq for SE_ADT_OBJECT_TYPE {}
@@ -16787,7 +16530,7 @@ unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_ARRAY {
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SE_ADT_PARAMETER_ARRAY>()) == 0 }
+        self.CategoryId == other.CategoryId && self.AuditId == other.AuditId && self.ParameterCount == other.ParameterCount && self.Length == other.Length && self.FlatSubCategoryId == other.FlatSubCategoryId && self.Type == other.Type && self.Flags == other.Flags && self.Parameters == other.Parameters
     }
 }
 impl ::core::cmp::Eq for SE_ADT_PARAMETER_ARRAY {}
@@ -16820,7 +16563,7 @@ unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_ARRAY_ENTRY {
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SE_ADT_PARAMETER_ARRAY_ENTRY>()) == 0 }
+        self.Type == other.Type && self.Length == other.Length && self.Data == other.Data && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for SE_ADT_PARAMETER_ARRAY_ENTRY {}
@@ -16858,7 +16601,7 @@ unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_ARRAY_EX {
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SE_ADT_PARAMETER_ARRAY_EX>()) == 0 }
+        self.CategoryId == other.CategoryId && self.AuditId == other.AuditId && self.Version == other.Version && self.ParameterCount == other.ParameterCount && self.Length == other.Length && self.FlatSubCategoryId == other.FlatSubCategoryId && self.Type == other.Type && self.Flags == other.Flags && self.Parameters == other.Parameters
     }
 }
 impl ::core::cmp::Eq for SE_ADT_PARAMETER_ARRAY_EX {}
@@ -16889,7 +16632,7 @@ unsafe impl ::windows::core::Abi for SL_ACTIVATION_INFO_HEADER {
 }
 impl ::core::cmp::PartialEq for SL_ACTIVATION_INFO_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SL_ACTIVATION_INFO_HEADER>()) == 0 }
+        self.cbSize == other.cbSize && self.r#type == other.r#type
     }
 }
 impl ::core::cmp::Eq for SL_ACTIVATION_INFO_HEADER {}
@@ -16921,7 +16664,7 @@ unsafe impl ::windows::core::Abi for SL_AD_ACTIVATION_INFO {
 }
 impl ::core::cmp::PartialEq for SL_AD_ACTIVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SL_AD_ACTIVATION_INFO>()) == 0 }
+        self.header == other.header && self.pwszProductKey == other.pwszProductKey && self.pwszActivationObjectName == other.pwszActivationObjectName
     }
 }
 impl ::core::cmp::Eq for SL_AD_ACTIVATION_INFO {}
@@ -16956,7 +16699,7 @@ unsafe impl ::windows::core::Abi for SL_LICENSING_STATUS {
 }
 impl ::core::cmp::PartialEq for SL_LICENSING_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SL_LICENSING_STATUS>()) == 0 }
+        self.SkuId == other.SkuId && self.eStatus == other.eStatus && self.dwGraceTime == other.dwGraceTime && self.dwTotalGraceDays == other.dwTotalGraceDays && self.hrReason == other.hrReason && self.qwValidityExpiration == other.qwValidityExpiration
     }
 }
 impl ::core::cmp::Eq for SL_LICENSING_STATUS {}
@@ -16988,7 +16731,7 @@ unsafe impl ::windows::core::Abi for SL_NONGENUINE_UI_OPTIONS {
 }
 impl ::core::cmp::PartialEq for SL_NONGENUINE_UI_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SL_NONGENUINE_UI_OPTIONS>()) == 0 }
+        self.cbSize == other.cbSize && self.pComponentId == other.pComponentId && self.hResultUI == other.hResultUI
     }
 }
 impl ::core::cmp::Eq for SL_NONGENUINE_UI_OPTIONS {}
@@ -17019,7 +16762,7 @@ unsafe impl ::windows::core::Abi for SL_SYSTEM_POLICY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for SL_SYSTEM_POLICY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SL_SYSTEM_POLICY_INFORMATION>()) == 0 }
+        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for SL_SYSTEM_POLICY_INFORMATION {}
@@ -17050,7 +16793,7 @@ unsafe impl ::windows::core::Abi for SR_SECURITY_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for SR_SECURITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_SECURITY_DESCRIPTOR>()) == 0 }
+        self.Length == other.Length && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
 impl ::core::cmp::Eq for SR_SECURITY_DESCRIPTOR {}
@@ -17084,7 +16827,7 @@ unsafe impl ::windows::core::Abi for SSL_CREDENTIAL_CERTIFICATE {
 }
 impl ::core::cmp::PartialEq for SSL_CREDENTIAL_CERTIFICATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSL_CREDENTIAL_CERTIFICATE>()) == 0 }
+        self.cbPrivateKey == other.cbPrivateKey && self.pPrivateKey == other.pPrivateKey && self.cbCertificate == other.cbCertificate && self.pCertificate == other.pCertificate && self.pszPassword == other.pszPassword
     }
 }
 impl ::core::cmp::Eq for SSL_CREDENTIAL_CERTIFICATE {}
@@ -17116,7 +16859,7 @@ unsafe impl ::windows::core::Abi for SUBSCRIBE_GENERIC_TLS_EXTENSION {
 }
 impl ::core::cmp::PartialEq for SUBSCRIBE_GENERIC_TLS_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SUBSCRIBE_GENERIC_TLS_EXTENSION>()) == 0 }
+        self.Flags == other.Flags && self.SubscriptionsCount == other.SubscriptionsCount && self.Subscriptions == other.Subscriptions
     }
 }
 impl ::core::cmp::Eq for SUBSCRIBE_GENERIC_TLS_EXTENSION {}
@@ -17148,7 +16891,7 @@ unsafe impl ::windows::core::Abi for SecBuffer {
 }
 impl ::core::cmp::PartialEq for SecBuffer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecBuffer>()) == 0 }
+        self.cbBuffer == other.cbBuffer && self.BufferType == other.BufferType && self.pvBuffer == other.pvBuffer
     }
 }
 impl ::core::cmp::Eq for SecBuffer {}
@@ -17180,7 +16923,7 @@ unsafe impl ::windows::core::Abi for SecBufferDesc {
 }
 impl ::core::cmp::PartialEq for SecBufferDesc {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecBufferDesc>()) == 0 }
+        self.ulVersion == other.ulVersion && self.cBuffers == other.cBuffers && self.pBuffers == other.pBuffers
     }
 }
 impl ::core::cmp::Eq for SecBufferDesc {}
@@ -17210,7 +16953,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_AccessToken {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AccessToken {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_AccessToken>()) == 0 }
+        self.AccessToken == other.AccessToken
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_AccessToken {}
@@ -17243,7 +16986,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ApplicationProtocol {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ApplicationProtocol {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ApplicationProtocol>()) == 0 }
+        self.ProtoNegoStatus == other.ProtoNegoStatus && self.ProtoNegoExt == other.ProtoNegoExt && self.ProtocolIdSize == other.ProtocolIdSize && self.ProtocolId == other.ProtocolId
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ApplicationProtocol {}
@@ -17273,7 +17016,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_AuthorityA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AuthorityA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_AuthorityA>()) == 0 }
+        self.sAuthorityName == other.sAuthorityName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_AuthorityA {}
@@ -17303,7 +17046,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_AuthorityW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AuthorityW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_AuthorityW>()) == 0 }
+        self.sAuthorityName == other.sAuthorityName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_AuthorityW {}
@@ -17334,7 +17077,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_AuthzID {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AuthzID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_AuthzID>()) == 0 }
+        self.AuthzIDLength == other.AuthzIDLength && self.AuthzID == other.AuthzID
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_AuthzID {}
@@ -17365,7 +17108,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_Bindings {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Bindings {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_Bindings>()) == 0 }
+        self.BindingsLength == other.BindingsLength && self.Bindings == other.Bindings
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_Bindings {}
@@ -17400,7 +17143,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_CertInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CertInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_CertInfo>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbSubjectName == other.cbSubjectName && self.pwszSubjectName == other.pwszSubjectName && self.cbIssuerName == other.cbIssuerName && self.pwszIssuerName == other.pwszIssuerName && self.dwKeySize == other.dwKeySize
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_CertInfo {}
@@ -17431,7 +17174,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_CertificateValidationResult {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CertificateValidationResult {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_CertificateValidationResult>()) == 0 }
+        self.dwChainErrorStatus == other.dwChainErrorStatus && self.hrVerifyChainStatus == other.hrVerifyChainStatus
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_CertificateValidationResult {}
@@ -17463,7 +17206,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_Certificates {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Certificates {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_Certificates>()) == 0 }
+        self.cCertificates == other.cCertificates && self.cbCertificateChain == other.cbCertificateChain && self.pbCertificateChain == other.pbCertificateChain
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_Certificates {}
@@ -17523,7 +17266,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_CipherInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CipherInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_CipherInfo>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwProtocol == other.dwProtocol && self.dwCipherSuite == other.dwCipherSuite && self.dwBaseCipherSuite == other.dwBaseCipherSuite && self.szCipherSuite == other.szCipherSuite && self.szCipher == other.szCipher && self.dwCipherLen == other.dwCipherLen && self.dwCipherBlockLen == other.dwCipherBlockLen && self.szHash == other.szHash && self.dwHashLen == other.dwHashLen && self.szExchange == other.szExchange && self.dwMinExchangeLen == other.dwMinExchangeLen && self.dwMaxExchangeLen == other.dwMaxExchangeLen && self.szCertificate == other.szCertificate && self.dwKeyType == other.dwKeyType
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_CipherInfo {}
@@ -17554,7 +17297,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ClientCertPolicyResult {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ClientCertPolicyResult {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ClientCertPolicyResult>()) == 0 }
+        self.dwPolicyResult == other.dwPolicyResult && self.guidPolicyId == other.guidPolicyId
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ClientCertPolicyResult {}
@@ -17584,7 +17327,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ClientSpecifiedTarget {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ClientSpecifiedTarget {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ClientSpecifiedTarget>()) == 0 }
+        self.sTargetName == other.sTargetName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ClientSpecifiedTarget {}
@@ -17620,7 +17363,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ConnectionInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ConnectionInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ConnectionInfo>()) == 0 }
+        self.dwProtocol == other.dwProtocol && self.aiCipher == other.aiCipher && self.dwCipherStrength == other.dwCipherStrength && self.aiHash == other.aiHash && self.dwHashStrength == other.dwHashStrength && self.aiExch == other.aiExch && self.dwExchStrength == other.dwExchStrength
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ConnectionInfo {}
@@ -17657,7 +17400,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ConnectionInfoEx {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ConnectionInfoEx {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ConnectionInfoEx>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwProtocol == other.dwProtocol && self.szCipher == other.szCipher && self.dwCipherStrength == other.dwCipherStrength && self.szHash == other.szHash && self.dwHashStrength == other.dwHashStrength && self.szExchange == other.szExchange && self.dwExchStrength == other.dwExchStrength
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ConnectionInfoEx {}
@@ -17688,7 +17431,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_CredInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CredInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_CredInfo>()) == 0 }
+        self.CredClass == other.CredClass && self.IsPromptingNeeded == other.IsPromptingNeeded
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_CredInfo {}
@@ -17719,7 +17462,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_CredentialNameA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CredentialNameA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_CredentialNameA>()) == 0 }
+        self.CredentialType == other.CredentialType && self.sCredentialName == other.sCredentialName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_CredentialNameA {}
@@ -17750,7 +17493,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_CredentialNameW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CredentialNameW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_CredentialNameW>()) == 0 }
+        self.CredentialType == other.CredentialType && self.sCredentialName == other.sCredentialName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_CredentialNameW {}
@@ -17781,7 +17524,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_DceInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_DceInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_DceInfo>()) == 0 }
+        self.AuthzSvc == other.AuthzSvc && self.pPac == other.pPac
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_DceInfo {}
@@ -17812,7 +17555,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_EapKeyBlock {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_EapKeyBlock {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_EapKeyBlock>()) == 0 }
+        self.rgbKeys == other.rgbKeys && self.rgbIVs == other.rgbIVs
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_EapKeyBlock {}
@@ -17844,7 +17587,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_EapPrfInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_EapPrfInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_EapPrfInfo>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbPrfData == other.cbPrfData && self.pbPrfData == other.pbPrfData
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_EapPrfInfo {}
@@ -17874,7 +17617,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_EarlyStart {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_EarlyStart {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_EarlyStart>()) == 0 }
+        self.dwEarlyStartFlags == other.dwEarlyStartFlags
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_EarlyStart {}
@@ -17904,7 +17647,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_Flags {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Flags {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_Flags>()) == 0 }
+        self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_Flags {}
@@ -17941,7 +17684,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_IssuerListInfoEx {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SecPkgContext_IssuerListInfoEx {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_IssuerListInfoEx>()) == 0 }
+        self.aIssuers == other.aIssuers && self.cIssuers == other.cIssuers
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -17977,7 +17720,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_KeyInfoA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyInfoA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_KeyInfoA>()) == 0 }
+        self.sSignatureAlgorithmName == other.sSignatureAlgorithmName && self.sEncryptAlgorithmName == other.sEncryptAlgorithmName && self.KeySize == other.KeySize && self.SignatureAlgorithm == other.SignatureAlgorithm && self.EncryptAlgorithm == other.EncryptAlgorithm
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_KeyInfoA {}
@@ -18011,7 +17754,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_KeyInfoW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyInfoW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_KeyInfoW>()) == 0 }
+        self.sSignatureAlgorithmName == other.sSignatureAlgorithmName && self.sEncryptAlgorithmName == other.sEncryptAlgorithmName && self.KeySize == other.KeySize && self.SignatureAlgorithm == other.SignatureAlgorithm && self.EncryptAlgorithm == other.EncryptAlgorithm
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_KeyInfoW {}
@@ -18042,7 +17785,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_KeyingMaterial {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyingMaterial {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_KeyingMaterial>()) == 0 }
+        self.cbKeyingMaterial == other.cbKeyingMaterial && self.pbKeyingMaterial == other.pbKeyingMaterial
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_KeyingMaterial {}
@@ -18076,7 +17819,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_KeyingMaterialInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyingMaterialInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_KeyingMaterialInfo>()) == 0 }
+        self.cbLabel == other.cbLabel && self.pszLabel == other.pszLabel && self.cbContextValue == other.cbContextValue && self.pbContextValue == other.pbContextValue && self.cbKeyingMaterial == other.cbKeyingMaterial
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_KeyingMaterialInfo {}
@@ -18111,7 +17854,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_KeyingMaterial_Inproc {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyingMaterial_Inproc {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_KeyingMaterial_Inproc>()) == 0 }
+        self.cbLabel == other.cbLabel && self.pszLabel == other.pszLabel && self.cbContextValue == other.cbContextValue && self.pbContextValue == other.pbContextValue && self.cbKeyingMaterial == other.cbKeyingMaterial && self.pbKeyingMaterial == other.pbKeyingMaterial
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_KeyingMaterial_Inproc {}
@@ -18141,7 +17884,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_LastClientTokenStatus {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_LastClientTokenStatus {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_LastClientTokenStatus>()) == 0 }
+        self.LastClientTokenStatus == other.LastClientTokenStatus
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_LastClientTokenStatus {}
@@ -18172,7 +17915,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_Lifespan {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Lifespan {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_Lifespan>()) == 0 }
+        self.tsStart == other.tsStart && self.tsExpiry == other.tsExpiry
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_Lifespan {}
@@ -18206,7 +17949,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_LocalCredentialInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_LocalCredentialInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_LocalCredentialInfo>()) == 0 }
+        self.cbCertificateChain == other.cbCertificateChain && self.pbCertificateChain == other.pbCertificateChain && self.cCertificates == other.cCertificates && self.fFlags == other.fFlags && self.dwBits == other.dwBits
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_LocalCredentialInfo {}
@@ -18236,7 +17979,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_LogoffTime {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_LogoffTime {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_LogoffTime>()) == 0 }
+        self.tsLogoffTime == other.tsLogoffTime
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_LogoffTime {}
@@ -18267,7 +18010,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_MappedCredAttr {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_MappedCredAttr {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_MappedCredAttr>()) == 0 }
+        self.dwAttribute == other.dwAttribute && self.pvBuffer == other.pvBuffer
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_MappedCredAttr {}
@@ -18297,7 +18040,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NamesA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NamesA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NamesA>()) == 0 }
+        self.sUserName == other.sUserName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NamesA {}
@@ -18327,7 +18070,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NamesW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NamesW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NamesW>()) == 0 }
+        self.sUserName == other.sUserName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NamesW {}
@@ -18358,7 +18101,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NativeNamesA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NativeNamesA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NativeNamesA>()) == 0 }
+        self.sClientName == other.sClientName && self.sServerName == other.sServerName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NativeNamesA {}
@@ -18389,7 +18132,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NativeNamesW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NativeNamesW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NativeNamesW>()) == 0 }
+        self.sClientName == other.sClientName && self.sServerName == other.sServerName
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NativeNamesW {}
@@ -18424,7 +18167,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NegoKeys {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegoKeys {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NegoKeys>()) == 0 }
+        self.KeyType == other.KeyType && self.KeyLength == other.KeyLength && self.KeyValue == other.KeyValue && self.VerifyKeyType == other.VerifyKeyType && self.VerifyKeyLength == other.VerifyKeyLength && self.VerifyKeyValue == other.VerifyKeyValue
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NegoKeys {}
@@ -18454,7 +18197,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NegoPackageInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegoPackageInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NegoPackageInfo>()) == 0 }
+        self.PackageMask == other.PackageMask
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NegoPackageInfo {}
@@ -18484,7 +18227,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NegoStatus {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegoStatus {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NegoStatus>()) == 0 }
+        self.LastStatus == other.LastStatus
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NegoStatus {}
@@ -18515,7 +18258,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NegotiatedTlsExtensions {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegotiatedTlsExtensions {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NegotiatedTlsExtensions>()) == 0 }
+        self.ExtensionsCount == other.ExtensionsCount && self.Extensions == other.Extensions
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NegotiatedTlsExtensions {}
@@ -18546,7 +18289,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NegotiationInfoA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegotiationInfoA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NegotiationInfoA>()) == 0 }
+        self.PackageInfo == other.PackageInfo && self.NegotiationState == other.NegotiationState
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NegotiationInfoA {}
@@ -18577,7 +18320,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_NegotiationInfoW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegotiationInfoW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_NegotiationInfoW>()) == 0 }
+        self.PackageInfo == other.PackageInfo && self.NegotiationState == other.NegotiationState
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_NegotiationInfoW {}
@@ -18607,7 +18350,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_PackageInfoA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_PackageInfoA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_PackageInfoA>()) == 0 }
+        self.PackageInfo == other.PackageInfo
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_PackageInfoA {}
@@ -18637,7 +18380,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_PackageInfoW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_PackageInfoW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_PackageInfoW>()) == 0 }
+        self.PackageInfo == other.PackageInfo
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_PackageInfoW {}
@@ -18667,7 +18410,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_PasswordExpiry {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_PasswordExpiry {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_PasswordExpiry>()) == 0 }
+        self.tsPasswordExpires == other.tsPasswordExpires
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_PasswordExpiry {}
@@ -18699,7 +18442,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ProtoInfoA {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ProtoInfoA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ProtoInfoA>()) == 0 }
+        self.sProtocolName == other.sProtocolName && self.majorVersion == other.majorVersion && self.minorVersion == other.minorVersion
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ProtoInfoA {}
@@ -18731,7 +18474,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_ProtoInfoW {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ProtoInfoW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_ProtoInfoW>()) == 0 }
+        self.sProtocolName == other.sProtocolName && self.majorVersion == other.majorVersion && self.minorVersion == other.minorVersion
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_ProtoInfoW {}
@@ -18765,7 +18508,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_RemoteCredentialInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_RemoteCredentialInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_RemoteCredentialInfo>()) == 0 }
+        self.cbCertificateChain == other.cbCertificateChain && self.pbCertificateChain == other.pbCertificateChain && self.cCertificates == other.cCertificates && self.fFlags == other.fFlags && self.dwBits == other.dwBits
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_RemoteCredentialInfo {}
@@ -18795,7 +18538,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_SaslContext {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SaslContext {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_SaslContext>()) == 0 }
+        self.SaslContext == other.SaslContext
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_SaslContext {}
@@ -18827,7 +18570,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_SessionAppData {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SessionAppData {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_SessionAppData>()) == 0 }
+        self.dwFlags == other.dwFlags && self.cbAppData == other.cbAppData && self.pbAppData == other.pbAppData
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_SessionAppData {}
@@ -18859,7 +18602,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_SessionInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SessionInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_SessionInfo>()) == 0 }
+        self.dwFlags == other.dwFlags && self.cbSessionId == other.cbSessionId && self.rgbSessionId == other.rgbSessionId
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_SessionInfo {}
@@ -18890,7 +18633,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_SessionKey {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SessionKey {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_SessionKey>()) == 0 }
+        self.SessionKeyLength == other.SessionKeyLength && self.SessionKey == other.SessionKey
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_SessionKey {}
@@ -18923,7 +18666,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_Sizes {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Sizes {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_Sizes>()) == 0 }
+        self.cbMaxToken == other.cbMaxToken && self.cbMaxSignature == other.cbMaxSignature && self.cbBlockSize == other.cbBlockSize && self.cbSecurityTrailer == other.cbSecurityTrailer
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_Sizes {}
@@ -18955,7 +18698,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_SrtpParameters {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SrtpParameters {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_SrtpParameters>()) == 0 }
+        self.ProtectionProfile == other.ProtectionProfile && self.MasterKeyIdentifierSize == other.MasterKeyIdentifierSize && self.MasterKeyIdentifier == other.MasterKeyIdentifier
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_SrtpParameters {}
@@ -18989,7 +18732,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_StreamSizes {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_StreamSizes {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_StreamSizes>()) == 0 }
+        self.cbHeader == other.cbHeader && self.cbTrailer == other.cbTrailer && self.cbMaximumMessage == other.cbMaximumMessage && self.cBuffers == other.cBuffers && self.cbBlockSize == other.cbBlockSize
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_StreamSizes {}
@@ -19019,7 +18762,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_SubjectAttributes {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SubjectAttributes {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_SubjectAttributes>()) == 0 }
+        self.AttributeInfo == other.AttributeInfo
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_SubjectAttributes {}
@@ -19050,7 +18793,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_SupportedSignatures {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SupportedSignatures {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_SupportedSignatures>()) == 0 }
+        self.cSignatureAndHashAlgorithms == other.cSignatureAndHashAlgorithms && self.pSignatureAndHashAlgorithms == other.pSignatureAndHashAlgorithms
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_SupportedSignatures {}
@@ -19081,7 +18824,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_Target {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Target {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_Target>()) == 0 }
+        self.TargetLength == other.TargetLength && self.Target == other.Target
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_Target {}
@@ -19112,7 +18855,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_TargetInformation {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_TargetInformation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_TargetInformation>()) == 0 }
+        self.MarshalledTargetInfoLength == other.MarshalledTargetInfoLength && self.MarshalledTargetInfo == other.MarshalledTargetInfo
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_TargetInformation {}
@@ -19145,7 +18888,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_TokenBinding {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_TokenBinding {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_TokenBinding>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.KeyParametersSize == other.KeyParametersSize && self.KeyParameters == other.KeyParameters
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_TokenBinding {}
@@ -19181,7 +18924,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_UiInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SecPkgContext_UiInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_UiInfo>()) == 0 }
+        self.hParentWindow == other.hParentWindow
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19213,7 +18956,7 @@ unsafe impl ::windows::core::Abi for SecPkgContext_UserFlags {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_UserFlags {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgContext_UserFlags>()) == 0 }
+        self.UserFlags == other.UserFlags
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_UserFlags {}
@@ -19244,7 +18987,7 @@ unsafe impl ::windows::core::Abi for SecPkgCred_CipherStrengths {
 }
 impl ::core::cmp::PartialEq for SecPkgCred_CipherStrengths {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCred_CipherStrengths>()) == 0 }
+        self.dwMinimumCipherStrength == other.dwMinimumCipherStrength && self.dwMaximumCipherStrength == other.dwMaximumCipherStrength
     }
 }
 impl ::core::cmp::Eq for SecPkgCred_CipherStrengths {}
@@ -19298,7 +19041,7 @@ unsafe impl ::windows::core::Abi for SecPkgCred_ClientCertPolicy {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SecPkgCred_ClientCertPolicy {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCred_ClientCertPolicy>()) == 0 }
+        self.dwFlags == other.dwFlags && self.guidPolicyId == other.guidPolicyId && self.dwCertFlags == other.dwCertFlags && self.dwUrlRetrievalTimeout == other.dwUrlRetrievalTimeout && self.fCheckRevocationFreshnessTime == other.fCheckRevocationFreshnessTime && self.dwRevocationFreshnessTime == other.dwRevocationFreshnessTime && self.fOmitUsageCheck == other.fOmitUsageCheck && self.pwszSslCtlStoreName == other.pwszSslCtlStoreName && self.pwszSslCtlIdentifier == other.pwszSslCtlIdentifier
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19333,7 +19076,7 @@ unsafe impl ::windows::core::Abi for SecPkgCred_SessionTicketKey {
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SessionTicketKey {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCred_SessionTicketKey>()) == 0 }
+        self.TicketInfoVersion == other.TicketInfoVersion && self.KeyId == other.KeyId && self.KeyingMaterial == other.KeyingMaterial && self.KeyingMaterialSize == other.KeyingMaterialSize
     }
 }
 impl ::core::cmp::Eq for SecPkgCred_SessionTicketKey {}
@@ -19364,7 +19107,7 @@ unsafe impl ::windows::core::Abi for SecPkgCred_SessionTicketKeys {
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SessionTicketKeys {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCred_SessionTicketKeys>()) == 0 }
+        self.cSessionTicketKeys == other.cSessionTicketKeys && self.pSessionTicketKeys == other.pSessionTicketKeys
     }
 }
 impl ::core::cmp::Eq for SecPkgCred_SessionTicketKeys {}
@@ -19395,7 +19138,7 @@ unsafe impl ::windows::core::Abi for SecPkgCred_SupportedAlgs {
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SupportedAlgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCred_SupportedAlgs>()) == 0 }
+        self.cSupportedAlgs == other.cSupportedAlgs && self.palgSupportedAlgs == other.palgSupportedAlgs
     }
 }
 impl ::core::cmp::Eq for SecPkgCred_SupportedAlgs {}
@@ -19425,7 +19168,7 @@ unsafe impl ::windows::core::Abi for SecPkgCred_SupportedProtocols {
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SupportedProtocols {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCred_SupportedProtocols>()) == 0 }
+        self.grbitProtocol == other.grbitProtocol
     }
 }
 impl ::core::cmp::Eq for SecPkgCred_SupportedProtocols {}
@@ -19456,7 +19199,7 @@ unsafe impl ::windows::core::Abi for SecPkgCredentials_Cert {
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_Cert {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCredentials_Cert>()) == 0 }
+        self.EncodedCertSize == other.EncodedCertSize && self.EncodedCert == other.EncodedCert
     }
 }
 impl ::core::cmp::Eq for SecPkgCredentials_Cert {}
@@ -19491,7 +19234,7 @@ unsafe impl ::windows::core::Abi for SecPkgCredentials_KdcProxySettingsW {
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_KdcProxySettingsW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCredentials_KdcProxySettingsW>()) == 0 }
+        self.Version == other.Version && self.Flags == other.Flags && self.ProxyServerOffset == other.ProxyServerOffset && self.ProxyServerLength == other.ProxyServerLength && self.ClientTlsCredOffset == other.ClientTlsCredOffset && self.ClientTlsCredLength == other.ClientTlsCredLength
     }
 }
 impl ::core::cmp::Eq for SecPkgCredentials_KdcProxySettingsW {}
@@ -19521,7 +19264,7 @@ unsafe impl ::windows::core::Abi for SecPkgCredentials_NamesA {
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_NamesA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCredentials_NamesA>()) == 0 }
+        self.sUserName == other.sUserName
     }
 }
 impl ::core::cmp::Eq for SecPkgCredentials_NamesA {}
@@ -19551,7 +19294,7 @@ unsafe impl ::windows::core::Abi for SecPkgCredentials_NamesW {
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_NamesW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCredentials_NamesW>()) == 0 }
+        self.sUserName == other.sUserName
     }
 }
 impl ::core::cmp::Eq for SecPkgCredentials_NamesW {}
@@ -19583,7 +19326,7 @@ unsafe impl ::windows::core::Abi for SecPkgCredentials_SSIProviderA {
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_SSIProviderA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCredentials_SSIProviderA>()) == 0 }
+        self.sProviderName == other.sProviderName && self.ProviderInfoLength == other.ProviderInfoLength && self.ProviderInfo == other.ProviderInfo
     }
 }
 impl ::core::cmp::Eq for SecPkgCredentials_SSIProviderA {}
@@ -19615,7 +19358,7 @@ unsafe impl ::windows::core::Abi for SecPkgCredentials_SSIProviderW {
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_SSIProviderW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgCredentials_SSIProviderW>()) == 0 }
+        self.sProviderName == other.sProviderName && self.ProviderInfoLength == other.ProviderInfoLength && self.ProviderInfo == other.ProviderInfo
     }
 }
 impl ::core::cmp::Eq for SecPkgCredentials_SSIProviderW {}
@@ -19650,7 +19393,7 @@ unsafe impl ::windows::core::Abi for SecPkgInfoA {
 }
 impl ::core::cmp::PartialEq for SecPkgInfoA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgInfoA>()) == 0 }
+        self.fCapabilities == other.fCapabilities && self.wVersion == other.wVersion && self.wRPCID == other.wRPCID && self.cbMaxToken == other.cbMaxToken && self.Name == other.Name && self.Comment == other.Comment
     }
 }
 impl ::core::cmp::Eq for SecPkgInfoA {}
@@ -19685,7 +19428,7 @@ unsafe impl ::windows::core::Abi for SecPkgInfoW {
 }
 impl ::core::cmp::PartialEq for SecPkgInfoW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecPkgInfoW>()) == 0 }
+        self.fCapabilities == other.fCapabilities && self.wVersion == other.wVersion && self.wRPCID == other.wRPCID && self.cbMaxToken == other.cbMaxToken && self.Name == other.Name && self.Comment == other.Comment
     }
 }
 impl ::core::cmp::Eq for SecPkgInfoW {}
@@ -19742,54 +19485,13 @@ impl ::core::clone::Clone for SecurityFunctionTableA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::fmt::Debug for SecurityFunctionTableA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SecurityFunctionTableA")
-            .field("dwVersion", &self.dwVersion)
-            .field("EnumerateSecurityPackagesA", &self.EnumerateSecurityPackagesA.map(|f| f as usize))
-            .field("QueryCredentialsAttributesA", &self.QueryCredentialsAttributesA.map(|f| f as usize))
-            .field("AcquireCredentialsHandleA", &self.AcquireCredentialsHandleA.map(|f| f as usize))
-            .field("FreeCredentialsHandle", &self.FreeCredentialsHandle.map(|f| f as usize))
-            .field("Reserved2", &self.Reserved2)
-            .field("InitializeSecurityContextA", &self.InitializeSecurityContextA.map(|f| f as usize))
-            .field("AcceptSecurityContext", &self.AcceptSecurityContext.map(|f| f as usize))
-            .field("CompleteAuthToken", &self.CompleteAuthToken.map(|f| f as usize))
-            .field("DeleteSecurityContext", &self.DeleteSecurityContext.map(|f| f as usize))
-            .field("ApplyControlToken", &self.ApplyControlToken.map(|f| f as usize))
-            .field("QueryContextAttributesA", &self.QueryContextAttributesA.map(|f| f as usize))
-            .field("ImpersonateSecurityContext", &self.ImpersonateSecurityContext.map(|f| f as usize))
-            .field("RevertSecurityContext", &self.RevertSecurityContext.map(|f| f as usize))
-            .field("MakeSignature", &self.MakeSignature.map(|f| f as usize))
-            .field("VerifySignature", &self.VerifySignature.map(|f| f as usize))
-            .field("FreeContextBuffer", &self.FreeContextBuffer.map(|f| f as usize))
-            .field("QuerySecurityPackageInfoA", &self.QuerySecurityPackageInfoA.map(|f| f as usize))
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .field("ExportSecurityContext", &self.ExportSecurityContext.map(|f| f as usize))
-            .field("ImportSecurityContextA", &self.ImportSecurityContextA.map(|f| f as usize))
-            .field("AddCredentialsA", &self.AddCredentialsA.map(|f| f as usize))
-            .field("Reserved8", &self.Reserved8)
-            .field("QuerySecurityContextToken", &self.QuerySecurityContextToken.map(|f| f as usize))
-            .field("EncryptMessage", &self.EncryptMessage.map(|f| f as usize))
-            .field("DecryptMessage", &self.DecryptMessage.map(|f| f as usize))
-            .field("SetContextAttributesA", &self.SetContextAttributesA.map(|f| f as usize))
-            .field("SetCredentialsAttributesA", &self.SetCredentialsAttributesA.map(|f| f as usize))
-            .field("ChangeAccountPasswordA", &self.ChangeAccountPasswordA.map(|f| f as usize))
-            .field("QueryContextAttributesExA", &self.QueryContextAttributesExA.map(|f| f as usize))
-            .field("QueryCredentialsAttributesExA", &self.QueryCredentialsAttributesExA.map(|f| f as usize))
-            .finish()
+        f.debug_struct("SecurityFunctionTableA").field("dwVersion", &self.dwVersion).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved8", &self.Reserved8).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 unsafe impl ::windows::core::Abi for SecurityFunctionTableA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-impl ::core::cmp::PartialEq for SecurityFunctionTableA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecurityFunctionTableA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-impl ::core::cmp::Eq for SecurityFunctionTableA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::default::Default for SecurityFunctionTableA {
     fn default() -> Self {
@@ -19844,54 +19546,13 @@ impl ::core::clone::Clone for SecurityFunctionTableW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::fmt::Debug for SecurityFunctionTableW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SecurityFunctionTableW")
-            .field("dwVersion", &self.dwVersion)
-            .field("EnumerateSecurityPackagesW", &self.EnumerateSecurityPackagesW.map(|f| f as usize))
-            .field("QueryCredentialsAttributesW", &self.QueryCredentialsAttributesW.map(|f| f as usize))
-            .field("AcquireCredentialsHandleW", &self.AcquireCredentialsHandleW.map(|f| f as usize))
-            .field("FreeCredentialsHandle", &self.FreeCredentialsHandle.map(|f| f as usize))
-            .field("Reserved2", &self.Reserved2)
-            .field("InitializeSecurityContextW", &self.InitializeSecurityContextW.map(|f| f as usize))
-            .field("AcceptSecurityContext", &self.AcceptSecurityContext.map(|f| f as usize))
-            .field("CompleteAuthToken", &self.CompleteAuthToken.map(|f| f as usize))
-            .field("DeleteSecurityContext", &self.DeleteSecurityContext.map(|f| f as usize))
-            .field("ApplyControlToken", &self.ApplyControlToken.map(|f| f as usize))
-            .field("QueryContextAttributesW", &self.QueryContextAttributesW.map(|f| f as usize))
-            .field("ImpersonateSecurityContext", &self.ImpersonateSecurityContext.map(|f| f as usize))
-            .field("RevertSecurityContext", &self.RevertSecurityContext.map(|f| f as usize))
-            .field("MakeSignature", &self.MakeSignature.map(|f| f as usize))
-            .field("VerifySignature", &self.VerifySignature.map(|f| f as usize))
-            .field("FreeContextBuffer", &self.FreeContextBuffer.map(|f| f as usize))
-            .field("QuerySecurityPackageInfoW", &self.QuerySecurityPackageInfoW.map(|f| f as usize))
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .field("ExportSecurityContext", &self.ExportSecurityContext.map(|f| f as usize))
-            .field("ImportSecurityContextW", &self.ImportSecurityContextW.map(|f| f as usize))
-            .field("AddCredentialsW", &self.AddCredentialsW.map(|f| f as usize))
-            .field("Reserved8", &self.Reserved8)
-            .field("QuerySecurityContextToken", &self.QuerySecurityContextToken.map(|f| f as usize))
-            .field("EncryptMessage", &self.EncryptMessage.map(|f| f as usize))
-            .field("DecryptMessage", &self.DecryptMessage.map(|f| f as usize))
-            .field("SetContextAttributesW", &self.SetContextAttributesW.map(|f| f as usize))
-            .field("SetCredentialsAttributesW", &self.SetCredentialsAttributesW.map(|f| f as usize))
-            .field("ChangeAccountPasswordW", &self.ChangeAccountPasswordW.map(|f| f as usize))
-            .field("QueryContextAttributesExW", &self.QueryContextAttributesExW.map(|f| f as usize))
-            .field("QueryCredentialsAttributesExW", &self.QueryCredentialsAttributesExW.map(|f| f as usize))
-            .finish()
+        f.debug_struct("SecurityFunctionTableW").field("dwVersion", &self.dwVersion).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved8", &self.Reserved8).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 unsafe impl ::windows::core::Abi for SecurityFunctionTableW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-impl ::core::cmp::PartialEq for SecurityFunctionTableW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SecurityFunctionTableW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-impl ::core::cmp::Eq for SecurityFunctionTableW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::default::Default for SecurityFunctionTableW {
     fn default() -> Self {
@@ -19920,7 +19581,7 @@ unsafe impl ::windows::core::Abi for TLS_EXTENSION_SUBSCRIPTION {
 }
 impl ::core::cmp::PartialEq for TLS_EXTENSION_SUBSCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TLS_EXTENSION_SUBSCRIPTION>()) == 0 }
+        self.ExtensionType == other.ExtensionType && self.HandshakeType == other.HandshakeType
     }
 }
 impl ::core::cmp::Eq for TLS_EXTENSION_SUBSCRIPTION {}
@@ -19950,7 +19611,7 @@ unsafe impl ::windows::core::Abi for TOKENBINDING_IDENTIFIER {
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOKENBINDING_IDENTIFIER>()) == 0 }
+        self.keyType == other.keyType
     }
 }
 impl ::core::cmp::Eq for TOKENBINDING_IDENTIFIER {}
@@ -19981,7 +19642,7 @@ unsafe impl ::windows::core::Abi for TOKENBINDING_KEY_TYPES {
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_KEY_TYPES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOKENBINDING_KEY_TYPES>()) == 0 }
+        self.keyCount == other.keyCount && self.keyType == other.keyType
     }
 }
 impl ::core::cmp::Eq for TOKENBINDING_KEY_TYPES {}
@@ -20016,7 +19677,7 @@ unsafe impl ::windows::core::Abi for TOKENBINDING_RESULT_DATA {
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_RESULT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOKENBINDING_RESULT_DATA>()) == 0 }
+        self.bindingType == other.bindingType && self.identifierSize == other.identifierSize && self.identifierData == other.identifierData && self.extensionFormat == other.extensionFormat && self.extensionSize == other.extensionSize && self.extensionData == other.extensionData
     }
 }
 impl ::core::cmp::Eq for TOKENBINDING_RESULT_DATA {}
@@ -20047,7 +19708,7 @@ unsafe impl ::windows::core::Abi for TOKENBINDING_RESULT_LIST {
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_RESULT_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOKENBINDING_RESULT_LIST>()) == 0 }
+        self.resultCount == other.resultCount && self.resultData == other.resultData
     }
 }
 impl ::core::cmp::Eq for TOKENBINDING_RESULT_LIST {}
@@ -20084,7 +19745,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_CONTROLLERS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_CONTROLLERS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_CONTROLLERS_INFO>()) == 0 }
+        self.Entries == other.Entries && self.Names == other.Names
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20128,7 +19789,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_AUTH_INFORMATION {
 }
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_AUTH_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_DOMAIN_AUTH_INFORMATION>()) == 0 }
+        self.IncomingAuthInfos == other.IncomingAuthInfos && self.IncomingAuthenticationInformation == other.IncomingAuthenticationInformation && self.IncomingPreviousAuthenticationInformation == other.IncomingPreviousAuthenticationInformation && self.OutgoingAuthInfos == other.OutgoingAuthInfos && self.OutgoingAuthenticationInformation == other.OutgoingAuthenticationInformation && self.OutgoingPreviousAuthenticationInformation == other.OutgoingPreviousAuthenticationInformation
     }
 }
 impl ::core::cmp::Eq for TRUSTED_DOMAIN_AUTH_INFORMATION {}
@@ -20166,7 +19827,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_FULL_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_DOMAIN_FULL_INFORMATION>()) == 0 }
+        self.Information == other.Information && self.PosixOffset == other.PosixOffset && self.AuthInformation == other.AuthInformation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20206,7 +19867,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_FULL_INFORMATION2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_FULL_INFORMATION2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_DOMAIN_FULL_INFORMATION2>()) == 0 }
+        self.Information == other.Information && self.PosixOffset == other.PosixOffset && self.AuthInformation == other.AuthInformation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20249,7 +19910,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_INFORMATION_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_DOMAIN_INFORMATION_EX>()) == 0 }
+        self.Name == other.Name && self.FlatName == other.FlatName && self.Sid == other.Sid && self.TrustDirection == other.TrustDirection && self.TrustType == other.TrustType && self.TrustAttributes == other.TrustAttributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20294,7 +19955,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_INFORMATION_EX2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_INFORMATION_EX2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_DOMAIN_INFORMATION_EX2>()) == 0 }
+        self.Name == other.Name && self.FlatName == other.FlatName && self.Sid == other.Sid && self.TrustDirection == other.TrustDirection && self.TrustType == other.TrustType && self.TrustAttributes == other.TrustAttributes && self.ForestTrustLength == other.ForestTrustLength && self.ForestTrustInfo == other.ForestTrustInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20332,7 +19993,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_NAME_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_NAME_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_DOMAIN_NAME_INFO>()) == 0 }
+        self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20364,7 +20025,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
 }
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES>()) == 0 }
+        self.SupportedEncryptionTypes == other.SupportedEncryptionTypes
     }
 }
 impl ::core::cmp::Eq for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {}
@@ -20401,7 +20062,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_PASSWORD_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_PASSWORD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_PASSWORD_INFO>()) == 0 }
+        self.Password == other.Password && self.OldPassword == other.OldPassword
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20433,7 +20094,7 @@ unsafe impl ::windows::core::Abi for TRUSTED_POSIX_OFFSET_INFO {
 }
 impl ::core::cmp::PartialEq for TRUSTED_POSIX_OFFSET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRUSTED_POSIX_OFFSET_INFO>()) == 0 }
+        self.Offset == other.Offset
     }
 }
 impl ::core::cmp::Eq for TRUSTED_POSIX_OFFSET_INFO {}
@@ -20493,14 +20154,6 @@ unsafe impl ::windows::core::Abi for USER_ALL_INFORMATION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USER_ALL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_ALL_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USER_ALL_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USER_ALL_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -20533,7 +20186,7 @@ unsafe impl ::windows::core::Abi for USER_SESSION_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for USER_SESSION_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_SESSION_KEY>()) == 0 }
+        self.data == other.data
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
@@ -20578,7 +20231,7 @@ unsafe impl ::windows::core::Abi for X509Certificate {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for X509Certificate {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<X509Certificate>()) == 0 }
+        self.Version == other.Version && self.SerialNumber == other.SerialNumber && self.SignatureAlgorithm == other.SignatureAlgorithm && self.ValidFrom == other.ValidFrom && self.ValidUntil == other.ValidUntil && self.pszIssuer == other.pszIssuer && self.pszSubject == other.pszSubject && self.pPublicKey == other.pPublicKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]

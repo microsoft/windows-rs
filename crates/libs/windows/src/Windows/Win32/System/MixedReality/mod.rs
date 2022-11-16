@@ -22,7 +22,7 @@ unsafe impl ::windows::core::Abi for PERCEPTION_PAYLOAD_FIELD {
 }
 impl ::core::cmp::PartialEq for PERCEPTION_PAYLOAD_FIELD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PERCEPTION_PAYLOAD_FIELD>()) == 0 }
+        self.FieldId == other.FieldId && self.OffsetInBytes == other.OffsetInBytes && self.SizeInBytes == other.SizeInBytes
     }
 }
 impl ::core::cmp::Eq for PERCEPTION_PAYLOAD_FIELD {}
@@ -53,7 +53,7 @@ unsafe impl ::windows::core::Abi for PERCEPTION_STATE_STREAM_TIMESTAMPS {
 }
 impl ::core::cmp::PartialEq for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PERCEPTION_STATE_STREAM_TIMESTAMPS>()) == 0 }
+        self.InputTimestampInQpcCounts == other.InputTimestampInQpcCounts && self.AvailableTimestampInQpcCounts == other.AvailableTimestampInQpcCounts
     }
 }
 impl ::core::cmp::Eq for PERCEPTION_STATE_STREAM_TIMESTAMPS {}

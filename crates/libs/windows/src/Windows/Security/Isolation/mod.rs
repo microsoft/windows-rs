@@ -2453,7 +2453,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreatePro
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IsolatedWindowsEnvironmentCreateProgress>()) == 0 }
+        self.State == other.State && self.PercentComplete == other.PercentComplete
     }
 }
 impl ::core::cmp::Eq for IsolatedWindowsEnvironmentCreateProgress {}

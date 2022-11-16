@@ -617,7 +617,7 @@ unsafe impl ::windows::core::Abi for PSS_ALLOCATOR {
 }
 impl ::core::cmp::PartialEq for PSS_ALLOCATOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_ALLOCATOR>()) == 0 }
+        self.Context == other.Context && self.AllocRoutine == other.AllocRoutine && self.FreeRoutine == other.FreeRoutine
     }
 }
 impl ::core::cmp::Eq for PSS_ALLOCATOR {}
@@ -647,7 +647,7 @@ unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_AUXILIARY_PAGES_INFORMATION>()) == 0 }
+        self.AuxPagesCaptured == other.AuxPagesCaptured
     }
 }
 impl ::core::cmp::Eq for PSS_AUXILIARY_PAGES_INFORMATION {}
@@ -687,7 +687,7 @@ unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGE_ENTRY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_AUXILIARY_PAGE_ENTRY>()) == 0 }
+        self.Address == other.Address && self.BasicInformation == other.BasicInformation && self.CaptureTime == other.CaptureTime && self.PageContents == other.PageContents && self.PageSize == other.PageSize
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
@@ -732,14 +732,6 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PSS_HANDLE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSS_HANDLE_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -768,14 +760,6 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0 {
 unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PSS_HANDLE_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSS_HANDLE_ENTRY_0 {
     fn default() -> Self {
@@ -810,7 +794,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY_0_0>()) == 0 }
+        self.ManualReset == other.ManualReset && self.Signaled == other.Signaled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -851,7 +835,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY_0_1>()) == 0 }
+        self.CurrentCount == other.CurrentCount && self.Abandoned == other.Abandoned && self.OwnerProcessId == other.OwnerProcessId && self.OwnerThreadId == other.OwnerThreadId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -895,7 +879,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY_0_2>()) == 0 }
+        self.ExitStatus == other.ExitStatus && self.PebBaseAddress == other.PebBaseAddress && self.AffinityMask == other.AffinityMask && self.BasePriority == other.BasePriority && self.ProcessId == other.ProcessId && self.ParentProcessId == other.ParentProcessId && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -935,7 +919,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY_0_3>()) == 0 }
+        self.BaseAddress == other.BaseAddress && self.AllocationAttributes == other.AllocationAttributes && self.MaximumSize == other.MaximumSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -974,7 +958,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY_0_4>()) == 0 }
+        self.CurrentCount == other.CurrentCount && self.MaximumCount == other.MaximumCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1019,7 +1003,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_ENTRY_0_5>()) == 0 }
+        self.ExitStatus == other.ExitStatus && self.TebBaseAddress == other.TebBaseAddress && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.AffinityMask == other.AffinityMask && self.Priority == other.Priority && self.BasePriority == other.BasePriority && self.Win32StartAddress == other.Win32StartAddress
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1051,7 +1035,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PSS_HANDLE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_INFORMATION>()) == 0 }
+        self.HandlesCaptured == other.HandlesCaptured
     }
 }
 impl ::core::cmp::Eq for PSS_HANDLE_INFORMATION {}
@@ -1088,7 +1072,7 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_TRACE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_TRACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_HANDLE_TRACE_INFORMATION>()) == 0 }
+        self.SectionHandle == other.SectionHandle && self.Size == other.Size
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1144,7 +1128,7 @@ unsafe impl ::windows::core::Abi for PSS_PERFORMANCE_COUNTERS {
 }
 impl ::core::cmp::PartialEq for PSS_PERFORMANCE_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_PERFORMANCE_COUNTERS>()) == 0 }
+        self.TotalCycleCount == other.TotalCycleCount && self.TotalWallClockPeriod == other.TotalWallClockPeriod && self.VaCloneCycleCount == other.VaCloneCycleCount && self.VaCloneWallClockPeriod == other.VaCloneWallClockPeriod && self.VaSpaceCycleCount == other.VaSpaceCycleCount && self.VaSpaceWallClockPeriod == other.VaSpaceWallClockPeriod && self.AuxPagesCycleCount == other.AuxPagesCycleCount && self.AuxPagesWallClockPeriod == other.AuxPagesWallClockPeriod && self.HandlesCycleCount == other.HandlesCycleCount && self.HandlesWallClockPeriod == other.HandlesWallClockPeriod && self.ThreadsCycleCount == other.ThreadsCycleCount && self.ThreadsWallClockPeriod == other.ThreadsWallClockPeriod
     }
 }
 impl ::core::cmp::Eq for PSS_PERFORMANCE_COUNTERS {}
@@ -1232,7 +1216,32 @@ unsafe impl ::windows::core::Abi for PSS_PROCESS_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_PROCESS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_PROCESS_INFORMATION>()) == 0 }
+        self.ExitStatus == other.ExitStatus
+            && self.PebBaseAddress == other.PebBaseAddress
+            && self.AffinityMask == other.AffinityMask
+            && self.BasePriority == other.BasePriority
+            && self.ProcessId == other.ProcessId
+            && self.ParentProcessId == other.ParentProcessId
+            && self.Flags == other.Flags
+            && self.CreateTime == other.CreateTime
+            && self.ExitTime == other.ExitTime
+            && self.KernelTime == other.KernelTime
+            && self.UserTime == other.UserTime
+            && self.PriorityClass == other.PriorityClass
+            && self.PeakVirtualSize == other.PeakVirtualSize
+            && self.VirtualSize == other.VirtualSize
+            && self.PageFaultCount == other.PageFaultCount
+            && self.PeakWorkingSetSize == other.PeakWorkingSetSize
+            && self.WorkingSetSize == other.WorkingSetSize
+            && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage
+            && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage
+            && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage
+            && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage
+            && self.PagefileUsage == other.PagefileUsage
+            && self.PeakPagefileUsage == other.PeakPagefileUsage
+            && self.PrivateUsage == other.PrivateUsage
+            && self.ExecuteFlags == other.ExecuteFlags
+            && self.ImageFileName == other.ImageFileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1308,7 +1317,25 @@ unsafe impl ::windows::core::Abi for PSS_THREAD_ENTRY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for PSS_THREAD_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_THREAD_ENTRY>()) == 0 }
+        self.ExitStatus == other.ExitStatus
+            && self.TebBaseAddress == other.TebBaseAddress
+            && self.ProcessId == other.ProcessId
+            && self.ThreadId == other.ThreadId
+            && self.AffinityMask == other.AffinityMask
+            && self.Priority == other.Priority
+            && self.BasePriority == other.BasePriority
+            && self.LastSyscallFirstArgument == other.LastSyscallFirstArgument
+            && self.LastSyscallNumber == other.LastSyscallNumber
+            && self.CreateTime == other.CreateTime
+            && self.ExitTime == other.ExitTime
+            && self.KernelTime == other.KernelTime
+            && self.UserTime == other.UserTime
+            && self.Win32StartAddress == other.Win32StartAddress
+            && self.CaptureTime == other.CaptureTime
+            && self.Flags == other.Flags
+            && self.SuspendCount == other.SuspendCount
+            && self.SizeOfContextRecord == other.SizeOfContextRecord
+            && self.ContextRecord == other.ContextRecord
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -1341,7 +1368,7 @@ unsafe impl ::windows::core::Abi for PSS_THREAD_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PSS_THREAD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_THREAD_INFORMATION>()) == 0 }
+        self.ThreadsCaptured == other.ThreadsCaptured && self.ContextLength == other.ContextLength
     }
 }
 impl ::core::cmp::Eq for PSS_THREAD_INFORMATION {}
@@ -1377,7 +1404,7 @@ unsafe impl ::windows::core::Abi for PSS_VA_CLONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_VA_CLONE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_VA_CLONE_INFORMATION>()) == 0 }
+        self.VaCloneHandle == other.VaCloneHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1435,7 +1462,7 @@ unsafe impl ::windows::core::Abi for PSS_VA_SPACE_ENTRY {
 }
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_VA_SPACE_ENTRY>()) == 0 }
+        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type && self.TimeDateStamp == other.TimeDateStamp && self.SizeOfImage == other.SizeOfImage && self.ImageBase == other.ImageBase && self.CheckSum == other.CheckSum && self.MappedFileNameLength == other.MappedFileNameLength && self.MappedFileName == other.MappedFileName
     }
 }
 impl ::core::cmp::Eq for PSS_VA_SPACE_ENTRY {}
@@ -1465,7 +1492,7 @@ unsafe impl ::windows::core::Abi for PSS_VA_SPACE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSS_VA_SPACE_INFORMATION>()) == 0 }
+        self.RegionCount == other.RegionCount
     }
 }
 impl ::core::cmp::Eq for PSS_VA_SPACE_INFORMATION {}

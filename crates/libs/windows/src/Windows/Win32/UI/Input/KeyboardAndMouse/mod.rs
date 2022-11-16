@@ -1574,7 +1574,7 @@ unsafe impl ::windows::core::Abi for DEADKEY {
 }
 impl ::core::cmp::PartialEq for DEADKEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEADKEY>()) == 0 }
+        self.dwBoth == other.dwBoth && self.wchComposed == other.wchComposed && self.uFlags == other.uFlags
     }
 }
 impl ::core::cmp::Eq for DEADKEY {}
@@ -1606,7 +1606,7 @@ unsafe impl ::windows::core::Abi for HARDWAREINPUT {
 }
 impl ::core::cmp::PartialEq for HARDWAREINPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWAREINPUT>()) == 0 }
+        self.uMsg == other.uMsg && self.wParamL == other.wParamL && self.wParamH == other.wParamH
     }
 }
 impl ::core::cmp::Eq for HARDWAREINPUT {}
@@ -1630,12 +1630,6 @@ impl ::core::clone::Clone for INPUT {
 unsafe impl ::windows::core::Abi for INPUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT {}
 impl ::core::default::Default for INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1657,12 +1651,6 @@ impl ::core::clone::Clone for INPUT_0 {
 unsafe impl ::windows::core::Abi for INPUT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INPUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_0 {}
 impl ::core::default::Default for INPUT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1694,7 +1682,7 @@ unsafe impl ::windows::core::Abi for KBDNLSTABLES {
 }
 impl ::core::cmp::PartialEq for KBDNLSTABLES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDNLSTABLES>()) == 0 }
+        self.OEMIdentifier == other.OEMIdentifier && self.LayoutInformation == other.LayoutInformation && self.NumOfVkToF == other.NumOfVkToF && self.pVkToF == other.pVkToF && self.NumOfMouseVKey == other.NumOfMouseVKey && self.pusMouseVKey == other.pusMouseVKey
     }
 }
 impl ::core::cmp::Eq for KBDNLSTABLES {}
@@ -1756,7 +1744,7 @@ unsafe impl ::windows::core::Abi for KBDTABLES {
 }
 impl ::core::cmp::PartialEq for KBDTABLES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLES>()) == 0 }
+        self.pCharModifiers == other.pCharModifiers && self.pVkToWcharTable == other.pVkToWcharTable && self.pDeadKey == other.pDeadKey && self.pKeyNames == other.pKeyNames && self.pKeyNamesExt == other.pKeyNamesExt && self.pKeyNamesDead == other.pKeyNamesDead && self.pusVSCtoVK == other.pusVSCtoVK && self.bMaxVSCtoVK == other.bMaxVSCtoVK && self.pVSCtoVK_E0 == other.pVSCtoVK_E0 && self.pVSCtoVK_E1 == other.pVSCtoVK_E1 && self.fLocaleFlags == other.fLocaleFlags && self.nLgMax == other.nLgMax && self.cbLgEntry == other.cbLgEntry && self.pLigature == other.pLigature && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
 impl ::core::cmp::Eq for KBDTABLES {}
@@ -1788,7 +1776,7 @@ unsafe impl ::windows::core::Abi for KBDTABLE_DESC {
 }
 impl ::core::cmp::PartialEq for KBDTABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLE_DESC>()) == 0 }
+        self.wszDllName == other.wszDllName && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
 impl ::core::cmp::Eq for KBDTABLE_DESC {}
@@ -1819,7 +1807,7 @@ unsafe impl ::windows::core::Abi for KBDTABLE_MULTI {
 }
 impl ::core::cmp::PartialEq for KBDTABLE_MULTI {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDTABLE_MULTI>()) == 0 }
+        self.nTables == other.nTables && self.aKbdTables == other.aKbdTables
     }
 }
 impl ::core::cmp::Eq for KBDTABLE_MULTI {}
@@ -1851,7 +1839,7 @@ unsafe impl ::windows::core::Abi for KBD_TYPE_INFO {
 }
 impl ::core::cmp::PartialEq for KBD_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBD_TYPE_INFO>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
 impl ::core::cmp::Eq for KBD_TYPE_INFO {}
@@ -1885,7 +1873,7 @@ unsafe impl ::windows::core::Abi for KEYBDINPUT {
 }
 impl ::core::cmp::PartialEq for KEYBDINPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBDINPUT>()) == 0 }
+        self.wVk == other.wVk && self.wScan == other.wScan && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 impl ::core::cmp::Eq for KEYBDINPUT {}
@@ -1916,7 +1904,7 @@ unsafe impl ::windows::core::Abi for LASTINPUTINFO {
 }
 impl ::core::cmp::PartialEq for LASTINPUTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LASTINPUTINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.dwTime == other.dwTime
     }
 }
 impl ::core::cmp::Eq for LASTINPUTINFO {}
@@ -1948,7 +1936,7 @@ unsafe impl ::windows::core::Abi for LIGATURE1 {
 }
 impl ::core::cmp::PartialEq for LIGATURE1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE1>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for LIGATURE1 {}
@@ -1980,7 +1968,7 @@ unsafe impl ::windows::core::Abi for LIGATURE2 {
 }
 impl ::core::cmp::PartialEq for LIGATURE2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE2>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for LIGATURE2 {}
@@ -2012,7 +2000,7 @@ unsafe impl ::windows::core::Abi for LIGATURE3 {
 }
 impl ::core::cmp::PartialEq for LIGATURE3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE3>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for LIGATURE3 {}
@@ -2044,7 +2032,7 @@ unsafe impl ::windows::core::Abi for LIGATURE4 {
 }
 impl ::core::cmp::PartialEq for LIGATURE4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE4>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for LIGATURE4 {}
@@ -2076,7 +2064,7 @@ unsafe impl ::windows::core::Abi for LIGATURE5 {
 }
 impl ::core::cmp::PartialEq for LIGATURE5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIGATURE5>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for LIGATURE5 {}
@@ -2108,7 +2096,7 @@ unsafe impl ::windows::core::Abi for MODIFIERS {
 }
 impl ::core::cmp::PartialEq for MODIFIERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODIFIERS>()) == 0 }
+        self.pVkToBit == other.pVkToBit && self.wMaxModBits == other.wMaxModBits && self.ModNumber == other.ModNumber
     }
 }
 impl ::core::cmp::Eq for MODIFIERS {}
@@ -2143,7 +2131,7 @@ unsafe impl ::windows::core::Abi for MOUSEINPUT {
 }
 impl ::core::cmp::PartialEq for MOUSEINPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEINPUT>()) == 0 }
+        self.dx == other.dx && self.dy == other.dy && self.mouseData == other.mouseData && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 impl ::core::cmp::Eq for MOUSEINPUT {}
@@ -2176,7 +2164,7 @@ unsafe impl ::windows::core::Abi for MOUSEMOVEPOINT {
 }
 impl ::core::cmp::PartialEq for MOUSEMOVEPOINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEMOVEPOINT>()) == 0 }
+        self.x == other.x && self.y == other.y && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 impl ::core::cmp::Eq for MOUSEMOVEPOINT {}
@@ -2215,7 +2203,7 @@ unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACKMOUSEEVENT>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTrack == other.hwndTrack && self.dwHoverTime == other.dwHoverTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2252,7 +2240,7 @@ unsafe impl ::windows::core::Abi for VK_F {
 }
 impl ::core::cmp::PartialEq for VK_F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_F>()) == 0 }
+        self.Vk == other.Vk && self.NLSFEProcType == other.NLSFEProcType && self.NLSFEProcCurrent == other.NLSFEProcCurrent && self.NLSFEProcSwitch == other.NLSFEProcSwitch && self.NLSFEProc == other.NLSFEProc && self.NLSFEProcAlt == other.NLSFEProcAlt
     }
 }
 impl ::core::cmp::Eq for VK_F {}
@@ -2283,7 +2271,7 @@ unsafe impl ::windows::core::Abi for VK_FPARAM {
 }
 impl ::core::cmp::PartialEq for VK_FPARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_FPARAM>()) == 0 }
+        self.NLSFEProcIndex == other.NLSFEProcIndex && self.NLSFEProcParam == other.NLSFEProcParam
     }
 }
 impl ::core::cmp::Eq for VK_FPARAM {}
@@ -2314,7 +2302,7 @@ unsafe impl ::windows::core::Abi for VK_TO_BIT {
 }
 impl ::core::cmp::PartialEq for VK_TO_BIT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_BIT>()) == 0 }
+        self.Vk == other.Vk && self.ModBits == other.ModBits
     }
 }
 impl ::core::cmp::Eq for VK_TO_BIT {}
@@ -2346,7 +2334,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS1 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS1>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS1 {}
@@ -2378,7 +2366,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS10 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS10 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS10>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS10 {}
@@ -2410,7 +2398,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS2 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS2>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS2 {}
@@ -2442,7 +2430,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS3 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS3>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS3 {}
@@ -2474,7 +2462,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS4 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS4>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS4 {}
@@ -2506,7 +2494,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS5 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS5>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS5 {}
@@ -2538,7 +2526,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS6 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS6>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS6 {}
@@ -2570,7 +2558,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS7 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS7>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS7 {}
@@ -2602,7 +2590,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS8 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS8>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS8 {}
@@ -2634,7 +2622,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHARS9 {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS9 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHARS9>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHARS9 {}
@@ -2666,7 +2654,7 @@ unsafe impl ::windows::core::Abi for VK_TO_WCHAR_TABLE {
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHAR_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_TO_WCHAR_TABLE>()) == 0 }
+        self.pVkToWchars == other.pVkToWchars && self.nModifications == other.nModifications && self.cbSize == other.cbSize
     }
 }
 impl ::core::cmp::Eq for VK_TO_WCHAR_TABLE {}
@@ -2697,7 +2685,7 @@ unsafe impl ::windows::core::Abi for VK_VSC {
 }
 impl ::core::cmp::PartialEq for VK_VSC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VK_VSC>()) == 0 }
+        self.Vk == other.Vk && self.Vsc == other.Vsc
     }
 }
 impl ::core::cmp::Eq for VK_VSC {}
@@ -2728,7 +2716,7 @@ unsafe impl ::windows::core::Abi for VSC_LPWSTR {
 }
 impl ::core::cmp::PartialEq for VSC_LPWSTR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSC_LPWSTR>()) == 0 }
+        self.vsc == other.vsc && self.pwsz == other.pwsz
     }
 }
 impl ::core::cmp::Eq for VSC_LPWSTR {}
@@ -2759,7 +2747,7 @@ unsafe impl ::windows::core::Abi for VSC_VK {
 }
 impl ::core::cmp::PartialEq for VSC_VK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSC_VK>()) == 0 }
+        self.Vsc == other.Vsc && self.Vk == other.Vk
     }
 }
 impl ::core::cmp::Eq for VSC_VK {}

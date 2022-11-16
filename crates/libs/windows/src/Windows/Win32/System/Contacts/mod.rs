@@ -1706,7 +1706,7 @@ unsafe impl ::windows::core::Abi for CONTACT_AGGREGATION_BLOB {
 }
 impl ::core::cmp::PartialEq for CONTACT_AGGREGATION_BLOB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTACT_AGGREGATION_BLOB>()) == 0 }
+        self.dwCount == other.dwCount && self.lpb == other.lpb
     }
 }
 impl ::core::cmp::Eq for CONTACT_AGGREGATION_BLOB {}

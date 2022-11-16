@@ -540,12 +540,6 @@ impl ::core::clone::Clone for MMTIME {
 unsafe impl ::windows::core::Abi for MMTIME {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMTIME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMTIME {}
 impl ::core::default::Default for MMTIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -570,12 +564,6 @@ impl ::core::clone::Clone for MMTIME_0 {
 unsafe impl ::windows::core::Abi for MMTIME_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMTIME_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMTIME_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMTIME_0 {}
 impl ::core::default::Default for MMTIME_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -595,12 +583,6 @@ impl ::core::clone::Clone for MMTIME_0_0 {
 unsafe impl ::windows::core::Abi for MMTIME_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MMTIME_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMTIME_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMTIME_0_0 {}
 impl ::core::default::Default for MMTIME_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -633,7 +615,7 @@ unsafe impl ::windows::core::Abi for MMTIME_0_1 {
 }
 impl ::core::cmp::PartialEq for MMTIME_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMTIME_0_1>()) == 0 }
+        self.hour == other.hour && self.min == other.min && self.sec == other.sec && self.frame == other.frame && self.fps == other.fps && self.dummy == other.dummy && self.pad == other.pad
     }
 }
 impl ::core::cmp::Eq for MMTIME_0_1 {}
@@ -664,7 +646,7 @@ unsafe impl ::windows::core::Abi for TIMECAPS {
 }
 impl ::core::cmp::PartialEq for TIMECAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMECAPS>()) == 0 }
+        self.wPeriodMin == other.wPeriodMin && self.wPeriodMax == other.wPeriodMax
     }
 }
 impl ::core::cmp::Eq for TIMECAPS {}
@@ -688,12 +670,6 @@ impl ::core::clone::Clone for TIMECODE {
 unsafe impl ::windows::core::Abi for TIMECODE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TIMECODE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMECODE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TIMECODE {}
 impl ::core::default::Default for TIMECODE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -722,7 +698,7 @@ unsafe impl ::windows::core::Abi for TIMECODE_0 {
 }
 impl ::core::cmp::PartialEq for TIMECODE_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMECODE_0>()) == 0 }
+        self.wFrameRate == other.wFrameRate && self.wFrameFract == other.wFrameFract && self.dwFrames == other.dwFrames
     }
 }
 impl ::core::cmp::Eq for TIMECODE_0 {}
@@ -748,12 +724,6 @@ impl ::core::clone::Clone for TIMECODE_SAMPLE {
 unsafe impl ::windows::core::Abi for TIMECODE_SAMPLE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TIMECODE_SAMPLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMECODE_SAMPLE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TIMECODE_SAMPLE {}
 impl ::core::default::Default for TIMECODE_SAMPLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

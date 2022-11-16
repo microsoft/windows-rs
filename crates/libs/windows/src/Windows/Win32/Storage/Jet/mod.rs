@@ -4308,14 +4308,6 @@ unsafe impl ::windows::core::Abi for JET_BKINFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_BKINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_BKINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4340,14 +4332,6 @@ impl ::core::clone::Clone for JET_BKINFO_0 {
 unsafe impl ::windows::core::Abi for JET_BKINFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_BKINFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKINFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_BKINFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKINFO_0 {
     fn default() -> Self {
@@ -4380,14 +4364,6 @@ unsafe impl ::windows::core::Abi for JET_BKLOGTIME {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_BKLOGTIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKLOGTIME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_BKLOGTIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4412,14 +4388,6 @@ impl ::core::clone::Clone for JET_BKLOGTIME_0 {
 unsafe impl ::windows::core::Abi for JET_BKLOGTIME_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_BKLOGTIME_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKLOGTIME_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_BKLOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME_0 {
     fn default() -> Self {
@@ -4453,7 +4421,7 @@ unsafe impl ::windows::core::Abi for JET_BKLOGTIME_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_BKLOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKLOGTIME_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4483,14 +4451,6 @@ impl ::core::clone::Clone for JET_BKLOGTIME_1 {
 unsafe impl ::windows::core::Abi for JET_BKLOGTIME_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_BKLOGTIME_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKLOGTIME_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_BKLOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME_1 {
     fn default() -> Self {
@@ -4524,7 +4484,7 @@ unsafe impl ::windows::core::Abi for JET_BKLOGTIME_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_BKLOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKLOGTIME_1_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4572,7 +4532,7 @@ unsafe impl ::windows::core::Abi for JET_COLUMNBASE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_COLUMNBASE_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COLUMNBASE_A>()) == 0 }
+        self.cbStruct == other.cbStruct && self.columnid == other.columnid && self.coltyp == other.coltyp && self.wCountry == other.wCountry && self.langid == other.langid && self.cp == other.cp && self.wFiller == other.wFiller && self.cbMax == other.cbMax && self.grbit == other.grbit && self.szBaseTableName == other.szBaseTableName && self.szBaseColumnName == other.szBaseColumnName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4614,7 +4574,7 @@ unsafe impl ::windows::core::Abi for JET_COLUMNBASE_W {
 }
 impl ::core::cmp::PartialEq for JET_COLUMNBASE_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COLUMNBASE_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.columnid == other.columnid && self.coltyp == other.coltyp && self.wCountry == other.wCountry && self.langid == other.langid && self.cp == other.cp && self.wFiller == other.wFiller && self.cbMax == other.cbMax && self.grbit == other.grbit && self.szBaseTableName == other.szBaseTableName && self.szBaseColumnName == other.szBaseColumnName
     }
 }
 impl ::core::cmp::Eq for JET_COLUMNBASE_W {}
@@ -4653,7 +4613,7 @@ unsafe impl ::windows::core::Abi for JET_COLUMNCREATE_A {
 }
 impl ::core::cmp::PartialEq for JET_COLUMNCREATE_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COLUMNCREATE_A>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.coltyp == other.coltyp && self.cbMax == other.cbMax && self.grbit == other.grbit && self.pvDefault == other.pvDefault && self.cbDefault == other.cbDefault && self.cp == other.cp && self.columnid == other.columnid && self.err == other.err
     }
 }
 impl ::core::cmp::Eq for JET_COLUMNCREATE_A {}
@@ -4692,7 +4652,7 @@ unsafe impl ::windows::core::Abi for JET_COLUMNCREATE_W {
 }
 impl ::core::cmp::PartialEq for JET_COLUMNCREATE_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COLUMNCREATE_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.coltyp == other.coltyp && self.cbMax == other.cbMax && self.grbit == other.grbit && self.pvDefault == other.pvDefault && self.cbDefault == other.cbDefault && self.cp == other.cp && self.columnid == other.columnid && self.err == other.err
     }
 }
 impl ::core::cmp::Eq for JET_COLUMNCREATE_W {}
@@ -4730,7 +4690,7 @@ unsafe impl ::windows::core::Abi for JET_COLUMNDEF {
 }
 impl ::core::cmp::PartialEq for JET_COLUMNDEF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COLUMNDEF>()) == 0 }
+        self.cbStruct == other.cbStruct && self.columnid == other.columnid && self.coltyp == other.coltyp && self.wCountry == other.wCountry && self.langid == other.langid && self.cp == other.cp && self.wCollate == other.wCollate && self.cbMax == other.cbMax && self.grbit == other.grbit
     }
 }
 impl ::core::cmp::Eq for JET_COLUMNDEF {}
@@ -4800,7 +4760,23 @@ unsafe impl ::windows::core::Abi for JET_COLUMNLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_COLUMNLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COLUMNLIST>()) == 0 }
+        self.cbStruct == other.cbStruct
+            && self.tableid == other.tableid
+            && self.cRecord == other.cRecord
+            && self.columnidPresentationOrder == other.columnidPresentationOrder
+            && self.columnidcolumnname == other.columnidcolumnname
+            && self.columnidcolumnid == other.columnidcolumnid
+            && self.columnidcoltyp == other.columnidcoltyp
+            && self.columnidCountry == other.columnidCountry
+            && self.columnidLangid == other.columnidLangid
+            && self.columnidCp == other.columnidCp
+            && self.columnidCollate == other.columnidCollate
+            && self.columnidcbMax == other.columnidcbMax
+            && self.columnidgrbit == other.columnidgrbit
+            && self.columnidDefault == other.columnidDefault
+            && self.columnidBaseTableName == other.columnidBaseTableName
+            && self.columnidBaseColumnName == other.columnidBaseColumnName
+            && self.columnidDefinitionName == other.columnidDefinitionName
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -4837,16 +4813,6 @@ unsafe impl ::windows::core::Abi for JET_COMMIT_ID {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_COMMIT_ID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COMMIT_ID>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_COMMIT_ID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_COMMIT_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4878,16 +4844,6 @@ unsafe impl ::windows::core::Abi for JET_COMMIT_ID {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_COMMIT_ID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_COMMIT_ID>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_COMMIT_ID {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_COMMIT_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4916,7 +4872,7 @@ unsafe impl ::windows::core::Abi for JET_CONDITIONALCOLUMN_A {
 }
 impl ::core::cmp::PartialEq for JET_CONDITIONALCOLUMN_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONDITIONALCOLUMN_A>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.grbit == other.grbit
     }
 }
 impl ::core::cmp::Eq for JET_CONDITIONALCOLUMN_A {}
@@ -4948,7 +4904,7 @@ unsafe impl ::windows::core::Abi for JET_CONDITIONALCOLUMN_W {
 }
 impl ::core::cmp::PartialEq for JET_CONDITIONALCOLUMN_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONDITIONALCOLUMN_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szColumnName == other.szColumnName && self.grbit == other.grbit
     }
 }
 impl ::core::cmp::Eq for JET_CONDITIONALCOLUMN_W {}
@@ -4972,12 +4928,6 @@ impl ::core::clone::Clone for JET_CONVERT_A {
 unsafe impl ::windows::core::Abi for JET_CONVERT_A {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_CONVERT_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_CONVERT_A {}
 impl ::core::default::Default for JET_CONVERT_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4998,12 +4948,6 @@ impl ::core::clone::Clone for JET_CONVERT_A_0 {
 unsafe impl ::windows::core::Abi for JET_CONVERT_A_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_CONVERT_A_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_A_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_CONVERT_A_0 {}
 impl ::core::default::Default for JET_CONVERT_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5030,7 +4974,7 @@ unsafe impl ::windows::core::Abi for JET_CONVERT_A_0_0 {
 }
 impl ::core::cmp::PartialEq for JET_CONVERT_A_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_A_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for JET_CONVERT_A_0_0 {}
@@ -5054,12 +4998,6 @@ impl ::core::clone::Clone for JET_CONVERT_W {
 unsafe impl ::windows::core::Abi for JET_CONVERT_W {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_CONVERT_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_CONVERT_W {}
 impl ::core::default::Default for JET_CONVERT_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5080,12 +5018,6 @@ impl ::core::clone::Clone for JET_CONVERT_W_0 {
 unsafe impl ::windows::core::Abi for JET_CONVERT_W_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_CONVERT_W_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_W_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_CONVERT_W_0 {}
 impl ::core::default::Default for JET_CONVERT_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5112,7 +5044,7 @@ unsafe impl ::windows::core::Abi for JET_CONVERT_W_0_0 {
 }
 impl ::core::cmp::PartialEq for JET_CONVERT_W_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_CONVERT_W_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for JET_CONVERT_W_0_0 {}
@@ -5159,14 +5091,6 @@ impl ::core::clone::Clone for JET_DBINFOMISC {
 unsafe impl ::windows::core::Abi for JET_DBINFOMISC {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_DBINFOMISC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_DBINFOMISC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_DBINFOMISC {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC {
     fn default() -> Self {
@@ -5227,14 +5151,6 @@ unsafe impl ::windows::core::Abi for JET_DBINFOMISC2 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_DBINFOMISC2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_DBINFOMISC2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_DBINFOMISC2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5294,14 +5210,6 @@ impl ::core::clone::Clone for JET_DBINFOMISC3 {
 unsafe impl ::windows::core::Abi for JET_DBINFOMISC3 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_DBINFOMISC3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_DBINFOMISC3>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_DBINFOMISC3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC3 {
     fn default() -> Self {
@@ -5365,14 +5273,6 @@ unsafe impl ::windows::core::Abi for JET_DBINFOMISC4 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_DBINFOMISC4 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_DBINFOMISC4>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_DBINFOMISC4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_DBINFOMISC4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5398,12 +5298,6 @@ impl ::core::clone::Clone for JET_DBINFOUPGRADE {
 unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_DBINFOUPGRADE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_DBINFOUPGRADE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_DBINFOUPGRADE {}
 impl ::core::default::Default for JET_DBINFOUPGRADE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5424,12 +5318,6 @@ impl ::core::clone::Clone for JET_DBINFOUPGRADE_0 {
 unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_DBINFOUPGRADE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_DBINFOUPGRADE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_DBINFOUPGRADE_0 {}
 impl ::core::default::Default for JET_DBINFOUPGRADE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5456,7 +5344,7 @@ unsafe impl ::windows::core::Abi for JET_DBINFOUPGRADE_0_0 {
 }
 impl ::core::cmp::PartialEq for JET_DBINFOUPGRADE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_DBINFOUPGRADE_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for JET_DBINFOUPGRADE_0_0 {}
@@ -5481,12 +5369,6 @@ impl ::core::clone::Clone for JET_ENUMCOLUMN {
 unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_ENUMCOLUMN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_ENUMCOLUMN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_ENUMCOLUMN {}
 impl ::core::default::Default for JET_ENUMCOLUMN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5507,12 +5389,6 @@ impl ::core::clone::Clone for JET_ENUMCOLUMN_0 {
 unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_ENUMCOLUMN_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_ENUMCOLUMN_0 {}
 impl ::core::default::Default for JET_ENUMCOLUMN_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5540,7 +5416,7 @@ unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0_0 {
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_ENUMCOLUMN_0_0>()) == 0 }
+        self.cEnumColumnValue == other.cEnumColumnValue && self.rgEnumColumnValue == other.rgEnumColumnValue
     }
 }
 impl ::core::cmp::Eq for JET_ENUMCOLUMN_0_0 {}
@@ -5571,7 +5447,7 @@ unsafe impl ::windows::core::Abi for JET_ENUMCOLUMN_0_1 {
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMN_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_ENUMCOLUMN_0_1>()) == 0 }
+        self.cbData == other.cbData && self.pvData == other.pvData
     }
 }
 impl ::core::cmp::Eq for JET_ENUMCOLUMN_0_1 {}
@@ -5603,7 +5479,7 @@ unsafe impl ::windows::core::Abi for JET_ENUMCOLUMNID {
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMNID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_ENUMCOLUMNID>()) == 0 }
+        self.columnid == other.columnid && self.ctagSequence == other.ctagSequence && self.rgtagSequence == other.rgtagSequence
     }
 }
 impl ::core::cmp::Eq for JET_ENUMCOLUMNID {}
@@ -5636,7 +5512,7 @@ unsafe impl ::windows::core::Abi for JET_ENUMCOLUMNVALUE {
 }
 impl ::core::cmp::PartialEq for JET_ENUMCOLUMNVALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_ENUMCOLUMNVALUE>()) == 0 }
+        self.itagSequence == other.itagSequence && self.err == other.err && self.cbData == other.cbData && self.pvData == other.pvData
     }
 }
 impl ::core::cmp::Eq for JET_ENUMCOLUMNVALUE {}
@@ -5671,7 +5547,7 @@ unsafe impl ::windows::core::Abi for JET_ERRINFOBASIC_W {
 }
 impl ::core::cmp::PartialEq for JET_ERRINFOBASIC_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_ERRINFOBASIC_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.errValue == other.errValue && self.errcatMostSpecific == other.errcatMostSpecific && self.rgCategoricalHierarchy == other.rgCategoricalHierarchy && self.lSourceLine == other.lSourceLine && self.rgszSourceFile == other.rgszSourceFile
     }
 }
 impl ::core::cmp::Eq for JET_ERRINFOBASIC_W {}
@@ -5706,12 +5582,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE2_A {}
 impl ::core::default::Default for JET_INDEXCREATE2_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5732,12 +5602,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A_0 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_A_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE2_A_0 {}
 impl ::core::default::Default for JET_INDEXCREATE2_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5758,12 +5622,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A_1 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_A_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE2_A_1 {}
 impl ::core::default::Default for JET_INDEXCREATE2_A_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5795,12 +5653,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_W {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE2_W {}
 impl ::core::default::Default for JET_INDEXCREATE2_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5821,12 +5673,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_W_0 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_W_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE2_W_0 {}
 impl ::core::default::Default for JET_INDEXCREATE2_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5847,12 +5693,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_W_1 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_W_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE2_W_1 {}
 impl ::core::default::Default for JET_INDEXCREATE2_W_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5884,12 +5724,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_A {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_A {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE3_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE3_A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE3_A {}
 impl ::core::default::Default for JET_INDEXCREATE3_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5910,12 +5744,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_A_0 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_A_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE3_A_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE3_A_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE3_A_0 {}
 impl ::core::default::Default for JET_INDEXCREATE3_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5947,12 +5775,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_W {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_W {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE3_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE3_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE3_W {}
 impl ::core::default::Default for JET_INDEXCREATE3_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5973,12 +5795,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_W_0 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_W_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE3_W_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE3_W_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE3_W_0 {}
 impl ::core::default::Default for JET_INDEXCREATE3_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6009,12 +5825,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE_A {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE_A {}
 impl ::core::default::Default for JET_INDEXCREATE_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6035,12 +5845,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE_A_0 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE_A_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_A_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE_A_0 {}
 impl ::core::default::Default for JET_INDEXCREATE_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6061,12 +5865,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE_A_1 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE_A_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_A_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE_A_1 {}
 impl ::core::default::Default for JET_INDEXCREATE_A_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6097,12 +5895,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE_W {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE_W {}
 impl ::core::default::Default for JET_INDEXCREATE_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6123,12 +5915,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE_W_0 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE_W_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_W_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE_W_0 {}
 impl ::core::default::Default for JET_INDEXCREATE_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6149,12 +5935,6 @@ impl ::core::clone::Clone for JET_INDEXCREATE_W_1 {
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_INDEXCREATE_W_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_W_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_INDEXCREATE_W_1 {}
 impl ::core::default::Default for JET_INDEXCREATE_W_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6188,7 +5968,7 @@ unsafe impl ::windows::core::Abi for JET_INDEXID {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for JET_INDEXID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXID>()) == 0 }
+        self.cbStruct == other.cbStruct && self.rgbIndexId == other.rgbIndexId
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6227,7 +6007,7 @@ unsafe impl ::windows::core::Abi for JET_INDEXID {
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for JET_INDEXID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXID>()) == 0 }
+        self.cbStruct == other.cbStruct && self.rgbIndexId == other.rgbIndexId
     }
 }
 #[cfg(target_arch = "x86")]
@@ -6303,7 +6083,25 @@ unsafe impl ::windows::core::Abi for JET_INDEXLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INDEXLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXLIST>()) == 0 }
+        self.cbStruct == other.cbStruct
+            && self.tableid == other.tableid
+            && self.cRecord == other.cRecord
+            && self.columnidindexname == other.columnidindexname
+            && self.columnidgrbitIndex == other.columnidgrbitIndex
+            && self.columnidcKey == other.columnidcKey
+            && self.columnidcEntry == other.columnidcEntry
+            && self.columnidcPage == other.columnidcPage
+            && self.columnidcColumn == other.columnidcColumn
+            && self.columnidiColumn == other.columnidiColumn
+            && self.columnidcolumnid == other.columnidcolumnid
+            && self.columnidcoltyp == other.columnidcoltyp
+            && self.columnidCountry == other.columnidCountry
+            && self.columnidLangid == other.columnidLangid
+            && self.columnidCp == other.columnidCp
+            && self.columnidCollate == other.columnidCollate
+            && self.columnidgrbitColumn == other.columnidgrbitColumn
+            && self.columnidcolumnname == other.columnidcolumnname
+            && self.columnidLCMapFlags == other.columnidLCMapFlags
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6343,7 +6141,7 @@ unsafe impl ::windows::core::Abi for JET_INDEXRANGE {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INDEXRANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXRANGE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.tableid == other.tableid && self.grbit == other.grbit
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6379,7 +6177,7 @@ unsafe impl ::windows::core::Abi for JET_INDEX_COLUMN {
 }
 impl ::core::cmp::PartialEq for JET_INDEX_COLUMN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEX_COLUMN>()) == 0 }
+        self.columnid == other.columnid && self.relop == other.relop && self.pv == other.pv && self.cb == other.cb && self.grbit == other.grbit
     }
 }
 impl ::core::cmp::Eq for JET_INDEX_COLUMN {}
@@ -6412,7 +6210,7 @@ unsafe impl ::windows::core::Abi for JET_INDEX_RANGE {
 }
 impl ::core::cmp::PartialEq for JET_INDEX_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEX_RANGE>()) == 0 }
+        self.rgStartColumns == other.rgStartColumns && self.cStartColumns == other.cStartColumns && self.rgEndColumns == other.rgEndColumns && self.cEndColumns == other.cEndColumns
     }
 }
 impl ::core::cmp::Eq for JET_INDEX_RANGE {}
@@ -6453,7 +6251,7 @@ unsafe impl ::windows::core::Abi for JET_INSTANCE_INFO_A {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INSTANCE_INFO_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INSTANCE_INFO_A>()) == 0 }
+        self.hInstanceId == other.hInstanceId && self.szInstanceName == other.szInstanceName && self.cDatabases == other.cDatabases && self.szDatabaseFileName == other.szDatabaseFileName && self.szDatabaseDisplayName == other.szDatabaseDisplayName && self.szDatabaseSLVFileName_Obsolete == other.szDatabaseSLVFileName_Obsolete
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6496,7 +6294,7 @@ unsafe impl ::windows::core::Abi for JET_INSTANCE_INFO_W {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_INSTANCE_INFO_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INSTANCE_INFO_W>()) == 0 }
+        self.hInstanceId == other.hInstanceId && self.szInstanceName == other.szInstanceName && self.cDatabases == other.cDatabases && self.szDatabaseFileName == other.szDatabaseFileName && self.szDatabaseDisplayName == other.szDatabaseDisplayName && self.szDatabaseSLVFileName_Obsolete == other.szDatabaseSLVFileName_Obsolete
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6523,12 +6321,6 @@ impl ::core::clone::Clone for JET_LGPOS {
 unsafe impl ::windows::core::Abi for JET_LGPOS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JET_LGPOS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LGPOS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for JET_LGPOS {}
 impl ::core::default::Default for JET_LGPOS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6564,7 +6356,7 @@ unsafe impl ::windows::core::Abi for JET_LOGINFO_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGINFO_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGINFO_A>()) == 0 }
+        self.cbSize == other.cbSize && self.ulGenLow == other.ulGenLow && self.ulGenHigh == other.ulGenHigh && self.szBaseName == other.szBaseName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6599,7 +6391,7 @@ unsafe impl ::windows::core::Abi for JET_LOGINFO_W {
 }
 impl ::core::cmp::PartialEq for JET_LOGINFO_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGINFO_W>()) == 0 }
+        self.cbSize == other.cbSize && self.ulGenLow == other.ulGenLow && self.ulGenHigh == other.ulGenHigh && self.szBaseName == other.szBaseName
     }
 }
 impl ::core::cmp::Eq for JET_LOGINFO_W {}
@@ -6634,14 +6426,6 @@ unsafe impl ::windows::core::Abi for JET_LOGTIME {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_LOGTIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGTIME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_LOGTIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6666,14 +6450,6 @@ impl ::core::clone::Clone for JET_LOGTIME_0 {
 unsafe impl ::windows::core::Abi for JET_LOGTIME_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_LOGTIME_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGTIME_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_LOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME_0 {
     fn default() -> Self {
@@ -6707,7 +6483,7 @@ unsafe impl ::windows::core::Abi for JET_LOGTIME_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGTIME_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6737,14 +6513,6 @@ impl ::core::clone::Clone for JET_LOGTIME_1 {
 unsafe impl ::windows::core::Abi for JET_LOGTIME_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_LOGTIME_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGTIME_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_LOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME_1 {
     fn default() -> Self {
@@ -6778,7 +6546,7 @@ unsafe impl ::windows::core::Abi for JET_LOGTIME_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGTIME_1_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6847,14 +6615,6 @@ unsafe impl ::windows::core::Abi for JET_OBJECTINFO {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for JET_OBJECTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_OBJECTINFO>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for JET_OBJECTINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_OBJECTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6885,14 +6645,6 @@ impl ::core::clone::Clone for JET_OBJECTINFO {
 unsafe impl ::windows::core::Abi for JET_OBJECTINFO {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for JET_OBJECTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_OBJECTINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for JET_OBJECTINFO {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_OBJECTINFO {
     fn default() -> Self {
@@ -6950,7 +6702,7 @@ unsafe impl ::windows::core::Abi for JET_OBJECTLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_OBJECTLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_OBJECTLIST>()) == 0 }
+        self.cbStruct == other.cbStruct && self.tableid == other.tableid && self.cRecord == other.cRecord && self.columnidcontainername == other.columnidcontainername && self.columnidobjectname == other.columnidobjectname && self.columnidobjtyp == other.columnidobjtyp && self.columniddtCreate == other.columniddtCreate && self.columniddtUpdate == other.columniddtUpdate && self.columnidgrbit == other.columnidgrbit && self.columnidflags == other.columnidflags && self.columnidcRecord == other.columnidcRecord && self.columnidcPage == other.columnidcPage
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6996,7 +6748,7 @@ unsafe impl ::windows::core::Abi for JET_OPENTEMPORARYTABLE {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_OPENTEMPORARYTABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_OPENTEMPORARYTABLE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.prgcolumndef == other.prgcolumndef && self.ccolumn == other.ccolumn && self.pidxunicode == other.pidxunicode && self.grbit == other.grbit && self.prgcolumnid == other.prgcolumnid && self.cbKeyMost == other.cbKeyMost && self.cbVarSegMac == other.cbVarSegMac && self.tableid == other.tableid
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7042,7 +6794,7 @@ unsafe impl ::windows::core::Abi for JET_OPENTEMPORARYTABLE2 {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_OPENTEMPORARYTABLE2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_OPENTEMPORARYTABLE2>()) == 0 }
+        self.cbStruct == other.cbStruct && self.prgcolumndef == other.prgcolumndef && self.ccolumn == other.ccolumn && self.pidxunicode == other.pidxunicode && self.grbit == other.grbit && self.prgcolumnid == other.prgcolumnid && self.cbKeyMost == other.cbKeyMost && self.cbVarSegMac == other.cbVarSegMac && self.tableid == other.tableid
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7078,7 +6830,7 @@ unsafe impl ::windows::core::Abi for JET_OPERATIONCONTEXT {
 }
 impl ::core::cmp::PartialEq for JET_OPERATIONCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_OPERATIONCONTEXT>()) == 0 }
+        self.ulUserID == other.ulUserID && self.nOperationID == other.nOperationID && self.nOperationType == other.nOperationType && self.nClientType == other.nClientType && self.fFlags == other.fFlags
     }
 }
 impl ::core::cmp::Eq for JET_OPERATIONCONTEXT {}
@@ -7148,16 +6900,6 @@ unsafe impl ::windows::core::Abi for JET_RBSINFOMISC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_RBSINFOMISC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RBSINFOMISC>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_RBSINFOMISC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_RBSINFOMISC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7190,16 +6932,6 @@ impl ::core::clone::Clone for JET_RBSINFOMISC {
 unsafe impl ::windows::core::Abi for JET_RBSINFOMISC {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_RBSINFOMISC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RBSINFOMISC>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_RBSINFOMISC {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_RBSINFOMISC {
@@ -7237,16 +6969,6 @@ unsafe impl ::windows::core::Abi for JET_RBSREVERTINFOMISC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_RBSREVERTINFOMISC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RBSREVERTINFOMISC>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_RBSREVERTINFOMISC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_RBSREVERTINFOMISC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7280,16 +7002,6 @@ impl ::core::clone::Clone for JET_RBSREVERTINFOMISC {
 unsafe impl ::windows::core::Abi for JET_RBSREVERTINFOMISC {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_RBSREVERTINFOMISC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RBSREVERTINFOMISC>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_RBSREVERTINFOMISC {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_RBSREVERTINFOMISC {
@@ -7327,7 +7039,7 @@ unsafe impl ::windows::core::Abi for JET_RECORDLIST {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_RECORDLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RECORDLIST>()) == 0 }
+        self.cbStruct == other.cbStruct && self.tableid == other.tableid && self.cRecord == other.cRecord && self.columnidBookmark == other.columnidBookmark
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7362,7 +7074,7 @@ unsafe impl ::windows::core::Abi for JET_RECPOS {
 }
 impl ::core::cmp::PartialEq for JET_RECPOS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RECPOS>()) == 0 }
+        self.cbStruct == other.cbStruct && self.centriesLT == other.centriesLT && self.centriesInRange == other.centriesInRange && self.centriesTotal == other.centriesTotal
     }
 }
 impl ::core::cmp::Eq for JET_RECPOS {}
@@ -7397,14 +7109,6 @@ unsafe impl ::windows::core::Abi for JET_RECSIZE {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for JET_RECSIZE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RECSIZE>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for JET_RECSIZE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_RECSIZE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7436,14 +7140,6 @@ unsafe impl ::windows::core::Abi for JET_RECSIZE {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for JET_RECSIZE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RECSIZE>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for JET_RECSIZE {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_RECSIZE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7477,14 +7173,6 @@ impl ::core::clone::Clone for JET_RECSIZE2 {
 unsafe impl ::windows::core::Abi for JET_RECSIZE2 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for JET_RECSIZE2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RECSIZE2>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for JET_RECSIZE2 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_RECSIZE2 {
     fn default() -> Self {
@@ -7520,14 +7208,6 @@ unsafe impl ::windows::core::Abi for JET_RECSIZE2 {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for JET_RECSIZE2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RECSIZE2>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for JET_RECSIZE2 {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_RECSIZE2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7557,7 +7237,7 @@ unsafe impl ::windows::core::Abi for JET_RETINFO {
 }
 impl ::core::cmp::PartialEq for JET_RETINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RETINFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence && self.columnidNextTagged == other.columnidNextTagged
     }
 }
 impl ::core::cmp::Eq for JET_RETINFO {}
@@ -7595,7 +7275,7 @@ unsafe impl ::windows::core::Abi for JET_RETRIEVECOLUMN {
 }
 impl ::core::cmp::PartialEq for JET_RETRIEVECOLUMN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RETRIEVECOLUMN>()) == 0 }
+        self.columnid == other.columnid && self.pvData == other.pvData && self.cbData == other.cbData && self.cbActual == other.cbActual && self.grbit == other.grbit && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence && self.columnidNextTagged == other.columnidNextTagged && self.err == other.err
     }
 }
 impl ::core::cmp::Eq for JET_RETRIEVECOLUMN {}
@@ -7628,14 +7308,6 @@ unsafe impl ::windows::core::Abi for JET_RSTINFO_A {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::cmp::PartialEq for JET_RSTINFO_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RSTINFO_A>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::cmp::Eq for JET_RSTINFO_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::default::Default for JET_RSTINFO_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7665,14 +7337,6 @@ unsafe impl ::windows::core::Abi for JET_RSTINFO_W {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::cmp::PartialEq for JET_RSTINFO_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RSTINFO_W>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-impl ::core::cmp::Eq for JET_RSTINFO_W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::core::default::Default for JET_RSTINFO_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7700,7 +7364,7 @@ unsafe impl ::windows::core::Abi for JET_RSTMAP_A {
 }
 impl ::core::cmp::PartialEq for JET_RSTMAP_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RSTMAP_A>()) == 0 }
+        self.szDatabaseName == other.szDatabaseName && self.szNewDatabaseName == other.szNewDatabaseName
     }
 }
 impl ::core::cmp::Eq for JET_RSTMAP_A {}
@@ -7731,7 +7395,7 @@ unsafe impl ::windows::core::Abi for JET_RSTMAP_W {
 }
 impl ::core::cmp::PartialEq for JET_RSTMAP_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_RSTMAP_W>()) == 0 }
+        self.szDatabaseName == other.szDatabaseName && self.szNewDatabaseName == other.szNewDatabaseName
     }
 }
 impl ::core::cmp::Eq for JET_RSTMAP_W {}
@@ -7767,7 +7431,7 @@ unsafe impl ::windows::core::Abi for JET_SETCOLUMN {
 }
 impl ::core::cmp::PartialEq for JET_SETCOLUMN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_SETCOLUMN>()) == 0 }
+        self.columnid == other.columnid && self.pvData == other.pvData && self.cbData == other.cbData && self.grbit == other.grbit && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence && self.err == other.err
     }
 }
 impl ::core::cmp::Eq for JET_SETCOLUMN {}
@@ -7799,7 +7463,7 @@ unsafe impl ::windows::core::Abi for JET_SETINFO {
 }
 impl ::core::cmp::PartialEq for JET_SETINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_SETINFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.ibLongValue == other.ibLongValue && self.itagSequence == other.itagSequence
     }
 }
 impl ::core::cmp::Eq for JET_SETINFO {}
@@ -7838,7 +7502,7 @@ unsafe impl ::windows::core::Abi for JET_SETSYSPARAM_A {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_SETSYSPARAM_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_SETSYSPARAM_A>()) == 0 }
+        self.paramid == other.paramid && self.lParam == other.lParam && self.sz == other.sz && self.err == other.err
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7879,7 +7543,7 @@ unsafe impl ::windows::core::Abi for JET_SETSYSPARAM_W {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_SETSYSPARAM_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_SETSYSPARAM_W>()) == 0 }
+        self.paramid == other.paramid && self.lParam == other.lParam && self.sz == other.sz && self.err == other.err
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7911,14 +7575,6 @@ unsafe impl ::windows::core::Abi for JET_SIGNATURE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for JET_SIGNATURE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_SIGNATURE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for JET_SIGNATURE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_SIGNATURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7947,7 +7603,7 @@ unsafe impl ::windows::core::Abi for JET_SNPROG {
 }
 impl ::core::cmp::PartialEq for JET_SNPROG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_SNPROG>()) == 0 }
+        self.cbStruct == other.cbStruct && self.cunitDone == other.cunitDone && self.cunitTotal == other.cunitTotal
     }
 }
 impl ::core::cmp::Eq for JET_SNPROG {}
@@ -7984,7 +7640,7 @@ unsafe impl ::windows::core::Abi for JET_SPACEHINTS {
 }
 impl ::core::cmp::PartialEq for JET_SPACEHINTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_SPACEHINTS>()) == 0 }
+        self.cbStruct == other.cbStruct && self.ulInitialDensity == other.ulInitialDensity && self.cbInitial == other.cbInitial && self.grbit == other.grbit && self.ulMaintDensity == other.ulMaintDensity && self.ulGrowth == other.ulGrowth && self.cbMinExtent == other.cbMinExtent && self.cbMaxExtent == other.cbMaxExtent
     }
 }
 impl ::core::cmp::Eq for JET_SPACEHINTS {}
@@ -8048,7 +7704,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE2_A {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE2_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE2_A>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8114,7 +7770,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE2_W {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE2_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE2_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8186,7 +7842,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE3_A {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE3_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE3_A>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8258,7 +7914,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE3_W {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE3_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE3_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8330,7 +7986,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE4_A {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE4_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE4_A>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8402,7 +8058,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE4_W {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE4_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE4_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.szCallback == other.szCallback && self.cbtyp == other.cbtyp && self.grbit == other.grbit && self.pSeqSpacehints == other.pSeqSpacehints && self.pLVSpacehints == other.pLVSpacehints && self.cbSeparateLV == other.cbSeparateLV && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8464,7 +8120,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE_A {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE_A>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8526,7 +8182,7 @@ unsafe impl ::windows::core::Abi for JET_TABLECREATE_W {
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 impl ::core::cmp::PartialEq for JET_TABLECREATE_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TABLECREATE_W>()) == 0 }
+        self.cbStruct == other.cbStruct && self.szTableName == other.szTableName && self.szTemplateTableName == other.szTemplateTableName && self.ulPages == other.ulPages && self.ulDensity == other.ulDensity && self.rgcolumncreate == other.rgcolumncreate && self.cColumns == other.cColumns && self.rgindexcreate == other.rgindexcreate && self.cIndexes == other.cIndexes && self.grbit == other.grbit && self.tableid == other.tableid && self.cCreated == other.cCreated
     }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8565,7 +8221,7 @@ unsafe impl ::windows::core::Abi for JET_THREADSTATS {
 }
 impl ::core::cmp::PartialEq for JET_THREADSTATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_THREADSTATS>()) == 0 }
+        self.cbStruct == other.cbStruct && self.cPageReferenced == other.cPageReferenced && self.cPageRead == other.cPageRead && self.cPagePreread == other.cPagePreread && self.cPageDirtied == other.cPageDirtied && self.cPageRedirtied == other.cPageRedirtied && self.cLogRecord == other.cLogRecord && self.cbLogRecord == other.cbLogRecord
     }
 }
 impl ::core::cmp::Eq for JET_THREADSTATS {}
@@ -8602,14 +8258,6 @@ unsafe impl ::windows::core::Abi for JET_THREADSTATS2 {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for JET_THREADSTATS2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_THREADSTATS2>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for JET_THREADSTATS2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for JET_THREADSTATS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8643,14 +8291,6 @@ unsafe impl ::windows::core::Abi for JET_THREADSTATS2 {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for JET_THREADSTATS2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_THREADSTATS2>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for JET_THREADSTATS2 {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for JET_THREADSTATS2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8681,7 +8321,7 @@ unsafe impl ::windows::core::Abi for JET_TUPLELIMITS {
 }
 impl ::core::cmp::PartialEq for JET_TUPLELIMITS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_TUPLELIMITS>()) == 0 }
+        self.chLengthMin == other.chLengthMin && self.chLengthMax == other.chLengthMax && self.chToIndexMax == other.chToIndexMax && self.cchIncrement == other.cchIncrement && self.ichStart == other.ichStart
     }
 }
 impl ::core::cmp::Eq for JET_TUPLELIMITS {}
@@ -8712,7 +8352,7 @@ unsafe impl ::windows::core::Abi for JET_UNICODEINDEX {
 }
 impl ::core::cmp::PartialEq for JET_UNICODEINDEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_UNICODEINDEX>()) == 0 }
+        self.lcid == other.lcid && self.dwMapFlags == other.dwMapFlags
     }
 }
 impl ::core::cmp::Eq for JET_UNICODEINDEX {}
@@ -8743,7 +8383,7 @@ unsafe impl ::windows::core::Abi for JET_UNICODEINDEX2 {
 }
 impl ::core::cmp::PartialEq for JET_UNICODEINDEX2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_UNICODEINDEX2>()) == 0 }
+        self.szLocaleName == other.szLocaleName && self.dwMapFlags == other.dwMapFlags
     }
 }
 impl ::core::cmp::Eq for JET_UNICODEINDEX2 {}
@@ -8776,7 +8416,7 @@ unsafe impl ::windows::core::Abi for JET_USERDEFINEDDEFAULT_A {
 }
 impl ::core::cmp::PartialEq for JET_USERDEFINEDDEFAULT_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_USERDEFINEDDEFAULT_A>()) == 0 }
+        self.szCallback == other.szCallback && self.pbUserData == other.pbUserData && self.cbUserData == other.cbUserData && self.szDependantColumns == other.szDependantColumns
     }
 }
 impl ::core::cmp::Eq for JET_USERDEFINEDDEFAULT_A {}
@@ -8809,7 +8449,7 @@ unsafe impl ::windows::core::Abi for JET_USERDEFINEDDEFAULT_W {
 }
 impl ::core::cmp::PartialEq for JET_USERDEFINEDDEFAULT_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_USERDEFINEDDEFAULT_W>()) == 0 }
+        self.szCallback == other.szCallback && self.pbUserData == other.pbUserData && self.cbUserData == other.cbUserData && self.szDependantColumns == other.szDependantColumns
     }
 }
 impl ::core::cmp::Eq for JET_USERDEFINEDDEFAULT_W {}

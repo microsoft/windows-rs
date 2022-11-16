@@ -346,7 +346,7 @@ unsafe impl ::windows::core::Abi for QOCINFO {
 }
 impl ::core::cmp::PartialEq for QOCINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QOCINFO>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwInSpeed == other.dwInSpeed && self.dwOutSpeed == other.dwOutSpeed
     }
 }
 impl ::core::cmp::Eq for QOCINFO {}
@@ -379,7 +379,7 @@ unsafe impl ::windows::core::Abi for SENS_QOCINFO {
 }
 impl ::core::cmp::PartialEq for SENS_QOCINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SENS_QOCINFO>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwOutSpeed == other.dwOutSpeed && self.dwInSpeed == other.dwInSpeed
     }
 }
 impl ::core::cmp::Eq for SENS_QOCINFO {}

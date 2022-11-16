@@ -3318,7 +3318,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapBounds {
 }
 impl ::core::cmp::PartialEq for BitmapBounds {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BitmapBounds>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for BitmapBounds {}
@@ -3358,7 +3358,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapPlaneDescription {
 }
 impl ::core::cmp::PartialEq for BitmapPlaneDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BitmapPlaneDescription>()) == 0 }
+        self.StartIndex == other.StartIndex && self.Width == other.Width && self.Height == other.Height && self.Stride == other.Stride
     }
 }
 impl ::core::cmp::Eq for BitmapPlaneDescription {}
@@ -3396,7 +3396,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapSize {
 }
 impl ::core::cmp::PartialEq for BitmapSize {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BitmapSize>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for BitmapSize {}

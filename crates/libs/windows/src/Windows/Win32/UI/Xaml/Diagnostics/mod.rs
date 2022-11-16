@@ -810,7 +810,7 @@ unsafe impl ::windows::core::Abi for BitmapDescription {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for BitmapDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BitmapDescription>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.AlphaMode == other.AlphaMode
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -914,7 +914,7 @@ unsafe impl ::windows::core::Abi for ParentChildRelation {
 }
 impl ::core::cmp::PartialEq for ParentChildRelation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ParentChildRelation>()) == 0 }
+        self.Parent == other.Parent && self.Child == other.Child && self.ChildIndex == other.ChildIndex
     }
 }
 impl ::core::cmp::Eq for ParentChildRelation {}

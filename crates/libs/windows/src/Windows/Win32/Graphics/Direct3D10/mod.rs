@@ -9293,7 +9293,7 @@ unsafe impl ::windows::core::Abi for D3D10_BLEND_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_BLEND_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BLEND_DESC>()) == 0 }
+        self.AlphaToCoverageEnable == other.AlphaToCoverageEnable && self.BlendEnable == other.BlendEnable && self.SrcBlend == other.SrcBlend && self.DestBlend == other.DestBlend && self.BlendOp == other.BlendOp && self.SrcBlendAlpha == other.SrcBlendAlpha && self.DestBlendAlpha == other.DestBlendAlpha && self.BlendOpAlpha == other.BlendOpAlpha && self.RenderTargetWriteMask == other.RenderTargetWriteMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9333,7 +9333,7 @@ unsafe impl ::windows::core::Abi for D3D10_BLEND_DESC1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_BLEND_DESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BLEND_DESC1>()) == 0 }
+        self.AlphaToCoverageEnable == other.AlphaToCoverageEnable && self.IndependentBlendEnable == other.IndependentBlendEnable && self.RenderTarget == other.RenderTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9370,7 +9370,7 @@ unsafe impl ::windows::core::Abi for D3D10_BOX {
 }
 impl ::core::cmp::PartialEq for D3D10_BOX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BOX>()) == 0 }
+        self.left == other.left && self.top == other.top && self.front == other.front && self.right == other.right && self.bottom == other.bottom && self.back == other.back
     }
 }
 impl ::core::cmp::Eq for D3D10_BOX {}
@@ -9404,7 +9404,7 @@ unsafe impl ::windows::core::Abi for D3D10_BUFFER_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_BUFFER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BUFFER_DESC>()) == 0 }
+        self.ByteWidth == other.ByteWidth && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
     }
 }
 impl ::core::cmp::Eq for D3D10_BUFFER_DESC {}
@@ -9428,12 +9428,6 @@ impl ::core::clone::Clone for D3D10_BUFFER_RTV {
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_RTV {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D10_BUFFER_RTV {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BUFFER_RTV>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D10_BUFFER_RTV {}
 impl ::core::default::Default for D3D10_BUFFER_RTV {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9454,12 +9448,6 @@ impl ::core::clone::Clone for D3D10_BUFFER_RTV_0 {
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_RTV_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D10_BUFFER_RTV_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BUFFER_RTV_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D10_BUFFER_RTV_0 {}
 impl ::core::default::Default for D3D10_BUFFER_RTV_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9480,12 +9468,6 @@ impl ::core::clone::Clone for D3D10_BUFFER_RTV_1 {
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_RTV_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D10_BUFFER_RTV_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BUFFER_RTV_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D10_BUFFER_RTV_1 {}
 impl ::core::default::Default for D3D10_BUFFER_RTV_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9506,12 +9488,6 @@ impl ::core::clone::Clone for D3D10_BUFFER_SRV {
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_SRV {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D10_BUFFER_SRV {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BUFFER_SRV>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D10_BUFFER_SRV {}
 impl ::core::default::Default for D3D10_BUFFER_SRV {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9532,12 +9508,6 @@ impl ::core::clone::Clone for D3D10_BUFFER_SRV_0 {
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_SRV_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D10_BUFFER_SRV_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BUFFER_SRV_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D10_BUFFER_SRV_0 {}
 impl ::core::default::Default for D3D10_BUFFER_SRV_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9558,12 +9528,6 @@ impl ::core::clone::Clone for D3D10_BUFFER_SRV_1 {
 unsafe impl ::windows::core::Abi for D3D10_BUFFER_SRV_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D3D10_BUFFER_SRV_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_BUFFER_SRV_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D3D10_BUFFER_SRV_1 {}
 impl ::core::default::Default for D3D10_BUFFER_SRV_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9591,7 +9555,7 @@ unsafe impl ::windows::core::Abi for D3D10_COUNTER_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_COUNTER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_COUNTER_DESC>()) == 0 }
+        self.Counter == other.Counter && self.MiscFlags == other.MiscFlags
     }
 }
 impl ::core::cmp::Eq for D3D10_COUNTER_DESC {}
@@ -9623,7 +9587,7 @@ unsafe impl ::windows::core::Abi for D3D10_COUNTER_INFO {
 }
 impl ::core::cmp::PartialEq for D3D10_COUNTER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_COUNTER_INFO>()) == 0 }
+        self.LastDeviceDependentCounter == other.LastDeviceDependentCounter && self.NumSimultaneousCounters == other.NumSimultaneousCounters && self.NumDetectableParallelUnits == other.NumDetectableParallelUnits
     }
 }
 impl ::core::cmp::Eq for D3D10_COUNTER_INFO {}
@@ -9656,7 +9620,7 @@ unsafe impl ::windows::core::Abi for D3D10_DEPTH_STENCILOP_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_DEPTH_STENCILOP_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_DEPTH_STENCILOP_DESC>()) == 0 }
+        self.StencilFailOp == other.StencilFailOp && self.StencilDepthFailOp == other.StencilDepthFailOp && self.StencilPassOp == other.StencilPassOp && self.StencilFunc == other.StencilFunc
     }
 }
 impl ::core::cmp::Eq for D3D10_DEPTH_STENCILOP_DESC {}
@@ -9699,7 +9663,7 @@ unsafe impl ::windows::core::Abi for D3D10_DEPTH_STENCIL_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_DEPTH_STENCIL_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_DEPTH_STENCIL_DESC>()) == 0 }
+        self.DepthEnable == other.DepthEnable && self.DepthWriteMask == other.DepthWriteMask && self.DepthFunc == other.DepthFunc && self.StencilEnable == other.StencilEnable && self.StencilReadMask == other.StencilReadMask && self.StencilWriteMask == other.StencilWriteMask && self.FrontFace == other.FrontFace && self.BackFace == other.BackFace
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9731,14 +9695,6 @@ unsafe impl ::windows::core::Abi for D3D10_DEPTH_STENCIL_VIEW_DESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D10_DEPTH_STENCIL_VIEW_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_DEPTH_STENCIL_VIEW_DESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D10_DEPTH_STENCIL_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D10_DEPTH_STENCIL_VIEW_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9767,14 +9723,6 @@ impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
 unsafe impl ::windows::core::Abi for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_DEPTH_STENCIL_VIEW_DESC_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
     fn default() -> Self {
@@ -9813,7 +9761,7 @@ unsafe impl ::windows::core::Abi for D3D10_EFFECT_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_EFFECT_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_EFFECT_DESC>()) == 0 }
+        self.IsChildEffect == other.IsChildEffect && self.ConstantBuffers == other.ConstantBuffers && self.SharedConstantBuffers == other.SharedConstantBuffers && self.GlobalVariables == other.GlobalVariables && self.SharedGlobalVariables == other.SharedGlobalVariables && self.Techniques == other.Techniques
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9857,7 +9805,7 @@ unsafe impl ::windows::core::Abi for D3D10_EFFECT_SHADER_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_EFFECT_SHADER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_EFFECT_SHADER_DESC>()) == 0 }
+        self.pInputSignature == other.pInputSignature && self.IsInline == other.IsInline && self.pBytecode == other.pBytecode && self.BytecodeLength == other.BytecodeLength && self.SODecl == other.SODecl && self.NumInputSignatureEntries == other.NumInputSignatureEntries && self.NumOutputSignatureEntries == other.NumOutputSignatureEntries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9904,7 +9852,7 @@ unsafe impl ::windows::core::Abi for D3D10_EFFECT_TYPE_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_EFFECT_TYPE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_EFFECT_TYPE_DESC>()) == 0 }
+        self.TypeName == other.TypeName && self.Class == other.Class && self.Type == other.Type && self.Elements == other.Elements && self.Members == other.Members && self.Rows == other.Rows && self.Columns == other.Columns && self.PackedSize == other.PackedSize && self.UnpackedSize == other.UnpackedSize && self.Stride == other.Stride
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -9941,7 +9889,7 @@ unsafe impl ::windows::core::Abi for D3D10_EFFECT_VARIABLE_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_EFFECT_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_EFFECT_VARIABLE_DESC>()) == 0 }
+        self.Name == other.Name && self.Semantic == other.Semantic && self.Flags == other.Flags && self.Annotations == other.Annotations && self.BufferOffset == other.BufferOffset && self.ExplicitBindPoint == other.ExplicitBindPoint
     }
 }
 impl ::core::cmp::Eq for D3D10_EFFECT_VARIABLE_DESC {}
@@ -9972,7 +9920,7 @@ unsafe impl ::windows::core::Abi for D3D10_INFO_QUEUE_FILTER {
 }
 impl ::core::cmp::PartialEq for D3D10_INFO_QUEUE_FILTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_INFO_QUEUE_FILTER>()) == 0 }
+        self.AllowList == other.AllowList && self.DenyList == other.DenyList
     }
 }
 impl ::core::cmp::Eq for D3D10_INFO_QUEUE_FILTER {}
@@ -10007,7 +9955,7 @@ unsafe impl ::windows::core::Abi for D3D10_INFO_QUEUE_FILTER_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_INFO_QUEUE_FILTER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_INFO_QUEUE_FILTER_DESC>()) == 0 }
+        self.NumCategories == other.NumCategories && self.pCategoryList == other.pCategoryList && self.NumSeverities == other.NumSeverities && self.pSeverityList == other.pSeverityList && self.NumIDs == other.NumIDs && self.pIDList == other.pIDList
     }
 }
 impl ::core::cmp::Eq for D3D10_INFO_QUEUE_FILTER_DESC {}
@@ -10049,7 +9997,7 @@ unsafe impl ::windows::core::Abi for D3D10_INPUT_ELEMENT_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D10_INPUT_ELEMENT_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_INPUT_ELEMENT_DESC>()) == 0 }
+        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Format == other.Format && self.InputSlot == other.InputSlot && self.AlignedByteOffset == other.AlignedByteOffset && self.InputSlotClass == other.InputSlotClass && self.InstanceDataStepRate == other.InstanceDataStepRate
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10082,7 +10030,7 @@ unsafe impl ::windows::core::Abi for D3D10_MAPPED_TEXTURE2D {
 }
 impl ::core::cmp::PartialEq for D3D10_MAPPED_TEXTURE2D {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_MAPPED_TEXTURE2D>()) == 0 }
+        self.pData == other.pData && self.RowPitch == other.RowPitch
     }
 }
 impl ::core::cmp::Eq for D3D10_MAPPED_TEXTURE2D {}
@@ -10114,7 +10062,7 @@ unsafe impl ::windows::core::Abi for D3D10_MAPPED_TEXTURE3D {
 }
 impl ::core::cmp::PartialEq for D3D10_MAPPED_TEXTURE3D {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_MAPPED_TEXTURE3D>()) == 0 }
+        self.pData == other.pData && self.RowPitch == other.RowPitch && self.DepthPitch == other.DepthPitch
     }
 }
 impl ::core::cmp::Eq for D3D10_MAPPED_TEXTURE3D {}
@@ -10148,7 +10096,7 @@ unsafe impl ::windows::core::Abi for D3D10_MESSAGE {
 }
 impl ::core::cmp::PartialEq for D3D10_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_MESSAGE>()) == 0 }
+        self.Category == other.Category && self.Severity == other.Severity && self.ID == other.ID && self.pDescription == other.pDescription && self.DescriptionByteLength == other.DescriptionByteLength
     }
 }
 impl ::core::cmp::Eq for D3D10_MESSAGE {}
@@ -10184,7 +10132,7 @@ unsafe impl ::windows::core::Abi for D3D10_PASS_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_PASS_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_PASS_DESC>()) == 0 }
+        self.Name == other.Name && self.Annotations == other.Annotations && self.pIAInputSignature == other.pIAInputSignature && self.IAInputSignatureSize == other.IAInputSignatureSize && self.StencilRef == other.StencilRef && self.SampleMask == other.SampleMask && self.BlendFactor == other.BlendFactor
     }
 }
 impl ::core::cmp::Eq for D3D10_PASS_DESC {}
@@ -10251,7 +10199,7 @@ unsafe impl ::windows::core::Abi for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
 }
 impl ::core::cmp::PartialEq for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_QUERY_DATA_PIPELINE_STATISTICS>()) == 0 }
+        self.IAVertices == other.IAVertices && self.IAPrimitives == other.IAPrimitives && self.VSInvocations == other.VSInvocations && self.GSInvocations == other.GSInvocations && self.GSPrimitives == other.GSPrimitives && self.CInvocations == other.CInvocations && self.CPrimitives == other.CPrimitives && self.PSInvocations == other.PSInvocations
     }
 }
 impl ::core::cmp::Eq for D3D10_QUERY_DATA_PIPELINE_STATISTICS {}
@@ -10282,7 +10230,7 @@ unsafe impl ::windows::core::Abi for D3D10_QUERY_DATA_SO_STATISTICS {
 }
 impl ::core::cmp::PartialEq for D3D10_QUERY_DATA_SO_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_QUERY_DATA_SO_STATISTICS>()) == 0 }
+        self.NumPrimitivesWritten == other.NumPrimitivesWritten && self.PrimitivesStorageNeeded == other.PrimitivesStorageNeeded
     }
 }
 impl ::core::cmp::Eq for D3D10_QUERY_DATA_SO_STATISTICS {}
@@ -10319,7 +10267,7 @@ unsafe impl ::windows::core::Abi for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_QUERY_DATA_TIMESTAMP_DISJOINT>()) == 0 }
+        self.Frequency == other.Frequency && self.Disjoint == other.Disjoint
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10352,7 +10300,7 @@ unsafe impl ::windows::core::Abi for D3D10_QUERY_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_QUERY_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_QUERY_DESC>()) == 0 }
+        self.Query == other.Query && self.MiscFlags == other.MiscFlags
     }
 }
 impl ::core::cmp::Eq for D3D10_QUERY_DESC {}
@@ -10408,7 +10356,7 @@ unsafe impl ::windows::core::Abi for D3D10_RASTERIZER_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_RASTERIZER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_RASTERIZER_DESC>()) == 0 }
+        self.FillMode == other.FillMode && self.CullMode == other.CullMode && self.FrontCounterClockwise == other.FrontCounterClockwise && self.DepthBias == other.DepthBias && self.DepthBiasClamp == other.DepthBiasClamp && self.SlopeScaledDepthBias == other.SlopeScaledDepthBias && self.DepthClipEnable == other.DepthClipEnable && self.ScissorEnable == other.ScissorEnable && self.MultisampleEnable == other.MultisampleEnable && self.AntialiasedLineEnable == other.AntialiasedLineEnable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10453,7 +10401,7 @@ unsafe impl ::windows::core::Abi for D3D10_RENDER_TARGET_BLEND_DESC1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_RENDER_TARGET_BLEND_DESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_RENDER_TARGET_BLEND_DESC1>()) == 0 }
+        self.BlendEnable == other.BlendEnable && self.SrcBlend == other.SrcBlend && self.DestBlend == other.DestBlend && self.BlendOp == other.BlendOp && self.SrcBlendAlpha == other.SrcBlendAlpha && self.DestBlendAlpha == other.DestBlendAlpha && self.BlendOpAlpha == other.BlendOpAlpha && self.RenderTargetWriteMask == other.RenderTargetWriteMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10485,14 +10433,6 @@ unsafe impl ::windows::core::Abi for D3D10_RENDER_TARGET_VIEW_DESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D10_RENDER_TARGET_VIEW_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_RENDER_TARGET_VIEW_DESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D10_RENDER_TARGET_VIEW_DESC {}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D10_RENDER_TARGET_VIEW_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10523,14 +10463,6 @@ impl ::core::clone::Clone for D3D10_RENDER_TARGET_VIEW_DESC_0 {
 unsafe impl ::windows::core::Abi for D3D10_RENDER_TARGET_VIEW_DESC_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::PartialEq for D3D10_RENDER_TARGET_VIEW_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_RENDER_TARGET_VIEW_DESC_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-impl ::core::cmp::Eq for D3D10_RENDER_TARGET_VIEW_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::default::Default for D3D10_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
@@ -10567,7 +10499,7 @@ unsafe impl ::windows::core::Abi for D3D10_SAMPLER_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_SAMPLER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SAMPLER_DESC>()) == 0 }
+        self.Filter == other.Filter && self.AddressU == other.AddressU && self.AddressV == other.AddressV && self.AddressW == other.AddressW && self.MipLODBias == other.MipLODBias && self.MaxAnisotropy == other.MaxAnisotropy && self.ComparisonFunc == other.ComparisonFunc && self.BorderColor == other.BorderColor && self.MinLOD == other.MinLOD && self.MaxLOD == other.MaxLOD
     }
 }
 impl ::core::cmp::Eq for D3D10_SAMPLER_DESC {}
@@ -10607,7 +10539,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_BUFFER_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_BUFFER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_BUFFER_DESC>()) == 0 }
+        self.Name == other.Name && self.Type == other.Type && self.Variables == other.Variables && self.Size == other.Size && self.uFlags == other.uFlags
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10642,7 +10574,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_FILE_INFO {
 }
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_FILE_INFO>()) == 0 }
+        self.FileName == other.FileName && self.FileNameLen == other.FileNameLen && self.FileData == other.FileData && self.FileLen == other.FileLen
     }
 }
 impl ::core::cmp::Eq for D3D10_SHADER_DEBUG_FILE_INFO {}
@@ -10714,7 +10646,27 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_INFO {
 }
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_INFO>()) == 0 }
+        self.Size == other.Size
+            && self.Creator == other.Creator
+            && self.EntrypointName == other.EntrypointName
+            && self.ShaderTarget == other.ShaderTarget
+            && self.CompileFlags == other.CompileFlags
+            && self.Files == other.Files
+            && self.FileInfo == other.FileInfo
+            && self.Instructions == other.Instructions
+            && self.InstructionInfo == other.InstructionInfo
+            && self.Variables == other.Variables
+            && self.VariableInfo == other.VariableInfo
+            && self.InputVariables == other.InputVariables
+            && self.InputVariableInfo == other.InputVariableInfo
+            && self.Tokens == other.Tokens
+            && self.TokenInfo == other.TokenInfo
+            && self.Scopes == other.Scopes
+            && self.ScopeInfo == other.ScopeInfo
+            && self.ScopeVariables == other.ScopeVariables
+            && self.ScopeVariableInfo == other.ScopeVariableInfo
+            && self.UintOffset == other.UintOffset
+            && self.StringOffset == other.StringOffset
     }
 }
 impl ::core::cmp::Eq for D3D10_SHADER_DEBUG_INFO {}
@@ -10749,7 +10701,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_INPUT_INFO {
 }
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_INPUT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_INPUT_INFO>()) == 0 }
+        self.Var == other.Var && self.InitialRegisterSet == other.InitialRegisterSet && self.InitialBank == other.InitialBank && self.InitialRegister == other.InitialRegister && self.InitialComponent == other.InitialComponent && self.InitialValue == other.InitialValue
     }
 }
 impl ::core::cmp::Eq for D3D10_SHADER_DEBUG_INPUT_INFO {}
@@ -10794,7 +10746,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_INST_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_INST_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_INST_INFO>()) == 0 }
+        self.Id == other.Id && self.Opcode == other.Opcode && self.uOutputs == other.uOutputs && self.pOutputs == other.pOutputs && self.TokenId == other.TokenId && self.NestingLevel == other.NestingLevel && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo && self.AccessedVars == other.AccessedVars && self.AccessedVarsInfo == other.AccessedVarsInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10838,7 +10790,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_OUTPUTREG_INFO>()) == 0 }
+        self.OutputRegisterSet == other.OutputRegisterSet && self.OutputReg == other.OutputReg && self.TempArrayReg == other.TempArrayReg && self.OutputComponents == other.OutputComponents && self.OutputVars == other.OutputVars && self.IndexReg == other.IndexReg && self.IndexComp == other.IndexComp
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10884,7 +10836,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_OUTPUTVAR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_OUTPUTVAR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_OUTPUTVAR>()) == 0 }
+        self.Var == other.Var && self.uValueMin == other.uValueMin && self.uValueMax == other.uValueMax && self.iValueMin == other.iValueMin && self.iValueMax == other.iValueMax && self.fValueMin == other.fValueMin && self.fValueMax == other.fValueMax && self.bNaNPossible == other.bNaNPossible && self.bInfPossible == other.bInfPossible
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10932,7 +10884,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_SCOPEVAR_INFO>()) == 0 }
+        self.TokenId == other.TokenId && self.VarType == other.VarType && self.Class == other.Class && self.Rows == other.Rows && self.Columns == other.Columns && self.StructMemberScope == other.StructMemberScope && self.uArrayIndices == other.uArrayIndices && self.ArrayElements == other.ArrayElements && self.ArrayStrides == other.ArrayStrides && self.uVariables == other.uVariables && self.uFirstVariable == other.uFirstVariable
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -10968,7 +10920,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_SCOPE_INFO {
 }
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_SCOPE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_SCOPE_INFO>()) == 0 }
+        self.ScopeType == other.ScopeType && self.Name == other.Name && self.uNameLen == other.uNameLen && self.uVariables == other.uVariables && self.VariableData == other.VariableData
     }
 }
 impl ::core::cmp::Eq for D3D10_SHADER_DEBUG_SCOPE_INFO {}
@@ -11002,7 +10954,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_TOKEN_INFO {
 }
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_TOKEN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_TOKEN_INFO>()) == 0 }
+        self.File == other.File && self.Line == other.Line && self.Column == other.Column && self.TokenLength == other.TokenLength && self.TokenId == other.TokenId
     }
 }
 impl ::core::cmp::Eq for D3D10_SHADER_DEBUG_TOKEN_INFO {}
@@ -11043,7 +10995,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DEBUG_VAR_INFO {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_VAR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DEBUG_VAR_INFO>()) == 0 }
+        self.TokenId == other.TokenId && self.Type == other.Type && self.Register == other.Register && self.Component == other.Component && self.ScopeVar == other.ScopeVar && self.ScopeVarOffset == other.ScopeVarOffset
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -11137,7 +11089,34 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_DESC>()) == 0 }
+        self.Version == other.Version
+            && self.Creator == other.Creator
+            && self.Flags == other.Flags
+            && self.ConstantBuffers == other.ConstantBuffers
+            && self.BoundResources == other.BoundResources
+            && self.InputParameters == other.InputParameters
+            && self.OutputParameters == other.OutputParameters
+            && self.InstructionCount == other.InstructionCount
+            && self.TempRegisterCount == other.TempRegisterCount
+            && self.TempArrayCount == other.TempArrayCount
+            && self.DefCount == other.DefCount
+            && self.DclCount == other.DclCount
+            && self.TextureNormalInstructions == other.TextureNormalInstructions
+            && self.TextureLoadInstructions == other.TextureLoadInstructions
+            && self.TextureCompInstructions == other.TextureCompInstructions
+            && self.TextureBiasInstructions == other.TextureBiasInstructions
+            && self.TextureGradientInstructions == other.TextureGradientInstructions
+            && self.FloatInstructionCount == other.FloatInstructionCount
+            && self.IntInstructionCount == other.IntInstructionCount
+            && self.UintInstructionCount == other.UintInstructionCount
+            && self.StaticFlowControlCount == other.StaticFlowControlCount
+            && self.DynamicFlowControlCount == other.DynamicFlowControlCount
+            && self.MacroInstructionCount == other.MacroInstructionCount
+            && self.ArrayInstructionCount == other.ArrayInstructionCount
+            && self.CutInstructionCount == other.CutInstructionCount
+            && self.EmitInstructionCount == other.EmitInstructionCount
+            && self.GSOutputTopology == other.GSOutputTopology
+            && self.GSMaxOutputVertexCount == other.GSMaxOutputVertexCount
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -11182,7 +11161,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_INPUT_BIND_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_INPUT_BIND_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_INPUT_BIND_DESC>()) == 0 }
+        self.Name == other.Name && self.Type == other.Type && self.BindPoint == other.BindPoint && self.BindCount == other.BindCount && self.uFlags == other.uFlags && self.ReturnType == other.ReturnType && self.Dimension == other.Dimension && self.NumSamples == other.NumSamples
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -11213,14 +11192,6 @@ impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC {
 unsafe impl ::windows::core::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D10_SHADER_RESOURCE_VIEW_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_RESOURCE_VIEW_DESC>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D10_SHADER_RESOURCE_VIEW_DESC {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D10_SHADER_RESOURCE_VIEW_DESC {
     fn default() -> Self {
@@ -11254,14 +11225,6 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_RESOURCE_VIEW_DESC_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11287,14 +11250,6 @@ impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
 unsafe impl ::windows::core::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_RESOURCE_VIEW_DESC1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D10_SHADER_RESOURCE_VIEW_DESC1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
     fn default() -> Self {
@@ -11328,14 +11283,6 @@ impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
 unsafe impl ::windows::core::Abi for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_RESOURCE_VIEW_DESC1_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::default::Default for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
     fn default() -> Self {
@@ -11375,7 +11322,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_TYPE_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_SHADER_TYPE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_TYPE_DESC>()) == 0 }
+        self.Class == other.Class && self.Type == other.Type && self.Rows == other.Rows && self.Columns == other.Columns && self.Elements == other.Elements && self.Members == other.Members && self.Offset == other.Offset
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -11411,7 +11358,7 @@ unsafe impl ::windows::core::Abi for D3D10_SHADER_VARIABLE_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_SHADER_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SHADER_VARIABLE_DESC>()) == 0 }
+        self.Name == other.Name && self.StartOffset == other.StartOffset && self.Size == other.Size && self.uFlags == other.uFlags && self.DefaultValue == other.DefaultValue
     }
 }
 impl ::core::cmp::Eq for D3D10_SHADER_VARIABLE_DESC {}
@@ -11453,7 +11400,7 @@ unsafe impl ::windows::core::Abi for D3D10_SIGNATURE_PARAMETER_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for D3D10_SIGNATURE_PARAMETER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SIGNATURE_PARAMETER_DESC>()) == 0 }
+        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.Register == other.Register && self.SystemValueType == other.SystemValueType && self.ComponentType == other.ComponentType && self.Mask == other.Mask && self.ReadWriteMask == other.ReadWriteMask
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -11489,7 +11436,7 @@ unsafe impl ::windows::core::Abi for D3D10_SO_DECLARATION_ENTRY {
 }
 impl ::core::cmp::PartialEq for D3D10_SO_DECLARATION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SO_DECLARATION_ENTRY>()) == 0 }
+        self.SemanticName == other.SemanticName && self.SemanticIndex == other.SemanticIndex && self.StartComponent == other.StartComponent && self.ComponentCount == other.ComponentCount && self.OutputSlot == other.OutputSlot
     }
 }
 impl ::core::cmp::Eq for D3D10_SO_DECLARATION_ENTRY {}
@@ -11567,7 +11514,30 @@ unsafe impl ::windows::core::Abi for D3D10_STATE_BLOCK_MASK {
 }
 impl ::core::cmp::PartialEq for D3D10_STATE_BLOCK_MASK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_STATE_BLOCK_MASK>()) == 0 }
+        self.VS == other.VS
+            && self.VSSamplers == other.VSSamplers
+            && self.VSShaderResources == other.VSShaderResources
+            && self.VSConstantBuffers == other.VSConstantBuffers
+            && self.GS == other.GS
+            && self.GSSamplers == other.GSSamplers
+            && self.GSShaderResources == other.GSShaderResources
+            && self.GSConstantBuffers == other.GSConstantBuffers
+            && self.PS == other.PS
+            && self.PSSamplers == other.PSSamplers
+            && self.PSShaderResources == other.PSShaderResources
+            && self.PSConstantBuffers == other.PSConstantBuffers
+            && self.IAVertexBuffers == other.IAVertexBuffers
+            && self.IAIndexBuffer == other.IAIndexBuffer
+            && self.IAInputLayout == other.IAInputLayout
+            && self.IAPrimitiveTopology == other.IAPrimitiveTopology
+            && self.OMRenderTargets == other.OMRenderTargets
+            && self.OMDepthStencilState == other.OMDepthStencilState
+            && self.OMBlendState == other.OMBlendState
+            && self.RSViewports == other.RSViewports
+            && self.RSScissorRects == other.RSScissorRects
+            && self.RSRasterizerState == other.RSRasterizerState
+            && self.SOBuffers == other.SOBuffers
+            && self.Predication == other.Predication
     }
 }
 impl ::core::cmp::Eq for D3D10_STATE_BLOCK_MASK {}
@@ -11599,7 +11569,7 @@ unsafe impl ::windows::core::Abi for D3D10_SUBRESOURCE_DATA {
 }
 impl ::core::cmp::PartialEq for D3D10_SUBRESOURCE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_SUBRESOURCE_DATA>()) == 0 }
+        self.pSysMem == other.pSysMem && self.SysMemPitch == other.SysMemPitch && self.SysMemSlicePitch == other.SysMemSlicePitch
     }
 }
 impl ::core::cmp::Eq for D3D10_SUBRESOURCE_DATA {}
@@ -11631,7 +11601,7 @@ unsafe impl ::windows::core::Abi for D3D10_TECHNIQUE_DESC {
 }
 impl ::core::cmp::PartialEq for D3D10_TECHNIQUE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TECHNIQUE_DESC>()) == 0 }
+        self.Name == other.Name && self.Passes == other.Passes && self.Annotations == other.Annotations
     }
 }
 impl ::core::cmp::Eq for D3D10_TECHNIQUE_DESC {}
@@ -11663,7 +11633,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX1D_ARRAY_DSV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX1D_ARRAY_DSV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX1D_ARRAY_DSV>()) == 0 }
+        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX1D_ARRAY_DSV {}
@@ -11695,7 +11665,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX1D_ARRAY_RTV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX1D_ARRAY_RTV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX1D_ARRAY_RTV>()) == 0 }
+        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX1D_ARRAY_RTV {}
@@ -11728,7 +11698,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX1D_ARRAY_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX1D_ARRAY_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX1D_ARRAY_SRV>()) == 0 }
+        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX1D_ARRAY_SRV {}
@@ -11758,7 +11728,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX1D_DSV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX1D_DSV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX1D_DSV>()) == 0 }
+        self.MipSlice == other.MipSlice
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX1D_DSV {}
@@ -11788,7 +11758,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX1D_RTV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX1D_RTV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX1D_RTV>()) == 0 }
+        self.MipSlice == other.MipSlice
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX1D_RTV {}
@@ -11819,7 +11789,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX1D_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX1D_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX1D_SRV>()) == 0 }
+        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX1D_SRV {}
@@ -11850,7 +11820,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_ARRAY_DSV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2DMS_ARRAY_DSV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2DMS_ARRAY_DSV>()) == 0 }
+        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2DMS_ARRAY_DSV {}
@@ -11881,7 +11851,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_ARRAY_RTV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2DMS_ARRAY_RTV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2DMS_ARRAY_RTV>()) == 0 }
+        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2DMS_ARRAY_RTV {}
@@ -11912,7 +11882,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_ARRAY_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2DMS_ARRAY_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2DMS_ARRAY_SRV>()) == 0 }
+        self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2DMS_ARRAY_SRV {}
@@ -11942,7 +11912,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_DSV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2DMS_DSV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2DMS_DSV>()) == 0 }
+        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2DMS_DSV {}
@@ -11972,7 +11942,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_RTV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2DMS_RTV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2DMS_RTV>()) == 0 }
+        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2DMS_RTV {}
@@ -12002,7 +11972,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2DMS_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2DMS_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2DMS_SRV>()) == 0 }
+        self.UnusedField_NothingToDefine == other.UnusedField_NothingToDefine
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2DMS_SRV {}
@@ -12034,7 +12004,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2D_ARRAY_DSV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2D_ARRAY_DSV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2D_ARRAY_DSV>()) == 0 }
+        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2D_ARRAY_DSV {}
@@ -12066,7 +12036,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2D_ARRAY_RTV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2D_ARRAY_RTV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2D_ARRAY_RTV>()) == 0 }
+        self.MipSlice == other.MipSlice && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2D_ARRAY_RTV {}
@@ -12099,7 +12069,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2D_ARRAY_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2D_ARRAY_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2D_ARRAY_SRV>()) == 0 }
+        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.FirstArraySlice == other.FirstArraySlice && self.ArraySize == other.ArraySize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2D_ARRAY_SRV {}
@@ -12129,7 +12099,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2D_DSV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2D_DSV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2D_DSV>()) == 0 }
+        self.MipSlice == other.MipSlice
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2D_DSV {}
@@ -12159,7 +12129,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2D_RTV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2D_RTV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2D_RTV>()) == 0 }
+        self.MipSlice == other.MipSlice
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2D_RTV {}
@@ -12190,7 +12160,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX2D_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX2D_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX2D_SRV>()) == 0 }
+        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX2D_SRV {}
@@ -12222,7 +12192,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX3D_RTV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX3D_RTV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX3D_RTV>()) == 0 }
+        self.MipSlice == other.MipSlice && self.FirstWSlice == other.FirstWSlice && self.WSize == other.WSize
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX3D_RTV {}
@@ -12253,7 +12223,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEX3D_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEX3D_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEX3D_SRV>()) == 0 }
+        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
     }
 }
 impl ::core::cmp::Eq for D3D10_TEX3D_SRV {}
@@ -12286,7 +12256,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEXCUBE_ARRAY_SRV1 {
 }
 impl ::core::cmp::PartialEq for D3D10_TEXCUBE_ARRAY_SRV1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEXCUBE_ARRAY_SRV1>()) == 0 }
+        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels && self.First2DArrayFace == other.First2DArrayFace && self.NumCubes == other.NumCubes
     }
 }
 impl ::core::cmp::Eq for D3D10_TEXCUBE_ARRAY_SRV1 {}
@@ -12317,7 +12287,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEXCUBE_SRV {
 }
 impl ::core::cmp::PartialEq for D3D10_TEXCUBE_SRV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEXCUBE_SRV>()) == 0 }
+        self.MostDetailedMip == other.MostDetailedMip && self.MipLevels == other.MipLevels
     }
 }
 impl ::core::cmp::Eq for D3D10_TEXCUBE_SRV {}
@@ -12360,7 +12330,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEXTURE1D_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D10_TEXTURE1D_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEXTURE1D_DESC>()) == 0 }
+        self.Width == other.Width && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.Format == other.Format && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12407,7 +12377,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEXTURE2D_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D10_TEXTURE2D_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEXTURE2D_DESC>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.Format == other.Format && self.SampleDesc == other.SampleDesc && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12453,7 +12423,7 @@ unsafe impl ::windows::core::Abi for D3D10_TEXTURE3D_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D10_TEXTURE3D_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_TEXTURE3D_DESC>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth && self.MipLevels == other.MipLevels && self.Format == other.Format && self.Usage == other.Usage && self.BindFlags == other.BindFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.MiscFlags == other.MiscFlags
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -12490,7 +12460,7 @@ unsafe impl ::windows::core::Abi for D3D10_VIEWPORT {
 }
 impl ::core::cmp::PartialEq for D3D10_VIEWPORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D10_VIEWPORT>()) == 0 }
+        self.TopLeftX == other.TopLeftX && self.TopLeftY == other.TopLeftY && self.Width == other.Width && self.Height == other.Height && self.MinDepth == other.MinDepth && self.MaxDepth == other.MaxDepth
     }
 }
 impl ::core::cmp::Eq for D3D10_VIEWPORT {}

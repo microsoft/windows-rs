@@ -167,7 +167,7 @@ unsafe impl ::windows::core::Abi for OSUpdateAssessment {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OSUpdateAssessment {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OSUpdateAssessment>()) == 0 }
+        self.isEndOfSupport == other.isEndOfSupport && self.assessmentForCurrent == other.assessmentForCurrent && self.assessmentForUpToDate == other.assessmentForUpToDate && self.securityStatus == other.securityStatus && self.assessmentTime == other.assessmentTime && self.releaseInfoTime == other.releaseInfoTime && self.currentOSBuild == other.currentOSBuild && self.currentOSReleaseTime == other.currentOSReleaseTime && self.upToDateOSBuild == other.upToDateOSBuild && self.upToDateOSReleaseTime == other.upToDateOSReleaseTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -201,7 +201,7 @@ unsafe impl ::windows::core::Abi for UpdateAssessment {
 }
 impl ::core::cmp::PartialEq for UpdateAssessment {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UpdateAssessment>()) == 0 }
+        self.status == other.status && self.impact == other.impact && self.daysOutOfDate == other.daysOutOfDate
     }
 }
 impl ::core::cmp::Eq for UpdateAssessment {}

@@ -14886,7 +14886,7 @@ unsafe impl ::windows::core::Abi for SPAUDIOBUFFERINFO {
 }
 impl ::core::cmp::PartialEq for SPAUDIOBUFFERINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPAUDIOBUFFERINFO>()) == 0 }
+        self.ulMsMinNotification == other.ulMsMinNotification && self.ulMsBufferSize == other.ulMsBufferSize && self.ulMsEventBias == other.ulMsEventBias
     }
 }
 impl ::core::cmp::Eq for SPAUDIOBUFFERINFO {}
@@ -14922,7 +14922,7 @@ unsafe impl ::windows::core::Abi for SPAUDIOSTATUS {
 }
 impl ::core::cmp::PartialEq for SPAUDIOSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPAUDIOSTATUS>()) == 0 }
+        self.cbFreeBuffSpace == other.cbFreeBuffSpace && self.cbNonBlockingIO == other.cbNonBlockingIO && self.State == other.State && self.CurSeekPos == other.CurSeekPos && self.CurDevicePos == other.CurDevicePos && self.dwAudioLevel == other.dwAudioLevel && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::core::cmp::Eq for SPAUDIOSTATUS {}
@@ -14952,7 +14952,7 @@ unsafe impl ::windows::core::Abi for SPBINARYGRAMMAR {
 }
 impl ::core::cmp::PartialEq for SPBINARYGRAMMAR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPBINARYGRAMMAR>()) == 0 }
+        self.ulTotalSerializedSize == other.ulTotalSerializedSize
     }
 }
 impl ::core::cmp::Eq for SPBINARYGRAMMAR {}
@@ -14983,7 +14983,7 @@ unsafe impl ::windows::core::Abi for SPDISPLAYPHRASE {
 }
 impl ::core::cmp::PartialEq for SPDISPLAYPHRASE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPDISPLAYPHRASE>()) == 0 }
+        self.ulNumTokens == other.ulNumTokens && self.pTokens == other.pTokens
     }
 }
 impl ::core::cmp::Eq for SPDISPLAYPHRASE {}
@@ -15015,7 +15015,7 @@ unsafe impl ::windows::core::Abi for SPDISPLAYTOKEN {
 }
 impl ::core::cmp::PartialEq for SPDISPLAYTOKEN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPDISPLAYTOKEN>()) == 0 }
+        self.pszLexical == other.pszLexical && self.pszDisplay == other.pszDisplay && self.bDisplayAttributes == other.bDisplayAttributes
     }
 }
 impl ::core::cmp::Eq for SPDISPLAYTOKEN {}
@@ -15055,7 +15055,7 @@ unsafe impl ::windows::core::Abi for SPEVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SPEVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENT>()) == 0 }
+        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.wParam == other.wParam && self.lParam == other.lParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15098,7 +15098,7 @@ unsafe impl ::windows::core::Abi for SPEVENTEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SPEVENTEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENTEX>()) == 0 }
+        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.wParam == other.wParam && self.lParam == other.lParam && self.ullAudioTimeOffset == other.ullAudioTimeOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15132,7 +15132,7 @@ unsafe impl ::windows::core::Abi for SPEVENTSOURCEINFO {
 }
 impl ::core::cmp::PartialEq for SPEVENTSOURCEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPEVENTSOURCEINFO>()) == 0 }
+        self.ullEventInterest == other.ullEventInterest && self.ullQueuedInterest == other.ullQueuedInterest && self.ulCount == other.ulCount
     }
 }
 impl ::core::cmp::Eq for SPEVENTSOURCEINFO {}
@@ -15163,7 +15163,7 @@ unsafe impl ::windows::core::Abi for SPNORMALIZATIONLIST {
 }
 impl ::core::cmp::PartialEq for SPNORMALIZATIONLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPNORMALIZATIONLIST>()) == 0 }
+        self.ulSize == other.ulSize && self.ppszzNormalizedList == other.ppszzNormalizedList
     }
 }
 impl ::core::cmp::Eq for SPNORMALIZATIONLIST {}
@@ -15201,7 +15201,7 @@ unsafe impl ::windows::core::Abi for SPPHRASE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPHRASE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASE>()) == 0 }
+        self.Base == other.Base && self.pSML == other.pSML && self.pSemanticErrorInfo == other.pSemanticErrorInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15261,7 +15261,7 @@ unsafe impl ::windows::core::Abi for SPPHRASEELEMENT {
 }
 impl ::core::cmp::PartialEq for SPPHRASEELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEELEMENT>()) == 0 }
+        self.ulAudioTimeOffset == other.ulAudioTimeOffset && self.ulAudioSizeTime == other.ulAudioSizeTime && self.ulAudioStreamOffset == other.ulAudioStreamOffset && self.ulAudioSizeBytes == other.ulAudioSizeBytes && self.ulRetainedStreamOffset == other.ulRetainedStreamOffset && self.ulRetainedSizeBytes == other.ulRetainedSizeBytes && self.pszDisplayText == other.pszDisplayText && self.pszLexicalForm == other.pszLexicalForm && self.pszPronunciation == other.pszPronunciation && self.bDisplayAttributes == other.bDisplayAttributes && self.RequiredConfidence == other.RequiredConfidence && self.ActualConfidence == other.ActualConfidence && self.Reserved == other.Reserved && self.SREngineConfidence == other.SREngineConfidence
     }
 }
 impl ::core::cmp::Eq for SPPHRASEELEMENT {}
@@ -15307,14 +15307,6 @@ unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPHRASEPROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.Anonymous == other.Anonymous && self.pszValue == other.pszValue && self.vValue == other.vValue && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements && self.pNextSibling == other.pNextSibling && self.pFirstChild == other.pFirstChild && self.SREngineConfidence == other.SREngineConfidence && self.Confidence == other.Confidence
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPHRASEPROPERTY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPHRASEPROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15339,14 +15331,6 @@ impl ::core::clone::Clone for SPPHRASEPROPERTY_0 {
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPHRASEPROPERTY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEPROPERTY_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPHRASEPROPERTY_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
@@ -15382,7 +15366,7 @@ unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPHRASEPROPERTY_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEPROPERTY_0_0>()) == 0 }
+        self.bType == other.bType && self.bReserved == other.bReserved && self.usArrayIndex == other.usArrayIndex
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15417,7 +15401,7 @@ unsafe impl ::windows::core::Abi for SPPHRASEREPLACEMENT {
 }
 impl ::core::cmp::PartialEq for SPPHRASEREPLACEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASEREPLACEMENT>()) == 0 }
+        self.bDisplayAttributes == other.bDisplayAttributes && self.pszReplacementText == other.pszReplacementText && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements
     }
 }
 impl ::core::cmp::Eq for SPPHRASEREPLACEMENT {}
@@ -15454,7 +15438,7 @@ unsafe impl ::windows::core::Abi for SPPHRASERULE {
 }
 impl ::core::cmp::PartialEq for SPPHRASERULE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASERULE>()) == 0 }
+        self.pszName == other.pszName && self.ulId == other.ulId && self.ulFirstElement == other.ulFirstElement && self.ulCountOfElements == other.ulCountOfElements && self.pNextSibling == other.pNextSibling && self.pFirstChild == other.pFirstChild && self.SREngineConfidence == other.SREngineConfidence && self.Confidence == other.Confidence
     }
 }
 impl ::core::cmp::Eq for SPPHRASERULE {}
@@ -15524,7 +15508,7 @@ unsafe impl ::windows::core::Abi for SPPHRASE_50 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPHRASE_50 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPPHRASE_50>()) == 0 }
+        self.cbSize == other.cbSize && self.LangID == other.LangID && self.wHomophoneGroupId == other.wHomophoneGroupId && self.ullGrammarID == other.ullGrammarID && self.ftStartTime == other.ftStartTime && self.ullAudioStreamPosition == other.ullAudioStreamPosition && self.ulAudioSizeBytes == other.ulAudioSizeBytes && self.ulRetainedSizeBytes == other.ulRetainedSizeBytes && self.ulAudioSizeTime == other.ulAudioSizeTime && self.Rule == other.Rule && self.pProperties == other.pProperties && self.pElements == other.pElements && self.cReplacements == other.cReplacements && self.pReplacements == other.pReplacements && self.SREngineID == other.SREngineID && self.ulSREnginePrivateDataSize == other.ulSREnginePrivateDataSize && self.pSREnginePrivateData == other.pSREnginePrivateData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15555,14 +15539,6 @@ unsafe impl ::windows::core::Abi for SPPROPERTYINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for SPPROPERTYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszName == other.pszName && self.ulId == other.ulId && self.pszValue == other.pszValue && self.vValue == other.vValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for SPPROPERTYINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15592,7 +15568,7 @@ unsafe impl ::windows::core::Abi for SPRECOCONTEXTSTATUS {
 }
 impl ::core::cmp::PartialEq for SPRECOCONTEXTSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECOCONTEXTSTATUS>()) == 0 }
+        self.eInterference == other.eInterference && self.szRequestTypeOfUI == other.szRequestTypeOfUI && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::core::cmp::Eq for SPRECOCONTEXTSTATUS {}
@@ -15629,7 +15605,7 @@ unsafe impl ::windows::core::Abi for SPRECOGNIZERSTATUS {
 }
 impl ::core::cmp::PartialEq for SPRECOGNIZERSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECOGNIZERSTATUS>()) == 0 }
+        self.AudioStatus == other.AudioStatus && self.ullRecognitionStreamPos == other.ullRecognitionStreamPos && self.ulStreamNumber == other.ulStreamNumber && self.ulNumActive == other.ulNumActive && self.clsidEngine == other.clsidEngine && self.cLangIDs == other.cLangIDs && self.aLangID == other.aLangID && self.ullRecognitionStreamTime == other.ullRecognitionStreamTime
     }
 }
 impl ::core::cmp::Eq for SPRECOGNIZERSTATUS {}
@@ -15668,7 +15644,7 @@ unsafe impl ::windows::core::Abi for SPRECORESULTTIMES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SPRECORESULTTIMES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRECORESULTTIMES>()) == 0 }
+        self.ftStreamTime == other.ftStreamTime && self.ullLength == other.ullLength && self.dwTickCount == other.dwTickCount && self.ullStart == other.ullStart
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15702,7 +15678,7 @@ unsafe impl ::windows::core::Abi for SPRULE {
 }
 impl ::core::cmp::PartialEq for SPRULE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPRULE>()) == 0 }
+        self.pszRuleName == other.pszRuleName && self.ulRuleId == other.ulRuleId && self.dwAttributes == other.dwAttributes
     }
 }
 impl ::core::cmp::Eq for SPRULE {}
@@ -15736,7 +15712,7 @@ unsafe impl ::windows::core::Abi for SPSEMANTICERRORINFO {
 }
 impl ::core::cmp::PartialEq for SPSEMANTICERRORINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSEMANTICERRORINFO>()) == 0 }
+        self.ulLineNumber == other.ulLineNumber && self.pszScriptLine == other.pszScriptLine && self.pszSource == other.pszSource && self.pszDescription == other.pszDescription && self.hrResultCode == other.hrResultCode
     }
 }
 impl ::core::cmp::Eq for SPSEMANTICERRORINFO {}
@@ -15770,7 +15746,7 @@ unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT {
 }
 impl ::core::cmp::PartialEq for SPSERIALIZEDEVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDEVENT>()) == 0 }
+        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.SerializedwParam == other.SerializedwParam && self.SerializedlParam == other.SerializedlParam
     }
 }
 impl ::core::cmp::Eq for SPSERIALIZEDEVENT {}
@@ -15804,7 +15780,7 @@ unsafe impl ::windows::core::Abi for SPSERIALIZEDEVENT64 {
 }
 impl ::core::cmp::PartialEq for SPSERIALIZEDEVENT64 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDEVENT64>()) == 0 }
+        self._bitfield == other._bitfield && self.ulStreamNum == other.ulStreamNum && self.ullAudioStreamOffset == other.ullAudioStreamOffset && self.SerializedwParam == other.SerializedwParam && self.SerializedlParam == other.SerializedlParam
     }
 }
 impl ::core::cmp::Eq for SPSERIALIZEDEVENT64 {}
@@ -15834,7 +15810,7 @@ unsafe impl ::windows::core::Abi for SPSERIALIZEDPHRASE {
 }
 impl ::core::cmp::PartialEq for SPSERIALIZEDPHRASE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDPHRASE>()) == 0 }
+        self.ulSerializedSize == other.ulSerializedSize
     }
 }
 impl ::core::cmp::Eq for SPSERIALIZEDPHRASE {}
@@ -15864,7 +15840,7 @@ unsafe impl ::windows::core::Abi for SPSERIALIZEDRESULT {
 }
 impl ::core::cmp::PartialEq for SPSERIALIZEDRESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSERIALIZEDRESULT>()) == 0 }
+        self.ulSerializedSize == other.ulSerializedSize
     }
 }
 impl ::core::cmp::Eq for SPSERIALIZEDRESULT {}
@@ -15898,7 +15874,7 @@ unsafe impl ::windows::core::Abi for SPSHORTCUTPAIR {
 }
 impl ::core::cmp::PartialEq for SPSHORTCUTPAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSHORTCUTPAIR>()) == 0 }
+        self.pNextSHORTCUTPAIR == other.pNextSHORTCUTPAIR && self.LangID == other.LangID && self.shType == other.shType && self.pszDisplay == other.pszDisplay && self.pszSpoken == other.pszSpoken
     }
 }
 impl ::core::cmp::Eq for SPSHORTCUTPAIR {}
@@ -15930,7 +15906,7 @@ unsafe impl ::windows::core::Abi for SPSHORTCUTPAIRLIST {
 }
 impl ::core::cmp::PartialEq for SPSHORTCUTPAIRLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSHORTCUTPAIRLIST>()) == 0 }
+        self.ulSize == other.ulSize && self.pvBuffer == other.pvBuffer && self.pFirstShortcutPair == other.pFirstShortcutPair
     }
 }
 impl ::core::cmp::Eq for SPSHORTCUTPAIRLIST {}
@@ -15960,7 +15936,7 @@ unsafe impl ::windows::core::Abi for SPSTATEHANDLE__ {
 }
 impl ::core::cmp::PartialEq for SPSTATEHANDLE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPSTATEHANDLE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for SPSTATEHANDLE__ {}
@@ -15993,7 +15969,7 @@ unsafe impl ::windows::core::Abi for SPTEXTSELECTIONINFO {
 }
 impl ::core::cmp::PartialEq for SPTEXTSELECTIONINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPTEXTSELECTIONINFO>()) == 0 }
+        self.ulStartActiveOffset == other.ulStartActiveOffset && self.cchActiveChars == other.cchActiveChars && self.ulStartSelection == other.ulStartSelection && self.cchSelection == other.cchSelection
     }
 }
 impl ::core::cmp::Eq for SPTEXTSELECTIONINFO {}
@@ -16025,7 +16001,7 @@ unsafe impl ::windows::core::Abi for SPVCONTEXT {
 }
 impl ::core::cmp::PartialEq for SPVCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVCONTEXT>()) == 0 }
+        self.pCategory == other.pCategory && self.pBefore == other.pBefore && self.pAfter == other.pAfter
     }
 }
 impl ::core::cmp::Eq for SPVCONTEXT {}
@@ -16081,7 +16057,7 @@ unsafe impl ::windows::core::Abi for SPVOICESTATUS {
 }
 impl ::core::cmp::PartialEq for SPVOICESTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVOICESTATUS>()) == 0 }
+        self.ulCurrentStream == other.ulCurrentStream && self.ulLastStreamQueued == other.ulLastStreamQueued && self.hrLastResult == other.hrLastResult && self.dwRunningState == other.dwRunningState && self.ulInputWordPos == other.ulInputWordPos && self.ulInputWordLen == other.ulInputWordLen && self.ulInputSentPos == other.ulInputSentPos && self.ulInputSentLen == other.ulInputSentLen && self.lBookmarkId == other.lBookmarkId && self.PhonemeId == other.PhonemeId && self.VisemeId == other.VisemeId && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::core::cmp::Eq for SPVOICESTATUS {}
@@ -16112,7 +16088,7 @@ unsafe impl ::windows::core::Abi for SPVPITCH {
 }
 impl ::core::cmp::PartialEq for SPVPITCH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVPITCH>()) == 0 }
+        self.MiddleAdj == other.MiddleAdj && self.RangeAdj == other.RangeAdj
     }
 }
 impl ::core::cmp::Eq for SPVPITCH {}
@@ -16152,7 +16128,7 @@ unsafe impl ::windows::core::Abi for SPVSTATE {
 }
 impl ::core::cmp::PartialEq for SPVSTATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPVSTATE>()) == 0 }
+        self.eAction == other.eAction && self.LangID == other.LangID && self.wReserved == other.wReserved && self.EmphAdj == other.EmphAdj && self.RateAdj == other.RateAdj && self.Volume == other.Volume && self.PitchAdj == other.PitchAdj && self.SilenceMSecs == other.SilenceMSecs && self.pPhoneIds == other.pPhoneIds && self.ePartOfSpeech == other.ePartOfSpeech && self.Context == other.Context
     }
 }
 impl ::core::cmp::Eq for SPVSTATE {}
@@ -16187,7 +16163,7 @@ unsafe impl ::windows::core::Abi for SPWORD {
 }
 impl ::core::cmp::PartialEq for SPWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORD>()) == 0 }
+        self.pNextWord == other.pNextWord && self.LangID == other.LangID && self.wReserved == other.wReserved && self.eWordType == other.eWordType && self.pszWord == other.pszWord && self.pFirstWordPronunciation == other.pFirstWordPronunciation
     }
 }
 impl ::core::cmp::Eq for SPWORD {}
@@ -16219,7 +16195,7 @@ unsafe impl ::windows::core::Abi for SPWORDLIST {
 }
 impl ::core::cmp::PartialEq for SPWORDLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDLIST>()) == 0 }
+        self.ulSize == other.ulSize && self.pvBuffer == other.pvBuffer && self.pFirstWord == other.pFirstWord
     }
 }
 impl ::core::cmp::Eq for SPWORDLIST {}
@@ -16254,7 +16230,7 @@ unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATION {
 }
 impl ::core::cmp::PartialEq for SPWORDPRONUNCIATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDPRONUNCIATION>()) == 0 }
+        self.pNextWordPronunciation == other.pNextWordPronunciation && self.eLexiconType == other.eLexiconType && self.LangID == other.LangID && self.wPronunciationFlags == other.wPronunciationFlags && self.ePartOfSpeech == other.ePartOfSpeech && self.szPronunciation == other.szPronunciation
     }
 }
 impl ::core::cmp::Eq for SPWORDPRONUNCIATION {}
@@ -16286,7 +16262,7 @@ unsafe impl ::windows::core::Abi for SPWORDPRONUNCIATIONLIST {
 }
 impl ::core::cmp::PartialEq for SPWORDPRONUNCIATIONLIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPWORDPRONUNCIATIONLIST>()) == 0 }
+        self.ulSize == other.ulSize && self.pvBuffer == other.pvBuffer && self.pFirstWordPronunciation == other.pFirstWordPronunciation
     }
 }
 impl ::core::cmp::Eq for SPWORDPRONUNCIATIONLIST {}

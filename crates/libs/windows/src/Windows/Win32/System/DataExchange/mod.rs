@@ -1181,7 +1181,7 @@ unsafe impl ::windows::core::Abi for CONVCONTEXT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for CONVCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVCONTEXT>()) == 0 }
+        self.cb == other.cb && self.wFlags == other.wFlags && self.wCountryID == other.wCountryID && self.iCodePage == other.iCodePage && self.dwLangID == other.dwLangID && self.dwSecurity == other.dwSecurity && self.qos == other.qos
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1251,7 +1251,7 @@ unsafe impl ::windows::core::Abi for CONVINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for CONVINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVINFO>()) == 0 }
+        self.cb == other.cb && self.hUser == other.hUser && self.hConvPartner == other.hConvPartner && self.hszSvcPartner == other.hszSvcPartner && self.hszServiceReq == other.hszServiceReq && self.hszTopic == other.hszTopic && self.hszItem == other.hszItem && self.wFmt == other.wFmt && self.wType == other.wType && self.wStatus == other.wStatus && self.wConvst == other.wConvst && self.wLastError == other.wLastError && self.hConvList == other.hConvList && self.ConvCtxt == other.ConvCtxt && self.hwnd == other.hwnd && self.hwndPartner == other.hwndPartner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1285,7 +1285,7 @@ unsafe impl ::windows::core::Abi for COPYDATASTRUCT {
 }
 impl ::core::cmp::PartialEq for COPYDATASTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYDATASTRUCT>()) == 0 }
+        self.dwData == other.dwData && self.cbData == other.cbData && self.lpData == other.lpData
     }
 }
 impl ::core::cmp::Eq for COPYDATASTRUCT {}
@@ -1315,7 +1315,7 @@ unsafe impl ::windows::core::Abi for DDEACK {
 }
 impl ::core::cmp::PartialEq for DDEACK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEACK>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DDEACK {}
@@ -1346,7 +1346,7 @@ unsafe impl ::windows::core::Abi for DDEADVISE {
 }
 impl ::core::cmp::PartialEq for DDEADVISE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEADVISE>()) == 0 }
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat
     }
 }
 impl ::core::cmp::Eq for DDEADVISE {}
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::Abi for DDEDATA {
 }
 impl ::core::cmp::PartialEq for DDEDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEDATA>()) == 0 }
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for DDEDATA {}
@@ -1409,7 +1409,7 @@ unsafe impl ::windows::core::Abi for DDELN {
 }
 impl ::core::cmp::PartialEq for DDELN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDELN>()) == 0 }
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat
     }
 }
 impl ::core::cmp::Eq for DDELN {}
@@ -1442,7 +1442,7 @@ unsafe impl ::windows::core::Abi for DDEML_MSG_HOOK_DATA {
 }
 impl ::core::cmp::PartialEq for DDEML_MSG_HOOK_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEML_MSG_HOOK_DATA>()) == 0 }
+        self.uiLo == other.uiLo && self.uiHi == other.uiHi && self.cbData == other.cbData && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for DDEML_MSG_HOOK_DATA {}
@@ -1474,7 +1474,7 @@ unsafe impl ::windows::core::Abi for DDEPOKE {
 }
 impl ::core::cmp::PartialEq for DDEPOKE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEPOKE>()) == 0 }
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for DDEPOKE {}
@@ -1506,7 +1506,7 @@ unsafe impl ::windows::core::Abi for DDEUP {
 }
 impl ::core::cmp::PartialEq for DDEUP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEUP>()) == 0 }
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.rgb == other.rgb
     }
 }
 impl ::core::cmp::Eq for DDEUP {}
@@ -1665,7 +1665,7 @@ unsafe impl ::windows::core::Abi for HSZPAIR {
 }
 impl ::core::cmp::PartialEq for HSZPAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSZPAIR>()) == 0 }
+        self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic
     }
 }
 impl ::core::cmp::Eq for HSZPAIR {}
@@ -1704,7 +1704,7 @@ unsafe impl ::windows::core::Abi for METAFILEPICT {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for METAFILEPICT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<METAFILEPICT>()) == 0 }
+        self.mm == other.mm && self.xExt == other.xExt && self.yExt == other.yExt && self.hMF == other.hMF
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1756,7 +1756,7 @@ unsafe impl ::windows::core::Abi for MONCBSTRUCT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for MONCBSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONCBSTRUCT>()) == 0 }
+        self.cb == other.cb && self.dwTime == other.dwTime && self.hTask == other.hTask && self.dwRet == other.dwRet && self.wType == other.wType && self.wFmt == other.wFmt && self.hConv == other.hConv && self.hsz1 == other.hsz1 && self.hsz2 == other.hsz2 && self.hData == other.hData && self.dwData1 == other.dwData1 && self.dwData2 == other.dwData2 && self.cc == other.cc && self.cbData == other.cbData && self.Data == other.Data
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1801,7 +1801,7 @@ unsafe impl ::windows::core::Abi for MONCONVSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONCONVSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONCONVSTRUCT>()) == 0 }
+        self.cb == other.cb && self.fConnect == other.fConnect && self.dwTime == other.dwTime && self.hTask == other.hTask && self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic && self.hConvClient == other.hConvClient && self.hConvServer == other.hConvServer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1842,7 +1842,7 @@ unsafe impl ::windows::core::Abi for MONERRSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONERRSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONERRSTRUCT>()) == 0 }
+        self.cb == other.cb && self.wLastError == other.wLastError && self.dwTime == other.dwTime && self.hTask == other.hTask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1885,7 +1885,7 @@ unsafe impl ::windows::core::Abi for MONHSZSTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONHSZSTRUCTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONHSZSTRUCTA>()) == 0 }
+        self.cb == other.cb && self.fsAction == other.fsAction && self.dwTime == other.dwTime && self.hsz == other.hsz && self.hTask == other.hTask && self.str == other.str
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1928,7 +1928,7 @@ unsafe impl ::windows::core::Abi for MONHSZSTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONHSZSTRUCTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONHSZSTRUCTW>()) == 0 }
+        self.cb == other.cb && self.fsAction == other.fsAction && self.dwTime == other.dwTime && self.hsz == other.hsz && self.hTask == other.hTask && self.str == other.str
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1977,7 +1977,7 @@ unsafe impl ::windows::core::Abi for MONLINKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONLINKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONLINKSTRUCT>()) == 0 }
+        self.cb == other.cb && self.dwTime == other.dwTime && self.hTask == other.hTask && self.fEstablished == other.fEstablished && self.fNoData == other.fNoData && self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic && self.hszItem == other.hszItem && self.wFmt == other.wFmt && self.fServer == other.fServer && self.hConvServer == other.hConvServer && self.hConvClient == other.hConvClient
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2022,7 +2022,7 @@ unsafe impl ::windows::core::Abi for MONMSGSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONMSGSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONMSGSTRUCT>()) == 0 }
+        self.cb == other.cb && self.hwndTo == other.hwndTo && self.dwTime == other.dwTime && self.hTask == other.hTask && self.wMsg == other.wMsg && self.wParam == other.wParam && self.lParam == other.lParam && self.dmhd == other.dmhd
     }
 }
 #[cfg(feature = "Win32_Foundation")]

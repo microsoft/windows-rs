@@ -212,18 +212,12 @@ impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
 }
 impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("Allocate", &self.Allocate.map(|f| f as usize)).field("Free", &self.Free.map(|f| f as usize)).field("UserContext", &self.UserContext).finish()
+        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("UserContext", &self.UserContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for COMPRESS_ALLOCATION_ROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPRESS_ALLOCATION_ROUTINES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
 impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

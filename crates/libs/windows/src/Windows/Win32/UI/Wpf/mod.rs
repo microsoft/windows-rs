@@ -1209,7 +1209,7 @@ unsafe impl ::windows::core::Abi for MILMatrixF {
 }
 impl ::core::cmp::PartialEq for MILMatrixF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MILMatrixF>()) == 0 }
+        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
     }
 }
 impl ::core::cmp::Eq for MILMatrixF {}
@@ -1240,7 +1240,7 @@ unsafe impl ::windows::core::Abi for MilPoint2D {
 }
 impl ::core::cmp::PartialEq for MilPoint2D {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MilPoint2D>()) == 0 }
+        self.X == other.X && self.Y == other.Y
     }
 }
 impl ::core::cmp::Eq for MilPoint2D {}
@@ -1273,7 +1273,7 @@ unsafe impl ::windows::core::Abi for MilRectD {
 }
 impl ::core::cmp::PartialEq for MilRectD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MilRectD>()) == 0 }
+        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
 impl ::core::cmp::Eq for MilRectD {}

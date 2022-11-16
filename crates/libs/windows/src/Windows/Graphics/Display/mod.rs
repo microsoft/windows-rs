@@ -2022,7 +2022,7 @@ unsafe impl ::windows::core::RuntimeType for NitRange {
 }
 impl ::core::cmp::PartialEq for NitRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NitRange>()) == 0 }
+        self.MinNits == other.MinNits && self.MaxNits == other.MaxNits && self.StepSizeNits == other.StepSizeNits
     }
 }
 impl ::core::cmp::Eq for NitRange {}

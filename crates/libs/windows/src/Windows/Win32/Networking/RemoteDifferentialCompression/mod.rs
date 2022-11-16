@@ -1238,7 +1238,7 @@ unsafe impl ::windows::core::Abi for FindSimilarFileIndexResults {
 }
 impl ::core::cmp::PartialEq for FindSimilarFileIndexResults {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FindSimilarFileIndexResults>()) == 0 }
+        self.m_FileIndex == other.m_FileIndex && self.m_MatchCount == other.m_MatchCount
     }
 }
 impl ::core::cmp::Eq for FindSimilarFileIndexResults {}
@@ -1270,7 +1270,7 @@ unsafe impl ::windows::core::Abi for RdcBufferPointer {
 }
 impl ::core::cmp::PartialEq for RdcBufferPointer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RdcBufferPointer>()) == 0 }
+        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
     }
 }
 impl ::core::cmp::Eq for RdcBufferPointer {}
@@ -1302,7 +1302,7 @@ unsafe impl ::windows::core::Abi for RdcNeed {
 }
 impl ::core::cmp::PartialEq for RdcNeed {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RdcNeed>()) == 0 }
+        self.m_BlockType == other.m_BlockType && self.m_FileOffset == other.m_FileOffset && self.m_BlockLength == other.m_BlockLength
     }
 }
 impl ::core::cmp::Eq for RdcNeed {}
@@ -1334,7 +1334,7 @@ unsafe impl ::windows::core::Abi for RdcNeedPointer {
 }
 impl ::core::cmp::PartialEq for RdcNeedPointer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RdcNeedPointer>()) == 0 }
+        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
     }
 }
 impl ::core::cmp::Eq for RdcNeedPointer {}
@@ -1365,7 +1365,7 @@ unsafe impl ::windows::core::Abi for RdcSignature {
 }
 impl ::core::cmp::PartialEq for RdcSignature {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RdcSignature>()) == 0 }
+        self.m_Signature == other.m_Signature && self.m_BlockLength == other.m_BlockLength
     }
 }
 impl ::core::cmp::Eq for RdcSignature {}
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::Abi for RdcSignaturePointer {
 }
 impl ::core::cmp::PartialEq for RdcSignaturePointer {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RdcSignaturePointer>()) == 0 }
+        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
     }
 }
 impl ::core::cmp::Eq for RdcSignaturePointer {}
@@ -1427,7 +1427,7 @@ unsafe impl ::windows::core::Abi for SimilarityData {
 }
 impl ::core::cmp::PartialEq for SimilarityData {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SimilarityData>()) == 0 }
+        self.m_Data == other.m_Data
     }
 }
 impl ::core::cmp::Eq for SimilarityData {}
@@ -1458,7 +1458,7 @@ unsafe impl ::windows::core::Abi for SimilarityDumpData {
 }
 impl ::core::cmp::PartialEq for SimilarityDumpData {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SimilarityDumpData>()) == 0 }
+        self.m_FileIndex == other.m_FileIndex && self.m_Data == other.m_Data
     }
 }
 impl ::core::cmp::Eq for SimilarityDumpData {}
@@ -1488,7 +1488,7 @@ unsafe impl ::windows::core::Abi for SimilarityFileId {
 }
 impl ::core::cmp::PartialEq for SimilarityFileId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SimilarityFileId>()) == 0 }
+        self.m_FileId == other.m_FileId
     }
 }
 impl ::core::cmp::Eq for SimilarityFileId {}
@@ -1519,7 +1519,7 @@ unsafe impl ::windows::core::Abi for SimilarityMappedViewInfo {
 }
 impl ::core::cmp::PartialEq for SimilarityMappedViewInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SimilarityMappedViewInfo>()) == 0 }
+        self.m_Data == other.m_Data && self.m_Length == other.m_Length
     }
 }
 impl ::core::cmp::Eq for SimilarityMappedViewInfo {}

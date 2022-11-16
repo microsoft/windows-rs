@@ -2075,7 +2075,7 @@ unsafe impl ::windows::core::Abi for ACPI_REAL_TIME {
 }
 impl ::core::cmp::PartialEq for ACPI_REAL_TIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACPI_REAL_TIME>()) == 0 }
+        self.Year == other.Year && self.Month == other.Month && self.Day == other.Day && self.Hour == other.Hour && self.Minute == other.Minute && self.Second == other.Second && self.Valid == other.Valid && self.Milliseconds == other.Milliseconds && self.TimeZone == other.TimeZone && self.DayLight == other.DayLight && self.Reserved1 == other.Reserved1
     }
 }
 impl ::core::cmp::Eq for ACPI_REAL_TIME {}
@@ -2110,7 +2110,7 @@ unsafe impl ::windows::core::Abi for ADMINISTRATOR_POWER_POLICY {
 }
 impl ::core::cmp::PartialEq for ADMINISTRATOR_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADMINISTRATOR_POWER_POLICY>()) == 0 }
+        self.MinSleep == other.MinSleep && self.MaxSleep == other.MaxSleep && self.MinVideoTimeout == other.MinVideoTimeout && self.MaxVideoTimeout == other.MaxVideoTimeout && self.MinSpindownTimeout == other.MinSpindownTimeout && self.MaxSpindownTimeout == other.MaxSpindownTimeout
     }
 }
 impl ::core::cmp::Eq for ADMINISTRATOR_POWER_POLICY {}
@@ -2141,7 +2141,7 @@ unsafe impl ::windows::core::Abi for BATTERY_CHARGER_STATUS {
 }
 impl ::core::cmp::PartialEq for BATTERY_CHARGER_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_CHARGER_STATUS>()) == 0 }
+        self.Type == other.Type && self.VaData == other.VaData
     }
 }
 impl ::core::cmp::Eq for BATTERY_CHARGER_STATUS {}
@@ -2172,7 +2172,7 @@ unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE {
 }
 impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_CHARGING_SOURCE>()) == 0 }
+        self.Type == other.Type && self.MaxCurrent == other.MaxCurrent
     }
 }
 impl ::core::cmp::Eq for BATTERY_CHARGING_SOURCE {}
@@ -2209,7 +2209,7 @@ unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_CHARGING_SOURCE_INFORMATION>()) == 0 }
+        self.Type == other.Type && self.SourceOnline == other.SourceOnline
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2250,7 +2250,7 @@ unsafe impl ::windows::core::Abi for BATTERY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for BATTERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_INFORMATION>()) == 0 }
+        self.Capabilities == other.Capabilities && self.Technology == other.Technology && self.Reserved == other.Reserved && self.Chemistry == other.Chemistry && self.DesignedCapacity == other.DesignedCapacity && self.FullChargedCapacity == other.FullChargedCapacity && self.DefaultAlert1 == other.DefaultAlert1 && self.DefaultAlert2 == other.DefaultAlert2 && self.CriticalBias == other.CriticalBias && self.CycleCount == other.CycleCount
     }
 }
 impl ::core::cmp::Eq for BATTERY_INFORMATION {}
@@ -2282,7 +2282,7 @@ unsafe impl ::windows::core::Abi for BATTERY_MANUFACTURE_DATE {
 }
 impl ::core::cmp::PartialEq for BATTERY_MANUFACTURE_DATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_MANUFACTURE_DATE>()) == 0 }
+        self.Day == other.Day && self.Month == other.Month && self.Year == other.Year
     }
 }
 impl ::core::cmp::Eq for BATTERY_MANUFACTURE_DATE {}
@@ -2314,7 +2314,7 @@ unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for BATTERY_QUERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_QUERY_INFORMATION>()) == 0 }
+        self.BatteryTag == other.BatteryTag && self.InformationLevel == other.InformationLevel && self.AtRate == other.AtRate
     }
 }
 impl ::core::cmp::Eq for BATTERY_QUERY_INFORMATION {}
@@ -2345,7 +2345,7 @@ unsafe impl ::windows::core::Abi for BATTERY_REPORTING_SCALE {
 }
 impl ::core::cmp::PartialEq for BATTERY_REPORTING_SCALE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_REPORTING_SCALE>()) == 0 }
+        self.Granularity == other.Granularity && self.Capacity == other.Capacity
     }
 }
 impl ::core::cmp::Eq for BATTERY_REPORTING_SCALE {}
@@ -2377,7 +2377,7 @@ unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION {
 }
 impl ::core::cmp::PartialEq for BATTERY_SET_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_SET_INFORMATION>()) == 0 }
+        self.BatteryTag == other.BatteryTag && self.InformationLevel == other.InformationLevel && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for BATTERY_SET_INFORMATION {}
@@ -2410,7 +2410,7 @@ unsafe impl ::windows::core::Abi for BATTERY_STATUS {
 }
 impl ::core::cmp::PartialEq for BATTERY_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_STATUS>()) == 0 }
+        self.PowerState == other.PowerState && self.Capacity == other.Capacity && self.Voltage == other.Voltage && self.Rate == other.Rate
     }
 }
 impl ::core::cmp::Eq for BATTERY_STATUS {}
@@ -2448,7 +2448,7 @@ unsafe impl ::windows::core::Abi for BATTERY_USB_CHARGER_STATUS {
 }
 impl ::core::cmp::PartialEq for BATTERY_USB_CHARGER_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_USB_CHARGER_STATUS>()) == 0 }
+        self.Type == other.Type && self.Reserved == other.Reserved && self.Flags == other.Flags && self.MaxCurrent == other.MaxCurrent && self.Voltage == other.Voltage && self.PortType == other.PortType && self.PortId == other.PortId && self.PowerSourceInformation == other.PowerSourceInformation && self.OemCharger == other.OemCharger
     }
 }
 impl ::core::cmp::Eq for BATTERY_USB_CHARGER_STATUS {}
@@ -2482,7 +2482,7 @@ unsafe impl ::windows::core::Abi for BATTERY_WAIT_STATUS {
 }
 impl ::core::cmp::PartialEq for BATTERY_WAIT_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_WAIT_STATUS>()) == 0 }
+        self.BatteryTag == other.BatteryTag && self.Timeout == other.Timeout && self.PowerState == other.PowerState && self.LowCapacity == other.LowCapacity && self.HighCapacity == other.HighCapacity
     }
 }
 impl ::core::cmp::Eq for BATTERY_WAIT_STATUS {}
@@ -2519,7 +2519,7 @@ unsafe impl ::windows::core::Abi for CM_POWER_DATA {
 }
 impl ::core::cmp::PartialEq for CM_POWER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_POWER_DATA>()) == 0 }
+        self.PD_Size == other.PD_Size && self.PD_MostRecentPowerState == other.PD_MostRecentPowerState && self.PD_Capabilities == other.PD_Capabilities && self.PD_D1Latency == other.PD_D1Latency && self.PD_D2Latency == other.PD_D2Latency && self.PD_D3Latency == other.PD_D3Latency && self.PD_PowerStateMapping == other.PD_PowerStateMapping && self.PD_DeepestSystemWake == other.PD_DeepestSystemWake
     }
 }
 impl ::core::cmp::Eq for CM_POWER_DATA {}
@@ -2542,18 +2542,12 @@ impl ::core::clone::Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
 }
 impl ::core::fmt::Debug for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Callback", &self.Callback.map(|f| f as usize)).field("Context", &self.Context).finish()
+        f.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Context", &self.Context).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
 impl ::core::default::Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2581,7 +2575,7 @@ unsafe impl ::windows::core::Abi for EMI_CHANNEL_MEASUREMENT_DATA {
 }
 impl ::core::cmp::PartialEq for EMI_CHANNEL_MEASUREMENT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_CHANNEL_MEASUREMENT_DATA>()) == 0 }
+        self.AbsoluteEnergy == other.AbsoluteEnergy && self.AbsoluteTime == other.AbsoluteTime
     }
 }
 impl ::core::cmp::Eq for EMI_CHANNEL_MEASUREMENT_DATA {}
@@ -2613,7 +2607,7 @@ unsafe impl ::windows::core::Abi for EMI_CHANNEL_V2 {
 }
 impl ::core::cmp::PartialEq for EMI_CHANNEL_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_CHANNEL_V2>()) == 0 }
+        self.MeasurementUnit == other.MeasurementUnit && self.ChannelNameSize == other.ChannelNameSize && self.ChannelName == other.ChannelName
     }
 }
 impl ::core::cmp::Eq for EMI_CHANNEL_V2 {}
@@ -2643,7 +2637,7 @@ unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_DATA_V2 {
 }
 impl ::core::cmp::PartialEq for EMI_MEASUREMENT_DATA_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_MEASUREMENT_DATA_V2>()) == 0 }
+        self.ChannelData == other.ChannelData
     }
 }
 impl ::core::cmp::Eq for EMI_MEASUREMENT_DATA_V2 {}
@@ -2673,7 +2667,7 @@ unsafe impl ::windows::core::Abi for EMI_METADATA_SIZE {
 }
 impl ::core::cmp::PartialEq for EMI_METADATA_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_METADATA_SIZE>()) == 0 }
+        self.MetadataSize == other.MetadataSize
     }
 }
 impl ::core::cmp::Eq for EMI_METADATA_SIZE {}
@@ -2708,7 +2702,7 @@ unsafe impl ::windows::core::Abi for EMI_METADATA_V1 {
 }
 impl ::core::cmp::PartialEq for EMI_METADATA_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_METADATA_V1>()) == 0 }
+        self.MeasurementUnit == other.MeasurementUnit && self.HardwareOEM == other.HardwareOEM && self.HardwareModel == other.HardwareModel && self.HardwareRevision == other.HardwareRevision && self.MeteredHardwareNameSize == other.MeteredHardwareNameSize && self.MeteredHardwareName == other.MeteredHardwareName
     }
 }
 impl ::core::cmp::Eq for EMI_METADATA_V1 {}
@@ -2742,7 +2736,7 @@ unsafe impl ::windows::core::Abi for EMI_METADATA_V2 {
 }
 impl ::core::cmp::PartialEq for EMI_METADATA_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_METADATA_V2>()) == 0 }
+        self.HardwareOEM == other.HardwareOEM && self.HardwareModel == other.HardwareModel && self.HardwareRevision == other.HardwareRevision && self.ChannelCount == other.ChannelCount && self.Channels == other.Channels
     }
 }
 impl ::core::cmp::Eq for EMI_METADATA_V2 {}
@@ -2772,7 +2766,7 @@ unsafe impl ::windows::core::Abi for EMI_VERSION {
 }
 impl ::core::cmp::PartialEq for EMI_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_VERSION>()) == 0 }
+        self.EmiVersion == other.EmiVersion
     }
 }
 impl ::core::cmp::Eq for EMI_VERSION {}
@@ -2805,7 +2799,7 @@ unsafe impl ::windows::core::Abi for GLOBAL_MACHINE_POWER_POLICY {
 }
 impl ::core::cmp::PartialEq for GLOBAL_MACHINE_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBAL_MACHINE_POWER_POLICY>()) == 0 }
+        self.Revision == other.Revision && self.LidOpenWakeAc == other.LidOpenWakeAc && self.LidOpenWakeDc == other.LidOpenWakeDc && self.BroadcastCapacityResolution == other.BroadcastCapacityResolution
     }
 }
 impl ::core::cmp::Eq for GLOBAL_MACHINE_POWER_POLICY {}
@@ -2842,7 +2836,7 @@ unsafe impl ::windows::core::Abi for GLOBAL_POWER_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLOBAL_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBAL_POWER_POLICY>()) == 0 }
+        self.user == other.user && self.mach == other.mach
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2888,7 +2882,7 @@ unsafe impl ::windows::core::Abi for GLOBAL_USER_POWER_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLOBAL_USER_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBAL_USER_POWER_POLICY>()) == 0 }
+        self.Revision == other.Revision && self.PowerButtonAc == other.PowerButtonAc && self.PowerButtonDc == other.PowerButtonDc && self.SleepButtonAc == other.SleepButtonAc && self.SleepButtonDc == other.SleepButtonDc && self.LidCloseAc == other.LidCloseAc && self.LidCloseDc == other.LidCloseDc && self.DischargePolicy == other.DischargePolicy && self.GlobalFlags == other.GlobalFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2980,7 +2974,7 @@ unsafe impl ::windows::core::Abi for MACHINE_POWER_POLICY {
 }
 impl ::core::cmp::PartialEq for MACHINE_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MACHINE_POWER_POLICY>()) == 0 }
+        self.Revision == other.Revision && self.MinSleepAc == other.MinSleepAc && self.MinSleepDc == other.MinSleepDc && self.ReducedLatencySleepAc == other.ReducedLatencySleepAc && self.ReducedLatencySleepDc == other.ReducedLatencySleepDc && self.DozeTimeoutAc == other.DozeTimeoutAc && self.DozeTimeoutDc == other.DozeTimeoutDc && self.DozeS4TimeoutAc == other.DozeS4TimeoutAc && self.DozeS4TimeoutDc == other.DozeS4TimeoutDc && self.MinThrottleAc == other.MinThrottleAc && self.MinThrottleDc == other.MinThrottleDc && self.pad1 == other.pad1 && self.OverThrottledAc == other.OverThrottledAc && self.OverThrottledDc == other.OverThrottledDc
     }
 }
 impl ::core::cmp::Eq for MACHINE_POWER_POLICY {}
@@ -3012,7 +3006,7 @@ unsafe impl ::windows::core::Abi for MACHINE_PROCESSOR_POWER_POLICY {
 }
 impl ::core::cmp::PartialEq for MACHINE_PROCESSOR_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MACHINE_PROCESSOR_POWER_POLICY>()) == 0 }
+        self.Revision == other.Revision && self.ProcessorPolicyAc == other.ProcessorPolicyAc && self.ProcessorPolicyDc == other.ProcessorPolicyDc
     }
 }
 impl ::core::cmp::Eq for MACHINE_PROCESSOR_POWER_POLICY {}
@@ -3044,7 +3038,7 @@ unsafe impl ::windows::core::Abi for POWERBROADCAST_SETTING {
 }
 impl ::core::cmp::PartialEq for POWERBROADCAST_SETTING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POWERBROADCAST_SETTING>()) == 0 }
+        self.PowerSetting == other.PowerSetting && self.DataLength == other.DataLength && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for POWERBROADCAST_SETTING {}
@@ -3076,7 +3070,7 @@ unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY {
 }
 impl ::core::cmp::PartialEq for POWER_ACTION_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POWER_ACTION_POLICY>()) == 0 }
+        self.Action == other.Action && self.Flags == other.Flags && self.EventCode == other.EventCode
     }
 }
 impl ::core::cmp::Eq for POWER_ACTION_POLICY {}
@@ -3113,7 +3107,7 @@ unsafe impl ::windows::core::Abi for POWER_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POWER_POLICY>()) == 0 }
+        self.user == other.user && self.mach == other.mach
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3147,7 +3141,7 @@ unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO {
 }
 impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_OBJECT_INFO>()) == 0 }
+        self.PhysicalID == other.PhysicalID && self.PBlkAddress == other.PBlkAddress && self.PBlkLength == other.PBlkLength
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_OBJECT_INFO {}
@@ -3180,7 +3174,7 @@ unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO_EX {
 }
 impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_OBJECT_INFO_EX>()) == 0 }
+        self.PhysicalID == other.PhysicalID && self.PBlkAddress == other.PBlkAddress && self.PBlkLength == other.PBlkLength && self.InitialApicId == other.InitialApicId
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_OBJECT_INFO_EX {}
@@ -3215,7 +3209,7 @@ unsafe impl ::windows::core::Abi for PROCESSOR_POWER_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PROCESSOR_POWER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_POWER_INFORMATION>()) == 0 }
+        self.Number == other.Number && self.MaxMhz == other.MaxMhz && self.CurrentMhz == other.CurrentMhz && self.MhzLimit == other.MhzLimit && self.MaxIdleState == other.MaxIdleState && self.CurrentIdleState == other.CurrentIdleState
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_POWER_INFORMATION {}
@@ -3250,7 +3244,7 @@ unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY {
 }
 impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_POWER_POLICY>()) == 0 }
+        self.Revision == other.Revision && self.DynamicThrottle == other.DynamicThrottle && self.Spare == other.Spare && self._bitfield == other._bitfield && self.PolicyCount == other.PolicyCount && self.Policy == other.Policy
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_POWER_POLICY {}
@@ -3286,7 +3280,7 @@ unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY_INFO {
 }
 impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_POWER_POLICY_INFO>()) == 0 }
+        self.TimeCheck == other.TimeCheck && self.DemoteLimit == other.DemoteLimit && self.PromoteLimit == other.PromoteLimit && self.DemotePercent == other.DemotePercent && self.PromotePercent == other.PromotePercent && self.Spare == other.Spare && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for PROCESSOR_POWER_POLICY_INFO {}
@@ -3320,7 +3314,7 @@ unsafe impl ::windows::core::Abi for SET_POWER_SETTING_VALUE {
 }
 impl ::core::cmp::PartialEq for SET_POWER_SETTING_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SET_POWER_SETTING_VALUE>()) == 0 }
+        self.Version == other.Version && self.Guid == other.Guid && self.PowerCondition == other.PowerCondition && self.DataLength == other.DataLength && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for SET_POWER_SETTING_VALUE {}
@@ -3380,7 +3374,7 @@ unsafe impl ::windows::core::Abi for SYSTEM_BATTERY_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_BATTERY_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_BATTERY_STATE>()) == 0 }
+        self.AcOnLine == other.AcOnLine && self.BatteryPresent == other.BatteryPresent && self.Charging == other.Charging && self.Discharging == other.Discharging && self.Spare1 == other.Spare1 && self.Tag == other.Tag && self.MaxCapacity == other.MaxCapacity && self.RemainingCapacity == other.RemainingCapacity && self.Rate == other.Rate && self.EstimatedTime == other.EstimatedTime && self.DefaultAlert1 == other.DefaultAlert1 && self.DefaultAlert2 == other.DefaultAlert2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3484,7 +3478,39 @@ unsafe impl ::windows::core::Abi for SYSTEM_POWER_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_POWER_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_CAPABILITIES>()) == 0 }
+        self.PowerButtonPresent == other.PowerButtonPresent
+            && self.SleepButtonPresent == other.SleepButtonPresent
+            && self.LidPresent == other.LidPresent
+            && self.SystemS1 == other.SystemS1
+            && self.SystemS2 == other.SystemS2
+            && self.SystemS3 == other.SystemS3
+            && self.SystemS4 == other.SystemS4
+            && self.SystemS5 == other.SystemS5
+            && self.HiberFilePresent == other.HiberFilePresent
+            && self.FullWake == other.FullWake
+            && self.VideoDimPresent == other.VideoDimPresent
+            && self.ApmPresent == other.ApmPresent
+            && self.UpsPresent == other.UpsPresent
+            && self.ThermalControl == other.ThermalControl
+            && self.ProcessorThrottle == other.ProcessorThrottle
+            && self.ProcessorMinThrottle == other.ProcessorMinThrottle
+            && self.ProcessorMaxThrottle == other.ProcessorMaxThrottle
+            && self.FastSystemS4 == other.FastSystemS4
+            && self.Hiberboot == other.Hiberboot
+            && self.WakeAlarmPresent == other.WakeAlarmPresent
+            && self.AoAc == other.AoAc
+            && self.DiskSpinDown == other.DiskSpinDown
+            && self.HiberFileType == other.HiberFileType
+            && self.AoAcConnectivitySupported == other.AoAcConnectivitySupported
+            && self.spare3 == other.spare3
+            && self.SystemBatteriesPresent == other.SystemBatteriesPresent
+            && self.BatteriesAreShortTerm == other.BatteriesAreShortTerm
+            && self.BatteryScale == other.BatteryScale
+            && self.AcOnLineWake == other.AcOnLineWake
+            && self.SoftLidWake == other.SoftLidWake
+            && self.RtcWake == other.RtcWake
+            && self.MinDeviceWakeState == other.MinDeviceWakeState
+            && self.DefaultLowLatencyWake == other.DefaultLowLatencyWake
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3519,7 +3545,7 @@ unsafe impl ::windows::core::Abi for SYSTEM_POWER_INFORMATION {
 }
 impl ::core::cmp::PartialEq for SYSTEM_POWER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_INFORMATION>()) == 0 }
+        self.MaxIdlenessAllowed == other.MaxIdlenessAllowed && self.Idleness == other.Idleness && self.TimeRemaining == other.TimeRemaining && self.CoolingMode == other.CoolingMode
     }
 }
 impl ::core::cmp::Eq for SYSTEM_POWER_INFORMATION {}
@@ -3559,7 +3585,7 @@ unsafe impl ::windows::core::Abi for SYSTEM_POWER_LEVEL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_POWER_LEVEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_LEVEL>()) == 0 }
+        self.Enable == other.Enable && self.Spare == other.Spare && self.BatteryLevel == other.BatteryLevel && self.PowerPolicy == other.PowerPolicy && self.MinSystemState == other.MinSystemState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3653,7 +3679,34 @@ unsafe impl ::windows::core::Abi for SYSTEM_POWER_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_POLICY>()) == 0 }
+        self.Revision == other.Revision
+            && self.PowerButton == other.PowerButton
+            && self.SleepButton == other.SleepButton
+            && self.LidClose == other.LidClose
+            && self.LidOpenWake == other.LidOpenWake
+            && self.Reserved == other.Reserved
+            && self.Idle == other.Idle
+            && self.IdleTimeout == other.IdleTimeout
+            && self.IdleSensitivity == other.IdleSensitivity
+            && self.DynamicThrottle == other.DynamicThrottle
+            && self.Spare2 == other.Spare2
+            && self.MinSleep == other.MinSleep
+            && self.MaxSleep == other.MaxSleep
+            && self.ReducedLatencySleep == other.ReducedLatencySleep
+            && self.WinLogonFlags == other.WinLogonFlags
+            && self.Spare3 == other.Spare3
+            && self.DozeS4Timeout == other.DozeS4Timeout
+            && self.BroadcastCapacityResolution == other.BroadcastCapacityResolution
+            && self.DischargePolicy == other.DischargePolicy
+            && self.VideoTimeout == other.VideoTimeout
+            && self.VideoDimDisplay == other.VideoDimDisplay
+            && self.VideoReserved == other.VideoReserved
+            && self.SpindownTimeout == other.SpindownTimeout
+            && self.OptimizeForPower == other.OptimizeForPower
+            && self.FanThrottleTolerance == other.FanThrottleTolerance
+            && self.ForcedThrottle == other.ForcedThrottle
+            && self.MinThrottle == other.MinThrottle
+            && self.OverThrottled == other.OverThrottled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3690,7 +3743,7 @@ unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATUS {
 }
 impl ::core::cmp::PartialEq for SYSTEM_POWER_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_STATUS>()) == 0 }
+        self.ACLineStatus == other.ACLineStatus && self.BatteryFlag == other.BatteryFlag && self.BatteryLifePercent == other.BatteryLifePercent && self.SystemStatusFlag == other.SystemStatusFlag && self.BatteryLifeTime == other.BatteryLifeTime && self.BatteryFullLifeTime == other.BatteryFullLifeTime
     }
 }
 impl ::core::cmp::Eq for SYSTEM_POWER_STATUS {}
@@ -3725,7 +3778,7 @@ unsafe impl ::windows::core::Abi for THERMAL_EVENT {
 }
 impl ::core::cmp::PartialEq for THERMAL_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_EVENT>()) == 0 }
+        self.Version == other.Version && self.Size == other.Size && self.Type == other.Type && self.Temperature == other.Temperature && self.TripPointTemperature == other.TripPointTemperature && self.Initiator == other.Initiator
     }
 }
 impl ::core::cmp::Eq for THERMAL_EVENT {}
@@ -3775,7 +3828,7 @@ unsafe impl ::windows::core::Abi for THERMAL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for THERMAL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_INFORMATION>()) == 0 }
+        self.ThermalStamp == other.ThermalStamp && self.ThermalConstant1 == other.ThermalConstant1 && self.ThermalConstant2 == other.ThermalConstant2 && self.Processors == other.Processors && self.SamplingPeriod == other.SamplingPeriod && self.CurrentTemperature == other.CurrentTemperature && self.PassiveTripPoint == other.PassiveTripPoint && self.CriticalTripPoint == other.CriticalTripPoint && self.ActiveTripPointCount == other.ActiveTripPointCount && self.ActiveTripPoint == other.ActiveTripPoint
     }
 }
 impl ::core::cmp::Eq for THERMAL_INFORMATION {}
@@ -3819,7 +3872,7 @@ unsafe impl ::windows::core::Abi for THERMAL_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for THERMAL_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_POLICY>()) == 0 }
+        self.Version == other.Version && self.WaitForUpdate == other.WaitForUpdate && self.Hibernate == other.Hibernate && self.Critical == other.Critical && self.ThermalStandby == other.ThermalStandby && self.ActivationReasons == other.ActivationReasons && self.PassiveLimit == other.PassiveLimit && self.ActiveLevel == other.ActiveLevel && self.OverThrottled == other.OverThrottled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3853,7 +3906,7 @@ unsafe impl ::windows::core::Abi for THERMAL_WAIT_READ {
 }
 impl ::core::cmp::PartialEq for THERMAL_WAIT_READ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_WAIT_READ>()) == 0 }
+        self.Timeout == other.Timeout && self.LowTemperature == other.LowTemperature && self.HighTemperature == other.HighTemperature
     }
 }
 impl ::core::cmp::Eq for THERMAL_WAIT_READ {}
@@ -3933,7 +3986,28 @@ unsafe impl ::windows::core::Abi for USER_POWER_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_POWER_POLICY>()) == 0 }
+        self.Revision == other.Revision
+            && self.IdleAc == other.IdleAc
+            && self.IdleDc == other.IdleDc
+            && self.IdleTimeoutAc == other.IdleTimeoutAc
+            && self.IdleTimeoutDc == other.IdleTimeoutDc
+            && self.IdleSensitivityAc == other.IdleSensitivityAc
+            && self.IdleSensitivityDc == other.IdleSensitivityDc
+            && self.ThrottlePolicyAc == other.ThrottlePolicyAc
+            && self.ThrottlePolicyDc == other.ThrottlePolicyDc
+            && self.MaxSleepAc == other.MaxSleepAc
+            && self.MaxSleepDc == other.MaxSleepDc
+            && self.Reserved == other.Reserved
+            && self.VideoTimeoutAc == other.VideoTimeoutAc
+            && self.VideoTimeoutDc == other.VideoTimeoutDc
+            && self.SpindownTimeoutAc == other.SpindownTimeoutAc
+            && self.SpindownTimeoutDc == other.SpindownTimeoutDc
+            && self.OptimizeForPowerAc == other.OptimizeForPowerAc
+            && self.OptimizeForPowerDc == other.OptimizeForPowerDc
+            && self.FanThrottleToleranceAc == other.FanThrottleToleranceAc
+            && self.FanThrottleToleranceDc == other.FanThrottleToleranceDc
+            && self.ForcedThrottleAc == other.ForcedThrottleAc
+            && self.ForcedThrottleDc == other.ForcedThrottleDc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3966,7 +4040,7 @@ unsafe impl ::windows::core::Abi for WAKE_ALARM_INFORMATION {
 }
 impl ::core::cmp::PartialEq for WAKE_ALARM_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WAKE_ALARM_INFORMATION>()) == 0 }
+        self.TimerIdentifier == other.TimerIdentifier && self.Timeout == other.Timeout
     }
 }
 impl ::core::cmp::Eq for WAKE_ALARM_INFORMATION {}

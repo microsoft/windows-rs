@@ -1525,7 +1525,7 @@ unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSA {
 }
 impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUSA>()) == 0 }
+        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
     }
 }
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUSA {}
@@ -1557,7 +1557,7 @@ unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSW {
 }
 impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUSW>()) == 0 }
+        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
     }
 }
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUSW {}
@@ -1589,7 +1589,7 @@ unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSA {
 }
 impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUS_PROCESSA>()) == 0 }
+        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
     }
 }
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSA {}
@@ -1621,7 +1621,7 @@ unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSW {
 }
 impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUS_PROCESSW>()) == 0 }
+        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
     }
 }
 impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSW {}
@@ -1659,7 +1659,7 @@ unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGA {
 }
 impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_CONFIGA>()) == 0 }
+        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
     }
 }
 impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGA {}
@@ -1697,7 +1697,7 @@ unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGW {
 }
 impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_CONFIGW>()) == 0 }
+        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
     }
 }
 impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGW {}
@@ -1729,7 +1729,7 @@ unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSA {
 }
 impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_LOCK_STATUSA>()) == 0 }
+        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
     }
 }
 impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSA {}
@@ -1761,7 +1761,7 @@ unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSW {
 }
 impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_LOCK_STATUSW>()) == 0 }
+        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
     }
 }
 impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSW {}
@@ -1792,7 +1792,7 @@ unsafe impl ::windows::core::Abi for SC_ACTION {
 }
 impl ::core::cmp::PartialEq for SC_ACTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SC_ACTION>()) == 0 }
+        self.Type == other.Type && self.Delay == other.Delay
     }
 }
 impl ::core::cmp::Eq for SC_ACTION {}
@@ -1824,7 +1824,7 @@ unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
 }
 impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CONTROL_STATUS_REASON_PARAMSA>()) == 0 }
+        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
     }
 }
 impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
@@ -1856,7 +1856,7 @@ unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
 }
 impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CONTROL_STATUS_REASON_PARAMSW>()) == 0 }
+        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
     }
 }
 impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
@@ -1879,12 +1879,6 @@ impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
 unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
 impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1905,12 +1899,6 @@ impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
 unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
 impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1938,7 +1926,7 @@ unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITE
 }
 impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0>()) == 0 }
+        self.DataOffset == other.DataOffset && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
@@ -1974,7 +1962,7 @@ unsafe impl ::windows::core::Abi for SERVICE_DELAYED_AUTO_START_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVICE_DELAYED_AUTO_START_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_DELAYED_AUTO_START_INFO>()) == 0 }
+        self.fDelayedAutostart == other.fDelayedAutostart
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2006,7 +1994,7 @@ unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONA {
 }
 impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_DESCRIPTIONA>()) == 0 }
+        self.lpDescription == other.lpDescription
     }
 }
 impl ::core::cmp::Eq for SERVICE_DESCRIPTIONA {}
@@ -2036,7 +2024,7 @@ unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONW {
 }
 impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_DESCRIPTIONW>()) == 0 }
+        self.lpDescription == other.lpDescription
     }
 }
 impl ::core::cmp::Eq for SERVICE_DESCRIPTIONW {}
@@ -2070,7 +2058,7 @@ unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSA {
 }
 impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_FAILURE_ACTIONSA>()) == 0 }
+        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
     }
 }
 impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSA {}
@@ -2104,7 +2092,7 @@ unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSW {
 }
 impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_FAILURE_ACTIONSW>()) == 0 }
+        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
     }
 }
 impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSW {}
@@ -2140,7 +2128,7 @@ unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONS_FLAG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONS_FLAG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_FAILURE_ACTIONS_FLAG>()) == 0 }
+        self.fFailureActionsOnNonCrashFailures == other.fFailureActionsOnNonCrashFailures
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2172,7 +2160,7 @@ unsafe impl ::windows::core::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
 }
 impl ::core::cmp::PartialEq for SERVICE_LAUNCH_PROTECTED_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_LAUNCH_PROTECTED_INFO>()) == 0 }
+        self.dwLaunchProtected == other.dwLaunchProtected
     }
 }
 impl ::core::cmp::Eq for SERVICE_LAUNCH_PROTECTED_INFO {}
@@ -2198,18 +2186,12 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
 }
 impl ::core::fmt::Debug for SERVICE_NOTIFY_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
+        f.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SERVICE_NOTIFY_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_NOTIFY_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERVICE_NOTIFY_1 {}
 impl ::core::default::Default for SERVICE_NOTIFY_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2234,18 +2216,12 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
 }
 impl ::core::fmt::Debug for SERVICE_NOTIFY_2A {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
+        f.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2A {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_NOTIFY_2A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERVICE_NOTIFY_2A {}
 impl ::core::default::Default for SERVICE_NOTIFY_2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2270,18 +2246,12 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2W {
 }
 impl ::core::fmt::Debug for SERVICE_NOTIFY_2W {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pfnNotifyCallback", &self.pfnNotifyCallback.map(|f| f as usize)).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
+        f.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2W {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_NOTIFY_2W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERVICE_NOTIFY_2W {}
 impl ::core::default::Default for SERVICE_NOTIFY_2W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2315,7 +2285,7 @@ unsafe impl ::windows::core::Abi for SERVICE_PREFERRED_NODE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVICE_PREFERRED_NODE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_PREFERRED_NODE_INFO>()) == 0 }
+        self.usPreferredNode == other.usPreferredNode && self.fDelete == other.fDelete
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2347,7 +2317,7 @@ unsafe impl ::windows::core::Abi for SERVICE_PRESHUTDOWN_INFO {
 }
 impl ::core::cmp::PartialEq for SERVICE_PRESHUTDOWN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_PRESHUTDOWN_INFO>()) == 0 }
+        self.dwPreshutdownTimeout == other.dwPreshutdownTimeout
     }
 }
 impl ::core::cmp::Eq for SERVICE_PRESHUTDOWN_INFO {}
@@ -2377,7 +2347,7 @@ unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
 }
 impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_REQUIRED_PRIVILEGES_INFOA>()) == 0 }
+        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
     }
 }
 impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
@@ -2407,7 +2377,7 @@ unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOW {
 }
 impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_REQUIRED_PRIVILEGES_INFOW>()) == 0 }
+        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
     }
 }
 impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
@@ -2437,7 +2407,7 @@ unsafe impl ::windows::core::Abi for SERVICE_SID_INFO {
 }
 impl ::core::cmp::PartialEq for SERVICE_SID_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_SID_INFO>()) == 0 }
+        self.dwServiceSidType == other.dwServiceSidType
     }
 }
 impl ::core::cmp::Eq for SERVICE_SID_INFO {}
@@ -2467,7 +2437,7 @@ unsafe impl ::windows::core::Abi for SERVICE_START_REASON {
 }
 impl ::core::cmp::PartialEq for SERVICE_START_REASON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_START_REASON>()) == 0 }
+        self.dwReason == other.dwReason
     }
 }
 impl ::core::cmp::Eq for SERVICE_START_REASON {}
@@ -2503,7 +2473,7 @@ unsafe impl ::windows::core::Abi for SERVICE_STATUS {
 }
 impl ::core::cmp::PartialEq for SERVICE_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_STATUS>()) == 0 }
+        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint
     }
 }
 impl ::core::cmp::Eq for SERVICE_STATUS {}
@@ -2573,7 +2543,7 @@ unsafe impl ::windows::core::Abi for SERVICE_STATUS_PROCESS {
 }
 impl ::core::cmp::PartialEq for SERVICE_STATUS_PROCESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_STATUS_PROCESS>()) == 0 }
+        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint && self.dwProcessId == other.dwProcessId && self.dwServiceFlags == other.dwServiceFlags
     }
 }
 impl ::core::cmp::Eq for SERVICE_STATUS_PROCESS {}
@@ -2596,18 +2566,12 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
 }
 impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc.map(|f| f as usize)).finish()
+        f.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TABLE_ENTRYA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYA {}
 impl ::core::default::Default for SERVICE_TABLE_ENTRYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2627,18 +2591,12 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYW {
 }
 impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).field("lpServiceProc", &self.lpServiceProc.map(|f| f as usize)).finish()
+        f.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TABLE_ENTRYW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYW {}
 impl ::core::default::Default for SERVICE_TABLE_ENTRYW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2666,7 +2624,7 @@ unsafe impl ::windows::core::Abi for SERVICE_TIMECHANGE_INFO {
 }
 impl ::core::cmp::PartialEq for SERVICE_TIMECHANGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TIMECHANGE_INFO>()) == 0 }
+        self.liNewTime == other.liNewTime && self.liOldTime == other.liOldTime
     }
 }
 impl ::core::cmp::Eq for SERVICE_TIMECHANGE_INFO {}
@@ -2700,7 +2658,7 @@ unsafe impl ::windows::core::Abi for SERVICE_TRIGGER {
 }
 impl ::core::cmp::PartialEq for SERVICE_TRIGGER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER>()) == 0 }
+        self.dwTriggerType == other.dwTriggerType && self.dwAction == other.dwAction && self.pTriggerSubtype == other.pTriggerSubtype && self.cDataItems == other.cDataItems && self.pDataItems == other.pDataItems
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER {}
@@ -2730,7 +2688,7 @@ unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
 }
 impl ::core::cmp::PartialEq for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER_CUSTOM_STATE_ID>()) == 0 }
+        self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
@@ -2762,7 +2720,7 @@ unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_INFO {
 }
 impl ::core::cmp::PartialEq for SERVICE_TRIGGER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER_INFO>()) == 0 }
+        self.cTriggers == other.cTriggers && self.pTriggers == other.pTriggers && self.pReserved == other.pReserved
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER_INFO {}
@@ -2794,7 +2752,7 @@ unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
 }
 impl ::core::cmp::PartialEq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER_SPECIFIC_DATA_ITEM>()) == 0 }
+        self.dwDataType == other.dwDataType && self.cbData == other.cbData && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}

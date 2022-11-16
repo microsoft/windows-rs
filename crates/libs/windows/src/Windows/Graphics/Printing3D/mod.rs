@@ -3483,7 +3483,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DBufferDescription {
 }
 impl ::core::cmp::PartialEq for Printing3DBufferDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Printing3DBufferDescription>()) == 0 }
+        self.Format == other.Format && self.Stride == other.Stride
     }
 }
 impl ::core::cmp::Eq for Printing3DBufferDescription {}

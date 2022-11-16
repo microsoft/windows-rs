@@ -247,7 +247,7 @@ unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_INFO {
 }
 impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCESVC_ANALYSIS_INFO>()) == 0 }
+        self.Count == other.Count && self.Lines == other.Lines
     }
 }
 impl ::core::cmp::Eq for SCESVC_ANALYSIS_INFO {}
@@ -279,7 +279,7 @@ unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_LINE {
 }
 impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_LINE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCESVC_ANALYSIS_LINE>()) == 0 }
+        self.Key == other.Key && self.Value == other.Value && self.ValueLen == other.ValueLen
     }
 }
 impl ::core::cmp::Eq for SCESVC_ANALYSIS_LINE {}
@@ -309,21 +309,13 @@ impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCESVC_CALLBACK_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).field("pfQueryInfo", &self.pfQueryInfo.map(|f| f as usize)).field("pfSetInfo", &self.pfSetInfo.map(|f| f as usize)).field("pfFreeInfo", &self.pfFreeInfo.map(|f| f as usize)).field("pfLogInfo", &self.pfLogInfo.map(|f| f as usize)).finish()
+        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCESVC_CALLBACK_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SCESVC_CALLBACK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCESVC_CALLBACK_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SCESVC_CALLBACK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCESVC_CALLBACK_INFO {
     fn default() -> Self {
@@ -352,7 +344,7 @@ unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_INFO {
 }
 impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCESVC_CONFIGURATION_INFO>()) == 0 }
+        self.Count == other.Count && self.Lines == other.Lines
     }
 }
 impl ::core::cmp::Eq for SCESVC_CONFIGURATION_INFO {}
@@ -384,7 +376,7 @@ unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_LINE {
 }
 impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_LINE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCESVC_CONFIGURATION_LINE>()) == 0 }
+        self.Key == other.Key && self.Value == other.Value && self.ValueLen == other.ValueLen
     }
 }
 impl ::core::cmp::Eq for SCESVC_CONFIGURATION_LINE {}
