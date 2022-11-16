@@ -136,35 +136,15 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
 fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = gen.cfg_features(cfg);
 
-    if gen.sys {
+    if gen.sys || gen.reader.type_def_has_explicit_layout(def) || gen.reader.type_def_has_packing(def) || gen.reader.type_def_has_callback(def) {
         quote! {}
-    } else if gen.reader.type_def_is_blittable(def) || gen.reader.type_def_flags(def).explicit_layout() || gen.reader.type_def_class_layout(def).is_some() {
-        quote! {
-            #features
-            impl ::core::cmp::PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    unsafe {
-                        ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<#name>()) == 0
-                    }
-                }
-            }
-            #features
-            impl ::core::cmp::Eq for #name {}
-        }
     } else {
-        let fields = gen.reader.type_def_fields(def).map(|f| {
+        let fields = gen.reader.type_def_fields(def).filter_map(|f| {
             let name = to_ident(gen.reader.field_name(f));
             if gen.reader.field_flags(f).literal() {
-                quote! {}
+                None
             } else {
-                let ty = gen.reader.field_type(f, Some(def));
-                if gen.reader.type_is_callback(&ty) {
-                    quote! {
-                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
-                    }
-                } else {
-                    quote! { self.#name == other.#name }
-                }
+                Some(quote! { self.#name == other.#name })
             }
         });
 
@@ -188,19 +168,17 @@ fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenSt
         let name = ident.as_str();
         let features = gen.cfg_features(cfg);
 
-        let fields = gen.reader.type_def_fields(def).map(|f| {
+        let fields = gen.reader.type_def_fields(def).filter_map(|f| {
             if gen.reader.field_flags(f).literal() {
-                quote! {}
+                None
             } else {
                 let name = gen.reader.field_name(f);
                 let ident = to_ident(name);
                 let ty = gen.reader.field_type(f, Some(def));
-                if !ty.is_pointer() && gen.reader.type_is_callback(&ty) {
-                    quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
-                } else if gen.reader.type_is_callback_array(&ty) {
-                    quote! {}
+                if gen.reader.type_has_callback(&ty) {
+                    None
                 } else {
-                    quote! { .field(#name, &self.#ident) }
+                    Some(quote! { .field(#name, &self.#ident) })
                 }
             }
         });
