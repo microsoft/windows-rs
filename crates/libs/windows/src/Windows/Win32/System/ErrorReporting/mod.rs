@@ -1117,7 +1117,7 @@ unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_DUMP_CUSTOM_OPTIONS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1181,7 +1181,7 @@ unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_DUMP_CUSTOM_OPTIONS_V2>()) == 0 }
+        self.dwSize == other.dwSize && self.dwMask == other.dwMask && self.dwDumpFlags == other.dwDumpFlags && self.bOnlyThisThread == other.bOnlyThisThread && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags && self.dwOtherThreadFlags == other.dwOtherThreadFlags && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags && self.dwOtherModuleFlags == other.dwOtherModuleFlags && self.wzPreferredModuleList == other.wzPreferredModuleList && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1251,7 +1251,22 @@ unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_DUMP_CUSTOM_OPTIONS_V3>()) == 0 }
+        self.dwSize == other.dwSize
+            && self.dwMask == other.dwMask
+            && self.dwDumpFlags == other.dwDumpFlags
+            && self.bOnlyThisThread == other.bOnlyThisThread
+            && self.dwExceptionThreadFlags == other.dwExceptionThreadFlags
+            && self.dwOtherThreadFlags == other.dwOtherThreadFlags
+            && self.dwExceptionThreadExFlags == other.dwExceptionThreadExFlags
+            && self.dwOtherThreadExFlags == other.dwOtherThreadExFlags
+            && self.dwPreferredModuleFlags == other.dwPreferredModuleFlags
+            && self.dwOtherModuleFlags == other.dwOtherModuleFlags
+            && self.wzPreferredModuleList == other.wzPreferredModuleList
+            && self.dwPreferredModuleResetFlags == other.dwPreferredModuleResetFlags
+            && self.dwOtherModuleResetFlags == other.dwOtherModuleResetFlags
+            && self.pvDumpKey == other.pvDumpKey
+            && self.hSnapshot == other.hSnapshot
+            && self.dwThreadID == other.dwThreadID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1290,7 +1305,7 @@ unsafe impl ::windows::core::Abi for WER_EXCEPTION_INFORMATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for WER_EXCEPTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_EXCEPTION_INFORMATION>()) == 0 }
+        self.pExceptionPointers == other.pExceptionPointers && self.bClientPointers == other.bClientPointers
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -1335,7 +1350,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION>()) == 0 }
+        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1393,7 +1408,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION_V3>()) == 0 }
+        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1457,7 +1472,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION_V4>()) == 0 }
+        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1523,7 +1538,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_INFORMATION_V5>()) == 0 }
+        self.dwSize == other.dwSize && self.hProcess == other.hProcess && self.wzConsentKey == other.wzConsentKey && self.wzFriendlyEventName == other.wzFriendlyEventName && self.wzApplicationName == other.wzApplicationName && self.wzApplicationPath == other.wzApplicationPath && self.wzDescription == other.wzDescription && self.hwndParent == other.hwndParent && self.wzNamespacePartner == other.wzNamespacePartner && self.wzNamespaceGroup == other.wzNamespaceGroup && self.rgbApplicationIdentity == other.rgbApplicationIdentity && self.hSnapshot == other.hSnapshot && self.hDeleteFilesImpersonationToken == other.hDeleteFilesImpersonationToken && self.submitResultMax == other.submitResultMax
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1565,7 +1580,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_METADATA_V1>()) == 0 }
+        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1625,7 +1640,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_METADATA_V2>()) == 0 }
+        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes && self.CabId == other.CabId && self.ReportStatus == other.ReportStatus && self.ReportIntegratorId == other.ReportIntegratorId && self.NumberOfFiles == other.NumberOfFiles && self.SizeOfFileNames == other.SizeOfFileNames && self.FileNames == other.FileNames
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1697,7 +1712,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_METADATA_V3>()) == 0 }
+        self.Signature == other.Signature && self.BucketId == other.BucketId && self.ReportId == other.ReportId && self.CreationTime == other.CreationTime && self.SizeInBytes == other.SizeInBytes && self.CabId == other.CabId && self.ReportStatus == other.ReportStatus && self.ReportIntegratorId == other.ReportIntegratorId && self.NumberOfFiles == other.NumberOfFiles && self.SizeOfFileNames == other.SizeOfFileNames && self.FileNames == other.FileNames && self.FriendlyEventName == other.FriendlyEventName && self.ApplicationName == other.ApplicationName && self.ApplicationPath == other.ApplicationPath && self.Description == other.Description && self.BucketIdString == other.BucketIdString && self.LegacyBucketId == other.LegacyBucketId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1730,7 +1745,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_PARAMETER {
 }
 impl ::core::cmp::PartialEq for WER_REPORT_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_PARAMETER>()) == 0 }
+        self.Name == other.Name && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for WER_REPORT_PARAMETER {}
@@ -1761,7 +1776,7 @@ unsafe impl ::windows::core::Abi for WER_REPORT_SIGNATURE {
 }
 impl ::core::cmp::PartialEq for WER_REPORT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_REPORT_SIGNATURE>()) == 0 }
+        self.EventName == other.EventName && self.Parameters == other.Parameters
     }
 }
 impl ::core::cmp::Eq for WER_REPORT_SIGNATURE {}
@@ -1795,14 +1810,6 @@ impl ::core::clone::Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
 unsafe impl ::windows::core::Abi for WER_RUNTIME_EXCEPTION_INFORMATION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for WER_RUNTIME_EXCEPTION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WER_RUNTIME_EXCEPTION_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for WER_RUNTIME_EXCEPTION_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn default() -> Self {

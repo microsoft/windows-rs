@@ -490,7 +490,7 @@ unsafe impl ::windows::core::Abi for CATALOG_INFO {
 }
 impl ::core::cmp::PartialEq for CATALOG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CATALOG_INFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.wszCatalogFile == other.wszCatalogFile
     }
 }
 impl ::core::cmp::Eq for CATALOG_INFO {}
@@ -525,7 +525,7 @@ unsafe impl ::windows::core::Abi for CRYPTCATATTRIBUTE {
 }
 impl ::core::cmp::PartialEq for CRYPTCATATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATATTRIBUTE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pwszReferenceTag == other.pwszReferenceTag && self.dwAttrTypeAndAction == other.dwAttrTypeAndAction && self.cbValue == other.cbValue && self.pbValue == other.pbValue && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for CRYPTCATATTRIBUTE {}
@@ -567,7 +567,7 @@ unsafe impl ::windows::core::Abi for CRYPTCATCDF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTCATCDF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATCDF>()) == 0 }
+        self.cbStruct == other.cbStruct && self.hFile == other.hFile && self.dwCurFilePos == other.dwCurFilePos && self.dwLastMemberOffset == other.dwLastMemberOffset && self.fEOF == other.fEOF && self.pwszResultDir == other.pwszResultDir && self.hCATStore == other.hCATStore
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -627,7 +627,7 @@ unsafe impl ::windows::core::Abi for CRYPTCATMEMBER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::cmp::PartialEq for CRYPTCATMEMBER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATMEMBER>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pwszReferenceTag == other.pwszReferenceTag && self.pwszFileName == other.pwszFileName && self.gSubjectType == other.gSubjectType && self.fdwMemberFlags == other.fdwMemberFlags && self.pIndirectData == other.pIndirectData && self.dwCertVersion == other.dwCertVersion && self.dwReserved == other.dwReserved && self.hReserved == other.hReserved && self.sEncodedIndirectData == other.sEncodedIndirectData && self.sEncodedMemberInfo == other.sEncodedMemberInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
@@ -674,7 +674,7 @@ unsafe impl ::windows::core::Abi for CRYPTCATSTORE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTCATSTORE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPTCATSTORE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.dwPublicVersion == other.dwPublicVersion && self.pwszP7File == other.pwszP7File && self.hProv == other.hProv && self.dwEncodingType == other.dwEncodingType && self.fdwStoreFlags == other.fdwStoreFlags && self.hReserved == other.hReserved && self.hAttrs == other.hAttrs && self.hCryptMsg == other.hCryptMsg && self.hSorted == other.hSorted
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -714,7 +714,7 @@ unsafe impl ::windows::core::Abi for MS_ADDINFO_CATALOGMEMBER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::cmp::PartialEq for MS_ADDINFO_CATALOGMEMBER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MS_ADDINFO_CATALOGMEMBER>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pStore == other.pStore && self.pMember == other.pMember
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]

@@ -628,12 +628,6 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION {}
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -654,12 +648,6 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -687,7 +675,7 @@ unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION_0_0>()) == 0 }
+        self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
     }
 }
 impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
@@ -722,7 +710,7 @@ unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION_0_1>()) == 0 }
+        self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
     }
 }
 impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
@@ -747,12 +735,6 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -773,12 +755,6 @@ impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
 unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -809,7 +785,7 @@ unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION_0_0>()) == 0 }
+        self.Flags == other.Flags && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
     }
 }
 impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
@@ -845,7 +821,7 @@ unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION_0_1>()) == 0 }
+        self.Flags == other.Flags && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
     }
 }
 impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
@@ -879,7 +855,7 @@ unsafe impl ::windows::core::Abi for FILTER_FULL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for FILTER_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_FULL_INFORMATION>()) == 0 }
+        self.NextEntryOffset == other.NextEntryOffset && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBuffer == other.FilterNameBuffer
     }
 }
 impl ::core::cmp::Eq for FILTER_FULL_INFORMATION {}
@@ -910,7 +886,7 @@ unsafe impl ::windows::core::Abi for FILTER_MESSAGE_HEADER {
 }
 impl ::core::cmp::PartialEq for FILTER_MESSAGE_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_MESSAGE_HEADER>()) == 0 }
+        self.ReplyLength == other.ReplyLength && self.MessageId == other.MessageId
     }
 }
 impl ::core::cmp::Eq for FILTER_MESSAGE_HEADER {}
@@ -947,7 +923,7 @@ unsafe impl ::windows::core::Abi for FILTER_REPLY_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILTER_REPLY_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_REPLY_HEADER>()) == 0 }
+        self.Status == other.Status && self.MessageId == other.MessageId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -980,7 +956,7 @@ unsafe impl ::windows::core::Abi for FILTER_VOLUME_BASIC_INFORMATION {
 }
 impl ::core::cmp::PartialEq for FILTER_VOLUME_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_VOLUME_BASIC_INFORMATION>()) == 0 }
+        self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
     }
 }
 impl ::core::cmp::Eq for FILTER_VOLUME_BASIC_INFORMATION {}
@@ -1015,7 +991,7 @@ unsafe impl ::windows::core::Abi for FILTER_VOLUME_STANDARD_INFORMATION {
 }
 impl ::core::cmp::PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_VOLUME_STANDARD_INFORMATION>()) == 0 }
+        self.NextEntryOffset == other.NextEntryOffset && self.Flags == other.Flags && self.FrameID == other.FrameID && self.FileSystemType == other.FileSystemType && self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
     }
 }
 impl ::core::cmp::Eq for FILTER_VOLUME_STANDARD_INFORMATION {}
@@ -1232,12 +1208,6 @@ impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
 unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1258,12 +1228,6 @@ impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
 unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1297,7 +1261,7 @@ unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0
 }
 impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0>()) == 0 }
+        self.Flags == other.Flags && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
     }
 }
 impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
@@ -1351,7 +1315,7 @@ unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1
 }
 impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1>()) == 0 }
+        self.Flags == other.Flags && self.FrameID == other.FrameID && self.VolumeFileSystemType == other.VolumeFileSystemType && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
     }
 }
 impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
@@ -1383,7 +1347,7 @@ unsafe impl ::windows::core::Abi for INSTANCE_BASIC_INFORMATION {
 }
 impl ::core::cmp::PartialEq for INSTANCE_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_BASIC_INFORMATION>()) == 0 }
+        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
     }
 }
 impl ::core::cmp::Eq for INSTANCE_BASIC_INFORMATION {}
@@ -1431,7 +1395,7 @@ unsafe impl ::windows::core::Abi for INSTANCE_FULL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for INSTANCE_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_FULL_INFORMATION>()) == 0 }
+        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
     }
 }
 impl ::core::cmp::Eq for INSTANCE_FULL_INFORMATION {}
@@ -1465,7 +1429,7 @@ unsafe impl ::windows::core::Abi for INSTANCE_PARTIAL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for INSTANCE_PARTIAL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_PARTIAL_INFORMATION>()) == 0 }
+        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset
     }
 }
 impl ::core::cmp::Eq for INSTANCE_PARTIAL_INFORMATION {}

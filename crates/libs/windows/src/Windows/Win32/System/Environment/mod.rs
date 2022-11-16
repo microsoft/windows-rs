@@ -408,12 +408,6 @@ impl ::core::clone::Clone for ENCLAVE_IDENTITY {
 unsafe impl ::windows::core::Abi for ENCLAVE_IDENTITY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ENCLAVE_IDENTITY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_IDENTITY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ENCLAVE_IDENTITY {}
 impl ::core::default::Default for ENCLAVE_IDENTITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -437,12 +431,6 @@ impl ::core::clone::Clone for ENCLAVE_INFORMATION {
 unsafe impl ::windows::core::Abi for ENCLAVE_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ENCLAVE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ENCLAVE_INFORMATION {}
 impl ::core::default::Default for ENCLAVE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -473,7 +461,7 @@ unsafe impl ::windows::core::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
 }
 impl ::core::cmp::PartialEq for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCLAVE_VBS_BASIC_KEY_REQUEST>()) == 0 }
+        self.RequestSize == other.RequestSize && self.Flags == other.Flags && self.EnclaveSVN == other.EnclaveSVN && self.SystemKeyID == other.SystemKeyID && self.CurrentSystemKeyID == other.CurrentSystemKeyID
     }
 }
 impl ::core::cmp::Eq for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
@@ -510,7 +498,7 @@ unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_BASIC_ENCLAVE_EXCEPTION_AMD64>()) == 0 }
+        self.ExceptionCode == other.ExceptionCode && self.NumberParameters == other.NumberParameters && self.ExceptionInformation == other.ExceptionInformation && self.ExceptionRAX == other.ExceptionRAX && self.ExceptionRCX == other.ExceptionRCX && self.ExceptionRIP == other.ExceptionRIP && self.ExceptionRFLAGS == other.ExceptionRFLAGS && self.ExceptionRSP == other.ExceptionRSP
     }
 }
 impl ::core::cmp::Eq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {}
@@ -544,32 +532,12 @@ impl ::core::clone::Clone for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
 }
 impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VBS_BASIC_ENCLAVE_SYSCALL_PAGE")
-            .field("ReturnFromEnclave", &self.ReturnFromEnclave.map(|f| f as usize))
-            .field("ReturnFromException", &self.ReturnFromException.map(|f| f as usize))
-            .field("TerminateThread", &self.TerminateThread.map(|f| f as usize))
-            .field("InterruptThread", &self.InterruptThread.map(|f| f as usize))
-            .field("CommitPages", &self.CommitPages.map(|f| f as usize))
-            .field("DecommitPages", &self.DecommitPages.map(|f| f as usize))
-            .field("ProtectPages", &self.ProtectPages.map(|f| f as usize))
-            .field("CreateThread", &self.CreateThread.map(|f| f as usize))
-            .field("GetEnclaveInformation", &self.GetEnclaveInformation.map(|f| f as usize))
-            .field("GenerateKey", &self.GenerateKey.map(|f| f as usize))
-            .field("GenerateReport", &self.GenerateReport.map(|f| f as usize))
-            .field("VerifyReport", &self.VerifyReport.map(|f| f as usize))
-            .field("GenerateRandomData", &self.GenerateRandomData.map(|f| f as usize))
-            .finish()
+        f.debug_struct("VBS_BASIC_ENCLAVE_SYSCALL_PAGE").finish()
     }
 }
 unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_BASIC_ENCLAVE_SYSCALL_PAGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {}
 impl ::core::default::Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -601,7 +569,7 @@ unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32>()) == 0 }
+        self.ThreadContext == other.ThreadContext && self.EntryPoint == other.EntryPoint && self.StackPointer == other.StackPointer && self.ExceptionEntryPoint == other.ExceptionEntryPoint && self.ExceptionStack == other.ExceptionStack && self.ExceptionActive == other.ExceptionActive
     }
 }
 impl ::core::cmp::Eq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {}
@@ -636,7 +604,7 @@ unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64>()) == 0 }
+        self.ThreadContext == other.ThreadContext && self.EntryPoint == other.EntryPoint && self.StackPointer == other.StackPointer && self.ExceptionEntryPoint == other.ExceptionEntryPoint && self.ExceptionStack == other.ExceptionStack && self.ExceptionActive == other.ExceptionActive
     }
 }
 impl ::core::cmp::Eq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {}
@@ -662,12 +630,6 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT {
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VBS_ENCLAVE_REPORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_ENCLAVE_REPORT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VBS_ENCLAVE_REPORT {}
 impl ::core::default::Default for VBS_ENCLAVE_REPORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -693,12 +655,6 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_MODULE {
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_MODULE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VBS_ENCLAVE_REPORT_MODULE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_ENCLAVE_REPORT_MODULE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VBS_ENCLAVE_REPORT_MODULE {}
 impl ::core::default::Default for VBS_ENCLAVE_REPORT_MODULE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -723,12 +679,6 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_PKG_HEADER {
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_PKG_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VBS_ENCLAVE_REPORT_PKG_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_ENCLAVE_REPORT_PKG_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VBS_ENCLAVE_REPORT_PKG_HEADER {}
 impl ::core::default::Default for VBS_ENCLAVE_REPORT_PKG_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -749,12 +699,6 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
 unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VBS_ENCLAVE_REPORT_VARDATA_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VBS_ENCLAVE_REPORT_VARDATA_HEADER {}
 impl ::core::default::Default for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

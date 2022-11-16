@@ -688,7 +688,7 @@ unsafe impl ::windows::core::Abi for CI_STATE {
 }
 impl ::core::cmp::PartialEq for CI_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CI_STATE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.cWordList == other.cWordList && self.cPersistentIndex == other.cPersistentIndex && self.cQueries == other.cQueries && self.cDocuments == other.cDocuments && self.cFreshTest == other.cFreshTest && self.dwMergeProgress == other.dwMergeProgress && self.eState == other.eState && self.cFilteredDocuments == other.cFilteredDocuments && self.cTotalDocuments == other.cTotalDocuments && self.cPendingScans == other.cPendingScans && self.dwIndexSize == other.dwIndexSize && self.cUniqueKeys == other.cUniqueKeys && self.cSecQDocuments == other.cSecQDocuments && self.dwPropCacheSize == other.dwPropCacheSize
     }
 }
 impl ::core::cmp::Eq for CI_STATE {}
@@ -718,14 +718,6 @@ unsafe impl ::windows::core::Abi for DBID {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -751,14 +743,6 @@ unsafe impl ::windows::core::Abi for DBID_0 {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBID_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_0>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBID_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -783,14 +767,6 @@ impl ::core::clone::Clone for DBID_1 {
 unsafe impl ::windows::core::Abi for DBID_1 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBID_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_1>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBID_1 {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBID_1 {
     fn default() -> Self {
@@ -818,14 +794,6 @@ unsafe impl ::windows::core::Abi for DBID {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBID {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -851,14 +819,6 @@ unsafe impl ::windows::core::Abi for DBID_0 {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBID_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_0>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBID_0 {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -883,14 +843,6 @@ impl ::core::clone::Clone for DBID_1 {
 unsafe impl ::windows::core::Abi for DBID_1 {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBID_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_1>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBID_1 {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBID_1 {
     fn default() -> Self {
@@ -920,7 +872,7 @@ unsafe impl ::windows::core::Abi for FILTERREGION {
 }
 impl ::core::cmp::PartialEq for FILTERREGION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTERREGION>()) == 0 }
+        self.idChunk == other.idChunk && self.cwcStart == other.cwcStart && self.cwcExtent == other.cwcExtent
     }
 }
 impl ::core::cmp::Eq for FILTERREGION {}
@@ -948,14 +900,6 @@ impl ::core::clone::Clone for FULLPROPSPEC {
 unsafe impl ::windows::core::Abi for FULLPROPSPEC {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for FULLPROPSPEC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FULLPROPSPEC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for FULLPROPSPEC {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::default::Default for FULLPROPSPEC {
     fn default() -> Self {
@@ -987,14 +931,6 @@ impl ::core::clone::Clone for STAT_CHUNK {
 unsafe impl ::windows::core::Abi for STAT_CHUNK {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for STAT_CHUNK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STAT_CHUNK>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for STAT_CHUNK {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::default::Default for STAT_CHUNK {
     fn default() -> Self {

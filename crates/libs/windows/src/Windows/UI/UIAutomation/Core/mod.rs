@@ -888,7 +888,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationAnnotationTypeRegistratio
 }
 impl ::core::cmp::PartialEq for AutomationAnnotationTypeRegistration {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutomationAnnotationTypeRegistration>()) == 0 }
+        self.LocalId == other.LocalId
     }
 }
 impl ::core::cmp::Eq for AutomationAnnotationTypeRegistration {}
@@ -925,7 +925,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationOperandId 
 }
 impl ::core::cmp::PartialEq for AutomationRemoteOperationOperandId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutomationRemoteOperationOperandId>()) == 0 }
+        self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for AutomationRemoteOperationOperandId {}

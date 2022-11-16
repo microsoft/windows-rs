@@ -31,7 +31,7 @@ unsafe impl ::windows::core::RuntimeType for Matrix3x2 {
 }
 impl ::core::cmp::PartialEq for Matrix3x2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Matrix3x2>()) == 0 }
+        self.M11 == other.M11 && self.M12 == other.M12 && self.M21 == other.M21 && self.M22 == other.M22 && self.M31 == other.M31 && self.M32 == other.M32
     }
 }
 impl ::core::cmp::Eq for Matrix3x2 {}
@@ -221,7 +221,7 @@ unsafe impl ::windows::core::RuntimeType for Matrix4x4 {
 }
 impl ::core::cmp::PartialEq for Matrix4x4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Matrix4x4>()) == 0 }
+        self.M11 == other.M11 && self.M12 == other.M12 && self.M13 == other.M13 && self.M14 == other.M14 && self.M21 == other.M21 && self.M22 == other.M22 && self.M23 == other.M23 && self.M24 == other.M24 && self.M31 == other.M31 && self.M32 == other.M32 && self.M33 == other.M33 && self.M34 == other.M34 && self.M41 == other.M41 && self.M42 == other.M42 && self.M43 == other.M43 && self.M44 == other.M44
     }
 }
 impl ::core::cmp::Eq for Matrix4x4 {}
@@ -493,7 +493,7 @@ unsafe impl ::windows::core::RuntimeType for Plane {
 }
 impl ::core::cmp::PartialEq for Plane {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Plane>()) == 0 }
+        self.Normal == other.Normal && self.D == other.D
     }
 }
 impl ::core::cmp::Eq for Plane {}
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::RuntimeType for Quaternion {
 }
 impl ::core::cmp::PartialEq for Quaternion {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Quaternion>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
     }
 }
 impl ::core::cmp::Eq for Quaternion {}
@@ -571,7 +571,7 @@ unsafe impl ::windows::core::RuntimeType for Rational {
 }
 impl ::core::cmp::PartialEq for Rational {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Rational>()) == 0 }
+        self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
 impl ::core::cmp::Eq for Rational {}
@@ -609,7 +609,7 @@ unsafe impl ::windows::core::RuntimeType for Vector2 {
 }
 impl ::core::cmp::PartialEq for Vector2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Vector2>()) == 0 }
+        self.X == other.X && self.Y == other.Y
     }
 }
 impl ::core::cmp::Eq for Vector2 {}
@@ -821,7 +821,7 @@ unsafe impl ::windows::core::RuntimeType for Vector3 {
 }
 impl ::core::cmp::PartialEq for Vector3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Vector3>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
 impl ::core::cmp::Eq for Vector3 {}
@@ -1037,7 +1037,7 @@ unsafe impl ::windows::core::RuntimeType for Vector4 {
 }
 impl ::core::cmp::PartialEq for Vector4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Vector4>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
     }
 }
 impl ::core::cmp::Eq for Vector4 {}

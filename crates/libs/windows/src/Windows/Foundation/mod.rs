@@ -3342,7 +3342,7 @@ unsafe impl ::windows::core::RuntimeType for DateTime {
 }
 impl ::core::cmp::PartialEq for DateTime {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DateTime>()) == 0 }
+        self.UniversalTime == other.UniversalTime
     }
 }
 impl ::core::cmp::Eq for DateTime {}
@@ -3379,7 +3379,7 @@ unsafe impl ::windows::core::RuntimeType for EventRegistrationToken {
 }
 impl ::core::cmp::PartialEq for EventRegistrationToken {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EventRegistrationToken>()) == 0 }
+        self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for EventRegistrationToken {}
@@ -3417,7 +3417,7 @@ unsafe impl ::windows::core::RuntimeType for Point {
 }
 impl ::core::cmp::PartialEq for Point {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Point>()) == 0 }
+        self.X == other.X && self.Y == other.Y
     }
 }
 impl ::core::cmp::Eq for Point {}
@@ -3457,7 +3457,7 @@ unsafe impl ::windows::core::RuntimeType for Rect {
 }
 impl ::core::cmp::PartialEq for Rect {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Rect>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for Rect {}
@@ -3495,7 +3495,7 @@ unsafe impl ::windows::core::RuntimeType for Size {
 }
 impl ::core::cmp::PartialEq for Size {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Size>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for Size {}
@@ -3532,7 +3532,7 @@ unsafe impl ::windows::core::RuntimeType for TimeSpan {
 }
 impl ::core::cmp::PartialEq for TimeSpan {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimeSpan>()) == 0 }
+        self.Duration == other.Duration
     }
 }
 impl ::core::cmp::Eq for TimeSpan {}

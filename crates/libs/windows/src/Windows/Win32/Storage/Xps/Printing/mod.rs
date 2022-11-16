@@ -363,7 +363,7 @@ unsafe impl ::windows::core::Abi for PrintDocumentPackageStatus {
 }
 impl ::core::cmp::PartialEq for PrintDocumentPackageStatus {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrintDocumentPackageStatus>()) == 0 }
+        self.JobId == other.JobId && self.CurrentDocument == other.CurrentDocument && self.CurrentPage == other.CurrentPage && self.CurrentPageTotal == other.CurrentPageTotal && self.Completion == other.Completion && self.PackageStatus == other.PackageStatus
     }
 }
 impl ::core::cmp::Eq for PrintDocumentPackageStatus {}
@@ -398,7 +398,7 @@ unsafe impl ::windows::core::Abi for XPS_JOB_STATUS {
 }
 impl ::core::cmp::PartialEq for XPS_JOB_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_JOB_STATUS>()) == 0 }
+        self.jobId == other.jobId && self.currentDocument == other.currentDocument && self.currentPage == other.currentPage && self.currentPageTotal == other.currentPageTotal && self.completion == other.completion && self.jobStatus == other.jobStatus
     }
 }
 impl ::core::cmp::Eq for XPS_JOB_STATUS {}

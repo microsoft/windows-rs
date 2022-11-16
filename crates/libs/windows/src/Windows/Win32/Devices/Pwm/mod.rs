@@ -89,7 +89,7 @@ unsafe impl ::windows::core::Abi for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT>()) == 0 }
+        self.ActualPeriod == other.ActualPeriod
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {}
@@ -122,7 +122,7 @@ unsafe impl ::windows::core::Abi for PWM_CONTROLLER_INFO {
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_CONTROLLER_INFO>()) == 0 }
+        self.Size == other.Size && self.PinCount == other.PinCount && self.MinimumPeriod == other.MinimumPeriod && self.MaximumPeriod == other.MaximumPeriod
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_INFO {}
@@ -152,7 +152,7 @@ unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT>()) == 0 }
+        self.DesiredPeriod == other.DesiredPeriod
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {}
@@ -182,7 +182,7 @@ unsafe impl ::windows::core::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
 }
 impl ::core::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT>()) == 0 }
+        self.ActualPeriod == other.ActualPeriod
     }
 }
 impl ::core::cmp::Eq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {}
@@ -212,7 +212,7 @@ unsafe impl ::windows::core::Abi for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OU
 }
 impl ::core::cmp::PartialEq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT>()) == 0 }
+        self.Percentage == other.Percentage
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {}
@@ -242,7 +242,7 @@ unsafe impl ::windows::core::Abi for PWM_PIN_GET_POLARITY_OUTPUT {
 }
 impl ::core::cmp::PartialEq for PWM_PIN_GET_POLARITY_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_PIN_GET_POLARITY_OUTPUT>()) == 0 }
+        self.Polarity == other.Polarity
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_GET_POLARITY_OUTPUT {}
@@ -278,7 +278,7 @@ unsafe impl ::windows::core::Abi for PWM_PIN_IS_STARTED_OUTPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PWM_PIN_IS_STARTED_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_PIN_IS_STARTED_OUTPUT>()) == 0 }
+        self.IsStarted == other.IsStarted
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -310,7 +310,7 @@ unsafe impl ::windows::core::Abi for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_IN
 }
 impl ::core::cmp::PartialEq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT>()) == 0 }
+        self.Percentage == other.Percentage
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {}
@@ -340,7 +340,7 @@ unsafe impl ::windows::core::Abi for PWM_PIN_SET_POLARITY_INPUT {
 }
 impl ::core::cmp::PartialEq for PWM_PIN_SET_POLARITY_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PWM_PIN_SET_POLARITY_INPUT>()) == 0 }
+        self.Polarity == other.Polarity
     }
 }
 impl ::core::cmp::Eq for PWM_PIN_SET_POLARITY_INPUT {}

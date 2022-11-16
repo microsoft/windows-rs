@@ -21101,7 +21101,7 @@ unsafe impl ::windows::core::Abi for ACCESSTIMEOUT {
 }
 impl ::core::cmp::PartialEq for ACCESSTIMEOUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESSTIMEOUT>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iTimeOutMSec == other.iTimeOutMSec
     }
 }
 impl ::core::cmp::Eq for ACCESSTIMEOUT {}
@@ -21166,7 +21166,7 @@ unsafe impl ::windows::core::Abi for FILTERKEYS {
 }
 impl ::core::cmp::PartialEq for FILTERKEYS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTERKEYS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iWaitMSec == other.iWaitMSec && self.iDelayMSec == other.iDelayMSec && self.iRepeatMSec == other.iRepeatMSec && self.iBounceMSec == other.iBounceMSec
     }
 }
 impl ::core::cmp::Eq for FILTERKEYS {}
@@ -21198,7 +21198,7 @@ unsafe impl ::windows::core::Abi for HIGHCONTRASTA {
 }
 impl ::core::cmp::PartialEq for HIGHCONTRASTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTA>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszDefaultScheme == other.lpszDefaultScheme
     }
 }
 impl ::core::cmp::Eq for HIGHCONTRASTA {}
@@ -21230,7 +21230,7 @@ unsafe impl ::windows::core::Abi for HIGHCONTRASTW {
 }
 impl ::core::cmp::PartialEq for HIGHCONTRASTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTW>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszDefaultScheme == other.lpszDefaultScheme
     }
 }
 impl ::core::cmp::Eq for HIGHCONTRASTW {}
@@ -21426,7 +21426,7 @@ unsafe impl ::windows::core::Abi for MOUSEKEYS {
 }
 impl ::core::cmp::PartialEq for MOUSEKEYS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEKEYS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iMaxSpeed == other.iMaxSpeed && self.iTimeToMaxSpeed == other.iTimeToMaxSpeed && self.iCtrlSpeed == other.iCtrlSpeed && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::core::cmp::Eq for MOUSEKEYS {}
@@ -21458,7 +21458,7 @@ unsafe impl ::windows::core::Abi for MSAAMENUINFO {
 }
 impl ::core::cmp::PartialEq for MSAAMENUINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSAAMENUINFO>()) == 0 }
+        self.dwMSAASignature == other.dwMSAASignature && self.cchWText == other.cchWText && self.pszWText == other.pszWText
     }
 }
 impl ::core::cmp::Eq for MSAAMENUINFO {}
@@ -21494,7 +21494,7 @@ unsafe impl ::windows::core::Abi for SERIALKEYSA {
 }
 impl ::core::cmp::PartialEq for SERIALKEYSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSA>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszActivePort == other.lpszActivePort && self.lpszPort == other.lpszPort && self.iBaudRate == other.iBaudRate && self.iPortState == other.iPortState && self.iActive == other.iActive
     }
 }
 impl ::core::cmp::Eq for SERIALKEYSA {}
@@ -21530,7 +21530,7 @@ unsafe impl ::windows::core::Abi for SERIALKEYSW {
 }
 impl ::core::cmp::PartialEq for SERIALKEYSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSW>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.lpszActivePort == other.lpszActivePort && self.lpszPort == other.lpszPort && self.iBaudRate == other.iBaudRate && self.iPortState == other.iPortState && self.iActive == other.iActive
     }
 }
 impl ::core::cmp::Eq for SERIALKEYSW {}
@@ -21584,7 +21584,7 @@ unsafe impl ::windows::core::Abi for SOUNDSENTRYA {
 }
 impl ::core::cmp::PartialEq for SOUNDSENTRYA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYA>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iFSTextEffect == other.iFSTextEffect && self.iFSTextEffectMSec == other.iFSTextEffectMSec && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits && self.iFSGrafEffect == other.iFSGrafEffect && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec && self.iFSGrafEffectColor == other.iFSGrafEffectColor && self.iWindowsEffect == other.iWindowsEffect && self.iWindowsEffectMSec == other.iWindowsEffectMSec && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
     }
 }
 impl ::core::cmp::Eq for SOUNDSENTRYA {}
@@ -21638,7 +21638,7 @@ unsafe impl ::windows::core::Abi for SOUNDSENTRYW {
 }
 impl ::core::cmp::PartialEq for SOUNDSENTRYW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYW>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iFSTextEffect == other.iFSTextEffect && self.iFSTextEffectMSec == other.iFSTextEffectMSec && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits && self.iFSGrafEffect == other.iFSGrafEffect && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec && self.iFSGrafEffectColor == other.iFSGrafEffectColor && self.iWindowsEffect == other.iWindowsEffect && self.iWindowsEffectMSec == other.iWindowsEffectMSec && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
     }
 }
 impl ::core::cmp::Eq for SOUNDSENTRYW {}
@@ -21669,7 +21669,7 @@ unsafe impl ::windows::core::Abi for STICKYKEYS {
 }
 impl ::core::cmp::PartialEq for STICKYKEYS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STICKYKEYS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for STICKYKEYS {}
@@ -21700,7 +21700,7 @@ unsafe impl ::windows::core::Abi for TOGGLEKEYS {
 }
 impl ::core::cmp::PartialEq for TOGGLEKEYS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOGGLEKEYS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for TOGGLEKEYS {}
@@ -21731,7 +21731,7 @@ unsafe impl ::windows::core::Abi for UIAutomationEventInfo {
 }
 impl ::core::cmp::PartialEq for UIAutomationEventInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UIAutomationEventInfo>()) == 0 }
+        self.guid == other.guid && self.pProgrammaticName == other.pProgrammaticName
     }
 }
 impl ::core::cmp::Eq for UIAutomationEventInfo {}
@@ -21772,7 +21772,7 @@ unsafe impl ::windows::core::Abi for UIAutomationMethodInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UIAutomationMethodInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UIAutomationMethodInfo>()) == 0 }
+        self.pProgrammaticName == other.pProgrammaticName && self.doSetFocus == other.doSetFocus && self.cInParameters == other.cInParameters && self.cOutParameters == other.cOutParameters && self.pParameterTypes == other.pParameterTypes && self.pParameterNames == other.pParameterNames
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21805,7 +21805,7 @@ unsafe impl ::windows::core::Abi for UIAutomationParameter {
 }
 impl ::core::cmp::PartialEq for UIAutomationParameter {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UIAutomationParameter>()) == 0 }
+        self.r#type == other.r#type && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for UIAutomationParameter {}
@@ -21907,7 +21907,7 @@ unsafe impl ::windows::core::Abi for UIAutomationPropertyInfo {
 }
 impl ::core::cmp::PartialEq for UIAutomationPropertyInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UIAutomationPropertyInfo>()) == 0 }
+        self.guid == other.guid && self.pProgrammaticName == other.pProgrammaticName && self.r#type == other.r#type
     }
 }
 impl ::core::cmp::Eq for UIAutomationPropertyInfo {}
@@ -21939,7 +21939,7 @@ unsafe impl ::windows::core::Abi for UiaAndOrCondition {
 }
 impl ::core::cmp::PartialEq for UiaAndOrCondition {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaAndOrCondition>()) == 0 }
+        self.ConditionType == other.ConditionType && self.ppConditions == other.ppConditions && self.cConditions == other.cConditions
     }
 }
 impl ::core::cmp::Eq for UiaAndOrCondition {}
@@ -21972,7 +21972,7 @@ unsafe impl ::windows::core::Abi for UiaAsyncContentLoadedEventArgs {
 }
 impl ::core::cmp::PartialEq for UiaAsyncContentLoadedEventArgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaAsyncContentLoadedEventArgs>()) == 0 }
+        self.Type == other.Type && self.EventId == other.EventId && self.AsyncContentLoadedState == other.AsyncContentLoadedState && self.PercentComplete == other.PercentComplete
     }
 }
 impl ::core::cmp::Eq for UiaAsyncContentLoadedEventArgs {}
@@ -22008,7 +22008,7 @@ unsafe impl ::windows::core::Abi for UiaCacheRequest {
 }
 impl ::core::cmp::PartialEq for UiaCacheRequest {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaCacheRequest>()) == 0 }
+        self.pViewCondition == other.pViewCondition && self.Scope == other.Scope && self.pProperties == other.pProperties && self.cProperties == other.cProperties && self.pPatterns == other.pPatterns && self.cPatterns == other.cPatterns && self.automationElementMode == other.automationElementMode
     }
 }
 impl ::core::cmp::Eq for UiaCacheRequest {}
@@ -22035,14 +22035,6 @@ impl ::core::clone::Clone for UiaChangeInfo {
 unsafe impl ::windows::core::Abi for UiaChangeInfo {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for UiaChangeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.uiaId == other.uiaId && self.payload == other.payload && self.extraInfo == other.extraInfo
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for UiaChangeInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for UiaChangeInfo {
     fn default() -> Self {
@@ -22079,7 +22071,7 @@ unsafe impl ::windows::core::Abi for UiaChangesEventArgs {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for UiaChangesEventArgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaChangesEventArgs>()) == 0 }
+        self.Type == other.Type && self.EventId == other.EventId && self.EventIdCount == other.EventIdCount && self.pUiaChanges == other.pUiaChanges
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -22111,7 +22103,7 @@ unsafe impl ::windows::core::Abi for UiaCondition {
 }
 impl ::core::cmp::PartialEq for UiaCondition {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaCondition>()) == 0 }
+        self.ConditionType == other.ConditionType
     }
 }
 impl ::core::cmp::Eq for UiaCondition {}
@@ -22142,7 +22134,7 @@ unsafe impl ::windows::core::Abi for UiaEventArgs {
 }
 impl ::core::cmp::PartialEq for UiaEventArgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaEventArgs>()) == 0 }
+        self.Type == other.Type && self.EventId == other.EventId
     }
 }
 impl ::core::cmp::Eq for UiaEventArgs {}
@@ -22181,7 +22173,7 @@ unsafe impl ::windows::core::Abi for UiaFindParams {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UiaFindParams {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaFindParams>()) == 0 }
+        self.MaxDepth == other.MaxDepth && self.FindFirst == other.FindFirst && self.ExcludeRoot == other.ExcludeRoot && self.pFindCondition == other.pFindCondition
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22214,7 +22206,7 @@ unsafe impl ::windows::core::Abi for UiaNotCondition {
 }
 impl ::core::cmp::PartialEq for UiaNotCondition {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaNotCondition>()) == 0 }
+        self.ConditionType == other.ConditionType && self.pCondition == other.pCondition
     }
 }
 impl ::core::cmp::Eq for UiaNotCondition {}
@@ -22245,7 +22237,7 @@ unsafe impl ::windows::core::Abi for UiaPoint {
 }
 impl ::core::cmp::PartialEq for UiaPoint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaPoint>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for UiaPoint {}
@@ -22275,14 +22267,6 @@ unsafe impl ::windows::core::Abi for UiaPropertyChangedEventArgs {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for UiaPropertyChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventId == other.EventId && self.PropertyId == other.PropertyId && self.OldValue == other.OldValue && self.NewValue == other.NewValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for UiaPropertyChangedEventArgs {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for UiaPropertyChangedEventArgs {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22307,14 +22291,6 @@ impl ::core::clone::Clone for UiaPropertyCondition {
 unsafe impl ::windows::core::Abi for UiaPropertyCondition {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for UiaPropertyCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.ConditionType == other.ConditionType && self.PropertyId == other.PropertyId && self.Value == other.Value && self.Flags == other.Flags
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for UiaPropertyCondition {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for UiaPropertyCondition {
     fn default() -> Self {
@@ -22345,7 +22321,7 @@ unsafe impl ::windows::core::Abi for UiaRect {
 }
 impl ::core::cmp::PartialEq for UiaRect {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaRect>()) == 0 }
+        self.left == other.left && self.top == other.top && self.width == other.width && self.height == other.height
     }
 }
 impl ::core::cmp::Eq for UiaRect {}
@@ -22379,7 +22355,7 @@ unsafe impl ::windows::core::Abi for UiaStructureChangedEventArgs {
 }
 impl ::core::cmp::PartialEq for UiaStructureChangedEventArgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaStructureChangedEventArgs>()) == 0 }
+        self.Type == other.Type && self.EventId == other.EventId && self.StructureChangeType == other.StructureChangeType && self.pRuntimeId == other.pRuntimeId && self.cRuntimeIdLen == other.cRuntimeIdLen
     }
 }
 impl ::core::cmp::Eq for UiaStructureChangedEventArgs {}
@@ -22418,7 +22394,7 @@ unsafe impl ::windows::core::Abi for UiaTextEditTextChangedEventArgs {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for UiaTextEditTextChangedEventArgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaTextEditTextChangedEventArgs>()) == 0 }
+        self.Type == other.Type && self.EventId == other.EventId && self.TextEditChangeType == other.TextEditChangeType && self.pTextChange == other.pTextChange
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -22453,7 +22429,7 @@ unsafe impl ::windows::core::Abi for UiaWindowClosedEventArgs {
 }
 impl ::core::cmp::PartialEq for UiaWindowClosedEventArgs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiaWindowClosedEventArgs>()) == 0 }
+        self.Type == other.Type && self.EventId == other.EventId && self.pRuntimeId == other.pRuntimeId && self.cRuntimeIdLen == other.cRuntimeIdLen
     }
 }
 impl ::core::cmp::Eq for UiaWindowClosedEventArgs {}

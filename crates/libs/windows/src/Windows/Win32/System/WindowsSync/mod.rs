@@ -5464,7 +5464,7 @@ unsafe impl ::windows::core::Abi for ID_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ID_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ID_PARAMETERS>()) == 0 }
+        self.dwSize == other.dwSize && self.replicaId == other.replicaId && self.itemId == other.itemId && self.changeUnitId == other.changeUnitId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5503,7 +5503,7 @@ unsafe impl ::windows::core::Abi for ID_PARAMETER_PAIR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ID_PARAMETER_PAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ID_PARAMETER_PAIR>()) == 0 }
+        self.fIsVariable == other.fIsVariable && self.cbIdSize == other.cbIdSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5542,7 +5542,7 @@ unsafe impl ::windows::core::Abi for SYNC_FILTER_CHANGE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYNC_FILTER_CHANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_FILTER_CHANGE>()) == 0 }
+        self.fMoveIn == other.fMoveIn && self.moveVersion == other.moveVersion
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5575,7 +5575,7 @@ unsafe impl ::windows::core::Abi for SYNC_RANGE {
 }
 impl ::core::cmp::PartialEq for SYNC_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_RANGE>()) == 0 }
+        self.pbClosedLowerBound == other.pbClosedLowerBound && self.pbClosedUpperBound == other.pbClosedUpperBound
     }
 }
 impl ::core::cmp::Eq for SYNC_RANGE {}
@@ -5606,7 +5606,7 @@ unsafe impl ::windows::core::Abi for SYNC_SESSION_STATISTICS {
 }
 impl ::core::cmp::PartialEq for SYNC_SESSION_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_SESSION_STATISTICS>()) == 0 }
+        self.dwChangesApplied == other.dwChangesApplied && self.dwChangesFailed == other.dwChangesFailed
     }
 }
 impl ::core::cmp::Eq for SYNC_SESSION_STATISTICS {}
@@ -5637,7 +5637,7 @@ unsafe impl ::windows::core::Abi for SYNC_TIME {
 }
 impl ::core::cmp::PartialEq for SYNC_TIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_TIME>()) == 0 }
+        self.dwDate == other.dwDate && self.dwTime == other.dwTime
     }
 }
 impl ::core::cmp::Eq for SYNC_TIME {}
@@ -5668,7 +5668,7 @@ unsafe impl ::windows::core::Abi for SYNC_VERSION {
 }
 impl ::core::cmp::PartialEq for SYNC_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYNC_VERSION>()) == 0 }
+        self.dwLastUpdatingReplicaKey == other.dwLastUpdatingReplicaKey && self.ullTickCount == other.ullTickCount
     }
 }
 impl ::core::cmp::Eq for SYNC_VERSION {}
@@ -5710,7 +5710,7 @@ unsafe impl ::windows::core::Abi for SyncProviderConfigUIConfiguration {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SyncProviderConfigUIConfiguration {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SyncProviderConfigUIConfiguration>()) == 0 }
+        self.dwVersion == other.dwVersion && self.guidInstanceId == other.guidInstanceId && self.clsidConfigUI == other.clsidConfigUI && self.guidContentType == other.guidContentType && self.dwCapabilities == other.dwCapabilities && self.dwSupportedArchitecture == other.dwSupportedArchitecture && self.fIsGlobal == other.fIsGlobal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5748,7 +5748,7 @@ unsafe impl ::windows::core::Abi for SyncProviderConfiguration {
 }
 impl ::core::cmp::PartialEq for SyncProviderConfiguration {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SyncProviderConfiguration>()) == 0 }
+        self.dwVersion == other.dwVersion && self.guidInstanceId == other.guidInstanceId && self.clsidProvider == other.clsidProvider && self.guidConfigUIInstanceId == other.guidConfigUIInstanceId && self.guidContentType == other.guidContentType && self.dwCapabilities == other.dwCapabilities && self.dwSupportedArchitecture == other.dwSupportedArchitecture
     }
 }
 impl ::core::cmp::Eq for SyncProviderConfiguration {}

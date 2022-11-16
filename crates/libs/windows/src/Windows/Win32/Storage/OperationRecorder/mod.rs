@@ -141,7 +141,7 @@ unsafe impl ::windows::core::Abi for OPERATION_END_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for OPERATION_END_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPERATION_END_PARAMETERS>()) == 0 }
+        self.Version == other.Version && self.OperationId == other.OperationId && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for OPERATION_END_PARAMETERS {}
@@ -173,7 +173,7 @@ unsafe impl ::windows::core::Abi for OPERATION_START_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for OPERATION_START_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPERATION_START_PARAMETERS>()) == 0 }
+        self.Version == other.Version && self.OperationId == other.OperationId && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for OPERATION_START_PARAMETERS {}

@@ -2967,7 +2967,25 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::cmp::PartialEq for CF_CALLBACK_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_INFO>()) == 0 }
+        self.StructSize == other.StructSize
+            && self.ConnectionKey == other.ConnectionKey
+            && self.CallbackContext == other.CallbackContext
+            && self.VolumeGuidName == other.VolumeGuidName
+            && self.VolumeDosName == other.VolumeDosName
+            && self.VolumeSerialNumber == other.VolumeSerialNumber
+            && self.SyncRootFileId == other.SyncRootFileId
+            && self.SyncRootIdentity == other.SyncRootIdentity
+            && self.SyncRootIdentityLength == other.SyncRootIdentityLength
+            && self.FileId == other.FileId
+            && self.FileSize == other.FileSize
+            && self.FileIdentity == other.FileIdentity
+            && self.FileIdentityLength == other.FileIdentityLength
+            && self.NormalizedPath == other.NormalizedPath
+            && self.TransferKey == other.TransferKey
+            && self.PriorityHint == other.PriorityHint
+            && self.CorrelationVector == other.CorrelationVector
+            && self.ProcessInfo == other.ProcessInfo
+            && self.RequestKey == other.RequestKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -2993,12 +3011,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS {}
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3029,12 +3041,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0 {}
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3055,12 +3061,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0 {}
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3080,12 +3080,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0 {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0 {}
 impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3113,7 +3107,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_0_0_0>()) == 0 }
+        self.FileOffset == other.FileOffset && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
@@ -3143,7 +3137,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_1 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_1>()) == 0 }
+        self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_1 {}
@@ -3174,7 +3168,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_2 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_2>()) == 0 }
+        self.Flags == other.Flags && self.Reason == other.Reason
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_2 {}
@@ -3205,7 +3199,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_3 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_3>()) == 0 }
+        self.Flags == other.Flags && self.Reason == other.Reason
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_3 {}
@@ -3235,7 +3229,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_4 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_4>()) == 0 }
+        self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_4 {}
@@ -3265,7 +3259,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_5 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_5>()) == 0 }
+        self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_5 {}
@@ -3301,7 +3295,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_6 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_6>()) == 0 }
+        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength && self.OptionalFileOffset == other.OptionalFileOffset && self.OptionalLength == other.OptionalLength && self.LastDehydrationTime == other.LastDehydrationTime && self.LastDehydrationReason == other.LastDehydrationReason
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_6 {}
@@ -3332,7 +3326,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_7 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_7>()) == 0 }
+        self.Flags == other.Flags && self.Pattern == other.Pattern
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_7 {}
@@ -3362,7 +3356,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_8 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_8>()) == 0 }
+        self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_8 {}
@@ -3393,7 +3387,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_9 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_9 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_9>()) == 0 }
+        self.Flags == other.Flags && self.SourcePath == other.SourcePath
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_9 {}
@@ -3424,7 +3418,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_10 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_10 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_10>()) == 0 }
+        self.Flags == other.Flags && self.TargetPath == other.TargetPath
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_10 {}
@@ -3456,7 +3450,7 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_11 {
 }
 impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_PARAMETERS_0_11>()) == 0 }
+        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength
     }
 }
 impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_11 {}
@@ -3483,21 +3477,13 @@ impl ::core::clone::Clone for CF_CALLBACK_REGISTRATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::fmt::Debug for CF_CALLBACK_REGISTRATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).field("Callback", &self.Callback.map(|f| f as usize)).finish()
+        f.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_REGISTRATION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::cmp::PartialEq for CF_CALLBACK_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_CALLBACK_REGISTRATION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::cmp::Eq for CF_CALLBACK_REGISTRATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::default::Default for CF_CALLBACK_REGISTRATION {
     fn default() -> Self {
@@ -3558,7 +3544,7 @@ unsafe impl ::windows::core::Abi for CF_FILE_RANGE {
 }
 impl ::core::cmp::PartialEq for CF_FILE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_FILE_RANGE>()) == 0 }
+        self.StartingOffset == other.StartingOffset && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for CF_FILE_RANGE {}
@@ -3595,7 +3581,7 @@ unsafe impl ::windows::core::Abi for CF_FS_METADATA {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for CF_FS_METADATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_FS_METADATA>()) == 0 }
+        self.BasicInfo == other.BasicInfo && self.FileSize == other.FileSize
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -3628,7 +3614,7 @@ unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY {
 }
 impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_HYDRATION_POLICY>()) == 0 }
+        self.Primary == other.Primary && self.Modifier == other.Modifier
     }
 }
 impl ::core::cmp::Eq for CF_HYDRATION_POLICY {}
@@ -3658,7 +3644,7 @@ unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
 }
 impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_HYDRATION_POLICY_MODIFIER_USHORT>()) == 0 }
+        self.us == other.us
     }
 }
 impl ::core::cmp::Eq for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
@@ -3688,7 +3674,7 @@ unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
 }
 impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_HYDRATION_POLICY_PRIMARY_USHORT>()) == 0 }
+        self.us == other.us
     }
 }
 impl ::core::cmp::Eq for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
@@ -3730,7 +3716,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_INFO>()) == 0 }
+        self.StructSize == other.StructSize && self.Type == other.Type && self.ConnectionKey == other.ConnectionKey && self.TransferKey == other.TransferKey && self.CorrelationVector == other.CorrelationVector && self.SyncStatus == other.SyncStatus && self.RequestKey == other.RequestKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -3760,14 +3746,6 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::default::Default for CF_OPERATION_PARAMETERS {
     fn default() -> Self {
@@ -3799,14 +3777,6 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::default::Default for CF_OPERATION_PARAMETERS_0 {
     fn default() -> Self {
@@ -3843,7 +3813,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_0>()) == 0 }
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Offset == other.Offset && self.Length == other.Length
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -3884,7 +3854,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_1>()) == 0 }
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -3923,7 +3893,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_2>()) == 0 }
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -3962,7 +3932,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_3>()) == 0 }
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -4003,7 +3973,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_4 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_4>()) == 0 }
+        self.Flags == other.Flags && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -4045,7 +4015,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_5 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_5>()) == 0 }
+        self.Flags == other.Flags && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length && self.ReturnedLength == other.ReturnedLength
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -4087,7 +4057,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_6 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_6>()) == 0 }
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -4130,7 +4100,7 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_7 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_OPERATION_PARAMETERS_0_7>()) == 0 }
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.PlaceholderTotalCount == other.PlaceholderTotalCount && self.PlaceholderArray == other.PlaceholderArray && self.PlaceholderCount == other.PlaceholderCount && self.EntriesProcessed == other.EntriesProcessed
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -4167,7 +4137,7 @@ unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_BASIC_INFO {
 }
 impl ::core::cmp::PartialEq for CF_PLACEHOLDER_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_PLACEHOLDER_BASIC_INFO>()) == 0 }
+        self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
     }
 }
 impl ::core::cmp::Eq for CF_PLACEHOLDER_BASIC_INFO {}
@@ -4209,7 +4179,7 @@ unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_INFO {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for CF_PLACEHOLDER_CREATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_PLACEHOLDER_CREATE_INFO>()) == 0 }
+        self.RelativeFileName == other.RelativeFileName && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.Flags == other.Flags && self.Result == other.Result && self.CreateUsn == other.CreateUsn
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -4261,7 +4231,7 @@ unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STANDARD_INFO {
 }
 impl ::core::cmp::PartialEq for CF_PLACEHOLDER_STANDARD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_PLACEHOLDER_STANDARD_INFO>()) == 0 }
+        self.OnDiskDataSize == other.OnDiskDataSize && self.ValidatedDataSize == other.ValidatedDataSize && self.ModifiedDataSize == other.ModifiedDataSize && self.PropertiesSize == other.PropertiesSize && self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
     }
 }
 impl ::core::cmp::Eq for CF_PLACEHOLDER_STANDARD_INFO {}
@@ -4293,7 +4263,7 @@ unsafe impl ::windows::core::Abi for CF_PLATFORM_INFO {
 }
 impl ::core::cmp::PartialEq for CF_PLATFORM_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_PLATFORM_INFO>()) == 0 }
+        self.BuildNumber == other.BuildNumber && self.RevisionNumber == other.RevisionNumber && self.IntegrationNumber == other.IntegrationNumber
     }
 }
 impl ::core::cmp::Eq for CF_PLATFORM_INFO {}
@@ -4324,7 +4294,7 @@ unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY {
 }
 impl ::core::cmp::PartialEq for CF_POPULATION_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_POPULATION_POLICY>()) == 0 }
+        self.Primary == other.Primary && self.Modifier == other.Modifier
     }
 }
 impl ::core::cmp::Eq for CF_POPULATION_POLICY {}
@@ -4354,7 +4324,7 @@ unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
 }
 impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_MODIFIER_USHORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_POPULATION_POLICY_MODIFIER_USHORT>()) == 0 }
+        self.us == other.us
     }
 }
 impl ::core::cmp::Eq for CF_POPULATION_POLICY_MODIFIER_USHORT {}
@@ -4384,7 +4354,7 @@ unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
 }
 impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_PRIMARY_USHORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_POPULATION_POLICY_PRIMARY_USHORT>()) == 0 }
+        self.us == other.us
     }
 }
 impl ::core::cmp::Eq for CF_POPULATION_POLICY_PRIMARY_USHORT {}
@@ -4420,7 +4390,7 @@ unsafe impl ::windows::core::Abi for CF_PROCESS_INFO {
 }
 impl ::core::cmp::PartialEq for CF_PROCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_PROCESS_INFO>()) == 0 }
+        self.StructSize == other.StructSize && self.ProcessId == other.ProcessId && self.ImagePath == other.ImagePath && self.PackageName == other.PackageName && self.ApplicationId == other.ApplicationId && self.CommandLine == other.CommandLine && self.SessionId == other.SessionId
     }
 }
 impl ::core::cmp::Eq for CF_PROCESS_INFO {}
@@ -4455,7 +4425,7 @@ unsafe impl ::windows::core::Abi for CF_SYNC_POLICIES {
 }
 impl ::core::cmp::PartialEq for CF_SYNC_POLICIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_SYNC_POLICIES>()) == 0 }
+        self.StructSize == other.StructSize && self.Hydration == other.Hydration && self.Population == other.Population && self.InSync == other.InSync && self.HardLink == other.HardLink && self.PlaceholderManagement == other.PlaceholderManagement
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_POLICIES {}
@@ -4492,7 +4462,7 @@ unsafe impl ::windows::core::Abi for CF_SYNC_REGISTRATION {
 }
 impl ::core::cmp::PartialEq for CF_SYNC_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_SYNC_REGISTRATION>()) == 0 }
+        self.StructSize == other.StructSize && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentity == other.SyncRootIdentity && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.ProviderId == other.ProviderId
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_REGISTRATION {}
@@ -4522,7 +4492,7 @@ unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_BASIC_INFO {
 }
 impl ::core::cmp::PartialEq for CF_SYNC_ROOT_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_SYNC_ROOT_BASIC_INFO>()) == 0 }
+        self.SyncRootFileId == other.SyncRootFileId
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_ROOT_BASIC_INFO {}
@@ -4554,7 +4524,7 @@ unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
 }
 impl ::core::cmp::PartialEq for CF_SYNC_ROOT_PROVIDER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_SYNC_ROOT_PROVIDER_INFO>()) == 0 }
+        self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_ROOT_PROVIDER_INFO {}
@@ -4604,7 +4574,7 @@ unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_STANDARD_INFO {
 }
 impl ::core::cmp::PartialEq for CF_SYNC_ROOT_STANDARD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_SYNC_ROOT_STANDARD_INFO>()) == 0 }
+        self.SyncRootFileId == other.SyncRootFileId && self.HydrationPolicy == other.HydrationPolicy && self.PopulationPolicy == other.PopulationPolicy && self.InSyncPolicy == other.InSyncPolicy && self.HardLinkPolicy == other.HardLinkPolicy && self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.SyncRootIdentity == other.SyncRootIdentity
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_ROOT_STANDARD_INFO {}
@@ -4639,7 +4609,7 @@ unsafe impl ::windows::core::Abi for CF_SYNC_STATUS {
 }
 impl ::core::cmp::PartialEq for CF_SYNC_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CF_SYNC_STATUS>()) == 0 }
+        self.StructSize == other.StructSize && self.Code == other.Code && self.DescriptionOffset == other.DescriptionOffset && self.DescriptionLength == other.DescriptionLength && self.DeviceIdOffset == other.DeviceIdOffset && self.DeviceIdLength == other.DeviceIdLength
     }
 }
 impl ::core::cmp::Eq for CF_SYNC_STATUS {}

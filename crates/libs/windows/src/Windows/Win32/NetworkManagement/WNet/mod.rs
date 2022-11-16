@@ -1331,7 +1331,7 @@ unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTDLGSTRUCTA>()) == 0 }
+        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1373,7 +1373,7 @@ unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTDLGSTRUCTW>()) == 0 }
+        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1415,7 +1415,7 @@ unsafe impl ::windows::core::Abi for DISCDLGSTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISCDLGSTRUCTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISCDLGSTRUCTA>()) == 0 }
+        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1457,7 +1457,7 @@ unsafe impl ::windows::core::Abi for DISCDLGSTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISCDLGSTRUCTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISCDLGSTRUCTW>()) == 0 }
+        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1493,7 +1493,7 @@ unsafe impl ::windows::core::Abi for NETCONNECTINFOSTRUCT {
 }
 impl ::core::cmp::PartialEq for NETCONNECTINFOSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETCONNECTINFOSTRUCT>()) == 0 }
+        self.cbStructure == other.cbStructure && self.dwFlags == other.dwFlags && self.dwSpeed == other.dwSpeed && self.dwDelay == other.dwDelay && self.dwOptDataSize == other.dwOptDataSize
     }
 }
 impl ::core::cmp::Eq for NETCONNECTINFOSTRUCT {}
@@ -1536,7 +1536,7 @@ unsafe impl ::windows::core::Abi for NETINFOSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETINFOSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETINFOSTRUCT>()) == 0 }
+        self.cbStructure == other.cbStructure && self.dwProviderVersion == other.dwProviderVersion && self.dwStatus == other.dwStatus && self.dwCharacteristics == other.dwCharacteristics && self.dwHandle == other.dwHandle && self.wNetType == other.wNetType && self.dwPrinters == other.dwPrinters && self.dwDrives == other.dwDrives
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1575,7 +1575,7 @@ unsafe impl ::windows::core::Abi for NETRESOURCEA {
 }
 impl ::core::cmp::PartialEq for NETRESOURCEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETRESOURCEA>()) == 0 }
+        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
     }
 }
 impl ::core::cmp::Eq for NETRESOURCEA {}
@@ -1612,7 +1612,7 @@ unsafe impl ::windows::core::Abi for NETRESOURCEW {
 }
 impl ::core::cmp::PartialEq for NETRESOURCEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETRESOURCEW>()) == 0 }
+        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
     }
 }
 impl ::core::cmp::Eq for NETRESOURCEW {}
@@ -1650,7 +1650,7 @@ unsafe impl ::windows::core::Abi for NOTIFYADD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NOTIFYADD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFYADD>()) == 0 }
+        self.hwndOwner == other.hwndOwner && self.NetResource == other.NetResource && self.dwAddFlags == other.dwAddFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1691,7 +1691,7 @@ unsafe impl ::windows::core::Abi for NOTIFYCANCEL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NOTIFYCANCEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFYCANCEL>()) == 0 }
+        self.lpName == other.lpName && self.lpProvider == other.lpProvider && self.dwFlags == other.dwFlags && self.fForce == other.fForce
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1725,7 +1725,7 @@ unsafe impl ::windows::core::Abi for NOTIFYINFO {
 }
 impl ::core::cmp::PartialEq for NOTIFYINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFYINFO>()) == 0 }
+        self.dwNotifyStatus == other.dwNotifyStatus && self.dwOperationStatus == other.dwOperationStatus && self.lpContext == other.lpContext
     }
 }
 impl ::core::cmp::Eq for NOTIFYINFO {}
@@ -1789,7 +1789,7 @@ unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOA {
 }
 impl ::core::cmp::PartialEq for REMOTE_NAME_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REMOTE_NAME_INFOA>()) == 0 }
+        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
     }
 }
 impl ::core::cmp::Eq for REMOTE_NAME_INFOA {}
@@ -1821,7 +1821,7 @@ unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOW {
 }
 impl ::core::cmp::PartialEq for REMOTE_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REMOTE_NAME_INFOW>()) == 0 }
+        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
     }
 }
 impl ::core::cmp::Eq for REMOTE_NAME_INFOW {}
@@ -1851,7 +1851,7 @@ unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOA {
 }
 impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNIVERSAL_NAME_INFOA>()) == 0 }
+        self.lpUniversalName == other.lpUniversalName
     }
 }
 impl ::core::cmp::Eq for UNIVERSAL_NAME_INFOA {}
@@ -1881,7 +1881,7 @@ unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOW {
 }
 impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNIVERSAL_NAME_INFOW>()) == 0 }
+        self.lpUniversalName == other.lpUniversalName
     }
 }
 impl ::core::cmp::Eq for UNIVERSAL_NAME_INFOW {}

@@ -12182,7 +12182,7 @@ unsafe impl ::windows::core::RuntimeType for WhiteBalanceGain {
 }
 impl ::core::cmp::PartialEq for WhiteBalanceGain {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WhiteBalanceGain>()) == 0 }
+        self.R == other.R && self.G == other.G && self.B == other.B
     }
 }
 impl ::core::cmp::Eq for WhiteBalanceGain {}

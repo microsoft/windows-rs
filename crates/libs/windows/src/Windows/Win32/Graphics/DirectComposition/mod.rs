@@ -4296,7 +4296,7 @@ unsafe impl ::windows::core::Abi for COMPOSITION_FRAME_STATS {
 }
 impl ::core::cmp::PartialEq for COMPOSITION_FRAME_STATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPOSITION_FRAME_STATS>()) == 0 }
+        self.startTime == other.startTime && self.targetTime == other.targetTime && self.framePeriod == other.framePeriod
     }
 }
 impl ::core::cmp::Eq for COMPOSITION_FRAME_STATS {}
@@ -4329,7 +4329,7 @@ unsafe impl ::windows::core::Abi for COMPOSITION_STATS {
 }
 impl ::core::cmp::PartialEq for COMPOSITION_STATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPOSITION_STATS>()) == 0 }
+        self.presentCount == other.presentCount && self.refreshCount == other.refreshCount && self.virtualRefreshCount == other.virtualRefreshCount && self.time == other.time
     }
 }
 impl ::core::cmp::Eq for COMPOSITION_STATS {}
@@ -4369,7 +4369,7 @@ unsafe impl ::windows::core::Abi for COMPOSITION_TARGET_ID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMPOSITION_TARGET_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPOSITION_TARGET_ID>()) == 0 }
+        self.displayAdapterLuid == other.displayAdapterLuid && self.renderAdapterLuid == other.renderAdapterLuid && self.vidPnSourceId == other.vidPnSourceId && self.vidPnTargetId == other.vidPnTargetId && self.uniqueId == other.uniqueId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4405,7 +4405,7 @@ unsafe impl ::windows::core::Abi for COMPOSITION_TARGET_STATS {
 }
 impl ::core::cmp::PartialEq for COMPOSITION_TARGET_STATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPOSITION_TARGET_STATS>()) == 0 }
+        self.outstandingPresents == other.outstandingPresents && self.presentTime == other.presentTime && self.vblankDuration == other.vblankDuration && self.presentedStats == other.presentedStats && self.completedStats == other.completedStats
     }
 }
 impl ::core::cmp::Eq for COMPOSITION_TARGET_STATS {}
@@ -4445,7 +4445,7 @@ unsafe impl ::windows::core::Abi for DCOMPOSITION_FRAME_STATISTICS {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for DCOMPOSITION_FRAME_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCOMPOSITION_FRAME_STATISTICS>()) == 0 }
+        self.lastFrameTime == other.lastFrameTime && self.currentCompositionRate == other.currentCompositionRate && self.currentTime == other.currentTime && self.timeFrequency == other.timeFrequency && self.nextEstimatedFrameTime == other.nextEstimatedFrameTime
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4479,7 +4479,7 @@ unsafe impl ::windows::core::Abi for DCompositionInkTrailPoint {
 }
 impl ::core::cmp::PartialEq for DCompositionInkTrailPoint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCompositionInkTrailPoint>()) == 0 }
+        self.x == other.x && self.y == other.y && self.radius == other.radius
     }
 }
 impl ::core::cmp::Eq for DCompositionInkTrailPoint {}

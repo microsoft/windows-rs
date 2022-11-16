@@ -11961,14 +11961,6 @@ unsafe impl ::windows::core::Abi for TF_DA_COLOR {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_DA_COLOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DA_COLOR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_DA_COLOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TF_DA_COLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11993,14 +11985,6 @@ impl ::core::clone::Clone for TF_DA_COLOR_0 {
 unsafe impl ::windows::core::Abi for TF_DA_COLOR_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_DA_COLOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DA_COLOR_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_DA_COLOR_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TF_DA_COLOR_0 {
     fn default() -> Self {
@@ -12030,14 +12014,6 @@ impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
 unsafe impl ::windows::core::Abi for TF_DISPLAYATTRIBUTE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_DISPLAYATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DISPLAYATTRIBUTE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_DISPLAYATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TF_DISPLAYATTRIBUTE {
     fn default() -> Self {
@@ -12104,7 +12080,7 @@ unsafe impl ::windows::core::Abi for TF_INPUTPROCESSORPROFILE {
 }
 impl ::core::cmp::PartialEq for TF_INPUTPROCESSORPROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_INPUTPROCESSORPROFILE>()) == 0 }
+        self.dwProfileType == other.dwProfileType && self.langid == other.langid && self.clsid == other.clsid && self.guidProfile == other.guidProfile && self.catid == other.catid && self.hklSubstitute == other.hklSubstitute && self.dwCaps == other.dwCaps && self.hkl == other.hkl && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for TF_INPUTPROCESSORPROFILE {}
@@ -12138,7 +12114,7 @@ unsafe impl ::windows::core::Abi for TF_LANGBARITEMINFO {
 }
 impl ::core::cmp::PartialEq for TF_LANGBARITEMINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LANGBARITEMINFO>()) == 0 }
+        self.clsidService == other.clsidService && self.guidItem == other.guidItem && self.dwStyle == other.dwStyle && self.ulSort == other.ulSort && self.szDescription == other.szDescription
     }
 }
 impl ::core::cmp::Eq for TF_LANGBARITEMINFO {}
@@ -12178,7 +12154,7 @@ unsafe impl ::windows::core::Abi for TF_LANGUAGEPROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TF_LANGUAGEPROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LANGUAGEPROFILE>()) == 0 }
+        self.clsid == other.clsid && self.langid == other.langid && self.catid == other.catid && self.fActive == other.fActive && self.guidProfile == other.guidProfile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12236,12 +12212,6 @@ impl ::core::clone::Clone for TF_LMLATTELEMENT {
 unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for TF_LMLATTELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFrameStart == other.dwFrameStart && self.dwFrameLen == other.dwFrameLen && self.dwFlags == other.dwFlags && self.Anonymous == other.Anonymous && self.bstrText == other.bstrText
-    }
-}
-impl ::core::cmp::Eq for TF_LMLATTELEMENT {}
 impl ::core::default::Default for TF_LMLATTELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12261,12 +12231,6 @@ impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
 unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TF_LMLATTELEMENT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LMLATTELEMENT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TF_LMLATTELEMENT_0 {}
 impl ::core::default::Default for TF_LMLATTELEMENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12298,7 +12262,7 @@ unsafe impl ::windows::core::Abi for TF_PERSISTENT_PROPERTY_HEADER_ACP {
 }
 impl ::core::cmp::PartialEq for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_PERSISTENT_PROPERTY_HEADER_ACP>()) == 0 }
+        self.guidType == other.guidType && self.ichStart == other.ichStart && self.cch == other.cch && self.cb == other.cb && self.dwPrivate == other.dwPrivate && self.clsidTIP == other.clsidTIP
     }
 }
 impl ::core::cmp::Eq for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
@@ -12329,7 +12293,7 @@ unsafe impl ::windows::core::Abi for TF_PRESERVEDKEY {
 }
 impl ::core::cmp::PartialEq for TF_PRESERVEDKEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_PRESERVEDKEY>()) == 0 }
+        self.uVKey == other.uVKey && self.uModifiers == other.uModifiers
     }
 }
 impl ::core::cmp::Eq for TF_PRESERVEDKEY {}
@@ -12355,14 +12319,6 @@ impl ::core::clone::Clone for TF_PROPERTYVAL {
 unsafe impl ::windows::core::Abi for TF_PROPERTYVAL {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for TF_PROPERTYVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidId == other.guidId && self.varValue == other.varValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for TF_PROPERTYVAL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for TF_PROPERTYVAL {
     fn default() -> Self {
@@ -12434,7 +12390,7 @@ unsafe impl ::windows::core::Abi for TF_SELECTIONSTYLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TF_SELECTIONSTYLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_SELECTIONSTYLE>()) == 0 }
+        self.ase == other.ase && self.fInterimChar == other.fInterimChar
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12464,14 +12420,6 @@ unsafe impl ::windows::core::Abi for TS_ATTRVAL {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for TS_ATTRVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.idAttr == other.idAttr && self.dwOverlapId == other.dwOverlapId && self.varValue == other.varValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for TS_ATTRVAL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12499,7 +12447,7 @@ unsafe impl ::windows::core::Abi for TS_RUNINFO {
 }
 impl ::core::cmp::PartialEq for TS_RUNINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_RUNINFO>()) == 0 }
+        self.uCount == other.uCount && self.r#type == other.r#type
     }
 }
 impl ::core::cmp::Eq for TS_RUNINFO {}
@@ -12536,7 +12484,7 @@ unsafe impl ::windows::core::Abi for TS_SELECTIONSTYLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TS_SELECTIONSTYLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_SELECTIONSTYLE>()) == 0 }
+        self.ase == other.ase && self.fInterimChar == other.fInterimChar
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12576,7 +12524,7 @@ unsafe impl ::windows::core::Abi for TS_SELECTION_ACP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TS_SELECTION_ACP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_SELECTION_ACP>()) == 0 }
+        self.acpStart == other.acpStart && self.acpEnd == other.acpEnd && self.style == other.style
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12647,7 +12595,7 @@ unsafe impl ::windows::core::Abi for TS_STATUS {
 }
 impl ::core::cmp::PartialEq for TS_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_STATUS>()) == 0 }
+        self.dwDynamicFlags == other.dwDynamicFlags && self.dwStaticFlags == other.dwStaticFlags
     }
 }
 impl ::core::cmp::Eq for TS_STATUS {}
@@ -12679,7 +12627,7 @@ unsafe impl ::windows::core::Abi for TS_TEXTCHANGE {
 }
 impl ::core::cmp::PartialEq for TS_TEXTCHANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_TEXTCHANGE>()) == 0 }
+        self.acpStart == other.acpStart && self.acpOldEnd == other.acpOldEnd && self.acpNewEnd == other.acpNewEnd
     }
 }
 impl ::core::cmp::Eq for TS_TEXTCHANGE {}

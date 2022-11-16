@@ -9460,7 +9460,7 @@ unsafe impl ::windows::core::Abi for AE_CURRENT_POSITION {
 }
 impl ::core::cmp::PartialEq for AE_CURRENT_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CURRENT_POSITION>()) == 0 }
+        self.u64DevicePosition == other.u64DevicePosition && self.u64StreamPosition == other.u64StreamPosition && self.u64PaddingFrames == other.u64PaddingFrames && self.hnsQPCPosition == other.hnsQPCPosition && self.f32FramesPerSecond == other.f32FramesPerSecond && self.Flag == other.Flag
     }
 }
 impl ::core::cmp::Eq for AE_CURRENT_POSITION {}
@@ -9491,7 +9491,7 @@ unsafe impl ::windows::core::Abi for BITMAP_RENDERER_STATISTICS {
 }
 impl ::core::cmp::PartialEq for BITMAP_RENDERER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BITMAP_RENDERER_STATISTICS>()) == 0 }
+        self.dwFramesDelivered == other.dwFramesDelivered && self.dwFramesDropped == other.dwFramesDropped
     }
 }
 impl ::core::cmp::Eq for BITMAP_RENDERER_STATISTICS {}
@@ -9520,14 +9520,6 @@ unsafe impl ::windows::core::Abi for CHANNEL_DEF {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHANNEL_DEF {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_DEF>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHANNEL_DEF {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHANNEL_DEF {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9555,21 +9547,13 @@ impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHANNEL_ENTRY_POINTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).field("pVirtualChannelInit", &self.pVirtualChannelInit.map(|f| f as usize)).field("pVirtualChannelOpen", &self.pVirtualChannelOpen.map(|f| f as usize)).field("pVirtualChannelClose", &self.pVirtualChannelClose.map(|f| f as usize)).field("pVirtualChannelWrite", &self.pVirtualChannelWrite.map(|f| f as usize)).finish()
+        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHANNEL_ENTRY_POINTS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHANNEL_ENTRY_POINTS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_ENTRY_POINTS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHANNEL_ENTRY_POINTS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHANNEL_ENTRY_POINTS {
     fn default() -> Self {
@@ -9598,7 +9582,7 @@ unsafe impl ::windows::core::Abi for CHANNEL_PDU_HEADER {
 }
 impl ::core::cmp::PartialEq for CHANNEL_PDU_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_PDU_HEADER>()) == 0 }
+        self.length == other.length && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for CHANNEL_PDU_HEADER {}
@@ -9630,7 +9614,7 @@ unsafe impl ::windows::core::Abi for CLIENT_DISPLAY {
 }
 impl ::core::cmp::PartialEq for CLIENT_DISPLAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENT_DISPLAY>()) == 0 }
+        self.HorizontalResolution == other.HorizontalResolution && self.VerticalResolution == other.VerticalResolution && self.ColorDepth == other.ColorDepth
     }
 }
 impl ::core::cmp::Eq for CLIENT_DISPLAY {}
@@ -9699,7 +9683,7 @@ unsafe impl ::windows::core::Abi for PRODUCT_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRODUCT_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRODUCT_INFOA>()) == 0 }
+        self.CompanyName == other.CompanyName && self.ProductID == other.ProductID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9732,7 +9716,7 @@ unsafe impl ::windows::core::Abi for PRODUCT_INFOW {
 }
 impl ::core::cmp::PartialEq for PRODUCT_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRODUCT_INFOW>()) == 0 }
+        self.CompanyName == other.CompanyName && self.ProductID == other.ProductID
     }
 }
 impl ::core::cmp::Eq for PRODUCT_INFOW {}
@@ -9767,14 +9751,6 @@ unsafe impl ::windows::core::Abi for RFX_GFX_MONITOR_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RFX_GFX_MONITOR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MONITOR_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RFX_GFX_MONITOR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RFX_GFX_MONITOR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9794,12 +9770,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
 impl ::core::default::Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9828,14 +9798,6 @@ unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9855,12 +9817,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
 impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9884,12 +9840,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
 impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9911,12 +9861,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_INPUT_RESET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
 impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9937,12 +9881,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_RESEND_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
 impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9963,12 +9901,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DISCONNECT_NOTIFY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
 impl ::core::default::Default for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9989,12 +9921,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_HEADER {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_HEADER {}
 impl ::core::default::Default for RFX_GFX_MSG_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10015,12 +9941,6 @@ impl ::core::clone::Clone for RFX_GFX_MSG_RDP_DATA {
 unsafe impl ::windows::core::Abi for RFX_GFX_MSG_RDP_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_RDP_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_RDP_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_RDP_DATA {}
 impl ::core::default::Default for RFX_GFX_MSG_RDP_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10043,12 +9963,6 @@ impl ::core::clone::Clone for RFX_GFX_RECT {
 unsafe impl ::windows::core::Abi for RFX_GFX_RECT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFX_GFX_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_RECT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_RECT {}
 impl ::core::default::Default for RFX_GFX_RECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10078,7 +9992,7 @@ unsafe impl ::windows::core::Abi for TSSD_ConnectionPoint {
 }
 impl ::core::cmp::PartialEq for TSSD_ConnectionPoint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TSSD_ConnectionPoint>()) == 0 }
+        self.ServerAddressB == other.ServerAddressB && self.AddressType == other.AddressType && self.PortNumber == other.PortNumber && self.AddressScope == other.AddressScope
     }
 }
 impl ::core::cmp::Eq for TSSD_ConnectionPoint {}
@@ -10109,7 +10023,7 @@ unsafe impl ::windows::core::Abi for VM_NOTIFY_ENTRY {
 }
 impl ::core::cmp::PartialEq for VM_NOTIFY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VM_NOTIFY_ENTRY>()) == 0 }
+        self.VmName == other.VmName && self.VmHost == other.VmHost
     }
 }
 impl ::core::cmp::Eq for VM_NOTIFY_ENTRY {}
@@ -10140,7 +10054,7 @@ unsafe impl ::windows::core::Abi for VM_NOTIFY_INFO {
 }
 impl ::core::cmp::PartialEq for VM_NOTIFY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VM_NOTIFY_INFO>()) == 0 }
+        self.dwNumEntries == other.dwNumEntries && self.ppVmEntries == other.ppVmEntries
     }
 }
 impl ::core::cmp::Eq for VM_NOTIFY_INFO {}
@@ -10171,7 +10085,7 @@ unsafe impl ::windows::core::Abi for VM_PATCH_INFO {
 }
 impl ::core::cmp::PartialEq for VM_PATCH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VM_PATCH_INFO>()) == 0 }
+        self.dwNumEntries == other.dwNumEntries && self.pVmNames == other.pVmNames
     }
 }
 impl ::core::cmp::Eq for VM_PATCH_INFO {}
@@ -10199,14 +10113,6 @@ unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTING {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WRDS_CONNECTION_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_CONNECTION_SETTING>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WRDS_CONNECTION_SETTING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WRDS_CONNECTION_SETTING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10231,14 +10137,6 @@ impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS {
 unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTINGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WRDS_CONNECTION_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_CONNECTION_SETTINGS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WRDS_CONNECTION_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WRDS_CONNECTION_SETTINGS {
     fn default() -> Self {
@@ -10328,14 +10226,6 @@ unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTINGS_1 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WRDS_CONNECTION_SETTINGS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_CONNECTION_SETTINGS_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WRDS_CONNECTION_SETTINGS_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WRDS_CONNECTION_SETTINGS_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10370,7 +10260,7 @@ unsafe impl ::windows::core::Abi for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_DYNAMIC_TIME_ZONE_INFORMATION>()) == 0 }
+        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias && self.TimeZoneKeyName == other.TimeZoneKeyName && self.DynamicDaylightTimeDisabled == other.DynamicDaylightTimeDisabled
     }
 }
 impl ::core::cmp::Eq for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
@@ -10393,12 +10283,6 @@ impl ::core::clone::Clone for WRDS_LISTENER_SETTING {
 unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WRDS_LISTENER_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_LISTENER_SETTING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WRDS_LISTENER_SETTING {}
 impl ::core::default::Default for WRDS_LISTENER_SETTING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10419,12 +10303,6 @@ impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS {
 unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTINGS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WRDS_LISTENER_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_LISTENER_SETTINGS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WRDS_LISTENER_SETTINGS {}
 impl ::core::default::Default for WRDS_LISTENER_SETTINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10453,7 +10331,7 @@ unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTINGS_1 {
 }
 impl ::core::cmp::PartialEq for WRDS_LISTENER_SETTINGS_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_LISTENER_SETTINGS_1>()) == 0 }
+        self.MaxProtocolListenerConnectionCount == other.MaxProtocolListenerConnectionCount && self.SecurityDescriptorSize == other.SecurityDescriptorSize && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 impl ::core::cmp::Eq for WRDS_LISTENER_SETTINGS_1 {}
@@ -10481,14 +10359,6 @@ unsafe impl ::windows::core::Abi for WRDS_SETTING {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WRDS_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_SETTING>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WRDS_SETTING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WRDS_SETTING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10514,14 +10384,6 @@ impl ::core::clone::Clone for WRDS_SETTINGS {
 unsafe impl ::windows::core::Abi for WRDS_SETTINGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WRDS_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_SETTINGS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WRDS_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WRDS_SETTINGS {
     fn default() -> Self {
@@ -10617,7 +10479,37 @@ unsafe impl ::windows::core::Abi for WRDS_SETTINGS_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WRDS_SETTINGS_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WRDS_SETTINGS_1>()) == 0 }
+        self.WRdsDisableClipStatus == other.WRdsDisableClipStatus
+            && self.WRdsDisableClipValue == other.WRdsDisableClipValue
+            && self.WRdsDisableLPTStatus == other.WRdsDisableLPTStatus
+            && self.WRdsDisableLPTValue == other.WRdsDisableLPTValue
+            && self.WRdsDisableCcmStatus == other.WRdsDisableCcmStatus
+            && self.WRdsDisableCcmValue == other.WRdsDisableCcmValue
+            && self.WRdsDisableCdmStatus == other.WRdsDisableCdmStatus
+            && self.WRdsDisableCdmValue == other.WRdsDisableCdmValue
+            && self.WRdsDisableCpmStatus == other.WRdsDisableCpmStatus
+            && self.WRdsDisableCpmValue == other.WRdsDisableCpmValue
+            && self.WRdsDisablePnpStatus == other.WRdsDisablePnpStatus
+            && self.WRdsDisablePnpValue == other.WRdsDisablePnpValue
+            && self.WRdsEncryptionLevelStatus == other.WRdsEncryptionLevelStatus
+            && self.WRdsEncryptionValue == other.WRdsEncryptionValue
+            && self.WRdsColorDepthStatus == other.WRdsColorDepthStatus
+            && self.WRdsColorDepthValue == other.WRdsColorDepthValue
+            && self.WRdsDisableAutoReconnecetStatus == other.WRdsDisableAutoReconnecetStatus
+            && self.WRdsDisableAutoReconnecetValue == other.WRdsDisableAutoReconnecetValue
+            && self.WRdsDisableEncryptionStatus == other.WRdsDisableEncryptionStatus
+            && self.WRdsDisableEncryptionValue == other.WRdsDisableEncryptionValue
+            && self.WRdsResetBrokenStatus == other.WRdsResetBrokenStatus
+            && self.WRdsResetBrokenValue == other.WRdsResetBrokenValue
+            && self.WRdsMaxIdleTimeStatus == other.WRdsMaxIdleTimeStatus
+            && self.WRdsMaxIdleTimeValue == other.WRdsMaxIdleTimeValue
+            && self.WRdsMaxDisconnectTimeStatus == other.WRdsMaxDisconnectTimeStatus
+            && self.WRdsMaxDisconnectTimeValue == other.WRdsMaxDisconnectTimeValue
+            && self.WRdsMaxConnectTimeStatus == other.WRdsMaxConnectTimeStatus
+            && self.WRdsMaxConnectTimeValue == other.WRdsMaxConnectTimeValue
+            && self.WRdsKeepAliveStatus == other.WRdsKeepAliveStatus
+            && self.WRdsKeepAliveStartValue == other.WRdsKeepAliveStartValue
+            && self.WRdsKeepAliveIntervalValue == other.WRdsKeepAliveIntervalValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10693,7 +10585,25 @@ unsafe impl ::windows::core::Abi for WTSCLIENTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTSCLIENTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSCLIENTA>()) == 0 }
+        self.ClientName == other.ClientName
+            && self.Domain == other.Domain
+            && self.UserName == other.UserName
+            && self.WorkDirectory == other.WorkDirectory
+            && self.InitialProgram == other.InitialProgram
+            && self.EncryptionLevel == other.EncryptionLevel
+            && self.ClientAddressFamily == other.ClientAddressFamily
+            && self.ClientAddress == other.ClientAddress
+            && self.HRes == other.HRes
+            && self.VRes == other.VRes
+            && self.ColorDepth == other.ColorDepth
+            && self.ClientDirectory == other.ClientDirectory
+            && self.ClientBuildNumber == other.ClientBuildNumber
+            && self.ClientHardwareId == other.ClientHardwareId
+            && self.ClientProductId == other.ClientProductId
+            && self.OutBufCountHost == other.OutBufCountHost
+            && self.OutBufCountClient == other.OutBufCountClient
+            && self.OutBufLength == other.OutBufLength
+            && self.DeviceId == other.DeviceId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10763,7 +10673,25 @@ unsafe impl ::windows::core::Abi for WTSCLIENTW {
 }
 impl ::core::cmp::PartialEq for WTSCLIENTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSCLIENTW>()) == 0 }
+        self.ClientName == other.ClientName
+            && self.Domain == other.Domain
+            && self.UserName == other.UserName
+            && self.WorkDirectory == other.WorkDirectory
+            && self.InitialProgram == other.InitialProgram
+            && self.EncryptionLevel == other.EncryptionLevel
+            && self.ClientAddressFamily == other.ClientAddressFamily
+            && self.ClientAddress == other.ClientAddress
+            && self.HRes == other.HRes
+            && self.VRes == other.VRes
+            && self.ColorDepth == other.ColorDepth
+            && self.ClientDirectory == other.ClientDirectory
+            && self.ClientBuildNumber == other.ClientBuildNumber
+            && self.ClientHardwareId == other.ClientHardwareId
+            && self.ClientProductId == other.ClientProductId
+            && self.OutBufCountHost == other.OutBufCountHost
+            && self.OutBufCountClient == other.OutBufCountClient
+            && self.OutBufLength == other.OutBufLength
+            && self.DeviceId == other.DeviceId
     }
 }
 impl ::core::cmp::Eq for WTSCLIENTW {}
@@ -10821,7 +10749,7 @@ unsafe impl ::windows::core::Abi for WTSCONFIGINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTSCONFIGINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSCONFIGINFOA>()) == 0 }
+        self.version == other.version && self.fConnectClientDrivesAtLogon == other.fConnectClientDrivesAtLogon && self.fConnectPrinterAtLogon == other.fConnectPrinterAtLogon && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter && self.ShadowSettings == other.ShadowSettings && self.LogonUserName == other.LogonUserName && self.LogonDomain == other.LogonDomain && self.WorkDirectory == other.WorkDirectory && self.InitialProgram == other.InitialProgram && self.ApplicationName == other.ApplicationName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10875,7 +10803,7 @@ unsafe impl ::windows::core::Abi for WTSCONFIGINFOW {
 }
 impl ::core::cmp::PartialEq for WTSCONFIGINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSCONFIGINFOW>()) == 0 }
+        self.version == other.version && self.fConnectClientDrivesAtLogon == other.fConnectClientDrivesAtLogon && self.fConnectPrinterAtLogon == other.fConnectPrinterAtLogon && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter && self.ShadowSettings == other.ShadowSettings && self.LogonUserName == other.LogonUserName && self.LogonDomain == other.LogonDomain && self.WorkDirectory == other.WorkDirectory && self.InitialProgram == other.InitialProgram && self.ApplicationName == other.ApplicationName
     }
 }
 impl ::core::cmp::Eq for WTSCONFIGINFOW {}
@@ -10943,7 +10871,7 @@ unsafe impl ::windows::core::Abi for WTSINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTSINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOA>()) == 0 }
+        self.State == other.State && self.SessionId == other.SessionId && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBy == other.OutgoingCompressedBy && self.WinStationName == other.WinStationName && self.Domain == other.Domain && self.UserName == other.UserName && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.LogonTime == other.LogonTime && self.CurrentTime == other.CurrentTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10974,14 +10902,6 @@ unsafe impl ::windows::core::Abi for WTSINFOEXA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WTSINFOEXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOEXA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WTSINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WTSINFOEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11002,12 +10922,6 @@ impl ::core::clone::Clone for WTSINFOEXW {
 unsafe impl ::windows::core::Abi for WTSINFOEXW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTSINFOEXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOEXW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTSINFOEXW {}
 impl ::core::default::Default for WTSINFOEXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11074,7 +10988,7 @@ unsafe impl ::windows::core::Abi for WTSINFOEX_LEVEL1_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTSINFOEX_LEVEL1_A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOEX_LEVEL1_A>()) == 0 }
+        self.SessionId == other.SessionId && self.SessionState == other.SessionState && self.SessionFlags == other.SessionFlags && self.WinStationName == other.WinStationName && self.UserName == other.UserName && self.DomainName == other.DomainName && self.LogonTime == other.LogonTime && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.CurrentTime == other.CurrentTime && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBytes == other.OutgoingCompressedBytes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11140,7 +11054,7 @@ unsafe impl ::windows::core::Abi for WTSINFOEX_LEVEL1_W {
 }
 impl ::core::cmp::PartialEq for WTSINFOEX_LEVEL1_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOEX_LEVEL1_W>()) == 0 }
+        self.SessionId == other.SessionId && self.SessionState == other.SessionState && self.SessionFlags == other.SessionFlags && self.WinStationName == other.WinStationName && self.UserName == other.UserName && self.DomainName == other.DomainName && self.LogonTime == other.LogonTime && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.CurrentTime == other.CurrentTime && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBytes == other.OutgoingCompressedBytes
     }
 }
 impl ::core::cmp::Eq for WTSINFOEX_LEVEL1_W {}
@@ -11168,14 +11082,6 @@ unsafe impl ::windows::core::Abi for WTSINFOEX_LEVEL_A {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WTSINFOEX_LEVEL_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOEX_LEVEL_A>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WTSINFOEX_LEVEL_A {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WTSINFOEX_LEVEL_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11195,12 +11101,6 @@ impl ::core::clone::Clone for WTSINFOEX_LEVEL_W {
 unsafe impl ::windows::core::Abi for WTSINFOEX_LEVEL_W {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTSINFOEX_LEVEL_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOEX_LEVEL_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTSINFOEX_LEVEL_W {}
 impl ::core::default::Default for WTSINFOEX_LEVEL_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11259,7 +11159,7 @@ unsafe impl ::windows::core::Abi for WTSINFOW {
 }
 impl ::core::cmp::PartialEq for WTSINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSINFOW>()) == 0 }
+        self.State == other.State && self.SessionId == other.SessionId && self.IncomingBytes == other.IncomingBytes && self.OutgoingBytes == other.OutgoingBytes && self.IncomingFrames == other.IncomingFrames && self.OutgoingFrames == other.OutgoingFrames && self.IncomingCompressedBytes == other.IncomingCompressedBytes && self.OutgoingCompressedBytes == other.OutgoingCompressedBytes && self.WinStationName == other.WinStationName && self.Domain == other.Domain && self.UserName == other.UserName && self.ConnectTime == other.ConnectTime && self.DisconnectTime == other.DisconnectTime && self.LastInputTime == other.LastInputTime && self.LogonTime == other.LogonTime && self.CurrentTime == other.CurrentTime
     }
 }
 impl ::core::cmp::Eq for WTSINFOW {}
@@ -11357,7 +11257,37 @@ unsafe impl ::windows::core::Abi for WTSLISTENERCONFIGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTSLISTENERCONFIGA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSLISTENERCONFIGA>()) == 0 }
+        self.version == other.version
+            && self.fEnableListener == other.fEnableListener
+            && self.MaxConnectionCount == other.MaxConnectionCount
+            && self.fPromptForPassword == other.fPromptForPassword
+            && self.fInheritColorDepth == other.fInheritColorDepth
+            && self.ColorDepth == other.ColorDepth
+            && self.fInheritBrokenTimeoutSettings == other.fInheritBrokenTimeoutSettings
+            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
+            && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection
+            && self.fDisableDriveRedirection == other.fDisableDriveRedirection
+            && self.fDisableComPortRedirection == other.fDisableComPortRedirection
+            && self.fDisableLPTPortRedirection == other.fDisableLPTPortRedirection
+            && self.fDisableClipboardRedirection == other.fDisableClipboardRedirection
+            && self.fDisableAudioRedirection == other.fDisableAudioRedirection
+            && self.fDisablePNPRedirection == other.fDisablePNPRedirection
+            && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter
+            && self.LanAdapter == other.LanAdapter
+            && self.PortNumber == other.PortNumber
+            && self.fInheritShadowSettings == other.fInheritShadowSettings
+            && self.ShadowSettings == other.ShadowSettings
+            && self.TimeoutSettingsConnection == other.TimeoutSettingsConnection
+            && self.TimeoutSettingsDisconnection == other.TimeoutSettingsDisconnection
+            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
+            && self.SecurityLayer == other.SecurityLayer
+            && self.MinEncryptionLevel == other.MinEncryptionLevel
+            && self.UserAuthentication == other.UserAuthentication
+            && self.Comment == other.Comment
+            && self.LogonUserName == other.LogonUserName
+            && self.LogonDomain == other.LogonDomain
+            && self.WorkDirectory == other.WorkDirectory
+            && self.InitialProgram == other.InitialProgram
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11451,7 +11381,37 @@ unsafe impl ::windows::core::Abi for WTSLISTENERCONFIGW {
 }
 impl ::core::cmp::PartialEq for WTSLISTENERCONFIGW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSLISTENERCONFIGW>()) == 0 }
+        self.version == other.version
+            && self.fEnableListener == other.fEnableListener
+            && self.MaxConnectionCount == other.MaxConnectionCount
+            && self.fPromptForPassword == other.fPromptForPassword
+            && self.fInheritColorDepth == other.fInheritColorDepth
+            && self.ColorDepth == other.ColorDepth
+            && self.fInheritBrokenTimeoutSettings == other.fInheritBrokenTimeoutSettings
+            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
+            && self.fDisablePrinterRedirection == other.fDisablePrinterRedirection
+            && self.fDisableDriveRedirection == other.fDisableDriveRedirection
+            && self.fDisableComPortRedirection == other.fDisableComPortRedirection
+            && self.fDisableLPTPortRedirection == other.fDisableLPTPortRedirection
+            && self.fDisableClipboardRedirection == other.fDisableClipboardRedirection
+            && self.fDisableAudioRedirection == other.fDisableAudioRedirection
+            && self.fDisablePNPRedirection == other.fDisablePNPRedirection
+            && self.fDisableDefaultMainClientPrinter == other.fDisableDefaultMainClientPrinter
+            && self.LanAdapter == other.LanAdapter
+            && self.PortNumber == other.PortNumber
+            && self.fInheritShadowSettings == other.fInheritShadowSettings
+            && self.ShadowSettings == other.ShadowSettings
+            && self.TimeoutSettingsConnection == other.TimeoutSettingsConnection
+            && self.TimeoutSettingsDisconnection == other.TimeoutSettingsDisconnection
+            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
+            && self.SecurityLayer == other.SecurityLayer
+            && self.MinEncryptionLevel == other.MinEncryptionLevel
+            && self.UserAuthentication == other.UserAuthentication
+            && self.Comment == other.Comment
+            && self.LogonUserName == other.LogonUserName
+            && self.LogonDomain == other.LogonDomain
+            && self.WorkDirectory == other.WorkDirectory
+            && self.InitialProgram == other.InitialProgram
     }
 }
 impl ::core::cmp::Eq for WTSLISTENERCONFIGW {}
@@ -11484,7 +11444,7 @@ unsafe impl ::windows::core::Abi for WTSSBX_IP_ADDRESS {
 }
 impl ::core::cmp::PartialEq for WTSSBX_IP_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSSBX_IP_ADDRESS>()) == 0 }
+        self.AddressFamily == other.AddressFamily && self.Address == other.Address && self.PortNumber == other.PortNumber && self.dwScope == other.dwScope
     }
 }
 impl ::core::cmp::Eq for WTSSBX_IP_ADDRESS {}
@@ -11517,7 +11477,7 @@ unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_CONNECT_INFO {
 }
 impl ::core::cmp::PartialEq for WTSSBX_MACHINE_CONNECT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSSBX_MACHINE_CONNECT_INFO>()) == 0 }
+        self.wczMachineFQDN == other.wczMachineFQDN && self.wczMachineNetBiosName == other.wczMachineNetBiosName && self.dwNumOfIPAddr == other.dwNumOfIPAddr && self.IPaddr == other.IPaddr
     }
 }
 impl ::core::cmp::Eq for WTSSBX_MACHINE_CONNECT_INFO {}
@@ -11554,7 +11514,7 @@ unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_INFO {
 }
 impl ::core::cmp::PartialEq for WTSSBX_MACHINE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSSBX_MACHINE_INFO>()) == 0 }
+        self.ClientConnectInfo == other.ClientConnectInfo && self.wczFarmName == other.wczFarmName && self.InternalIPAddress == other.InternalIPAddress && self.dwMaxSessionsLimit == other.dwMaxSessionsLimit && self.ServerWeight == other.ServerWeight && self.SingleSessionMode == other.SingleSessionMode && self.InDrain == other.InDrain && self.MachineState == other.MachineState
     }
 }
 impl ::core::cmp::Eq for WTSSBX_MACHINE_INFO {}
@@ -11596,7 +11556,7 @@ unsafe impl ::windows::core::Abi for WTSSBX_SESSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTSSBX_SESSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSSBX_SESSION_INFO>()) == 0 }
+        self.wszUserName == other.wszUserName && self.wszDomainName == other.wszDomainName && self.ApplicationType == other.ApplicationType && self.dwSessionId == other.dwSessionId && self.CreateTime == other.CreateTime && self.DisconnectTime == other.DisconnectTime && self.SessionState == other.SessionState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11629,7 +11589,7 @@ unsafe impl ::windows::core::Abi for WTSSESSION_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for WTSSESSION_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSSESSION_NOTIFICATION>()) == 0 }
+        self.cbSize == other.cbSize && self.dwSessionId == other.dwSessionId
     }
 }
 impl ::core::cmp::Eq for WTSSESSION_NOTIFICATION {}
@@ -11701,7 +11661,24 @@ unsafe impl ::windows::core::Abi for WTSUSERCONFIGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTSUSERCONFIGA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSUSERCONFIGA>()) == 0 }
+        self.Source == other.Source
+            && self.InheritInitialProgram == other.InheritInitialProgram
+            && self.AllowLogonTerminalServer == other.AllowLogonTerminalServer
+            && self.TimeoutSettingsConnections == other.TimeoutSettingsConnections
+            && self.TimeoutSettingsDisconnections == other.TimeoutSettingsDisconnections
+            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
+            && self.DeviceClientDrives == other.DeviceClientDrives
+            && self.DeviceClientPrinters == other.DeviceClientPrinters
+            && self.ClientDefaultPrinter == other.ClientDefaultPrinter
+            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
+            && self.ReconnectSettings == other.ReconnectSettings
+            && self.ShadowingSettings == other.ShadowingSettings
+            && self.TerminalServerRemoteHomeDir == other.TerminalServerRemoteHomeDir
+            && self.InitialProgram == other.InitialProgram
+            && self.WorkDirectory == other.WorkDirectory
+            && self.TerminalServerProfilePath == other.TerminalServerProfilePath
+            && self.TerminalServerHomeDir == other.TerminalServerHomeDir
+            && self.TerminalServerHomeDirDrive == other.TerminalServerHomeDirDrive
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11769,7 +11746,24 @@ unsafe impl ::windows::core::Abi for WTSUSERCONFIGW {
 }
 impl ::core::cmp::PartialEq for WTSUSERCONFIGW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTSUSERCONFIGW>()) == 0 }
+        self.Source == other.Source
+            && self.InheritInitialProgram == other.InheritInitialProgram
+            && self.AllowLogonTerminalServer == other.AllowLogonTerminalServer
+            && self.TimeoutSettingsConnections == other.TimeoutSettingsConnections
+            && self.TimeoutSettingsDisconnections == other.TimeoutSettingsDisconnections
+            && self.TimeoutSettingsIdle == other.TimeoutSettingsIdle
+            && self.DeviceClientDrives == other.DeviceClientDrives
+            && self.DeviceClientPrinters == other.DeviceClientPrinters
+            && self.ClientDefaultPrinter == other.ClientDefaultPrinter
+            && self.BrokenTimeoutSettings == other.BrokenTimeoutSettings
+            && self.ReconnectSettings == other.ReconnectSettings
+            && self.ShadowingSettings == other.ShadowingSettings
+            && self.TerminalServerRemoteHomeDir == other.TerminalServerRemoteHomeDir
+            && self.InitialProgram == other.InitialProgram
+            && self.WorkDirectory == other.WorkDirectory
+            && self.TerminalServerProfilePath == other.TerminalServerProfilePath
+            && self.TerminalServerHomeDir == other.TerminalServerHomeDir
+            && self.TerminalServerHomeDirDrive == other.TerminalServerHomeDirDrive
     }
 }
 impl ::core::cmp::Eq for WTSUSERCONFIGW {}
@@ -11795,12 +11789,6 @@ impl ::core::clone::Clone for WTS_CACHE_STATS {
 unsafe impl ::windows::core::Abi for WTS_CACHE_STATS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTS_CACHE_STATS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_CACHE_STATS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTS_CACHE_STATS {}
 impl ::core::default::Default for WTS_CACHE_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11822,12 +11810,6 @@ impl ::core::clone::Clone for WTS_CACHE_STATS_UN {
 unsafe impl ::windows::core::Abi for WTS_CACHE_STATS_UN {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTS_CACHE_STATS_UN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_CACHE_STATS_UN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTS_CACHE_STATS_UN {}
 impl ::core::default::Default for WTS_CACHE_STATS_UN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11855,7 +11837,7 @@ unsafe impl ::windows::core::Abi for WTS_CLIENT_ADDRESS {
 }
 impl ::core::cmp::PartialEq for WTS_CLIENT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_CLIENT_ADDRESS>()) == 0 }
+        self.AddressFamily == other.AddressFamily && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for WTS_CLIENT_ADDRESS {}
@@ -11937,14 +11919,6 @@ unsafe impl ::windows::core::Abi for WTS_CLIENT_DATA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WTS_CLIENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_CLIENT_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WTS_CLIENT_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WTS_CLIENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11973,7 +11947,7 @@ unsafe impl ::windows::core::Abi for WTS_CLIENT_DISPLAY {
 }
 impl ::core::cmp::PartialEq for WTS_CLIENT_DISPLAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_CLIENT_DISPLAY>()) == 0 }
+        self.HorizontalResolution == other.HorizontalResolution && self.VerticalResolution == other.VerticalResolution && self.ColorDepth == other.ColorDepth
     }
 }
 impl ::core::cmp::Eq for WTS_CLIENT_DISPLAY {}
@@ -12004,7 +11978,7 @@ unsafe impl ::windows::core::Abi for WTS_DISPLAY_IOCTL {
 }
 impl ::core::cmp::PartialEq for WTS_DISPLAY_IOCTL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_DISPLAY_IOCTL>()) == 0 }
+        self.pDisplayIOCtlData == other.pDisplayIOCtlData && self.cbDisplayIOCtlData == other.cbDisplayIOCtlData
     }
 }
 impl ::core::cmp::Eq for WTS_DISPLAY_IOCTL {}
@@ -12045,7 +12019,7 @@ unsafe impl ::windows::core::Abi for WTS_LICENSE_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTS_LICENSE_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_LICENSE_CAPABILITIES>()) == 0 }
+        self.KeyExchangeAlg == other.KeyExchangeAlg && self.ProtocolVer == other.ProtocolVer && self.fAuthenticateServer == other.fAuthenticateServer && self.CertType == other.CertType && self.cbClientName == other.cbClientName && self.rgbClientName == other.rgbClientName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12103,7 +12077,7 @@ unsafe impl ::windows::core::Abi for WTS_POLICY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTS_POLICY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_POLICY_DATA>()) == 0 }
+        self.fDisableEncryption == other.fDisableEncryption && self.fDisableAutoReconnect == other.fDisableAutoReconnect && self.ColorDepth == other.ColorDepth && self.MinEncryptionLevel == other.MinEncryptionLevel && self.fDisableCpm == other.fDisableCpm && self.fDisableCdm == other.fDisableCdm && self.fDisableCcm == other.fDisableCcm && self.fDisableLPT == other.fDisableLPT && self.fDisableClip == other.fDisableClip && self.fDisablePNPRedir == other.fDisablePNPRedir
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12144,7 +12118,7 @@ unsafe impl ::windows::core::Abi for WTS_PROCESS_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTS_PROCESS_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROCESS_INFOA>()) == 0 }
+        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12185,7 +12159,7 @@ unsafe impl ::windows::core::Abi for WTS_PROCESS_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTS_PROCESS_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROCESS_INFOW>()) == 0 }
+        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12247,7 +12221,7 @@ unsafe impl ::windows::core::Abi for WTS_PROCESS_INFO_EXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTS_PROCESS_INFO_EXA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROCESS_INFO_EXA>()) == 0 }
+        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid && self.NumberOfThreads == other.NumberOfThreads && self.HandleCount == other.HandleCount && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.WorkingSetSize == other.WorkingSetSize && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.UserTime == other.UserTime && self.KernelTime == other.KernelTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12309,7 +12283,7 @@ unsafe impl ::windows::core::Abi for WTS_PROCESS_INFO_EXW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTS_PROCESS_INFO_EXW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROCESS_INFO_EXW>()) == 0 }
+        self.SessionId == other.SessionId && self.ProcessId == other.ProcessId && self.pProcessName == other.pProcessName && self.pUserSid == other.pUserSid && self.NumberOfThreads == other.NumberOfThreads && self.HandleCount == other.HandleCount && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.WorkingSetSize == other.WorkingSetSize && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.UserTime == other.UserTime && self.KernelTime == other.KernelTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12335,12 +12309,6 @@ impl ::core::clone::Clone for WTS_PROPERTY_VALUE {
 unsafe impl ::windows::core::Abi for WTS_PROPERTY_VALUE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTS_PROPERTY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROPERTY_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTS_PROPERTY_VALUE {}
 impl ::core::default::Default for WTS_PROPERTY_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12363,12 +12331,6 @@ impl ::core::clone::Clone for WTS_PROPERTY_VALUE_0 {
 unsafe impl ::windows::core::Abi for WTS_PROPERTY_VALUE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTS_PROPERTY_VALUE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROPERTY_VALUE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTS_PROPERTY_VALUE_0 {}
 impl ::core::default::Default for WTS_PROPERTY_VALUE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12396,7 +12358,7 @@ unsafe impl ::windows::core::Abi for WTS_PROPERTY_VALUE_0_0 {
 }
 impl ::core::cmp::PartialEq for WTS_PROPERTY_VALUE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROPERTY_VALUE_0_0>()) == 0 }
+        self.size == other.size && self.pbVal == other.pbVal
     }
 }
 impl ::core::cmp::Eq for WTS_PROPERTY_VALUE_0_0 {}
@@ -12427,7 +12389,7 @@ unsafe impl ::windows::core::Abi for WTS_PROPERTY_VALUE_0_1 {
 }
 impl ::core::cmp::PartialEq for WTS_PROPERTY_VALUE_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROPERTY_VALUE_0_1>()) == 0 }
+        self.size == other.size && self.pstrVal == other.pstrVal
     }
 }
 impl ::core::cmp::Eq for WTS_PROPERTY_VALUE_0_1 {}
@@ -12458,7 +12420,7 @@ unsafe impl ::windows::core::Abi for WTS_PROTOCOL_CACHE {
 }
 impl ::core::cmp::PartialEq for WTS_PROTOCOL_CACHE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROTOCOL_CACHE>()) == 0 }
+        self.CacheReads == other.CacheReads && self.CacheHits == other.CacheHits
     }
 }
 impl ::core::cmp::Eq for WTS_PROTOCOL_CACHE {}
@@ -12524,7 +12486,7 @@ unsafe impl ::windows::core::Abi for WTS_PROTOCOL_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WTS_PROTOCOL_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROTOCOL_COUNTERS>()) == 0 }
+        self.WdBytes == other.WdBytes && self.WdFrames == other.WdFrames && self.WaitForOutBuf == other.WaitForOutBuf && self.Frames == other.Frames && self.Bytes == other.Bytes && self.CompressedBytes == other.CompressedBytes && self.CompressFlushes == other.CompressFlushes && self.Errors == other.Errors && self.Timeouts == other.Timeouts && self.AsyncFramingError == other.AsyncFramingError && self.AsyncOverrunError == other.AsyncOverrunError && self.AsyncOverflowError == other.AsyncOverflowError && self.AsyncParityError == other.AsyncParityError && self.TdErrors == other.TdErrors && self.ProtocolType == other.ProtocolType && self.Length == other.Length && self.Specific == other.Specific && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WTS_PROTOCOL_COUNTERS {}
@@ -12552,12 +12514,6 @@ impl ::core::clone::Clone for WTS_PROTOCOL_STATUS {
 unsafe impl ::windows::core::Abi for WTS_PROTOCOL_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTS_PROTOCOL_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_PROTOCOL_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTS_PROTOCOL_STATUS {}
 impl ::core::default::Default for WTS_PROTOCOL_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12584,7 +12540,7 @@ unsafe impl ::windows::core::Abi for WTS_SERVER_INFOA {
 }
 impl ::core::cmp::PartialEq for WTS_SERVER_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SERVER_INFOA>()) == 0 }
+        self.pServerName == other.pServerName
     }
 }
 impl ::core::cmp::Eq for WTS_SERVER_INFOA {}
@@ -12614,7 +12570,7 @@ unsafe impl ::windows::core::Abi for WTS_SERVER_INFOW {
 }
 impl ::core::cmp::PartialEq for WTS_SERVER_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SERVER_INFOW>()) == 0 }
+        self.pServerName == other.pServerName
     }
 }
 impl ::core::cmp::Eq for WTS_SERVER_INFOW {}
@@ -12645,7 +12601,7 @@ unsafe impl ::windows::core::Abi for WTS_SERVICE_STATE {
 }
 impl ::core::cmp::PartialEq for WTS_SERVICE_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SERVICE_STATE>()) == 0 }
+        self.RcmServiceState == other.RcmServiceState && self.RcmDrainState == other.RcmDrainState
     }
 }
 impl ::core::cmp::Eq for WTS_SERVICE_STATE {}
@@ -12676,7 +12632,7 @@ unsafe impl ::windows::core::Abi for WTS_SESSION_ADDRESS {
 }
 impl ::core::cmp::PartialEq for WTS_SESSION_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SESSION_ADDRESS>()) == 0 }
+        self.AddressFamily == other.AddressFamily && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for WTS_SESSION_ADDRESS {}
@@ -12707,7 +12663,7 @@ unsafe impl ::windows::core::Abi for WTS_SESSION_ID {
 }
 impl ::core::cmp::PartialEq for WTS_SESSION_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SESSION_ID>()) == 0 }
+        self.SessionUniqueGuid == other.SessionUniqueGuid && self.SessionId == other.SessionId
     }
 }
 impl ::core::cmp::Eq for WTS_SESSION_ID {}
@@ -12739,7 +12695,7 @@ unsafe impl ::windows::core::Abi for WTS_SESSION_INFOA {
 }
 impl ::core::cmp::PartialEq for WTS_SESSION_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SESSION_INFOA>()) == 0 }
+        self.SessionId == other.SessionId && self.pWinStationName == other.pWinStationName && self.State == other.State
     }
 }
 impl ::core::cmp::Eq for WTS_SESSION_INFOA {}
@@ -12771,7 +12727,7 @@ unsafe impl ::windows::core::Abi for WTS_SESSION_INFOW {
 }
 impl ::core::cmp::PartialEq for WTS_SESSION_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SESSION_INFOW>()) == 0 }
+        self.SessionId == other.SessionId && self.pWinStationName == other.pWinStationName && self.State == other.State
     }
 }
 impl ::core::cmp::Eq for WTS_SESSION_INFOW {}
@@ -12808,7 +12764,7 @@ unsafe impl ::windows::core::Abi for WTS_SESSION_INFO_1A {
 }
 impl ::core::cmp::PartialEq for WTS_SESSION_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SESSION_INFO_1A>()) == 0 }
+        self.ExecEnvId == other.ExecEnvId && self.State == other.State && self.SessionId == other.SessionId && self.pSessionName == other.pSessionName && self.pHostName == other.pHostName && self.pUserName == other.pUserName && self.pDomainName == other.pDomainName && self.pFarmName == other.pFarmName
     }
 }
 impl ::core::cmp::Eq for WTS_SESSION_INFO_1A {}
@@ -12845,7 +12801,7 @@ unsafe impl ::windows::core::Abi for WTS_SESSION_INFO_1W {
 }
 impl ::core::cmp::PartialEq for WTS_SESSION_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SESSION_INFO_1W>()) == 0 }
+        self.ExecEnvId == other.ExecEnvId && self.State == other.State && self.SessionId == other.SessionId && self.pSessionName == other.pSessionName && self.pHostName == other.pHostName && self.pUserName == other.pUserName && self.pDomainName == other.pDomainName && self.pFarmName == other.pFarmName
     }
 }
 impl ::core::cmp::Eq for WTS_SESSION_INFO_1W {}
@@ -12878,7 +12834,7 @@ unsafe impl ::windows::core::Abi for WTS_SMALL_RECT {
 }
 impl ::core::cmp::PartialEq for WTS_SMALL_RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SMALL_RECT>()) == 0 }
+        self.Left == other.Left && self.Top == other.Top && self.Right == other.Right && self.Bottom == other.Bottom
     }
 }
 impl ::core::cmp::Eq for WTS_SMALL_RECT {}
@@ -12902,12 +12858,6 @@ impl ::core::clone::Clone for WTS_SOCKADDR {
 unsafe impl ::windows::core::Abi for WTS_SOCKADDR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTS_SOCKADDR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SOCKADDR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTS_SOCKADDR {}
 impl ::core::default::Default for WTS_SOCKADDR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12928,12 +12878,6 @@ impl ::core::clone::Clone for WTS_SOCKADDR_0 {
 unsafe impl ::windows::core::Abi for WTS_SOCKADDR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WTS_SOCKADDR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SOCKADDR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WTS_SOCKADDR_0 {}
 impl ::core::default::Default for WTS_SOCKADDR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12962,7 +12906,7 @@ unsafe impl ::windows::core::Abi for WTS_SOCKADDR_0_0 {
 }
 impl ::core::cmp::PartialEq for WTS_SOCKADDR_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SOCKADDR_0_0>()) == 0 }
+        self.sin_port == other.sin_port && self.IN_ADDR == other.IN_ADDR && self.sin_zero == other.sin_zero
     }
 }
 impl ::core::cmp::Eq for WTS_SOCKADDR_0_0 {}
@@ -12995,7 +12939,7 @@ unsafe impl ::windows::core::Abi for WTS_SOCKADDR_0_1 {
 }
 impl ::core::cmp::PartialEq for WTS_SOCKADDR_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SOCKADDR_0_1>()) == 0 }
+        self.sin6_port == other.sin6_port && self.sin6_flowinfo == other.sin6_flowinfo && self.sin6_addr == other.sin6_addr && self.sin6_scope_id == other.sin6_scope_id
     }
 }
 impl ::core::cmp::Eq for WTS_SOCKADDR_0_1 {}
@@ -13032,7 +12976,7 @@ unsafe impl ::windows::core::Abi for WTS_SYSTEMTIME {
 }
 impl ::core::cmp::PartialEq for WTS_SYSTEMTIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_SYSTEMTIME>()) == 0 }
+        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
     }
 }
 impl ::core::cmp::Eq for WTS_SYSTEMTIME {}
@@ -13068,7 +13012,7 @@ unsafe impl ::windows::core::Abi for WTS_TIME_ZONE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for WTS_TIME_ZONE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_TIME_ZONE_INFORMATION>()) == 0 }
+        self.Bias == other.Bias && self.StandardName == other.StandardName && self.StandardDate == other.StandardDate && self.StandardBias == other.StandardBias && self.DaylightName == other.DaylightName && self.DaylightDate == other.DaylightDate && self.DaylightBias == other.DaylightBias
     }
 }
 impl ::core::cmp::Eq for WTS_TIME_ZONE_INFORMATION {}
@@ -13100,7 +13044,7 @@ unsafe impl ::windows::core::Abi for WTS_USER_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WTS_USER_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_USER_CREDENTIAL>()) == 0 }
+        self.UserName == other.UserName && self.Password == other.Password && self.Domain == other.Domain
     }
 }
 impl ::core::cmp::Eq for WTS_USER_CREDENTIAL {}
@@ -13132,7 +13076,7 @@ unsafe impl ::windows::core::Abi for WTS_USER_DATA {
 }
 impl ::core::cmp::PartialEq for WTS_USER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_USER_DATA>()) == 0 }
+        self.WorkDirectory == other.WorkDirectory && self.InitialProgram == other.InitialProgram && self.UserTimeZone == other.UserTimeZone
     }
 }
 impl ::core::cmp::Eq for WTS_USER_DATA {}
@@ -13172,7 +13116,7 @@ unsafe impl ::windows::core::Abi for WTS_VALIDATION_INFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WTS_VALIDATION_INFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_VALIDATION_INFORMATIONA>()) == 0 }
+        self.ProductInfo == other.ProductInfo && self.License == other.License && self.LicenseLength == other.LicenseLength && self.HardwareID == other.HardwareID && self.HardwareIDLength == other.HardwareIDLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13208,7 +13152,7 @@ unsafe impl ::windows::core::Abi for WTS_VALIDATION_INFORMATIONW {
 }
 impl ::core::cmp::PartialEq for WTS_VALIDATION_INFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTS_VALIDATION_INFORMATIONW>()) == 0 }
+        self.ProductInfo == other.ProductInfo && self.License == other.License && self.LicenseLength == other.LicenseLength && self.HardwareID == other.HardwareID && self.HardwareIDLength == other.HardwareIDLength
     }
 }
 impl ::core::cmp::Eq for WTS_VALIDATION_INFORMATIONW {}
@@ -13260,7 +13204,7 @@ unsafe impl ::windows::core::Abi for pluginResource {
 }
 impl ::core::cmp::PartialEq for pluginResource {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<pluginResource>()) == 0 }
+        self.alias == other.alias && self.name == other.name && self.resourceFileContents == other.resourceFileContents && self.fileExtension == other.fileExtension && self.resourcePluginType == other.resourcePluginType && self.isDiscoverable == other.isDiscoverable && self.resourceType == other.resourceType && self.pceIconSize == other.pceIconSize && self.iconContents == other.iconContents && self.pcePluginBlobSize == other.pcePluginBlobSize && self.blobContents == other.blobContents
     }
 }
 impl ::core::cmp::Eq for pluginResource {}
@@ -13295,7 +13239,7 @@ unsafe impl ::windows::core::Abi for pluginResource2 {
 }
 impl ::core::cmp::PartialEq for pluginResource2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<pluginResource2>()) == 0 }
+        self.resourceV1 == other.resourceV1 && self.pceFileAssocListSize == other.pceFileAssocListSize && self.fileAssocList == other.fileAssocList && self.securityDescriptor == other.securityDescriptor && self.pceFolderListSize == other.pceFolderListSize && self.folderList == other.folderList
     }
 }
 impl ::core::cmp::Eq for pluginResource2 {}
@@ -13328,7 +13272,7 @@ unsafe impl ::windows::core::Abi for pluginResource2FileAssociation {
 }
 impl ::core::cmp::PartialEq for pluginResource2FileAssociation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<pluginResource2FileAssociation>()) == 0 }
+        self.extName == other.extName && self.primaryHandler == other.primaryHandler && self.pceIconSize == other.pceIconSize && self.iconContents == other.iconContents
     }
 }
 impl ::core::cmp::Eq for pluginResource2FileAssociation {}

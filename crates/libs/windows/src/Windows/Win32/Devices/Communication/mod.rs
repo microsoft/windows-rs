@@ -1168,7 +1168,7 @@ unsafe impl ::windows::core::Abi for COMMCONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMMCONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMMCONFIG>()) == 0 }
+        self.dwSize == other.dwSize && self.wVersion == other.wVersion && self.wReserved == other.wReserved && self.dcb == other.dcb && self.dwProviderSubType == other.dwProviderSubType && self.dwProviderOffset == other.dwProviderOffset && self.dwProviderSize == other.dwProviderSize && self.wcProviderData == other.wcProviderData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1236,7 +1236,24 @@ unsafe impl ::windows::core::Abi for COMMPROP {
 }
 impl ::core::cmp::PartialEq for COMMPROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMMPROP>()) == 0 }
+        self.wPacketLength == other.wPacketLength
+            && self.wPacketVersion == other.wPacketVersion
+            && self.dwServiceMask == other.dwServiceMask
+            && self.dwReserved1 == other.dwReserved1
+            && self.dwMaxTxQueue == other.dwMaxTxQueue
+            && self.dwMaxRxQueue == other.dwMaxRxQueue
+            && self.dwMaxBaud == other.dwMaxBaud
+            && self.dwProvSubType == other.dwProvSubType
+            && self.dwProvCapabilities == other.dwProvCapabilities
+            && self.dwSettableParams == other.dwSettableParams
+            && self.dwSettableBaud == other.dwSettableBaud
+            && self.wSettableData == other.wSettableData
+            && self.wSettableStopParity == other.wSettableStopParity
+            && self.dwCurrentTxQueue == other.dwCurrentTxQueue
+            && self.dwCurrentRxQueue == other.dwCurrentRxQueue
+            && self.dwProvSpec1 == other.dwProvSpec1
+            && self.dwProvSpec2 == other.dwProvSpec2
+            && self.wcProvChar == other.wcProvChar
     }
 }
 impl ::core::cmp::Eq for COMMPROP {}
@@ -1270,7 +1287,7 @@ unsafe impl ::windows::core::Abi for COMMTIMEOUTS {
 }
 impl ::core::cmp::PartialEq for COMMTIMEOUTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMMTIMEOUTS>()) == 0 }
+        self.ReadIntervalTimeout == other.ReadIntervalTimeout && self.ReadTotalTimeoutMultiplier == other.ReadTotalTimeoutMultiplier && self.ReadTotalTimeoutConstant == other.ReadTotalTimeoutConstant && self.WriteTotalTimeoutMultiplier == other.WriteTotalTimeoutMultiplier && self.WriteTotalTimeoutConstant == other.WriteTotalTimeoutConstant
     }
 }
 impl ::core::cmp::Eq for COMMTIMEOUTS {}
@@ -1302,7 +1319,7 @@ unsafe impl ::windows::core::Abi for COMSTAT {
 }
 impl ::core::cmp::PartialEq for COMSTAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMSTAT>()) == 0 }
+        self._bitfield == other._bitfield && self.cbInQue == other.cbInQue && self.cbOutQue == other.cbOutQue
     }
 }
 impl ::core::cmp::Eq for COMSTAT {}
@@ -1368,7 +1385,7 @@ unsafe impl ::windows::core::Abi for DCB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DCB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCB>()) == 0 }
+        self.DCBlength == other.DCBlength && self.BaudRate == other.BaudRate && self._bitfield == other._bitfield && self.wReserved == other.wReserved && self.XonLim == other.XonLim && self.XoffLim == other.XoffLim && self.ByteSize == other.ByteSize && self.Parity == other.Parity && self.StopBits == other.StopBits && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ErrorChar == other.ErrorChar && self.EofChar == other.EofChar && self.EvtChar == other.EvtChar && self.wReserved1 == other.wReserved1
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1440,7 +1457,26 @@ unsafe impl ::windows::core::Abi for MODEMDEVCAPS {
 }
 impl ::core::cmp::PartialEq for MODEMDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODEMDEVCAPS>()) == 0 }
+        self.dwActualSize == other.dwActualSize
+            && self.dwRequiredSize == other.dwRequiredSize
+            && self.dwDevSpecificOffset == other.dwDevSpecificOffset
+            && self.dwDevSpecificSize == other.dwDevSpecificSize
+            && self.dwModemProviderVersion == other.dwModemProviderVersion
+            && self.dwModemManufacturerOffset == other.dwModemManufacturerOffset
+            && self.dwModemManufacturerSize == other.dwModemManufacturerSize
+            && self.dwModemModelOffset == other.dwModemModelOffset
+            && self.dwModemModelSize == other.dwModemModelSize
+            && self.dwModemVersionOffset == other.dwModemVersionOffset
+            && self.dwModemVersionSize == other.dwModemVersionSize
+            && self.dwDialOptions == other.dwDialOptions
+            && self.dwCallSetupFailTimer == other.dwCallSetupFailTimer
+            && self.dwInactivityTimeout == other.dwInactivityTimeout
+            && self.dwSpeakerVolume == other.dwSpeakerVolume
+            && self.dwSpeakerMode == other.dwSpeakerMode
+            && self.dwModemOptions == other.dwModemOptions
+            && self.dwMaxDTERate == other.dwMaxDTERate
+            && self.dwMaxDCERate == other.dwMaxDCERate
+            && self.abVariablePortion == other.abVariablePortion
     }
 }
 impl ::core::cmp::Eq for MODEMDEVCAPS {}
@@ -1494,7 +1530,7 @@ unsafe impl ::windows::core::Abi for MODEMSETTINGS {
 }
 impl ::core::cmp::PartialEq for MODEMSETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODEMSETTINGS>()) == 0 }
+        self.dwActualSize == other.dwActualSize && self.dwRequiredSize == other.dwRequiredSize && self.dwDevSpecificOffset == other.dwDevSpecificOffset && self.dwDevSpecificSize == other.dwDevSpecificSize && self.dwCallSetupFailTimer == other.dwCallSetupFailTimer && self.dwInactivityTimeout == other.dwInactivityTimeout && self.dwSpeakerVolume == other.dwSpeakerVolume && self.dwSpeakerMode == other.dwSpeakerMode && self.dwPreferredModemOptions == other.dwPreferredModemOptions && self.dwNegotiatedModemOptions == other.dwNegotiatedModemOptions && self.dwNegotiatedDCERate == other.dwNegotiatedDCERate && self.abVariablePortion == other.abVariablePortion
     }
 }
 impl ::core::cmp::Eq for MODEMSETTINGS {}

@@ -413,7 +413,7 @@ unsafe impl ::windows::core::Abi for D3D_SHADER_DATA {
 }
 impl ::core::cmp::PartialEq for D3D_SHADER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D_SHADER_DATA>()) == 0 }
+        self.pBytecode == other.pBytecode && self.BytecodeLength == other.BytecodeLength
     }
 }
 impl ::core::cmp::Eq for D3D_SHADER_DATA {}

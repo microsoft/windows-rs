@@ -5446,7 +5446,7 @@ unsafe impl ::windows::core::RuntimeType for SmsEncodedLength {
 }
 impl ::core::cmp::PartialEq for SmsEncodedLength {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SmsEncodedLength>()) == 0 }
+        self.SegmentCount == other.SegmentCount && self.CharacterCountLastSegment == other.CharacterCountLastSegment && self.CharactersPerSegment == other.CharactersPerSegment && self.ByteCountLastSegment == other.ByteCountLastSegment && self.BytesPerSegment == other.BytesPerSegment
     }
 }
 impl ::core::cmp::Eq for SmsEncodedLength {}

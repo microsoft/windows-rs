@@ -3675,7 +3675,7 @@ unsafe impl ::windows::core::Abi for VSS_DIFF_AREA_PROP {
 }
 impl ::core::cmp::PartialEq for VSS_DIFF_AREA_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_DIFF_AREA_PROP>()) == 0 }
+        self.m_pwszVolumeName == other.m_pwszVolumeName && self.m_pwszDiffAreaVolumeName == other.m_pwszDiffAreaVolumeName && self.m_llMaximumDiffSpace == other.m_llMaximumDiffSpace && self.m_llAllocatedDiffSpace == other.m_llAllocatedDiffSpace && self.m_llUsedDiffSpace == other.m_llUsedDiffSpace
     }
 }
 impl ::core::cmp::Eq for VSS_DIFF_AREA_PROP {}
@@ -3708,7 +3708,7 @@ unsafe impl ::windows::core::Abi for VSS_DIFF_VOLUME_PROP {
 }
 impl ::core::cmp::PartialEq for VSS_DIFF_VOLUME_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_DIFF_VOLUME_PROP>()) == 0 }
+        self.m_pwszVolumeName == other.m_pwszVolumeName && self.m_pwszVolumeDisplayName == other.m_pwszVolumeDisplayName && self.m_llVolumeFreeSpace == other.m_llVolumeFreeSpace && self.m_llVolumeTotalSpace == other.m_llVolumeTotalSpace
     }
 }
 impl ::core::cmp::Eq for VSS_DIFF_VOLUME_PROP {}
@@ -3732,12 +3732,6 @@ impl ::core::clone::Clone for VSS_MGMT_OBJECT_PROP {
 unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_PROP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VSS_MGMT_OBJECT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_MGMT_OBJECT_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_MGMT_OBJECT_PROP {}
 impl ::core::default::Default for VSS_MGMT_OBJECT_PROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3759,12 +3753,6 @@ impl ::core::clone::Clone for VSS_MGMT_OBJECT_UNION {
 unsafe impl ::windows::core::Abi for VSS_MGMT_OBJECT_UNION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VSS_MGMT_OBJECT_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_MGMT_OBJECT_UNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_MGMT_OBJECT_UNION {}
 impl ::core::default::Default for VSS_MGMT_OBJECT_UNION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3785,12 +3773,6 @@ impl ::core::clone::Clone for VSS_OBJECT_PROP {
 unsafe impl ::windows::core::Abi for VSS_OBJECT_PROP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VSS_OBJECT_PROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_OBJECT_PROP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_OBJECT_PROP {}
 impl ::core::default::Default for VSS_OBJECT_PROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3811,12 +3793,6 @@ impl ::core::clone::Clone for VSS_OBJECT_UNION {
 unsafe impl ::windows::core::Abi for VSS_OBJECT_UNION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VSS_OBJECT_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_OBJECT_UNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VSS_OBJECT_UNION {}
 impl ::core::default::Default for VSS_OBJECT_UNION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3848,7 +3824,7 @@ unsafe impl ::windows::core::Abi for VSS_PROVIDER_PROP {
 }
 impl ::core::cmp::PartialEq for VSS_PROVIDER_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_PROVIDER_PROP>()) == 0 }
+        self.m_ProviderId == other.m_ProviderId && self.m_pwszProviderName == other.m_pwszProviderName && self.m_eProviderType == other.m_eProviderType && self.m_pwszProviderVersion == other.m_pwszProviderVersion && self.m_ProviderVersionId == other.m_ProviderVersionId && self.m_ClassId == other.m_ClassId
     }
 }
 impl ::core::cmp::Eq for VSS_PROVIDER_PROP {}
@@ -3904,7 +3880,7 @@ unsafe impl ::windows::core::Abi for VSS_SNAPSHOT_PROP {
 }
 impl ::core::cmp::PartialEq for VSS_SNAPSHOT_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_SNAPSHOT_PROP>()) == 0 }
+        self.m_SnapshotId == other.m_SnapshotId && self.m_SnapshotSetId == other.m_SnapshotSetId && self.m_lSnapshotsCount == other.m_lSnapshotsCount && self.m_pwszSnapshotDeviceObject == other.m_pwszSnapshotDeviceObject && self.m_pwszOriginalVolumeName == other.m_pwszOriginalVolumeName && self.m_pwszOriginatingMachine == other.m_pwszOriginatingMachine && self.m_pwszServiceMachine == other.m_pwszServiceMachine && self.m_pwszExposedName == other.m_pwszExposedName && self.m_pwszExposedPath == other.m_pwszExposedPath && self.m_ProviderId == other.m_ProviderId && self.m_lSnapshotAttributes == other.m_lSnapshotAttributes && self.m_tsCreationTimestamp == other.m_tsCreationTimestamp && self.m_eStatus == other.m_eStatus
     }
 }
 impl ::core::cmp::Eq for VSS_SNAPSHOT_PROP {}
@@ -3935,7 +3911,7 @@ unsafe impl ::windows::core::Abi for VSS_VOLUME_PROP {
 }
 impl ::core::cmp::PartialEq for VSS_VOLUME_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_VOLUME_PROP>()) == 0 }
+        self.m_pwszVolumeName == other.m_pwszVolumeName && self.m_pwszVolumeDisplayName == other.m_pwszVolumeDisplayName
     }
 }
 impl ::core::cmp::Eq for VSS_VOLUME_PROP {}
@@ -3976,7 +3952,7 @@ unsafe impl ::windows::core::Abi for VSS_VOLUME_PROTECTION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VSS_VOLUME_PROTECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VSS_VOLUME_PROTECTION_INFO>()) == 0 }
+        self.m_protectionLevel == other.m_protectionLevel && self.m_volumeIsOfflineForProtection == other.m_volumeIsOfflineForProtection && self.m_protectionFault == other.m_protectionFault && self.m_failureStatus == other.m_failureStatus && self.m_volumeHasUnusedDiffArea == other.m_volumeHasUnusedDiffArea && self.m_reserved == other.m_reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]

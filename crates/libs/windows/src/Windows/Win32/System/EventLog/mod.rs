@@ -1597,7 +1597,7 @@ unsafe impl ::windows::core::Abi for EVENTLOGRECORD {
 }
 impl ::core::cmp::PartialEq for EVENTLOGRECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENTLOGRECORD>()) == 0 }
+        self.Length == other.Length && self.Reserved == other.Reserved && self.RecordNumber == other.RecordNumber && self.TimeGenerated == other.TimeGenerated && self.TimeWritten == other.TimeWritten && self.EventID == other.EventID && self.EventType == other.EventType && self.NumStrings == other.NumStrings && self.EventCategory == other.EventCategory && self.ReservedFlags == other.ReservedFlags && self.ClosingRecordNumber == other.ClosingRecordNumber && self.StringOffset == other.StringOffset && self.UserSidLength == other.UserSidLength && self.UserSidOffset == other.UserSidOffset && self.DataLength == other.DataLength && self.DataOffset == other.DataOffset
     }
 }
 impl ::core::cmp::Eq for EVENTLOGRECORD {}
@@ -1627,7 +1627,7 @@ unsafe impl ::windows::core::Abi for EVENTLOG_FULL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for EVENTLOG_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENTLOG_FULL_INFORMATION>()) == 0 }
+        self.dwFull == other.dwFull
     }
 }
 impl ::core::cmp::Eq for EVENTLOG_FULL_INFORMATION {}
@@ -1660,7 +1660,7 @@ unsafe impl ::windows::core::Abi for EVENTSFORLOGFILE {
 }
 impl ::core::cmp::PartialEq for EVENTSFORLOGFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENTSFORLOGFILE>()) == 0 }
+        self.ulSize == other.ulSize && self.szLogicalLogFile == other.szLogicalLogFile && self.ulNumRecords == other.ulNumRecords && self.pEventLogRecords == other.pEventLogRecords
     }
 }
 impl ::core::cmp::Eq for EVENTSFORLOGFILE {}
@@ -1726,7 +1726,7 @@ unsafe impl ::windows::core::Abi for EVT_RPC_LOGIN {
 }
 impl ::core::cmp::PartialEq for EVT_RPC_LOGIN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVT_RPC_LOGIN>()) == 0 }
+        self.Server == other.Server && self.User == other.User && self.Domain == other.Domain && self.Password == other.Password && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for EVT_RPC_LOGIN {}
@@ -1755,14 +1755,6 @@ impl ::core::clone::Clone for EVT_VARIANT {
 unsafe impl ::windows::core::Abi for EVT_VARIANT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVT_VARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVT_VARIANT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVT_VARIANT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVT_VARIANT {
     fn default() -> Self {
@@ -1826,14 +1818,6 @@ impl ::core::clone::Clone for EVT_VARIANT_0 {
 unsafe impl ::windows::core::Abi for EVT_VARIANT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVT_VARIANT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVT_VARIANT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVT_VARIANT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVT_VARIANT_0 {
     fn default() -> Self {

@@ -864,7 +864,7 @@ unsafe impl ::windows::core::Abi for CROSS_SLIDE_PARAMETER {
 }
 impl ::core::cmp::PartialEq for CROSS_SLIDE_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CROSS_SLIDE_PARAMETER>()) == 0 }
+        self.threshold == other.threshold && self.distance == other.distance
     }
 }
 impl ::core::cmp::Eq for CROSS_SLIDE_PARAMETER {}
@@ -926,7 +926,7 @@ unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_CROSS_SLIDE {
 }
 impl ::core::cmp::PartialEq for INTERACTION_ARGUMENTS_CROSS_SLIDE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_ARGUMENTS_CROSS_SLIDE>()) == 0 }
+        self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for INTERACTION_ARGUMENTS_CROSS_SLIDE {}
@@ -959,7 +959,7 @@ unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_MANIPULATION {
 }
 impl ::core::cmp::PartialEq for INTERACTION_ARGUMENTS_MANIPULATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_ARGUMENTS_MANIPULATION>()) == 0 }
+        self.delta == other.delta && self.cumulative == other.cumulative && self.velocity == other.velocity && self.railsState == other.railsState
     }
 }
 impl ::core::cmp::Eq for INTERACTION_ARGUMENTS_MANIPULATION {}
@@ -989,7 +989,7 @@ unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_TAP {
 }
 impl ::core::cmp::PartialEq for INTERACTION_ARGUMENTS_TAP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_ARGUMENTS_TAP>()) == 0 }
+        self.count == other.count
     }
 }
 impl ::core::cmp::Eq for INTERACTION_ARGUMENTS_TAP {}
@@ -1020,7 +1020,7 @@ unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_CONFIGURATION {
 }
 impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_CONTEXT_CONFIGURATION>()) == 0 }
+        self.interactionId == other.interactionId && self.enable == other.enable
     }
 }
 impl ::core::cmp::Eq for INTERACTION_CONTEXT_CONFIGURATION {}
@@ -1053,14 +1053,6 @@ unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_CONTEXT_OUTPUT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::Eq for INTERACTION_CONTEXT_OUTPUT {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1086,14 +1078,6 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT_0 {
 unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_CONTEXT_OUTPUT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::Eq for INTERACTION_CONTEXT_OUTPUT_0 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT_0 {
     fn default() -> Self {
@@ -1126,14 +1110,6 @@ unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT2 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_CONTEXT_OUTPUT2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::Eq for INTERACTION_CONTEXT_OUTPUT2 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1159,14 +1135,6 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2_0 {
 unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_CONTEXT_OUTPUT2_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::Eq for INTERACTION_CONTEXT_OUTPUT2_0 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn default() -> Self {
@@ -1198,7 +1166,7 @@ unsafe impl ::windows::core::Abi for MANIPULATION_TRANSFORM {
 }
 impl ::core::cmp::PartialEq for MANIPULATION_TRANSFORM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MANIPULATION_TRANSFORM>()) == 0 }
+        self.translationX == other.translationX && self.translationY == other.translationY && self.scale == other.scale && self.expansion == other.expansion && self.rotation == other.rotation
     }
 }
 impl ::core::cmp::Eq for MANIPULATION_TRANSFORM {}
@@ -1231,7 +1199,7 @@ unsafe impl ::windows::core::Abi for MANIPULATION_VELOCITY {
 }
 impl ::core::cmp::PartialEq for MANIPULATION_VELOCITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MANIPULATION_VELOCITY>()) == 0 }
+        self.velocityX == other.velocityX && self.velocityY == other.velocityY && self.velocityExpansion == other.velocityExpansion && self.velocityAngular == other.velocityAngular
     }
 }
 impl ::core::cmp::Eq for MANIPULATION_VELOCITY {}

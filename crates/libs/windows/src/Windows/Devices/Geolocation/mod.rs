@@ -2553,7 +2553,7 @@ unsafe impl ::windows::core::RuntimeType for BasicGeoposition {
 }
 impl ::core::cmp::PartialEq for BasicGeoposition {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BasicGeoposition>()) == 0 }
+        self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude
     }
 }
 impl ::core::cmp::Eq for BasicGeoposition {}

@@ -4357,7 +4357,7 @@ unsafe impl ::windows::core::RuntimeType for FontWeight {
 }
 impl ::core::cmp::PartialEq for FontWeight {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FontWeight>()) == 0 }
+        self.Weight == other.Weight
     }
 }
 impl ::core::cmp::Eq for FontWeight {}

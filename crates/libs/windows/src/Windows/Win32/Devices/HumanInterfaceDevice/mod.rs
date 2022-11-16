@@ -7839,7 +7839,7 @@ unsafe impl ::windows::core::Abi for CPOINT {
 }
 impl ::core::cmp::PartialEq for CPOINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CPOINT>()) == 0 }
+        self.lP == other.lP && self.dwLog == other.dwLog
     }
 }
 impl ::core::cmp::Eq for CPOINT {}
@@ -7868,12 +7868,6 @@ impl ::core::clone::Clone for DIACTIONA {
 unsafe impl ::windows::core::Abi for DIACTIONA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DIACTIONA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DIACTIONA {}
 impl ::core::default::Default for DIACTIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7894,12 +7888,6 @@ impl ::core::clone::Clone for DIACTIONA_0 {
 unsafe impl ::windows::core::Abi for DIACTIONA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DIACTIONA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DIACTIONA_0 {}
 impl ::core::default::Default for DIACTIONA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7960,7 +7948,7 @@ unsafe impl ::windows::core::Abi for DIACTIONFORMATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIACTIONFORMATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONFORMATA>()) == 0 }
+        self.dwSize == other.dwSize && self.dwActionSize == other.dwActionSize && self.dwDataSize == other.dwDataSize && self.dwNumActions == other.dwNumActions && self.rgoAction == other.rgoAction && self.guidActionMap == other.guidActionMap && self.dwGenre == other.dwGenre && self.dwBufferSize == other.dwBufferSize && self.lAxisMin == other.lAxisMin && self.lAxisMax == other.lAxisMax && self.hInstString == other.hInstString && self.ftTimeStamp == other.ftTimeStamp && self.dwCRC == other.dwCRC && self.tszActionMap == other.tszActionMap
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8026,7 +8014,7 @@ unsafe impl ::windows::core::Abi for DIACTIONFORMATW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIACTIONFORMATW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONFORMATW>()) == 0 }
+        self.dwSize == other.dwSize && self.dwActionSize == other.dwActionSize && self.dwDataSize == other.dwDataSize && self.dwNumActions == other.dwNumActions && self.rgoAction == other.rgoAction && self.guidActionMap == other.guidActionMap && self.dwGenre == other.dwGenre && self.dwBufferSize == other.dwBufferSize && self.lAxisMin == other.lAxisMin && self.lAxisMax == other.lAxisMax && self.hInstString == other.hInstString && self.ftTimeStamp == other.ftTimeStamp && self.dwCRC == other.dwCRC && self.tszActionMap == other.tszActionMap
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8057,12 +8045,6 @@ impl ::core::clone::Clone for DIACTIONW {
 unsafe impl ::windows::core::Abi for DIACTIONW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DIACTIONW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DIACTIONW {}
 impl ::core::default::Default for DIACTIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8083,12 +8065,6 @@ impl ::core::clone::Clone for DIACTIONW_0 {
 unsafe impl ::windows::core::Abi for DIACTIONW_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DIACTIONW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIACTIONW_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DIACTIONW_0 {}
 impl ::core::default::Default for DIACTIONW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8123,7 +8099,7 @@ unsafe impl ::windows::core::Abi for DICOLORSET {
 }
 impl ::core::cmp::PartialEq for DICOLORSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICOLORSET>()) == 0 }
+        self.dwSize == other.dwSize && self.cTextFore == other.cTextFore && self.cTextHighlight == other.cTextHighlight && self.cCalloutLine == other.cCalloutLine && self.cCalloutHighlight == other.cCalloutHighlight && self.cBorder == other.cBorder && self.cControlFill == other.cControlFill && self.cHighlightFill == other.cHighlightFill && self.cAreaFill == other.cAreaFill
     }
 }
 impl ::core::cmp::Eq for DICOLORSET {}
@@ -8158,7 +8134,7 @@ unsafe impl ::windows::core::Abi for DICONDITION {
 }
 impl ::core::cmp::PartialEq for DICONDITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONDITION>()) == 0 }
+        self.lOffset == other.lOffset && self.lPositiveCoefficient == other.lPositiveCoefficient && self.lNegativeCoefficient == other.lNegativeCoefficient && self.dwPositiveSaturation == other.dwPositiveSaturation && self.dwNegativeSaturation == other.dwNegativeSaturation && self.lDeadBand == other.lDeadBand
     }
 }
 impl ::core::cmp::Eq for DICONDITION {}
@@ -8292,7 +8268,7 @@ unsafe impl ::windows::core::Abi for DICONSTANTFORCE {
 }
 impl ::core::cmp::PartialEq for DICONSTANTFORCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICONSTANTFORCE>()) == 0 }
+        self.lMagnitude == other.lMagnitude
     }
 }
 impl ::core::cmp::Eq for DICONSTANTFORCE {}
@@ -8325,7 +8301,7 @@ unsafe impl ::windows::core::Abi for DICUSTOMFORCE {
 }
 impl ::core::cmp::PartialEq for DICUSTOMFORCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DICUSTOMFORCE>()) == 0 }
+        self.cChannels == other.cChannels && self.dwSamplePeriod == other.dwSamplePeriod && self.cSamples == other.cSamples && self.rglForceData == other.rglForceData
     }
 }
 impl ::core::cmp::Eq for DICUSTOMFORCE {}
@@ -8360,7 +8336,7 @@ unsafe impl ::windows::core::Abi for DIDATAFORMAT {
 }
 impl ::core::cmp::PartialEq for DIDATAFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDATAFORMAT>()) == 0 }
+        self.dwSize == other.dwSize && self.dwObjSize == other.dwObjSize && self.dwFlags == other.dwFlags && self.dwDataSize == other.dwDataSize && self.dwNumObjs == other.dwNumObjs && self.rgodf == other.rgodf
     }
 }
 impl ::core::cmp::Eq for DIDATAFORMAT {}
@@ -8412,7 +8388,7 @@ unsafe impl ::windows::core::Abi for DIDEVCAPS {
 }
 impl ::core::cmp::PartialEq for DIDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVCAPS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
     }
 }
 impl ::core::cmp::Eq for DIDEVCAPS {}
@@ -8447,7 +8423,7 @@ unsafe impl ::windows::core::Abi for DIDEVCAPS_DX3 {
 }
 impl ::core::cmp::PartialEq for DIDEVCAPS_DX3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVCAPS_DX3>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs
     }
 }
 impl ::core::cmp::Eq for DIDEVCAPS_DX3 {}
@@ -8491,7 +8467,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOA>()) == 0 }
+        self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8537,7 +8513,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOHEADERA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOHEADERA>()) == 0 }
+        self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8583,7 +8559,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOHEADERW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOHEADERW>()) == 0 }
+        self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8629,7 +8605,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEIMAGEINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEIMAGEINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEIMAGEINFOW>()) == 0 }
+        self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8675,7 +8651,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCEA>()) == 0 }
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8715,7 +8691,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEINSTANCEW {
 }
 impl ::core::cmp::PartialEq for DIDEVICEINSTANCEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCEW>()) == 0 }
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
 impl ::core::cmp::Eq for DIDEVICEINSTANCEW {}
@@ -8756,7 +8732,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEINSTANCE_DX3A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCE_DX3A>()) == 0 }
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8793,7 +8769,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEINSTANCE_DX3W {
 }
 impl ::core::cmp::PartialEq for DIDEVICEINSTANCE_DX3W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEINSTANCE_DX3W>()) == 0 }
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
     }
 }
 impl ::core::cmp::Eq for DIDEVICEINSTANCE_DX3W {}
@@ -8827,7 +8803,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA {
 }
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTDATA>()) == 0 }
+        self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence && self.uAppData == other.uAppData
     }
 }
 impl ::core::cmp::Eq for DIDEVICEOBJECTDATA {}
@@ -8860,7 +8836,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEOBJECTDATA_DX3 {
 }
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTDATA_DX3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTDATA_DX3>()) == 0 }
+        self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence
     }
 }
 impl ::core::cmp::Eq for DIDEVICEOBJECTDATA_DX3 {}
@@ -8926,7 +8902,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCEA>()) == 0 }
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName && self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution && self.wCollectionNumber == other.wCollectionNumber && self.wDesignatorIndex == other.wDesignatorIndex && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage && self.dwDimension == other.dwDimension && self.wExponent == other.wExponent && self.wReportId == other.wReportId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8988,7 +8964,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCEW {
 }
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCEW>()) == 0 }
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName && self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution && self.wCollectionNumber == other.wCollectionNumber && self.wDesignatorIndex == other.wDesignatorIndex && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage && self.dwDimension == other.dwDimension && self.wExponent == other.wExponent && self.wReportId == other.wReportId
     }
 }
 impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEW {}
@@ -9029,7 +9005,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCE_DX3A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCE_DX3A>()) == 0 }
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9066,7 +9042,7 @@ unsafe impl ::windows::core::Abi for DIDEVICEOBJECTINSTANCE_DX3W {
 }
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICEOBJECTINSTANCE_DX3W>()) == 0 }
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
     }
 }
 impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3W {}
@@ -9098,7 +9074,7 @@ unsafe impl ::windows::core::Abi for DIDEVICESTATE {
 }
 impl ::core::cmp::PartialEq for DIDEVICESTATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDEVICESTATE>()) == 0 }
+        self.dwSize == other.dwSize && self.dwState == other.dwState && self.dwLoad == other.dwLoad
     }
 }
 impl ::core::cmp::Eq for DIDEVICESTATE {}
@@ -9131,7 +9107,7 @@ unsafe impl ::windows::core::Abi for DIDRIVERVERSIONS {
 }
 impl ::core::cmp::PartialEq for DIDRIVERVERSIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIDRIVERVERSIONS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
     }
 }
 impl ::core::cmp::Eq for DIDRIVERVERSIONS {}
@@ -9189,7 +9165,7 @@ unsafe impl ::windows::core::Abi for DIEFFECT {
 }
 impl ::core::cmp::PartialEq for DIEFFECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECT>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDuration == other.dwDuration && self.dwSamplePeriod == other.dwSamplePeriod && self.dwGain == other.dwGain && self.dwTriggerButton == other.dwTriggerButton && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval && self.cAxes == other.cAxes && self.rgdwAxes == other.rgdwAxes && self.rglDirection == other.rglDirection && self.lpEnvelope == other.lpEnvelope && self.cbTypeSpecificParams == other.cbTypeSpecificParams && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams && self.dwStartDelay == other.dwStartDelay
     }
 }
 impl ::core::cmp::Eq for DIEFFECT {}
@@ -9223,7 +9199,7 @@ unsafe impl ::windows::core::Abi for DIEFFECTATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for DIEFFECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECTATTRIBUTES>()) == 0 }
+        self.dwEffectId == other.dwEffectId && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.dwCoords == other.dwCoords
     }
 }
 impl ::core::cmp::Eq for DIEFFECTATTRIBUTES {}
@@ -9264,7 +9240,7 @@ unsafe impl ::windows::core::Abi for DIEFFECTINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIEFFECTINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECTINFOA>()) == 0 }
+        self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9301,7 +9277,7 @@ unsafe impl ::windows::core::Abi for DIEFFECTINFOW {
 }
 impl ::core::cmp::PartialEq for DIEFFECTINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECTINFOW>()) == 0 }
+        self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
     }
 }
 impl ::core::cmp::Eq for DIEFFECTINFOW {}
@@ -9357,7 +9333,7 @@ unsafe impl ::windows::core::Abi for DIEFFECT_DX5 {
 }
 impl ::core::cmp::PartialEq for DIEFFECT_DX5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFECT_DX5>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDuration == other.dwDuration && self.dwSamplePeriod == other.dwSamplePeriod && self.dwGain == other.dwGain && self.dwTriggerButton == other.dwTriggerButton && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval && self.cAxes == other.cAxes && self.rgdwAxes == other.rgdwAxes && self.rglDirection == other.rglDirection && self.lpEnvelope == other.lpEnvelope && self.cbTypeSpecificParams == other.cbTypeSpecificParams && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams
     }
 }
 impl ::core::cmp::Eq for DIEFFECT_DX5 {}
@@ -9392,7 +9368,7 @@ unsafe impl ::windows::core::Abi for DIEFFESCAPE {
 }
 impl ::core::cmp::PartialEq for DIEFFESCAPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIEFFESCAPE>()) == 0 }
+        self.dwSize == other.dwSize && self.dwCommand == other.dwCommand && self.lpvInBuffer == other.lpvInBuffer && self.cbInBuffer == other.cbInBuffer && self.lpvOutBuffer == other.lpvOutBuffer && self.cbOutBuffer == other.cbOutBuffer
     }
 }
 impl ::core::cmp::Eq for DIEFFESCAPE {}
@@ -9426,7 +9402,7 @@ unsafe impl ::windows::core::Abi for DIENVELOPE {
 }
 impl ::core::cmp::PartialEq for DIENVELOPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIENVELOPE>()) == 0 }
+        self.dwSize == other.dwSize && self.dwAttackLevel == other.dwAttackLevel && self.dwAttackTime == other.dwAttackTime && self.dwFadeLevel == other.dwFadeLevel && self.dwFadeTime == other.dwFadeTime
     }
 }
 impl ::core::cmp::Eq for DIENVELOPE {}
@@ -9458,7 +9434,7 @@ unsafe impl ::windows::core::Abi for DIFFDEVICEATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for DIFFDEVICEATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIFFDEVICEATTRIBUTES>()) == 0 }
+        self.dwFlags == other.dwFlags && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution
     }
 }
 impl ::core::cmp::Eq for DIFFDEVICEATTRIBUTES {}
@@ -9489,7 +9465,7 @@ unsafe impl ::windows::core::Abi for DIFFOBJECTATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for DIFFOBJECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIFFOBJECTATTRIBUTES>()) == 0 }
+        self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution
     }
 }
 impl ::core::cmp::Eq for DIFFOBJECTATTRIBUTES {}
@@ -9528,7 +9504,7 @@ unsafe impl ::windows::core::Abi for DIFILEEFFECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIFILEEFFECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIFILEEFFECT>()) == 0 }
+        self.dwSize == other.dwSize && self.GuidEffect == other.GuidEffect && self.lpDiEffect == other.lpDiEffect && self.szFriendlyName == other.szFriendlyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9562,7 +9538,7 @@ unsafe impl ::windows::core::Abi for DIHIDFFINITINFO {
 }
 impl ::core::cmp::PartialEq for DIHIDFFINITINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIHIDFFINITINFO>()) == 0 }
+        self.dwSize == other.dwSize && self.pwszDeviceInterface == other.pwszDeviceInterface && self.GuidInstance == other.GuidInstance
     }
 }
 impl ::core::cmp::Eq for DIHIDFFINITINFO {}
@@ -9598,7 +9574,7 @@ unsafe impl ::windows::core::Abi for DIJOYCONFIG {
 }
 impl ::core::cmp::PartialEq for DIJOYCONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYCONFIG>()) == 0 }
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.hwc == other.hwc && self.dwGain == other.dwGain && self.wszType == other.wszType && self.wszCallout == other.wszCallout && self.guidGameport == other.guidGameport
     }
 }
 impl ::core::cmp::Eq for DIJOYCONFIG {}
@@ -9633,7 +9609,7 @@ unsafe impl ::windows::core::Abi for DIJOYCONFIG_DX5 {
 }
 impl ::core::cmp::PartialEq for DIJOYCONFIG_DX5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYCONFIG_DX5>()) == 0 }
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.hwc == other.hwc && self.dwGain == other.dwGain && self.wszType == other.wszType && self.wszCallout == other.wszCallout
     }
 }
 impl ::core::cmp::Eq for DIJOYCONFIG_DX5 {}
@@ -9671,7 +9647,7 @@ unsafe impl ::windows::core::Abi for DIJOYSTATE {
 }
 impl ::core::cmp::PartialEq for DIJOYSTATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYSTATE>()) == 0 }
+        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.lRx == other.lRx && self.lRy == other.lRy && self.lRz == other.lRz && self.rglSlider == other.rglSlider && self.rgdwPOV == other.rgdwPOV && self.rgbButtons == other.rgbButtons
     }
 }
 impl ::core::cmp::Eq for DIJOYSTATE {}
@@ -9761,7 +9737,36 @@ unsafe impl ::windows::core::Abi for DIJOYSTATE2 {
 }
 impl ::core::cmp::PartialEq for DIJOYSTATE2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYSTATE2>()) == 0 }
+        self.lX == other.lX
+            && self.lY == other.lY
+            && self.lZ == other.lZ
+            && self.lRx == other.lRx
+            && self.lRy == other.lRy
+            && self.lRz == other.lRz
+            && self.rglSlider == other.rglSlider
+            && self.rgdwPOV == other.rgdwPOV
+            && self.rgbButtons == other.rgbButtons
+            && self.lVX == other.lVX
+            && self.lVY == other.lVY
+            && self.lVZ == other.lVZ
+            && self.lVRx == other.lVRx
+            && self.lVRy == other.lVRy
+            && self.lVRz == other.lVRz
+            && self.rglVSlider == other.rglVSlider
+            && self.lAX == other.lAX
+            && self.lAY == other.lAY
+            && self.lAZ == other.lAZ
+            && self.lARx == other.lARx
+            && self.lARy == other.lARy
+            && self.lARz == other.lARz
+            && self.rglASlider == other.rglASlider
+            && self.lFX == other.lFX
+            && self.lFY == other.lFY
+            && self.lFZ == other.lFZ
+            && self.lFRx == other.lFRx
+            && self.lFRy == other.lFRy
+            && self.lFRz == other.lFRz
+            && self.rglFSlider == other.rglFSlider
     }
 }
 impl ::core::cmp::Eq for DIJOYSTATE2 {}
@@ -9799,7 +9804,7 @@ unsafe impl ::windows::core::Abi for DIJOYTYPEINFO {
 }
 impl ::core::cmp::PartialEq for DIJOYTYPEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYTYPEINFO>()) == 0 }
+        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout && self.wszHardwareId == other.wszHardwareId && self.dwFlags1 == other.dwFlags1 && self.dwFlags2 == other.dwFlags2 && self.wszMapFile == other.wszMapFile
     }
 }
 impl ::core::cmp::Eq for DIJOYTYPEINFO {}
@@ -9833,7 +9838,7 @@ unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX5 {
 }
 impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYTYPEINFO_DX5>()) == 0 }
+        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout
     }
 }
 impl ::core::cmp::Eq for DIJOYTYPEINFO_DX5 {}
@@ -9869,7 +9874,7 @@ unsafe impl ::windows::core::Abi for DIJOYTYPEINFO_DX6 {
 }
 impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYTYPEINFO_DX6>()) == 0 }
+        self.dwSize == other.dwSize && self.hws == other.hws && self.clsidConfig == other.clsidConfig && self.wszDisplayName == other.wszDisplayName && self.wszCallout == other.wszCallout && self.wszHardwareId == other.wszHardwareId && self.dwFlags1 == other.dwFlags1
     }
 }
 impl ::core::cmp::Eq for DIJOYTYPEINFO_DX6 {}
@@ -9902,7 +9907,7 @@ unsafe impl ::windows::core::Abi for DIJOYUSERVALUES {
 }
 impl ::core::cmp::PartialEq for DIJOYUSERVALUES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIJOYUSERVALUES>()) == 0 }
+        self.dwSize == other.dwSize && self.ruv == other.ruv && self.wszGlobalDriver == other.wszGlobalDriver && self.wszGameportEmulator == other.wszGameportEmulator
     }
 }
 impl ::core::cmp::Eq for DIJOYUSERVALUES {}
@@ -9935,7 +9940,7 @@ unsafe impl ::windows::core::Abi for DIMOUSESTATE {
 }
 impl ::core::cmp::PartialEq for DIMOUSESTATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIMOUSESTATE>()) == 0 }
+        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
     }
 }
 impl ::core::cmp::Eq for DIMOUSESTATE {}
@@ -9968,7 +9973,7 @@ unsafe impl ::windows::core::Abi for DIMOUSESTATE2 {
 }
 impl ::core::cmp::PartialEq for DIMOUSESTATE2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIMOUSESTATE2>()) == 0 }
+        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
     }
 }
 impl ::core::cmp::Eq for DIMOUSESTATE2 {}
@@ -10000,7 +10005,7 @@ unsafe impl ::windows::core::Abi for DIOBJECTATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for DIOBJECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIOBJECTATTRIBUTES>()) == 0 }
+        self.dwFlags == other.dwFlags && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
 impl ::core::cmp::Eq for DIOBJECTATTRIBUTES {}
@@ -10032,7 +10037,7 @@ unsafe impl ::windows::core::Abi for DIOBJECTCALIBRATION {
 }
 impl ::core::cmp::PartialEq for DIOBJECTCALIBRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIOBJECTCALIBRATION>()) == 0 }
+        self.lMin == other.lMin && self.lCenter == other.lCenter && self.lMax == other.lMax
     }
 }
 impl ::core::cmp::Eq for DIOBJECTCALIBRATION {}
@@ -10065,7 +10070,7 @@ unsafe impl ::windows::core::Abi for DIOBJECTDATAFORMAT {
 }
 impl ::core::cmp::PartialEq for DIOBJECTDATAFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIOBJECTDATAFORMAT>()) == 0 }
+        self.pguid == other.pguid && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for DIOBJECTDATAFORMAT {}
@@ -10098,7 +10103,7 @@ unsafe impl ::windows::core::Abi for DIPERIODIC {
 }
 impl ::core::cmp::PartialEq for DIPERIODIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPERIODIC>()) == 0 }
+        self.dwMagnitude == other.dwMagnitude && self.lOffset == other.lOffset && self.dwPhase == other.dwPhase && self.dwPeriod == other.dwPeriod
     }
 }
 impl ::core::cmp::Eq for DIPERIODIC {}
@@ -10129,7 +10134,7 @@ unsafe impl ::windows::core::Abi for DIPOVCALIBRATION {
 }
 impl ::core::cmp::PartialEq for DIPOVCALIBRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPOVCALIBRATION>()) == 0 }
+        self.lMin == other.lMin && self.lMax == other.lMax
     }
 }
 impl ::core::cmp::Eq for DIPOVCALIBRATION {}
@@ -10162,7 +10167,7 @@ unsafe impl ::windows::core::Abi for DIPROPCAL {
 }
 impl ::core::cmp::PartialEq for DIPROPCAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPCAL>()) == 0 }
+        self.diph == other.diph && self.lMin == other.lMin && self.lCenter == other.lCenter && self.lMax == other.lMax
     }
 }
 impl ::core::cmp::Eq for DIPROPCAL {}
@@ -10194,7 +10199,7 @@ unsafe impl ::windows::core::Abi for DIPROPCALPOV {
 }
 impl ::core::cmp::PartialEq for DIPROPCALPOV {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPCALPOV>()) == 0 }
+        self.diph == other.diph && self.lMin == other.lMin && self.lMax == other.lMax
     }
 }
 impl ::core::cmp::Eq for DIPROPCALPOV {}
@@ -10226,7 +10231,7 @@ unsafe impl ::windows::core::Abi for DIPROPCPOINTS {
 }
 impl ::core::cmp::PartialEq for DIPROPCPOINTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPCPOINTS>()) == 0 }
+        self.diph == other.diph && self.dwCPointsNum == other.dwCPointsNum && self.cp == other.cp
     }
 }
 impl ::core::cmp::Eq for DIPROPCPOINTS {}
@@ -10257,7 +10262,7 @@ unsafe impl ::windows::core::Abi for DIPROPDWORD {
 }
 impl ::core::cmp::PartialEq for DIPROPDWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPDWORD>()) == 0 }
+        self.diph == other.diph && self.dwData == other.dwData
     }
 }
 impl ::core::cmp::Eq for DIPROPDWORD {}
@@ -10289,7 +10294,7 @@ unsafe impl ::windows::core::Abi for DIPROPGUIDANDPATH {
 }
 impl ::core::cmp::PartialEq for DIPROPGUIDANDPATH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPGUIDANDPATH>()) == 0 }
+        self.diph == other.diph && self.guidClass == other.guidClass && self.wszPath == other.wszPath
     }
 }
 impl ::core::cmp::Eq for DIPROPGUIDANDPATH {}
@@ -10322,7 +10327,7 @@ unsafe impl ::windows::core::Abi for DIPROPHEADER {
 }
 impl ::core::cmp::PartialEq for DIPROPHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPHEADER>()) == 0 }
+        self.dwSize == other.dwSize && self.dwHeaderSize == other.dwHeaderSize && self.dwObj == other.dwObj && self.dwHow == other.dwHow
     }
 }
 impl ::core::cmp::Eq for DIPROPHEADER {}
@@ -10353,7 +10358,7 @@ unsafe impl ::windows::core::Abi for DIPROPPOINTER {
 }
 impl ::core::cmp::PartialEq for DIPROPPOINTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPPOINTER>()) == 0 }
+        self.diph == other.diph && self.uData == other.uData
     }
 }
 impl ::core::cmp::Eq for DIPROPPOINTER {}
@@ -10385,7 +10390,7 @@ unsafe impl ::windows::core::Abi for DIPROPRANGE {
 }
 impl ::core::cmp::PartialEq for DIPROPRANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPRANGE>()) == 0 }
+        self.diph == other.diph && self.lMin == other.lMin && self.lMax == other.lMax
     }
 }
 impl ::core::cmp::Eq for DIPROPRANGE {}
@@ -10416,7 +10421,7 @@ unsafe impl ::windows::core::Abi for DIPROPSTRING {
 }
 impl ::core::cmp::PartialEq for DIPROPSTRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIPROPSTRING>()) == 0 }
+        self.diph == other.diph && self.wsz == other.wsz
     }
 }
 impl ::core::cmp::Eq for DIPROPSTRING {}
@@ -10447,7 +10452,7 @@ unsafe impl ::windows::core::Abi for DIRAMPFORCE {
 }
 impl ::core::cmp::PartialEq for DIRAMPFORCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIRAMPFORCE>()) == 0 }
+        self.lStart == other.lStart && self.lEnd == other.lEnd
     }
 }
 impl ::core::cmp::Eq for DIRAMPFORCE {}
@@ -10480,7 +10485,7 @@ unsafe impl ::windows::core::Abi for HIDD_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for HIDD_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDD_ATTRIBUTES>()) == 0 }
+        self.Size == other.Size && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
     }
 }
 impl ::core::cmp::Eq for HIDD_ATTRIBUTES {}
@@ -10505,12 +10510,6 @@ impl ::core::clone::Clone for HIDD_CONFIGURATION {
 unsafe impl ::windows::core::Abi for HIDD_CONFIGURATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HIDD_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDD_CONFIGURATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HIDD_CONFIGURATION {}
 impl ::core::default::Default for HIDD_CONFIGURATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10544,7 +10543,7 @@ unsafe impl ::windows::core::Abi for HIDP_BUTTON_ARRAY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIDP_BUTTON_ARRAY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_ARRAY_DATA>()) == 0 }
+        self.ArrayIndex == other.ArrayIndex && self.On == other.On
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10588,14 +10587,6 @@ unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_BUTTON_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_BUTTON_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10620,14 +10611,6 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0 {
 unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_BUTTON_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_BUTTON_CAPS_0 {
     fn default() -> Self {
@@ -10668,7 +10651,7 @@ unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS_0_0>()) == 0 }
+        self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10713,7 +10696,7 @@ unsafe impl ::windows::core::Abi for HIDP_BUTTON_CAPS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_BUTTON_CAPS_0_1>()) == 0 }
+        self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10777,7 +10760,22 @@ unsafe impl ::windows::core::Abi for HIDP_CAPS {
 }
 impl ::core::cmp::PartialEq for HIDP_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_CAPS>()) == 0 }
+        self.Usage == other.Usage
+            && self.UsagePage == other.UsagePage
+            && self.InputReportByteLength == other.InputReportByteLength
+            && self.OutputReportByteLength == other.OutputReportByteLength
+            && self.FeatureReportByteLength == other.FeatureReportByteLength
+            && self.Reserved == other.Reserved
+            && self.NumberLinkCollectionNodes == other.NumberLinkCollectionNodes
+            && self.NumberInputButtonCaps == other.NumberInputButtonCaps
+            && self.NumberInputValueCaps == other.NumberInputValueCaps
+            && self.NumberInputDataIndices == other.NumberInputDataIndices
+            && self.NumberOutputButtonCaps == other.NumberOutputButtonCaps
+            && self.NumberOutputValueCaps == other.NumberOutputValueCaps
+            && self.NumberOutputDataIndices == other.NumberOutputDataIndices
+            && self.NumberFeatureButtonCaps == other.NumberFeatureButtonCaps
+            && self.NumberFeatureValueCaps == other.NumberFeatureValueCaps
+            && self.NumberFeatureDataIndices == other.NumberFeatureDataIndices
     }
 }
 impl ::core::cmp::Eq for HIDP_CAPS {}
@@ -10807,14 +10805,6 @@ unsafe impl ::windows::core::Abi for HIDP_DATA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10840,14 +10830,6 @@ unsafe impl ::windows::core::Abi for HIDP_DATA_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_DATA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10870,12 +10852,6 @@ impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
 unsafe impl ::windows::core::Abi for HIDP_EXTENDED_ATTRIBUTES {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HIDP_EXTENDED_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_EXTENDED_ATTRIBUTES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HIDP_EXTENDED_ATTRIBUTES {}
 impl ::core::default::Default for HIDP_EXTENDED_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10895,12 +10871,6 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE {
 unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_KEYBOARD_MODIFIER_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE {}
 impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10921,12 +10891,6 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
 unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_KEYBOARD_MODIFIER_STATE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
 impl ::core::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10953,7 +10917,7 @@ unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
 }
 impl ::core::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_KEYBOARD_MODIFIER_STATE_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
@@ -10983,12 +10947,6 @@ impl ::core::clone::Clone for HIDP_LINK_COLLECTION_NODE {
 unsafe impl ::windows::core::Abi for HIDP_LINK_COLLECTION_NODE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HIDP_LINK_COLLECTION_NODE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_LINK_COLLECTION_NODE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HIDP_LINK_COLLECTION_NODE {}
 impl ::core::default::Default for HIDP_LINK_COLLECTION_NODE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11017,7 +10975,7 @@ unsafe impl ::windows::core::Abi for HIDP_UNKNOWN_TOKEN {
 }
 impl ::core::cmp::PartialEq for HIDP_UNKNOWN_TOKEN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_UNKNOWN_TOKEN>()) == 0 }
+        self.Token == other.Token && self.Reserved == other.Reserved && self.BitField == other.BitField
     }
 }
 impl ::core::cmp::Eq for HIDP_UNKNOWN_TOKEN {}
@@ -11067,14 +11025,6 @@ unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_VALUE_CAPS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_VALUE_CAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11099,14 +11049,6 @@ impl ::core::clone::Clone for HIDP_VALUE_CAPS_0 {
 unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HIDP_VALUE_CAPS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HIDP_VALUE_CAPS_0 {
     fn default() -> Self {
@@ -11147,7 +11089,7 @@ unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS_0_0>()) == 0 }
+        self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11192,7 +11134,7 @@ unsafe impl ::windows::core::Abi for HIDP_VALUE_CAPS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIDP_VALUE_CAPS_0_1>()) == 0 }
+        self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11235,7 +11177,7 @@ unsafe impl ::windows::core::Abi for HID_COLLECTION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HID_COLLECTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HID_COLLECTION_INFORMATION>()) == 0 }
+        self.DescriptorSize == other.DescriptorSize && self.Polled == other.Polled && self.Reserved1 == other.Reserved1 && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11268,7 +11210,7 @@ unsafe impl ::windows::core::Abi for HID_DRIVER_CONFIG {
 }
 impl ::core::cmp::PartialEq for HID_DRIVER_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HID_DRIVER_CONFIG>()) == 0 }
+        self.Size == other.Size && self.RingBufferSize == other.RingBufferSize
     }
 }
 impl ::core::cmp::Eq for HID_DRIVER_CONFIG {}
@@ -11300,7 +11242,7 @@ unsafe impl ::windows::core::Abi for HID_XFER_PACKET {
 }
 impl ::core::cmp::PartialEq for HID_XFER_PACKET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HID_XFER_PACKET>()) == 0 }
+        self.reportBuffer == other.reportBuffer && self.reportBufferLen == other.reportBufferLen && self.reportId == other.reportId
     }
 }
 impl ::core::cmp::Eq for HID_XFER_PACKET {}
@@ -11331,7 +11273,7 @@ unsafe impl ::windows::core::Abi for INDICATOR_LIST {
 }
 impl ::core::cmp::PartialEq for INDICATOR_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INDICATOR_LIST>()) == 0 }
+        self.MakeCode == other.MakeCode && self.IndicatorFlags == other.IndicatorFlags
     }
 }
 impl ::core::cmp::Eq for INDICATOR_LIST {}
@@ -11368,7 +11310,7 @@ unsafe impl ::windows::core::Abi for INPUT_BUTTON_ENABLE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INPUT_BUTTON_ENABLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_BUTTON_ENABLE_INFO>()) == 0 }
+        self.ButtonType == other.ButtonType && self.Enabled == other.Enabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11405,7 +11347,7 @@ unsafe impl ::windows::core::Abi for JOYCALIBRATE {
 }
 impl ::core::cmp::PartialEq for JOYCALIBRATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYCALIBRATE>()) == 0 }
+        self.wXbase == other.wXbase && self.wXdelta == other.wXdelta && self.wYbase == other.wYbase && self.wYdelta == other.wYdelta && self.wZbase == other.wZbase && self.wZdelta == other.wZdelta
     }
 }
 impl ::core::cmp::Eq for JOYCALIBRATE {}
@@ -11440,7 +11382,7 @@ unsafe impl ::windows::core::Abi for JOYPOS {
 }
 impl ::core::cmp::PartialEq for JOYPOS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYPOS>()) == 0 }
+        self.dwX == other.dwX && self.dwY == other.dwY && self.dwZ == other.dwZ && self.dwR == other.dwR && self.dwU == other.dwU && self.dwV == other.dwV
     }
 }
 impl ::core::cmp::Eq for JOYPOS {}
@@ -11472,7 +11414,7 @@ unsafe impl ::windows::core::Abi for JOYRANGE {
 }
 impl ::core::cmp::PartialEq for JOYRANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYRANGE>()) == 0 }
+        self.jpMin == other.jpMin && self.jpMax == other.jpMax && self.jpCenter == other.jpCenter
     }
 }
 impl ::core::cmp::Eq for JOYRANGE {}
@@ -11506,7 +11448,7 @@ unsafe impl ::windows::core::Abi for JOYREGHWCONFIG {
 }
 impl ::core::cmp::PartialEq for JOYREGHWCONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGHWCONFIG>()) == 0 }
+        self.hws == other.hws && self.dwUsageSettings == other.dwUsageSettings && self.hwv == other.hwv && self.dwType == other.dwType && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for JOYREGHWCONFIG {}
@@ -11537,7 +11479,7 @@ unsafe impl ::windows::core::Abi for JOYREGHWSETTINGS {
 }
 impl ::core::cmp::PartialEq for JOYREGHWSETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGHWSETTINGS>()) == 0 }
+        self.dwFlags == other.dwFlags && self.dwNumButtons == other.dwNumButtons
     }
 }
 impl ::core::cmp::Eq for JOYREGHWSETTINGS {}
@@ -11569,7 +11511,7 @@ unsafe impl ::windows::core::Abi for JOYREGHWVALUES {
 }
 impl ::core::cmp::PartialEq for JOYREGHWVALUES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGHWVALUES>()) == 0 }
+        self.jrvHardware == other.jrvHardware && self.dwPOVValues == other.dwPOVValues && self.dwCalFlags == other.dwCalFlags
     }
 }
 impl ::core::cmp::Eq for JOYREGHWVALUES {}
@@ -11601,7 +11543,7 @@ unsafe impl ::windows::core::Abi for JOYREGUSERVALUES {
 }
 impl ::core::cmp::PartialEq for JOYREGUSERVALUES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JOYREGUSERVALUES>()) == 0 }
+        self.dwTimeOut == other.dwTimeOut && self.jrvRanges == other.jrvRanges && self.jpDeadZone == other.jpDeadZone
     }
 }
 impl ::core::cmp::Eq for JOYREGUSERVALUES {}
@@ -11638,7 +11580,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_ATTRIBUTES>()) == 0 }
+        self.KeyboardIdentifier == other.KeyboardIdentifier && self.KeyboardMode == other.KeyboardMode && self.NumberOfFunctionKeys == other.NumberOfFunctionKeys && self.NumberOfIndicators == other.NumberOfIndicators && self.NumberOfKeysTotal == other.NumberOfKeysTotal && self.InputDataQueueLength == other.InputDataQueueLength && self.KeyRepeatMinimum == other.KeyRepeatMinimum && self.KeyRepeatMaximum == other.KeyRepeatMaximum
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_ATTRIBUTES {}
@@ -11674,7 +11616,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_EXTENDED_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_EXTENDED_ATTRIBUTES>()) == 0 }
+        self.Version == other.Version && self.FormFactor == other.FormFactor && self.KeyType == other.KeyType && self.PhysicalLayout == other.PhysicalLayout && self.VendorSpecificPhysicalLayout == other.VendorSpecificPhysicalLayout && self.IETFLanguageTagIndex == other.IETFLanguageTagIndex && self.ImplementedInputAssistControls == other.ImplementedInputAssistControls
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_EXTENDED_ATTRIBUTES {}
@@ -11705,7 +11647,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_ID {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_ID>()) == 0 }
+        self.Type == other.Type && self.Subtype == other.Subtype
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_ID {}
@@ -11737,7 +11679,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_IME_STATUS {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_IME_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_IME_STATUS>()) == 0 }
+        self.UnitId == other.UnitId && self.ImeOpen == other.ImeOpen && self.ImeConvMode == other.ImeConvMode
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_IME_STATUS {}
@@ -11768,7 +11710,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_INDICATOR_PARAMETERS>()) == 0 }
+        self.UnitId == other.UnitId && self.LedFlags == other.LedFlags
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_INDICATOR_PARAMETERS {}
@@ -11799,7 +11741,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_INDICATOR_TRANSLATION {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_INDICATOR_TRANSLATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_INDICATOR_TRANSLATION>()) == 0 }
+        self.NumberOfIndicatorKeys == other.NumberOfIndicatorKeys && self.IndicatorList == other.IndicatorList
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_INDICATOR_TRANSLATION {}
@@ -11833,7 +11775,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_INPUT_DATA {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_INPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_INPUT_DATA>()) == 0 }
+        self.UnitId == other.UnitId && self.MakeCode == other.MakeCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ExtraInformation == other.ExtraInformation
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_INPUT_DATA {}
@@ -11865,7 +11807,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_TYPEMATIC_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_TYPEMATIC_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_TYPEMATIC_PARAMETERS>()) == 0 }
+        self.UnitId == other.UnitId && self.Rate == other.Rate && self.Delay == other.Delay
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_TYPEMATIC_PARAMETERS {}
@@ -11895,7 +11837,7 @@ unsafe impl ::windows::core::Abi for KEYBOARD_UNIT_ID_PARAMETER {
 }
 impl ::core::cmp::PartialEq for KEYBOARD_UNIT_ID_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KEYBOARD_UNIT_ID_PARAMETER>()) == 0 }
+        self.UnitId == other.UnitId
     }
 }
 impl ::core::cmp::Eq for KEYBOARD_UNIT_ID_PARAMETER {}
@@ -11928,7 +11870,7 @@ unsafe impl ::windows::core::Abi for MOUSE_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for MOUSE_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_ATTRIBUTES>()) == 0 }
+        self.MouseIdentifier == other.MouseIdentifier && self.NumberOfButtons == other.NumberOfButtons && self.SampleRate == other.SampleRate && self.InputDataQueueLength == other.InputDataQueueLength
     }
 }
 impl ::core::cmp::Eq for MOUSE_ATTRIBUTES {}
@@ -11957,12 +11899,6 @@ impl ::core::clone::Clone for MOUSE_INPUT_DATA {
 unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_INPUT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MOUSE_INPUT_DATA {}
 impl ::core::default::Default for MOUSE_INPUT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11983,12 +11919,6 @@ impl ::core::clone::Clone for MOUSE_INPUT_DATA_0 {
 unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_INPUT_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0 {}
 impl ::core::default::Default for MOUSE_INPUT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12016,7 +11946,7 @@ unsafe impl ::windows::core::Abi for MOUSE_INPUT_DATA_0_0 {
 }
 impl ::core::cmp::PartialEq for MOUSE_INPUT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_INPUT_DATA_0_0>()) == 0 }
+        self.ButtonFlags == other.ButtonFlags && self.ButtonData == other.ButtonData
     }
 }
 impl ::core::cmp::Eq for MOUSE_INPUT_DATA_0_0 {}
@@ -12046,7 +11976,7 @@ unsafe impl ::windows::core::Abi for MOUSE_UNIT_ID_PARAMETER {
 }
 impl ::core::cmp::PartialEq for MOUSE_UNIT_ID_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSE_UNIT_ID_PARAMETER>()) == 0 }
+        self.UnitId == other.UnitId
     }
 }
 impl ::core::cmp::Eq for MOUSE_UNIT_ID_PARAMETER {}
@@ -12077,7 +12007,7 @@ unsafe impl ::windows::core::Abi for USAGE_AND_PAGE {
 }
 impl ::core::cmp::PartialEq for USAGE_AND_PAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USAGE_AND_PAGE>()) == 0 }
+        self.Usage == other.Usage && self.UsagePage == other.UsagePage
     }
 }
 impl ::core::cmp::Eq for USAGE_AND_PAGE {}

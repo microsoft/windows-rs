@@ -1146,7 +1146,7 @@ unsafe impl ::windows::core::Abi for NLM_DATAPLAN_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NLM_DATAPLAN_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NLM_DATAPLAN_STATUS>()) == 0 }
+        self.InterfaceGuid == other.InterfaceGuid && self.UsageData == other.UsageData && self.DataLimitInMegabytes == other.DataLimitInMegabytes && self.InboundBandwidthInKbps == other.InboundBandwidthInKbps && self.OutboundBandwidthInKbps == other.OutboundBandwidthInKbps && self.NextBillingCycle == other.NextBillingCycle && self.MaxTransferSizeInMegabytes == other.MaxTransferSizeInMegabytes && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1181,7 +1181,7 @@ unsafe impl ::windows::core::Abi for NLM_SIMULATED_PROFILE_INFO {
 }
 impl ::core::cmp::PartialEq for NLM_SIMULATED_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NLM_SIMULATED_PROFILE_INFO>()) == 0 }
+        self.ProfileName == other.ProfileName && self.cost == other.cost && self.UsageInMegabytes == other.UsageInMegabytes && self.DataLimitInMegabytes == other.DataLimitInMegabytes
     }
 }
 impl ::core::cmp::Eq for NLM_SIMULATED_PROFILE_INFO {}
@@ -1211,7 +1211,7 @@ unsafe impl ::windows::core::Abi for NLM_SOCKADDR {
 }
 impl ::core::cmp::PartialEq for NLM_SOCKADDR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NLM_SOCKADDR>()) == 0 }
+        self.data == other.data
     }
 }
 impl ::core::cmp::Eq for NLM_SOCKADDR {}
@@ -1248,7 +1248,7 @@ unsafe impl ::windows::core::Abi for NLM_USAGE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NLM_USAGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NLM_USAGE_DATA>()) == 0 }
+        self.UsageInMegabytes == other.UsageInMegabytes && self.LastSyncTime == other.LastSyncTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -319,14 +319,6 @@ unsafe impl ::windows::core::Abi for RM_FILTER_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RM_FILTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_FILTER_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RM_FILTER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RM_FILTER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -352,14 +344,6 @@ impl ::core::clone::Clone for RM_FILTER_INFO_0 {
 unsafe impl ::windows::core::Abi for RM_FILTER_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RM_FILTER_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_FILTER_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RM_FILTER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RM_FILTER_INFO_0 {
     fn default() -> Self {
@@ -399,7 +383,7 @@ unsafe impl ::windows::core::Abi for RM_PROCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RM_PROCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_PROCESS_INFO>()) == 0 }
+        self.Process == other.Process && self.strAppName == other.strAppName && self.strServiceShortName == other.strServiceShortName && self.ApplicationType == other.ApplicationType && self.AppStatus == other.AppStatus && self.TSSessionId == other.TSSessionId && self.bRestartable == other.bRestartable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -438,7 +422,7 @@ unsafe impl ::windows::core::Abi for RM_UNIQUE_PROCESS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RM_UNIQUE_PROCESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RM_UNIQUE_PROCESS>()) == 0 }
+        self.dwProcessId == other.dwProcessId && self.ProcessStartTime == other.ProcessStartTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]

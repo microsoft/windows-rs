@@ -227,7 +227,7 @@ unsafe impl ::windows::core::Abi for MAGCOLOREFFECT {
 }
 impl ::core::cmp::PartialEq for MAGCOLOREFFECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MAGCOLOREFFECT>()) == 0 }
+        self.transform == other.transform
     }
 }
 impl ::core::cmp::Eq for MAGCOLOREFFECT {}
@@ -262,7 +262,7 @@ unsafe impl ::windows::core::Abi for MAGIMAGEHEADER {
 }
 impl ::core::cmp::PartialEq for MAGIMAGEHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MAGIMAGEHEADER>()) == 0 }
+        self.width == other.width && self.height == other.height && self.format == other.format && self.stride == other.stride && self.offset == other.offset && self.cbSize == other.cbSize
     }
 }
 impl ::core::cmp::Eq for MAGIMAGEHEADER {}
@@ -292,7 +292,7 @@ unsafe impl ::windows::core::Abi for MAGTRANSFORM {
 }
 impl ::core::cmp::PartialEq for MAGTRANSFORM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MAGTRANSFORM>()) == 0 }
+        self.v == other.v
     }
 }
 impl ::core::cmp::Eq for MAGTRANSFORM {}

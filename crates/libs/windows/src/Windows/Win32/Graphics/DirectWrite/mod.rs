@@ -14649,7 +14649,7 @@ unsafe impl ::windows::core::Abi for DWRITE_CARET_METRICS {
 }
 impl ::core::cmp::PartialEq for DWRITE_CARET_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_CARET_METRICS>()) == 0 }
+        self.slopeRise == other.slopeRise && self.slopeRun == other.slopeRun && self.offset == other.offset
     }
 }
 impl ::core::cmp::Eq for DWRITE_CARET_METRICS {}
@@ -14681,7 +14681,7 @@ unsafe impl ::windows::core::Abi for DWRITE_CLUSTER_METRICS {
 }
 impl ::core::cmp::PartialEq for DWRITE_CLUSTER_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_CLUSTER_METRICS>()) == 0 }
+        self.width == other.width && self.length == other.length && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DWRITE_CLUSTER_METRICS {}
@@ -14714,7 +14714,7 @@ unsafe impl ::windows::core::Abi for DWRITE_COLOR_F {
 }
 impl ::core::cmp::PartialEq for DWRITE_COLOR_F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_COLOR_F>()) == 0 }
+        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
     }
 }
 impl ::core::cmp::Eq for DWRITE_COLOR_F {}
@@ -14831,7 +14831,7 @@ unsafe impl ::windows::core::Abi for DWRITE_FILE_FRAGMENT {
 }
 impl ::core::cmp::PartialEq for DWRITE_FILE_FRAGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_FILE_FRAGMENT>()) == 0 }
+        self.fileOffset == other.fileOffset && self.fragmentSize == other.fragmentSize
     }
 }
 impl ::core::cmp::Eq for DWRITE_FILE_FRAGMENT {}
@@ -14863,7 +14863,7 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_RANGE {
 }
 impl ::core::cmp::PartialEq for DWRITE_FONT_AXIS_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_FONT_AXIS_RANGE>()) == 0 }
+        self.axisTag == other.axisTag && self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for DWRITE_FONT_AXIS_RANGE {}
@@ -14894,7 +14894,7 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_VALUE {
 }
 impl ::core::cmp::PartialEq for DWRITE_FONT_AXIS_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_FONT_AXIS_VALUE>()) == 0 }
+        self.axisTag == other.axisTag && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for DWRITE_FONT_AXIS_VALUE {}
@@ -14925,7 +14925,7 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_FEATURE {
 }
 impl ::core::cmp::PartialEq for DWRITE_FONT_FEATURE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_FONT_FEATURE>()) == 0 }
+        self.nameTag == other.nameTag && self.parameter == other.parameter
     }
 }
 impl ::core::cmp::Eq for DWRITE_FONT_FEATURE {}
@@ -14975,7 +14975,7 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_METRICS {
 }
 impl ::core::cmp::PartialEq for DWRITE_FONT_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_FONT_METRICS>()) == 0 }
+        self.designUnitsPerEm == other.designUnitsPerEm && self.ascent == other.ascent && self.descent == other.descent && self.lineGap == other.lineGap && self.capHeight == other.capHeight && self.xHeight == other.xHeight && self.underlinePosition == other.underlinePosition && self.underlineThickness == other.underlineThickness && self.strikethroughPosition == other.strikethroughPosition && self.strikethroughThickness == other.strikethroughThickness
     }
 }
 impl ::core::cmp::Eq for DWRITE_FONT_METRICS {}
@@ -15039,7 +15039,7 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_METRICS1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_FONT_METRICS1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_FONT_METRICS1>()) == 0 }
+        self.Base == other.Base && self.glyphBoxLeft == other.glyphBoxLeft && self.glyphBoxTop == other.glyphBoxTop && self.glyphBoxRight == other.glyphBoxRight && self.glyphBoxBottom == other.glyphBoxBottom && self.subscriptPositionX == other.subscriptPositionX && self.subscriptPositionY == other.subscriptPositionY && self.subscriptSizeX == other.subscriptSizeX && self.subscriptSizeY == other.subscriptSizeY && self.superscriptPositionX == other.superscriptPositionX && self.superscriptPositionY == other.superscriptPositionY && self.superscriptSizeX == other.superscriptSizeX && self.superscriptSizeY == other.superscriptSizeY && self.hasTypographicMetrics == other.hasTypographicMetrics
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15073,7 +15073,7 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_PROPERTY {
 }
 impl ::core::cmp::PartialEq for DWRITE_FONT_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_FONT_PROPERTY>()) == 0 }
+        self.propertyId == other.propertyId && self.propertyValue == other.propertyValue && self.localeName == other.localeName
     }
 }
 impl ::core::cmp::Eq for DWRITE_FONT_PROPERTY {}
@@ -15117,7 +15117,7 @@ unsafe impl ::windows::core::Abi for DWRITE_GLYPH_IMAGE_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for DWRITE_GLYPH_IMAGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_GLYPH_IMAGE_DATA>()) == 0 }
+        self.imageData == other.imageData && self.imageDataSize == other.imageDataSize && self.uniqueDataId == other.uniqueDataId && self.pixelsPerEm == other.pixelsPerEm && self.pixelSize == other.pixelSize && self.horizontalLeftOrigin == other.horizontalLeftOrigin && self.horizontalRightOrigin == other.horizontalRightOrigin && self.verticalTopOrigin == other.verticalTopOrigin && self.verticalBottomOrigin == other.verticalBottomOrigin
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -15155,7 +15155,7 @@ unsafe impl ::windows::core::Abi for DWRITE_GLYPH_METRICS {
 }
 impl ::core::cmp::PartialEq for DWRITE_GLYPH_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_GLYPH_METRICS>()) == 0 }
+        self.leftSideBearing == other.leftSideBearing && self.advanceWidth == other.advanceWidth && self.rightSideBearing == other.rightSideBearing && self.topSideBearing == other.topSideBearing && self.advanceHeight == other.advanceHeight && self.bottomSideBearing == other.bottomSideBearing && self.verticalOriginY == other.verticalOriginY
     }
 }
 impl ::core::cmp::Eq for DWRITE_GLYPH_METRICS {}
@@ -15186,7 +15186,7 @@ unsafe impl ::windows::core::Abi for DWRITE_GLYPH_OFFSET {
 }
 impl ::core::cmp::PartialEq for DWRITE_GLYPH_OFFSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_GLYPH_OFFSET>()) == 0 }
+        self.advanceOffset == other.advanceOffset && self.ascenderOffset == other.ascenderOffset
     }
 }
 impl ::core::cmp::Eq for DWRITE_GLYPH_OFFSET {}
@@ -15272,7 +15272,7 @@ unsafe impl ::windows::core::Abi for DWRITE_GLYPH_RUN_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for DWRITE_GLYPH_RUN_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_GLYPH_RUN_DESCRIPTION>()) == 0 }
+        self.localeName == other.localeName && self.string == other.string && self.stringLength == other.stringLength && self.clusterMap == other.clusterMap && self.textPosition == other.textPosition
     }
 }
 impl ::core::cmp::Eq for DWRITE_GLYPH_RUN_DESCRIPTION {}
@@ -15316,7 +15316,7 @@ unsafe impl ::windows::core::Abi for DWRITE_HIT_TEST_METRICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_HIT_TEST_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_HIT_TEST_METRICS>()) == 0 }
+        self.textPosition == other.textPosition && self.length == other.length && self.left == other.left && self.top == other.top && self.width == other.width && self.height == other.height && self.bidiLevel == other.bidiLevel && self.isText == other.isText && self.isTrimmed == other.isTrimmed
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15357,7 +15357,7 @@ unsafe impl ::windows::core::Abi for DWRITE_INLINE_OBJECT_METRICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_INLINE_OBJECT_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_INLINE_OBJECT_METRICS>()) == 0 }
+        self.width == other.width && self.height == other.height && self.baseline == other.baseline && self.supportsSideways == other.supportsSideways
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15392,7 +15392,7 @@ unsafe impl ::windows::core::Abi for DWRITE_JUSTIFICATION_OPPORTUNITY {
 }
 impl ::core::cmp::PartialEq for DWRITE_JUSTIFICATION_OPPORTUNITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_JUSTIFICATION_OPPORTUNITY>()) == 0 }
+        self.expansionMinimum == other.expansionMinimum && self.expansionMaximum == other.expansionMaximum && self.compressionMaximum == other.compressionMaximum && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DWRITE_JUSTIFICATION_OPPORTUNITY {}
@@ -15422,7 +15422,7 @@ unsafe impl ::windows::core::Abi for DWRITE_LINE_BREAKPOINT {
 }
 impl ::core::cmp::PartialEq for DWRITE_LINE_BREAKPOINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_LINE_BREAKPOINT>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DWRITE_LINE_BREAKPOINT {}
@@ -15463,7 +15463,7 @@ unsafe impl ::windows::core::Abi for DWRITE_LINE_METRICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_LINE_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_LINE_METRICS>()) == 0 }
+        self.length == other.length && self.trailingWhitespaceLength == other.trailingWhitespaceLength && self.newlineLength == other.newlineLength && self.height == other.height && self.baseline == other.baseline && self.isTrimmed == other.isTrimmed
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15503,7 +15503,7 @@ unsafe impl ::windows::core::Abi for DWRITE_LINE_METRICS1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_LINE_METRICS1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_LINE_METRICS1>()) == 0 }
+        self.Base == other.Base && self.leadingBefore == other.leadingBefore && self.leadingAfter == other.leadingAfter
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15539,7 +15539,7 @@ unsafe impl ::windows::core::Abi for DWRITE_LINE_SPACING {
 }
 impl ::core::cmp::PartialEq for DWRITE_LINE_SPACING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_LINE_SPACING>()) == 0 }
+        self.method == other.method && self.height == other.height && self.baseline == other.baseline && self.leadingBefore == other.leadingBefore && self.fontLineGapUsage == other.fontLineGapUsage
     }
 }
 impl ::core::cmp::Eq for DWRITE_LINE_SPACING {}
@@ -15574,7 +15574,7 @@ unsafe impl ::windows::core::Abi for DWRITE_MATRIX {
 }
 impl ::core::cmp::PartialEq for DWRITE_MATRIX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_MATRIX>()) == 0 }
+        self.m11 == other.m11 && self.m12 == other.m12 && self.m21 == other.m21 && self.m22 == other.m22 && self.dx == other.dx && self.dy == other.dy
     }
 }
 impl ::core::cmp::Eq for DWRITE_MATRIX {}
@@ -15607,7 +15607,7 @@ unsafe impl ::windows::core::Abi for DWRITE_OVERHANG_METRICS {
 }
 impl ::core::cmp::PartialEq for DWRITE_OVERHANG_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_OVERHANG_METRICS>()) == 0 }
+        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
     }
 }
 impl ::core::cmp::Eq for DWRITE_OVERHANG_METRICS {}
@@ -15635,12 +15635,6 @@ impl ::core::clone::Clone for DWRITE_PANOSE {
 unsafe impl ::windows::core::Abi for DWRITE_PANOSE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DWRITE_PANOSE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_PANOSE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DWRITE_PANOSE {}
 impl ::core::default::Default for DWRITE_PANOSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15676,7 +15670,7 @@ unsafe impl ::windows::core::Abi for DWRITE_PANOSE_0 {
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_PANOSE_0>()) == 0 }
+        self.familyKind == other.familyKind && self.decorativeClass == other.decorativeClass && self.weight == other.weight && self.aspect == other.aspect && self.contrast == other.contrast && self.serifVariant == other.serifVariant && self.fill == other.fill && self.lining == other.lining && self.decorativeTopology == other.decorativeTopology && self.characterRange == other.characterRange
     }
 }
 impl ::core::cmp::Eq for DWRITE_PANOSE_0 {}
@@ -15715,7 +15709,7 @@ unsafe impl ::windows::core::Abi for DWRITE_PANOSE_1 {
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_PANOSE_1>()) == 0 }
+        self.familyKind == other.familyKind && self.toolKind == other.toolKind && self.weight == other.weight && self.spacing == other.spacing && self.aspectRatio == other.aspectRatio && self.contrast == other.contrast && self.scriptTopology == other.scriptTopology && self.scriptForm == other.scriptForm && self.finials == other.finials && self.xAscent == other.xAscent
     }
 }
 impl ::core::cmp::Eq for DWRITE_PANOSE_1 {}
@@ -15754,7 +15748,7 @@ unsafe impl ::windows::core::Abi for DWRITE_PANOSE_2 {
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_PANOSE_2>()) == 0 }
+        self.familyKind == other.familyKind && self.symbolKind == other.symbolKind && self.weight == other.weight && self.spacing == other.spacing && self.aspectRatioAndContrast == other.aspectRatioAndContrast && self.aspectRatio94 == other.aspectRatio94 && self.aspectRatio119 == other.aspectRatio119 && self.aspectRatio157 == other.aspectRatio157 && self.aspectRatio163 == other.aspectRatio163 && self.aspectRatio211 == other.aspectRatio211
     }
 }
 impl ::core::cmp::Eq for DWRITE_PANOSE_2 {}
@@ -15793,7 +15787,7 @@ unsafe impl ::windows::core::Abi for DWRITE_PANOSE_3 {
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_PANOSE_3>()) == 0 }
+        self.familyKind == other.familyKind && self.serifStyle == other.serifStyle && self.weight == other.weight && self.proportion == other.proportion && self.contrast == other.contrast && self.strokeVariation == other.strokeVariation && self.armStyle == other.armStyle && self.letterform == other.letterform && self.midline == other.midline && self.xHeight == other.xHeight
     }
 }
 impl ::core::cmp::Eq for DWRITE_PANOSE_3 {}
@@ -15824,7 +15818,7 @@ unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_ANALYSIS {
 }
 impl ::core::cmp::PartialEq for DWRITE_SCRIPT_ANALYSIS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_SCRIPT_ANALYSIS>()) == 0 }
+        self.script == other.script && self.shapes == other.shapes
     }
 }
 impl ::core::cmp::Eq for DWRITE_SCRIPT_ANALYSIS {}
@@ -15858,7 +15852,7 @@ unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for DWRITE_SCRIPT_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_SCRIPT_PROPERTIES>()) == 0 }
+        self.isoScriptCode == other.isoScriptCode && self.isoScriptNumber == other.isoScriptNumber && self.clusterLookahead == other.clusterLookahead && self.justificationCharacter == other.justificationCharacter && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DWRITE_SCRIPT_PROPERTIES {}
@@ -15888,7 +15882,7 @@ unsafe impl ::windows::core::Abi for DWRITE_SHAPING_GLYPH_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for DWRITE_SHAPING_GLYPH_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_SHAPING_GLYPH_PROPERTIES>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DWRITE_SHAPING_GLYPH_PROPERTIES {}
@@ -15918,7 +15912,7 @@ unsafe impl ::windows::core::Abi for DWRITE_SHAPING_TEXT_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for DWRITE_SHAPING_TEXT_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_SHAPING_TEXT_PROPERTIES>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DWRITE_SHAPING_TEXT_PROPERTIES {}
@@ -15954,7 +15948,7 @@ unsafe impl ::windows::core::Abi for DWRITE_STRIKETHROUGH {
 }
 impl ::core::cmp::PartialEq for DWRITE_STRIKETHROUGH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_STRIKETHROUGH>()) == 0 }
+        self.width == other.width && self.thickness == other.thickness && self.offset == other.offset && self.readingDirection == other.readingDirection && self.flowDirection == other.flowDirection && self.localeName == other.localeName && self.measuringMode == other.measuringMode
     }
 }
 impl ::core::cmp::Eq for DWRITE_STRIKETHROUGH {}
@@ -15992,7 +15986,7 @@ unsafe impl ::windows::core::Abi for DWRITE_TEXT_METRICS {
 }
 impl ::core::cmp::PartialEq for DWRITE_TEXT_METRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_TEXT_METRICS>()) == 0 }
+        self.left == other.left && self.top == other.top && self.width == other.width && self.widthIncludingTrailingWhitespace == other.widthIncludingTrailingWhitespace && self.height == other.height && self.layoutWidth == other.layoutWidth && self.layoutHeight == other.layoutHeight && self.maxBidiReorderingDepth == other.maxBidiReorderingDepth && self.lineCount == other.lineCount
     }
 }
 impl ::core::cmp::Eq for DWRITE_TEXT_METRICS {}
@@ -16023,7 +16017,7 @@ unsafe impl ::windows::core::Abi for DWRITE_TEXT_METRICS1 {
 }
 impl ::core::cmp::PartialEq for DWRITE_TEXT_METRICS1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_TEXT_METRICS1>()) == 0 }
+        self.Base == other.Base && self.heightIncludingTrailingWhitespace == other.heightIncludingTrailingWhitespace
     }
 }
 impl ::core::cmp::Eq for DWRITE_TEXT_METRICS1 {}
@@ -16054,7 +16048,7 @@ unsafe impl ::windows::core::Abi for DWRITE_TEXT_RANGE {
 }
 impl ::core::cmp::PartialEq for DWRITE_TEXT_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_TEXT_RANGE>()) == 0 }
+        self.startPosition == other.startPosition && self.length == other.length
     }
 }
 impl ::core::cmp::Eq for DWRITE_TEXT_RANGE {}
@@ -16086,7 +16080,7 @@ unsafe impl ::windows::core::Abi for DWRITE_TRIMMING {
 }
 impl ::core::cmp::PartialEq for DWRITE_TRIMMING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_TRIMMING>()) == 0 }
+        self.granularity == other.granularity && self.delimiter == other.delimiter && self.delimiterCount == other.delimiterCount
     }
 }
 impl ::core::cmp::Eq for DWRITE_TRIMMING {}
@@ -16117,7 +16111,7 @@ unsafe impl ::windows::core::Abi for DWRITE_TYPOGRAPHIC_FEATURES {
 }
 impl ::core::cmp::PartialEq for DWRITE_TYPOGRAPHIC_FEATURES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_TYPOGRAPHIC_FEATURES>()) == 0 }
+        self.features == other.features && self.featureCount == other.featureCount
     }
 }
 impl ::core::cmp::Eq for DWRITE_TYPOGRAPHIC_FEATURES {}
@@ -16154,7 +16148,7 @@ unsafe impl ::windows::core::Abi for DWRITE_UNDERLINE {
 }
 impl ::core::cmp::PartialEq for DWRITE_UNDERLINE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_UNDERLINE>()) == 0 }
+        self.width == other.width && self.thickness == other.thickness && self.offset == other.offset && self.runHeight == other.runHeight && self.readingDirection == other.readingDirection && self.flowDirection == other.flowDirection && self.localeName == other.localeName && self.measuringMode == other.measuringMode
     }
 }
 impl ::core::cmp::Eq for DWRITE_UNDERLINE {}
@@ -16185,7 +16179,7 @@ unsafe impl ::windows::core::Abi for DWRITE_UNICODE_RANGE {
 }
 impl ::core::cmp::PartialEq for DWRITE_UNICODE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWRITE_UNICODE_RANGE>()) == 0 }
+        self.first == other.first && self.last == other.last
     }
 }
 impl ::core::cmp::Eq for DWRITE_UNICODE_RANGE {}

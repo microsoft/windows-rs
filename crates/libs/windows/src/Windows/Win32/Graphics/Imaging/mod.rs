@@ -6593,7 +6593,7 @@ unsafe impl ::windows::core::Abi for WICBitmapPattern {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WICBitmapPattern {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICBitmapPattern>()) == 0 }
+        self.Position == other.Position && self.Length == other.Length && self.Pattern == other.Pattern && self.Mask == other.Mask && self.EndOfStream == other.EndOfStream
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6628,7 +6628,7 @@ unsafe impl ::windows::core::Abi for WICBitmapPlane {
 }
 impl ::core::cmp::PartialEq for WICBitmapPlane {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICBitmapPlane>()) == 0 }
+        self.Format == other.Format && self.pbBuffer == other.pbBuffer && self.cbStride == other.cbStride && self.cbBufferSize == other.cbBufferSize
     }
 }
 impl ::core::cmp::Eq for WICBitmapPlane {}
@@ -6660,7 +6660,7 @@ unsafe impl ::windows::core::Abi for WICBitmapPlaneDescription {
 }
 impl ::core::cmp::PartialEq for WICBitmapPlaneDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICBitmapPlaneDescription>()) == 0 }
+        self.Format == other.Format && self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for WICBitmapPlaneDescription {}
@@ -6699,7 +6699,7 @@ unsafe impl ::windows::core::Abi for WICDdsFormatInfo {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for WICDdsFormatInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICDdsFormatInfo>()) == 0 }
+        self.DxgiFormat == other.DxgiFormat && self.BytesPerBlock == other.BytesPerBlock && self.BlockWidth == other.BlockWidth && self.BlockHeight == other.BlockHeight
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6744,7 +6744,7 @@ unsafe impl ::windows::core::Abi for WICDdsParameters {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for WICDdsParameters {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICDdsParameters>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Depth == other.Depth && self.MipLevels == other.MipLevels && self.ArraySize == other.ArraySize && self.DxgiFormat == other.DxgiFormat && self.Dimension == other.Dimension && self.AlphaMode == other.AlphaMode
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6788,7 +6788,7 @@ unsafe impl ::windows::core::Abi for WICImageParameters {
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for WICImageParameters {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICImageParameters>()) == 0 }
+        self.PixelFormat == other.PixelFormat && self.DpiX == other.DpiX && self.DpiY == other.DpiY && self.Top == other.Top && self.Left == other.Left && self.PixelWidth == other.PixelWidth && self.PixelHeight == other.PixelHeight
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6827,7 +6827,7 @@ unsafe impl ::windows::core::Abi for WICJpegFrameHeader {
 }
 impl ::core::cmp::PartialEq for WICJpegFrameHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICJpegFrameHeader>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.TransferMatrix == other.TransferMatrix && self.ScanType == other.ScanType && self.cComponents == other.cComponents && self.ComponentIdentifiers == other.ComponentIdentifiers && self.SampleFactors == other.SampleFactors && self.QuantizationTableIndices == other.QuantizationTableIndices
     }
 }
 impl ::core::cmp::Eq for WICJpegFrameHeader {}
@@ -6873,7 +6873,7 @@ unsafe impl ::windows::core::Abi for WICJpegScanHeader {
 }
 impl ::core::cmp::PartialEq for WICJpegScanHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICJpegScanHeader>()) == 0 }
+        self.cComponents == other.cComponents && self.RestartInterval == other.RestartInterval && self.ComponentSelectors == other.ComponentSelectors && self.HuffmanTableIndices == other.HuffmanTableIndices && self.StartSpectralSelection == other.StartSpectralSelection && self.EndSpectralSelection == other.EndSpectralSelection && self.SuccessiveApproximationHigh == other.SuccessiveApproximationHigh && self.SuccessiveApproximationLow == other.SuccessiveApproximationLow
     }
 }
 impl ::core::cmp::Eq for WICJpegScanHeader {}
@@ -6906,7 +6906,7 @@ unsafe impl ::windows::core::Abi for WICMetadataHeader {
 }
 impl ::core::cmp::PartialEq for WICMetadataHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICMetadataHeader>()) == 0 }
+        self.Position == other.Position && self.Length == other.Length && self.Header == other.Header && self.DataOffset == other.DataOffset
     }
 }
 impl ::core::cmp::Eq for WICMetadataHeader {}
@@ -6940,7 +6940,7 @@ unsafe impl ::windows::core::Abi for WICMetadataPattern {
 }
 impl ::core::cmp::PartialEq for WICMetadataPattern {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICMetadataPattern>()) == 0 }
+        self.Position == other.Position && self.Length == other.Length && self.Pattern == other.Pattern && self.Mask == other.Mask && self.DataOffset == other.DataOffset
     }
 }
 impl ::core::cmp::Eq for WICMetadataPattern {}
@@ -7006,7 +7006,24 @@ unsafe impl ::windows::core::Abi for WICRawCapabilitiesInfo {
 }
 impl ::core::cmp::PartialEq for WICRawCapabilitiesInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICRawCapabilitiesInfo>()) == 0 }
+        self.cbSize == other.cbSize
+            && self.CodecMajorVersion == other.CodecMajorVersion
+            && self.CodecMinorVersion == other.CodecMinorVersion
+            && self.ExposureCompensationSupport == other.ExposureCompensationSupport
+            && self.ContrastSupport == other.ContrastSupport
+            && self.RGBWhitePointSupport == other.RGBWhitePointSupport
+            && self.NamedWhitePointSupport == other.NamedWhitePointSupport
+            && self.NamedWhitePointSupportMask == other.NamedWhitePointSupportMask
+            && self.KelvinWhitePointSupport == other.KelvinWhitePointSupport
+            && self.GammaSupport == other.GammaSupport
+            && self.TintSupport == other.TintSupport
+            && self.SaturationSupport == other.SaturationSupport
+            && self.SharpnessSupport == other.SharpnessSupport
+            && self.NoiseReductionSupport == other.NoiseReductionSupport
+            && self.DestinationColorProfileSupport == other.DestinationColorProfileSupport
+            && self.ToneCurveSupport == other.ToneCurveSupport
+            && self.RotationSupport == other.RotationSupport
+            && self.RenderModeSupport == other.RenderModeSupport
     }
 }
 impl ::core::cmp::Eq for WICRawCapabilitiesInfo {}
@@ -7037,7 +7054,7 @@ unsafe impl ::windows::core::Abi for WICRawToneCurve {
 }
 impl ::core::cmp::PartialEq for WICRawToneCurve {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICRawToneCurve>()) == 0 }
+        self.cPoints == other.cPoints && self.aPoints == other.aPoints
     }
 }
 impl ::core::cmp::Eq for WICRawToneCurve {}
@@ -7068,7 +7085,7 @@ unsafe impl ::windows::core::Abi for WICRawToneCurvePoint {
 }
 impl ::core::cmp::PartialEq for WICRawToneCurvePoint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICRawToneCurvePoint>()) == 0 }
+        self.Input == other.Input && self.Output == other.Output
     }
 }
 impl ::core::cmp::Eq for WICRawToneCurvePoint {}
@@ -7101,7 +7118,7 @@ unsafe impl ::windows::core::Abi for WICRect {
 }
 impl ::core::cmp::PartialEq for WICRect {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WICRect>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for WICRect {}

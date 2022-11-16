@@ -282,7 +282,7 @@ unsafe impl ::windows::core::Abi for HEAPENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HEAPENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HEAPENTRY32>()) == 0 }
+        self.dwSize == other.dwSize && self.hHandle == other.hHandle && self.dwAddress == other.dwAddress && self.dwBlockSize == other.dwBlockSize && self.dwFlags == other.dwFlags && self.dwLockCount == other.dwLockCount && self.dwResvd == other.dwResvd && self.th32ProcessID == other.th32ProcessID && self.th32HeapID == other.th32HeapID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -317,7 +317,7 @@ unsafe impl ::windows::core::Abi for HEAPLIST32 {
 }
 impl ::core::cmp::PartialEq for HEAPLIST32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HEAPLIST32>()) == 0 }
+        self.dwSize == other.dwSize && self.th32ProcessID == other.th32ProcessID && self.th32HeapID == other.th32HeapID && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for HEAPLIST32 {}
@@ -362,7 +362,7 @@ unsafe impl ::windows::core::Abi for MODULEENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MODULEENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODULEENTRY32>()) == 0 }
+        self.dwSize == other.dwSize && self.th32ModuleID == other.th32ModuleID && self.th32ProcessID == other.th32ProcessID && self.GlblcntUsage == other.GlblcntUsage && self.ProccntUsage == other.ProccntUsage && self.modBaseAddr == other.modBaseAddr && self.modBaseSize == other.modBaseSize && self.hModule == other.hModule && self.szModule == other.szModule && self.szExePath == other.szExePath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -409,7 +409,7 @@ unsafe impl ::windows::core::Abi for MODULEENTRY32W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MODULEENTRY32W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODULEENTRY32W>()) == 0 }
+        self.dwSize == other.dwSize && self.th32ModuleID == other.th32ModuleID && self.th32ProcessID == other.th32ProcessID && self.GlblcntUsage == other.GlblcntUsage && self.ProccntUsage == other.ProccntUsage && self.modBaseAddr == other.modBaseAddr && self.modBaseSize == other.modBaseSize && self.hModule == other.hModule && self.szModule == other.szModule && self.szExePath == other.szExePath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -456,7 +456,7 @@ unsafe impl ::windows::core::Abi for PROCESSENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESSENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSENTRY32>()) == 0 }
+        self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ProcessID == other.th32ProcessID && self.th32DefaultHeapID == other.th32DefaultHeapID && self.th32ModuleID == other.th32ModuleID && self.cntThreads == other.cntThreads && self.th32ParentProcessID == other.th32ParentProcessID && self.pcPriClassBase == other.pcPriClassBase && self.dwFlags == other.dwFlags && self.szExeFile == other.szExeFile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -497,7 +497,7 @@ unsafe impl ::windows::core::Abi for PROCESSENTRY32W {
 }
 impl ::core::cmp::PartialEq for PROCESSENTRY32W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSENTRY32W>()) == 0 }
+        self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ProcessID == other.th32ProcessID && self.th32DefaultHeapID == other.th32DefaultHeapID && self.th32ModuleID == other.th32ModuleID && self.cntThreads == other.cntThreads && self.th32ParentProcessID == other.th32ParentProcessID && self.pcPriClassBase == other.pcPriClassBase && self.dwFlags == other.dwFlags && self.szExeFile == other.szExeFile
     }
 }
 impl ::core::cmp::Eq for PROCESSENTRY32W {}
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::Abi for THREADENTRY32 {
 }
 impl ::core::cmp::PartialEq for THREADENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THREADENTRY32>()) == 0 }
+        self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ThreadID == other.th32ThreadID && self.th32OwnerProcessID == other.th32OwnerProcessID && self.tpBasePri == other.tpBasePri && self.tpDeltaPri == other.tpDeltaPri && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for THREADENTRY32 {}

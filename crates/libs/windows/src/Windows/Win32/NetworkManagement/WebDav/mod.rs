@@ -166,7 +166,7 @@ unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_BLOB {
 }
 impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_BLOB>()) == 0 }
+        self.pBuffer == other.pBuffer && self.ulSize == other.ulSize && self.ulType == other.ulType
     }
 }
 impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::Abi for DAV_CALLBACK_AUTH_UNP {
 }
 impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_AUTH_UNP>()) == 0 }
+        self.pszUserName == other.pszUserName && self.ulUserNameLength == other.ulUserNameLength && self.pszPassword == other.pszPassword && self.ulPasswordLength == other.ulPasswordLength
     }
 }
 impl ::core::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
@@ -238,7 +238,7 @@ unsafe impl ::windows::core::Abi for DAV_CALLBACK_CRED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DAV_CALLBACK_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAV_CALLBACK_CRED>()) == 0 }
+        self.AuthBlob == other.AuthBlob && self.UNPBlob == other.UNPBlob && self.bAuthBlobValid == other.bAuthBlobValid && self.bSave == other.bSave
     }
 }
 #[cfg(feature = "Win32_Foundation")]

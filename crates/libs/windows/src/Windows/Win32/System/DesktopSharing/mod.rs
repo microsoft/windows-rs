@@ -2684,7 +2684,7 @@ unsafe impl ::windows::core::Abi for __ReferenceRemainingTypes__ {
 }
 impl ::core::cmp::PartialEq for __ReferenceRemainingTypes__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<__ReferenceRemainingTypes__>()) == 0 }
+        self.__ctrlLevel__ == other.__ctrlLevel__ && self.__attendeeDisconnectReason__ == other.__attendeeDisconnectReason__ && self.__channelPriority__ == other.__channelPriority__ && self.__channelFlags__ == other.__channelFlags__ && self.__channelAccessEnum__ == other.__channelAccessEnum__ && self.__rdpencomapiAttendeeFlags__ == other.__rdpencomapiAttendeeFlags__ && self.__rdpsrapiWndFlags__ == other.__rdpsrapiWndFlags__ && self.__rdpsrapiAppFlags__ == other.__rdpsrapiAppFlags__
     }
 }
 impl ::core::cmp::Eq for __ReferenceRemainingTypes__ {}

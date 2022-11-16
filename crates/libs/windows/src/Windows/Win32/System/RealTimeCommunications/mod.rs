@@ -6853,7 +6853,7 @@ unsafe impl ::windows::core::Abi for TRANSPORT_SETTING {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for TRANSPORT_SETTING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSPORT_SETTING>()) == 0 }
+        self.SettingId == other.SettingId && self.Length == other.Length && self.Value == other.Value
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]

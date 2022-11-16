@@ -82,7 +82,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayAdapterId {
 }
 impl ::core::cmp::PartialEq for DisplayAdapterId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DisplayAdapterId>()) == 0 }
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
 impl ::core::cmp::Eq for DisplayAdapterId {}
@@ -119,7 +119,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayId {
 }
 impl ::core::cmp::PartialEq for DisplayId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DisplayId>()) == 0 }
+        self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for DisplayId {}
@@ -157,7 +157,7 @@ unsafe impl ::windows::core::RuntimeType for PointInt32 {
 }
 impl ::core::cmp::PartialEq for PointInt32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PointInt32>()) == 0 }
+        self.X == other.X && self.Y == other.Y
     }
 }
 impl ::core::cmp::Eq for PointInt32 {}
@@ -197,7 +197,7 @@ unsafe impl ::windows::core::RuntimeType for RectInt32 {
 }
 impl ::core::cmp::PartialEq for RectInt32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RectInt32>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for RectInt32 {}
@@ -235,7 +235,7 @@ unsafe impl ::windows::core::RuntimeType for SizeInt32 {
 }
 impl ::core::cmp::PartialEq for SizeInt32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SizeInt32>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for SizeInt32 {}

@@ -135,14 +135,6 @@ unsafe impl ::windows::core::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_CUSTOMER_ADDRESS_CHANGE_PARAM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -166,14 +158,6 @@ impl ::core::clone::Clone for WNV_IP_ADDRESS {
 unsafe impl ::windows::core::Abi for WNV_IP_ADDRESS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_IP_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_IP_ADDRESS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_IP_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_IP_ADDRESS {
     fn default() -> Self {
@@ -200,14 +184,6 @@ impl ::core::clone::Clone for WNV_IP_ADDRESS_0 {
 unsafe impl ::windows::core::Abi for WNV_IP_ADDRESS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_IP_ADDRESS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_IP_ADDRESS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_IP_ADDRESS_0 {
     fn default() -> Self {
@@ -238,7 +214,7 @@ unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_PARAM {
 }
 impl ::core::cmp::PartialEq for WNV_NOTIFICATION_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_NOTIFICATION_PARAM>()) == 0 }
+        self.Header == other.Header && self.NotificationType == other.NotificationType && self.PendingNotifications == other.PendingNotifications && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for WNV_NOTIFICATION_PARAM {}
@@ -267,14 +243,6 @@ unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_OBJECT_CHANGE_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_OBJECT_CHANGE_PARAM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_OBJECT_CHANGE_PARAM {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -299,14 +267,6 @@ impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM_0 {
 unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_OBJECT_CHANGE_PARAM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_OBJECT_CHANGE_PARAM_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_OBJECT_CHANGE_PARAM_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM_0 {
     fn default() -> Self {
@@ -336,7 +296,7 @@ unsafe impl ::windows::core::Abi for WNV_OBJECT_HEADER {
 }
 impl ::core::cmp::PartialEq for WNV_OBJECT_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_OBJECT_HEADER>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.Size == other.Size
     }
 }
 impl ::core::cmp::Eq for WNV_OBJECT_HEADER {}
@@ -368,14 +328,6 @@ unsafe impl ::windows::core::Abi for WNV_POLICY_MISMATCH_PARAM {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_POLICY_MISMATCH_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_POLICY_MISMATCH_PARAM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_POLICY_MISMATCH_PARAM {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_POLICY_MISMATCH_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -401,14 +353,6 @@ impl ::core::clone::Clone for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
 unsafe impl ::windows::core::Abi for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_PROVIDER_ADDRESS_CHANGE_PARAM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     fn default() -> Self {
@@ -439,14 +383,6 @@ impl ::core::clone::Clone for WNV_REDIRECT_PARAM {
 unsafe impl ::windows::core::Abi for WNV_REDIRECT_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for WNV_REDIRECT_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_REDIRECT_PARAM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for WNV_REDIRECT_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_REDIRECT_PARAM {
     fn default() -> Self {

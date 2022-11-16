@@ -88,7 +88,7 @@ unsafe impl ::windows::core::Abi for HARDWARE_COUNTER_DATA {
 }
 impl ::core::cmp::PartialEq for HARDWARE_COUNTER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWARE_COUNTER_DATA>()) == 0 }
+        self.Type == other.Type && self.Reserved == other.Reserved && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for HARDWARE_COUNTER_DATA {}
@@ -126,7 +126,7 @@ unsafe impl ::windows::core::Abi for PERFORMANCE_DATA {
 }
 impl ::core::cmp::PartialEq for PERFORMANCE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PERFORMANCE_DATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.HwCountersCount == other.HwCountersCount && self.ContextSwitchCount == other.ContextSwitchCount && self.WaitReasonBitMap == other.WaitReasonBitMap && self.CycleTime == other.CycleTime && self.RetryCount == other.RetryCount && self.Reserved == other.Reserved && self.HwCounters == other.HwCounters
     }
 }
 impl ::core::cmp::Eq for PERFORMANCE_DATA {}

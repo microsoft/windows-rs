@@ -5639,7 +5639,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_ASSERTION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_ASSERTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_ASSERTION>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbAuthenticatorData == other.cbAuthenticatorData && self.pbAuthenticatorData == other.pbAuthenticatorData && self.cbSignature == other.cbSignature && self.pbSignature == other.pbSignature && self.Credential == other.Credential && self.cbUserId == other.cbUserId && self.pbUserId == other.pbUserId && self.Extensions == other.Extensions && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob && self.dwCredLargeBlobStatus == other.dwCredLargeBlobStatus
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_ASSERTION {}
@@ -5703,7 +5703,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTION
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds && self.CredentialList == other.CredentialList && self.Extensions == other.Extensions && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement && self.dwFlags == other.dwFlags && self.pwszU2fAppId == other.pwszU2fAppId && self.pbU2fAppId == other.pbU2fAppId && self.pCancellationId == other.pCancellationId && self.pAllowCredentialList == other.pAllowCredentialList && self.dwCredLargeBlobOperation == other.dwCredLargeBlobOperation && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5769,7 +5769,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTI
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds && self.CredentialList == other.CredentialList && self.Extensions == other.Extensions && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment && self.bRequireResidentKey == other.bRequireResidentKey && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement && self.dwAttestationConveyancePreference == other.dwAttestationConveyancePreference && self.dwFlags == other.dwFlags && self.pCancellationId == other.pCancellationId && self.pExcludeCredentialList == other.pExcludeCredentialList && self.dwEnterpriseAttestation == other.dwEnterpriseAttestation && self.dwLargeBlobSupport == other.dwLargeBlobSupport && self.bPreferResidentKey == other.bPreferResidentKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5804,7 +5804,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CLIENT_DATA {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CLIENT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CLIENT_DATA>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbClientDataJSON == other.cbClientDataJSON && self.pbClientDataJSON == other.pbClientDataJSON && self.pwszHashAlgId == other.pwszHashAlgId
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CLIENT_DATA {}
@@ -5845,7 +5845,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_COMMON_ATTESTATION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_COMMON_ATTESTATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_COMMON_ATTESTATION>()) == 0 }
+        self.dwVersion == other.dwVersion && self.pwszAlg == other.pwszAlg && self.lAlg == other.lAlg && self.cbSignature == other.cbSignature && self.pbSignature == other.pbSignature && self.cX5c == other.cX5c && self.pX5c == other.pX5c && self.pwszVer == other.pwszVer && self.cbCertInfo == other.cbCertInfo && self.pbCertInfo == other.pbCertInfo && self.cbPubArea == other.cbPubArea && self.pbPubArea == other.pbPubArea
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_COMMON_ATTESTATION {}
@@ -5877,7 +5877,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_COSE_CREDENTIAL_PARAMETER>()) == 0 }
+        self.dwVersion == other.dwVersion && self.pwszCredentialType == other.pwszCredentialType && self.lAlg == other.lAlg
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {}
@@ -5908,7 +5908,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_COSE_CREDENTIAL_PARAMETERS>()) == 0 }
+        self.cCredentialParameters == other.cCredentialParameters && self.pCredentialParameters == other.pCredentialParameters
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {}
@@ -5941,7 +5941,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIAL>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbId == other.cbId && self.pbId == other.pbId && self.pwszCredentialType == other.pwszCredentialType
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL {}
@@ -5972,7 +5972,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIALS {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIALS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIALS>()) == 0 }
+        self.cCredentials == other.cCredentials && self.pCredentials == other.pCredentials
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIALS {}
@@ -6042,7 +6042,23 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_ATTESTATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_ATTESTATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIAL_ATTESTATION>()) == 0 }
+        self.dwVersion == other.dwVersion
+            && self.pwszFormatType == other.pwszFormatType
+            && self.cbAuthenticatorData == other.cbAuthenticatorData
+            && self.pbAuthenticatorData == other.pbAuthenticatorData
+            && self.cbAttestation == other.cbAttestation
+            && self.pbAttestation == other.pbAttestation
+            && self.dwAttestationDecodeType == other.dwAttestationDecodeType
+            && self.pvAttestationDecode == other.pvAttestationDecode
+            && self.cbAttestationObject == other.cbAttestationObject
+            && self.pbAttestationObject == other.pbAttestationObject
+            && self.cbCredentialId == other.cbCredentialId
+            && self.pbCredentialId == other.pbCredentialId
+            && self.Extensions == other.Extensions
+            && self.dwUsedTransport == other.dwUsedTransport
+            && self.bEpAtt == other.bEpAtt
+            && self.bLargeBlobSupported == other.bLargeBlobSupported
+            && self.bResidentKey == other.bResidentKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6078,7 +6094,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_EX {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIAL_EX>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbId == other.cbId && self.pbId == other.pbId && self.pwszCredentialType == other.pwszCredentialType && self.dwTransports == other.dwTransports
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_EX {}
@@ -6109,7 +6125,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CREDENTIAL_LIST {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CREDENTIAL_LIST>()) == 0 }
+        self.cCredentials == other.cCredentials && self.ppCredentials == other.ppCredentials
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_LIST {}
@@ -6140,7 +6156,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CRED_BLOB_EXTENSION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CRED_BLOB_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CRED_BLOB_EXTENSION>()) == 0 }
+        self.cbCredBlob == other.cbCredBlob && self.pbCredBlob == other.pbCredBlob
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CRED_BLOB_EXTENSION {}
@@ -6177,7 +6193,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_CRED_PROTECT_EXTENSION_IN>()) == 0 }
+        self.dwCredProtect == other.dwCredProtect && self.bRequireCredProtect == other.bRequireCredProtect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6211,7 +6227,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_EXTENSION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_EXTENSION>()) == 0 }
+        self.pwszExtensionIdentifier == other.pwszExtensionIdentifier && self.cbExtension == other.cbExtension && self.pvExtension == other.pvExtension
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_EXTENSION {}
@@ -6242,7 +6258,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_EXTENSIONS {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_EXTENSIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_EXTENSIONS>()) == 0 }
+        self.cExtensions == other.cExtensions && self.pExtensions == other.pExtensions
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_EXTENSIONS {}
@@ -6275,7 +6291,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_RP_ENTITY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_RP_ENTITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_RP_ENTITY_INFORMATION>()) == 0 }
+        self.dwVersion == other.dwVersion && self.pwszId == other.pwszId && self.pwszName == other.pwszName && self.pwszIcon == other.pwszIcon
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_RP_ENTITY_INFORMATION {}
@@ -6310,7 +6326,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_USER_ENTITY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_USER_ENTITY_INFORMATION>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbId == other.cbId && self.pbId == other.pbId && self.pwszName == other.pwszName && self.pwszIcon == other.pwszIcon && self.pwszDisplayName == other.pwszDisplayName
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_USER_ENTITY_INFORMATION {}
@@ -6341,7 +6357,7 @@ unsafe impl ::windows::core::Abi for WEBAUTHN_X5C {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_X5C {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEBAUTHN_X5C>()) == 0 }
+        self.cbData == other.cbData && self.pbData == other.pbData
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_X5C {}
@@ -6379,7 +6395,7 @@ unsafe impl ::windows::core::Abi for WS_ANY_ATTRIBUTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ANY_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ANY_ATTRIBUTE>()) == 0 }
+        self.localName == other.localName && self.ns == other.ns && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6418,7 +6434,7 @@ unsafe impl ::windows::core::Abi for WS_ANY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ANY_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ANY_ATTRIBUTES>()) == 0 }
+        self.attributes == other.attributes && self.attributeCount == other.attributeCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6443,18 +6459,12 @@ impl ::core::clone::Clone for WS_ASYNC_CONTEXT {
 }
 impl ::core::fmt::Debug for WS_ASYNC_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_ASYNC_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("callbackState", &self.callbackState).finish()
+        f.debug_struct("WS_ASYNC_CONTEXT").field("callbackState", &self.callbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ASYNC_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_ASYNC_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ASYNC_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_ASYNC_CONTEXT {}
 impl ::core::default::Default for WS_ASYNC_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6473,18 +6483,12 @@ impl ::core::clone::Clone for WS_ASYNC_OPERATION {
 }
 impl ::core::fmt::Debug for WS_ASYNC_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_ASYNC_OPERATION").field("function", &self.function.map(|f| f as usize)).finish()
+        f.debug_struct("WS_ASYNC_OPERATION").finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_ASYNC_OPERATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_ASYNC_OPERATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ASYNC_OPERATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_ASYNC_OPERATION {}
 impl ::core::default::Default for WS_ASYNC_OPERATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6515,7 +6519,7 @@ unsafe impl ::windows::core::Abi for WS_ASYNC_STATE {
 }
 impl ::core::cmp::PartialEq for WS_ASYNC_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ASYNC_STATE>()) == 0 }
+        self.internal0 == other.internal0 && self.internal1 == other.internal1 && self.internal2 == other.internal2 && self.internal3 == other.internal3 && self.internal4 == other.internal4
     }
 }
 impl ::core::cmp::Eq for WS_ASYNC_STATE {}
@@ -6554,7 +6558,7 @@ unsafe impl ::windows::core::Abi for WS_ATTRIBUTE_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ATTRIBUTE_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ATTRIBUTE_DESCRIPTION>()) == 0 }
+        self.attributeLocalName == other.attributeLocalName && self.attributeNs == other.attributeNs && self.r#type == other.r#type && self.typeDescription == other.typeDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6592,7 +6596,7 @@ unsafe impl ::windows::core::Abi for WS_BOOL_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_BOOL_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_BOOL_DESCRIPTION>()) == 0 }
+        self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6625,7 +6629,7 @@ unsafe impl ::windows::core::Abi for WS_BUFFERS {
 }
 impl ::core::cmp::PartialEq for WS_BUFFERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_BUFFERS>()) == 0 }
+        self.bufferCount == other.bufferCount && self.buffers == other.buffers
     }
 }
 impl ::core::cmp::Eq for WS_BUFFERS {}
@@ -6656,7 +6660,7 @@ unsafe impl ::windows::core::Abi for WS_BYTES {
 }
 impl ::core::cmp::PartialEq for WS_BYTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_BYTES>()) == 0 }
+        self.length == other.length && self.bytes == other.bytes
     }
 }
 impl ::core::cmp::Eq for WS_BYTES {}
@@ -6687,7 +6691,7 @@ unsafe impl ::windows::core::Abi for WS_BYTES_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_BYTES_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_BYTES_DESCRIPTION>()) == 0 }
+        self.minByteCount == other.minByteCount && self.maxByteCount == other.maxByteCount
     }
 }
 impl ::core::cmp::Eq for WS_BYTES_DESCRIPTION {}
@@ -6718,7 +6722,7 @@ unsafe impl ::windows::core::Abi for WS_BYTE_ARRAY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_BYTE_ARRAY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_BYTE_ARRAY_DESCRIPTION>()) == 0 }
+        self.minByteCount == other.minByteCount && self.maxByteCount == other.maxByteCount
     }
 }
 impl ::core::cmp::Eq for WS_BYTE_ARRAY_DESCRIPTION {}
@@ -6750,7 +6754,7 @@ unsafe impl ::windows::core::Abi for WS_CALL_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_CALL_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CALL_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_CALL_PROPERTY {}
@@ -6782,7 +6786,7 @@ unsafe impl ::windows::core::Abi for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
 }
 impl ::core::cmp::PartialEq for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE>()) == 0 }
+        self.keyHandle == other.keyHandle && self.provider == other.provider && self.keySpec == other.keySpec
     }
 }
 impl ::core::cmp::Eq for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {}
@@ -6809,21 +6813,13 @@ impl ::core::clone::Clone for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("state", &self.state).finish()
+        f.debug_struct("WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT").field("state", &self.state).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     fn default() -> Self {
@@ -6851,7 +6847,7 @@ unsafe impl ::windows::core::Abi for WS_CERT_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WS_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CERT_CREDENTIAL>()) == 0 }
+        self.credentialType == other.credentialType
     }
 }
 impl ::core::cmp::Eq for WS_CERT_CREDENTIAL {}
@@ -6882,7 +6878,7 @@ unsafe impl ::windows::core::Abi for WS_CERT_ENDPOINT_IDENTITY {
 }
 impl ::core::cmp::PartialEq for WS_CERT_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CERT_ENDPOINT_IDENTITY>()) == 0 }
+        self.identity == other.identity && self.rawCertificateData == other.rawCertificateData
     }
 }
 impl ::core::cmp::Eq for WS_CERT_ENDPOINT_IDENTITY {}
@@ -6913,7 +6909,7 @@ unsafe impl ::windows::core::Abi for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT
 }
 impl ::core::cmp::PartialEq for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint && self.bindingUsage == other.bindingUsage
     }
 }
 impl ::core::cmp::Eq for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
@@ -6944,21 +6940,13 @@ impl ::core::clone::Clone for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR").field("authenticator", &self.authenticator).field("trustedIssuerCerts", &self.trustedIssuerCerts).field("trustedIssuerCertCount", &self.trustedIssuerCertCount).field("decryptionCert", &self.decryptionCert).field("samlValidator", &self.samlValidator.map(|f| f as usize)).field("samlValidatorCallbackState", &self.samlValidatorCallbackState).finish()
+        f.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR").field("authenticator", &self.authenticator).field("trustedIssuerCerts", &self.trustedIssuerCerts).field("trustedIssuerCertCount", &self.trustedIssuerCertCount).field("decryptionCert", &self.decryptionCert).field("samlValidatorCallbackState", &self.samlValidatorCallbackState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CERT_SIGNED_SAML_AUTHENTICATOR>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for WS_CERT_SIGNED_SAML_AUTHENTICATOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn default() -> Self {
@@ -6986,26 +6974,12 @@ impl ::core::clone::Clone for WS_CHANNEL_DECODER {
 }
 impl ::core::fmt::Debug for WS_CHANNEL_DECODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CHANNEL_DECODER")
-            .field("createContext", &self.createContext)
-            .field("createDecoderCallback", &self.createDecoderCallback.map(|f| f as usize))
-            .field("decoderGetContentTypeCallback", &self.decoderGetContentTypeCallback.map(|f| f as usize))
-            .field("decoderStartCallback", &self.decoderStartCallback.map(|f| f as usize))
-            .field("decoderDecodeCallback", &self.decoderDecodeCallback.map(|f| f as usize))
-            .field("decoderEndCallback", &self.decoderEndCallback.map(|f| f as usize))
-            .field("freeDecoderCallback", &self.freeDecoderCallback.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WS_CHANNEL_DECODER").field("createContext", &self.createContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CHANNEL_DECODER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_CHANNEL_DECODER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_DECODER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_CHANNEL_DECODER {}
 impl ::core::default::Default for WS_CHANNEL_DECODER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7030,26 +7004,12 @@ impl ::core::clone::Clone for WS_CHANNEL_ENCODER {
 }
 impl ::core::fmt::Debug for WS_CHANNEL_ENCODER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CHANNEL_ENCODER")
-            .field("createContext", &self.createContext)
-            .field("createEncoderCallback", &self.createEncoderCallback.map(|f| f as usize))
-            .field("encoderGetContentTypeCallback", &self.encoderGetContentTypeCallback.map(|f| f as usize))
-            .field("encoderStartCallback", &self.encoderStartCallback.map(|f| f as usize))
-            .field("encoderEncodeCallback", &self.encoderEncodeCallback.map(|f| f as usize))
-            .field("encoderEndCallback", &self.encoderEndCallback.map(|f| f as usize))
-            .field("freeEncoderCallback", &self.freeEncoderCallback.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WS_CHANNEL_ENCODER").field("createContext", &self.createContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CHANNEL_ENCODER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_CHANNEL_ENCODER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_ENCODER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_CHANNEL_ENCODER {}
 impl ::core::default::Default for WS_CHANNEL_ENCODER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7077,7 +7037,7 @@ unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_CHANNEL_PROPERTIES {}
@@ -7109,7 +7069,7 @@ unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_CHANNEL_PROPERTY {}
@@ -7142,7 +7102,7 @@ unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTY_CONSTRAINT {
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_PROPERTY_CONSTRAINT>()) == 0 }
+        self.id == other.id && self.allowedValues == other.allowedValues && self.allowedValuesSize == other.allowedValuesSize && self.out == other.out
     }
 }
 impl ::core::cmp::Eq for WS_CHANNEL_PROPERTY_CONSTRAINT {}
@@ -7172,7 +7132,7 @@ unsafe impl ::windows::core::Abi for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHANNEL_PROPERTY_CONSTRAINT_0>()) == 0 }
+        self.channelProperty == other.channelProperty
     }
 }
 impl ::core::cmp::Eq for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {}
@@ -7203,7 +7163,7 @@ unsafe impl ::windows::core::Abi for WS_CHAR_ARRAY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_CHAR_ARRAY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CHAR_ARRAY_DESCRIPTION>()) == 0 }
+        self.minCharCount == other.minCharCount && self.maxCharCount == other.maxCharCount
     }
 }
 impl ::core::cmp::Eq for WS_CHAR_ARRAY_DESCRIPTION {}
@@ -7240,7 +7200,7 @@ unsafe impl ::windows::core::Abi for WS_CONTRACT_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CONTRACT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CONTRACT_DESCRIPTION>()) == 0 }
+        self.operationCount == other.operationCount && self.operations == other.operations
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7272,21 +7232,13 @@ impl ::core::clone::Clone for WS_CUSTOM_CERT_CREDENTIAL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WS_CUSTOM_CERT_CREDENTIAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CUSTOM_CERT_CREDENTIAL").field("credential", &self.credential).field("getCertCallback", &self.getCertCallback.map(|f| f as usize)).field("getCertCallbackState", &self.getCertCallbackState).field("certIssuerListNotificationCallback", &self.certIssuerListNotificationCallback.map(|f| f as usize)).field("certIssuerListNotificationCallbackState", &self.certIssuerListNotificationCallbackState).finish()
+        f.debug_struct("WS_CUSTOM_CERT_CREDENTIAL").field("credential", &self.credential).field("getCertCallbackState", &self.getCertCallbackState).field("certIssuerListNotificationCallbackState", &self.certIssuerListNotificationCallbackState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_CERT_CREDENTIAL {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for WS_CUSTOM_CERT_CREDENTIAL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_CERT_CREDENTIAL>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for WS_CUSTOM_CERT_CREDENTIAL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WS_CUSTOM_CERT_CREDENTIAL {
     fn default() -> Self {
@@ -7319,33 +7271,12 @@ impl ::core::clone::Clone for WS_CUSTOM_CHANNEL_CALLBACKS {
 }
 impl ::core::fmt::Debug for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CUSTOM_CHANNEL_CALLBACKS")
-            .field("createChannelCallback", &self.createChannelCallback.map(|f| f as usize))
-            .field("freeChannelCallback", &self.freeChannelCallback.map(|f| f as usize))
-            .field("resetChannelCallback", &self.resetChannelCallback.map(|f| f as usize))
-            .field("openChannelCallback", &self.openChannelCallback.map(|f| f as usize))
-            .field("closeChannelCallback", &self.closeChannelCallback.map(|f| f as usize))
-            .field("abortChannelCallback", &self.abortChannelCallback.map(|f| f as usize))
-            .field("getChannelPropertyCallback", &self.getChannelPropertyCallback.map(|f| f as usize))
-            .field("setChannelPropertyCallback", &self.setChannelPropertyCallback.map(|f| f as usize))
-            .field("writeMessageStartCallback", &self.writeMessageStartCallback.map(|f| f as usize))
-            .field("writeMessageEndCallback", &self.writeMessageEndCallback.map(|f| f as usize))
-            .field("readMessageStartCallback", &self.readMessageStartCallback.map(|f| f as usize))
-            .field("readMessageEndCallback", &self.readMessageEndCallback.map(|f| f as usize))
-            .field("abandonMessageCallback", &self.abandonMessageCallback.map(|f| f as usize))
-            .field("shutdownSessionChannelCallback", &self.shutdownSessionChannelCallback.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WS_CUSTOM_CHANNEL_CALLBACKS").finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CUSTOM_CHANNEL_CALLBACKS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_CUSTOM_CHANNEL_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_CHANNEL_CALLBACKS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_CUSTOM_CHANNEL_CALLBACKS {}
 impl ::core::default::Default for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7373,7 +7304,7 @@ unsafe impl ::windows::core::Abi for WS_CUSTOM_HTTP_PROXY {
 }
 impl ::core::cmp::PartialEq for WS_CUSTOM_HTTP_PROXY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_HTTP_PROXY>()) == 0 }
+        self.servers == other.servers && self.bypass == other.bypass
     }
 }
 impl ::core::cmp::Eq for WS_CUSTOM_HTTP_PROXY {}
@@ -7404,29 +7335,12 @@ impl ::core::clone::Clone for WS_CUSTOM_LISTENER_CALLBACKS {
 }
 impl ::core::fmt::Debug for WS_CUSTOM_LISTENER_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CUSTOM_LISTENER_CALLBACKS")
-            .field("createListenerCallback", &self.createListenerCallback.map(|f| f as usize))
-            .field("freeListenerCallback", &self.freeListenerCallback.map(|f| f as usize))
-            .field("resetListenerCallback", &self.resetListenerCallback.map(|f| f as usize))
-            .field("openListenerCallback", &self.openListenerCallback.map(|f| f as usize))
-            .field("closeListenerCallback", &self.closeListenerCallback.map(|f| f as usize))
-            .field("abortListenerCallback", &self.abortListenerCallback.map(|f| f as usize))
-            .field("getListenerPropertyCallback", &self.getListenerPropertyCallback.map(|f| f as usize))
-            .field("setListenerPropertyCallback", &self.setListenerPropertyCallback.map(|f| f as usize))
-            .field("createChannelForListenerCallback", &self.createChannelForListenerCallback.map(|f| f as usize))
-            .field("acceptChannelCallback", &self.acceptChannelCallback.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WS_CUSTOM_LISTENER_CALLBACKS").finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_CUSTOM_LISTENER_CALLBACKS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_CUSTOM_LISTENER_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_LISTENER_CALLBACKS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_CUSTOM_LISTENER_CALLBACKS {}
 impl ::core::default::Default for WS_CUSTOM_LISTENER_CALLBACKS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7454,21 +7368,13 @@ impl ::core::clone::Clone for WS_CUSTOM_TYPE_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_CUSTOM_TYPE_DESCRIPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_CUSTOM_TYPE_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("readCallback", &self.readCallback.map(|f| f as usize)).field("writeCallback", &self.writeCallback.map(|f| f as usize)).field("descriptionData", &self.descriptionData).field("isDefaultValueCallback", &self.isDefaultValueCallback.map(|f| f as usize)).finish()
+        f.debug_struct("WS_CUSTOM_TYPE_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("descriptionData", &self.descriptionData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_CUSTOM_TYPE_DESCRIPTION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_CUSTOM_TYPE_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_CUSTOM_TYPE_DESCRIPTION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_CUSTOM_TYPE_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_CUSTOM_TYPE_DESCRIPTION {
     fn default() -> Self {
@@ -7497,7 +7403,7 @@ unsafe impl ::windows::core::Abi for WS_DATETIME {
 }
 impl ::core::cmp::PartialEq for WS_DATETIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DATETIME>()) == 0 }
+        self.ticks == other.ticks && self.format == other.format
     }
 }
 impl ::core::cmp::Eq for WS_DATETIME {}
@@ -7528,7 +7434,7 @@ unsafe impl ::windows::core::Abi for WS_DATETIME_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_DATETIME_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DATETIME_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_DATETIME_DESCRIPTION {}
@@ -7557,14 +7463,6 @@ unsafe impl ::windows::core::Abi for WS_DECIMAL_DESCRIPTION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_DECIMAL_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DECIMAL_DESCRIPTION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_DECIMAL_DESCRIPTION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_DECIMAL_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7592,7 +7490,7 @@ unsafe impl ::windows::core::Abi for WS_DEFAULT_VALUE {
 }
 impl ::core::cmp::PartialEq for WS_DEFAULT_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DEFAULT_VALUE>()) == 0 }
+        self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_DEFAULT_VALUE {}
@@ -7622,7 +7520,7 @@ unsafe impl ::windows::core::Abi for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTI
 }
 impl ::core::cmp::PartialEq for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL>()) == 0 }
+        self.credential == other.credential
     }
 }
 impl ::core::cmp::Eq for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
@@ -7653,7 +7551,7 @@ unsafe impl ::windows::core::Abi for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
 }
 impl ::core::cmp::PartialEq for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DISALLOWED_USER_AGENT_SUBSTRINGS>()) == 0 }
+        self.subStringCount == other.subStringCount && self.subStrings == other.subStrings
     }
 }
 impl ::core::cmp::Eq for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {}
@@ -7684,7 +7582,7 @@ unsafe impl ::windows::core::Abi for WS_DNS_ENDPOINT_IDENTITY {
 }
 impl ::core::cmp::PartialEq for WS_DNS_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DNS_ENDPOINT_IDENTITY>()) == 0 }
+        self.identity == other.identity && self.dns == other.dns
     }
 }
 impl ::core::cmp::Eq for WS_DNS_ENDPOINT_IDENTITY {}
@@ -7715,7 +7613,7 @@ unsafe impl ::windows::core::Abi for WS_DOUBLE_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_DOUBLE_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DOUBLE_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_DOUBLE_DESCRIPTION {}
@@ -7759,7 +7657,7 @@ unsafe impl ::windows::core::Abi for WS_DURATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_DURATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DURATION>()) == 0 }
+        self.negative == other.negative && self.years == other.years && self.months == other.months && self.days == other.days && self.hours == other.hours && self.minutes == other.minutes && self.seconds == other.seconds && self.milliseconds == other.milliseconds && self.ticks == other.ticks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7789,21 +7687,13 @@ impl ::core::clone::Clone for WS_DURATION_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_DURATION_DESCRIPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_DURATION_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).field("comparer", &self.comparer.map(|f| f as usize)).finish()
+        f.debug_struct("WS_DURATION_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_DURATION_DESCRIPTION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_DURATION_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_DURATION_DESCRIPTION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_DURATION_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_DURATION_DESCRIPTION {
     fn default() -> Self {
@@ -7840,7 +7730,7 @@ unsafe impl ::windows::core::Abi for WS_ELEMENT_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ELEMENT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ELEMENT_DESCRIPTION>()) == 0 }
+        self.elementLocalName == other.elementLocalName && self.elementNs == other.elementNs && self.r#type == other.r#type && self.typeDescription == other.typeDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7875,7 +7765,7 @@ unsafe impl ::windows::core::Abi for WS_ENDPOINT_ADDRESS {
 }
 impl ::core::cmp::PartialEq for WS_ENDPOINT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENDPOINT_ADDRESS>()) == 0 }
+        self.url == other.url && self.headers == other.headers && self.extensions == other.extensions && self.identity == other.identity
     }
 }
 impl ::core::cmp::Eq for WS_ENDPOINT_ADDRESS {}
@@ -7905,7 +7795,7 @@ unsafe impl ::windows::core::Abi for WS_ENDPOINT_ADDRESS_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_ENDPOINT_ADDRESS_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENDPOINT_ADDRESS_DESCRIPTION>()) == 0 }
+        self.addressingVersion == other.addressingVersion
     }
 }
 impl ::core::cmp::Eq for WS_ENDPOINT_ADDRESS_DESCRIPTION {}
@@ -7935,7 +7825,7 @@ unsafe impl ::windows::core::Abi for WS_ENDPOINT_IDENTITY {
 }
 impl ::core::cmp::PartialEq for WS_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENDPOINT_IDENTITY>()) == 0 }
+        self.identityType == other.identityType
     }
 }
 impl ::core::cmp::Eq for WS_ENDPOINT_IDENTITY {}
@@ -7974,7 +7864,7 @@ unsafe impl ::windows::core::Abi for WS_ENDPOINT_POLICY_EXTENSION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENDPOINT_POLICY_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENDPOINT_POLICY_EXTENSION>()) == 0 }
+        self.policyExtension == other.policyExtension && self.assertionName == other.assertionName && self.assertionNs == other.assertionNs && self.out == other.out
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8012,7 +7902,7 @@ unsafe impl ::windows::core::Abi for WS_ENDPOINT_POLICY_EXTENSION_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENDPOINT_POLICY_EXTENSION_0>()) == 0 }
+        self.assertionValue == other.assertionValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8053,7 +7943,7 @@ unsafe impl ::windows::core::Abi for WS_ENUM_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENUM_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENUM_DESCRIPTION>()) == 0 }
+        self.values == other.values && self.valueCount == other.valueCount && self.maxByteCount == other.maxByteCount && self.nameIndices == other.nameIndices
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8092,7 +7982,7 @@ unsafe impl ::windows::core::Abi for WS_ENUM_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENUM_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENUM_VALUE>()) == 0 }
+        self.value == other.value && self.name == other.name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8128,7 +8018,7 @@ unsafe impl ::windows::core::Abi for WS_ERROR_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_ERROR_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ERROR_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_ERROR_PROPERTY {}
@@ -8169,7 +8059,7 @@ unsafe impl ::windows::core::Abi for WS_FAULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FAULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FAULT>()) == 0 }
+        self.code == other.code && self.reasons == other.reasons && self.reasonCount == other.reasonCount && self.actor == other.actor && self.node == other.node && self.detail == other.detail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8208,7 +8098,7 @@ unsafe impl ::windows::core::Abi for WS_FAULT_CODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FAULT_CODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FAULT_CODE>()) == 0 }
+        self.value == other.value && self.subCode == other.subCode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8240,7 +8130,7 @@ unsafe impl ::windows::core::Abi for WS_FAULT_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_FAULT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FAULT_DESCRIPTION>()) == 0 }
+        self.envelopeVersion == other.envelopeVersion
     }
 }
 impl ::core::cmp::Eq for WS_FAULT_DESCRIPTION {}
@@ -8277,7 +8167,7 @@ unsafe impl ::windows::core::Abi for WS_FAULT_DETAIL_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FAULT_DETAIL_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FAULT_DETAIL_DESCRIPTION>()) == 0 }
+        self.action == other.action && self.detailElementDescription == other.detailElementDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8310,7 +8200,7 @@ unsafe impl ::windows::core::Abi for WS_FAULT_REASON {
 }
 impl ::core::cmp::PartialEq for WS_FAULT_REASON {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FAULT_REASON>()) == 0 }
+        self.text == other.text && self.lang == other.lang
     }
 }
 impl ::core::cmp::Eq for WS_FAULT_REASON {}
@@ -8357,7 +8247,7 @@ unsafe impl ::windows::core::Abi for WS_FIELD_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FIELD_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FIELD_DESCRIPTION>()) == 0 }
+        self.mapping == other.mapping && self.localName == other.localName && self.ns == other.ns && self.r#type == other.r#type && self.typeDescription == other.typeDescription && self.offset == other.offset && self.options == other.options && self.defaultValue == other.defaultValue && self.countOffset == other.countOffset && self.itemLocalName == other.itemLocalName && self.itemNs == other.itemNs && self.itemRange == other.itemRange
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8390,7 +8280,7 @@ unsafe impl ::windows::core::Abi for WS_FLOAT_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_FLOAT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_FLOAT_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_FLOAT_DESCRIPTION {}
@@ -8420,7 +8310,7 @@ unsafe impl ::windows::core::Abi for WS_GUID_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_GUID_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_GUID_DESCRIPTION>()) == 0 }
+        self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_GUID_DESCRIPTION {}
@@ -8453,7 +8343,7 @@ unsafe impl ::windows::core::Abi for WS_HEAP_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_HEAP_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HEAP_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_HEAP_PROPERTIES {}
@@ -8485,7 +8375,7 @@ unsafe impl ::windows::core::Abi for WS_HEAP_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_HEAP_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HEAP_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_HEAP_PROPERTY {}
@@ -8516,7 +8406,7 @@ unsafe impl ::windows::core::Abi for WS_HOST_NAMES {
 }
 impl ::core::cmp::PartialEq for WS_HOST_NAMES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HOST_NAMES>()) == 0 }
+        self.hostNames == other.hostNames && self.hostNameCount == other.hostNameCount
     }
 }
 impl ::core::cmp::Eq for WS_HOST_NAMES {}
@@ -8552,7 +8442,7 @@ unsafe impl ::windows::core::Abi for WS_HTTPS_URL {
 }
 impl ::core::cmp::PartialEq for WS_HTTPS_URL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTPS_URL>()) == 0 }
+        self.url == other.url && self.host == other.host && self.port == other.port && self.portAsString == other.portAsString && self.path == other.path && self.query == other.query && self.fragment == other.fragment
     }
 }
 impl ::core::cmp::Eq for WS_HTTPS_URL {}
@@ -8582,7 +8472,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_BINDING_TEMPLATE {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_BINDING_TEMPLATE {}
@@ -8614,7 +8504,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.httpHeaderAuthSecurityBinding == other.httpHeaderAuthSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {}
@@ -8646,7 +8536,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.httpHeaderAuthSecurityBinding == other.httpHeaderAuthSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {}
@@ -8677,7 +8567,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_HEADER_AUTH_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.clientCredential == other.clientCredential
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {}
@@ -8707,7 +8597,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTR
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {}
@@ -8737,7 +8627,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {}
@@ -8768,7 +8658,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLA
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties && self.clientCredential == other.clientCredential
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {}
@@ -8805,7 +8695,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_HEADER_MAPPING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_MAPPING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_HEADER_MAPPING>()) == 0 }
+        self.headerName == other.headerName && self.headerMappingOptions == other.headerMappingOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8848,7 +8738,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_MESSAGE_MAPPING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_MESSAGE_MAPPING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_MESSAGE_MAPPING>()) == 0 }
+        self.requestMappingOptions == other.requestMappingOptions && self.responseMappingOptions == other.responseMappingOptions && self.requestHeaderMappings == other.requestHeaderMappings && self.requestHeaderMappingCount == other.requestHeaderMappingCount && self.responseHeaderMappings == other.responseHeaderMappings && self.responseHeaderMappingCount == other.responseHeaderMappingCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8880,7 +8770,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_POLICY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_POLICY_DESCRIPTION {}
@@ -8903,18 +8793,12 @@ impl ::core::clone::Clone for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
 }
 impl ::core::fmt::Debug for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_HTTP_REDIRECT_CALLBACK_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("state", &self.state).finish()
+        f.debug_struct("WS_HTTP_REDIRECT_CALLBACK_CONTEXT").field("state", &self.state).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_REDIRECT_CALLBACK_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {}
 impl ::core::default::Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8943,7 +8827,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_BINDING_TEMPLATE {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_BINDING_TEMPLATE {}
@@ -8976,7 +8860,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.httpHeaderAuthSecurityBinding == other.httpHeaderAuthSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {}
@@ -9009,7 +8893,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION 
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.httpHeaderAuthSecurityBinding == other.httpHeaderAuthSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {}
@@ -9042,7 +8926,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {}
@@ -9075,7 +8959,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTI
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {}
@@ -9109,7 +8993,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding && self.securityContextSecurityBinding == other.securityContextSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {}
@@ -9143,7 +9027,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding && self.securityContextSecurityBinding == other.securityContextSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
@@ -9175,7 +9059,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_POLICY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_POLICY_DESCRIPTION {}
@@ -9200,18 +9084,12 @@ impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
+        f.debug_struct("WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {}
 impl ::core::default::Default for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9241,7 +9119,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.usernameMessageSecurityBinding == other.usernameMessageSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {}
@@ -9267,18 +9145,12 @@ impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMP
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+        f.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
 impl ::core::default::Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9309,7 +9181,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLIC
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sslTransportSecurityBinding == other.sslTransportSecurityBinding && self.usernameMessageSecurityBinding == other.usernameMessageSecurityBinding && self.securityContextSecurityBinding == other.securityContextSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
@@ -9345,7 +9217,7 @@ unsafe impl ::windows::core::Abi for WS_HTTP_URL {
 }
 impl ::core::cmp::PartialEq for WS_HTTP_URL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_HTTP_URL>()) == 0 }
+        self.url == other.url && self.host == other.host && self.port == other.port && self.portAsString == other.portAsString && self.path == other.path && self.query == other.query && self.fragment == other.fragment
     }
 }
 impl ::core::cmp::Eq for WS_HTTP_URL {}
@@ -9376,7 +9248,7 @@ unsafe impl ::windows::core::Abi for WS_INT16_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_INT16_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_INT16_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_INT16_DESCRIPTION {}
@@ -9407,7 +9279,7 @@ unsafe impl ::windows::core::Abi for WS_INT32_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_INT32_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_INT32_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_INT32_DESCRIPTION {}
@@ -9438,7 +9310,7 @@ unsafe impl ::windows::core::Abi for WS_INT64_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_INT64_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_INT64_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_INT64_DESCRIPTION {}
@@ -9475,7 +9347,7 @@ unsafe impl ::windows::core::Abi for WS_INT8_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_INT8_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_INT8_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9527,7 +9399,7 @@ unsafe impl ::windows::core::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CO
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint && self.bindingUsage == other.bindingUsage && self.claimConstraints == other.claimConstraints && self.claimConstraintCount == other.claimConstraintCount && self.requestSecurityTokenPropertyConstraints == other.requestSecurityTokenPropertyConstraints && self.requestSecurityTokenPropertyConstraintCount == other.requestSecurityTokenPropertyConstraintCount && self.out == other.out
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9566,7 +9438,7 @@ unsafe impl ::windows::core::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CO
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0>()) == 0 }
+        self.issuerAddress == other.issuerAddress && self.requestSecurityTokenTemplate == other.requestSecurityTokenTemplate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9599,7 +9471,7 @@ unsafe impl ::windows::core::Abi for WS_ITEM_RANGE {
 }
 impl ::core::cmp::PartialEq for WS_ITEM_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ITEM_RANGE>()) == 0 }
+        self.minItemCount == other.minItemCount && self.maxItemCount == other.maxItemCount
     }
 }
 impl ::core::cmp::Eq for WS_ITEM_RANGE {}
@@ -9631,7 +9503,7 @@ unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING 
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.bindingUsage == other.bindingUsage && self.clientCredential == other.clientCredential
     }
 }
 impl ::core::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {}
@@ -9662,7 +9534,7 @@ unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint && self.bindingUsage == other.bindingUsage
     }
 }
 impl ::core::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
@@ -9693,7 +9565,7 @@ unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties && self.bindingUsage == other.bindingUsage
     }
 }
 impl ::core::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
@@ -9724,7 +9596,7 @@ unsafe impl ::windows::core::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties && self.clientCredential == other.clientCredential
     }
 }
 impl ::core::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {}
@@ -9757,7 +9629,7 @@ unsafe impl ::windows::core::Abi for WS_LISTENER_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_LISTENER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_LISTENER_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_LISTENER_PROPERTIES {}
@@ -9789,7 +9661,7 @@ unsafe impl ::windows::core::Abi for WS_LISTENER_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_LISTENER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_LISTENER_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_LISTENER_PROPERTY {}
@@ -9828,7 +9700,7 @@ unsafe impl ::windows::core::Abi for WS_MESSAGE_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_MESSAGE_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_MESSAGE_DESCRIPTION>()) == 0 }
+        self.action == other.action && self.bodyElementDescription == other.bodyElementDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9861,7 +9733,7 @@ unsafe impl ::windows::core::Abi for WS_MESSAGE_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_MESSAGE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_MESSAGE_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_MESSAGE_PROPERTIES {}
@@ -9893,7 +9765,7 @@ unsafe impl ::windows::core::Abi for WS_MESSAGE_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_MESSAGE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_MESSAGE_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_MESSAGE_PROPERTY {}
@@ -9939,7 +9811,7 @@ unsafe impl ::windows::core::Abi for WS_METADATA_ENDPOINT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_METADATA_ENDPOINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_METADATA_ENDPOINT>()) == 0 }
+        self.endpointAddress == other.endpointAddress && self.endpointPolicy == other.endpointPolicy && self.portName == other.portName && self.serviceName == other.serviceName && self.serviceNs == other.serviceNs && self.bindingName == other.bindingName && self.bindingNs == other.bindingNs && self.portTypeName == other.portTypeName && self.portTypeNs == other.portTypeNs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9978,7 +9850,7 @@ unsafe impl ::windows::core::Abi for WS_METADATA_ENDPOINTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_METADATA_ENDPOINTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_METADATA_ENDPOINTS>()) == 0 }
+        self.endpoints == other.endpoints && self.endpointCount == other.endpointCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10012,7 +9884,7 @@ unsafe impl ::windows::core::Abi for WS_METADATA_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_METADATA_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_METADATA_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_METADATA_PROPERTY {}
@@ -10043,7 +9915,7 @@ unsafe impl ::windows::core::Abi for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDIN
 }
 impl ::core::cmp::PartialEq for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.clientCredential == other.clientCredential
     }
 }
 impl ::core::cmp::Eq for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {}
@@ -10080,7 +9952,7 @@ unsafe impl ::windows::core::Abi for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE>()) == 0 }
+        self.keyHandle == other.keyHandle && self.asymmetricKey == other.asymmetricKey
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -10118,7 +9990,7 @@ unsafe impl ::windows::core::Abi for WS_NETPIPE_URL {
 }
 impl ::core::cmp::PartialEq for WS_NETPIPE_URL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_NETPIPE_URL>()) == 0 }
+        self.url == other.url && self.host == other.host && self.port == other.port && self.portAsString == other.portAsString && self.path == other.path && self.query == other.query && self.fragment == other.fragment
     }
 }
 impl ::core::cmp::Eq for WS_NETPIPE_URL {}
@@ -10154,7 +10026,7 @@ unsafe impl ::windows::core::Abi for WS_NETTCP_URL {
 }
 impl ::core::cmp::PartialEq for WS_NETTCP_URL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_NETTCP_URL>()) == 0 }
+        self.url == other.url && self.host == other.host && self.port == other.port && self.portAsString == other.portAsString && self.path == other.path && self.query == other.query && self.fragment == other.fragment
     }
 }
 impl ::core::cmp::Eq for WS_NETTCP_URL {}
@@ -10185,7 +10057,7 @@ unsafe impl ::windows::core::Abi for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIA
 }
 impl ::core::cmp::PartialEq for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL>()) == 0 }
+        self.credential == other.credential && self.opaqueAuthIdentity == other.opaqueAuthIdentity
     }
 }
 impl ::core::cmp::Eq for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
@@ -10221,31 +10093,13 @@ impl ::core::clone::Clone for WS_OPERATION_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_OPERATION_DESCRIPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_OPERATION_DESCRIPTION")
-            .field("versionInfo", &self.versionInfo)
-            .field("inputMessageDescription", &self.inputMessageDescription)
-            .field("outputMessageDescription", &self.outputMessageDescription)
-            .field("inputMessageOptions", &self.inputMessageOptions)
-            .field("outputMessageOptions", &self.outputMessageOptions)
-            .field("parameterCount", &self.parameterCount)
-            .field("parameterDescription", &self.parameterDescription)
-            .field("stubCallback", &self.stubCallback.map(|f| f as usize))
-            .field("style", &self.style)
-            .finish()
+        f.debug_struct("WS_OPERATION_DESCRIPTION").field("versionInfo", &self.versionInfo).field("inputMessageDescription", &self.inputMessageDescription).field("outputMessageDescription", &self.outputMessageDescription).field("inputMessageOptions", &self.inputMessageOptions).field("outputMessageOptions", &self.outputMessageOptions).field("parameterCount", &self.parameterCount).field("parameterDescription", &self.parameterDescription).field("style", &self.style).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_OPERATION_DESCRIPTION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_OPERATION_DESCRIPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_OPERATION_DESCRIPTION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_OPERATION_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_OPERATION_DESCRIPTION {
     fn default() -> Self {
@@ -10275,7 +10129,7 @@ unsafe impl ::windows::core::Abi for WS_PARAMETER_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_PARAMETER_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_PARAMETER_DESCRIPTION>()) == 0 }
+        self.parameterType == other.parameterType && self.inputMessageIndex == other.inputMessageIndex && self.outputMessageIndex == other.outputMessageIndex
     }
 }
 impl ::core::cmp::Eq for WS_PARAMETER_DESCRIPTION {}
@@ -10312,7 +10166,7 @@ unsafe impl ::windows::core::Abi for WS_POLICY_CONSTRAINTS {
 }
 impl ::core::cmp::PartialEq for WS_POLICY_CONSTRAINTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_POLICY_CONSTRAINTS>()) == 0 }
+        self.channelBinding == other.channelBinding && self.channelPropertyConstraints == other.channelPropertyConstraints && self.channelPropertyConstraintCount == other.channelPropertyConstraintCount && self.securityConstraints == other.securityConstraints && self.policyExtensions == other.policyExtensions && self.policyExtensionCount == other.policyExtensionCount
     }
 }
 impl ::core::cmp::Eq for WS_POLICY_CONSTRAINTS {}
@@ -10342,7 +10196,7 @@ unsafe impl ::windows::core::Abi for WS_POLICY_EXTENSION {
 }
 impl ::core::cmp::PartialEq for WS_POLICY_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_POLICY_EXTENSION>()) == 0 }
+        self.r#type == other.r#type
     }
 }
 impl ::core::cmp::Eq for WS_POLICY_EXTENSION {}
@@ -10373,7 +10227,7 @@ unsafe impl ::windows::core::Abi for WS_POLICY_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_POLICY_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_POLICY_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_POLICY_PROPERTIES {}
@@ -10405,7 +10259,7 @@ unsafe impl ::windows::core::Abi for WS_POLICY_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_POLICY_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_POLICY_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_POLICY_PROPERTY {}
@@ -10428,18 +10282,12 @@ impl ::core::clone::Clone for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
 }
 impl ::core::fmt::Debug for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_PROXY_MESSAGE_CALLBACK_CONTEXT").field("callback", &self.callback.map(|f| f as usize)).field("state", &self.state).finish()
+        f.debug_struct("WS_PROXY_MESSAGE_CALLBACK_CONTEXT").field("state", &self.state).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_PROXY_MESSAGE_CALLBACK_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {}
 impl ::core::default::Default for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10468,7 +10316,7 @@ unsafe impl ::windows::core::Abi for WS_PROXY_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_PROXY_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_PROXY_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_PROXY_PROPERTY {}
@@ -10499,7 +10347,7 @@ unsafe impl ::windows::core::Abi for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
 }
 impl ::core::cmp::PartialEq for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE>()) == 0 }
+        self.keyHandle == other.keyHandle && self.rawKeyBytes == other.rawKeyBytes
     }
 }
 impl ::core::cmp::Eq for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {}
@@ -10531,7 +10379,7 @@ unsafe impl ::windows::core::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_REQUEST_SECURITY_TOKEN_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_REQUEST_SECURITY_TOKEN_PROPERTY {}
@@ -10564,7 +10412,7 @@ unsafe impl ::windows::core::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAI
 }
 impl ::core::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT>()) == 0 }
+        self.id == other.id && self.allowedValues == other.allowedValues && self.allowedValuesSize == other.allowedValuesSize && self.out == other.out
     }
 }
 impl ::core::cmp::Eq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {}
@@ -10594,7 +10442,7 @@ unsafe impl ::windows::core::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAI
 }
 impl ::core::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0>()) == 0 }
+        self.requestSecurityTokenProperty == other.requestSecurityTokenProperty
     }
 }
 impl ::core::cmp::Eq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {}
@@ -10626,7 +10474,7 @@ unsafe impl ::windows::core::Abi for WS_RSA_ENDPOINT_IDENTITY {
 }
 impl ::core::cmp::PartialEq for WS_RSA_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_RSA_ENDPOINT_IDENTITY>()) == 0 }
+        self.identity == other.identity && self.modulus == other.modulus && self.exponent == other.exponent
     }
 }
 impl ::core::cmp::Eq for WS_RSA_ENDPOINT_IDENTITY {}
@@ -10656,7 +10504,7 @@ unsafe impl ::windows::core::Abi for WS_SAML_AUTHENTICATOR {
 }
 impl ::core::cmp::PartialEq for WS_SAML_AUTHENTICATOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SAML_AUTHENTICATOR>()) == 0 }
+        self.authenticatorType == other.authenticatorType
     }
 }
 impl ::core::cmp::Eq for WS_SAML_AUTHENTICATOR {}
@@ -10688,7 +10536,7 @@ unsafe impl ::windows::core::Abi for WS_SAML_MESSAGE_SECURITY_BINDING {
 }
 impl ::core::cmp::PartialEq for WS_SAML_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SAML_MESSAGE_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.bindingUsage == other.bindingUsage && self.authenticator == other.authenticator
     }
 }
 impl ::core::cmp::Eq for WS_SAML_MESSAGE_SECURITY_BINDING {}
@@ -10720,7 +10568,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_ALGORITHM_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_ALGORITHM_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_ALGORITHM_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_ALGORITHM_PROPERTY {}
@@ -10778,7 +10626,20 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_ALGORITHM_SUITE {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_ALGORITHM_SUITE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_ALGORITHM_SUITE>()) == 0 }
+        self.canonicalizationAlgorithm == other.canonicalizationAlgorithm
+            && self.digestAlgorithm == other.digestAlgorithm
+            && self.symmetricSignatureAlgorithm == other.symmetricSignatureAlgorithm
+            && self.asymmetricSignatureAlgorithm == other.asymmetricSignatureAlgorithm
+            && self.encryptionAlgorithm == other.encryptionAlgorithm
+            && self.keyDerivationAlgorithm == other.keyDerivationAlgorithm
+            && self.symmetricKeyWrapAlgorithm == other.symmetricKeyWrapAlgorithm
+            && self.asymmetricKeyWrapAlgorithm == other.asymmetricKeyWrapAlgorithm
+            && self.minSymmetricKeyLength == other.minSymmetricKeyLength
+            && self.maxSymmetricKeyLength == other.maxSymmetricKeyLength
+            && self.minAsymmetricKeyLength == other.minAsymmetricKeyLength
+            && self.maxAsymmetricKeyLength == other.maxAsymmetricKeyLength
+            && self.properties == other.properties
+            && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_ALGORITHM_SUITE {}
@@ -10810,7 +10671,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_BINDING>()) == 0 }
+        self.bindingType == other.bindingType && self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_BINDING {}
@@ -10842,7 +10703,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_CONSTRAINT {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.r#type == other.r#type && self.propertyConstraints == other.propertyConstraints && self.propertyConstraintCount == other.propertyConstraintCount
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_BINDING_CONSTRAINT {}
@@ -10873,7 +10734,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_BINDING_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_BINDING_PROPERTIES {}
@@ -10905,7 +10766,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_BINDING_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_BINDING_PROPERTY {}
@@ -10938,7 +10799,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_BINDING_PROPERTY_CONSTRAINT>()) == 0 }
+        self.id == other.id && self.allowedValues == other.allowedValues && self.allowedValuesSize == other.allowedValuesSize && self.out == other.out
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {}
@@ -10968,7 +10829,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0>()) == 0 }
+        self.securityBindingProperty == other.securityBindingProperty
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {}
@@ -11001,7 +10862,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONSTRAINTS {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONSTRAINTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONSTRAINTS>()) == 0 }
+        self.securityPropertyConstraints == other.securityPropertyConstraints && self.securityPropertyConstraintCount == other.securityPropertyConstraintCount && self.securityBindingConstraints == other.securityBindingConstraints && self.securityBindingConstraintCount == other.securityBindingConstraintCount
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONSTRAINTS {}
@@ -11035,7 +10896,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDIN
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.bindingUsage == other.bindingUsage && self.bootstrapSecurityDescription == other.bootstrapSecurityDescription
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {}
@@ -11067,7 +10928,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDIN
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint && self.bindingUsage == other.bindingUsage && self.bootstrapSecurityConstraint == other.bootstrapSecurityConstraint
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
@@ -11098,7 +10959,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDIN
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties && self.bindingUsage == other.bindingUsage
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
@@ -11128,7 +10989,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDIN
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {}
@@ -11160,7 +11021,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONTEXT_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONTEXT_PROPERTY {}
@@ -11191,7 +11052,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION>()) == 0 }
+        self.securityContextMessageSecurityBinding == other.securityContextMessageSecurityBinding && self.securityProperties == other.securityProperties
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {}
@@ -11222,7 +11083,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLA
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE>()) == 0 }
+        self.securityContextMessageSecurityBinding == other.securityContextMessageSecurityBinding && self.securityProperties == other.securityProperties
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {}
@@ -11255,7 +11116,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_DESCRIPTION>()) == 0 }
+        self.securityBindings == other.securityBindings && self.securityBindingCount == other.securityBindingCount && self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_DESCRIPTION {}
@@ -11285,7 +11146,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_KEY_HANDLE {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_KEY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_KEY_HANDLE>()) == 0 }
+        self.keyHandleType == other.keyHandleType
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_KEY_HANDLE {}
@@ -11316,7 +11177,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_PROPERTIES {}
@@ -11348,7 +11209,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_PROPERTY {}
@@ -11381,7 +11242,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTY_CONSTRAINT {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_PROPERTY_CONSTRAINT>()) == 0 }
+        self.id == other.id && self.allowedValues == other.allowedValues && self.allowedValuesSize == other.allowedValuesSize && self.out == other.out
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_PROPERTY_CONSTRAINT {}
@@ -11411,7 +11272,7 @@ unsafe impl ::windows::core::Abi for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SECURITY_PROPERTY_CONSTRAINT_0>()) == 0 }
+        self.securityProperty == other.securityProperty
     }
 }
 impl ::core::cmp::Eq for WS_SECURITY_PROPERTY_CONSTRAINT_0 {}
@@ -11441,21 +11302,13 @@ impl ::core::clone::Clone for WS_SERVICE_CONTRACT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SERVICE_CONTRACT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_CONTRACT").field("contractDescription", &self.contractDescription).field("defaultMessageHandlerCallback", &self.defaultMessageHandlerCallback.map(|f| f as usize)).field("methodTable", &self.methodTable).finish()
+        f.debug_struct("WS_SERVICE_CONTRACT").field("contractDescription", &self.contractDescription).field("methodTable", &self.methodTable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_CONTRACT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_SERVICE_CONTRACT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_CONTRACT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_SERVICE_CONTRACT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SERVICE_CONTRACT {
     fn default() -> Self {
@@ -11487,21 +11340,13 @@ impl ::core::clone::Clone for WS_SERVICE_ENDPOINT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_ENDPOINT").field("address", &self.address).field("channelBinding", &self.channelBinding).field("channelType", &self.channelType).field("securityDescription", &self.securityDescription).field("contract", &self.contract).field("authorizationCallback", &self.authorizationCallback.map(|f| f as usize)).field("properties", &self.properties).field("propertyCount", &self.propertyCount).field("channelProperties", &self.channelProperties).finish()
+        f.debug_struct("WS_SERVICE_ENDPOINT").field("address", &self.address).field("channelBinding", &self.channelBinding).field("channelType", &self.channelType).field("securityDescription", &self.securityDescription).field("contract", &self.contract).field("properties", &self.properties).field("propertyCount", &self.propertyCount).field("channelProperties", &self.channelProperties).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_SERVICE_ENDPOINT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_SERVICE_ENDPOINT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_ENDPOINT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_SERVICE_ENDPOINT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SERVICE_ENDPOINT {
     fn default() -> Self {
@@ -11537,7 +11382,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_ENDPOINT_METADATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SERVICE_ENDPOINT_METADATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_ENDPOINT_METADATA>()) == 0 }
+        self.portName == other.portName && self.bindingName == other.bindingName && self.bindingNs == other.bindingNs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11571,7 +11416,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_ENDPOINT_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_SERVICE_ENDPOINT_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_ENDPOINT_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_SERVICE_ENDPOINT_PROPERTY {}
@@ -11612,7 +11457,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_METADATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SERVICE_METADATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_METADATA>()) == 0 }
+        self.documentCount == other.documentCount && self.documents == other.documents && self.serviceName == other.serviceName && self.serviceNs == other.serviceNs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11651,7 +11496,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_METADATA_DOCUMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SERVICE_METADATA_DOCUMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_METADATA_DOCUMENT>()) == 0 }
+        self.content == other.content && self.name == other.name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11685,7 +11530,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_SERVICE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_SERVICE_PROPERTY {}
@@ -11707,18 +11552,12 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
 }
 impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_PROPERTY_ACCEPT_CALLBACK").field("callback", &self.callback.map(|f| f as usize)).finish()
+        f.debug_struct("WS_SERVICE_PROPERTY_ACCEPT_CALLBACK").finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_PROPERTY_ACCEPT_CALLBACK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {}
 impl ::core::default::Default for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11737,18 +11576,12 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
 }
 impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_SERVICE_PROPERTY_CLOSE_CALLBACK").field("callback", &self.callback.map(|f| f as usize)).finish()
+        f.debug_struct("WS_SERVICE_PROPERTY_CLOSE_CALLBACK").finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_PROPERTY_CLOSE_CALLBACK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {}
 impl ::core::default::Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11778,7 +11611,7 @@ unsafe impl ::windows::core::Abi for WS_SERVICE_SECURITY_IDENTITIES {
 }
 impl ::core::cmp::PartialEq for WS_SERVICE_SECURITY_IDENTITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SERVICE_SECURITY_IDENTITIES>()) == 0 }
+        self.serviceIdentities == other.serviceIdentities && self.serviceIdentityCount == other.serviceIdentityCount
     }
 }
 impl ::core::cmp::Eq for WS_SERVICE_SECURITY_IDENTITIES {}
@@ -11814,7 +11647,7 @@ unsafe impl ::windows::core::Abi for WS_SOAPUDP_URL {
 }
 impl ::core::cmp::PartialEq for WS_SOAPUDP_URL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SOAPUDP_URL>()) == 0 }
+        self.url == other.url && self.host == other.host && self.port == other.port && self.portAsString == other.portAsString && self.path == other.path && self.query == other.query && self.fragment == other.fragment
     }
 }
 impl ::core::cmp::Eq for WS_SOAPUDP_URL {}
@@ -11845,7 +11678,7 @@ unsafe impl ::windows::core::Abi for WS_SPN_ENDPOINT_IDENTITY {
 }
 impl ::core::cmp::PartialEq for WS_SPN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SPN_ENDPOINT_IDENTITY>()) == 0 }
+        self.identity == other.identity && self.spn == other.spn
     }
 }
 impl ::core::cmp::Eq for WS_SPN_ENDPOINT_IDENTITY {}
@@ -11876,7 +11709,7 @@ unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING {
 }
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SSL_TRANSPORT_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.localCertCredential == other.localCertCredential
     }
 }
 impl ::core::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING {}
@@ -11913,7 +11746,7 @@ unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAIN
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint && self.out == other.out
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11951,7 +11784,7 @@ unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAIN
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0>()) == 0 }
+        self.clientCertCredentialRequired == other.clientCertCredentialRequired
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11983,7 +11816,7 @@ unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DE
 }
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties
     }
 }
 impl ::core::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {}
@@ -12014,7 +11847,7 @@ unsafe impl ::windows::core::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE 
 }
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties && self.localCertCredential == other.localCertCredential
     }
 }
 impl ::core::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {}
@@ -12044,7 +11877,7 @@ unsafe impl ::windows::core::Abi for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_D
 }
 impl ::core::cmp::PartialEq for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties
     }
 }
 impl ::core::cmp::Eq for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {}
@@ -12075,7 +11908,7 @@ unsafe impl ::windows::core::Abi for WS_STRING {
 }
 impl ::core::cmp::PartialEq for WS_STRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRING>()) == 0 }
+        self.length == other.length && self.chars == other.chars
     }
 }
 impl ::core::cmp::Eq for WS_STRING {}
@@ -12106,7 +11939,7 @@ unsafe impl ::windows::core::Abi for WS_STRING_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_STRING_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRING_DESCRIPTION>()) == 0 }
+        self.minCharCount == other.minCharCount && self.maxCharCount == other.maxCharCount
     }
 }
 impl ::core::cmp::Eq for WS_STRING_DESCRIPTION {}
@@ -12138,7 +11971,7 @@ unsafe impl ::windows::core::Abi for WS_STRING_USERNAME_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WS_STRING_USERNAME_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRING_USERNAME_CREDENTIAL>()) == 0 }
+        self.credential == other.credential && self.username == other.username && self.password == other.password
     }
 }
 impl ::core::cmp::Eq for WS_STRING_USERNAME_CREDENTIAL {}
@@ -12171,7 +12004,7 @@ unsafe impl ::windows::core::Abi for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIA
 }
 impl ::core::cmp::PartialEq for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL>()) == 0 }
+        self.credential == other.credential && self.username == other.username && self.password == other.password && self.domain == other.domain
     }
 }
 impl ::core::cmp::Eq for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
@@ -12216,7 +12049,7 @@ unsafe impl ::windows::core::Abi for WS_STRUCT_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_STRUCT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_STRUCT_DESCRIPTION>()) == 0 }
+        self.size == other.size && self.alignment == other.alignment && self.fields == other.fields && self.fieldCount == other.fieldCount && self.typeLocalName == other.typeLocalName && self.typeNs == other.typeNs && self.parentType == other.parentType && self.subTypes == other.subTypes && self.subTypeCount == other.subTypeCount && self.structOptions == other.structOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12251,7 +12084,7 @@ unsafe impl ::windows::core::Abi for WS_SUBJECT_NAME_CERT_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_SUBJECT_NAME_CERT_CREDENTIAL>()) == 0 }
+        self.credential == other.credential && self.storeLocation == other.storeLocation && self.storeName == other.storeName && self.subjectName == other.subjectName
     }
 }
 impl ::core::cmp::Eq for WS_SUBJECT_NAME_CERT_CREDENTIAL {}
@@ -12281,7 +12114,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_BINDING_TEMPLATE {
 }
 impl ::core::cmp::PartialEq for WS_TCP_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties
     }
 }
 impl ::core::cmp::Eq for WS_TCP_BINDING_TEMPLATE {}
@@ -12311,7 +12144,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_POLICY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_TCP_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties
     }
 }
 impl ::core::cmp::Eq for WS_TCP_POLICY_DESCRIPTION {}
@@ -12343,7 +12176,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_BINDING_TEMPLATE {
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_BINDING_TEMPLATE {}
@@ -12376,7 +12209,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {}
@@ -12409,7 +12242,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTI
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {}
@@ -12443,7 +12276,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding && self.securityContextSecurityBinding == other.securityContextSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {}
@@ -12477,7 +12310,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding && self.kerberosApreqMessageSecurityBinding == other.kerberosApreqMessageSecurityBinding && self.securityContextSecurityBinding == other.securityContextSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
@@ -12509,7 +12342,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_POLICY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_POLICY_DESCRIPTION {}
@@ -12540,7 +12373,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.clientCredential == other.clientCredential
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {}
@@ -12570,7 +12403,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONS
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {}
@@ -12601,7 +12434,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMP
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties && self.clientCredential == other.clientCredential
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {}
@@ -12626,18 +12459,12 @@ impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
+        f.debug_struct("WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {}
 impl ::core::default::Default for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12667,7 +12494,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding && self.usernameMessageSecurityBinding == other.usernameMessageSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {}
@@ -12693,18 +12520,12 @@ impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMP
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
+        f.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
 impl ::core::default::Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12735,7 +12556,7 @@ unsafe impl ::windows::core::Abi for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLIC
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION>()) == 0 }
+        self.channelProperties == other.channelProperties && self.securityProperties == other.securityProperties && self.sspiTransportSecurityBinding == other.sspiTransportSecurityBinding && self.usernameMessageSecurityBinding == other.usernameMessageSecurityBinding && self.securityContextSecurityBinding == other.securityContextSecurityBinding
     }
 }
 impl ::core::cmp::Eq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
@@ -12768,7 +12589,7 @@ unsafe impl ::windows::core::Abi for WS_THUMBPRINT_CERT_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WS_THUMBPRINT_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_THUMBPRINT_CERT_CREDENTIAL>()) == 0 }
+        self.credential == other.credential && self.storeLocation == other.storeLocation && self.storeName == other.storeName && self.thumbprint == other.thumbprint
     }
 }
 impl ::core::cmp::Eq for WS_THUMBPRINT_CERT_CREDENTIAL {}
@@ -12798,7 +12619,7 @@ unsafe impl ::windows::core::Abi for WS_TIMESPAN {
 }
 impl ::core::cmp::PartialEq for WS_TIMESPAN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TIMESPAN>()) == 0 }
+        self.ticks == other.ticks
     }
 }
 impl ::core::cmp::Eq for WS_TIMESPAN {}
@@ -12829,7 +12650,7 @@ unsafe impl ::windows::core::Abi for WS_TIMESPAN_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_TIMESPAN_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_TIMESPAN_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_TIMESPAN_DESCRIPTION {}
@@ -12860,7 +12681,7 @@ unsafe impl ::windows::core::Abi for WS_UINT16_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_UINT16_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UINT16_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_UINT16_DESCRIPTION {}
@@ -12891,7 +12712,7 @@ unsafe impl ::windows::core::Abi for WS_UINT32_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_UINT32_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UINT32_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_UINT32_DESCRIPTION {}
@@ -12922,7 +12743,7 @@ unsafe impl ::windows::core::Abi for WS_UINT64_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_UINT64_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UINT64_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_UINT64_DESCRIPTION {}
@@ -12953,7 +12774,7 @@ unsafe impl ::windows::core::Abi for WS_UINT8_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_UINT8_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UINT8_DESCRIPTION>()) == 0 }
+        self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
 impl ::core::cmp::Eq for WS_UINT8_DESCRIPTION {}
@@ -12995,7 +12816,7 @@ unsafe impl ::windows::core::Abi for WS_UNION_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_UNION_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UNION_DESCRIPTION>()) == 0 }
+        self.size == other.size && self.alignment == other.alignment && self.fields == other.fields && self.fieldCount == other.fieldCount && self.enumOffset == other.enumOffset && self.noneEnumValue == other.noneEnumValue && self.valueIndices == other.valueIndices
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13034,7 +12855,7 @@ unsafe impl ::windows::core::Abi for WS_UNION_FIELD_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_UNION_FIELD_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UNION_FIELD_DESCRIPTION>()) == 0 }
+        self.value == other.value && self.field == other.field
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13067,7 +12888,7 @@ unsafe impl ::windows::core::Abi for WS_UNIQUE_ID {
 }
 impl ::core::cmp::PartialEq for WS_UNIQUE_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UNIQUE_ID>()) == 0 }
+        self.uri == other.uri && self.guid == other.guid
     }
 }
 impl ::core::cmp::Eq for WS_UNIQUE_ID {}
@@ -13098,7 +12919,7 @@ unsafe impl ::windows::core::Abi for WS_UNIQUE_ID_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_UNIQUE_ID_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UNIQUE_ID_DESCRIPTION>()) == 0 }
+        self.minCharCount == other.minCharCount && self.maxCharCount == other.maxCharCount
     }
 }
 impl ::core::cmp::Eq for WS_UNIQUE_ID_DESCRIPTION {}
@@ -13129,7 +12950,7 @@ unsafe impl ::windows::core::Abi for WS_UNKNOWN_ENDPOINT_IDENTITY {
 }
 impl ::core::cmp::PartialEq for WS_UNKNOWN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UNKNOWN_ENDPOINT_IDENTITY>()) == 0 }
+        self.identity == other.identity && self.element == other.element
     }
 }
 impl ::core::cmp::Eq for WS_UNKNOWN_ENDPOINT_IDENTITY {}
@@ -13160,7 +12981,7 @@ unsafe impl ::windows::core::Abi for WS_UPN_ENDPOINT_IDENTITY {
 }
 impl ::core::cmp::PartialEq for WS_UPN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UPN_ENDPOINT_IDENTITY>()) == 0 }
+        self.identity == other.identity && self.upn == other.upn
     }
 }
 impl ::core::cmp::Eq for WS_UPN_ENDPOINT_IDENTITY {}
@@ -13190,7 +13011,7 @@ unsafe impl ::windows::core::Abi for WS_URL {
 }
 impl ::core::cmp::PartialEq for WS_URL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_URL>()) == 0 }
+        self.scheme == other.scheme
     }
 }
 impl ::core::cmp::Eq for WS_URL {}
@@ -13220,7 +13041,7 @@ unsafe impl ::windows::core::Abi for WS_USERNAME_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WS_USERNAME_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_USERNAME_CREDENTIAL>()) == 0 }
+        self.credentialType == other.credentialType
     }
 }
 impl ::core::cmp::Eq for WS_USERNAME_CREDENTIAL {}
@@ -13246,18 +13067,12 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING {
 }
 impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator.map(|f| f as usize)).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_USERNAME_MESSAGE_SECURITY_BINDING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING {}
 impl ::core::default::Default for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13285,7 +13100,7 @@ unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTR
 }
 impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT>()) == 0 }
+        self.bindingConstraint == other.bindingConstraint && self.bindingUsage == other.bindingUsage
     }
 }
 impl ::core::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
@@ -13316,7 +13131,7 @@ unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY
 }
 impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION>()) == 0 }
+        self.securityBindingProperties == other.securityBindingProperties && self.bindingUsage == other.bindingUsage
     }
 }
 impl ::core::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
@@ -13341,18 +13156,12 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
 }
 impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).field("passwordValidator", &self.passwordValidator.map(|f| f as usize)).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
+        f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {}
 impl ::core::default::Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13380,7 +13189,7 @@ unsafe impl ::windows::core::Abi for WS_UTF8_ARRAY_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_UTF8_ARRAY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_UTF8_ARRAY_DESCRIPTION>()) == 0 }
+        self.minByteCount == other.minByteCount && self.maxByteCount == other.maxByteCount
     }
 }
 impl ::core::cmp::Eq for WS_UTF8_ARRAY_DESCRIPTION {}
@@ -13410,7 +13219,7 @@ unsafe impl ::windows::core::Abi for WS_VOID_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_VOID_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_VOID_DESCRIPTION>()) == 0 }
+        self.size == other.size
     }
 }
 impl ::core::cmp::Eq for WS_VOID_DESCRIPTION {}
@@ -13440,7 +13249,7 @@ unsafe impl ::windows::core::Abi for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 }
 impl ::core::cmp::PartialEq for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL>()) == 0 }
+        self.credentialType == other.credentialType
     }
 }
 impl ::core::cmp::Eq for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
@@ -13471,7 +13280,7 @@ unsafe impl ::windows::core::Abi for WS_WSZ_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_WSZ_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_WSZ_DESCRIPTION>()) == 0 }
+        self.minCharCount == other.minCharCount && self.maxCharCount == other.maxCharCount
     }
 }
 impl ::core::cmp::Eq for WS_WSZ_DESCRIPTION {}
@@ -13512,7 +13321,7 @@ unsafe impl ::windows::core::Abi for WS_XML_ATTRIBUTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_ATTRIBUTE>()) == 0 }
+        self.singleQuote == other.singleQuote && self.isXmlNs == other.isXmlNs && self.prefix == other.prefix && self.localName == other.localName && self.ns == other.ns && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13546,7 +13355,7 @@ unsafe impl ::windows::core::Abi for WS_XML_BASE64_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_BASE64_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_BASE64_TEXT>()) == 0 }
+        self.text == other.text && self.bytes == other.bytes && self.length == other.length
     }
 }
 impl ::core::cmp::Eq for WS_XML_BASE64_TEXT {}
@@ -13583,7 +13392,7 @@ unsafe impl ::windows::core::Abi for WS_XML_BOOL_TEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_BOOL_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_BOOL_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13619,7 +13428,7 @@ unsafe impl ::windows::core::Abi for WS_XML_BUFFER_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_XML_BUFFER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_BUFFER_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_XML_BUFFER_PROPERTY {}
@@ -13656,7 +13465,7 @@ unsafe impl ::windows::core::Abi for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES 
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES>()) == 0 }
+        self.prefixCount == other.prefixCount && self.prefixes == other.prefixes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13690,7 +13499,7 @@ unsafe impl ::windows::core::Abi for WS_XML_CANONICALIZATION_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_XML_CANONICALIZATION_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_CANONICALIZATION_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_XML_CANONICALIZATION_PROPERTY {}
@@ -13727,7 +13536,7 @@ unsafe impl ::windows::core::Abi for WS_XML_COMMENT_NODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_COMMENT_NODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_COMMENT_NODE>()) == 0 }
+        self.node == other.node && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13760,7 +13569,7 @@ unsafe impl ::windows::core::Abi for WS_XML_DATETIME_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_DATETIME_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_DATETIME_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_DATETIME_TEXT {}
@@ -13788,14 +13597,6 @@ impl ::core::clone::Clone for WS_XML_DECIMAL_TEXT {
 unsafe impl ::windows::core::Abi for WS_XML_DECIMAL_TEXT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_XML_DECIMAL_TEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_DECIMAL_TEXT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_XML_DECIMAL_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_XML_DECIMAL_TEXT {
     fn default() -> Self {
@@ -13832,7 +13633,7 @@ unsafe impl ::windows::core::Abi for WS_XML_DICTIONARY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_DICTIONARY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_DICTIONARY>()) == 0 }
+        self.guid == other.guid && self.strings == other.strings && self.stringCount == other.stringCount && self.isConst == other.isConst
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13865,7 +13666,7 @@ unsafe impl ::windows::core::Abi for WS_XML_DOUBLE_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_DOUBLE_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_DOUBLE_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_DOUBLE_TEXT {}
@@ -13907,7 +13708,7 @@ unsafe impl ::windows::core::Abi for WS_XML_ELEMENT_NODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_ELEMENT_NODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_ELEMENT_NODE>()) == 0 }
+        self.node == other.node && self.prefix == other.prefix && self.localName == other.localName && self.ns == other.ns && self.attributeCount == other.attributeCount && self.attributes == other.attributes && self.isEmpty == other.isEmpty
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13940,7 +13741,7 @@ unsafe impl ::windows::core::Abi for WS_XML_FLOAT_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_FLOAT_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_FLOAT_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_FLOAT_TEXT {}
@@ -13971,7 +13772,7 @@ unsafe impl ::windows::core::Abi for WS_XML_GUID_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_GUID_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_GUID_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_GUID_TEXT {}
@@ -14002,7 +13803,7 @@ unsafe impl ::windows::core::Abi for WS_XML_INT32_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_INT32_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_INT32_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_INT32_TEXT {}
@@ -14033,7 +13834,7 @@ unsafe impl ::windows::core::Abi for WS_XML_INT64_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_INT64_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_INT64_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_INT64_TEXT {}
@@ -14065,7 +13866,7 @@ unsafe impl ::windows::core::Abi for WS_XML_LIST_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_LIST_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_LIST_TEXT>()) == 0 }
+        self.text == other.text && self.itemCount == other.itemCount && self.items == other.items
     }
 }
 impl ::core::cmp::Eq for WS_XML_LIST_TEXT {}
@@ -14095,7 +13896,7 @@ unsafe impl ::windows::core::Abi for WS_XML_NODE {
 }
 impl ::core::cmp::PartialEq for WS_XML_NODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_NODE>()) == 0 }
+        self.nodeType == other.nodeType
     }
 }
 impl ::core::cmp::Eq for WS_XML_NODE {}
@@ -14126,7 +13927,7 @@ unsafe impl ::windows::core::Abi for WS_XML_NODE_POSITION {
 }
 impl ::core::cmp::PartialEq for WS_XML_NODE_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_NODE_POSITION>()) == 0 }
+        self.buffer == other.buffer && self.node == other.node
     }
 }
 impl ::core::cmp::Eq for WS_XML_NODE_POSITION {}
@@ -14163,7 +13964,7 @@ unsafe impl ::windows::core::Abi for WS_XML_QNAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_QNAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_QNAME>()) == 0 }
+        self.localName == other.localName && self.ns == other.ns
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14198,7 +13999,7 @@ unsafe impl ::windows::core::Abi for WS_XML_QNAME_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_XML_QNAME_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_QNAME_DESCRIPTION>()) == 0 }
+        self.minLocalNameByteCount == other.minLocalNameByteCount && self.maxLocalNameByteCount == other.maxLocalNameByteCount && self.minNsByteCount == other.minNsByteCount && self.maxNsByteCount == other.maxNsByteCount
     }
 }
 impl ::core::cmp::Eq for WS_XML_QNAME_DESCRIPTION {}
@@ -14237,7 +14038,7 @@ unsafe impl ::windows::core::Abi for WS_XML_QNAME_TEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_QNAME_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_QNAME_TEXT>()) == 0 }
+        self.text == other.text && self.prefix == other.prefix && self.localName == other.localName && self.ns == other.ns
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14279,7 +14080,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_BINARY_ENCODING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_READER_BINARY_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_BINARY_ENCODING>()) == 0 }
+        self.encoding == other.encoding && self.staticDictionary == other.staticDictionary && self.dynamicDictionary == other.dynamicDictionary
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14313,7 +14114,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_BUFFER_INPUT {
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_BUFFER_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_BUFFER_INPUT>()) == 0 }
+        self.input == other.input && self.encodedData == other.encodedData && self.encodedDataSize == other.encodedDataSize
     }
 }
 impl ::core::cmp::Eq for WS_XML_READER_BUFFER_INPUT {}
@@ -14343,7 +14144,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_ENCODING {
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_ENCODING>()) == 0 }
+        self.encodingType == other.encodingType
     }
 }
 impl ::core::cmp::Eq for WS_XML_READER_ENCODING {}
@@ -14373,7 +14174,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_INPUT {
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_INPUT>()) == 0 }
+        self.inputType == other.inputType
     }
 }
 impl ::core::cmp::Eq for WS_XML_READER_INPUT {}
@@ -14414,7 +14215,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_MTOM_ENCODING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_READER_MTOM_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_MTOM_ENCODING>()) == 0 }
+        self.encoding == other.encoding && self.textEncoding == other.textEncoding && self.readMimeHeader == other.readMimeHeader && self.startInfo == other.startInfo && self.boundary == other.boundary && self.startUri == other.startUri
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14447,7 +14248,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_XML_READER_PROPERTIES {}
@@ -14479,7 +14280,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_XML_READER_PROPERTY {}
@@ -14509,7 +14310,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_RAW_ENCODING {
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_RAW_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_RAW_ENCODING>()) == 0 }
+        self.encoding == other.encoding
     }
 }
 impl ::core::cmp::Eq for WS_XML_READER_RAW_ENCODING {}
@@ -14533,18 +14334,12 @@ impl ::core::clone::Clone for WS_XML_READER_STREAM_INPUT {
 }
 impl ::core::fmt::Debug for WS_XML_READER_STREAM_INPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_XML_READER_STREAM_INPUT").field("input", &self.input).field("readCallback", &self.readCallback.map(|f| f as usize)).field("readCallbackState", &self.readCallbackState).finish()
+        f.debug_struct("WS_XML_READER_STREAM_INPUT").field("input", &self.input).field("readCallbackState", &self.readCallbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_READER_STREAM_INPUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_XML_READER_STREAM_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_STREAM_INPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_XML_READER_STREAM_INPUT {}
 impl ::core::default::Default for WS_XML_READER_STREAM_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14572,7 +14367,7 @@ unsafe impl ::windows::core::Abi for WS_XML_READER_TEXT_ENCODING {
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_TEXT_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_READER_TEXT_ENCODING>()) == 0 }
+        self.encoding == other.encoding && self.charSet == other.charSet
     }
 }
 impl ::core::cmp::Eq for WS_XML_READER_TEXT_ENCODING {}
@@ -14604,7 +14399,7 @@ unsafe impl ::windows::core::Abi for WS_XML_SECURITY_TOKEN_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_XML_SECURITY_TOKEN_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_SECURITY_TOKEN_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_XML_SECURITY_TOKEN_PROPERTY {}
@@ -14643,7 +14438,7 @@ unsafe impl ::windows::core::Abi for WS_XML_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_STRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_STRING>()) == 0 }
+        self.length == other.length && self.bytes == other.bytes && self.dictionary == other.dictionary && self.id == other.id
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14676,7 +14471,7 @@ unsafe impl ::windows::core::Abi for WS_XML_STRING_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for WS_XML_STRING_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_STRING_DESCRIPTION>()) == 0 }
+        self.minByteCount == other.minByteCount && self.maxByteCount == other.maxByteCount
     }
 }
 impl ::core::cmp::Eq for WS_XML_STRING_DESCRIPTION {}
@@ -14706,7 +14501,7 @@ unsafe impl ::windows::core::Abi for WS_XML_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_TEXT>()) == 0 }
+        self.textType == other.textType
     }
 }
 impl ::core::cmp::Eq for WS_XML_TEXT {}
@@ -14737,7 +14532,7 @@ unsafe impl ::windows::core::Abi for WS_XML_TEXT_NODE {
 }
 impl ::core::cmp::PartialEq for WS_XML_TEXT_NODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_TEXT_NODE>()) == 0 }
+        self.node == other.node && self.text == other.text
     }
 }
 impl ::core::cmp::Eq for WS_XML_TEXT_NODE {}
@@ -14768,7 +14563,7 @@ unsafe impl ::windows::core::Abi for WS_XML_TIMESPAN_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_TIMESPAN_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_TIMESPAN_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_TIMESPAN_TEXT {}
@@ -14800,7 +14595,7 @@ unsafe impl ::windows::core::Abi for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
 }
 impl ::core::cmp::PartialEq for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_TOKEN_MESSAGE_SECURITY_BINDING>()) == 0 }
+        self.binding == other.binding && self.bindingUsage == other.bindingUsage && self.xmlToken == other.xmlToken
     }
 }
 impl ::core::cmp::Eq for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {}
@@ -14831,7 +14626,7 @@ unsafe impl ::windows::core::Abi for WS_XML_UINT64_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_UINT64_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_UINT64_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_UINT64_TEXT {}
@@ -14862,7 +14657,7 @@ unsafe impl ::windows::core::Abi for WS_XML_UNIQUE_ID_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_UNIQUE_ID_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_UNIQUE_ID_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WS_XML_UNIQUE_ID_TEXT {}
@@ -14894,7 +14689,7 @@ unsafe impl ::windows::core::Abi for WS_XML_UTF16_TEXT {
 }
 impl ::core::cmp::PartialEq for WS_XML_UTF16_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_UTF16_TEXT>()) == 0 }
+        self.text == other.text && self.bytes == other.bytes && self.byteCount == other.byteCount
     }
 }
 impl ::core::cmp::Eq for WS_XML_UTF16_TEXT {}
@@ -14931,7 +14726,7 @@ unsafe impl ::windows::core::Abi for WS_XML_UTF8_TEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_UTF8_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_UTF8_TEXT>()) == 0 }
+        self.text == other.text && self.value == other.value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14964,21 +14759,13 @@ impl ::core::clone::Clone for WS_XML_WRITER_BINARY_ENCODING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_XML_WRITER_BINARY_ENCODING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_XML_WRITER_BINARY_ENCODING").field("encoding", &self.encoding).field("staticDictionary", &self.staticDictionary).field("dynamicStringCallback", &self.dynamicStringCallback.map(|f| f as usize)).field("dynamicStringCallbackState", &self.dynamicStringCallbackState).finish()
+        f.debug_struct("WS_XML_WRITER_BINARY_ENCODING").field("encoding", &self.encoding).field("staticDictionary", &self.staticDictionary).field("dynamicStringCallbackState", &self.dynamicStringCallbackState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_BINARY_ENCODING {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WS_XML_WRITER_BINARY_ENCODING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_BINARY_ENCODING>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WS_XML_WRITER_BINARY_ENCODING {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_XML_WRITER_BINARY_ENCODING {
     fn default() -> Self {
@@ -15006,7 +14793,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_BUFFER_OUTPUT {
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_BUFFER_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_BUFFER_OUTPUT>()) == 0 }
+        self.output == other.output
     }
 }
 impl ::core::cmp::Eq for WS_XML_WRITER_BUFFER_OUTPUT {}
@@ -15036,7 +14823,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_ENCODING {
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_ENCODING>()) == 0 }
+        self.encodingType == other.encodingType
     }
 }
 impl ::core::cmp::Eq for WS_XML_WRITER_ENCODING {}
@@ -15078,7 +14865,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_MTOM_ENCODING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_WRITER_MTOM_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_MTOM_ENCODING>()) == 0 }
+        self.encoding == other.encoding && self.textEncoding == other.textEncoding && self.writeMimeHeader == other.writeMimeHeader && self.boundary == other.boundary && self.startInfo == other.startInfo && self.startUri == other.startUri && self.maxInlineByteCount == other.maxInlineByteCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15110,7 +14897,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_OUTPUT {
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_OUTPUT>()) == 0 }
+        self.outputType == other.outputType
     }
 }
 impl ::core::cmp::Eq for WS_XML_WRITER_OUTPUT {}
@@ -15141,7 +14928,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_PROPERTIES>()) == 0 }
+        self.properties == other.properties && self.propertyCount == other.propertyCount
     }
 }
 impl ::core::cmp::Eq for WS_XML_WRITER_PROPERTIES {}
@@ -15173,7 +14960,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_PROPERTY>()) == 0 }
+        self.id == other.id && self.value == other.value && self.valueSize == other.valueSize
     }
 }
 impl ::core::cmp::Eq for WS_XML_WRITER_PROPERTY {}
@@ -15203,7 +14990,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_RAW_ENCODING {
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_RAW_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_RAW_ENCODING>()) == 0 }
+        self.encoding == other.encoding
     }
 }
 impl ::core::cmp::Eq for WS_XML_WRITER_RAW_ENCODING {}
@@ -15227,18 +15014,12 @@ impl ::core::clone::Clone for WS_XML_WRITER_STREAM_OUTPUT {
 }
 impl ::core::fmt::Debug for WS_XML_WRITER_STREAM_OUTPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WS_XML_WRITER_STREAM_OUTPUT").field("output", &self.output).field("writeCallback", &self.writeCallback.map(|f| f as usize)).field("writeCallbackState", &self.writeCallbackState).finish()
+        f.debug_struct("WS_XML_WRITER_STREAM_OUTPUT").field("output", &self.output).field("writeCallbackState", &self.writeCallbackState).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WS_XML_WRITER_STREAM_OUTPUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WS_XML_WRITER_STREAM_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_STREAM_OUTPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WS_XML_WRITER_STREAM_OUTPUT {}
 impl ::core::default::Default for WS_XML_WRITER_STREAM_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15266,7 +15047,7 @@ unsafe impl ::windows::core::Abi for WS_XML_WRITER_TEXT_ENCODING {
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_TEXT_ENCODING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_XML_WRITER_TEXT_ENCODING>()) == 0 }
+        self.encoding == other.encoding && self.charSet == other.charSet
     }
 }
 impl ::core::cmp::Eq for WS_XML_WRITER_TEXT_ENCODING {}

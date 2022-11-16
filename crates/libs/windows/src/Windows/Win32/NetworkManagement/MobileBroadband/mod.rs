@@ -3988,7 +3988,7 @@ unsafe impl ::windows::core::Abi for MBN_PIN_INFO {
 }
 impl ::core::cmp::PartialEq for MBN_PIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_PIN_INFO>()) == 0 }
+        self.pinState == other.pinState && self.pinType == other.pinType && self.attemptsRemaining == other.attemptsRemaining
     }
 }
 impl ::core::cmp::Eq for MBN_PIN_INFO {}
@@ -4083,7 +4083,7 @@ unsafe impl ::windows::core::Abi for MBN_SMS_FILTER {
 }
 impl ::core::cmp::PartialEq for MBN_SMS_FILTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_SMS_FILTER>()) == 0 }
+        self.flag == other.flag && self.messageIndex == other.messageIndex
     }
 }
 impl ::core::cmp::Eq for MBN_SMS_FILTER {}
@@ -4114,7 +4114,7 @@ unsafe impl ::windows::core::Abi for MBN_SMS_STATUS_INFO {
 }
 impl ::core::cmp::PartialEq for MBN_SMS_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MBN_SMS_STATUS_INFO>()) == 0 }
+        self.flag == other.flag && self.messageIndex == other.messageIndex
     }
 }
 impl ::core::cmp::Eq for MBN_SMS_STATUS_INFO {}
@@ -4144,7 +4144,7 @@ unsafe impl ::windows::core::Abi for __DummyPinType__ {
 }
 impl ::core::cmp::PartialEq for __DummyPinType__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<__DummyPinType__>()) == 0 }
+        self.pinType == other.pinType
     }
 }
 impl ::core::cmp::Eq for __DummyPinType__ {}
@@ -4202,7 +4202,7 @@ unsafe impl ::windows::core::Abi for __mbnapi_ReferenceRemainingTypes__ {
 }
 impl ::core::cmp::PartialEq for __mbnapi_ReferenceRemainingTypes__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<__mbnapi_ReferenceRemainingTypes__>()) == 0 }
+        self.bandClass == other.bandClass && self.contextConstants == other.contextConstants && self.ctrlCaps == other.ctrlCaps && self.dataClass == other.dataClass && self.interfaceCapsConstants == other.interfaceCapsConstants && self.pinConstants == other.pinConstants && self.providerConstants == other.providerConstants && self.providerState == other.providerState && self.registrationConstants == other.registrationConstants && self.signalConstants == other.signalConstants && self.smsCaps == other.smsCaps && self.smsConstants == other.smsConstants && self.wwaextSmsConstants == other.wwaextSmsConstants && self.smsStatusFlag == other.smsStatusFlag
     }
 }
 impl ::core::cmp::Eq for __mbnapi_ReferenceRemainingTypes__ {}

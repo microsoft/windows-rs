@@ -847,7 +847,7 @@ unsafe impl ::windows::core::Abi for CAT_MEMBERINFO {
 }
 impl ::core::cmp::PartialEq for CAT_MEMBERINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAT_MEMBERINFO>()) == 0 }
+        self.pwszSubjGuid == other.pwszSubjGuid && self.dwCertVersion == other.dwCertVersion
     }
 }
 impl ::core::cmp::Eq for CAT_MEMBERINFO {}
@@ -878,7 +878,7 @@ unsafe impl ::windows::core::Abi for CAT_MEMBERINFO2 {
 }
 impl ::core::cmp::PartialEq for CAT_MEMBERINFO2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAT_MEMBERINFO2>()) == 0 }
+        self.SubjectGuid == other.SubjectGuid && self.dwCertVersion == other.dwCertVersion
     }
 }
 impl ::core::cmp::Eq for CAT_MEMBERINFO2 {}
@@ -916,7 +916,7 @@ unsafe impl ::windows::core::Abi for CAT_NAMEVALUE {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for CAT_NAMEVALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAT_NAMEVALUE>()) == 0 }
+        self.pwszTag == other.pwszTag && self.fdwFlags == other.fdwFlags && self.Value == other.Value
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -958,7 +958,7 @@ unsafe impl ::windows::core::Abi for CONFIG_CI_PROV_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for CONFIG_CI_PROV_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIG_CI_PROV_INFO>()) == 0 }
+        self.cbSize == other.cbSize && self.dwPolicies == other.dwPolicies && self.pPolicies == other.pPolicies && self.result == other.result && self.dwScenario == other.dwScenario
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -999,7 +999,7 @@ unsafe impl ::windows::core::Abi for CONFIG_CI_PROV_INFO_RESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONFIG_CI_PROV_INFO_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFIG_CI_PROV_INFO_RESULT>()) == 0 }
+        self.hr == other.hr && self.dwResult == other.dwResult && self.dwPolicyIndex == other.dwPolicyIndex && self.fIsExplicitDeny == other.fIsExplicitDeny
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1067,7 +1067,7 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_CERT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_CERT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_CERT>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pCert == other.pCert && self.fCommercial == other.fCommercial && self.fTrustedRoot == other.fTrustedRoot && self.fSelfSigned == other.fSelfSigned && self.fTestCert == other.fTestCert && self.dwRevokedReason == other.dwRevokedReason && self.dwConfidence == other.dwConfidence && self.dwError == other.dwError && self.pTrustListContext == other.pTrustListContext && self.fTrustListSignerCert == other.fTrustListSignerCert && self.pCtlContext == other.pCtlContext && self.dwCtlError == other.dwCtlError && self.fIsCyclic == other.fIsCyclic && self.pChainElement == other.pChainElement
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1129,14 +1129,6 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_DATA {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::PartialEq for CRYPT_PROVIDER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_DATA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::Eq for CRYPT_PROVIDER_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::default::Default for CRYPT_PROVIDER_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1160,14 +1152,6 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_DATA_0 {
 unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_DATA_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::PartialEq for CRYPT_PROVIDER_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_DATA_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::Eq for CRYPT_PROVIDER_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::default::Default for CRYPT_PROVIDER_DATA_0 {
     fn default() -> Self {
@@ -1198,7 +1182,7 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_DEFUSAGE {
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_DEFUSAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_DEFUSAGE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.gActionID == other.gActionID && self.pDefPolicyCallbackData == other.pDefPolicyCallbackData && self.pDefSIPClientData == other.pDefSIPClientData
     }
 }
 impl ::core::cmp::Eq for CRYPT_PROVIDER_DEFUSAGE {}
@@ -1239,38 +1223,13 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::fmt::Debug for CRYPT_PROVIDER_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_PROVIDER_FUNCTIONS")
-            .field("cbStruct", &self.cbStruct)
-            .field("pfnAlloc", &self.pfnAlloc.map(|f| f as usize))
-            .field("pfnFree", &self.pfnFree.map(|f| f as usize))
-            .field("pfnAddStore2Chain", &self.pfnAddStore2Chain.map(|f| f as usize))
-            .field("pfnAddSgnr2Chain", &self.pfnAddSgnr2Chain.map(|f| f as usize))
-            .field("pfnAddCert2Chain", &self.pfnAddCert2Chain.map(|f| f as usize))
-            .field("pfnAddPrivData2Chain", &self.pfnAddPrivData2Chain.map(|f| f as usize))
-            .field("pfnInitialize", &self.pfnInitialize.map(|f| f as usize))
-            .field("pfnObjectTrust", &self.pfnObjectTrust.map(|f| f as usize))
-            .field("pfnSignatureTrust", &self.pfnSignatureTrust.map(|f| f as usize))
-            .field("pfnCertificateTrust", &self.pfnCertificateTrust.map(|f| f as usize))
-            .field("pfnFinalPolicy", &self.pfnFinalPolicy.map(|f| f as usize))
-            .field("pfnCertCheckPolicy", &self.pfnCertCheckPolicy.map(|f| f as usize))
-            .field("pfnTestFinalPolicy", &self.pfnTestFinalPolicy.map(|f| f as usize))
-            .field("psUIpfns", &self.psUIpfns)
-            .field("pfnCleanupPolicy", &self.pfnCleanupPolicy.map(|f| f as usize))
-            .finish()
+        f.debug_struct("CRYPT_PROVIDER_FUNCTIONS").field("cbStruct", &self.cbStruct).field("psUIpfns", &self.psUIpfns).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_FUNCTIONS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::PartialEq for CRYPT_PROVIDER_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_FUNCTIONS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::Eq for CRYPT_PROVIDER_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::default::Default for CRYPT_PROVIDER_FUNCTIONS {
     fn default() -> Self {
@@ -1301,7 +1260,7 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_PRIVDATA {
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_PRIVDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_PRIVDATA>()) == 0 }
+        self.cbStruct == other.cbStruct && self.gProviderID == other.gProviderID && self.cbProvData == other.cbProvData && self.pvProvData == other.pvProvData
     }
 }
 impl ::core::cmp::Eq for CRYPT_PROVIDER_PRIVDATA {}
@@ -1335,7 +1294,7 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_REGDEFUSAGE {
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_REGDEFUSAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_REGDEFUSAGE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pgActionID == other.pgActionID && self.pwszDllName == other.pwszDllName && self.pwszLoadCallbackDataFunctionName == other.pwszLoadCallbackDataFunctionName && self.pwszFreeCallbackDataFunctionName == other.pwszFreeCallbackDataFunctionName
     }
 }
 impl ::core::cmp::Eq for CRYPT_PROVIDER_REGDEFUSAGE {}
@@ -1380,7 +1339,7 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_SGNR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_SGNR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_SGNR>()) == 0 }
+        self.cbStruct == other.cbStruct && self.sftVerifyAsOf == other.sftVerifyAsOf && self.csCertChain == other.csCertChain && self.pasCertChain == other.pasCertChain && self.dwSignerType == other.dwSignerType && self.psSigner == other.psSigner && self.dwError == other.dwError && self.csCounterSigners == other.csCounterSigners && self.pasCounterSigners == other.pasCounterSigners && self.pChainContext == other.pChainContext
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1442,7 +1401,7 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_SIGSTATE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_SIGSTATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVIDER_SIGSTATE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.rhSecondarySigs == other.rhSecondarySigs && self.hPrimarySig == other.hPrimarySig && self.fFirstAttemptMade == other.fFirstAttemptMade && self.fNoMoreSigs == other.fNoMoreSigs && self.cSecondarySigs == other.cSecondarySigs && self.dwCurrentIndex == other.dwCurrentIndex && self.fSupportMultiSig == other.fSupportMultiSig && self.dwCryptoPolicySupport == other.dwCryptoPolicySupport && self.iAttemptCount == other.iAttemptCount && self.fCheckedSealing == other.fCheckedSealing && self.pSealingSignature == other.pSealingSignature
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1492,7 +1451,7 @@ unsafe impl ::windows::core::Abi for CRYPT_PROVUI_DATA {
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVUI_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVUI_DATA>()) == 0 }
+        self.cbStruct == other.cbStruct && self.dwFinalError == other.dwFinalError && self.pYesButtonText == other.pYesButtonText && self.pNoButtonText == other.pNoButtonText && self.pMoreInfoButtonText == other.pMoreInfoButtonText && self.pAdvancedLinkText == other.pAdvancedLinkText && self.pCopyActionText == other.pCopyActionText && self.pCopyActionTextNoTS == other.pCopyActionTextNoTS && self.pCopyActionTextNotSigned == other.pCopyActionTextNotSigned
     }
 }
 impl ::core::cmp::Eq for CRYPT_PROVUI_DATA {}
@@ -1523,21 +1482,13 @@ impl ::core::clone::Clone for CRYPT_PROVUI_FUNCS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::fmt::Debug for CRYPT_PROVUI_FUNCS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CRYPT_PROVUI_FUNCS").field("cbStruct", &self.cbStruct).field("psUIData", &self.psUIData).field("pfnOnMoreInfoClick", &self.pfnOnMoreInfoClick.map(|f| f as usize)).field("pfnOnMoreInfoClickDefault", &self.pfnOnMoreInfoClickDefault.map(|f| f as usize)).field("pfnOnAdvancedClick", &self.pfnOnAdvancedClick.map(|f| f as usize)).field("pfnOnAdvancedClickDefault", &self.pfnOnAdvancedClickDefault.map(|f| f as usize)).finish()
+        f.debug_struct("CRYPT_PROVUI_FUNCS").field("cbStruct", &self.cbStruct).field("psUIData", &self.psUIData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::core::Abi for CRYPT_PROVUI_FUNCS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::PartialEq for CRYPT_PROVUI_FUNCS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_PROVUI_FUNCS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::Eq for CRYPT_PROVUI_FUNCS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::default::Default for CRYPT_PROVUI_FUNCS {
     fn default() -> Self {
@@ -1583,7 +1534,7 @@ unsafe impl ::windows::core::Abi for CRYPT_REGISTER_ACTIONID {
 }
 impl ::core::cmp::PartialEq for CRYPT_REGISTER_ACTIONID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_REGISTER_ACTIONID>()) == 0 }
+        self.cbStruct == other.cbStruct && self.sInitProvider == other.sInitProvider && self.sObjectProvider == other.sObjectProvider && self.sSignatureProvider == other.sSignatureProvider && self.sCertificateProvider == other.sCertificateProvider && self.sCertificatePolicyProvider == other.sCertificatePolicyProvider && self.sFinalPolicyProvider == other.sFinalPolicyProvider && self.sTestPolicyProvider == other.sTestPolicyProvider && self.sCleanupProvider == other.sCleanupProvider
     }
 }
 impl ::core::cmp::Eq for CRYPT_REGISTER_ACTIONID {}
@@ -1615,7 +1566,7 @@ unsafe impl ::windows::core::Abi for CRYPT_TRUST_REG_ENTRY {
 }
 impl ::core::cmp::PartialEq for CRYPT_TRUST_REG_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CRYPT_TRUST_REG_ENTRY>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pwszDLLName == other.pwszDLLName && self.pwszFunctionName == other.pwszFunctionName
     }
 }
 impl ::core::cmp::Eq for CRYPT_TRUST_REG_ENTRY {}
@@ -1675,7 +1626,7 @@ unsafe impl ::windows::core::Abi for DRIVER_VER_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for DRIVER_VER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRIVER_VER_INFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.dwPlatform == other.dwPlatform && self.dwVersion == other.dwVersion && self.wszVersion == other.wszVersion && self.wszSignedBy == other.wszSignedBy && self.pcSignerCertContext == other.pcSignerCertContext && self.sOSVersionLow == other.sOSVersionLow && self.sOSVersionHigh == other.sOSVersionHigh && self.dwBuildNumberLow == other.dwBuildNumberLow && self.dwBuildNumberHigh == other.dwBuildNumberHigh
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1708,7 +1659,7 @@ unsafe impl ::windows::core::Abi for DRIVER_VER_MAJORMINOR {
 }
 impl ::core::cmp::PartialEq for DRIVER_VER_MAJORMINOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRIVER_VER_MAJORMINOR>()) == 0 }
+        self.dwMajor == other.dwMajor && self.dwMinor == other.dwMinor
     }
 }
 impl ::core::cmp::Eq for DRIVER_VER_MAJORMINOR {}
@@ -1745,7 +1696,7 @@ unsafe impl ::windows::core::Abi for INTENT_TO_SEAL_ATTRIBUTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTENT_TO_SEAL_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTENT_TO_SEAL_ATTRIBUTE>()) == 0 }
+        self.version == other.version && self.seal == other.seal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1789,7 +1740,7 @@ unsafe impl ::windows::core::Abi for PROVDATA_SIP {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::cmp::PartialEq for PROVDATA_SIP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROVDATA_SIP>()) == 0 }
+        self.cbStruct == other.cbStruct && self.gSubject == other.gSubject && self.pSip == other.pSip && self.pCATSip == other.pCATSip && self.psSipSubjectInfo == other.psSipSubjectInfo && self.psSipCATSubjectInfo == other.psSipCATSubjectInfo && self.psIndirectData == other.psIndirectData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -1830,7 +1781,7 @@ unsafe impl ::windows::core::Abi for SEALING_SIGNATURE_ATTRIBUTE {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SEALING_SIGNATURE_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEALING_SIGNATURE_ATTRIBUTE>()) == 0 }
+        self.version == other.version && self.signerIndex == other.signerIndex && self.signatureAlgorithm == other.signatureAlgorithm && self.encryptedDigest == other.encryptedDigest
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1870,7 +1821,7 @@ unsafe impl ::windows::core::Abi for SEALING_TIMESTAMP_ATTRIBUTE {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SEALING_TIMESTAMP_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEALING_TIMESTAMP_ATTRIBUTE>()) == 0 }
+        self.version == other.version && self.signerIndex == other.signerIndex && self.sealTimeStampToken == other.sealTimeStampToken
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1909,7 +1860,7 @@ unsafe impl ::windows::core::Abi for SPC_FINANCIAL_CRITERIA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SPC_FINANCIAL_CRITERIA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_FINANCIAL_CRITERIA>()) == 0 }
+        self.fFinancialInfoAvailable == other.fFinancialInfoAvailable && self.fMeetsCriteria == other.fMeetsCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1951,7 +1902,7 @@ unsafe impl ::windows::core::Abi for SPC_IMAGE {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_IMAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_IMAGE>()) == 0 }
+        self.pImageLink == other.pImageLink && self.Bitmap == other.Bitmap && self.Metafile == other.Metafile && self.EnhancedMetafile == other.EnhancedMetafile && self.GifFile == other.GifFile
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1991,7 +1942,7 @@ unsafe impl ::windows::core::Abi for SPC_INDIRECT_DATA_CONTENT {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_INDIRECT_DATA_CONTENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_INDIRECT_DATA_CONTENT>()) == 0 }
+        self.Data == other.Data && self.DigestAlgorithm == other.DigestAlgorithm && self.Digest == other.Digest
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2022,14 +1973,6 @@ unsafe impl ::windows::core::Abi for SPC_LINK {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for SPC_LINK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_LINK>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for SPC_LINK {}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_LINK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2055,14 +1998,6 @@ impl ::core::clone::Clone for SPC_LINK_0 {
 unsafe impl ::windows::core::Abi for SPC_LINK_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for SPC_LINK_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_LINK_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for SPC_LINK_0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for SPC_LINK_0 {
     fn default() -> Self {
@@ -2097,7 +2032,7 @@ unsafe impl ::windows::core::Abi for SPC_PE_IMAGE_DATA {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_PE_IMAGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_PE_IMAGE_DATA>()) == 0 }
+        self.Flags == other.Flags && self.pFile == other.pFile
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2136,7 +2071,7 @@ unsafe impl ::windows::core::Abi for SPC_SERIALIZED_OBJECT {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_SERIALIZED_OBJECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_SERIALIZED_OBJECT>()) == 0 }
+        self.ClassId == other.ClassId && self.SerializedData == other.SerializedData
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2174,7 +2109,7 @@ unsafe impl ::windows::core::Abi for SPC_SIGINFO {
 }
 impl ::core::cmp::PartialEq for SPC_SIGINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_SIGINFO>()) == 0 }
+        self.dwSipVersion == other.dwSipVersion && self.gSIPGuid == other.gSIPGuid && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3 && self.dwReserved4 == other.dwReserved4 && self.dwReserved5 == other.dwReserved5
     }
 }
 impl ::core::cmp::Eq for SPC_SIGINFO {}
@@ -2213,7 +2148,7 @@ unsafe impl ::windows::core::Abi for SPC_SP_AGENCY_INFO {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_SP_AGENCY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_SP_AGENCY_INFO>()) == 0 }
+        self.pPolicyInformation == other.pPolicyInformation && self.pwszPolicyDisplayText == other.pwszPolicyDisplayText && self.pLogoImage == other.pLogoImage && self.pLogoLink == other.pLogoLink
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2253,7 +2188,7 @@ unsafe impl ::windows::core::Abi for SPC_SP_OPUS_INFO {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SPC_SP_OPUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_SP_OPUS_INFO>()) == 0 }
+        self.pwszProgramName == other.pwszProgramName && self.pMoreInfo == other.pMoreInfo && self.pPublisherInfo == other.pPublisherInfo
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2286,7 +2221,7 @@ unsafe impl ::windows::core::Abi for SPC_STATEMENT_TYPE {
 }
 impl ::core::cmp::PartialEq for SPC_STATEMENT_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SPC_STATEMENT_TYPE>()) == 0 }
+        self.cKeyPurposeId == other.cKeyPurposeId && self.rgpszKeyPurposeId == other.rgpszKeyPurposeId
     }
 }
 impl ::core::cmp::Eq for SPC_STATEMENT_TYPE {}
@@ -2322,7 +2257,7 @@ unsafe impl ::windows::core::Abi for WINTRUST_BLOB_INFO {
 }
 impl ::core::cmp::PartialEq for WINTRUST_BLOB_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_BLOB_INFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.gSubject == other.gSubject && self.pcwszDisplayName == other.pcwszDisplayName && self.cbMemObject == other.cbMemObject && self.pbMemObject == other.pbMemObject && self.cbMemSignedMsg == other.cbMemSignedMsg && self.pbMemSignedMsg == other.pbMemSignedMsg
     }
 }
 impl ::core::cmp::Eq for WINTRUST_BLOB_INFO {}
@@ -2378,7 +2313,7 @@ unsafe impl ::windows::core::Abi for WINTRUST_CATALOG_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for WINTRUST_CATALOG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_CATALOG_INFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.dwCatalogVersion == other.dwCatalogVersion && self.pcwszCatalogFilePath == other.pcwszCatalogFilePath && self.pcwszMemberTag == other.pcwszMemberTag && self.pcwszMemberFilePath == other.pcwszMemberFilePath && self.hMemberFile == other.hMemberFile && self.pbCalculatedFileHash == other.pbCalculatedFileHash && self.cbCalculatedFileHash == other.cbCalculatedFileHash && self.pcCatalogContext == other.pcCatalogContext && self.hCatAdmin == other.hCatAdmin
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2422,7 +2357,7 @@ unsafe impl ::windows::core::Abi for WINTRUST_CERT_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for WINTRUST_CERT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_CERT_INFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pcwszDisplayName == other.pcwszDisplayName && self.psCertContext == other.psCertContext && self.chStores == other.chStores && self.pahStores == other.pahStores && self.dwFlags == other.dwFlags && self.psftVerifyAsOf == other.psftVerifyAsOf
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2464,14 +2399,6 @@ unsafe impl ::windows::core::Abi for WINTRUST_DATA {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for WINTRUST_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_DATA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for WINTRUST_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WINTRUST_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2499,14 +2426,6 @@ impl ::core::clone::Clone for WINTRUST_DATA_0 {
 unsafe impl ::windows::core::Abi for WINTRUST_DATA_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for WINTRUST_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_DATA_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for WINTRUST_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WINTRUST_DATA_0 {
     fn default() -> Self {
@@ -2543,7 +2462,7 @@ unsafe impl ::windows::core::Abi for WINTRUST_FILE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINTRUST_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_FILE_INFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pcwszFilePath == other.pcwszFilePath && self.hFile == other.hFile && self.pgKnownSubject == other.pgKnownSubject
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2585,7 +2504,7 @@ unsafe impl ::windows::core::Abi for WINTRUST_SGNR_INFO {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WINTRUST_SGNR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_SGNR_INFO>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pcwszDisplayName == other.pcwszDisplayName && self.psSignerInfo == other.psSignerInfo && self.chStores == other.chStores && self.pahStores == other.pahStores
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2628,7 +2547,7 @@ unsafe impl ::windows::core::Abi for WINTRUST_SIGNATURE_SETTINGS {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WINTRUST_SIGNATURE_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINTRUST_SIGNATURE_SETTINGS>()) == 0 }
+        self.cbStruct == other.cbStruct && self.dwIndex == other.dwIndex && self.dwFlags == other.dwFlags && self.cSecondarySigs == other.cSecondarySigs && self.dwVerifiedSigIndex == other.dwVerifiedSigIndex && self.pCryptoPolicy == other.pCryptoPolicy
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -2663,7 +2582,7 @@ unsafe impl ::windows::core::Abi for WIN_CERTIFICATE {
 }
 impl ::core::cmp::PartialEq for WIN_CERTIFICATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN_CERTIFICATE>()) == 0 }
+        self.dwLength == other.dwLength && self.wRevision == other.wRevision && self.wCertificateType == other.wCertificateType && self.bCertificate == other.bCertificate
     }
 }
 impl ::core::cmp::Eq for WIN_CERTIFICATE {}
@@ -2700,7 +2619,7 @@ unsafe impl ::windows::core::Abi for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN_SPUB_TRUSTED_PUBLISHER_DATA>()) == 0 }
+        self.hClientToken == other.hClientToken && self.lpCertificate == other.lpCertificate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2740,7 +2659,7 @@ unsafe impl ::windows::core::Abi for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT>()) == 0 }
+        self.hClientToken == other.hClientToken && self.SubjectType == other.SubjectType && self.Subject == other.Subject
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2773,7 +2692,7 @@ unsafe impl ::windows::core::Abi for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
 }
 impl ::core::cmp::PartialEq for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN_TRUST_ACTDATA_SUBJECT_ONLY>()) == 0 }
+        self.SubjectType == other.SubjectType && self.Subject == other.Subject
     }
 }
 impl ::core::cmp::Eq for WIN_TRUST_ACTDATA_SUBJECT_ONLY {}
@@ -2810,7 +2729,7 @@ unsafe impl ::windows::core::Abi for WIN_TRUST_SUBJECT_FILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIN_TRUST_SUBJECT_FILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN_TRUST_SUBJECT_FILE>()) == 0 }
+        self.hFile == other.hFile && self.lpPath == other.lpPath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2850,7 +2769,7 @@ unsafe impl ::windows::core::Abi for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIN_TRUST_SUBJECT_FILE_AND_DISPLAY>()) == 0 }
+        self.hFile == other.hFile && self.lpPath == other.lpPath && self.lpDisplayName == other.lpDisplayName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2884,14 +2803,6 @@ unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_CREATE_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2916,14 +2827,6 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn default() -> Self {
@@ -2953,14 +2856,6 @@ unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_DATA {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_DATA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2985,14 +2880,6 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_DATA_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     fn default() -> Self {
@@ -3024,14 +2911,6 @@ unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3056,14 +2935,6 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
 unsafe impl ::windows::core::Abi for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::core::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     fn default() -> Self {

@@ -24738,7 +24738,7 @@ unsafe impl ::windows::core::Abi for AUTHENTICATION_INFO {
 }
 impl ::core::cmp::PartialEq for AUTHENTICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHENTICATION_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.atAuthenticationType == other.atAuthenticationType && self.pcwszUser == other.pcwszUser && self.pcwszPassword == other.pcwszPassword
     }
 }
 impl ::core::cmp::Eq for AUTHENTICATION_INFO {}
@@ -24769,7 +24769,7 @@ unsafe impl ::windows::core::Abi for BUCKETCATEGORIZE {
 }
 impl ::core::cmp::PartialEq for BUCKETCATEGORIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BUCKETCATEGORIZE>()) == 0 }
+        self.cBuckets == other.cBuckets && self.Distribution == other.Distribution
     }
 }
 impl ::core::cmp::Eq for BUCKETCATEGORIZE {}
@@ -24799,14 +24799,6 @@ unsafe impl ::windows::core::Abi for CATEGORIZATION {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for CATEGORIZATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CATEGORIZATION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for CATEGORIZATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for CATEGORIZATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24832,14 +24824,6 @@ impl ::core::clone::Clone for CATEGORIZATION_0 {
 unsafe impl ::windows::core::Abi for CATEGORIZATION_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for CATEGORIZATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CATEGORIZATION_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for CATEGORIZATION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for CATEGORIZATION_0 {
     fn default() -> Self {
@@ -24874,7 +24858,7 @@ unsafe impl ::windows::core::Abi for CATEGORIZATIONSET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for CATEGORIZATIONSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CATEGORIZATIONSET>()) == 0 }
+        self.cCat == other.cCat && self.aCat == other.aCat
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -24913,7 +24897,7 @@ unsafe impl ::windows::core::Abi for COLUMNSET {
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for COLUMNSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLUMNSET>()) == 0 }
+        self.cCol == other.cCol && self.aCol == other.aCol
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -24946,14 +24930,6 @@ unsafe impl ::windows::core::Abi for CONTENTRESTRICTION {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for CONTENTRESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTENTRESTRICTION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for CONTENTRESTRICTION {}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for CONTENTRESTRICTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24982,7 +24958,7 @@ unsafe impl ::windows::core::Abi for DATE_STRUCT {
 }
 impl ::core::cmp::PartialEq for DATE_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATE_STRUCT>()) == 0 }
+        self.year == other.year && self.month == other.month && self.day == other.day
     }
 }
 impl ::core::cmp::Eq for DATE_STRUCT {}
@@ -25011,14 +24987,6 @@ unsafe impl ::windows::core::Abi for DBBINDEXT {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBBINDEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBBINDEXT>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBBINDEXT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBBINDEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25043,14 +25011,6 @@ impl ::core::clone::Clone for DBBINDEXT {
 unsafe impl ::windows::core::Abi for DBBINDEXT {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBBINDEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBBINDEXT>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBBINDEXT {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBBINDEXT {
     fn default() -> Self {
@@ -25108,16 +25068,6 @@ unsafe impl ::windows::core::Abi for DBBINDING {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for DBBINDING {
-    fn eq(&self, other: &Self) -> bool {
-        self.iOrdinal == other.iOrdinal && self.obValue == other.obValue && self.obLength == other.obLength && self.obStatus == other.obStatus && self.pTypeInfo == other.pTypeInfo && self.pObject == other.pObject && self.pBindExt == other.pBindExt && self.dwPart == other.dwPart && self.dwMemOwner == other.dwMemOwner && self.eParamIO == other.eParamIO && self.cbMaxLen == other.cbMaxLen && self.dwFlags == other.dwFlags && self.wType == other.wType && self.bPrecision == other.bPrecision && self.bScale == other.bScale
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for DBBINDING {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for DBBINDING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25149,16 +25099,6 @@ pub struct DBBINDING {
 unsafe impl ::windows::core::Abi for DBBINDING {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for DBBINDING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBBINDING>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for DBBINDING {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for DBBINDING {
@@ -25198,16 +25138,6 @@ unsafe impl ::windows::core::Abi for DBCOLUMNACCESS {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for DBCOLUMNACCESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCOLUMNACCESS>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for DBCOLUMNACCESS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for DBCOLUMNACCESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25243,16 +25173,6 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
 unsafe impl ::windows::core::Abi for DBCOLUMNACCESS {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for DBCOLUMNACCESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCOLUMNACCESS>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for DBCOLUMNACCESS {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for DBCOLUMNACCESS {
@@ -25301,16 +25221,6 @@ unsafe impl ::windows::core::Abi for DBCOLUMNDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBCOLUMNDESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszTypeName == other.pwszTypeName && self.pTypeInfo == other.pTypeInfo && self.rgPropertySets == other.rgPropertySets && self.pclsid == other.pclsid && self.cPropertySets == other.cPropertySets && self.ulColumnSize == other.ulColumnSize && self.dbcid == other.dbcid && self.wType == other.wType && self.bPrecision == other.bPrecision && self.bScale == other.bScale
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBCOLUMNDESC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25337,16 +25247,6 @@ pub struct DBCOLUMNDESC {
 unsafe impl ::windows::core::Abi for DBCOLUMNDESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBCOLUMNDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCOLUMNDESC>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBCOLUMNDESC {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBCOLUMNDESC {
@@ -25393,16 +25293,6 @@ unsafe impl ::windows::core::Abi for DBCOLUMNINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for DBCOLUMNINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszName == other.pwszName && self.pTypeInfo == other.pTypeInfo && self.iOrdinal == other.iOrdinal && self.dwFlags == other.dwFlags && self.ulColumnSize == other.ulColumnSize && self.wType == other.wType && self.bPrecision == other.bPrecision && self.bScale == other.bScale && self.columnid == other.columnid
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for DBCOLUMNINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::core::default::Default for DBCOLUMNINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25430,16 +25320,6 @@ unsafe impl ::windows::core::Abi for DBCOLUMNINFO {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for DBCOLUMNINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCOLUMNINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for DBCOLUMNINFO {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::core::default::Default for DBCOLUMNINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25482,16 +25362,6 @@ unsafe impl ::windows::core::Abi for DBCONSTRAINTDESC {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBCONSTRAINTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCONSTRAINTDESC>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBCONSTRAINTDESC {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBCONSTRAINTDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25534,16 +25404,6 @@ unsafe impl ::windows::core::Abi for DBCONSTRAINTDESC {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBCONSTRAINTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCONSTRAINTDESC>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBCONSTRAINTDESC {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBCONSTRAINTDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25570,14 +25430,6 @@ unsafe impl ::windows::core::Abi for DBCOST {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBCOST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCOST>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBCOST {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBCOST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25603,14 +25455,6 @@ impl ::core::clone::Clone for DBCOST {
 unsafe impl ::windows::core::Abi for DBCOST {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBCOST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBCOST>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBCOST {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBCOST {
     fn default() -> Self {
@@ -25640,7 +25484,7 @@ unsafe impl ::windows::core::Abi for DBDATE {
 }
 impl ::core::cmp::PartialEq for DBDATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBDATE>()) == 0 }
+        self.year == other.year && self.month == other.month && self.day == other.day
     }
 }
 impl ::core::cmp::Eq for DBDATE {}
@@ -25671,7 +25515,7 @@ unsafe impl ::windows::core::Abi for DBDATETIM4 {
 }
 impl ::core::cmp::PartialEq for DBDATETIM4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBDATETIM4>()) == 0 }
+        self.numdays == other.numdays && self.nummins == other.nummins
     }
 }
 impl ::core::cmp::Eq for DBDATETIM4 {}
@@ -25702,7 +25546,7 @@ unsafe impl ::windows::core::Abi for DBDATETIME {
 }
 impl ::core::cmp::PartialEq for DBDATETIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBDATETIME>()) == 0 }
+        self.dtdays == other.dtdays && self.dttime == other.dttime
     }
 }
 impl ::core::cmp::Eq for DBDATETIME {}
@@ -25732,14 +25576,6 @@ unsafe impl ::windows::core::Abi for DBFAILUREINFO {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBFAILUREINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBFAILUREINFO>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBFAILUREINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBFAILUREINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25766,14 +25602,6 @@ unsafe impl ::windows::core::Abi for DBFAILUREINFO {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBFAILUREINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBFAILUREINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBFAILUREINFO {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBFAILUREINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25798,14 +25626,6 @@ unsafe impl ::windows::core::Abi for DBIMPLICITSESSION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBIMPLICITSESSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.pUnkOuter == other.pUnkOuter && self.piid == other.piid && self.pSession == other.pSession
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBIMPLICITSESSION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBIMPLICITSESSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25823,14 +25643,6 @@ pub struct DBIMPLICITSESSION {
 unsafe impl ::windows::core::Abi for DBIMPLICITSESSION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBIMPLICITSESSION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBIMPLICITSESSION>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBIMPLICITSESSION {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBIMPLICITSESSION {
     fn default() -> Self {
@@ -25860,16 +25672,6 @@ impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
 unsafe impl ::windows::core::Abi for DBINDEXCOLUMNDESC {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for DBINDEXCOLUMNDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBINDEXCOLUMNDESC>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for DBINDEXCOLUMNDESC {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for DBINDEXCOLUMNDESC {
@@ -25900,16 +25702,6 @@ impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
 unsafe impl ::windows::core::Abi for DBINDEXCOLUMNDESC {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for DBINDEXCOLUMNDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBINDEXCOLUMNDESC>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for DBINDEXCOLUMNDESC {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for DBINDEXCOLUMNDESC {
@@ -25944,16 +25736,6 @@ impl ::core::clone::Clone for DBLITERALINFO {
 unsafe impl ::windows::core::Abi for DBLITERALINFO {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DBLITERALINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBLITERALINFO>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DBLITERALINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DBLITERALINFO {
@@ -25988,16 +25770,6 @@ impl ::core::clone::Clone for DBLITERALINFO {
 unsafe impl ::windows::core::Abi for DBLITERALINFO {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DBLITERALINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBLITERALINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DBLITERALINFO {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DBLITERALINFO {
@@ -26027,7 +25799,7 @@ unsafe impl ::windows::core::Abi for DBMONEY {
 }
 impl ::core::cmp::PartialEq for DBMONEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBMONEY>()) == 0 }
+        self.mnyhigh == other.mnyhigh && self.mnylow == other.mnylow
     }
 }
 impl ::core::cmp::Eq for DBMONEY {}
@@ -26056,14 +25828,6 @@ unsafe impl ::windows::core::Abi for DBOBJECT {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBOBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBOBJECT>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBOBJECT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBOBJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26088,14 +25852,6 @@ impl ::core::clone::Clone for DBOBJECT {
 unsafe impl ::windows::core::Abi for DBOBJECT {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBOBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBOBJECT>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBOBJECT {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBOBJECT {
     fn default() -> Self {
@@ -26125,14 +25881,6 @@ impl ::core::clone::Clone for DBPARAMBINDINFO {
 unsafe impl ::windows::core::Abi for DBPARAMBINDINFO {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBPARAMBINDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPARAMBINDINFO>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBPARAMBINDINFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBPARAMBINDINFO {
     fn default() -> Self {
@@ -26162,14 +25910,6 @@ impl ::core::clone::Clone for DBPARAMBINDINFO {
 unsafe impl ::windows::core::Abi for DBPARAMBINDINFO {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBPARAMBINDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPARAMBINDINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBPARAMBINDINFO {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBPARAMBINDINFO {
     fn default() -> Self {
@@ -26213,16 +25953,6 @@ unsafe impl ::windows::core::Abi for DBPARAMINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for DBPARAMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.iOrdinal == other.iOrdinal && self.pwszName == other.pwszName && self.pTypeInfo == other.pTypeInfo && self.ulParamSize == other.ulParamSize && self.wType == other.wType && self.bPrecision == other.bPrecision && self.bScale == other.bScale
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for DBPARAMINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for DBPARAMINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26247,16 +25977,6 @@ pub struct DBPARAMINFO {
 unsafe impl ::windows::core::Abi for DBPARAMINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for DBPARAMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPARAMINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for DBPARAMINFO {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for DBPARAMINFO {
@@ -26285,14 +26005,6 @@ unsafe impl ::windows::core::Abi for DBPARAMS {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPARAMS>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBPARAMS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26318,14 +26030,6 @@ impl ::core::clone::Clone for DBPARAMS {
 unsafe impl ::windows::core::Abi for DBPARAMS {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPARAMS>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBPARAMS {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBPARAMS {
     fn default() -> Self {
@@ -26357,16 +26061,6 @@ unsafe impl ::windows::core::Abi for DBPROP {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPropertyID == other.dwPropertyID && self.dwOptions == other.dwOptions && self.dwStatus == other.dwStatus && self.colid == other.colid && self.vValue == other.vValue
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROP {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26388,16 +26082,6 @@ pub struct DBPROP {
 unsafe impl ::windows::core::Abi for DBPROP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROP>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROP {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROP {
@@ -26426,14 +26110,6 @@ unsafe impl ::windows::core::Abi for DBPROPIDSET {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBPROPIDSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROPIDSET>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBPROPIDSET {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBPROPIDSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26459,14 +26135,6 @@ impl ::core::clone::Clone for DBPROPIDSET {
 unsafe impl ::windows::core::Abi for DBPROPIDSET {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBPROPIDSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROPIDSET>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBPROPIDSET {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBPROPIDSET {
     fn default() -> Self {
@@ -26504,16 +26172,6 @@ unsafe impl ::windows::core::Abi for DBPROPINFO {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROPINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszDescription == other.pwszDescription && self.dwPropertyID == other.dwPropertyID && self.dwFlags == other.dwFlags && self.vtType == other.vtType && self.vValues == other.vValues
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROPINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26535,16 +26193,6 @@ pub struct DBPROPINFO {
 unsafe impl ::windows::core::Abi for DBPROPINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROPINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROPINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROPINFO {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROPINFO {
@@ -26578,16 +26226,6 @@ unsafe impl ::windows::core::Abi for DBPROPINFOSET {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROPINFOSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROPINFOSET>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROPINFOSET {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROPINFOSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26617,16 +26255,6 @@ impl ::core::clone::Clone for DBPROPINFOSET {
 unsafe impl ::windows::core::Abi for DBPROPINFOSET {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROPINFOSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROPINFOSET>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROPINFOSET {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROPINFOSET {
@@ -26658,16 +26286,6 @@ impl ::core::clone::Clone for DBPROPSET {
 unsafe impl ::windows::core::Abi for DBPROPSET {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROPSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROPSET>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROPSET {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROPSET {
@@ -26699,16 +26317,6 @@ impl ::core::clone::Clone for DBPROPSET {
 unsafe impl ::windows::core::Abi for DBPROPSET {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DBPROPSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBPROPSET>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DBPROPSET {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DBPROPSET {
@@ -26737,14 +26345,6 @@ impl ::core::clone::Clone for DBROWWATCHCHANGE {
 unsafe impl ::windows::core::Abi for DBROWWATCHCHANGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBROWWATCHCHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBROWWATCHCHANGE>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBROWWATCHCHANGE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBROWWATCHCHANGE {
     fn default() -> Self {
@@ -26772,14 +26372,6 @@ impl ::core::clone::Clone for DBROWWATCHCHANGE {
 unsafe impl ::windows::core::Abi for DBROWWATCHCHANGE {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBROWWATCHCHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBROWWATCHCHANGE>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBROWWATCHCHANGE {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBROWWATCHCHANGE {
     fn default() -> Self {
@@ -26809,7 +26401,7 @@ unsafe impl ::windows::core::Abi for DBTIME {
 }
 impl ::core::cmp::PartialEq for DBTIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBTIME>()) == 0 }
+        self.hour == other.hour && self.minute == other.minute && self.second == other.second
     }
 }
 impl ::core::cmp::Eq for DBTIME {}
@@ -26843,14 +26435,6 @@ unsafe impl ::windows::core::Abi for DBTIMESTAMP {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBTIMESTAMP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBTIMESTAMP>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBTIMESTAMP {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBTIMESTAMP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26881,14 +26465,6 @@ unsafe impl ::windows::core::Abi for DBTIMESTAMP {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBTIMESTAMP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBTIMESTAMP>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBTIMESTAMP {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBTIMESTAMP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26916,7 +26492,7 @@ unsafe impl ::windows::core::Abi for DBVARYBIN {
 }
 impl ::core::cmp::PartialEq for DBVARYBIN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBVARYBIN>()) == 0 }
+        self.len == other.len && self.array == other.array
     }
 }
 impl ::core::cmp::Eq for DBVARYBIN {}
@@ -26947,7 +26523,7 @@ unsafe impl ::windows::core::Abi for DBVARYCHAR {
 }
 impl ::core::cmp::PartialEq for DBVARYCHAR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBVARYCHAR>()) == 0 }
+        self.len == other.len && self.str == other.str
     }
 }
 impl ::core::cmp::Eq for DBVARYCHAR {}
@@ -26976,14 +26552,6 @@ unsafe impl ::windows::core::Abi for DBVECTOR {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DBVECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBVECTOR>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DBVECTOR {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBVECTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27008,14 +26576,6 @@ impl ::core::clone::Clone for DBVECTOR {
 unsafe impl ::windows::core::Abi for DBVECTOR {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DBVECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBVECTOR>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DBVECTOR {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBVECTOR {
     fn default() -> Self {
@@ -27046,7 +26606,7 @@ unsafe impl ::windows::core::Abi for DB_NUMERIC {
 }
 impl ::core::cmp::PartialEq for DB_NUMERIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DB_NUMERIC>()) == 0 }
+        self.precision == other.precision && self.scale == other.scale && self.sign == other.sign && self.val == other.val
     }
 }
 impl ::core::cmp::Eq for DB_NUMERIC {}
@@ -27079,7 +26639,7 @@ unsafe impl ::windows::core::Abi for DB_VARNUMERIC {
 }
 impl ::core::cmp::PartialEq for DB_VARNUMERIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DB_VARNUMERIC>()) == 0 }
+        self.precision == other.precision && self.scale == other.scale && self.sign == other.sign && self.val == other.val
     }
 }
 impl ::core::cmp::Eq for DB_VARNUMERIC {}
@@ -27105,14 +26665,6 @@ impl ::core::clone::Clone for DCINFO {
 unsafe impl ::windows::core::Abi for DCINFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DCINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.eInfoType == other.eInfoType && self.vData == other.vData
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DCINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for DCINFO {
     fn default() -> Self {
@@ -27142,14 +26694,6 @@ unsafe impl ::windows::core::Abi for ERRORINFO {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for ERRORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERRORINFO>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for ERRORINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for ERRORINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27177,14 +26721,6 @@ impl ::core::clone::Clone for ERRORINFO {
 unsafe impl ::windows::core::Abi for ERRORINFO {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for ERRORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERRORINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for ERRORINFO {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for ERRORINFO {
     fn default() -> Self {
@@ -27215,7 +26751,7 @@ unsafe impl ::windows::core::Abi for FILTERED_DATA_SOURCES {
 }
 impl ::core::cmp::PartialEq for FILTERED_DATA_SOURCES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTERED_DATA_SOURCES>()) == 0 }
+        self.pwcsExtension == other.pwcsExtension && self.pwcsMime == other.pwcsMime && self.pClsid == other.pClsid && self.pwcsOverride == other.pwcsOverride
     }
 }
 impl ::core::cmp::Eq for FILTERED_DATA_SOURCES {}
@@ -27278,7 +26814,7 @@ unsafe impl ::windows::core::Abi for HITRANGE {
 }
 impl ::core::cmp::PartialEq for HITRANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HITRANGE>()) == 0 }
+        self.iPosition == other.iPosition && self.cLength == other.cLength
     }
 }
 impl ::core::cmp::Eq for HITRANGE {}
@@ -27315,7 +26851,7 @@ unsafe impl ::windows::core::Abi for INCREMENTAL_ACCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INCREMENTAL_ACCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INCREMENTAL_ACCESS_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.ftLastModifiedTime == other.ftLastModifiedTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -27345,14 +26881,6 @@ impl ::core::clone::Clone for ITEMPROP {
 unsafe impl ::windows::core::Abi for ITEMPROP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for ITEMPROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.variantValue == other.variantValue && self.pwszName == other.pwszName
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for ITEMPROP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for ITEMPROP {
     fn default() -> Self {
@@ -27384,7 +26912,7 @@ unsafe impl ::windows::core::Abi for ITEM_INFO {
 }
 impl ::core::cmp::PartialEq for ITEM_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ITEM_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.pcwszFromEMail == other.pcwszFromEMail && self.pcwszApplicationName == other.pcwszApplicationName && self.pcwszCatalogName == other.pcwszCatalogName && self.pcwszContentClass == other.pcwszContentClass
     }
 }
 impl ::core::cmp::Eq for ITEM_INFO {}
@@ -27411,14 +26939,6 @@ impl ::core::clone::Clone for KAGGETDIAG {
 unsafe impl ::windows::core::Abi for KAGGETDIAG {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for KAGGETDIAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize && self.vDiagInfo == other.vDiagInfo && self.sDiagField == other.sDiagField
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for KAGGETDIAG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for KAGGETDIAG {
     fn default() -> Self {
@@ -27454,7 +26974,7 @@ unsafe impl ::windows::core::Abi for KAGREQDIAG {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for KAGREQDIAG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KAGREQDIAG>()) == 0 }
+        self.ulDiagFlags == other.ulDiagFlags && self.vt == other.vt && self.sDiagField == other.sDiagField
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -27489,14 +27009,6 @@ unsafe impl ::windows::core::Abi for MDAXISINFO {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for MDAXISINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDAXISINFO>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for MDAXISINFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for MDAXISINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27526,14 +27038,6 @@ unsafe impl ::windows::core::Abi for MDAXISINFO {
     type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for MDAXISINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDAXISINFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for MDAXISINFO {}
-#[cfg(target_arch = "x86")]
 impl ::core::default::Default for MDAXISINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27559,14 +27063,6 @@ impl ::core::clone::Clone for NATLANGUAGERESTRICTION {
 unsafe impl ::windows::core::Abi for NATLANGUAGERESTRICTION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for NATLANGUAGERESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NATLANGUAGERESTRICTION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for NATLANGUAGERESTRICTION {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for NATLANGUAGERESTRICTION {
     fn default() -> Self {
@@ -27602,7 +27098,7 @@ unsafe impl ::windows::core::Abi for NODERESTRICTION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for NODERESTRICTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NODERESTRICTION>()) == 0 }
+        self.cRes == other.cRes && self.paRes == other.paRes && self.reserved == other.reserved
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -27640,7 +27136,7 @@ unsafe impl ::windows::core::Abi for NOTRESTRICTION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for NOTRESTRICTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTRESTRICTION>()) == 0 }
+        self.pRes == other.pRes
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -27669,12 +27165,6 @@ impl ::core::clone::Clone for ODBC_VS_ARGS {
 unsafe impl ::windows::core::Abi for ODBC_VS_ARGS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ODBC_VS_ARGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ODBC_VS_ARGS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ODBC_VS_ARGS {}
 impl ::core::default::Default for ODBC_VS_ARGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27695,12 +27185,6 @@ impl ::core::clone::Clone for ODBC_VS_ARGS_0 {
 unsafe impl ::windows::core::Abi for ODBC_VS_ARGS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ODBC_VS_ARGS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ODBC_VS_ARGS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ODBC_VS_ARGS_0 {}
 impl ::core::default::Default for ODBC_VS_ARGS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27721,12 +27205,6 @@ impl ::core::clone::Clone for ODBC_VS_ARGS_1 {
 unsafe impl ::windows::core::Abi for ODBC_VS_ARGS_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ODBC_VS_ARGS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ODBC_VS_ARGS_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ODBC_VS_ARGS_1 {}
 impl ::core::default::Default for ODBC_VS_ARGS_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27750,14 +27228,6 @@ impl ::core::clone::Clone for PROPERTYRESTRICTION {
 unsafe impl ::windows::core::Abi for PROPERTYRESTRICTION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for PROPERTYRESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.rel == other.rel && self.prop == other.prop && self.prval == other.prval
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for PROPERTYRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for PROPERTYRESTRICTION {
     fn default() -> Self {
@@ -27797,7 +27267,7 @@ unsafe impl ::windows::core::Abi for PROXY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROXY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROXY_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.pcwszUserAgent == other.pcwszUserAgent && self.paUseProxy == other.paUseProxy && self.fLocalBypass == other.fLocalBypass && self.dwPortNumber == other.dwPortNumber && self.pcwszProxyName == other.pcwszProxyName && self.pcwszBypassList == other.pcwszBypassList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -27836,7 +27306,7 @@ unsafe impl ::windows::core::Abi for RANGECATEGORIZE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for RANGECATEGORIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RANGECATEGORIZE>()) == 0 }
+        self.cRange == other.cRange && self.aRangeBegin == other.aRangeBegin
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -27866,14 +27336,6 @@ unsafe impl ::windows::core::Abi for RESTRICTION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for RESTRICTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.rt == other.rt && self.weight == other.weight && self.res == other.res
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for RESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for RESTRICTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27902,14 +27364,6 @@ impl ::core::clone::Clone for RESTRICTION_0 {
 unsafe impl ::windows::core::Abi for RESTRICTION_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for RESTRICTION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESTRICTION_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for RESTRICTION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for RESTRICTION_0 {
     fn default() -> Self {
@@ -27965,16 +27419,6 @@ unsafe impl ::windows::core::Abi for RMTPACK {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for RMTPACK {
-    fn eq(&self, other: &Self) -> bool {
-        self.pISeqStream == other.pISeqStream && self.cbData == other.cbData && self.cBSTR == other.cBSTR && self.rgBSTR == other.rgBSTR && self.cVARIANT == other.cVARIANT && self.rgVARIANT == other.rgVARIANT && self.cIDISPATCH == other.cIDISPATCH && self.rgIDISPATCH == other.rgIDISPATCH && self.cIUNKNOWN == other.cIUNKNOWN && self.rgIUNKNOWN == other.rgIUNKNOWN && self.cPROPVARIANT == other.cPROPVARIANT && self.rgPROPVARIANT == other.rgPROPVARIANT && self.cArray == other.cArray && self.rgArray == other.rgArray
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for RMTPACK {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for RMTPACK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28007,16 +27451,6 @@ unsafe impl ::windows::core::Abi for RMTPACK {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for RMTPACK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RMTPACK>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for RMTPACK {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for RMTPACK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28039,14 +27473,6 @@ impl ::core::clone::Clone for SEARCH_COLUMN_PROPERTIES {
 unsafe impl ::windows::core::Abi for SEARCH_COLUMN_PROPERTIES {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for SEARCH_COLUMN_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value && self.lcid == other.lcid
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for SEARCH_COLUMN_PROPERTIES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for SEARCH_COLUMN_PROPERTIES {
     fn default() -> Self {
@@ -28084,7 +27510,7 @@ unsafe impl ::windows::core::Abi for SEARCH_ITEM_CHANGE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for SEARCH_ITEM_CHANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEARCH_ITEM_CHANGE>()) == 0 }
+        self.Change == other.Change && self.Priority == other.Priority && self.pUserData == other.pUserData && self.lpwszURL == other.lpwszURL && self.lpwszOldURL == other.lpwszOldURL
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -28117,7 +27543,7 @@ unsafe impl ::windows::core::Abi for SEARCH_ITEM_INDEXING_STATUS {
 }
 impl ::core::cmp::PartialEq for SEARCH_ITEM_INDEXING_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEARCH_ITEM_INDEXING_STATUS>()) == 0 }
+        self.dwDocID == other.dwDocID && self.hrIndexingStatus == other.hrIndexingStatus
     }
 }
 impl ::core::cmp::Eq for SEARCH_ITEM_INDEXING_STATUS {}
@@ -28150,7 +27576,7 @@ unsafe impl ::windows::core::Abi for SEARCH_ITEM_PERSISTENT_CHANGE {
 }
 impl ::core::cmp::PartialEq for SEARCH_ITEM_PERSISTENT_CHANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEARCH_ITEM_PERSISTENT_CHANGE>()) == 0 }
+        self.Change == other.Change && self.URL == other.URL && self.OldURL == other.OldURL && self.Priority == other.Priority
     }
 }
 impl ::core::cmp::Eq for SEARCH_ITEM_PERSISTENT_CHANGE {}
@@ -28184,16 +27610,6 @@ unsafe impl ::windows::core::Abi for SEC_OBJECT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for SEC_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_OBJECT>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for SEC_OBJECT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for SEC_OBJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28224,16 +27640,6 @@ unsafe impl ::windows::core::Abi for SEC_OBJECT {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for SEC_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_OBJECT>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for SEC_OBJECT {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for SEC_OBJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28262,16 +27668,6 @@ impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
 unsafe impl ::windows::core::Abi for SEC_OBJECT_ELEMENT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for SEC_OBJECT_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_OBJECT_ELEMENT>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for SEC_OBJECT_ELEMENT {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for SEC_OBJECT_ELEMENT {
@@ -28304,16 +27700,6 @@ unsafe impl ::windows::core::Abi for SEC_OBJECT_ELEMENT {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::PartialEq for SEC_OBJECT_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SEC_OBJECT_ELEMENT>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
-impl ::core::cmp::Eq for SEC_OBJECT_ELEMENT {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::core::default::Default for SEC_OBJECT_ELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28339,14 +27725,6 @@ impl ::core::clone::Clone for SORTKEY {
 unsafe impl ::windows::core::Abi for SORTKEY {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for SORTKEY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SORTKEY>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for SORTKEY {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for SORTKEY {
     fn default() -> Self {
@@ -28381,7 +27759,7 @@ unsafe impl ::windows::core::Abi for SORTSET {
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for SORTSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SORTSET>()) == 0 }
+        self.cCol == other.cCol && self.aCol == other.aCol
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -28479,7 +27857,39 @@ unsafe impl ::windows::core::Abi for SQLPERF {
 }
 impl ::core::cmp::PartialEq for SQLPERF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQLPERF>()) == 0 }
+        self.TimerResolution == other.TimerResolution
+            && self.SQLidu == other.SQLidu
+            && self.SQLiduRows == other.SQLiduRows
+            && self.SQLSelects == other.SQLSelects
+            && self.SQLSelectRows == other.SQLSelectRows
+            && self.Transactions == other.Transactions
+            && self.SQLPrepares == other.SQLPrepares
+            && self.ExecDirects == other.ExecDirects
+            && self.SQLExecutes == other.SQLExecutes
+            && self.CursorOpens == other.CursorOpens
+            && self.CursorSize == other.CursorSize
+            && self.CursorUsed == other.CursorUsed
+            && self.PercentCursorUsed == other.PercentCursorUsed
+            && self.AvgFetchTime == other.AvgFetchTime
+            && self.AvgCursorSize == other.AvgCursorSize
+            && self.AvgCursorUsed == other.AvgCursorUsed
+            && self.SQLFetchTime == other.SQLFetchTime
+            && self.SQLFetchCount == other.SQLFetchCount
+            && self.CurrentStmtCount == other.CurrentStmtCount
+            && self.MaxOpenStmt == other.MaxOpenStmt
+            && self.SumOpenStmt == other.SumOpenStmt
+            && self.CurrentConnectionCount == other.CurrentConnectionCount
+            && self.MaxConnectionsOpened == other.MaxConnectionsOpened
+            && self.SumConnectionsOpened == other.SumConnectionsOpened
+            && self.SumConnectiontime == other.SumConnectiontime
+            && self.AvgTimeOpened == other.AvgTimeOpened
+            && self.ServerRndTrips == other.ServerRndTrips
+            && self.BuffersSent == other.BuffersSent
+            && self.BuffersRec == other.BuffersRec
+            && self.BytesSent == other.BytesSent
+            && self.BytesRec == other.BytesRec
+            && self.msExecutionTime == other.msExecutionTime
+            && self.msNetWorkServerTime == other.msNetWorkServerTime
     }
 }
 impl ::core::cmp::Eq for SQLPERF {}
@@ -28513,7 +27923,7 @@ unsafe impl ::windows::core::Abi for SQL_DAY_SECOND_STRUCT {
 }
 impl ::core::cmp::PartialEq for SQL_DAY_SECOND_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQL_DAY_SECOND_STRUCT>()) == 0 }
+        self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.fraction == other.fraction
     }
 }
 impl ::core::cmp::Eq for SQL_DAY_SECOND_STRUCT {}
@@ -28538,12 +27948,6 @@ impl ::core::clone::Clone for SQL_INTERVAL_STRUCT {
 unsafe impl ::windows::core::Abi for SQL_INTERVAL_STRUCT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SQL_INTERVAL_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQL_INTERVAL_STRUCT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SQL_INTERVAL_STRUCT {}
 impl ::core::default::Default for SQL_INTERVAL_STRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28564,12 +27968,6 @@ impl ::core::clone::Clone for SQL_INTERVAL_STRUCT_0 {
 unsafe impl ::windows::core::Abi for SQL_INTERVAL_STRUCT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SQL_INTERVAL_STRUCT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQL_INTERVAL_STRUCT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SQL_INTERVAL_STRUCT_0 {}
 impl ::core::default::Default for SQL_INTERVAL_STRUCT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28599,7 +27997,7 @@ unsafe impl ::windows::core::Abi for SQL_NUMERIC_STRUCT {
 }
 impl ::core::cmp::PartialEq for SQL_NUMERIC_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQL_NUMERIC_STRUCT>()) == 0 }
+        self.precision == other.precision && self.scale == other.scale && self.sign == other.sign && self.val == other.val
     }
 }
 impl ::core::cmp::Eq for SQL_NUMERIC_STRUCT {}
@@ -28630,7 +28028,7 @@ unsafe impl ::windows::core::Abi for SQL_YEAR_MONTH_STRUCT {
 }
 impl ::core::cmp::PartialEq for SQL_YEAR_MONTH_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SQL_YEAR_MONTH_STRUCT>()) == 0 }
+        self.year == other.year && self.month == other.month
     }
 }
 impl ::core::cmp::Eq for SQL_YEAR_MONTH_STRUCT {}
@@ -28666,7 +28064,7 @@ unsafe impl ::windows::core::Abi for SSERRORINFO {
 }
 impl ::core::cmp::PartialEq for SSERRORINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSERRORINFO>()) == 0 }
+        self.pwszMessage == other.pwszMessage && self.pwszServer == other.pwszServer && self.pwszProcedure == other.pwszProcedure && self.lNative == other.lNative && self.bState == other.bState && self.bClass == other.bClass && self.wLineNumber == other.wLineNumber
     }
 }
 impl ::core::cmp::Eq for SSERRORINFO {}
@@ -28694,14 +28092,6 @@ impl ::core::clone::Clone for SSVARIANT {
 unsafe impl ::windows::core::Abi for SSVARIANT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for SSVARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        self.vt == other.vt && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.Anonymous == other.Anonymous
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for SSVARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SSVARIANT {
     fn default() -> Self {
@@ -28740,14 +28130,6 @@ unsafe impl ::windows::core::Abi for SSVARIANT_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for SSVARIANT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSVARIANT_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for SSVARIANT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SSVARIANT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28770,14 +28152,6 @@ impl ::core::clone::Clone for SSVARIANT_0_0 {
 unsafe impl ::windows::core::Abi for SSVARIANT_0_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for SSVARIANT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dbobj == other.dbobj && self.pUnk == other.pUnk
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for SSVARIANT_0_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for SSVARIANT_0_0 {
     fn default() -> Self {
@@ -28814,7 +28188,7 @@ unsafe impl ::windows::core::Abi for SSVARIANT_0_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SSVARIANT_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSVARIANT_0_1>()) == 0 }
+        self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.prgbBinaryVal == other.prgbBinaryVal && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -28857,7 +28231,7 @@ unsafe impl ::windows::core::Abi for SSVARIANT_0_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SSVARIANT_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSVARIANT_0_2>()) == 0 }
+        self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.pchCharVal == other.pchCharVal && self.rgbReserved == other.rgbReserved && self.dwReserved == other.dwReserved && self.pwchReserved == other.pwchReserved
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -28900,7 +28274,7 @@ unsafe impl ::windows::core::Abi for SSVARIANT_0_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SSVARIANT_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSVARIANT_0_3>()) == 0 }
+        self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.pwchNCharVal == other.pwchNCharVal && self.rgbReserved == other.rgbReserved && self.dwReserved == other.dwReserved && self.pwchReserved == other.pwchReserved
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -28940,7 +28314,7 @@ unsafe impl ::windows::core::Abi for SSVARIANT_0_4 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for SSVARIANT_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SSVARIANT_0_4>()) == 0 }
+        self.dwActualLength == other.dwActualLength && self.rgMetadata == other.rgMetadata && self.pUnknownData == other.pUnknownData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -29088,7 +28462,7 @@ unsafe impl ::windows::core::Abi for SUBSCRIPTIONITEMINFO {
 }
 impl ::core::cmp::PartialEq for SUBSCRIPTIONITEMINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SUBSCRIPTIONITEMINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwPriority == other.dwPriority && self.ScheduleGroup == other.ScheduleGroup && self.clsidAgent == other.clsidAgent
     }
 }
 impl ::core::cmp::Eq for SUBSCRIPTIONITEMINFO {}
@@ -29113,18 +28487,12 @@ impl ::core::clone::Clone for TEXT_SOURCE {
 }
 impl ::core::fmt::Debug for TEXT_SOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TEXT_SOURCE").field("pfnFillTextBuffer", &self.pfnFillTextBuffer.map(|f| f as usize)).field("awcBuffer", &self.awcBuffer).field("iEnd", &self.iEnd).field("iCur", &self.iCur).finish()
+        f.debug_struct("TEXT_SOURCE").field("awcBuffer", &self.awcBuffer).field("iEnd", &self.iEnd).field("iCur", &self.iCur).finish()
     }
 }
 unsafe impl ::windows::core::Abi for TEXT_SOURCE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TEXT_SOURCE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TEXT_SOURCE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TEXT_SOURCE {}
 impl ::core::default::Default for TEXT_SOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -29153,7 +28521,7 @@ unsafe impl ::windows::core::Abi for TIMEOUT_INFO {
 }
 impl ::core::cmp::PartialEq for TIMEOUT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMEOUT_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.dwConnectTimeout == other.dwConnectTimeout && self.dwDataTimeout == other.dwDataTimeout
     }
 }
 impl ::core::cmp::Eq for TIMEOUT_INFO {}
@@ -29189,7 +28557,7 @@ unsafe impl ::windows::core::Abi for TIMESTAMP_STRUCT {
 }
 impl ::core::cmp::PartialEq for TIMESTAMP_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIMESTAMP_STRUCT>()) == 0 }
+        self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.fraction == other.fraction
     }
 }
 impl ::core::cmp::Eq for TIMESTAMP_STRUCT {}
@@ -29221,7 +28589,7 @@ unsafe impl ::windows::core::Abi for TIME_STRUCT {
 }
 impl ::core::cmp::PartialEq for TIME_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TIME_STRUCT>()) == 0 }
+        self.hour == other.hour && self.minute == other.minute && self.second == other.second
     }
 }
 impl ::core::cmp::Eq for TIME_STRUCT {}
@@ -29258,7 +28626,7 @@ unsafe impl ::windows::core::Abi for VECTORRESTRICTION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for VECTORRESTRICTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VECTORRESTRICTION>()) == 0 }
+        self.Node == other.Node && self.RankMethod == other.RankMethod
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]

@@ -1519,12 +1519,6 @@ impl ::core::clone::Clone for DNS_AAAA_DATA {
 unsafe impl ::windows::core::Abi for DNS_AAAA_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_AAAA_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_AAAA_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_AAAA_DATA {}
 impl ::core::default::Default for DNS_AAAA_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1550,14 +1544,6 @@ unsafe impl ::windows::core::Abi for DNS_ADDR {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_ADDR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_ADDR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_ADDR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_ADDR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1581,14 +1567,6 @@ impl ::core::clone::Clone for DNS_ADDR_0 {
 unsafe impl ::windows::core::Abi for DNS_ADDR_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_ADDR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_ADDR_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_ADDR_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_ADDR_0 {
     fn default() -> Self {
@@ -1623,14 +1601,6 @@ unsafe impl ::windows::core::Abi for DNS_ADDR_ARRAY {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_ADDR_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_ADDR_ARRAY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_ADDR_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_ADDR_ARRAY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1658,7 +1628,7 @@ unsafe impl ::windows::core::Abi for DNS_APPLICATION_SETTINGS {
 }
 impl ::core::cmp::PartialEq for DNS_APPLICATION_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_APPLICATION_SETTINGS>()) == 0 }
+        self.Version == other.Version && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for DNS_APPLICATION_SETTINGS {}
@@ -1689,7 +1659,7 @@ unsafe impl ::windows::core::Abi for DNS_ATMA_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_ATMA_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_ATMA_DATA>()) == 0 }
+        self.AddressType == other.AddressType && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for DNS_ATMA_DATA {}
@@ -1719,7 +1689,7 @@ unsafe impl ::windows::core::Abi for DNS_A_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_A_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_A_DATA>()) == 0 }
+        self.IpAddress == other.IpAddress
     }
 }
 impl ::core::cmp::Eq for DNS_A_DATA {}
@@ -1750,7 +1720,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_IFINDEX_ENTRY {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_IFINDEX_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_IFINDEX_ENTRY>()) == 0 }
+        self.pwszConnectionName == other.pwszConnectionName && self.dwIfIndex == other.dwIfIndex
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_IFINDEX_ENTRY {}
@@ -1781,7 +1751,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_IFINDEX_LIST {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_IFINDEX_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_IFINDEX_LIST>()) == 0 }
+        self.pConnectionIfIndexEntries == other.pConnectionIfIndexEntries && self.nEntries == other.nEntries
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_IFINDEX_LIST {}
@@ -1811,7 +1781,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_NAME {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_NAME>()) == 0 }
+        self.wszName == other.wszName
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_NAME {}
@@ -1842,7 +1812,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_NAME_LIST {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_NAME_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_NAME_LIST>()) == 0 }
+        self.cNames == other.cNames && self.pNames == other.pNames
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_NAME_LIST {}
@@ -1878,7 +1848,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_ENTRY {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_POLICY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_POLICY_ENTRY>()) == 0 }
+        self.pwszHost == other.pwszHost && self.pwszAppId == other.pwszAppId && self.cbAppSid == other.cbAppSid && self.pbAppSid == other.pbAppSid && self.nConnections == other.nConnections && self.ppwszConnections == other.ppwszConnections && self.dwPolicyEntryFlags == other.dwPolicyEntryFlags
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_POLICY_ENTRY {}
@@ -1909,7 +1879,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_POLICY_ENTRY_LIST {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_POLICY_ENTRY_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_POLICY_ENTRY_LIST>()) == 0 }
+        self.pPolicyEntries == other.pPolicyEntries && self.nEntries == other.nEntries
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_POLICY_ENTRY_LIST {}
@@ -1933,12 +1903,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_ELEMENT {
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_ELEMENT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_PROXY_ELEMENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_ELEMENT {}
 impl ::core::default::Default for DNS_CONNECTION_PROXY_ELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1962,12 +1926,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO {
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_PROXY_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_INFO {}
 impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1988,12 +1946,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_0 {
 unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_PROXY_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_INFO_0 {}
 impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2025,7 +1977,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_0_0 {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_PROXY_INFO_0_0>()) == 0 }
+        self.pwszServer == other.pwszServer && self.pwszUsername == other.pwszUsername && self.pwszPassword == other.pwszPassword && self.pwszException == other.pwszException && self.pwszExtraInfo == other.pwszExtraInfo && self.Port == other.Port
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_INFO_0_0 {}
@@ -2057,7 +2009,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_0_1 {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_PROXY_INFO_0_1>()) == 0 }
+        self.pwszScript == other.pwszScript && self.pwszUsername == other.pwszUsername && self.pwszPassword == other.pwszPassword
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_INFO_0_1 {}
@@ -2089,14 +2041,6 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_INFO_EX {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_PROXY_INFO_EX>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_INFO_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2124,7 +2068,7 @@ unsafe impl ::windows::core::Abi for DNS_CONNECTION_PROXY_LIST {
 }
 impl ::core::cmp::PartialEq for DNS_CONNECTION_PROXY_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CONNECTION_PROXY_LIST>()) == 0 }
+        self.cProxies == other.cProxies && self.pProxies == other.pProxies
     }
 }
 impl ::core::cmp::Eq for DNS_CONNECTION_PROXY_LIST {}
@@ -2155,14 +2099,6 @@ unsafe impl ::windows::core::Abi for DNS_CUSTOM_SERVER {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_CUSTOM_SERVER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CUSTOM_SERVER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_CUSTOM_SERVER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CUSTOM_SERVER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2187,14 +2123,6 @@ unsafe impl ::windows::core::Abi for DNS_CUSTOM_SERVER_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_CUSTOM_SERVER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CUSTOM_SERVER_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_CUSTOM_SERVER_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CUSTOM_SERVER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2218,14 +2146,6 @@ impl ::core::clone::Clone for DNS_CUSTOM_SERVER_1 {
 unsafe impl ::windows::core::Abi for DNS_CUSTOM_SERVER_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_CUSTOM_SERVER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_CUSTOM_SERVER_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_CUSTOM_SERVER_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_CUSTOM_SERVER_1 {
     fn default() -> Self {
@@ -2254,7 +2174,7 @@ unsafe impl ::windows::core::Abi for DNS_DHCID_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_DHCID_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_DHCID_DATA>()) == 0 }
+        self.dwByteCount == other.dwByteCount && self.DHCID == other.DHCID
     }
 }
 impl ::core::cmp::Eq for DNS_DHCID_DATA {}
@@ -2289,7 +2209,7 @@ unsafe impl ::windows::core::Abi for DNS_DS_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_DS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_DS_DATA>()) == 0 }
+        self.wKeyTag == other.wKeyTag && self.chAlgorithm == other.chAlgorithm && self.chDigestType == other.chDigestType && self.wDigestLength == other.wDigestLength && self.wPad == other.wPad && self.Digest == other.Digest
     }
 }
 impl ::core::cmp::Eq for DNS_DS_DATA {}
@@ -2318,12 +2238,6 @@ impl ::core::clone::Clone for DNS_HEADER {
 unsafe impl ::windows::core::Abi for DNS_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_HEADER {}
 impl ::core::default::Default for DNS_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2345,12 +2259,6 @@ impl ::core::clone::Clone for DNS_HEADER_EXT {
 unsafe impl ::windows::core::Abi for DNS_HEADER_EXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_HEADER_EXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_HEADER_EXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_HEADER_EXT {}
 impl ::core::default::Default for DNS_HEADER_EXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2382,7 +2290,7 @@ unsafe impl ::windows::core::Abi for DNS_KEY_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_KEY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_KEY_DATA>()) == 0 }
+        self.wFlags == other.wFlags && self.chProtocol == other.chProtocol && self.chAlgorithm == other.chAlgorithm && self.wKeyLength == other.wKeyLength && self.wPad == other.wPad && self.Key == other.Key
     }
 }
 impl ::core::cmp::Eq for DNS_KEY_DATA {}
@@ -2418,7 +2326,7 @@ unsafe impl ::windows::core::Abi for DNS_LOC_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_LOC_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_LOC_DATA>()) == 0 }
+        self.wVersion == other.wVersion && self.wSize == other.wSize && self.wHorPrec == other.wHorPrec && self.wVerPrec == other.wVerPrec && self.dwLatitude == other.dwLatitude && self.dwLongitude == other.dwLongitude && self.dwAltitude == other.dwAltitude
     }
 }
 impl ::core::cmp::Eq for DNS_LOC_DATA {}
@@ -2447,14 +2355,6 @@ unsafe impl ::windows::core::Abi for DNS_MESSAGE_BUFFER {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_MESSAGE_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_MESSAGE_BUFFER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_MESSAGE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_MESSAGE_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2482,7 +2382,7 @@ unsafe impl ::windows::core::Abi for DNS_MINFO_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_MINFO_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_MINFO_DATAA>()) == 0 }
+        self.pNameMailbox == other.pNameMailbox && self.pNameErrorsMailbox == other.pNameErrorsMailbox
     }
 }
 impl ::core::cmp::Eq for DNS_MINFO_DATAA {}
@@ -2513,7 +2413,7 @@ unsafe impl ::windows::core::Abi for DNS_MINFO_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_MINFO_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_MINFO_DATAW>()) == 0 }
+        self.pNameMailbox == other.pNameMailbox && self.pNameErrorsMailbox == other.pNameErrorsMailbox
     }
 }
 impl ::core::cmp::Eq for DNS_MINFO_DATAW {}
@@ -2545,7 +2445,7 @@ unsafe impl ::windows::core::Abi for DNS_MX_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_MX_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_MX_DATAA>()) == 0 }
+        self.pNameExchange == other.pNameExchange && self.wPreference == other.wPreference && self.Pad == other.Pad
     }
 }
 impl ::core::cmp::Eq for DNS_MX_DATAA {}
@@ -2577,7 +2477,7 @@ unsafe impl ::windows::core::Abi for DNS_MX_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_MX_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_MX_DATAW>()) == 0 }
+        self.pNameExchange == other.pNameExchange && self.wPreference == other.wPreference && self.Pad == other.Pad
     }
 }
 impl ::core::cmp::Eq for DNS_MX_DATAW {}
@@ -2612,7 +2512,7 @@ unsafe impl ::windows::core::Abi for DNS_NAPTR_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_NAPTR_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NAPTR_DATAA>()) == 0 }
+        self.wOrder == other.wOrder && self.wPreference == other.wPreference && self.pFlags == other.pFlags && self.pService == other.pService && self.pRegularExpression == other.pRegularExpression && self.pReplacement == other.pReplacement
     }
 }
 impl ::core::cmp::Eq for DNS_NAPTR_DATAA {}
@@ -2647,7 +2547,7 @@ unsafe impl ::windows::core::Abi for DNS_NAPTR_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_NAPTR_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NAPTR_DATAW>()) == 0 }
+        self.wOrder == other.wOrder && self.wPreference == other.wPreference && self.pFlags == other.pFlags && self.pService == other.pService && self.pRegularExpression == other.pRegularExpression && self.pReplacement == other.pReplacement
     }
 }
 impl ::core::cmp::Eq for DNS_NAPTR_DATAW {}
@@ -2682,7 +2582,7 @@ unsafe impl ::windows::core::Abi for DNS_NSEC3PARAM_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_NSEC3PARAM_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NSEC3PARAM_DATA>()) == 0 }
+        self.chAlgorithm == other.chAlgorithm && self.bFlags == other.bFlags && self.wIterations == other.wIterations && self.bSaltLength == other.bSaltLength && self.bPad == other.bPad && self.pbSalt == other.pbSalt
     }
 }
 impl ::core::cmp::Eq for DNS_NSEC3PARAM_DATA {}
@@ -2718,7 +2618,7 @@ unsafe impl ::windows::core::Abi for DNS_NSEC3_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_NSEC3_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NSEC3_DATA>()) == 0 }
+        self.chAlgorithm == other.chAlgorithm && self.bFlags == other.bFlags && self.wIterations == other.wIterations && self.bSaltLength == other.bSaltLength && self.bHashLength == other.bHashLength && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.chData == other.chData
     }
 }
 impl ::core::cmp::Eq for DNS_NSEC3_DATA {}
@@ -2751,7 +2651,7 @@ unsafe impl ::windows::core::Abi for DNS_NSEC_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_NSEC_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NSEC_DATAA>()) == 0 }
+        self.pNextDomainName == other.pNextDomainName && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.wPad == other.wPad && self.TypeBitMaps == other.TypeBitMaps
     }
 }
 impl ::core::cmp::Eq for DNS_NSEC_DATAA {}
@@ -2784,7 +2684,7 @@ unsafe impl ::windows::core::Abi for DNS_NSEC_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_NSEC_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NSEC_DATAW>()) == 0 }
+        self.pNextDomainName == other.pNextDomainName && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.wPad == other.wPad && self.TypeBitMaps == other.TypeBitMaps
     }
 }
 impl ::core::cmp::Eq for DNS_NSEC_DATAW {}
@@ -2815,7 +2715,7 @@ unsafe impl ::windows::core::Abi for DNS_NULL_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_NULL_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NULL_DATA>()) == 0 }
+        self.dwByteCount == other.dwByteCount && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for DNS_NULL_DATA {}
@@ -2847,7 +2747,7 @@ unsafe impl ::windows::core::Abi for DNS_NXT_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_NXT_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NXT_DATAA>()) == 0 }
+        self.pNameNext == other.pNameNext && self.wNumTypes == other.wNumTypes && self.wTypes == other.wTypes
     }
 }
 impl ::core::cmp::Eq for DNS_NXT_DATAA {}
@@ -2879,7 +2779,7 @@ unsafe impl ::windows::core::Abi for DNS_NXT_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_NXT_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_NXT_DATAW>()) == 0 }
+        self.pNameNext == other.pNameNext && self.wNumTypes == other.wNumTypes && self.wTypes == other.wTypes
     }
 }
 impl ::core::cmp::Eq for DNS_NXT_DATAW {}
@@ -2911,7 +2811,7 @@ unsafe impl ::windows::core::Abi for DNS_OPT_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_OPT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_OPT_DATA>()) == 0 }
+        self.wDataLength == other.wDataLength && self.wPad == other.wPad && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for DNS_OPT_DATA {}
@@ -2943,7 +2843,7 @@ unsafe impl ::windows::core::Abi for DNS_PROXY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for DNS_PROXY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_PROXY_INFORMATION>()) == 0 }
+        self.version == other.version && self.proxyInformationType == other.proxyInformationType && self.proxyName == other.proxyName
     }
 }
 impl ::core::cmp::Eq for DNS_PROXY_INFORMATION {}
@@ -2973,7 +2873,7 @@ unsafe impl ::windows::core::Abi for DNS_PTR_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_PTR_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_PTR_DATAA>()) == 0 }
+        self.pNameHost == other.pNameHost
     }
 }
 impl ::core::cmp::Eq for DNS_PTR_DATAA {}
@@ -3003,7 +2903,7 @@ unsafe impl ::windows::core::Abi for DNS_PTR_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_PTR_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_PTR_DATAW>()) == 0 }
+        self.pNameHost == other.pNameHost
     }
 }
 impl ::core::cmp::Eq for DNS_PTR_DATAW {}
@@ -3039,7 +2939,7 @@ unsafe impl ::windows::core::Abi for DNS_QUERY_CANCEL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_QUERY_CANCEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_QUERY_CANCEL>()) == 0 }
+        self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3074,21 +2974,13 @@ impl ::core::clone::Clone for DNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_QUERY_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_QUERY_REQUEST").field("Version", &self.Version).field("QueryName", &self.QueryName).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("pDnsServerList", &self.pDnsServerList).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryCompletionCallback", &self.pQueryCompletionCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).finish()
+        f.debug_struct("DNS_QUERY_REQUEST").field("Version", &self.Version).field("QueryName", &self.QueryName).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("pDnsServerList", &self.pDnsServerList).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_QUERY_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_QUERY_REQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_QUERY_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_QUERY_REQUEST {
     fn default() -> Self {
@@ -3130,7 +3022,6 @@ impl ::core::fmt::Debug for DNS_QUERY_REQUEST3 {
             .field("QueryOptions", &self.QueryOptions)
             .field("pDnsServerList", &self.pDnsServerList)
             .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("pQueryCompletionCallback", &self.pQueryCompletionCallback.map(|f| f as usize))
             .field("pQueryContext", &self.pQueryContext)
             .field("IsNetworkQueryRequired", &self.IsNetworkQueryRequired)
             .field("RequiredNetworkIndex", &self.RequiredNetworkIndex)
@@ -3143,14 +3034,6 @@ impl ::core::fmt::Debug for DNS_QUERY_REQUEST3 {
 unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST3 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_QUERY_REQUEST3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_QUERY_REQUEST3>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_QUERY_REQUEST3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_QUERY_REQUEST3 {
     fn default() -> Self {
@@ -3188,7 +3071,7 @@ unsafe impl ::windows::core::Abi for DNS_QUERY_RESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_QUERY_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_QUERY_RESULT>()) == 0 }
+        self.Version == other.Version && self.QueryStatus == other.QueryStatus && self.QueryOptions == other.QueryOptions && self.pQueryRecords == other.pQueryRecords && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3224,14 +3107,6 @@ impl ::core::clone::Clone for DNS_RECORDA {
 unsafe impl ::windows::core::Abi for DNS_RECORDA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORDA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORDA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORDA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDA {
     fn default() -> Self {
@@ -3340,14 +3215,6 @@ unsafe impl ::windows::core::Abi for DNS_RECORDA_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORDA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORDA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORDA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3372,14 +3239,6 @@ impl ::core::clone::Clone for DNS_RECORDA_1 {
 unsafe impl ::windows::core::Abi for DNS_RECORDA_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORDA_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORDA_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORDA_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDA_1 {
     fn default() -> Self {
@@ -3411,14 +3270,6 @@ impl ::core::clone::Clone for DNS_RECORDW {
 unsafe impl ::windows::core::Abi for DNS_RECORDW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORDW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORDW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORDW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDW {
     fn default() -> Self {
@@ -3527,14 +3378,6 @@ unsafe impl ::windows::core::Abi for DNS_RECORDW_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORDW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORDW_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORDW_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3559,14 +3402,6 @@ impl ::core::clone::Clone for DNS_RECORDW_1 {
 unsafe impl ::windows::core::Abi for DNS_RECORDW_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORDW_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORDW_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORDW_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORDW_1 {
     fn default() -> Self {
@@ -3594,7 +3429,7 @@ unsafe impl ::windows::core::Abi for DNS_RECORD_FLAGS {
 }
 impl ::core::cmp::PartialEq for DNS_RECORD_FLAGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORD_FLAGS>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for DNS_RECORD_FLAGS {}
@@ -3630,14 +3465,6 @@ unsafe impl ::windows::core::Abi for DNS_RECORD_OPTW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORD_OPTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORD_OPTW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORD_OPTW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORD_OPTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3663,14 +3490,6 @@ unsafe impl ::windows::core::Abi for DNS_RECORD_OPTW_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORD_OPTW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORD_OPTW_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORD_OPTW_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORD_OPTW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3695,14 +3514,6 @@ impl ::core::clone::Clone for DNS_RECORD_OPTW_1 {
 unsafe impl ::windows::core::Abi for DNS_RECORD_OPTW_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_RECORD_OPTW_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RECORD_OPTW_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_RECORD_OPTW_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_RECORD_OPTW_1 {
     fn default() -> Self {
@@ -3737,7 +3548,7 @@ unsafe impl ::windows::core::Abi for DNS_RRSET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_RRSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_RRSET>()) == 0 }
+        self.pFirstRR == other.pFirstRR && self.pLastRR == other.pLastRR
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3771,14 +3582,6 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_BROWSE_REQUEST {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_SERVICE_BROWSE_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SERVICE_BROWSE_REQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_SERVICE_BROWSE_REQUEST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_SERVICE_BROWSE_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3803,14 +3606,6 @@ impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
 unsafe impl ::windows::core::Abi for DNS_SERVICE_BROWSE_REQUEST_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_SERVICE_BROWSE_REQUEST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SERVICE_BROWSE_REQUEST_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_SERVICE_BROWSE_REQUEST_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_SERVICE_BROWSE_REQUEST_0 {
     fn default() -> Self {
@@ -3838,7 +3633,7 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_CANCEL {
 }
 impl ::core::cmp::PartialEq for DNS_SERVICE_CANCEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SERVICE_CANCEL>()) == 0 }
+        self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for DNS_SERVICE_CANCEL {}
@@ -3878,7 +3673,7 @@ unsafe impl ::windows::core::Abi for DNS_SERVICE_INSTANCE {
 }
 impl ::core::cmp::PartialEq for DNS_SERVICE_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SERVICE_INSTANCE>()) == 0 }
+        self.pszInstanceName == other.pszInstanceName && self.pszHostName == other.pszHostName && self.ip4Address == other.ip4Address && self.ip6Address == other.ip6Address && self.wPort == other.wPort && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.dwPropertyCount == other.dwPropertyCount && self.keys == other.keys && self.values == other.values && self.dwInterfaceIndex == other.dwInterfaceIndex
     }
 }
 impl ::core::cmp::Eq for DNS_SERVICE_INSTANCE {}
@@ -3910,21 +3705,13 @@ impl ::core::clone::Clone for DNS_SERVICE_REGISTER_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SERVICE_REGISTER_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_REGISTER_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("pServiceInstance", &self.pServiceInstance).field("pRegisterCompletionCallback", &self.pRegisterCompletionCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).field("hCredentials", &self.hCredentials).field("unicastEnabled", &self.unicastEnabled).finish()
+        f.debug_struct("DNS_SERVICE_REGISTER_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("pServiceInstance", &self.pServiceInstance).field("pQueryContext", &self.pQueryContext).field("hCredentials", &self.hCredentials).field("unicastEnabled", &self.unicastEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_SERVICE_REGISTER_REQUEST {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DNS_SERVICE_REGISTER_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SERVICE_REGISTER_REQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DNS_SERVICE_REGISTER_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DNS_SERVICE_REGISTER_REQUEST {
     fn default() -> Self {
@@ -3948,18 +3735,12 @@ impl ::core::clone::Clone for DNS_SERVICE_RESOLVE_REQUEST {
 }
 impl ::core::fmt::Debug for DNS_SERVICE_RESOLVE_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DNS_SERVICE_RESOLVE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("pResolveCompletionCallback", &self.pResolveCompletionCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).finish()
+        f.debug_struct("DNS_SERVICE_RESOLVE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for DNS_SERVICE_RESOLVE_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_SERVICE_RESOLVE_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SERVICE_RESOLVE_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_SERVICE_RESOLVE_REQUEST {}
 impl ::core::default::Default for DNS_SERVICE_RESOLVE_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3995,7 +3776,7 @@ unsafe impl ::windows::core::Abi for DNS_SIG_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_SIG_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SIG_DATAA>()) == 0 }
+        self.wTypeCovered == other.wTypeCovered && self.chAlgorithm == other.chAlgorithm && self.chLabelCount == other.chLabelCount && self.dwOriginalTtl == other.dwOriginalTtl && self.dwExpiration == other.dwExpiration && self.dwTimeSigned == other.dwTimeSigned && self.wKeyTag == other.wKeyTag && self.wSignatureLength == other.wSignatureLength && self.pNameSigner == other.pNameSigner && self.Signature == other.Signature
     }
 }
 impl ::core::cmp::Eq for DNS_SIG_DATAA {}
@@ -4034,7 +3815,7 @@ unsafe impl ::windows::core::Abi for DNS_SIG_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_SIG_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SIG_DATAW>()) == 0 }
+        self.wTypeCovered == other.wTypeCovered && self.chAlgorithm == other.chAlgorithm && self.chLabelCount == other.chLabelCount && self.dwOriginalTtl == other.dwOriginalTtl && self.dwExpiration == other.dwExpiration && self.dwTimeSigned == other.dwTimeSigned && self.wKeyTag == other.wKeyTag && self.wSignatureLength == other.wSignatureLength && self.pNameSigner == other.pNameSigner && self.Signature == other.Signature
     }
 }
 impl ::core::cmp::Eq for DNS_SIG_DATAW {}
@@ -4070,7 +3851,7 @@ unsafe impl ::windows::core::Abi for DNS_SOA_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_SOA_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SOA_DATAA>()) == 0 }
+        self.pNamePrimaryServer == other.pNamePrimaryServer && self.pNameAdministrator == other.pNameAdministrator && self.dwSerialNo == other.dwSerialNo && self.dwRefresh == other.dwRefresh && self.dwRetry == other.dwRetry && self.dwExpire == other.dwExpire && self.dwDefaultTtl == other.dwDefaultTtl
     }
 }
 impl ::core::cmp::Eq for DNS_SOA_DATAA {}
@@ -4106,7 +3887,7 @@ unsafe impl ::windows::core::Abi for DNS_SOA_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_SOA_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SOA_DATAW>()) == 0 }
+        self.pNamePrimaryServer == other.pNamePrimaryServer && self.pNameAdministrator == other.pNameAdministrator && self.dwSerialNo == other.dwSerialNo && self.dwRefresh == other.dwRefresh && self.dwRetry == other.dwRetry && self.dwExpire == other.dwExpire && self.dwDefaultTtl == other.dwDefaultTtl
     }
 }
 impl ::core::cmp::Eq for DNS_SOA_DATAW {}
@@ -4140,7 +3921,7 @@ unsafe impl ::windows::core::Abi for DNS_SRV_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_SRV_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SRV_DATAA>()) == 0 }
+        self.pNameTarget == other.pNameTarget && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.wPort == other.wPort && self.Pad == other.Pad
     }
 }
 impl ::core::cmp::Eq for DNS_SRV_DATAA {}
@@ -4174,7 +3955,7 @@ unsafe impl ::windows::core::Abi for DNS_SRV_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_SRV_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_SRV_DATAW>()) == 0 }
+        self.pNameTarget == other.pNameTarget && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.wPort == other.wPort && self.Pad == other.Pad
     }
 }
 impl ::core::cmp::Eq for DNS_SRV_DATAW {}
@@ -4234,7 +4015,7 @@ unsafe impl ::windows::core::Abi for DNS_TKEY_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TKEY_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_TKEY_DATAA>()) == 0 }
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pKey == other.pKey && self.pOtherData == other.pOtherData && self.dwCreateTime == other.dwCreateTime && self.dwExpireTime == other.dwExpireTime && self.wMode == other.wMode && self.wError == other.wError && self.wKeyLength == other.wKeyLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4296,7 +4077,7 @@ unsafe impl ::windows::core::Abi for DNS_TKEY_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TKEY_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_TKEY_DATAW>()) == 0 }
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pKey == other.pKey && self.pOtherData == other.pOtherData && self.dwCreateTime == other.dwCreateTime && self.dwExpireTime == other.dwExpireTime && self.wMode == other.wMode && self.wError == other.wError && self.wKeyLength == other.wKeyLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4333,7 +4114,7 @@ unsafe impl ::windows::core::Abi for DNS_TLSA_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_TLSA_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_TLSA_DATA>()) == 0 }
+        self.bCertUsage == other.bCertUsage && self.bSelector == other.bSelector && self.bMatchingType == other.bMatchingType && self.bCertificateAssociationDataLength == other.bCertificateAssociationDataLength && self.bPad == other.bPad && self.bCertificateAssociationData == other.bCertificateAssociationData
     }
 }
 impl ::core::cmp::Eq for DNS_TLSA_DATA {}
@@ -4393,7 +4174,7 @@ unsafe impl ::windows::core::Abi for DNS_TSIG_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TSIG_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_TSIG_DATAA>()) == 0 }
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pSignature == other.pSignature && self.pOtherData == other.pOtherData && self.i64CreateTime == other.i64CreateTime && self.wFudgeTime == other.wFudgeTime && self.wOriginalXid == other.wOriginalXid && self.wError == other.wError && self.wSigLength == other.wSigLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4455,7 +4236,7 @@ unsafe impl ::windows::core::Abi for DNS_TSIG_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TSIG_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_TSIG_DATAW>()) == 0 }
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pSignature == other.pSignature && self.pOtherData == other.pOtherData && self.i64CreateTime == other.i64CreateTime && self.wFudgeTime == other.wFudgeTime && self.wOriginalXid == other.wOriginalXid && self.wError == other.wError && self.wSigLength == other.wSigLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4488,7 +4269,7 @@ unsafe impl ::windows::core::Abi for DNS_TXT_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_TXT_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_TXT_DATAA>()) == 0 }
+        self.dwStringCount == other.dwStringCount && self.pStringArray == other.pStringArray
     }
 }
 impl ::core::cmp::Eq for DNS_TXT_DATAA {}
@@ -4519,7 +4300,7 @@ unsafe impl ::windows::core::Abi for DNS_TXT_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_TXT_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_TXT_DATAW>()) == 0 }
+        self.dwStringCount == other.dwStringCount && self.pStringArray == other.pStringArray
     }
 }
 impl ::core::cmp::Eq for DNS_TXT_DATAW {}
@@ -4550,7 +4331,7 @@ unsafe impl ::windows::core::Abi for DNS_UNKNOWN_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_UNKNOWN_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_UNKNOWN_DATA>()) == 0 }
+        self.dwByteCount == other.dwByteCount && self.bData == other.bData
     }
 }
 impl ::core::cmp::Eq for DNS_UNKNOWN_DATA {}
@@ -4583,7 +4364,7 @@ unsafe impl ::windows::core::Abi for DNS_WINSR_DATAA {
 }
 impl ::core::cmp::PartialEq for DNS_WINSR_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_WINSR_DATAA>()) == 0 }
+        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.pNameResultDomain == other.pNameResultDomain
     }
 }
 impl ::core::cmp::Eq for DNS_WINSR_DATAA {}
@@ -4616,7 +4397,7 @@ unsafe impl ::windows::core::Abi for DNS_WINSR_DATAW {
 }
 impl ::core::cmp::PartialEq for DNS_WINSR_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_WINSR_DATAW>()) == 0 }
+        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.pNameResultDomain == other.pNameResultDomain
     }
 }
 impl ::core::cmp::Eq for DNS_WINSR_DATAW {}
@@ -4650,7 +4431,7 @@ unsafe impl ::windows::core::Abi for DNS_WINS_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_WINS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_WINS_DATA>()) == 0 }
+        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.cWinsServerCount == other.cWinsServerCount && self.WinsServers == other.WinsServers
     }
 }
 impl ::core::cmp::Eq for DNS_WINS_DATA {}
@@ -4674,12 +4455,6 @@ impl ::core::clone::Clone for DNS_WIRE_QUESTION {
 unsafe impl ::windows::core::Abi for DNS_WIRE_QUESTION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_WIRE_QUESTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_WIRE_QUESTION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_WIRE_QUESTION {}
 impl ::core::default::Default for DNS_WIRE_QUESTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4702,12 +4477,6 @@ impl ::core::clone::Clone for DNS_WIRE_RECORD {
 unsafe impl ::windows::core::Abi for DNS_WIRE_RECORD {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DNS_WIRE_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_WIRE_RECORD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DNS_WIRE_RECORD {}
 impl ::core::default::Default for DNS_WIRE_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4736,7 +4505,7 @@ unsafe impl ::windows::core::Abi for DNS_WKS_DATA {
 }
 impl ::core::cmp::PartialEq for DNS_WKS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DNS_WKS_DATA>()) == 0 }
+        self.IpAddress == other.IpAddress && self.chProtocol == other.chProtocol && self.BitMask == other.BitMask
     }
 }
 impl ::core::cmp::Eq for DNS_WKS_DATA {}
@@ -4799,7 +4568,7 @@ unsafe impl ::windows::core::Abi for IP4_ARRAY {
 }
 impl ::core::cmp::PartialEq for IP4_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IP4_ARRAY>()) == 0 }
+        self.AddrCount == other.AddrCount && self.AddrArray == other.AddrArray
     }
 }
 impl ::core::cmp::Eq for IP4_ARRAY {}
@@ -4830,14 +4599,6 @@ unsafe impl ::windows::core::Abi for IP6_ADDRESS {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for IP6_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IP6_ADDRESS>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for IP6_ADDRESS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for IP6_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4863,14 +4624,6 @@ impl ::core::clone::Clone for IP6_ADDRESS {
 unsafe impl ::windows::core::Abi for IP6_ADDRESS {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for IP6_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IP6_ADDRESS>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for IP6_ADDRESS {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for IP6_ADDRESS {
     fn default() -> Self {
@@ -4902,7 +4655,7 @@ unsafe impl ::windows::core::Abi for MDNS_QUERY_HANDLE {
 }
 impl ::core::cmp::PartialEq for MDNS_QUERY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDNS_QUERY_HANDLE>()) == 0 }
+        self.nameBuf == other.nameBuf && self.wType == other.wType && self.pSubscription == other.pSubscription && self.pWnfCallbackParams == other.pWnfCallbackParams && self.stateNameData == other.stateNameData
     }
 }
 impl ::core::cmp::Eq for MDNS_QUERY_HANDLE {}
@@ -4937,21 +4690,13 @@ impl ::core::clone::Clone for MDNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MDNS_QUERY_REQUEST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MDNS_QUERY_REQUEST").field("Version", &self.Version).field("ulRefCount", &self.ulRefCount).field("Query", &self.Query).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryCallback", &self.pQueryCallback.map(|f| f as usize)).field("pQueryContext", &self.pQueryContext).field("fAnswerReceived", &self.fAnswerReceived).field("ulResendCount", &self.ulResendCount).finish()
+        f.debug_struct("MDNS_QUERY_REQUEST").field("Version", &self.Version).field("ulRefCount", &self.ulRefCount).field("Query", &self.Query).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryContext", &self.pQueryContext).field("fAnswerReceived", &self.fAnswerReceived).field("ulResendCount", &self.ulResendCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MDNS_QUERY_REQUEST {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MDNS_QUERY_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDNS_QUERY_REQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MDNS_QUERY_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MDNS_QUERY_REQUEST {
     fn default() -> Self {
@@ -4985,14 +4730,6 @@ unsafe impl ::windows::core::Abi for _DnsRecordOptA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _DnsRecordOptA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_DnsRecordOptA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _DnsRecordOptA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for _DnsRecordOptA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5018,14 +4755,6 @@ unsafe impl ::windows::core::Abi for _DnsRecordOptA_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _DnsRecordOptA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_DnsRecordOptA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _DnsRecordOptA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for _DnsRecordOptA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5050,14 +4779,6 @@ impl ::core::clone::Clone for _DnsRecordOptA_1 {
 unsafe impl ::windows::core::Abi for _DnsRecordOptA_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _DnsRecordOptA_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_DnsRecordOptA_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _DnsRecordOptA_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for _DnsRecordOptA_1 {
     fn default() -> Self {

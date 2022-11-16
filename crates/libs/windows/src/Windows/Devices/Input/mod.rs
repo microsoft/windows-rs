@@ -1364,7 +1364,7 @@ unsafe impl ::windows::core::RuntimeType for MouseDelta {
 }
 impl ::core::cmp::PartialEq for MouseDelta {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MouseDelta>()) == 0 }
+        self.X == other.X && self.Y == other.Y
     }
 }
 impl ::core::cmp::Eq for MouseDelta {}
@@ -1408,7 +1408,7 @@ unsafe impl ::windows::core::RuntimeType for PointerDeviceUsage {
 }
 impl ::core::cmp::PartialEq for PointerDeviceUsage {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PointerDeviceUsage>()) == 0 }
+        self.UsagePage == other.UsagePage && self.Usage == other.Usage && self.MinLogical == other.MinLogical && self.MaxLogical == other.MaxLogical && self.MinPhysical == other.MinPhysical && self.MaxPhysical == other.MaxPhysical && self.Unit == other.Unit && self.PhysicalMultiplier == other.PhysicalMultiplier
     }
 }
 impl ::core::cmp::Eq for PointerDeviceUsage {}

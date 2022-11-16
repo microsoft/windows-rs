@@ -366,7 +366,7 @@ unsafe impl ::windows::core::Abi for INPUT_MESSAGE_SOURCE {
 }
 impl ::core::cmp::PartialEq for INPUT_MESSAGE_SOURCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_MESSAGE_SOURCE>()) == 0 }
+        self.deviceType == other.deviceType && self.originId == other.originId
     }
 }
 impl ::core::cmp::Eq for INPUT_MESSAGE_SOURCE {}
@@ -398,7 +398,7 @@ unsafe impl ::windows::core::Abi for RAWHID {
 }
 impl ::core::cmp::PartialEq for RAWHID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWHID>()) == 0 }
+        self.dwSizeHid == other.dwSizeHid && self.dwCount == other.dwCount && self.bRawData == other.bRawData
     }
 }
 impl ::core::cmp::Eq for RAWHID {}
@@ -427,14 +427,6 @@ unsafe impl ::windows::core::Abi for RAWINPUT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAWINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWINPUT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAWINPUT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAWINPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -460,14 +452,6 @@ impl ::core::clone::Clone for RAWINPUT_0 {
 unsafe impl ::windows::core::Abi for RAWINPUT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAWINPUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWINPUT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAWINPUT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAWINPUT_0 {
     fn default() -> Self {
@@ -504,7 +488,7 @@ unsafe impl ::windows::core::Abi for RAWINPUTDEVICE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAWINPUTDEVICE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWINPUTDEVICE>()) == 0 }
+        self.usUsagePage == other.usUsagePage && self.usUsage == other.usUsage && self.dwFlags == other.dwFlags && self.hwndTarget == other.hwndTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -543,7 +527,7 @@ unsafe impl ::windows::core::Abi for RAWINPUTDEVICELIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAWINPUTDEVICELIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWINPUTDEVICELIST>()) == 0 }
+        self.hDevice == other.hDevice && self.dwType == other.dwType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -584,7 +568,7 @@ unsafe impl ::windows::core::Abi for RAWINPUTHEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAWINPUTHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWINPUTHEADER>()) == 0 }
+        self.dwType == other.dwType && self.dwSize == other.dwSize && self.hDevice == other.hDevice && self.wParam == other.wParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -621,7 +605,7 @@ unsafe impl ::windows::core::Abi for RAWKEYBOARD {
 }
 impl ::core::cmp::PartialEq for RAWKEYBOARD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWKEYBOARD>()) == 0 }
+        self.MakeCode == other.MakeCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.VKey == other.VKey && self.Message == other.Message && self.ExtraInformation == other.ExtraInformation
     }
 }
 impl ::core::cmp::Eq for RAWKEYBOARD {}
@@ -649,12 +633,6 @@ impl ::core::clone::Clone for RAWMOUSE {
 unsafe impl ::windows::core::Abi for RAWMOUSE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RAWMOUSE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWMOUSE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RAWMOUSE {}
 impl ::core::default::Default for RAWMOUSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -675,12 +653,6 @@ impl ::core::clone::Clone for RAWMOUSE_0 {
 unsafe impl ::windows::core::Abi for RAWMOUSE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RAWMOUSE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWMOUSE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RAWMOUSE_0 {}
 impl ::core::default::Default for RAWMOUSE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -708,7 +680,7 @@ unsafe impl ::windows::core::Abi for RAWMOUSE_0_0 {
 }
 impl ::core::cmp::PartialEq for RAWMOUSE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAWMOUSE_0_0>()) == 0 }
+        self.usButtonFlags == other.usButtonFlags && self.usButtonData == other.usButtonData
     }
 }
 impl ::core::cmp::Eq for RAWMOUSE_0_0 {}
@@ -738,14 +710,6 @@ unsafe impl ::windows::core::Abi for RID_DEVICE_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RID_DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RID_DEVICE_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RID_DEVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RID_DEVICE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -771,14 +735,6 @@ impl ::core::clone::Clone for RID_DEVICE_INFO_0 {
 unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RID_DEVICE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RID_DEVICE_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RID_DEVICE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RID_DEVICE_INFO_0 {
     fn default() -> Self {
@@ -810,7 +766,7 @@ unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_HID {
 }
 impl ::core::cmp::PartialEq for RID_DEVICE_INFO_HID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RID_DEVICE_INFO_HID>()) == 0 }
+        self.dwVendorId == other.dwVendorId && self.dwProductId == other.dwProductId && self.dwVersionNumber == other.dwVersionNumber && self.usUsagePage == other.usUsagePage && self.usUsage == other.usUsage
     }
 }
 impl ::core::cmp::Eq for RID_DEVICE_INFO_HID {}
@@ -845,7 +801,7 @@ unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_KEYBOARD {
 }
 impl ::core::cmp::PartialEq for RID_DEVICE_INFO_KEYBOARD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RID_DEVICE_INFO_KEYBOARD>()) == 0 }
+        self.dwType == other.dwType && self.dwSubType == other.dwSubType && self.dwKeyboardMode == other.dwKeyboardMode && self.dwNumberOfFunctionKeys == other.dwNumberOfFunctionKeys && self.dwNumberOfIndicators == other.dwNumberOfIndicators && self.dwNumberOfKeysTotal == other.dwNumberOfKeysTotal
     }
 }
 impl ::core::cmp::Eq for RID_DEVICE_INFO_KEYBOARD {}
@@ -884,7 +840,7 @@ unsafe impl ::windows::core::Abi for RID_DEVICE_INFO_MOUSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RID_DEVICE_INFO_MOUSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RID_DEVICE_INFO_MOUSE>()) == 0 }
+        self.dwId == other.dwId && self.dwNumberOfButtons == other.dwNumberOfButtons && self.dwSampleRate == other.dwSampleRate && self.fHasHorizontalWheel == other.fHasHorizontalWheel
     }
 }
 #[cfg(feature = "Win32_Foundation")]

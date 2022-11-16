@@ -1392,7 +1392,7 @@ unsafe impl ::windows::core::Abi for MLOperatorAttribute {
 }
 impl ::core::cmp::PartialEq for MLOperatorAttribute {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttribute>()) == 0 }
+        self.name == other.name && self.r#type == other.r#type && self.required == other.required
     }
 }
 impl ::core::cmp::Eq for MLOperatorAttribute {}
@@ -1418,12 +1418,6 @@ impl ::core::clone::Clone for MLOperatorAttributeNameValue {
 unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorAttributeNameValue {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttributeNameValue>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorAttributeNameValue {}
 impl ::core::default::Default for MLOperatorAttributeNameValue {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1446,12 +1440,6 @@ impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
 unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorAttributeNameValue_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttributeNameValue_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorAttributeNameValue_0 {}
 impl ::core::default::Default for MLOperatorAttributeNameValue_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1472,12 +1460,6 @@ impl ::core::clone::Clone for MLOperatorEdgeDescription {
 unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorEdgeDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeDescription>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorEdgeDescription {}
 impl ::core::default::Default for MLOperatorEdgeDescription {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1498,12 +1480,6 @@ impl ::core::clone::Clone for MLOperatorEdgeDescription_0 {
 unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorEdgeDescription_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeDescription_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorEdgeDescription_0 {}
 impl ::core::default::Default for MLOperatorEdgeDescription_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1532,7 +1508,7 @@ unsafe impl ::windows::core::Abi for MLOperatorEdgeTypeConstraint {
 }
 impl ::core::cmp::PartialEq for MLOperatorEdgeTypeConstraint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorEdgeTypeConstraint>()) == 0 }
+        self.typeLabel == other.typeLabel && self.allowedTypes == other.allowedTypes && self.allowedTypeCount == other.allowedTypeCount
     }
 }
 impl ::core::cmp::Eq for MLOperatorEdgeTypeConstraint {}
@@ -1582,7 +1558,7 @@ unsafe impl ::windows::core::Abi for MLOperatorKernelDescription {
 }
 impl ::core::cmp::PartialEq for MLOperatorKernelDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorKernelDescription>()) == 0 }
+        self.domain == other.domain && self.name == other.name && self.minimumOperatorSetVersion == other.minimumOperatorSetVersion && self.executionType == other.executionType && self.typeConstraints == other.typeConstraints && self.typeConstraintCount == other.typeConstraintCount && self.defaultAttributes == other.defaultAttributes && self.defaultAttributeCount == other.defaultAttributeCount && self.options == other.options && self.executionOptions == other.executionOptions
     }
 }
 impl ::core::cmp::Eq for MLOperatorKernelDescription {}
@@ -1636,7 +1612,7 @@ unsafe impl ::windows::core::Abi for MLOperatorSchemaDescription {
 }
 impl ::core::cmp::PartialEq for MLOperatorSchemaDescription {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorSchemaDescription>()) == 0 }
+        self.name == other.name && self.operatorSetVersionAtLastChange == other.operatorSetVersionAtLastChange && self.inputs == other.inputs && self.inputCount == other.inputCount && self.outputs == other.outputs && self.outputCount == other.outputCount && self.typeConstraints == other.typeConstraints && self.typeConstraintCount == other.typeConstraintCount && self.attributes == other.attributes && self.attributeCount == other.attributeCount && self.defaultAttributes == other.defaultAttributes && self.defaultAttributeCount == other.defaultAttributeCount
     }
 }
 impl ::core::cmp::Eq for MLOperatorSchemaDescription {}
@@ -1661,12 +1637,6 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription {
 unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeDescription {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorSchemaEdgeDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorSchemaEdgeDescription>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorSchemaEdgeDescription {}
 impl ::core::default::Default for MLOperatorSchemaEdgeDescription {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1688,12 +1658,6 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription_0 {
 unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeDescription_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorSchemaEdgeDescription_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorSchemaEdgeDescription_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MLOperatorSchemaEdgeDescription_0 {}
 impl ::core::default::Default for MLOperatorSchemaEdgeDescription_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1721,7 +1685,7 @@ unsafe impl ::windows::core::Abi for MLOperatorSetId {
 }
 impl ::core::cmp::PartialEq for MLOperatorSetId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorSetId>()) == 0 }
+        self.domain == other.domain && self.version == other.version
     }
 }
 impl ::core::cmp::Eq for MLOperatorSetId {}
@@ -1749,14 +1713,6 @@ unsafe impl ::windows::core::Abi for WINML_BINDING_DESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::cmp::PartialEq for WINML_BINDING_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name && self.BindType == other.BindType && self.Anonymous == other.Anonymous
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::cmp::Eq for WINML_BINDING_DESC {}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for WINML_BINDING_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1782,14 +1738,6 @@ impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
 unsafe impl ::windows::core::Abi for WINML_BINDING_DESC_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::cmp::PartialEq for WINML_BINDING_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_BINDING_DESC_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::core::cmp::Eq for WINML_BINDING_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for WINML_BINDING_DESC_0 {
     fn default() -> Self {
@@ -1821,7 +1769,7 @@ unsafe impl ::windows::core::Abi for WINML_IMAGE_BINDING_DESC {
 }
 impl ::core::cmp::PartialEq for WINML_IMAGE_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_IMAGE_BINDING_DESC>()) == 0 }
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.DataSize == other.DataSize && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for WINML_IMAGE_BINDING_DESC {}
@@ -1853,7 +1801,7 @@ unsafe impl ::windows::core::Abi for WINML_IMAGE_VARIABLE_DESC {
 }
 impl ::core::cmp::PartialEq for WINML_IMAGE_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_IMAGE_VARIABLE_DESC>()) == 0 }
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape
     }
 }
 impl ::core::cmp::Eq for WINML_IMAGE_VARIABLE_DESC {}
@@ -1880,12 +1828,6 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC {
 unsafe impl ::windows::core::Abi for WINML_MAP_BINDING_DESC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINML_MAP_BINDING_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_MAP_BINDING_DESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINML_MAP_BINDING_DESC {}
 impl ::core::default::Default for WINML_MAP_BINDING_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1906,12 +1848,6 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_0 {
 unsafe impl ::windows::core::Abi for WINML_MAP_BINDING_DESC_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINML_MAP_BINDING_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_MAP_BINDING_DESC_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINML_MAP_BINDING_DESC_0 {}
 impl ::core::default::Default for WINML_MAP_BINDING_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1934,12 +1870,6 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_1 {
 unsafe impl ::windows::core::Abi for WINML_MAP_BINDING_DESC_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINML_MAP_BINDING_DESC_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_MAP_BINDING_DESC_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINML_MAP_BINDING_DESC_1 {}
 impl ::core::default::Default for WINML_MAP_BINDING_DESC_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1967,7 +1897,7 @@ unsafe impl ::windows::core::Abi for WINML_MAP_VARIABLE_DESC {
 }
 impl ::core::cmp::PartialEq for WINML_MAP_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_MAP_VARIABLE_DESC>()) == 0 }
+        self.KeyType == other.KeyType && self.Fields == other.Fields
     }
 }
 impl ::core::cmp::Eq for WINML_MAP_VARIABLE_DESC {}
@@ -2001,7 +1931,7 @@ unsafe impl ::windows::core::Abi for WINML_MODEL_DESC {
 }
 impl ::core::cmp::PartialEq for WINML_MODEL_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_MODEL_DESC>()) == 0 }
+        self.Author == other.Author && self.Name == other.Name && self.Domain == other.Domain && self.Description == other.Description && self.Version == other.Version
     }
 }
 impl ::core::cmp::Eq for WINML_MODEL_DESC {}
@@ -2065,12 +1995,6 @@ impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC {
 unsafe impl ::windows::core::Abi for WINML_SEQUENCE_BINDING_DESC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINML_SEQUENCE_BINDING_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_SEQUENCE_BINDING_DESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINML_SEQUENCE_BINDING_DESC {}
 impl ::core::default::Default for WINML_SEQUENCE_BINDING_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2093,12 +2017,6 @@ impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC_0 {
 unsafe impl ::windows::core::Abi for WINML_SEQUENCE_BINDING_DESC_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINML_SEQUENCE_BINDING_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_SEQUENCE_BINDING_DESC_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINML_SEQUENCE_BINDING_DESC_0 {}
 impl ::core::default::Default for WINML_SEQUENCE_BINDING_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2125,7 +2043,7 @@ unsafe impl ::windows::core::Abi for WINML_SEQUENCE_VARIABLE_DESC {
 }
 impl ::core::cmp::PartialEq for WINML_SEQUENCE_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_SEQUENCE_VARIABLE_DESC>()) == 0 }
+        self.ElementType == other.ElementType
     }
 }
 impl ::core::cmp::Eq for WINML_SEQUENCE_VARIABLE_DESC {}
@@ -2159,7 +2077,7 @@ unsafe impl ::windows::core::Abi for WINML_TENSOR_BINDING_DESC {
 }
 impl ::core::cmp::PartialEq for WINML_TENSOR_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_TENSOR_BINDING_DESC>()) == 0 }
+        self.DataType == other.DataType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.DataSize == other.DataSize && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for WINML_TENSOR_BINDING_DESC {}
@@ -2191,7 +2109,7 @@ unsafe impl ::windows::core::Abi for WINML_TENSOR_VARIABLE_DESC {
 }
 impl ::core::cmp::PartialEq for WINML_TENSOR_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_TENSOR_VARIABLE_DESC>()) == 0 }
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape
     }
 }
 impl ::core::cmp::Eq for WINML_TENSOR_VARIABLE_DESC {}
@@ -2223,14 +2141,6 @@ unsafe impl ::windows::core::Abi for WINML_VARIABLE_DESC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINML_VARIABLE_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_VARIABLE_DESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINML_VARIABLE_DESC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINML_VARIABLE_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2257,14 +2167,6 @@ impl ::core::clone::Clone for WINML_VARIABLE_DESC_0 {
 unsafe impl ::windows::core::Abi for WINML_VARIABLE_DESC_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINML_VARIABLE_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_VARIABLE_DESC_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINML_VARIABLE_DESC_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINML_VARIABLE_DESC_0 {
     fn default() -> Self {

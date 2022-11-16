@@ -383,7 +383,7 @@ unsafe impl ::windows::core::Abi for CCAB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CCAB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCAB>()) == 0 }
+        self.cb == other.cb && self.cbFolderThresh == other.cbFolderThresh && self.cbReserveCFHeader == other.cbReserveCFHeader && self.cbReserveCFFolder == other.cbReserveCFFolder && self.cbReserveCFData == other.cbReserveCFData && self.iCab == other.iCab && self.iDisk == other.iDisk && self.fFailOnIncompressible == other.fFailOnIncompressible && self.setID == other.setID && self.szDisk == other.szDisk && self.szCab == other.szCab && self.szCabPath == other.szCabPath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -423,7 +423,7 @@ unsafe impl ::windows::core::Abi for ERF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ERF {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ERF>()) == 0 }
+        self.erfOper == other.erfOper && self.erfType == other.erfType && self.fError == other.fError
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -468,7 +468,7 @@ unsafe impl ::windows::core::Abi for FDICABINETINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDICABINETINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDICABINETINFO>()) == 0 }
+        self.cbCabinet == other.cbCabinet && self.cFolders == other.cFolders && self.cFiles == other.cFiles && self.setID == other.setID && self.iCabinet == other.iCabinet && self.fReserve == other.fReserve && self.hasprev == other.hasprev && self.hasnext == other.hasnext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -500,14 +500,6 @@ unsafe impl ::windows::core::Abi for FDIDECRYPT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -533,14 +525,6 @@ impl ::core::clone::Clone for FDIDECRYPT_0 {
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0 {
     fn default() -> Self {
@@ -577,7 +561,7 @@ unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_0>()) == 0 }
+        self.pHeaderReserve == other.pHeaderReserve && self.cbHeaderReserve == other.cbHeaderReserve && self.setID == other.setID && self.iCabinet == other.iCabinet
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -620,7 +604,7 @@ unsafe impl ::windows::core::Abi for FDIDECRYPT_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_1>()) == 0 }
+        self.pDataReserve == other.pDataReserve && self.cbDataReserve == other.cbDataReserve && self.pbData == other.pbData && self.cbData == other.cbData && self.fSplit == other.fSplit && self.cbPartial == other.cbPartial
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -660,7 +644,7 @@ unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_2>()) == 0 }
+        self.pFolderReserve == other.pFolderReserve && self.cbFolderReserve == other.cbFolderReserve && self.iFolder == other.iFolder
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -704,7 +688,7 @@ unsafe impl ::windows::core::Abi for FDINOTIFICATION {
 }
 impl ::core::cmp::PartialEq for FDINOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDINOTIFICATION>()) == 0 }
+        self.cb == other.cb && self.psz1 == other.psz1 && self.psz2 == other.psz2 && self.psz3 == other.psz3 && self.pv == other.pv && self.hf == other.hf && self.date == other.date && self.time == other.time && self.attribs == other.attribs && self.setID == other.setID && self.iCabinet == other.iCabinet && self.iFolder == other.iFolder && self.fdie == other.fdie
     }
 }
 impl ::core::cmp::Eq for FDINOTIFICATION {}
@@ -738,16 +722,6 @@ unsafe impl ::windows::core::Abi for FDISPILLFILE {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDISPILLFILE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDISPILLFILE>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDISPILLFILE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDISPILLFILE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -776,16 +750,6 @@ impl ::core::clone::Clone for FDISPILLFILE {
 unsafe impl ::windows::core::Abi for FDISPILLFILE {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDISPILLFILE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDISPILLFILE>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDISPILLFILE {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDISPILLFILE {

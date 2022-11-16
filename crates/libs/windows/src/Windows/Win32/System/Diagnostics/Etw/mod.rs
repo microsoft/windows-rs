@@ -2845,7 +2845,7 @@ unsafe impl ::windows::core::Abi for CLASSIC_EVENT_ID {
 }
 impl ::core::cmp::PartialEq for CLASSIC_EVENT_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLASSIC_EVENT_ID>()) == 0 }
+        self.EventGuid == other.EventGuid && self.Type == other.Type && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for CLASSIC_EVENT_ID {}
@@ -2912,7 +2912,7 @@ unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for ENABLE_TRACE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENABLE_TRACE_PARAMETERS>()) == 0 }
+        self.Version == other.Version && self.EnableProperty == other.EnableProperty && self.ControlFlags == other.ControlFlags && self.SourceId == other.SourceId && self.EnableFilterDesc == other.EnableFilterDesc && self.FilterDescCount == other.FilterDescCount
     }
 }
 impl ::core::cmp::Eq for ENABLE_TRACE_PARAMETERS {}
@@ -2946,7 +2946,7 @@ unsafe impl ::windows::core::Abi for ENABLE_TRACE_PARAMETERS_V1 {
 }
 impl ::core::cmp::PartialEq for ENABLE_TRACE_PARAMETERS_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENABLE_TRACE_PARAMETERS_V1>()) == 0 }
+        self.Version == other.Version && self.EnableProperty == other.EnableProperty && self.ControlFlags == other.ControlFlags && self.SourceId == other.SourceId && self.EnableFilterDesc == other.EnableFilterDesc
     }
 }
 impl ::core::cmp::Eq for ENABLE_TRACE_PARAMETERS_V1 {}
@@ -2970,12 +2970,6 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT {
 unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ETW_BUFFER_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ETW_BUFFER_CONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ETW_BUFFER_CONTEXT {}
 impl ::core::default::Default for ETW_BUFFER_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2996,12 +2990,6 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT_0 {
 unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ETW_BUFFER_CONTEXT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ETW_BUFFER_CONTEXT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ETW_BUFFER_CONTEXT_0 {}
 impl ::core::default::Default for ETW_BUFFER_CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3029,7 +3017,7 @@ unsafe impl ::windows::core::Abi for ETW_BUFFER_CONTEXT_0_0 {
 }
 impl ::core::cmp::PartialEq for ETW_BUFFER_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ETW_BUFFER_CONTEXT_0_0>()) == 0 }
+        self.ProcessorNumber == other.ProcessorNumber && self.Alignment == other.Alignment
     }
 }
 impl ::core::cmp::Eq for ETW_BUFFER_CONTEXT_0_0 {}
@@ -3061,7 +3049,7 @@ unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNER {
 }
 impl ::core::cmp::PartialEq for ETW_PMC_COUNTER_OWNER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ETW_PMC_COUNTER_OWNER>()) == 0 }
+        self.OwnerType == other.OwnerType && self.ProfileSource == other.ProfileSource && self.OwnerTag == other.OwnerTag
     }
 }
 impl ::core::cmp::Eq for ETW_PMC_COUNTER_OWNER {}
@@ -3093,7 +3081,7 @@ unsafe impl ::windows::core::Abi for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
 }
 impl ::core::cmp::PartialEq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ETW_PMC_COUNTER_OWNERSHIP_STATUS>()) == 0 }
+        self.ProcessorNumber == other.ProcessorNumber && self.NumberOfCounters == other.NumberOfCounters && self.CounterOwners == other.CounterOwners
     }
 }
 impl ::core::cmp::Eq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {}
@@ -3126,7 +3114,7 @@ unsafe impl ::windows::core::Abi for ETW_TRACE_PARTITION_INFORMATION {
 }
 impl ::core::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ETW_TRACE_PARTITION_INFORMATION>()) == 0 }
+        self.PartitionId == other.PartitionId && self.ParentId == other.ParentId && self.QpcOffsetFromRoot == other.QpcOffsetFromRoot && self.PartitionType == other.PartitionType
     }
 }
 impl ::core::cmp::Eq for ETW_TRACE_PARTITION_INFORMATION {}
@@ -3159,7 +3147,7 @@ unsafe impl ::windows::core::Abi for ETW_TRACE_PARTITION_INFORMATION_V2 {
 }
 impl ::core::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ETW_TRACE_PARTITION_INFORMATION_V2>()) == 0 }
+        self.QpcOffsetFromRoot == other.QpcOffsetFromRoot && self.PartitionType == other.PartitionType && self.PartitionId == other.PartitionId && self.ParentId == other.ParentId
     }
 }
 impl ::core::cmp::Eq for ETW_TRACE_PARTITION_INFORMATION_V2 {}
@@ -3184,12 +3172,6 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_DATA_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_DATA_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_DATA_DESCRIPTOR {}
 impl ::core::default::Default for EVENT_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3210,12 +3192,6 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR_0 {
 unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_DATA_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_DATA_DESCRIPTOR_0 {}
 impl ::core::default::Default for EVENT_DATA_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3244,7 +3220,7 @@ unsafe impl ::windows::core::Abi for EVENT_DATA_DESCRIPTOR_0_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_DATA_DESCRIPTOR_0_0>()) == 0 }
+        self.Type == other.Type && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for EVENT_DATA_DESCRIPTOR_0_0 {}
@@ -3280,7 +3256,7 @@ unsafe impl ::windows::core::Abi for EVENT_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for EVENT_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_DESCRIPTOR>()) == 0 }
+        self.Id == other.Id && self.Version == other.Version && self.Channel == other.Channel && self.Level == other.Level && self.Opcode == other.Opcode && self.Task == other.Task && self.Keyword == other.Keyword
     }
 }
 impl ::core::cmp::Eq for EVENT_DESCRIPTOR {}
@@ -3310,7 +3286,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_EVENT_KEY {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_EVENT_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_EVENT_KEY>()) == 0 }
+        self.Key == other.Key
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_EVENT_KEY {}
@@ -3342,7 +3318,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_INSTANCE {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_INSTANCE>()) == 0 }
+        self.InstanceId == other.InstanceId && self.ParentInstanceId == other.ParentInstanceId && self.ParentGuid == other.ParentGuid
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_INSTANCE {}
@@ -3372,7 +3348,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PEBS_INDEX {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_PEBS_INDEX>()) == 0 }
+        self.PebsIndex == other.PebsIndex
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_PEBS_INDEX {}
@@ -3402,7 +3378,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_PMC_COUNTERS>()) == 0 }
+        self.Counter == other.Counter
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {}
@@ -3432,7 +3408,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_PROCESS_START_KEY>()) == 0 }
+        self.ProcessStartKey == other.ProcessStartKey
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {}
@@ -3462,7 +3438,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID>()) == 0 }
+        self.RelatedActivityId == other.RelatedActivityId
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {}
@@ -3494,7 +3470,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY32 {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_STACK_KEY32>()) == 0 }
+        self.MatchId == other.MatchId && self.StackKey == other.StackKey && self.Padding == other.Padding
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_KEY32 {}
@@ -3525,7 +3501,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_KEY64 {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_STACK_KEY64>()) == 0 }
+        self.MatchId == other.MatchId && self.StackKey == other.StackKey
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_KEY64 {}
@@ -3556,7 +3532,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_STACK_TRACE32>()) == 0 }
+        self.MatchId == other.MatchId && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {}
@@ -3587,7 +3563,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_STACK_TRACE64>()) == 0 }
+        self.MatchId == other.MatchId && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {}
@@ -3617,7 +3593,7 @@ unsafe impl ::windows::core::Abi for EVENT_EXTENDED_ITEM_TS_ID {
 }
 impl ::core::cmp::PartialEq for EVENT_EXTENDED_ITEM_TS_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_EXTENDED_ITEM_TS_ID>()) == 0 }
+        self.SessionId == other.SessionId
     }
 }
 impl ::core::cmp::Eq for EVENT_EXTENDED_ITEM_TS_ID {}
@@ -3649,7 +3625,7 @@ unsafe impl ::windows::core::Abi for EVENT_FILTER_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for EVENT_FILTER_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_FILTER_DESCRIPTOR>()) == 0 }
+        self.Ptr == other.Ptr && self.Size == other.Size && self.Type == other.Type
     }
 }
 impl ::core::cmp::Eq for EVENT_FILTER_DESCRIPTOR {}
@@ -3688,7 +3664,7 @@ unsafe impl ::windows::core::Abi for EVENT_FILTER_EVENT_ID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_FILTER_EVENT_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_FILTER_EVENT_ID>()) == 0 }
+        self.FilterIn == other.FilterIn && self.Reserved == other.Reserved && self.Count == other.Count && self.Events == other.Events
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3731,7 +3707,7 @@ unsafe impl ::windows::core::Abi for EVENT_FILTER_EVENT_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_FILTER_EVENT_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_FILTER_EVENT_NAME>()) == 0 }
+        self.MatchAnyKeyword == other.MatchAnyKeyword && self.MatchAllKeyword == other.MatchAllKeyword && self.Level == other.Level && self.FilterIn == other.FilterIn && self.NameCount == other.NameCount && self.Names == other.Names
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3768,7 +3744,7 @@ unsafe impl ::windows::core::Abi for EVENT_FILTER_HEADER {
 }
 impl ::core::cmp::PartialEq for EVENT_FILTER_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_FILTER_HEADER>()) == 0 }
+        self.Id == other.Id && self.Version == other.Version && self.Reserved == other.Reserved && self.InstanceId == other.InstanceId && self.Size == other.Size && self.NextOffset == other.NextOffset
     }
 }
 impl ::core::cmp::Eq for EVENT_FILTER_HEADER {}
@@ -3807,7 +3783,7 @@ unsafe impl ::windows::core::Abi for EVENT_FILTER_LEVEL_KW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_FILTER_LEVEL_KW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_FILTER_LEVEL_KW>()) == 0 }
+        self.MatchAnyKeyword == other.MatchAnyKeyword && self.MatchAllKeyword == other.MatchAllKeyword && self.Level == other.Level && self.FilterIn == other.FilterIn
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3842,12 +3818,6 @@ impl ::core::clone::Clone for EVENT_HEADER {
 unsafe impl ::windows::core::Abi for EVENT_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_HEADER {}
 impl ::core::default::Default for EVENT_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3868,12 +3838,6 @@ impl ::core::clone::Clone for EVENT_HEADER_0 {
 unsafe impl ::windows::core::Abi for EVENT_HEADER_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_HEADER_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_HEADER_0 {}
 impl ::core::default::Default for EVENT_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3901,7 +3865,7 @@ unsafe impl ::windows::core::Abi for EVENT_HEADER_0_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_HEADER_0_0>()) == 0 }
+        self.KernelTime == other.KernelTime && self.UserTime == other.UserTime
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER_0_0 {}
@@ -3935,7 +3899,7 @@ unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM {
 }
 impl ::core::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_HEADER_EXTENDED_DATA_ITEM>()) == 0 }
+        self.Reserved1 == other.Reserved1 && self.ExtType == other.ExtType && self.Anonymous == other.Anonymous && self.DataSize == other.DataSize && self.DataPtr == other.DataPtr
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER_EXTENDED_DATA_ITEM {}
@@ -3965,7 +3929,7 @@ unsafe impl ::windows::core::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_HEADER_EXTENDED_DATA_ITEM_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {}
@@ -3998,12 +3962,6 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER {
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER {}
 impl ::core::default::Default for EVENT_INSTANCE_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4024,12 +3982,6 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_0 {
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_0 {}
 impl ::core::default::Default for EVENT_INSTANCE_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4057,7 +4009,7 @@ unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_0_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER_0_0>()) == 0 }
+        self.HeaderType == other.HeaderType && self.MarkerFlags == other.MarkerFlags
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_0_0 {}
@@ -4081,12 +4033,6 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_1 {
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_1 {}
 impl ::core::default::Default for EVENT_INSTANCE_HEADER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4115,7 +4061,7 @@ unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_1_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER_1_0>()) == 0 }
+        self.Type == other.Type && self.Level == other.Level && self.Version == other.Version
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_1_0 {}
@@ -4140,12 +4086,6 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2 {
 unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_2 {}
 impl ::core::default::Default for EVENT_INSTANCE_HEADER_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4173,7 +4113,7 @@ unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER_2_0>()) == 0 }
+        self.KernelTime == other.KernelTime && self.UserTime == other.UserTime
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_2_0 {}
@@ -4204,7 +4144,7 @@ unsafe impl ::windows::core::Abi for EVENT_INSTANCE_HEADER_2_1 {
 }
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_HEADER_2_1>()) == 0 }
+        self.EventId == other.EventId && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for EVENT_INSTANCE_HEADER_2_1 {}
@@ -4241,7 +4181,7 @@ unsafe impl ::windows::core::Abi for EVENT_INSTANCE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_INSTANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_INSTANCE_INFO>()) == 0 }
+        self.RegHandle == other.RegHandle && self.InstanceId == other.InstanceId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4267,12 +4207,6 @@ impl ::core::clone::Clone for EVENT_MAP_ENTRY {
 unsafe impl ::windows::core::Abi for EVENT_MAP_ENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_MAP_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_MAP_ENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_MAP_ENTRY {}
 impl ::core::default::Default for EVENT_MAP_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4293,12 +4227,6 @@ impl ::core::clone::Clone for EVENT_MAP_ENTRY_0 {
 unsafe impl ::windows::core::Abi for EVENT_MAP_ENTRY_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_MAP_ENTRY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_MAP_ENTRY_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_MAP_ENTRY_0 {}
 impl ::core::default::Default for EVENT_MAP_ENTRY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4322,12 +4250,6 @@ impl ::core::clone::Clone for EVENT_MAP_INFO {
 unsafe impl ::windows::core::Abi for EVENT_MAP_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_MAP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_MAP_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_MAP_INFO {}
 impl ::core::default::Default for EVENT_MAP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4348,12 +4270,6 @@ impl ::core::clone::Clone for EVENT_MAP_INFO_0 {
 unsafe impl ::windows::core::Abi for EVENT_MAP_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_MAP_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_MAP_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_MAP_INFO_0 {}
 impl ::core::default::Default for EVENT_MAP_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4378,12 +4294,6 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO {
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_PROPERTY_INFO {}
 impl ::core::default::Default for EVENT_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4405,12 +4315,6 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0 {
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0 {}
 impl ::core::default::Default for EVENT_PROPERTY_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4439,7 +4343,7 @@ unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_0_0>()) == 0 }
+        self.InType == other.InType && self.OutType == other.OutType && self.CustomSchemaOffset == other.CustomSchemaOffset
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0_0 {}
@@ -4471,7 +4375,7 @@ unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_1 {
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_0_1>()) == 0 }
+        self.InType == other.InType && self.OutType == other.OutType && self.MapNameOffset == other.MapNameOffset
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0_1 {}
@@ -4503,7 +4407,7 @@ unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_0_2 {
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_0_2>()) == 0 }
+        self.StructStartIndex == other.StructStartIndex && self.NumOfStructMembers == other.NumOfStructMembers && self.padding == other.padding
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_0_2 {}
@@ -4527,12 +4431,6 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_1 {
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_1 {}
 impl ::core::default::Default for EVENT_PROPERTY_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4553,12 +4451,6 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_2 {
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_2 {}
 impl ::core::default::Default for EVENT_PROPERTY_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4579,12 +4471,6 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_3 {
 unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_3 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_3 {}
 impl ::core::default::Default for EVENT_PROPERTY_INFO_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4611,7 +4497,7 @@ unsafe impl ::windows::core::Abi for EVENT_PROPERTY_INFO_3_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_PROPERTY_INFO_3_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_PROPERTY_INFO_3_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for EVENT_PROPERTY_INFO_3_0 {}
@@ -4640,12 +4526,6 @@ impl ::core::clone::Clone for EVENT_RECORD {
 unsafe impl ::windows::core::Abi for EVENT_RECORD {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_RECORD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_RECORD {}
 impl ::core::default::Default for EVENT_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4671,12 +4551,6 @@ impl ::core::clone::Clone for EVENT_TRACE {
 unsafe impl ::windows::core::Abi for EVENT_TRACE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_TRACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_TRACE {}
 impl ::core::default::Default for EVENT_TRACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4697,12 +4571,6 @@ impl ::core::clone::Clone for EVENT_TRACE_0 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_TRACE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_TRACE_0 {}
 impl ::core::default::Default for EVENT_TRACE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4729,12 +4597,6 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_TRACE_HEADER {}
 impl ::core::default::Default for EVENT_TRACE_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4755,12 +4617,6 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_0 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_TRACE_HEADER_0 {}
 impl ::core::default::Default for EVENT_TRACE_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4788,7 +4644,7 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_0_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_0_0>()) == 0 }
+        self.HeaderType == other.HeaderType && self.MarkerFlags == other.MarkerFlags
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_0_0 {}
@@ -4812,12 +4668,6 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_1 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_TRACE_HEADER_1 {}
 impl ::core::default::Default for EVENT_TRACE_HEADER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4846,7 +4696,7 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_1_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_1_0>()) == 0 }
+        self.Type == other.Type && self.Level == other.Level && self.Version == other.Version
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_1_0 {}
@@ -4870,12 +4720,6 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_2 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_TRACE_HEADER_2 {}
 impl ::core::default::Default for EVENT_TRACE_HEADER_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4897,12 +4741,6 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EVENT_TRACE_HEADER_3 {}
 impl ::core::default::Default for EVENT_TRACE_HEADER_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4930,7 +4768,7 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_0 {
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_3_0>()) == 0 }
+        self.KernelTime == other.KernelTime && self.UserTime == other.UserTime
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_3_0 {}
@@ -4961,7 +4799,7 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_1 {
 }
 impl ::core::cmp::PartialEq for EVENT_TRACE_HEADER_3_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_HEADER_3_1>()) == 0 }
+        self.ClientContext == other.ClientContext && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for EVENT_TRACE_HEADER_3_1 {}
@@ -5002,14 +4840,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_LOGFILEA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5035,14 +4865,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_LOGFILEA_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5067,14 +4889,6 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_LOGFILEA_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEA_1 {
     fn default() -> Self {
@@ -5113,14 +4927,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_LOGFILEW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5146,14 +4952,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_LOGFILEW_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5178,14 +4976,6 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_1 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_LOGFILEW_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for EVENT_TRACE_LOGFILEW_1 {
     fn default() -> Self {
@@ -5228,14 +5018,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5260,14 +5042,6 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_0 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_0 {
     fn default() -> Self {
@@ -5314,14 +5088,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES_V2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5347,14 +5113,6 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES_V2_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5379,14 +5137,6 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_1 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES_V2_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2_1 {
     fn default() -> Self {
@@ -5420,7 +5170,7 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_1_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES_V2_1_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5450,14 +5200,6 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_2 {
 unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES_V2_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVENT_TRACE_PROPERTIES_V2_2 {
     fn default() -> Self {
@@ -5491,7 +5233,7 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_PROPERTIES_V2_2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENT_TRACE_PROPERTIES_V2_2_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5525,7 +5267,7 @@ unsafe impl ::windows::core::Abi for MOF_FIELD {
 }
 impl ::core::cmp::PartialEq for MOF_FIELD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOF_FIELD>()) == 0 }
+        self.DataPtr == other.DataPtr && self.Length == other.Length && self.DataType == other.DataType
     }
 }
 impl ::core::cmp::Eq for MOF_FIELD {}
@@ -5556,7 +5298,7 @@ unsafe impl ::windows::core::Abi for OFFSETINSTANCEDATAANDLENGTH {
 }
 impl ::core::cmp::PartialEq for OFFSETINSTANCEDATAANDLENGTH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFSETINSTANCEDATAANDLENGTH>()) == 0 }
+        self.OffsetInstanceData == other.OffsetInstanceData && self.LengthInstanceData == other.LengthInstanceData
     }
 }
 impl ::core::cmp::Eq for OFFSETINSTANCEDATAANDLENGTH {}
@@ -5588,7 +5330,7 @@ unsafe impl ::windows::core::Abi for PAYLOAD_FILTER_PREDICATE {
 }
 impl ::core::cmp::PartialEq for PAYLOAD_FILTER_PREDICATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAYLOAD_FILTER_PREDICATE>()) == 0 }
+        self.FieldName == other.FieldName && self.CompareOp == other.CompareOp && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for PAYLOAD_FILTER_PREDICATE {}
@@ -5650,7 +5392,7 @@ unsafe impl ::windows::core::Abi for PROFILE_SOURCE_INFO {
 }
 impl ::core::cmp::PartialEq for PROFILE_SOURCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROFILE_SOURCE_INFO>()) == 0 }
+        self.NextEntryOffset == other.NextEntryOffset && self.Source == other.Source && self.MinInterval == other.MinInterval && self.MaxInterval == other.MaxInterval && self.Reserved == other.Reserved && self.Description == other.Description
     }
 }
 impl ::core::cmp::Eq for PROFILE_SOURCE_INFO {}
@@ -5682,7 +5424,7 @@ unsafe impl ::windows::core::Abi for PROPERTY_DATA_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for PROPERTY_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROPERTY_DATA_DESCRIPTOR>()) == 0 }
+        self.PropertyName == other.PropertyName && self.ArrayIndex == other.ArrayIndex && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for PROPERTY_DATA_DESCRIPTOR {}
@@ -5714,7 +5456,7 @@ unsafe impl ::windows::core::Abi for PROVIDER_ENUMERATION_INFO {
 }
 impl ::core::cmp::PartialEq for PROVIDER_ENUMERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROVIDER_ENUMERATION_INFO>()) == 0 }
+        self.NumberOfProviders == other.NumberOfProviders && self.Reserved == other.Reserved && self.TraceProviderInfoArray == other.TraceProviderInfoArray
     }
 }
 impl ::core::cmp::Eq for PROVIDER_ENUMERATION_INFO {}
@@ -5746,7 +5488,7 @@ unsafe impl ::windows::core::Abi for PROVIDER_EVENT_INFO {
 }
 impl ::core::cmp::PartialEq for PROVIDER_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROVIDER_EVENT_INFO>()) == 0 }
+        self.NumberOfEvents == other.NumberOfEvents && self.Reserved == other.Reserved && self.EventDescriptorsArray == other.EventDescriptorsArray
     }
 }
 impl ::core::cmp::Eq for PROVIDER_EVENT_INFO {}
@@ -5778,7 +5520,7 @@ unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFO {
 }
 impl ::core::cmp::PartialEq for PROVIDER_FIELD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROVIDER_FIELD_INFO>()) == 0 }
+        self.NameOffset == other.NameOffset && self.DescriptionOffset == other.DescriptionOffset && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for PROVIDER_FIELD_INFO {}
@@ -5810,7 +5552,7 @@ unsafe impl ::windows::core::Abi for PROVIDER_FIELD_INFOARRAY {
 }
 impl ::core::cmp::PartialEq for PROVIDER_FIELD_INFOARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROVIDER_FIELD_INFOARRAY>()) == 0 }
+        self.NumberOfElements == other.NumberOfElements && self.FieldType == other.FieldType && self.FieldInfoArray == other.FieldInfoArray
     }
 }
 impl ::core::cmp::Eq for PROVIDER_FIELD_INFOARRAY {}
@@ -5838,12 +5580,6 @@ impl ::core::clone::Clone for PROVIDER_FILTER_INFO {
 unsafe impl ::windows::core::Abi for PROVIDER_FILTER_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PROVIDER_FILTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROVIDER_FILTER_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PROVIDER_FILTER_INFO {}
 impl ::core::default::Default for PROVIDER_FILTER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5904,7 +5640,7 @@ unsafe impl ::windows::core::Abi for TDH_CONTEXT {
 }
 impl ::core::cmp::PartialEq for TDH_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TDH_CONTEXT>()) == 0 }
+        self.ParameterValue == other.ParameterValue && self.ParameterType == other.ParameterType && self.ParameterSize == other.ParameterSize
     }
 }
 impl ::core::cmp::Eq for TDH_CONTEXT {}
@@ -5973,7 +5709,7 @@ unsafe impl ::windows::core::Abi for TRACE_ENABLE_INFO {
 }
 impl ::core::cmp::PartialEq for TRACE_ENABLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_ENABLE_INFO>()) == 0 }
+        self.IsEnabled == other.IsEnabled && self.Level == other.Level && self.Reserved1 == other.Reserved1 && self.LoggerId == other.LoggerId && self.EnableProperty == other.EnableProperty && self.Reserved2 == other.Reserved2 && self.MatchAnyKeyword == other.MatchAnyKeyword && self.MatchAllKeyword == other.MatchAllKeyword
     }
 }
 impl ::core::cmp::Eq for TRACE_ENABLE_INFO {}
@@ -6015,12 +5751,6 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO {
 unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TRACE_EVENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_EVENT_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TRACE_EVENT_INFO {}
 impl ::core::default::Default for TRACE_EVENT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6041,12 +5771,6 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_0 {
 unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_EVENT_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TRACE_EVENT_INFO_0 {}
 impl ::core::default::Default for TRACE_EVENT_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6067,12 +5791,6 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_1 {
 unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_EVENT_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TRACE_EVENT_INFO_1 {}
 impl ::core::default::Default for TRACE_EVENT_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6093,12 +5811,6 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_2 {
 unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_EVENT_INFO_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TRACE_EVENT_INFO_2 {}
 impl ::core::default::Default for TRACE_EVENT_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6125,7 +5837,7 @@ unsafe impl ::windows::core::Abi for TRACE_EVENT_INFO_2_0 {
 }
 impl ::core::cmp::PartialEq for TRACE_EVENT_INFO_2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_EVENT_INFO_2_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for TRACE_EVENT_INFO_2_0 {}
@@ -6156,7 +5868,7 @@ unsafe impl ::windows::core::Abi for TRACE_GUID_INFO {
 }
 impl ::core::cmp::PartialEq for TRACE_GUID_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_GUID_INFO>()) == 0 }
+        self.InstanceCount == other.InstanceCount && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for TRACE_GUID_INFO {}
@@ -6197,7 +5909,7 @@ unsafe impl ::windows::core::Abi for TRACE_GUID_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACE_GUID_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_GUID_PROPERTIES>()) == 0 }
+        self.Guid == other.Guid && self.GuidType == other.GuidType && self.LoggerId == other.LoggerId && self.EnableLevel == other.EnableLevel && self.EnableFlags == other.EnableFlags && self.IsEnable == other.IsEnable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6236,7 +5948,7 @@ unsafe impl ::windows::core::Abi for TRACE_GUID_REGISTRATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACE_GUID_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_GUID_REGISTRATION>()) == 0 }
+        self.Guid == other.Guid && self.RegHandle == other.RegHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6283,14 +5995,6 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6315,14 +6019,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0 {
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER_0 {
     fn default() -> Self {
@@ -6359,7 +6055,7 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER_0_0>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.SubVersion == other.SubVersion && self.SubMinorVersion == other.SubMinorVersion
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -6389,14 +6085,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1 {
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER_1 {
     fn default() -> Self {
@@ -6433,7 +6121,7 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER_1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER_1_0>()) == 0 }
+        self.StartBuffers == other.StartBuffers && self.PointerSize == other.PointerSize && self.EventsLost == other.EventsLost && self.CpuSpeedInMHz == other.CpuSpeedInMHz
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -6480,14 +6168,6 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER32>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6512,14 +6192,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0 {
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER32_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER32_0 {
     fn default() -> Self {
@@ -6556,7 +6228,7 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER32_0_0>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.SubVersion == other.SubVersion && self.SubMinorVersion == other.SubMinorVersion
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -6586,14 +6258,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1 {
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER32_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER32_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER32_1 {
     fn default() -> Self {
@@ -6630,7 +6294,7 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER32_1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER32_1_0>()) == 0 }
+        self.StartBuffers == other.StartBuffers && self.PointerSize == other.PointerSize && self.EventsLost == other.EventsLost && self.CpuSpeedInMHz == other.CpuSpeedInMHz
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -6677,14 +6341,6 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER64>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6709,14 +6365,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0 {
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER64_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER64_0 {
     fn default() -> Self {
@@ -6753,7 +6401,7 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER64_0_0>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.SubVersion == other.SubVersion && self.SubMinorVersion == other.SubMinorVersion
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -6783,14 +6431,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1 {
 unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER64_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::cmp::Eq for TRACE_LOGFILE_HEADER64_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::default::Default for TRACE_LOGFILE_HEADER64_1 {
     fn default() -> Self {
@@ -6827,7 +6467,7 @@ unsafe impl ::windows::core::Abi for TRACE_LOGFILE_HEADER64_1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::core::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_LOGFILE_HEADER64_1_0>()) == 0 }
+        self.StartBuffers == other.StartBuffers && self.PointerSize == other.PointerSize && self.EventsLost == other.EventsLost && self.CpuSpeedInMHz == other.CpuSpeedInMHz
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
@@ -6861,7 +6501,7 @@ unsafe impl ::windows::core::Abi for TRACE_PERIODIC_CAPTURE_STATE_INFO {
 }
 impl ::core::cmp::PartialEq for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_PERIODIC_CAPTURE_STATE_INFO>()) == 0 }
+        self.CaptureStateFrequencyInSeconds == other.CaptureStateFrequencyInSeconds && self.ProviderCount == other.ProviderCount && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for TRACE_PERIODIC_CAPTURE_STATE_INFO {}
@@ -6892,7 +6532,7 @@ unsafe impl ::windows::core::Abi for TRACE_PROFILE_INTERVAL {
 }
 impl ::core::cmp::PartialEq for TRACE_PROFILE_INTERVAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_PROFILE_INTERVAL>()) == 0 }
+        self.Source == other.Source && self.Interval == other.Interval
     }
 }
 impl ::core::cmp::Eq for TRACE_PROFILE_INTERVAL {}
@@ -6924,7 +6564,7 @@ unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INFO {
 }
 impl ::core::cmp::PartialEq for TRACE_PROVIDER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_PROVIDER_INFO>()) == 0 }
+        self.ProviderGuid == other.ProviderGuid && self.SchemaSource == other.SchemaSource && self.ProviderNameOffset == other.ProviderNameOffset
     }
 }
 impl ::core::cmp::Eq for TRACE_PROVIDER_INFO {}
@@ -6957,7 +6597,7 @@ unsafe impl ::windows::core::Abi for TRACE_PROVIDER_INSTANCE_INFO {
 }
 impl ::core::cmp::PartialEq for TRACE_PROVIDER_INSTANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_PROVIDER_INSTANCE_INFO>()) == 0 }
+        self.NextOffset == other.NextOffset && self.EnableCount == other.EnableCount && self.Pid == other.Pid && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for TRACE_PROVIDER_INSTANCE_INFO {}
@@ -6995,7 +6635,7 @@ unsafe impl ::windows::core::Abi for TRACE_STACK_CACHING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACE_STACK_CACHING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_STACK_CACHING_INFO>()) == 0 }
+        self.Enabled == other.Enabled && self.CacheSize == other.CacheSize && self.BucketCount == other.BucketCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7028,7 +6668,7 @@ unsafe impl ::windows::core::Abi for TRACE_VERSION_INFO {
 }
 impl ::core::cmp::PartialEq for TRACE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRACE_VERSION_INFO>()) == 0 }
+        self.EtwTraceProcessingVersion == other.EtwTraceProcessingVersion && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for TRACE_VERSION_INFO {}
@@ -7054,12 +6694,6 @@ impl ::core::clone::Clone for WMIREGGUIDW {
 unsafe impl ::windows::core::Abi for WMIREGGUIDW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WMIREGGUIDW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMIREGGUIDW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMIREGGUIDW {}
 impl ::core::default::Default for WMIREGGUIDW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7082,12 +6716,6 @@ impl ::core::clone::Clone for WMIREGGUIDW_0 {
 unsafe impl ::windows::core::Abi for WMIREGGUIDW_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WMIREGGUIDW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMIREGGUIDW_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMIREGGUIDW_0 {}
 impl ::core::default::Default for WMIREGGUIDW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7112,12 +6740,6 @@ impl ::core::clone::Clone for WMIREGINFOW {
 unsafe impl ::windows::core::Abi for WMIREGINFOW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WMIREGINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMIREGINFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMIREGINFOW {}
 impl ::core::default::Default for WMIREGINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7146,14 +6768,6 @@ unsafe impl ::windows::core::Abi for WNODE_ALL_DATA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_ALL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_ALL_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_ALL_DATA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_ALL_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7179,14 +6793,6 @@ unsafe impl ::windows::core::Abi for WNODE_ALL_DATA_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_ALL_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_ALL_DATA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_ALL_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_ALL_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7210,14 +6816,6 @@ impl ::core::clone::Clone for WNODE_EVENT_ITEM {
 unsafe impl ::windows::core::Abi for WNODE_EVENT_ITEM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_EVENT_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_EVENT_ITEM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_EVENT_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_EVENT_ITEM {
     fn default() -> Self {
@@ -7246,14 +6844,6 @@ unsafe impl ::windows::core::Abi for WNODE_EVENT_REFERENCE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_EVENT_REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_EVENT_REFERENCE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_EVENT_REFERENCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_EVENT_REFERENCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7278,14 +6868,6 @@ impl ::core::clone::Clone for WNODE_EVENT_REFERENCE_0 {
 unsafe impl ::windows::core::Abi for WNODE_EVENT_REFERENCE_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_EVENT_REFERENCE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_EVENT_REFERENCE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_EVENT_REFERENCE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_EVENT_REFERENCE_0 {
     fn default() -> Self {
@@ -7317,14 +6899,6 @@ unsafe impl ::windows::core::Abi for WNODE_HEADER {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_HEADER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7349,14 +6923,6 @@ impl ::core::clone::Clone for WNODE_HEADER_0 {
 unsafe impl ::windows::core::Abi for WNODE_HEADER_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_HEADER_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_HEADER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_HEADER_0 {
     fn default() -> Self {
@@ -7391,7 +6957,7 @@ unsafe impl ::windows::core::Abi for WNODE_HEADER_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WNODE_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_HEADER_0_0>()) == 0 }
+        self.Version == other.Version && self.Linkage == other.Linkage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7423,14 +6989,6 @@ unsafe impl ::windows::core::Abi for WNODE_HEADER_1 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_HEADER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_HEADER_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_HEADER_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_HEADER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7461,14 +7019,6 @@ unsafe impl ::windows::core::Abi for WNODE_METHOD_ITEM {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_METHOD_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_METHOD_ITEM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_METHOD_ITEM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_METHOD_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7497,14 +7047,6 @@ impl ::core::clone::Clone for WNODE_SINGLE_INSTANCE {
 unsafe impl ::windows::core::Abi for WNODE_SINGLE_INSTANCE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_SINGLE_INSTANCE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_SINGLE_INSTANCE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_SINGLE_INSTANCE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_SINGLE_INSTANCE {
     fn default() -> Self {
@@ -7536,14 +7078,6 @@ unsafe impl ::windows::core::Abi for WNODE_SINGLE_ITEM {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_SINGLE_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_SINGLE_ITEM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_SINGLE_ITEM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_SINGLE_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7568,14 +7102,6 @@ impl ::core::clone::Clone for WNODE_TOO_SMALL {
 unsafe impl ::windows::core::Abi for WNODE_TOO_SMALL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WNODE_TOO_SMALL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNODE_TOO_SMALL>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WNODE_TOO_SMALL {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WNODE_TOO_SMALL {
     fn default() -> Self {

@@ -76,7 +76,7 @@ unsafe impl ::windows::core::Abi for CapturedMetadataExposureCompensation {
 }
 impl ::core::cmp::PartialEq for CapturedMetadataExposureCompensation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CapturedMetadataExposureCompensation>()) == 0 }
+        self.Flags == other.Flags && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for CapturedMetadataExposureCompensation {}
@@ -107,7 +107,7 @@ unsafe impl ::windows::core::Abi for CapturedMetadataISOGains {
 }
 impl ::core::cmp::PartialEq for CapturedMetadataISOGains {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CapturedMetadataISOGains>()) == 0 }
+        self.AnalogGain == other.AnalogGain && self.DigitalGain == other.DigitalGain
     }
 }
 impl ::core::cmp::Eq for CapturedMetadataISOGains {}
@@ -139,7 +139,7 @@ unsafe impl ::windows::core::Abi for CapturedMetadataWhiteBalanceGains {
 }
 impl ::core::cmp::PartialEq for CapturedMetadataWhiteBalanceGains {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CapturedMetadataWhiteBalanceGains>()) == 0 }
+        self.R == other.R && self.G == other.G && self.B == other.B
     }
 }
 impl ::core::cmp::Eq for CapturedMetadataWhiteBalanceGains {}
@@ -172,7 +172,7 @@ unsafe impl ::windows::core::Abi for FaceCharacterization {
 }
 impl ::core::cmp::PartialEq for FaceCharacterization {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FaceCharacterization>()) == 0 }
+        self.BlinkScoreLeft == other.BlinkScoreLeft && self.BlinkScoreRight == other.BlinkScoreRight && self.FacialExpression == other.FacialExpression && self.FacialExpressionScore == other.FacialExpressionScore
     }
 }
 impl ::core::cmp::Eq for FaceCharacterization {}
@@ -203,7 +203,7 @@ unsafe impl ::windows::core::Abi for FaceCharacterizationBlobHeader {
 }
 impl ::core::cmp::PartialEq for FaceCharacterizationBlobHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FaceCharacterizationBlobHeader>()) == 0 }
+        self.Size == other.Size && self.Count == other.Count
     }
 }
 impl ::core::cmp::Eq for FaceCharacterizationBlobHeader {}
@@ -240,7 +240,7 @@ unsafe impl ::windows::core::Abi for FaceRectInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FaceRectInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FaceRectInfo>()) == 0 }
+        self.Region == other.Region && self.confidenceLevel == other.confidenceLevel
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -273,7 +273,7 @@ unsafe impl ::windows::core::Abi for FaceRectInfoBlobHeader {
 }
 impl ::core::cmp::PartialEq for FaceRectInfoBlobHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FaceRectInfoBlobHeader>()) == 0 }
+        self.Size == other.Size && self.Count == other.Count
     }
 }
 impl ::core::cmp::Eq for FaceRectInfoBlobHeader {}
@@ -304,7 +304,7 @@ unsafe impl ::windows::core::Abi for HistogramBlobHeader {
 }
 impl ::core::cmp::PartialEq for HistogramBlobHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HistogramBlobHeader>()) == 0 }
+        self.Size == other.Size && self.Histograms == other.Histograms
     }
 }
 impl ::core::cmp::Eq for HistogramBlobHeader {}
@@ -336,7 +336,7 @@ unsafe impl ::windows::core::Abi for HistogramDataHeader {
 }
 impl ::core::cmp::PartialEq for HistogramDataHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HistogramDataHeader>()) == 0 }
+        self.Size == other.Size && self.ChannelMask == other.ChannelMask && self.Linear == other.Linear
     }
 }
 impl ::core::cmp::Eq for HistogramDataHeader {}
@@ -374,7 +374,7 @@ unsafe impl ::windows::core::Abi for HistogramGrid {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HistogramGrid {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HistogramGrid>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Region == other.Region
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -416,7 +416,7 @@ unsafe impl ::windows::core::Abi for HistogramHeader {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HistogramHeader {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HistogramHeader>()) == 0 }
+        self.Size == other.Size && self.Bins == other.Bins && self.FourCC == other.FourCC && self.ChannelMasks == other.ChannelMasks && self.Grid == other.Grid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -450,7 +450,7 @@ unsafe impl ::windows::core::Abi for MetadataTimeStamps {
 }
 impl ::core::cmp::PartialEq for MetadataTimeStamps {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MetadataTimeStamps>()) == 0 }
+        self.Flags == other.Flags && self.Device == other.Device && self.Presentation == other.Presentation
     }
 }
 impl ::core::cmp::Eq for MetadataTimeStamps {}

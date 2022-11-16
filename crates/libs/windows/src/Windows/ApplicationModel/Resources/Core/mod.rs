@@ -2368,7 +2368,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceLayoutInfo {
 }
 impl ::core::cmp::PartialEq for ResourceLayoutInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ResourceLayoutInfo>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ResourceSubtreeCount == other.ResourceSubtreeCount && self.NamedResourceCount == other.NamedResourceCount && self.Checksum == other.Checksum
     }
 }
 impl ::core::cmp::Eq for ResourceLayoutInfo {}

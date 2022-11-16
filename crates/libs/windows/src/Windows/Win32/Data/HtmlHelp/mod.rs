@@ -1466,7 +1466,7 @@ unsafe impl ::windows::core::Abi for COLUMNSTATUS {
 }
 impl ::core::cmp::PartialEq for COLUMNSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLUMNSTATUS>()) == 0 }
+        self.cPropCount == other.cPropCount && self.cPropsLoaded == other.cPropsLoaded
     }
 }
 impl ::core::cmp::Eq for COLUMNSTATUS {}
@@ -1498,14 +1498,6 @@ unsafe impl ::windows::core::Abi for CProperty {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CProperty {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CProperty>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CProperty {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CProperty {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1531,14 +1523,6 @@ impl ::core::clone::Clone for CProperty_0 {
 unsafe impl ::windows::core::Abi for CProperty_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CProperty_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CProperty_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CProperty_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CProperty_0 {
     fn default() -> Self {
@@ -1575,7 +1559,7 @@ unsafe impl ::windows::core::Abi for HHNTRACK {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for HHNTRACK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HHNTRACK>()) == 0 }
+        self.hdr == other.hdr && self.pszCurUrl == other.pszCurUrl && self.idAction == other.idAction && self.phhWinType == other.phhWinType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -1614,7 +1598,7 @@ unsafe impl ::windows::core::Abi for HHN_NOTIFY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for HHN_NOTIFY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HHN_NOTIFY>()) == 0 }
+        self.hdr == other.hdr && self.pszUrl == other.pszUrl
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -1659,7 +1643,7 @@ unsafe impl ::windows::core::Abi for HH_AKLINK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_AKLINK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_AKLINK>()) == 0 }
+        self.cbStruct == other.cbStruct && self.fReserved == other.fReserved && self.pszKeywords == other.pszKeywords && self.pszUrl == other.pszUrl && self.pszMsgText == other.pszMsgText && self.pszMsgTitle == other.pszMsgTitle && self.pszWindow == other.pszWindow && self.fIndexOnFail == other.fIndexOnFail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1693,7 +1677,7 @@ unsafe impl ::windows::core::Abi for HH_ENUM_CAT {
 }
 impl ::core::cmp::PartialEq for HH_ENUM_CAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_ENUM_CAT>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pszCatName == other.pszCatName && self.pszCatDescription == other.pszCatDescription
     }
 }
 impl ::core::cmp::Eq for HH_ENUM_CAT {}
@@ -1727,7 +1711,7 @@ unsafe impl ::windows::core::Abi for HH_ENUM_IT {
 }
 impl ::core::cmp::PartialEq for HH_ENUM_IT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_ENUM_IT>()) == 0 }
+        self.cbStruct == other.cbStruct && self.iType == other.iType && self.pszCatName == other.pszCatName && self.pszITName == other.pszITName && self.pszITDescription == other.pszITDescription
     }
 }
 impl ::core::cmp::Eq for HH_ENUM_IT {}
@@ -1770,7 +1754,7 @@ unsafe impl ::windows::core::Abi for HH_FTS_QUERY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_FTS_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_FTS_QUERY>()) == 0 }
+        self.cbStruct == other.cbStruct && self.fUniCodeStrings == other.fUniCodeStrings && self.pszSearchQuery == other.pszSearchQuery && self.iProximity == other.iProximity && self.fStemmedSearch == other.fStemmedSearch && self.fTitleOnly == other.fTitleOnly && self.fExecute == other.fExecute && self.pszWindow == other.pszWindow
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1798,14 +1782,6 @@ impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
 unsafe impl ::windows::core::Abi for HH_GLOBAL_PROPERTY {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for HH_GLOBAL_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.id == other.id && self.var == other.var
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for HH_GLOBAL_PROPERTY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for HH_GLOBAL_PROPERTY {
     fn default() -> Self {
@@ -1847,7 +1823,7 @@ unsafe impl ::windows::core::Abi for HH_POPUP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_POPUP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_POPUP>()) == 0 }
+        self.cbStruct == other.cbStruct && self.hinst == other.hinst && self.idString == other.idString && self.pszText == other.pszText && self.pt == other.pt && self.clrForeground == other.clrForeground && self.clrBackground == other.clrBackground && self.rcMargins == other.rcMargins && self.pszFont == other.pszFont
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1881,7 +1857,7 @@ unsafe impl ::windows::core::Abi for HH_SET_INFOTYPE {
 }
 impl ::core::cmp::PartialEq for HH_SET_INFOTYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_SET_INFOTYPE>()) == 0 }
+        self.cbStruct == other.cbStruct && self.pszCatName == other.pszCatName && self.pszInfoTypeName == other.pszInfoTypeName
     }
 }
 impl ::core::cmp::Eq for HH_SET_INFOTYPE {}
@@ -1989,7 +1965,42 @@ unsafe impl ::windows::core::Abi for HH_WINTYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HH_WINTYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HH_WINTYPE>()) == 0 }
+        self.cbStruct == other.cbStruct
+            && self.fUniCodeStrings == other.fUniCodeStrings
+            && self.pszType == other.pszType
+            && self.fsValidMembers == other.fsValidMembers
+            && self.fsWinProperties == other.fsWinProperties
+            && self.pszCaption == other.pszCaption
+            && self.dwStyles == other.dwStyles
+            && self.dwExStyles == other.dwExStyles
+            && self.rcWindowPos == other.rcWindowPos
+            && self.nShowState == other.nShowState
+            && self.hwndHelp == other.hwndHelp
+            && self.hwndCaller == other.hwndCaller
+            && self.paInfoTypes == other.paInfoTypes
+            && self.hwndToolBar == other.hwndToolBar
+            && self.hwndNavigation == other.hwndNavigation
+            && self.hwndHTML == other.hwndHTML
+            && self.iNavWidth == other.iNavWidth
+            && self.rcHTML == other.rcHTML
+            && self.pszToc == other.pszToc
+            && self.pszIndex == other.pszIndex
+            && self.pszFile == other.pszFile
+            && self.pszHome == other.pszHome
+            && self.fsToolBarFlags == other.fsToolBarFlags
+            && self.fNotExpanded == other.fNotExpanded
+            && self.curNavType == other.curNavType
+            && self.tabpos == other.tabpos
+            && self.idNotify == other.idNotify
+            && self.tabOrder == other.tabOrder
+            && self.cHistory == other.cHistory
+            && self.pszJump1 == other.pszJump1
+            && self.pszJump2 == other.pszJump2
+            && self.pszUrlJump1 == other.pszUrlJump1
+            && self.pszUrlJump2 == other.pszUrlJump2
+            && self.rcMinSize == other.rcMinSize
+            && self.cbInfoTypes == other.cbInfoTypes
+            && self.pszCustomTabs == other.pszCustomTabs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2030,7 +2041,7 @@ unsafe impl ::windows::core::Abi for ROWSTATUS {
 }
 impl ::core::cmp::PartialEq for ROWSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ROWSTATUS>()) == 0 }
+        self.lRowFirst == other.lRowFirst && self.cRows == other.cRows && self.cProperties == other.cProperties && self.cRowsTotal == other.cRowsTotal
     }
 }
 impl ::core::cmp::Eq for ROWSTATUS {}

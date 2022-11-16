@@ -2492,7 +2492,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingBox {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingBox {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingBox>()) == 0 }
+        self.Center == other.Center && self.Extents == other.Extents
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -2543,7 +2543,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingFrustum {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingFrustum {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingFrustum>()) == 0 }
+        self.Near == other.Near && self.Far == other.Far && self.Right == other.Right && self.Left == other.Left && self.Top == other.Top && self.Bottom == other.Bottom
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -2591,7 +2591,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingOrientedBox {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingOrientedBox {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingOrientedBox>()) == 0 }
+        self.Center == other.Center && self.Extents == other.Extents && self.Orientation == other.Orientation
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -2638,7 +2638,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingSphere {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialBoundingSphere {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingSphere>()) == 0 }
+        self.Center == other.Center && self.Radius == other.Radius
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -2685,7 +2685,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialRay {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for SpatialRay {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialRay>()) == 0 }
+        self.Origin == other.Origin && self.Direction == other.Direction
     }
 }
 #[cfg(feature = "Foundation_Numerics")]

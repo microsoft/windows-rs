@@ -2833,7 +2833,7 @@ unsafe impl ::windows::core::Abi for DispatcherQueueOptions {
 }
 impl ::core::cmp::PartialEq for DispatcherQueueOptions {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DispatcherQueueOptions>()) == 0 }
+        self.dwSize == other.dwSize && self.threadType == other.threadType && self.apartmentType == other.apartmentType
     }
 }
 impl ::core::cmp::Eq for DispatcherQueueOptions {}
@@ -2863,7 +2863,7 @@ unsafe impl ::windows::core::Abi for EventRegistrationToken {
 }
 impl ::core::cmp::PartialEq for EventRegistrationToken {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EventRegistrationToken>()) == 0 }
+        self.value == other.value
     }
 }
 impl ::core::cmp::Eq for EventRegistrationToken {}
@@ -2929,7 +2929,7 @@ unsafe impl ::windows::core::Abi for HSTRING_HEADER {
 }
 impl ::core::cmp::PartialEq for HSTRING_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTRING_HEADER>()) == 0 }
+        self.flags == other.flags && self.length == other.length && self.padding1 == other.padding1 && self.padding2 == other.padding2 && self.data == other.data
     }
 }
 impl ::core::cmp::Eq for HSTRING_HEADER {}
@@ -2993,7 +2993,7 @@ unsafe impl ::windows::core::Abi for ServerInformation {
 }
 impl ::core::cmp::PartialEq for ServerInformation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ServerInformation>()) == 0 }
+        self.dwServerPid == other.dwServerPid && self.dwServerTid == other.dwServerTid && self.ui64ServerAddress == other.ui64ServerAddress
     }
 }
 impl ::core::cmp::Eq for ServerInformation {}

@@ -815,7 +815,7 @@ unsafe impl ::windows::core::Abi for DIAG_SOCKADDR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIAG_SOCKADDR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAG_SOCKADDR>()) == 0 }
+        self.family == other.family && self.data == other.data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -848,7 +848,7 @@ unsafe impl ::windows::core::Abi for DiagnosticsInfo {
 }
 impl ::core::cmp::PartialEq for DiagnosticsInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DiagnosticsInfo>()) == 0 }
+        self.cost == other.cost && self.flags == other.flags
     }
 }
 impl ::core::cmp::Eq for DiagnosticsInfo {}
@@ -877,14 +877,6 @@ impl ::core::clone::Clone for HELPER_ATTRIBUTE {
 unsafe impl ::windows::core::Abi for HELPER_ATTRIBUTE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HELPER_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HELPER_ATTRIBUTE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HELPER_ATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HELPER_ATTRIBUTE {
     fn default() -> Self {
@@ -923,14 +915,6 @@ unsafe impl ::windows::core::Abi for HELPER_ATTRIBUTE_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HELPER_ATTRIBUTE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HELPER_ATTRIBUTE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HELPER_ATTRIBUTE_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HELPER_ATTRIBUTE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -966,7 +950,7 @@ unsafe impl ::windows::core::Abi for HYPOTHESIS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HYPOTHESIS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HYPOTHESIS>()) == 0 }
+        self.pwszClassName == other.pwszClassName && self.pwszDescription == other.pwszDescription && self.celt == other.celt && self.rgAttributes == other.rgAttributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -999,7 +983,7 @@ unsafe impl ::windows::core::Abi for HelperAttributeInfo {
 }
 impl ::core::cmp::PartialEq for HelperAttributeInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HelperAttributeInfo>()) == 0 }
+        self.pwszName == other.pwszName && self.r#type == other.r#type
     }
 }
 impl ::core::cmp::Eq for HelperAttributeInfo {}
@@ -1036,7 +1020,7 @@ unsafe impl ::windows::core::Abi for HypothesisResult {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HypothesisResult {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HypothesisResult>()) == 0 }
+        self.hypothesis == other.hypothesis && self.pathStatus == other.pathStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1075,7 +1059,7 @@ unsafe impl ::windows::core::Abi for LIFE_TIME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LIFE_TIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIFE_TIME>()) == 0 }
+        self.startTime == other.startTime && self.endTime == other.endTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1108,7 +1092,7 @@ unsafe impl ::windows::core::Abi for OCTET_STRING {
 }
 impl ::core::cmp::PartialEq for OCTET_STRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OCTET_STRING>()) == 0 }
+        self.dwLength == other.dwLength && self.lpValue == other.lpValue
     }
 }
 impl ::core::cmp::Eq for OCTET_STRING {}
@@ -1140,12 +1124,6 @@ impl ::core::clone::Clone for RepairInfo {
 unsafe impl ::windows::core::Abi for RepairInfo {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RepairInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RepairInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RepairInfo {}
 impl ::core::default::Default for RepairInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1166,12 +1144,6 @@ impl ::core::clone::Clone for RepairInfoEx {
 unsafe impl ::windows::core::Abi for RepairInfoEx {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RepairInfoEx {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RepairInfoEx>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RepairInfoEx {}
 impl ::core::default::Default for RepairInfoEx {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1203,7 +1175,7 @@ unsafe impl ::windows::core::Abi for RootCauseInfo {
 }
 impl ::core::cmp::PartialEq for RootCauseInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RootCauseInfo>()) == 0 }
+        self.pwszDescription == other.pwszDescription && self.rootCauseID == other.rootCauseID && self.rootCauseFlags == other.rootCauseFlags && self.networkInterfaceID == other.networkInterfaceID && self.pRepairs == other.pRepairs && self.repairCount == other.repairCount
     }
 }
 impl ::core::cmp::Eq for RootCauseInfo {}
@@ -1237,7 +1209,7 @@ unsafe impl ::windows::core::Abi for ShellCommandInfo {
 }
 impl ::core::cmp::PartialEq for ShellCommandInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ShellCommandInfo>()) == 0 }
+        self.pwszOperation == other.pwszOperation && self.pwszFile == other.pwszFile && self.pwszParameters == other.pwszParameters && self.pwszDirectory == other.pwszDirectory && self.nShowCmd == other.nShowCmd
     }
 }
 impl ::core::cmp::Eq for ShellCommandInfo {}
@@ -1261,12 +1233,6 @@ impl ::core::clone::Clone for UiInfo {
 unsafe impl ::windows::core::Abi for UiInfo {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UiInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UiInfo {}
 impl ::core::default::Default for UiInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1289,12 +1255,6 @@ impl ::core::clone::Clone for UiInfo_0 {
 unsafe impl ::windows::core::Abi for UiInfo_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UiInfo_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UiInfo_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UiInfo_0 {}
 impl ::core::default::Default for UiInfo_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

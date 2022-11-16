@@ -4287,12 +4287,6 @@ impl ::core::clone::Clone for PXE_ADDRESS {
 unsafe impl ::windows::core::Abi for PXE_ADDRESS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_ADDRESS {}
 impl ::core::default::Default for PXE_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4313,12 +4307,6 @@ impl ::core::clone::Clone for PXE_ADDRESS_0 {
 unsafe impl ::windows::core::Abi for PXE_ADDRESS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_ADDRESS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_ADDRESS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_ADDRESS_0 {}
 impl ::core::default::Default for PXE_ADDRESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4342,12 +4330,6 @@ impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE {
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_MESSAGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_DHCPV6_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCPV6_MESSAGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_DHCPV6_MESSAGE {}
 impl ::core::default::Default for PXE_DHCPV6_MESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4368,12 +4350,6 @@ impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE_HEADER {
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_MESSAGE_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_DHCPV6_MESSAGE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCPV6_MESSAGE_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_DHCPV6_MESSAGE_HEADER {}
 impl ::core::default::Default for PXE_DHCPV6_MESSAGE_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4403,7 +4379,7 @@ unsafe impl ::windows::core::Abi for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
 }
 impl ::core::cmp::PartialEq for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCPV6_NESTED_RELAY_MESSAGE>()) == 0 }
+        self.pRelayMessage == other.pRelayMessage && self.cbRelayMessage == other.cbRelayMessage && self.pInterfaceIdOption == other.pInterfaceIdOption && self.cbInterfaceIdOption == other.cbInterfaceIdOption
     }
 }
 impl ::core::cmp::Eq for PXE_DHCPV6_NESTED_RELAY_MESSAGE {}
@@ -4428,12 +4404,6 @@ impl ::core::clone::Clone for PXE_DHCPV6_OPTION {
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_OPTION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_DHCPV6_OPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCPV6_OPTION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_DHCPV6_OPTION {}
 impl ::core::default::Default for PXE_DHCPV6_OPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4457,12 +4427,6 @@ impl ::core::clone::Clone for PXE_DHCPV6_RELAY_MESSAGE {
 unsafe impl ::windows::core::Abi for PXE_DHCPV6_RELAY_MESSAGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_DHCPV6_RELAY_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCPV6_RELAY_MESSAGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_DHCPV6_RELAY_MESSAGE {}
 impl ::core::default::Default for PXE_DHCPV6_RELAY_MESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4497,12 +4461,6 @@ impl ::core::clone::Clone for PXE_DHCP_MESSAGE {
 unsafe impl ::windows::core::Abi for PXE_DHCP_MESSAGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_DHCP_MESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCP_MESSAGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_DHCP_MESSAGE {}
 impl ::core::default::Default for PXE_DHCP_MESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4523,12 +4481,6 @@ impl ::core::clone::Clone for PXE_DHCP_MESSAGE_0 {
 unsafe impl ::windows::core::Abi for PXE_DHCP_MESSAGE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_DHCP_MESSAGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCP_MESSAGE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_DHCP_MESSAGE_0 {}
 impl ::core::default::Default for PXE_DHCP_MESSAGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4550,12 +4502,6 @@ impl ::core::clone::Clone for PXE_DHCP_OPTION {
 unsafe impl ::windows::core::Abi for PXE_DHCP_OPTION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PXE_DHCP_OPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_DHCP_OPTION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PXE_DHCP_OPTION {}
 impl ::core::default::Default for PXE_DHCP_OPTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4592,7 +4538,7 @@ unsafe impl ::windows::core::Abi for PXE_PROVIDER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PXE_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PXE_PROVIDER>()) == 0 }
+        self.uSizeOfStruct == other.uSizeOfStruct && self.pwszName == other.pwszName && self.pwszFilePath == other.pwszFilePath && self.bIsCritical == other.bIsCritical && self.uIndex == other.uIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4626,7 +4572,7 @@ unsafe impl ::windows::core::Abi for TRANSPORTCLIENT_SESSION_INFO {
 }
 impl ::core::cmp::PartialEq for TRANSPORTCLIENT_SESSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSPORTCLIENT_SESSION_INFO>()) == 0 }
+        self.ulStructureLength == other.ulStructureLength && self.ullFileSize == other.ullFileSize && self.ulBlockSize == other.ulBlockSize
     }
 }
 impl ::core::cmp::Eq for TRANSPORTCLIENT_SESSION_INFO {}
@@ -4658,7 +4604,7 @@ unsafe impl ::windows::core::Abi for WDS_CLI_CRED {
 }
 impl ::core::cmp::PartialEq for WDS_CLI_CRED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WDS_CLI_CRED>()) == 0 }
+        self.pwszUserName == other.pwszUserName && self.pwszDomain == other.pwszDomain && self.pwszPassword == other.pwszPassword
     }
 }
 impl ::core::cmp::Eq for WDS_CLI_CRED {}
@@ -4689,21 +4635,13 @@ impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WDS_TRANSPORTCLIENT_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WDS_TRANSPORTCLIENT_CALLBACKS").field("SessionStart", &self.SessionStart.map(|f| f as usize)).field("SessionStartEx", &self.SessionStartEx.map(|f| f as usize)).field("ReceiveContents", &self.ReceiveContents.map(|f| f as usize)).field("ReceiveMetadata", &self.ReceiveMetadata.map(|f| f as usize)).field("SessionComplete", &self.SessionComplete.map(|f| f as usize)).field("SessionNegotiate", &self.SessionNegotiate.map(|f| f as usize)).finish()
+        f.debug_struct("WDS_TRANSPORTCLIENT_CALLBACKS").finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WDS_TRANSPORTCLIENT_CALLBACKS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WDS_TRANSPORTCLIENT_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WDS_TRANSPORTCLIENT_CALLBACKS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WDS_TRANSPORTCLIENT_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WDS_TRANSPORTCLIENT_CALLBACKS {
     fn default() -> Self {
@@ -4740,7 +4678,7 @@ unsafe impl ::windows::core::Abi for WDS_TRANSPORTCLIENT_REQUEST {
 }
 impl ::core::cmp::PartialEq for WDS_TRANSPORTCLIENT_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WDS_TRANSPORTCLIENT_REQUEST>()) == 0 }
+        self.ulLength == other.ulLength && self.ulApiVersion == other.ulApiVersion && self.ulAuthLevel == other.ulAuthLevel && self.pwszServer == other.pwszServer && self.pwszNamespace == other.pwszNamespace && self.pwszObjectName == other.pwszObjectName && self.ulCacheSize == other.ulCacheSize && self.ulProtocol == other.ulProtocol && self.pvProtocolData == other.pvProtocolData && self.ulProtocolDataLength == other.ulProtocolDataLength
     }
 }
 impl ::core::cmp::Eq for WDS_TRANSPORTCLIENT_REQUEST {}
@@ -4779,7 +4717,7 @@ unsafe impl ::windows::core::Abi for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::cmp::PartialEq for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WDS_TRANSPORTPROVIDER_INIT_PARAMS>()) == 0 }
+        self.ulLength == other.ulLength && self.ulMcServerVersion == other.ulMcServerVersion && self.hRegistryKey == other.hRegistryKey && self.hProvider == other.hProvider
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -4812,7 +4750,7 @@ unsafe impl ::windows::core::Abi for WDS_TRANSPORTPROVIDER_SETTINGS {
 }
 impl ::core::cmp::PartialEq for WDS_TRANSPORTPROVIDER_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WDS_TRANSPORTPROVIDER_SETTINGS>()) == 0 }
+        self.ulLength == other.ulLength && self.ulProviderVersion == other.ulProviderVersion
     }
 }
 impl ::core::cmp::Eq for WDS_TRANSPORTPROVIDER_SETTINGS {}

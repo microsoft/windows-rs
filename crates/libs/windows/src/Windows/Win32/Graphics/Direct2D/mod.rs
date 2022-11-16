@@ -22972,7 +22972,7 @@ unsafe impl ::windows::core::Abi for D2D1_ARC_SEGMENT {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_ARC_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_ARC_SEGMENT>()) == 0 }
+        self.point == other.point && self.size == other.size && self.rotationAngle == other.rotationAngle && self.sweepDirection == other.sweepDirection && self.arcSize == other.arcSize
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -23006,7 +23006,7 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAP_BRUSH_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for D2D1_BITMAP_BRUSH_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BITMAP_BRUSH_PROPERTIES>()) == 0 }
+        self.extendModeX == other.extendModeX && self.extendModeY == other.extendModeY && self.interpolationMode == other.interpolationMode
     }
 }
 impl ::core::cmp::Eq for D2D1_BITMAP_BRUSH_PROPERTIES {}
@@ -23038,7 +23038,7 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAP_BRUSH_PROPERTIES1 {
 }
 impl ::core::cmp::PartialEq for D2D1_BITMAP_BRUSH_PROPERTIES1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BITMAP_BRUSH_PROPERTIES1>()) == 0 }
+        self.extendModeX == other.extendModeX && self.extendModeY == other.extendModeY && self.interpolationMode == other.interpolationMode
     }
 }
 impl ::core::cmp::Eq for D2D1_BITMAP_BRUSH_PROPERTIES1 {}
@@ -23076,7 +23076,7 @@ unsafe impl ::windows::core::Abi for D2D1_BITMAP_PROPERTIES {
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D2D1_BITMAP_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BITMAP_PROPERTIES>()) == 0 }
+        self.pixelFormat == other.pixelFormat && self.dpiX == other.dpiX && self.dpiY == other.dpiY
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -23154,7 +23154,7 @@ unsafe impl ::windows::core::Abi for D2D1_BLEND_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for D2D1_BLEND_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BLEND_DESCRIPTION>()) == 0 }
+        self.sourceBlend == other.sourceBlend && self.destinationBlend == other.destinationBlend && self.blendOperation == other.blendOperation && self.sourceBlendAlpha == other.sourceBlendAlpha && self.destinationBlendAlpha == other.destinationBlendAlpha && self.blendOperationAlpha == other.blendOperationAlpha && self.blendFactor == other.blendFactor
     }
 }
 impl ::core::cmp::Eq for D2D1_BLEND_DESCRIPTION {}
@@ -23191,7 +23191,7 @@ unsafe impl ::windows::core::Abi for D2D1_BRUSH_PROPERTIES {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for D2D1_BRUSH_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BRUSH_PROPERTIES>()) == 0 }
+        self.opacity == other.opacity && self.transform == other.transform
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -23225,7 +23225,7 @@ unsafe impl ::windows::core::Abi for D2D1_CREATION_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for D2D1_CREATION_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_CREATION_PROPERTIES>()) == 0 }
+        self.threadingMode == other.threadingMode && self.debugLevel == other.debugLevel && self.options == other.options
     }
 }
 impl ::core::cmp::Eq for D2D1_CREATION_PROPERTIES {}
@@ -23265,7 +23265,7 @@ unsafe impl ::windows::core::Abi for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES>()) == 0 }
+        self.shaderBufferWithInputSignature == other.shaderBufferWithInputSignature && self.shaderBufferSize == other.shaderBufferSize && self.inputElements == other.inputElements && self.elementCount == other.elementCount && self.stride == other.stride
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -23307,7 +23307,7 @@ unsafe impl ::windows::core::Abi for D2D1_DRAWING_STATE_DESCRIPTION {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for D2D1_DRAWING_STATE_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_DRAWING_STATE_DESCRIPTION>()) == 0 }
+        self.antialiasMode == other.antialiasMode && self.textAntialiasMode == other.textAntialiasMode && self.tag1 == other.tag1 && self.tag2 == other.tag2 && self.transform == other.transform
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -23351,7 +23351,7 @@ unsafe impl ::windows::core::Abi for D2D1_DRAWING_STATE_DESCRIPTION1 {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for D2D1_DRAWING_STATE_DESCRIPTION1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_DRAWING_STATE_DESCRIPTION1>()) == 0 }
+        self.antialiasMode == other.antialiasMode && self.textAntialiasMode == other.textAntialiasMode && self.tag1 == other.tag1 && self.tag2 == other.tag2 && self.transform == other.transform && self.primitiveBlend == other.primitiveBlend && self.unitMode == other.unitMode
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -23429,7 +23429,7 @@ unsafe impl ::windows::core::Abi for D2D1_ELLIPSE {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_ELLIPSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_ELLIPSE>()) == 0 }
+        self.point == other.point && self.radiusX == other.radiusX && self.radiusY == other.radiusY
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -23461,7 +23461,7 @@ unsafe impl ::windows::core::Abi for D2D1_FACTORY_OPTIONS {
 }
 impl ::core::cmp::PartialEq for D2D1_FACTORY_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_FACTORY_OPTIONS>()) == 0 }
+        self.debugLevel == other.debugLevel
     }
 }
 impl ::core::cmp::Eq for D2D1_FACTORY_OPTIONS {}
@@ -23497,7 +23497,7 @@ unsafe impl ::windows::core::Abi for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS 
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS>()) == 0 }
+        self.computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x == other.computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23535,7 +23535,7 @@ unsafe impl ::windows::core::Abi for D2D1_FEATURE_DATA_DOUBLES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D2D1_FEATURE_DATA_DOUBLES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_FEATURE_DATA_DOUBLES>()) == 0 }
+        self.doublePrecisionFloatShaderOps == other.doublePrecisionFloatShaderOps
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23621,7 +23621,30 @@ unsafe impl ::windows::core::Abi for D2D1_GRADIENT_MESH_PATCH {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_GRADIENT_MESH_PATCH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_GRADIENT_MESH_PATCH>()) == 0 }
+        self.point00 == other.point00
+            && self.point01 == other.point01
+            && self.point02 == other.point02
+            && self.point03 == other.point03
+            && self.point10 == other.point10
+            && self.point11 == other.point11
+            && self.point12 == other.point12
+            && self.point13 == other.point13
+            && self.point20 == other.point20
+            && self.point21 == other.point21
+            && self.point22 == other.point22
+            && self.point23 == other.point23
+            && self.point30 == other.point30
+            && self.point31 == other.point31
+            && self.point32 == other.point32
+            && self.point33 == other.point33
+            && self.color00 == other.color00
+            && self.color03 == other.color03
+            && self.color30 == other.color30
+            && self.color33 == other.color33
+            && self.topEdgeMode == other.topEdgeMode
+            && self.leftEdgeMode == other.leftEdgeMode
+            && self.bottomEdgeMode == other.bottomEdgeMode
+            && self.rightEdgeMode == other.rightEdgeMode
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -23660,7 +23683,7 @@ unsafe impl ::windows::core::Abi for D2D1_GRADIENT_STOP {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_GRADIENT_STOP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_GRADIENT_STOP>()) == 0 }
+        self.position == other.position && self.color == other.color
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -23700,7 +23723,7 @@ unsafe impl ::windows::core::Abi for D2D1_HWND_RENDER_TARGET_PROPERTIES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_HWND_RENDER_TARGET_PROPERTIES>()) == 0 }
+        self.hwnd == other.hwnd && self.pixelSize == other.pixelSize && self.presentOptions == other.presentOptions
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -23741,7 +23764,7 @@ unsafe impl ::windows::core::Abi for D2D1_IMAGE_BRUSH_PROPERTIES {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_IMAGE_BRUSH_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_IMAGE_BRUSH_PROPERTIES>()) == 0 }
+        self.sourceRectangle == other.sourceRectangle && self.extendModeX == other.extendModeX && self.extendModeY == other.extendModeY && self.interpolationMode == other.interpolationMode
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -23775,7 +23798,7 @@ unsafe impl ::windows::core::Abi for D2D1_INK_BEZIER_SEGMENT {
 }
 impl ::core::cmp::PartialEq for D2D1_INK_BEZIER_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_INK_BEZIER_SEGMENT>()) == 0 }
+        self.point1 == other.point1 && self.point2 == other.point2 && self.point3 == other.point3
     }
 }
 impl ::core::cmp::Eq for D2D1_INK_BEZIER_SEGMENT {}
@@ -23807,7 +23830,7 @@ unsafe impl ::windows::core::Abi for D2D1_INK_POINT {
 }
 impl ::core::cmp::PartialEq for D2D1_INK_POINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_INK_POINT>()) == 0 }
+        self.x == other.x && self.y == other.y && self.radius == other.radius
     }
 }
 impl ::core::cmp::Eq for D2D1_INK_POINT {}
@@ -23844,7 +23867,7 @@ unsafe impl ::windows::core::Abi for D2D1_INK_STYLE_PROPERTIES {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for D2D1_INK_STYLE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_INK_STYLE_PROPERTIES>()) == 0 }
+        self.nibShape == other.nibShape && self.nibTransform == other.nibTransform
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -23877,7 +23900,7 @@ unsafe impl ::windows::core::Abi for D2D1_INPUT_DESCRIPTION {
 }
 impl ::core::cmp::PartialEq for D2D1_INPUT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_INPUT_DESCRIPTION>()) == 0 }
+        self.filter == other.filter && self.levelOfDetailCount == other.levelOfDetailCount
     }
 }
 impl ::core::cmp::Eq for D2D1_INPUT_DESCRIPTION {}
@@ -23917,7 +23940,7 @@ unsafe impl ::windows::core::Abi for D2D1_INPUT_ELEMENT_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D2D1_INPUT_ELEMENT_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_INPUT_ELEMENT_DESC>()) == 0 }
+        self.semanticName == other.semanticName && self.semanticIndex == other.semanticIndex && self.format == other.format && self.inputSlot == other.inputSlot && self.alignedByteOffset == other.alignedByteOffset
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -24056,7 +24079,7 @@ unsafe impl ::windows::core::Abi for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES>()) == 0 }
+        self.startPoint == other.startPoint && self.endPoint == other.endPoint
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24089,7 +24112,7 @@ unsafe impl ::windows::core::Abi for D2D1_MAPPED_RECT {
 }
 impl ::core::cmp::PartialEq for D2D1_MAPPED_RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_MAPPED_RECT>()) == 0 }
+        self.pitch == other.pitch && self.bits == other.bits
     }
 }
 impl ::core::cmp::Eq for D2D1_MAPPED_RECT {}
@@ -24129,7 +24152,7 @@ unsafe impl ::windows::core::Abi for D2D1_POINT_DESCRIPTION {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_POINT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_POINT_DESCRIPTION>()) == 0 }
+        self.point == other.point && self.unitTangentVector == other.unitTangentVector && self.endSegment == other.endSegment && self.endFigure == other.endFigure && self.lengthToEndSegment == other.lengthToEndSegment
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24163,7 +24186,7 @@ unsafe impl ::windows::core::Abi for D2D1_PRINT_CONTROL_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for D2D1_PRINT_CONTROL_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_PRINT_CONTROL_PROPERTIES>()) == 0 }
+        self.fontSubset == other.fontSubset && self.rasterDPI == other.rasterDPI && self.colorSpace == other.colorSpace
     }
 }
 impl ::core::cmp::Eq for D2D1_PRINT_CONTROL_PROPERTIES {}
@@ -24187,18 +24210,12 @@ impl ::core::clone::Clone for D2D1_PROPERTY_BINDING {
 }
 impl ::core::fmt::Debug for D2D1_PROPERTY_BINDING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D1_PROPERTY_BINDING").field("propertyName", &self.propertyName).field("setFunction", &self.setFunction.map(|f| f as usize)).field("getFunction", &self.getFunction.map(|f| f as usize)).finish()
+        f.debug_struct("D2D1_PROPERTY_BINDING").field("propertyName", &self.propertyName).finish()
     }
 }
 unsafe impl ::windows::core::Abi for D2D1_PROPERTY_BINDING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for D2D1_PROPERTY_BINDING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_PROPERTY_BINDING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D1_PROPERTY_BINDING {}
 impl ::core::default::Default for D2D1_PROPERTY_BINDING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -24232,7 +24249,7 @@ unsafe impl ::windows::core::Abi for D2D1_QUADRATIC_BEZIER_SEGMENT {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_QUADRATIC_BEZIER_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_QUADRATIC_BEZIER_SEGMENT>()) == 0 }
+        self.point1 == other.point1 && self.point2 == other.point2
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24273,7 +24290,7 @@ unsafe impl ::windows::core::Abi for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES>()) == 0 }
+        self.center == other.center && self.gradientOriginOffset == other.gradientOriginOffset && self.radiusX == other.radiusX && self.radiusY == other.radiusY
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24312,7 +24329,7 @@ unsafe impl ::windows::core::Abi for D2D1_RENDERING_CONTROLS {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_RENDERING_CONTROLS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_RENDERING_CONTROLS>()) == 0 }
+        self.bufferPrecision == other.bufferPrecision && self.tileSize == other.tileSize
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24355,7 +24372,7 @@ unsafe impl ::windows::core::Abi for D2D1_RENDER_TARGET_PROPERTIES {
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D2D1_RENDER_TARGET_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_RENDER_TARGET_PROPERTIES>()) == 0 }
+        self.r#type == other.r#type && self.pixelFormat == other.pixelFormat && self.dpiX == other.dpiX && self.dpiY == other.dpiY && self.usage == other.usage && self.minLevel == other.minLevel
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -24392,7 +24409,7 @@ unsafe impl ::windows::core::Abi for D2D1_RESOURCE_TEXTURE_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for D2D1_RESOURCE_TEXTURE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_RESOURCE_TEXTURE_PROPERTIES>()) == 0 }
+        self.extents == other.extents && self.dimensions == other.dimensions && self.bufferPrecision == other.bufferPrecision && self.channelDepth == other.channelDepth && self.filter == other.filter && self.extendModes == other.extendModes
     }
 }
 impl ::core::cmp::Eq for D2D1_RESOURCE_TEXTURE_PROPERTIES {}
@@ -24430,7 +24447,7 @@ unsafe impl ::windows::core::Abi for D2D1_ROUNDED_RECT {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_ROUNDED_RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_ROUNDED_RECT>()) == 0 }
+        self.rect == other.rect && self.radiusX == other.radiusX && self.radiusY == other.radiusY
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24472,7 +24489,7 @@ unsafe impl ::windows::core::Abi for D2D1_SIMPLE_COLOR_PROFILE {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_SIMPLE_COLOR_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_SIMPLE_COLOR_PROFILE>()) == 0 }
+        self.redPrimary == other.redPrimary && self.greenPrimary == other.greenPrimary && self.bluePrimary == other.bluePrimary && self.whitePointXZ == other.whitePointXZ && self.gamma == other.gamma
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24510,7 +24527,7 @@ unsafe impl ::windows::core::Abi for D2D1_STROKE_STYLE_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for D2D1_STROKE_STYLE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_STROKE_STYLE_PROPERTIES>()) == 0 }
+        self.startCap == other.startCap && self.endCap == other.endCap && self.dashCap == other.dashCap && self.lineJoin == other.lineJoin && self.miterLimit == other.miterLimit && self.dashStyle == other.dashStyle && self.dashOffset == other.dashOffset
     }
 }
 impl ::core::cmp::Eq for D2D1_STROKE_STYLE_PROPERTIES {}
@@ -24547,7 +24564,7 @@ unsafe impl ::windows::core::Abi for D2D1_STROKE_STYLE_PROPERTIES1 {
 }
 impl ::core::cmp::PartialEq for D2D1_STROKE_STYLE_PROPERTIES1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_STROKE_STYLE_PROPERTIES1>()) == 0 }
+        self.startCap == other.startCap && self.endCap == other.endCap && self.dashCap == other.dashCap && self.lineJoin == other.lineJoin && self.miterLimit == other.miterLimit && self.dashStyle == other.dashStyle && self.dashOffset == other.dashOffset && self.transformType == other.transformType
     }
 }
 impl ::core::cmp::Eq for D2D1_STROKE_STYLE_PROPERTIES1 {}
@@ -24578,7 +24595,7 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_LENGTH {
 }
 impl ::core::cmp::PartialEq for D2D1_SVG_LENGTH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_SVG_LENGTH>()) == 0 }
+        self.value == other.value && self.units == other.units
     }
 }
 impl ::core::cmp::Eq for D2D1_SVG_LENGTH {}
@@ -24616,7 +24633,7 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_PRESERVE_ASPECT_RATIO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D2D1_SVG_PRESERVE_ASPECT_RATIO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_SVG_PRESERVE_ASPECT_RATIO>()) == 0 }
+        self.defer == other.defer && self.align == other.align && self.meetOrSlice == other.meetOrSlice
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -24651,7 +24668,7 @@ unsafe impl ::windows::core::Abi for D2D1_SVG_VIEWBOX {
 }
 impl ::core::cmp::PartialEq for D2D1_SVG_VIEWBOX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_SVG_VIEWBOX>()) == 0 }
+        self.x == other.x && self.y == other.y && self.width == other.width && self.height == other.height
     }
 }
 impl ::core::cmp::Eq for D2D1_SVG_VIEWBOX {}
@@ -24685,7 +24702,7 @@ unsafe impl ::windows::core::Abi for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES>()) == 0 }
+        self.orientation == other.orientation && self.scaleX == other.scaleX && self.scaleY == other.scaleY && self.interpolationMode == other.interpolationMode && self.options == other.options
     }
 }
 impl ::core::cmp::Eq for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {}
@@ -24723,7 +24740,7 @@ unsafe impl ::windows::core::Abi for D2D1_TRIANGLE {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_TRIANGLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_TRIANGLE>()) == 0 }
+        self.point1 == other.point1 && self.point2 == other.point2 && self.point3 == other.point3
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -24758,7 +24775,7 @@ unsafe impl ::windows::core::Abi for D2D1_VERTEX_BUFFER_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for D2D1_VERTEX_BUFFER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_VERTEX_BUFFER_PROPERTIES>()) == 0 }
+        self.inputCount == other.inputCount && self.usage == other.usage && self.data == other.data && self.byteWidth == other.byteWidth
     }
 }
 impl ::core::cmp::Eq for D2D1_VERTEX_BUFFER_PROPERTIES {}
@@ -24789,7 +24806,7 @@ unsafe impl ::windows::core::Abi for D2D1_VERTEX_RANGE {
 }
 impl ::core::cmp::PartialEq for D2D1_VERTEX_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_VERTEX_RANGE>()) == 0 }
+        self.startVertex == other.startVertex && self.vertexCount == other.vertexCount
     }
 }
 impl ::core::cmp::Eq for D2D1_VERTEX_RANGE {}

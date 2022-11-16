@@ -14754,7 +14754,7 @@ unsafe impl ::windows::core::Abi for XHR_CERT {
 }
 impl ::core::cmp::PartialEq for XHR_CERT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XHR_CERT>()) == 0 }
+        self.cbCert == other.cbCert && self.pbCert == other.pbCert
     }
 }
 impl ::core::cmp::Eq for XHR_CERT {}
@@ -14795,7 +14795,7 @@ unsafe impl ::windows::core::Abi for XHR_COOKIE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for XHR_COOKIE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XHR_COOKIE>()) == 0 }
+        self.pwszUrl == other.pwszUrl && self.pwszName == other.pwszName && self.pwszValue == other.pwszValue && self.pwszP3PPolicy == other.pwszP3PPolicy && self.ftExpires == other.ftExpires && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14916,7 +14916,28 @@ unsafe impl ::windows::core::Abi for __msxml6_ReferenceRemainingTypes__ {
 }
 impl ::core::cmp::PartialEq for __msxml6_ReferenceRemainingTypes__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<__msxml6_ReferenceRemainingTypes__>()) == 0 }
+        self.__tagDomNodeType__ == other.__tagDomNodeType__
+            && self.__domNodeType__ == other.__domNodeType__
+            && self.__serverXmlHttpOptionEnum__ == other.__serverXmlHttpOptionEnum__
+            && self.__serverXmlHttpOption__ == other.__serverXmlHttpOption__
+            && self.__serverCertOptionEnum__ == other.__serverCertOptionEnum__
+            && self.__serverCertOption__ == other.__serverCertOption__
+            && self.__proxySettingEnum__ == other.__proxySettingEnum__
+            && self.__proxySetting__ == other.__proxySetting__
+            && self.__somItemTypeEnum__ == other.__somItemTypeEnum__
+            && self.__somItemType__ == other.__somItemType__
+            && self.__schemaUseEnum__ == other.__schemaUseEnum__
+            && self.__schemaUse__ == other.__schemaUse__
+            && self.__schemaDerivationMethodEnum__ == other.__schemaDerivationMethodEnum__
+            && self.__schemaDerivationMethod__ == other.__schemaDerivationMethod__
+            && self.__schemaContentTypeEnum__ == other.__schemaContentTypeEnum__
+            && self.__schemaContentType__ == other.__schemaContentType__
+            && self.__schemaProcessContentsEnum__ == other.__schemaProcessContentsEnum__
+            && self.__schemaProcessContents__ == other.__schemaProcessContents__
+            && self.__schemaWhitespaceEnum__ == other.__schemaWhitespaceEnum__
+            && self.__schemaWhitespace__ == other.__schemaWhitespace__
+            && self.__schemaTypeVarietyEnum__ == other.__schemaTypeVarietyEnum__
+            && self.__schemaTypeVariety__ == other.__schemaTypeVariety__
     }
 }
 impl ::core::cmp::Eq for __msxml6_ReferenceRemainingTypes__ {}

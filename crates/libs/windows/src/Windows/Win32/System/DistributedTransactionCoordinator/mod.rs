@@ -4556,7 +4556,7 @@ unsafe impl ::windows::core::Abi for BOID {
 }
 impl ::core::cmp::PartialEq for BOID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BOID>()) == 0 }
+        self.rgb == other.rgb
     }
 }
 impl ::core::cmp::Eq for BOID {}
@@ -4587,7 +4587,7 @@ unsafe impl ::windows::core::Abi for OLE_TM_CONFIG_PARAMS_V1 {
 }
 impl ::core::cmp::PartialEq for OLE_TM_CONFIG_PARAMS_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLE_TM_CONFIG_PARAMS_V1>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwcConcurrencyHint == other.dwcConcurrencyHint
     }
 }
 impl ::core::cmp::Eq for OLE_TM_CONFIG_PARAMS_V1 {}
@@ -4620,7 +4620,7 @@ unsafe impl ::windows::core::Abi for OLE_TM_CONFIG_PARAMS_V2 {
 }
 impl ::core::cmp::PartialEq for OLE_TM_CONFIG_PARAMS_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OLE_TM_CONFIG_PARAMS_V2>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwcConcurrencyHint == other.dwcConcurrencyHint && self.applicationType == other.applicationType && self.clusterResourceId == other.clusterResourceId
     }
 }
 impl ::core::cmp::Eq for OLE_TM_CONFIG_PARAMS_V2 {}
@@ -4650,7 +4650,7 @@ unsafe impl ::windows::core::Abi for PROXY_CONFIG_PARAMS {
 }
 impl ::core::cmp::PartialEq for PROXY_CONFIG_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROXY_CONFIG_PARAMS>()) == 0 }
+        self.wcThreadsMax == other.wcThreadsMax
     }
 }
 impl ::core::cmp::Eq for PROXY_CONFIG_PARAMS {}
@@ -4681,7 +4681,7 @@ unsafe impl ::windows::core::Abi for XACTOPT {
 }
 impl ::core::cmp::PartialEq for XACTOPT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XACTOPT>()) == 0 }
+        self.ulTimeout == other.ulTimeout && self.szDescription == other.szDescription
     }
 }
 impl ::core::cmp::Eq for XACTOPT {}
@@ -4724,7 +4724,7 @@ unsafe impl ::windows::core::Abi for XACTSTATS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for XACTSTATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XACTSTATS>()) == 0 }
+        self.cOpen == other.cOpen && self.cCommitting == other.cCommitting && self.cCommitted == other.cCommitted && self.cAborting == other.cAborting && self.cAborted == other.cAborted && self.cInDoubt == other.cInDoubt && self.cHeuristicDecision == other.cHeuristicDecision && self.timeTransactionsUp == other.timeTransactionsUp
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4762,7 +4762,7 @@ unsafe impl ::windows::core::Abi for XACTTRANSINFO {
 }
 impl ::core::cmp::PartialEq for XACTTRANSINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XACTTRANSINFO>()) == 0 }
+        self.uow == other.uow && self.isoLevel == other.isoLevel && self.isoFlags == other.isoFlags && self.grfTCSupported == other.grfTCSupported && self.grfRMSupported == other.grfRMSupported && self.grfTCSupportedRetaining == other.grfTCSupportedRetaining && self.grfRMSupportedRetaining == other.grfRMSupportedRetaining
     }
 }
 impl ::core::cmp::Eq for XACTTRANSINFO {}
@@ -4801,7 +4801,7 @@ unsafe impl ::windows::core::Abi for XID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for XID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XID>()) == 0 }
+        self.formatID == other.formatID && self.gtrid_length == other.gtrid_length && self.bqual_length == other.bqual_length && self.data == other.data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4865,7 +4865,7 @@ unsafe impl ::windows::core::Abi for xa_switch_t {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for xa_switch_t {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<xa_switch_t>()) == 0 }
+        self.name == other.name && self.flags == other.flags && self.version == other.version && self.xa_open_entry == other.xa_open_entry && self.xa_close_entry == other.xa_close_entry && self.xa_start_entry == other.xa_start_entry && self.xa_end_entry == other.xa_end_entry && self.xa_rollback_entry == other.xa_rollback_entry && self.xa_prepare_entry == other.xa_prepare_entry && self.xa_commit_entry == other.xa_commit_entry && self.xa_recover_entry == other.xa_recover_entry && self.xa_forget_entry == other.xa_forget_entry && self.xa_complete_entry == other.xa_complete_entry
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -548,7 +548,7 @@ unsafe impl ::windows::core::Abi for BSMINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BSMINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSMINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.hdesk == other.hdesk && self.hwnd == other.hwnd && self.luid == other.luid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -652,7 +652,7 @@ unsafe impl ::windows::core::Abi for USEROBJECTFLAGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USEROBJECTFLAGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USEROBJECTFLAGS>()) == 0 }
+        self.fInherit == other.fInherit && self.fReserved == other.fReserved && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]

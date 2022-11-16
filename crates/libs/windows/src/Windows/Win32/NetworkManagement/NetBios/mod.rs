@@ -196,7 +196,7 @@ unsafe impl ::windows::core::Abi for ACTION_HEADER {
 }
 impl ::core::cmp::PartialEq for ACTION_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTION_HEADER>()) == 0 }
+        self.transport_id == other.transport_id && self.action_code == other.action_code && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for ACTION_HEADER {}
@@ -280,7 +280,33 @@ unsafe impl ::windows::core::Abi for ADAPTER_STATUS {
 }
 impl ::core::cmp::PartialEq for ADAPTER_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADAPTER_STATUS>()) == 0 }
+        self.adapter_address == other.adapter_address
+            && self.rev_major == other.rev_major
+            && self.reserved0 == other.reserved0
+            && self.adapter_type == other.adapter_type
+            && self.rev_minor == other.rev_minor
+            && self.duration == other.duration
+            && self.frmr_recv == other.frmr_recv
+            && self.frmr_xmit == other.frmr_xmit
+            && self.iframe_recv_err == other.iframe_recv_err
+            && self.xmit_aborts == other.xmit_aborts
+            && self.xmit_success == other.xmit_success
+            && self.recv_success == other.recv_success
+            && self.iframe_xmit_err == other.iframe_xmit_err
+            && self.recv_buff_unavail == other.recv_buff_unavail
+            && self.t1_timeouts == other.t1_timeouts
+            && self.ti_timeouts == other.ti_timeouts
+            && self.reserved1 == other.reserved1
+            && self.free_ncbs == other.free_ncbs
+            && self.max_cfg_ncbs == other.max_cfg_ncbs
+            && self.max_ncbs == other.max_ncbs
+            && self.xmit_buf_unavail == other.xmit_buf_unavail
+            && self.max_dgram_size == other.max_dgram_size
+            && self.pending_sess == other.pending_sess
+            && self.max_cfg_sess == other.max_cfg_sess
+            && self.max_sess == other.max_sess
+            && self.max_sess_pkt_size == other.max_sess_pkt_size
+            && self.name_count == other.name_count
     }
 }
 impl ::core::cmp::Eq for ADAPTER_STATUS {}
@@ -315,7 +341,7 @@ unsafe impl ::windows::core::Abi for FIND_NAME_BUFFER {
 }
 impl ::core::cmp::PartialEq for FIND_NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FIND_NAME_BUFFER>()) == 0 }
+        self.length == other.length && self.access_control == other.access_control && self.frame_control == other.frame_control && self.destination_addr == other.destination_addr && self.source_addr == other.source_addr && self.routing_info == other.routing_info
     }
 }
 impl ::core::cmp::Eq for FIND_NAME_BUFFER {}
@@ -347,7 +373,7 @@ unsafe impl ::windows::core::Abi for FIND_NAME_HEADER {
 }
 impl ::core::cmp::PartialEq for FIND_NAME_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FIND_NAME_HEADER>()) == 0 }
+        self.node_count == other.node_count && self.reserved == other.reserved && self.unique_group == other.unique_group
     }
 }
 impl ::core::cmp::Eq for FIND_NAME_HEADER {}
@@ -378,7 +404,7 @@ unsafe impl ::windows::core::Abi for LANA_ENUM {
 }
 impl ::core::cmp::PartialEq for LANA_ENUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LANA_ENUM>()) == 0 }
+        self.length == other.length && self.lana == other.lana
     }
 }
 impl ::core::cmp::Eq for LANA_ENUM {}
@@ -410,7 +436,7 @@ unsafe impl ::windows::core::Abi for NAME_BUFFER {
 }
 impl ::core::cmp::PartialEq for NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NAME_BUFFER>()) == 0 }
+        self.name == other.name && self.name_num == other.name_num && self.name_flags == other.name_flags
     }
 }
 impl ::core::cmp::Eq for NAME_BUFFER {}
@@ -482,7 +508,7 @@ unsafe impl ::windows::core::Abi for NCB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NCB>()) == 0 }
+        self.ncb_command == other.ncb_command && self.ncb_retcode == other.ncb_retcode && self.ncb_lsn == other.ncb_lsn && self.ncb_num == other.ncb_num && self.ncb_buffer == other.ncb_buffer && self.ncb_length == other.ncb_length && self.ncb_callname == other.ncb_callname && self.ncb_name == other.ncb_name && self.ncb_rto == other.ncb_rto && self.ncb_sto == other.ncb_sto && self.ncb_post == other.ncb_post && self.ncb_lana_num == other.ncb_lana_num && self.ncb_cmd_cplt == other.ncb_cmd_cplt && self.ncb_reserve == other.ncb_reserve && self.ncb_event == other.ncb_event
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -558,7 +584,7 @@ unsafe impl ::windows::core::Abi for NCB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NCB>()) == 0 }
+        self.ncb_command == other.ncb_command && self.ncb_retcode == other.ncb_retcode && self.ncb_lsn == other.ncb_lsn && self.ncb_num == other.ncb_num && self.ncb_buffer == other.ncb_buffer && self.ncb_length == other.ncb_length && self.ncb_callname == other.ncb_callname && self.ncb_name == other.ncb_name && self.ncb_rto == other.ncb_rto && self.ncb_sto == other.ncb_sto && self.ncb_post == other.ncb_post && self.ncb_lana_num == other.ncb_lana_num && self.ncb_cmd_cplt == other.ncb_cmd_cplt && self.ncb_reserve == other.ncb_reserve && self.ncb_event == other.ncb_event
     }
 }
 #[cfg(target_arch = "x86")]
@@ -597,7 +623,7 @@ unsafe impl ::windows::core::Abi for SESSION_BUFFER {
 }
 impl ::core::cmp::PartialEq for SESSION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SESSION_BUFFER>()) == 0 }
+        self.lsn == other.lsn && self.state == other.state && self.local_name == other.local_name && self.remote_name == other.remote_name && self.rcvs_outstanding == other.rcvs_outstanding && self.sends_outstanding == other.sends_outstanding
     }
 }
 impl ::core::cmp::Eq for SESSION_BUFFER {}
@@ -630,7 +656,7 @@ unsafe impl ::windows::core::Abi for SESSION_HEADER {
 }
 impl ::core::cmp::PartialEq for SESSION_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SESSION_HEADER>()) == 0 }
+        self.sess_name == other.sess_name && self.num_sess == other.num_sess && self.rcv_dg_outstanding == other.rcv_dg_outstanding && self.rcv_any_outstanding == other.rcv_any_outstanding
     }
 }
 impl ::core::cmp::Eq for SESSION_HEADER {}

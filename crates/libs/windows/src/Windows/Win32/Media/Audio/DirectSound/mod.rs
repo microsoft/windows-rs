@@ -2166,7 +2166,7 @@ unsafe impl ::windows::core::Abi for DS3DBUFFER {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for DS3DBUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DBUFFER>()) == 0 }
+        self.dwSize == other.dwSize && self.vPosition == other.vPosition && self.vVelocity == other.vVelocity && self.dwInsideConeAngle == other.dwInsideConeAngle && self.dwOutsideConeAngle == other.dwOutsideConeAngle && self.vConeOrientation == other.vConeOrientation && self.lConeOutsideVolume == other.lConeOutsideVolume && self.flMinDistance == other.flMinDistance && self.flMaxDistance == other.flMaxDistance && self.dwMode == other.dwMode
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -2211,7 +2211,7 @@ unsafe impl ::windows::core::Abi for DS3DLISTENER {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::cmp::PartialEq for DS3DLISTENER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DLISTENER>()) == 0 }
+        self.dwSize == other.dwSize && self.vPosition == other.vPosition && self.vVelocity == other.vVelocity && self.vOrientFront == other.vOrientFront && self.vOrientTop == other.vOrientTop && self.flDistanceFactor == other.flDistanceFactor && self.flRolloffFactor == other.flRolloffFactor && self.flDopplerFactor == other.flDopplerFactor
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -2247,7 +2247,7 @@ unsafe impl ::windows::core::Abi for DSBCAPS {
 }
 impl ::core::cmp::PartialEq for DSBCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBCAPS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwUnlockTransferRate == other.dwUnlockTransferRate && self.dwPlayCpuOverhead == other.dwPlayCpuOverhead
     }
 }
 impl ::core::cmp::Eq for DSBCAPS {}
@@ -2284,7 +2284,7 @@ unsafe impl ::windows::core::Abi for DSBPOSITIONNOTIFY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSBPOSITIONNOTIFY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBPOSITIONNOTIFY>()) == 0 }
+        self.dwOffset == other.dwOffset && self.hEventNotify == other.hEventNotify
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2321,7 +2321,7 @@ unsafe impl ::windows::core::Abi for DSBUFFERDESC {
 }
 impl ::core::cmp::PartialEq for DSBUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBUFFERDESC>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat && self.guid3DAlgorithm == other.guid3DAlgorithm
     }
 }
 impl ::core::cmp::Eq for DSBUFFERDESC {}
@@ -2355,7 +2355,7 @@ unsafe impl ::windows::core::Abi for DSBUFFERDESC1 {
 }
 impl ::core::cmp::PartialEq for DSBUFFERDESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBUFFERDESC1>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat
     }
 }
 impl ::core::cmp::Eq for DSBUFFERDESC1 {}
@@ -2433,7 +2433,30 @@ unsafe impl ::windows::core::Abi for DSCAPS {
 }
 impl ::core::cmp::PartialEq for DSCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCAPS>()) == 0 }
+        self.dwSize == other.dwSize
+            && self.dwFlags == other.dwFlags
+            && self.dwMinSecondarySampleRate == other.dwMinSecondarySampleRate
+            && self.dwMaxSecondarySampleRate == other.dwMaxSecondarySampleRate
+            && self.dwPrimaryBuffers == other.dwPrimaryBuffers
+            && self.dwMaxHwMixingAllBuffers == other.dwMaxHwMixingAllBuffers
+            && self.dwMaxHwMixingStaticBuffers == other.dwMaxHwMixingStaticBuffers
+            && self.dwMaxHwMixingStreamingBuffers == other.dwMaxHwMixingStreamingBuffers
+            && self.dwFreeHwMixingAllBuffers == other.dwFreeHwMixingAllBuffers
+            && self.dwFreeHwMixingStaticBuffers == other.dwFreeHwMixingStaticBuffers
+            && self.dwFreeHwMixingStreamingBuffers == other.dwFreeHwMixingStreamingBuffers
+            && self.dwMaxHw3DAllBuffers == other.dwMaxHw3DAllBuffers
+            && self.dwMaxHw3DStaticBuffers == other.dwMaxHw3DStaticBuffers
+            && self.dwMaxHw3DStreamingBuffers == other.dwMaxHw3DStreamingBuffers
+            && self.dwFreeHw3DAllBuffers == other.dwFreeHw3DAllBuffers
+            && self.dwFreeHw3DStaticBuffers == other.dwFreeHw3DStaticBuffers
+            && self.dwFreeHw3DStreamingBuffers == other.dwFreeHw3DStreamingBuffers
+            && self.dwTotalHwMemBytes == other.dwTotalHwMemBytes
+            && self.dwFreeHwMemBytes == other.dwFreeHwMemBytes
+            && self.dwMaxContigFreeHwMemBytes == other.dwMaxContigFreeHwMemBytes
+            && self.dwUnlockTransferRateHwBuffers == other.dwUnlockTransferRateHwBuffers
+            && self.dwPlayCpuOverheadSwBuffers == other.dwPlayCpuOverheadSwBuffers
+            && self.dwReserved1 == other.dwReserved1
+            && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::core::cmp::Eq for DSCAPS {}
@@ -2466,7 +2489,7 @@ unsafe impl ::windows::core::Abi for DSCBCAPS {
 }
 impl ::core::cmp::PartialEq for DSCBCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBCAPS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for DSCBCAPS {}
@@ -2502,7 +2525,7 @@ unsafe impl ::windows::core::Abi for DSCBUFFERDESC {
 }
 impl ::core::cmp::PartialEq for DSCBUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBUFFERDESC>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat && self.dwFXCount == other.dwFXCount && self.lpDSCFXDesc == other.lpDSCFXDesc
     }
 }
 impl ::core::cmp::Eq for DSCBUFFERDESC {}
@@ -2536,7 +2559,7 @@ unsafe impl ::windows::core::Abi for DSCBUFFERDESC1 {
 }
 impl ::core::cmp::PartialEq for DSCBUFFERDESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBUFFERDESC1>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat
     }
 }
 impl ::core::cmp::Eq for DSCBUFFERDESC1 {}
@@ -2569,7 +2592,7 @@ unsafe impl ::windows::core::Abi for DSCCAPS {
 }
 impl ::core::cmp::PartialEq for DSCCAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCCAPS>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwFormats == other.dwFormats && self.dwChannels == other.dwChannels
     }
 }
 impl ::core::cmp::Eq for DSCCAPS {}
@@ -2604,7 +2627,7 @@ unsafe impl ::windows::core::Abi for DSCEFFECTDESC {
 }
 impl ::core::cmp::PartialEq for DSCEFFECTDESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCEFFECTDESC>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidDSCFXClass == other.guidDSCFXClass && self.guidDSCFXInstance == other.guidDSCFXInstance && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::core::cmp::Eq for DSCEFFECTDESC {}
@@ -2642,7 +2665,7 @@ unsafe impl ::windows::core::Abi for DSCFXAec {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSCFXAec {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCFXAec>()) == 0 }
+        self.fEnable == other.fEnable && self.fNoiseFill == other.fNoiseFill && self.dwMode == other.dwMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2680,7 +2703,7 @@ unsafe impl ::windows::core::Abi for DSCFXNoiseSuppress {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSCFXNoiseSuppress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCFXNoiseSuppress>()) == 0 }
+        self.fEnable == other.fEnable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2716,7 +2739,7 @@ unsafe impl ::windows::core::Abi for DSEFFECTDESC {
 }
 impl ::core::cmp::PartialEq for DSEFFECTDESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSEFFECTDESC>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidDSFXClass == other.guidDSFXClass && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::core::cmp::Eq for DSEFFECTDESC {}
@@ -2752,7 +2775,7 @@ unsafe impl ::windows::core::Abi for DSFXChorus {
 }
 impl ::core::cmp::PartialEq for DSFXChorus {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXChorus>()) == 0 }
+        self.fWetDryMix == other.fWetDryMix && self.fDepth == other.fDepth && self.fFeedback == other.fFeedback && self.fFrequency == other.fFrequency && self.lWaveform == other.lWaveform && self.fDelay == other.fDelay && self.lPhase == other.lPhase
     }
 }
 impl ::core::cmp::Eq for DSFXChorus {}
@@ -2787,7 +2810,7 @@ unsafe impl ::windows::core::Abi for DSFXCompressor {
 }
 impl ::core::cmp::PartialEq for DSFXCompressor {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXCompressor>()) == 0 }
+        self.fGain == other.fGain && self.fAttack == other.fAttack && self.fRelease == other.fRelease && self.fThreshold == other.fThreshold && self.fRatio == other.fRatio && self.fPredelay == other.fPredelay
     }
 }
 impl ::core::cmp::Eq for DSFXCompressor {}
@@ -2821,7 +2844,7 @@ unsafe impl ::windows::core::Abi for DSFXDistortion {
 }
 impl ::core::cmp::PartialEq for DSFXDistortion {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXDistortion>()) == 0 }
+        self.fGain == other.fGain && self.fEdge == other.fEdge && self.fPostEQCenterFrequency == other.fPostEQCenterFrequency && self.fPostEQBandwidth == other.fPostEQBandwidth && self.fPreLowpassCutoff == other.fPreLowpassCutoff
     }
 }
 impl ::core::cmp::Eq for DSFXDistortion {}
@@ -2855,7 +2878,7 @@ unsafe impl ::windows::core::Abi for DSFXEcho {
 }
 impl ::core::cmp::PartialEq for DSFXEcho {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXEcho>()) == 0 }
+        self.fWetDryMix == other.fWetDryMix && self.fFeedback == other.fFeedback && self.fLeftDelay == other.fLeftDelay && self.fRightDelay == other.fRightDelay && self.lPanDelay == other.lPanDelay
     }
 }
 impl ::core::cmp::Eq for DSFXEcho {}
@@ -2891,7 +2914,7 @@ unsafe impl ::windows::core::Abi for DSFXFlanger {
 }
 impl ::core::cmp::PartialEq for DSFXFlanger {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXFlanger>()) == 0 }
+        self.fWetDryMix == other.fWetDryMix && self.fDepth == other.fDepth && self.fFeedback == other.fFeedback && self.fFrequency == other.fFrequency && self.lWaveform == other.lWaveform && self.fDelay == other.fDelay && self.lPhase == other.lPhase
     }
 }
 impl ::core::cmp::Eq for DSFXFlanger {}
@@ -2922,7 +2945,7 @@ unsafe impl ::windows::core::Abi for DSFXGargle {
 }
 impl ::core::cmp::PartialEq for DSFXGargle {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXGargle>()) == 0 }
+        self.dwRateHz == other.dwRateHz && self.dwWaveShape == other.dwWaveShape
     }
 }
 impl ::core::cmp::Eq for DSFXGargle {}
@@ -2976,7 +2999,7 @@ unsafe impl ::windows::core::Abi for DSFXI3DL2Reverb {
 }
 impl ::core::cmp::PartialEq for DSFXI3DL2Reverb {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXI3DL2Reverb>()) == 0 }
+        self.lRoom == other.lRoom && self.lRoomHF == other.lRoomHF && self.flRoomRolloffFactor == other.flRoomRolloffFactor && self.flDecayTime == other.flDecayTime && self.flDecayHFRatio == other.flDecayHFRatio && self.lReflections == other.lReflections && self.flReflectionsDelay == other.flReflectionsDelay && self.lReverb == other.lReverb && self.flReverbDelay == other.flReverbDelay && self.flDiffusion == other.flDiffusion && self.flDensity == other.flDensity && self.flHFReference == other.flHFReference
     }
 }
 impl ::core::cmp::Eq for DSFXI3DL2Reverb {}
@@ -3008,7 +3031,7 @@ unsafe impl ::windows::core::Abi for DSFXParamEq {
 }
 impl ::core::cmp::PartialEq for DSFXParamEq {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXParamEq>()) == 0 }
+        self.fCenter == other.fCenter && self.fBandwidth == other.fBandwidth && self.fGain == other.fGain
     }
 }
 impl ::core::cmp::Eq for DSFXParamEq {}
@@ -3041,7 +3064,7 @@ unsafe impl ::windows::core::Abi for DSFXWavesReverb {
 }
 impl ::core::cmp::PartialEq for DSFXWavesReverb {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXWavesReverb>()) == 0 }
+        self.fInGain == other.fInGain && self.fReverbMix == other.fReverbMix && self.fReverbTime == other.fReverbTime && self.fHighFreqRTRatio == other.fHighFreqRTRatio
     }
 }
 impl ::core::cmp::Eq for DSFXWavesReverb {}

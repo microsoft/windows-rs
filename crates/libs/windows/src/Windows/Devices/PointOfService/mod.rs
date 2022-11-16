@@ -13513,7 +13513,7 @@ unsafe impl ::windows::core::RuntimeType for SizeUInt32 {
 }
 impl ::core::cmp::PartialEq for SizeUInt32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SizeUInt32>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height
     }
 }
 impl ::core::cmp::Eq for SizeUInt32 {}

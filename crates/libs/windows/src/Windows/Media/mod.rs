@@ -4077,7 +4077,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTimeRange {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for MediaTimeRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MediaTimeRange>()) == 0 }
+        self.Start == other.Start && self.End == other.End
     }
 }
 #[cfg(feature = "Foundation")]

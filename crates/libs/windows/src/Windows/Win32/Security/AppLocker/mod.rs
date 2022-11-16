@@ -406,7 +406,7 @@ unsafe impl ::windows::core::Abi for SAFER_CODE_PROPERTIES_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFER_CODE_PROPERTIES_V1>()) == 0 }
+        self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -478,7 +478,7 @@ unsafe impl ::windows::core::Abi for SAFER_CODE_PROPERTIES_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFER_CODE_PROPERTIES_V2>()) == 0 }
+        self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice && self.PackageMoniker == other.PackageMoniker && self.PackagePublisher == other.PackagePublisher && self.PackageName == other.PackageName && self.PackageVersion == other.PackageVersion && self.PackageIsFramework == other.PackageIsFramework
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFER_HASH_IDENTIFICATION>()) == 0 }
+        self.header == other.header && self.Description == other.Description && self.FriendlyName == other.FriendlyName && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm && self.ImageSize == other.ImageSize && self.dwSaferFlags == other.dwSaferFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -564,7 +564,7 @@ unsafe impl ::windows::core::Abi for SAFER_HASH_IDENTIFICATION2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFER_HASH_IDENTIFICATION2>()) == 0 }
+        self.hashIdentification == other.hashIdentification && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -605,7 +605,7 @@ unsafe impl ::windows::core::Abi for SAFER_IDENTIFICATION_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_IDENTIFICATION_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFER_IDENTIFICATION_HEADER>()) == 0 }
+        self.dwIdentificationType == other.dwIdentificationType && self.cbStructSize == other.cbStructSize && self.IdentificationGuid == other.IdentificationGuid && self.lastModified == other.lastModified
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -646,7 +646,7 @@ unsafe impl ::windows::core::Abi for SAFER_PATHNAME_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_PATHNAME_IDENTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFER_PATHNAME_IDENTIFICATION>()) == 0 }
+        self.header == other.header && self.Description == other.Description && self.ImageName == other.ImageName && self.dwSaferFlags == other.dwSaferFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -686,7 +686,7 @@ unsafe impl ::windows::core::Abi for SAFER_URLZONE_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_URLZONE_IDENTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFER_URLZONE_IDENTIFICATION>()) == 0 }
+        self.header == other.header && self.UrlZoneId == other.UrlZoneId && self.dwSaferFlags == other.dwSaferFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]

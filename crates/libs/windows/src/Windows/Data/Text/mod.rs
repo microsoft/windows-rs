@@ -1470,7 +1470,7 @@ unsafe impl ::windows::core::RuntimeType for TextSegment {
 }
 impl ::core::cmp::PartialEq for TextSegment {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TextSegment>()) == 0 }
+        self.StartPosition == other.StartPosition && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for TextSegment {}

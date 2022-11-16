@@ -947,6 +947,31 @@ impl<'a> Reader<'a> {
             false
         }
     }
+    pub fn type_def_has_callback(&self, row: TypeDef) -> bool {
+        if self.type_def_is_callback(row) {
+            return true;
+        }
+        if self.type_def_kind(row) != TypeKind::Struct {
+            return false;
+        }
+        fn check(reader: &Reader, row: TypeDef) -> bool {
+            if reader.type_def_fields(row).any(|field| reader.type_has_callback(&reader.field_type(field, Some(row)))) {
+                return true;
+            }
+            false
+        }
+        let type_name = self.type_def_type_name(row);
+        if type_name.namespace.is_empty() {
+            check(self, row)
+        } else {
+            for row in self.get(type_name) {
+                if check(self, row) {
+                    return true;
+                }
+            }
+            false
+        }
+    }
     pub fn type_def_guid(&self, row: TypeDef) -> Option<GUID> {
         for attribute in self.type_def_attributes(row) {
             if self.attribute_name(attribute) == "GuidAttribute" {
@@ -1262,7 +1287,7 @@ impl<'a> Reader<'a> {
             return false;
         }
         // TODO: find a way to treat this like COM interface result values.
-        !self.type_is_callback(&param.ty)
+        !self.type_is_callback(&param.ty.deref())
     }
     pub fn signature_kind(&self, signature: &Signature) -> SignatureKind {
         if self.method_def_can_return_multiple_success_values(signature.def) {
@@ -1458,6 +1483,13 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
+    pub fn type_has_callback(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_has_callback(*row),
+            Type::Win32Array((ty, _)) => self.type_has_callback(ty),
+            _ => false,
+        }
+    }
     fn type_from_ref(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = self.type_spec_signature(def);
@@ -1612,15 +1644,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_is_callback(&self, ty: &Type) -> bool {
         match ty {
-            // TODO: do we need to know there's a callback behind the pointer?
-            Type::ConstPtr((ty, _)) | Type::MutPtr((ty, _)) => self.type_is_callback(ty),
             Type::TypeDef((row, _)) => self.type_def_is_callback(*row),
-            _ => false,
-        }
-    }
-    pub fn type_is_callback_array(&self, ty: &Type) -> bool {
-        match ty {
-            Type::Win32Array((ty, _)) => self.type_is_callback(ty),
             _ => false,
         }
     }

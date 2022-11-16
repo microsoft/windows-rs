@@ -6265,7 +6265,7 @@ unsafe impl ::windows::core::RuntimeType for CorePhysicalKeyStatus {
 }
 impl ::core::cmp::PartialEq for CorePhysicalKeyStatus {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CorePhysicalKeyStatus>()) == 0 }
+        self.RepeatCount == other.RepeatCount && self.ScanCode == other.ScanCode && self.IsExtendedKey == other.IsExtendedKey && self.IsMenuKeyDown == other.IsMenuKeyDown && self.WasKeyDown == other.WasKeyDown && self.IsKeyReleased == other.IsKeyReleased
     }
 }
 impl ::core::cmp::Eq for CorePhysicalKeyStatus {}
@@ -6310,7 +6310,7 @@ unsafe impl ::windows::core::RuntimeType for CoreProximityEvaluation {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for CoreProximityEvaluation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CoreProximityEvaluation>()) == 0 }
+        self.Score == other.Score && self.AdjustedPoint == other.AdjustedPoint
     }
 }
 #[cfg(feature = "Foundation")]

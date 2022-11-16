@@ -1172,12 +1172,6 @@ impl ::core::clone::Clone for UI_EVENTPARAMS {
 unsafe impl ::windows::core::Abi for UI_EVENTPARAMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UI_EVENTPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UI_EVENTPARAMS {}
 impl ::core::default::Default for UI_EVENTPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1198,12 +1192,6 @@ impl ::core::clone::Clone for UI_EVENTPARAMS_0 {
 unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UI_EVENTPARAMS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UI_EVENTPARAMS_0 {}
 impl ::core::default::Default for UI_EVENTPARAMS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1235,7 +1223,7 @@ unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_COMMAND {
 }
 impl ::core::cmp::PartialEq for UI_EVENTPARAMS_COMMAND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_COMMAND>()) == 0 }
+        self.CommandID == other.CommandID && self.CommandName == other.CommandName && self.ParentCommandID == other.ParentCommandID && self.ParentCommandName == other.ParentCommandName && self.SelectionIndex == other.SelectionIndex && self.Location == other.Location
     }
 }
 impl ::core::cmp::Eq for UI_EVENTPARAMS_COMMAND {}

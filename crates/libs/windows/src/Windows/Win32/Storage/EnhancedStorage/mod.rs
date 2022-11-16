@@ -4234,7 +4234,7 @@ unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE {
 }
 impl ::core::cmp::PartialEq for ACT_AUTHORIZATION_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACT_AUTHORIZATION_STATE>()) == 0 }
+        self.ulState == other.ulState
     }
 }
 impl ::core::cmp::Eq for ACT_AUTHORIZATION_STATE {}
@@ -4322,7 +4322,32 @@ unsafe impl ::windows::core::Abi for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION 
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION>()) == 0 }
+        self.CurrentAdminFailures == other.CurrentAdminFailures
+            && self.CurrentUserFailures == other.CurrentUserFailures
+            && self.TotalUserAuthenticationCount == other.TotalUserAuthenticationCount
+            && self.TotalAdminAuthenticationCount == other.TotalAdminAuthenticationCount
+            && self.FipsCompliant == other.FipsCompliant
+            && self.SecurityIDAvailable == other.SecurityIDAvailable
+            && self.InitializeInProgress == other.InitializeInProgress
+            && self.ITMSArmed == other.ITMSArmed
+            && self.ITMSArmable == other.ITMSArmable
+            && self.UserCreated == other.UserCreated
+            && self.ResetOnPORDefault == other.ResetOnPORDefault
+            && self.ResetOnPORCurrent == other.ResetOnPORCurrent
+            && self.MaxAdminFailures == other.MaxAdminFailures
+            && self.MaxUserFailures == other.MaxUserFailures
+            && self.TimeToCompleteInitialization == other.TimeToCompleteInitialization
+            && self.TimeRemainingToCompleteInitialization == other.TimeRemainingToCompleteInitialization
+            && self.MinTimeToAuthenticate == other.MinTimeToAuthenticate
+            && self.MaxAdminPasswordSize == other.MaxAdminPasswordSize
+            && self.MinAdminPasswordSize == other.MinAdminPasswordSize
+            && self.MaxAdminHintSize == other.MaxAdminHintSize
+            && self.MaxUserPasswordSize == other.MaxUserPasswordSize
+            && self.MinUserPasswordSize == other.MinUserPasswordSize
+            && self.MaxUserHintSize == other.MaxUserHintSize
+            && self.MaxUserNameSize == other.MaxUserNameSize
+            && self.MaxSiloNameSize == other.MaxSiloNameSize
+            && self.MaxChallengeSize == other.MaxChallengeSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4360,7 +4385,7 @@ unsafe impl ::windows::core::Abi for SILO_INFO {
 }
 impl ::core::cmp::PartialEq for SILO_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SILO_INFO>()) == 0 }
+        self.ulSTID == other.ulSTID && self.SpecificationMajor == other.SpecificationMajor && self.SpecificationMinor == other.SpecificationMinor && self.ImplementationMajor == other.ImplementationMajor && self.ImplementationMinor == other.ImplementationMinor && self.r#type == other.r#type && self.capabilities == other.capabilities
     }
 }
 impl ::core::cmp::Eq for SILO_INFO {}

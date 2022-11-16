@@ -140,7 +140,7 @@ unsafe impl ::windows::core::Abi for MapiFileDesc {
 }
 impl ::core::cmp::PartialEq for MapiFileDesc {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiFileDesc>()) == 0 }
+        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
     }
 }
 impl ::core::cmp::Eq for MapiFileDesc {}
@@ -175,7 +175,7 @@ unsafe impl ::windows::core::Abi for MapiFileDescW {
 }
 impl ::core::cmp::PartialEq for MapiFileDescW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiFileDescW>()) == 0 }
+        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
     }
 }
 impl ::core::cmp::Eq for MapiFileDescW {}
@@ -209,7 +209,7 @@ unsafe impl ::windows::core::Abi for MapiFileTagExt {
 }
 impl ::core::cmp::PartialEq for MapiFileTagExt {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiFileTagExt>()) == 0 }
+        self.ulReserved == other.ulReserved && self.cbTag == other.cbTag && self.lpTag == other.lpTag && self.cbEncoding == other.cbEncoding && self.lpEncoding == other.lpEncoding
     }
 }
 impl ::core::cmp::Eq for MapiFileTagExt {}
@@ -263,7 +263,7 @@ unsafe impl ::windows::core::Abi for MapiMessage {
 }
 impl ::core::cmp::PartialEq for MapiMessage {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiMessage>()) == 0 }
+        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
     }
 }
 impl ::core::cmp::Eq for MapiMessage {}
@@ -317,7 +317,7 @@ unsafe impl ::windows::core::Abi for MapiMessageW {
 }
 impl ::core::cmp::PartialEq for MapiMessageW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiMessageW>()) == 0 }
+        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
     }
 }
 impl ::core::cmp::Eq for MapiMessageW {}
@@ -352,7 +352,7 @@ unsafe impl ::windows::core::Abi for MapiRecipDesc {
 }
 impl ::core::cmp::PartialEq for MapiRecipDesc {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiRecipDesc>()) == 0 }
+        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
     }
 }
 impl ::core::cmp::Eq for MapiRecipDesc {}
@@ -387,7 +387,7 @@ unsafe impl ::windows::core::Abi for MapiRecipDescW {
 }
 impl ::core::cmp::PartialEq for MapiRecipDescW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MapiRecipDescW>()) == 0 }
+        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
     }
 }
 impl ::core::cmp::Eq for MapiRecipDescW {}

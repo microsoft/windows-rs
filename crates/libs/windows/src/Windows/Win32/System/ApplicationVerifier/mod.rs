@@ -233,7 +233,7 @@ unsafe impl ::windows::core::Abi for AVRF_BACKTRACE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for AVRF_BACKTRACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_BACKTRACE_INFORMATION>()) == 0 }
+        self.Depth == other.Depth && self.Index == other.Index && self.ReturnAddresses == other.ReturnAddresses
     }
 }
 impl ::core::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
@@ -268,7 +268,7 @@ unsafe impl ::windows::core::Abi for AVRF_HANDLE_OPERATION {
 }
 impl ::core::cmp::PartialEq for AVRF_HANDLE_OPERATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_HANDLE_OPERATION>()) == 0 }
+        self.Handle == other.Handle && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.OperationType == other.OperationType && self.Spare0 == other.Spare0 && self.BackTraceInformation == other.BackTraceInformation
     }
 }
 impl ::core::cmp::Eq for AVRF_HANDLE_OPERATION {}
@@ -306,7 +306,7 @@ unsafe impl ::windows::core::Abi for AVRF_HEAP_ALLOCATION {
 }
 impl ::core::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AVRF_HEAP_ALLOCATION>()) == 0 }
+        self.HeapHandle == other.HeapHandle && self.UserAllocation == other.UserAllocation && self.UserAllocationSize == other.UserAllocationSize && self.Allocation == other.Allocation && self.AllocationSize == other.AllocationSize && self.UserAllocationState == other.UserAllocationState && self.HeapState == other.HeapState && self.HeapContext == other.HeapContext && self.BackTraceInformation == other.BackTraceInformation
     }
 }
 impl ::core::cmp::Eq for AVRF_HEAP_ALLOCATION {}

@@ -267,7 +267,7 @@ unsafe impl ::windows::core::Abi for CorrelationId {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CorrelationId {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CorrelationId>()) == 0 }
+        self.connId == other.connId && self.timeStamp == other.timeStamp
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -300,7 +300,7 @@ unsafe impl ::windows::core::Abi for CountedString {
 }
 impl ::core::cmp::PartialEq for CountedString {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CountedString>()) == 0 }
+        self.length == other.length && self.string == other.string
     }
 }
 impl ::core::cmp::Eq for CountedString {}
@@ -336,7 +336,7 @@ unsafe impl ::windows::core::Abi for FailureCategoryMapping {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FailureCategoryMapping {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FailureCategoryMapping>()) == 0 }
+        self.mappingCompliance == other.mappingCompliance
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -371,7 +371,7 @@ unsafe impl ::windows::core::Abi for FixupInfo {
 }
 impl ::core::cmp::PartialEq for FixupInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FixupInfo>()) == 0 }
+        self.state == other.state && self.percentage == other.percentage && self.resultCodes == other.resultCodes && self.fixupMsgId == other.fixupMsgId
     }
 }
 impl ::core::cmp::Eq for FixupInfo {}
@@ -401,7 +401,7 @@ unsafe impl ::windows::core::Abi for Ipv4Address {
 }
 impl ::core::cmp::PartialEq for Ipv4Address {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Ipv4Address>()) == 0 }
+        self.addr == other.addr
     }
 }
 impl ::core::cmp::Eq for Ipv4Address {}
@@ -431,7 +431,7 @@ unsafe impl ::windows::core::Abi for Ipv6Address {
 }
 impl ::core::cmp::PartialEq for Ipv6Address {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Ipv6Address>()) == 0 }
+        self.addr == other.addr
     }
 }
 impl ::core::cmp::Eq for Ipv6Address {}
@@ -469,7 +469,7 @@ unsafe impl ::windows::core::Abi for IsolationInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IsolationInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IsolationInfo>()) == 0 }
+        self.isolationState == other.isolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -510,7 +510,7 @@ unsafe impl ::windows::core::Abi for IsolationInfoEx {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IsolationInfoEx {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IsolationInfoEx>()) == 0 }
+        self.isolationState == other.isolationState && self.extendedIsolationState == other.extendedIsolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -556,7 +556,7 @@ unsafe impl ::windows::core::Abi for NapComponentRegistrationInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NapComponentRegistrationInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NapComponentRegistrationInfo>()) == 0 }
+        self.id == other.id && self.friendlyName == other.friendlyName && self.description == other.description && self.version == other.version && self.vendorName == other.vendorName && self.infoClsid == other.infoClsid && self.configClsid == other.configClsid && self.registrationDate == other.registrationDate && self.componentType == other.componentType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -589,7 +589,7 @@ unsafe impl ::windows::core::Abi for NetworkSoH {
 }
 impl ::core::cmp::PartialEq for NetworkSoH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NetworkSoH>()) == 0 }
+        self.size == other.size && self.data == other.data
     }
 }
 impl ::core::cmp::Eq for NetworkSoH {}
@@ -620,7 +620,7 @@ unsafe impl ::windows::core::Abi for PrivateData {
 }
 impl ::core::cmp::PartialEq for PrivateData {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PrivateData>()) == 0 }
+        self.size == other.size && self.data == other.data
     }
 }
 impl ::core::cmp::Eq for PrivateData {}
@@ -651,7 +651,7 @@ unsafe impl ::windows::core::Abi for ResultCodes {
 }
 impl ::core::cmp::PartialEq for ResultCodes {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ResultCodes>()) == 0 }
+        self.count == other.count && self.results == other.results
     }
 }
 impl ::core::cmp::Eq for ResultCodes {}
@@ -682,7 +682,7 @@ unsafe impl ::windows::core::Abi for SoH {
 }
 impl ::core::cmp::PartialEq for SoH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SoH>()) == 0 }
+        self.count == other.count && self.attributes == other.attributes
     }
 }
 impl ::core::cmp::Eq for SoH {}
@@ -714,7 +714,7 @@ unsafe impl ::windows::core::Abi for SoHAttribute {
 }
 impl ::core::cmp::PartialEq for SoHAttribute {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SoHAttribute>()) == 0 }
+        self.r#type == other.r#type && self.size == other.size && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for SoHAttribute {}
@@ -747,7 +747,7 @@ unsafe impl ::windows::core::Abi for SystemHealthAgentState {
 }
 impl ::core::cmp::PartialEq for SystemHealthAgentState {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SystemHealthAgentState>()) == 0 }
+        self.id == other.id && self.shaResultCodes == other.shaResultCodes && self.failureCategory == other.failureCategory && self.fixupInfo == other.fixupInfo
     }
 }
 impl ::core::cmp::Eq for SystemHealthAgentState {}

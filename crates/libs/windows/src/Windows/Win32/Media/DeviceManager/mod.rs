@@ -5210,7 +5210,7 @@ unsafe impl ::windows::core::Abi for MACINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MACINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MACINFO>()) == 0 }
+        self.fUsed == other.fUsed && self.abMacState == other.abMacState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5240,12 +5240,6 @@ impl ::core::clone::Clone for MTP_COMMAND_DATA_IN {
 unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_IN {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MTP_COMMAND_DATA_IN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MTP_COMMAND_DATA_IN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MTP_COMMAND_DATA_IN {}
 impl ::core::default::Default for MTP_COMMAND_DATA_IN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5269,12 +5263,6 @@ impl ::core::clone::Clone for MTP_COMMAND_DATA_OUT {
 unsafe impl ::windows::core::Abi for MTP_COMMAND_DATA_OUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MTP_COMMAND_DATA_OUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MTP_COMMAND_DATA_OUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MTP_COMMAND_DATA_OUT {}
 impl ::core::default::Default for MTP_COMMAND_DATA_OUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5304,7 +5292,7 @@ unsafe impl ::windows::core::Abi for OPAQUECOMMAND {
 }
 impl ::core::cmp::PartialEq for OPAQUECOMMAND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPAQUECOMMAND>()) == 0 }
+        self.guidCommand == other.guidCommand && self.dwDataLen == other.dwDataLen && self.pData == other.pData && self.abMAC == other.abMAC
     }
 }
 impl ::core::cmp::Eq for OPAQUECOMMAND {}
@@ -5339,7 +5327,7 @@ unsafe impl ::windows::core::Abi for WMDMDATETIME {
 }
 impl ::core::cmp::PartialEq for WMDMDATETIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMDATETIME>()) == 0 }
+        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond
     }
 }
 impl ::core::cmp::Eq for WMDMDATETIME {}
@@ -5443,12 +5431,6 @@ impl ::core::clone::Clone for WMDMDetermineMaxPropStringLen {
 unsafe impl ::windows::core::Abi for WMDMDetermineMaxPropStringLen {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WMDMDetermineMaxPropStringLen {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMDetermineMaxPropStringLen>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMDMDetermineMaxPropStringLen {}
 impl ::core::default::Default for WMDMDetermineMaxPropStringLen {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5478,7 +5460,7 @@ unsafe impl ::windows::core::Abi for WMDMID {
 }
 impl ::core::cmp::PartialEq for WMDMID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMID>()) == 0 }
+        self.cbSize == other.cbSize && self.dwVendorID == other.dwVendorID && self.pID == other.pID && self.SerialNumberLength == other.SerialNumberLength
     }
 }
 impl ::core::cmp::Eq for WMDMID {}
@@ -5510,7 +5492,7 @@ unsafe impl ::windows::core::Abi for WMDMMetadataView {
 }
 impl ::core::cmp::PartialEq for WMDMMetadataView {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMMetadataView>()) == 0 }
+        self.pwszViewName == other.pwszViewName && self.nDepth == other.nDepth && self.ppwszTags == other.ppwszTags
     }
 }
 impl ::core::cmp::Eq for WMDMMetadataView {}
@@ -5546,7 +5528,7 @@ unsafe impl ::windows::core::Abi for WMDMRIGHTS {
 }
 impl ::core::cmp::PartialEq for WMDMRIGHTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDMRIGHTS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwContentType == other.dwContentType && self.fuFlags == other.fuFlags && self.fuRights == other.fuRights && self.dwAppSec == other.dwAppSec && self.dwPlaybackCount == other.dwPlaybackCount && self.ExpirationDate == other.ExpirationDate
     }
 }
 impl ::core::cmp::Eq for WMDMRIGHTS {}
@@ -5583,7 +5565,7 @@ unsafe impl ::windows::core::Abi for WMDM_FORMAT_CAPABILITY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for WMDM_FORMAT_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDM_FORMAT_CAPABILITY>()) == 0 }
+        self.nPropConfig == other.nPropConfig && self.pConfigs == other.pConfigs
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5623,7 +5605,7 @@ unsafe impl ::windows::core::Abi for WMDM_PROP_CONFIG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for WMDM_PROP_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDM_PROP_CONFIG>()) == 0 }
+        self.nPreference == other.nPreference && self.nPropDesc == other.nPropDesc && self.pPropDesc == other.pPropDesc
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5653,14 +5635,6 @@ unsafe impl ::windows::core::Abi for WMDM_PROP_DESC {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for WMDM_PROP_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszPropName == other.pwszPropName && self.ValidValuesForm == other.ValidValuesForm && self.ValidValues == other.ValidValues
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for WMDM_PROP_DESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for WMDM_PROP_DESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5683,14 +5657,6 @@ impl ::core::clone::Clone for WMDM_PROP_DESC_0 {
 unsafe impl ::windows::core::Abi for WMDM_PROP_DESC_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for WMDM_PROP_DESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDM_PROP_DESC_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for WMDM_PROP_DESC_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for WMDM_PROP_DESC_0 {
     fn default() -> Self {
@@ -5725,7 +5691,7 @@ unsafe impl ::windows::core::Abi for WMDM_PROP_VALUES_ENUM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for WMDM_PROP_VALUES_ENUM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDM_PROP_VALUES_ENUM>()) == 0 }
+        self.cEnumValues == other.cEnumValues && self.pValues == other.pValues
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5755,14 +5721,6 @@ unsafe impl ::windows::core::Abi for WMDM_PROP_VALUES_RANGE {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for WMDM_PROP_VALUES_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.rangeMin == other.rangeMin && self.rangeMax == other.rangeMax && self.rangeStep == other.rangeStep
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for WMDM_PROP_VALUES_RANGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for WMDM_PROP_VALUES_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5790,7 +5748,7 @@ unsafe impl ::windows::core::Abi for WMFILECAPABILITIES {
 }
 impl ::core::cmp::PartialEq for WMFILECAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMFILECAPABILITIES>()) == 0 }
+        self.pwszMimeType == other.pwszMimeType && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for WMFILECAPABILITIES {}

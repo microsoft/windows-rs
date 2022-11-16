@@ -61,7 +61,7 @@ unsafe impl ::windows::core::Abi for NOTIFICATION_USER_INPUT_DATA {
 }
 impl ::core::cmp::PartialEq for NOTIFICATION_USER_INPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFICATION_USER_INPUT_DATA>()) == 0 }
+        self.Key == other.Key && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for NOTIFICATION_USER_INPUT_DATA {}

@@ -736,7 +736,7 @@ unsafe impl ::windows::core::Abi for EFFPERM_RESULT_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EFFPERM_RESULT_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EFFPERM_RESULT_LIST>()) == 0 }
+        self.fEvaluated == other.fEvaluated && self.cObjectTypeListLength == other.cObjectTypeListLength && self.pObjectTypeList == other.pObjectTypeList && self.pGrantedAccessList == other.pGrantedAccessList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -780,7 +780,7 @@ unsafe impl ::windows::core::Abi for SECURITY_OBJECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECURITY_OBJECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SECURITY_OBJECT>()) == 0 }
+        self.pwszName == other.pwszName && self.pData == other.pData && self.cbData == other.cbData && self.pData2 == other.pData2 && self.cbData2 == other.cbData2 && self.Id == other.Id && self.fWellKnown == other.fWellKnown
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -821,7 +821,7 @@ unsafe impl ::windows::core::Abi for SID_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SID_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SID_INFO>()) == 0 }
+        self.pSid == other.pSid && self.pwzCommonName == other.pwzCommonName && self.pwzClass == other.pwzClass && self.pwzUPN == other.pwzUPN
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -860,7 +860,7 @@ unsafe impl ::windows::core::Abi for SID_INFO_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SID_INFO_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SID_INFO_LIST>()) == 0 }
+        self.cItems == other.cItems && self.aSidInfo == other.aSidInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -895,7 +895,7 @@ unsafe impl ::windows::core::Abi for SI_ACCESS {
 }
 impl ::core::cmp::PartialEq for SI_ACCESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SI_ACCESS>()) == 0 }
+        self.pguid == other.pguid && self.mask == other.mask && self.pszName == other.pszName && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for SI_ACCESS {}
@@ -927,7 +927,7 @@ unsafe impl ::windows::core::Abi for SI_INHERIT_TYPE {
 }
 impl ::core::cmp::PartialEq for SI_INHERIT_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SI_INHERIT_TYPE>()) == 0 }
+        self.pguid == other.pguid && self.dwFlags == other.dwFlags && self.pszName == other.pszName
     }
 }
 impl ::core::cmp::Eq for SI_INHERIT_TYPE {}
@@ -968,7 +968,7 @@ unsafe impl ::windows::core::Abi for SI_OBJECT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SI_OBJECT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SI_OBJECT_INFO>()) == 0 }
+        self.dwFlags == other.dwFlags && self.hInstance == other.hInstance && self.pszServerName == other.pszServerName && self.pszObjectName == other.pszObjectName && self.pszPageTitle == other.pszPageTitle && self.guidObjectType == other.guidObjectType
     }
 }
 #[cfg(feature = "Win32_Foundation")]

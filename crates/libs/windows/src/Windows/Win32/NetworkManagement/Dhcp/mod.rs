@@ -3398,7 +3398,7 @@ unsafe impl ::windows::core::Abi for DATE_TIME {
 }
 impl ::core::cmp::PartialEq for DATE_TIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATE_TIME>()) == 0 }
+        self.dwLowDateTime == other.dwLowDateTime && self.dwHighDateTime == other.dwHighDateTime
     }
 }
 impl ::core::cmp::Eq for DATE_TIME {}
@@ -3438,7 +3438,7 @@ unsafe impl ::windows::core::Abi for DHCPAPI_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPAPI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPAPI_PARAMS>()) == 0 }
+        self.Flags == other.Flags && self.OptionId == other.OptionId && self.IsVendor == other.IsVendor && self.Data == other.Data && self.nBytesData == other.nBytesData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3472,7 +3472,7 @@ unsafe impl ::windows::core::Abi for DHCPCAPI_CLASSID {
 }
 impl ::core::cmp::PartialEq for DHCPCAPI_CLASSID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPCAPI_CLASSID>()) == 0 }
+        self.Flags == other.Flags && self.Data == other.Data && self.nBytesData == other.nBytesData
     }
 }
 impl ::core::cmp::Eq for DHCPCAPI_CLASSID {}
@@ -3509,7 +3509,7 @@ unsafe impl ::windows::core::Abi for DHCPCAPI_PARAMS_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPCAPI_PARAMS_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPCAPI_PARAMS_ARRAY>()) == 0 }
+        self.nParams == other.nParams && self.Params == other.Params
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3547,7 +3547,7 @@ unsafe impl ::windows::core::Abi for DHCPDS_SERVER {
 }
 impl ::core::cmp::PartialEq for DHCPDS_SERVER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPDS_SERVER>()) == 0 }
+        self.Version == other.Version && self.ServerName == other.ServerName && self.ServerAddress == other.ServerAddress && self.Flags == other.Flags && self.State == other.State && self.DsLocation == other.DsLocation && self.DsLocType == other.DsLocType
     }
 }
 impl ::core::cmp::Eq for DHCPDS_SERVER {}
@@ -3579,7 +3579,7 @@ unsafe impl ::windows::core::Abi for DHCPDS_SERVERS {
 }
 impl ::core::cmp::PartialEq for DHCPDS_SERVERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPDS_SERVERS>()) == 0 }
+        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Servers == other.Servers
     }
 }
 impl ::core::cmp::Eq for DHCPDS_SERVERS {}
@@ -3657,7 +3657,27 @@ unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV4_FAILOVER_CLIENT_INFO>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress
+            && self.SubnetMask == other.SubnetMask
+            && self.ClientHardwareAddress == other.ClientHardwareAddress
+            && self.ClientName == other.ClientName
+            && self.ClientComment == other.ClientComment
+            && self.ClientLeaseExpires == other.ClientLeaseExpires
+            && self.OwnerHost == other.OwnerHost
+            && self.bClientType == other.bClientType
+            && self.AddressState == other.AddressState
+            && self.Status == other.Status
+            && self.ProbationEnds == other.ProbationEnds
+            && self.QuarantineCapable == other.QuarantineCapable
+            && self.SentPotExpTime == other.SentPotExpTime
+            && self.AckPotExpTime == other.AckPotExpTime
+            && self.RecvPotExpTime == other.RecvPotExpTime
+            && self.StartTime == other.StartTime
+            && self.CltLastTransTime == other.CltLastTransTime
+            && self.LastBndUpdTime == other.LastBndUpdTime
+            && self.BndMsgStatus == other.BndMsgStatus
+            && self.PolicyName == other.PolicyName
+            && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3696,7 +3716,7 @@ unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV4_FAILOVER_CLIENT_INFO_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3778,7 +3798,28 @@ unsafe impl ::windows::core::Abi for DHCPV4_FAILOVER_CLIENT_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV4_FAILOVER_CLIENT_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV4_FAILOVER_CLIENT_INFO_EX>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress
+            && self.SubnetMask == other.SubnetMask
+            && self.ClientHardwareAddress == other.ClientHardwareAddress
+            && self.ClientName == other.ClientName
+            && self.ClientComment == other.ClientComment
+            && self.ClientLeaseExpires == other.ClientLeaseExpires
+            && self.OwnerHost == other.OwnerHost
+            && self.bClientType == other.bClientType
+            && self.AddressState == other.AddressState
+            && self.Status == other.Status
+            && self.ProbationEnds == other.ProbationEnds
+            && self.QuarantineCapable == other.QuarantineCapable
+            && self.SentPotExpTime == other.SentPotExpTime
+            && self.AckPotExpTime == other.AckPotExpTime
+            && self.RecvPotExpTime == other.RecvPotExpTime
+            && self.StartTime == other.StartTime
+            && self.CltLastTransTime == other.CltLastTransTime
+            && self.LastBndUpdTime == other.LastBndUpdTime
+            && self.BndMsgStatus == other.BndMsgStatus
+            && self.PolicyName == other.PolicyName
+            && self.Flags == other.Flags
+            && self.AddressStateEx == other.AddressStateEx
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3812,7 +3853,7 @@ unsafe impl ::windows::core::Abi for DHCPV6CAPI_CLASSID {
 }
 impl ::core::cmp::PartialEq for DHCPV6CAPI_CLASSID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6CAPI_CLASSID>()) == 0 }
+        self.Flags == other.Flags && self.Data == other.Data && self.nBytesData == other.nBytesData
     }
 }
 impl ::core::cmp::Eq for DHCPV6CAPI_CLASSID {}
@@ -3852,7 +3893,7 @@ unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6CAPI_PARAMS>()) == 0 }
+        self.Flags == other.Flags && self.OptionId == other.OptionId && self.IsVendor == other.IsVendor && self.Data == other.Data && self.nBytesData == other.nBytesData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3891,7 +3932,7 @@ unsafe impl ::windows::core::Abi for DHCPV6CAPI_PARAMS_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6CAPI_PARAMS_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6CAPI_PARAMS_ARRAY>()) == 0 }
+        self.nParams == other.nParams && self.Params == other.Params
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3927,7 +3968,7 @@ unsafe impl ::windows::core::Abi for DHCPV6Prefix {
 }
 impl ::core::cmp::PartialEq for DHCPV6Prefix {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6Prefix>()) == 0 }
+        self.prefix == other.prefix && self.prefixLength == other.prefixLength && self.preferredLifeTime == other.preferredLifeTime && self.validLifeTime == other.validLifeTime && self.status == other.status
     }
 }
 impl ::core::cmp::Eq for DHCPV6Prefix {}
@@ -3966,7 +4007,7 @@ unsafe impl ::windows::core::Abi for DHCPV6PrefixLeaseInformation {
 }
 impl ::core::cmp::PartialEq for DHCPV6PrefixLeaseInformation {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6PrefixLeaseInformation>()) == 0 }
+        self.nPrefixes == other.nPrefixes && self.prefixArray == other.prefixArray && self.iaid == other.iaid && self.T1 == other.T1 && self.T2 == other.T2 && self.MaxLeaseExpirationTime == other.MaxLeaseExpirationTime && self.LastRenewalTime == other.LastRenewalTime && self.status == other.status && self.ServerId == other.ServerId && self.ServerIdLen == other.ServerIdLen
     }
 }
 impl ::core::cmp::Eq for DHCPV6PrefixLeaseInformation {}
@@ -4009,7 +4050,7 @@ unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_BIND_ELEMENT>()) == 0 }
+        self.Flags == other.Flags && self.fBoundToDHCPServer == other.fBoundToDHCPServer && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress && self.AdapterSubnetAddress == other.AdapterSubnetAddress && self.IfDescription == other.IfDescription && self.IpV6IfIndex == other.IpV6IfIndex && self.IfIdSize == other.IfIdSize && self.IfId == other.IfId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4048,7 +4089,7 @@ unsafe impl ::windows::core::Abi for DHCPV6_BIND_ELEMENT_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6_BIND_ELEMENT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_BIND_ELEMENT_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4081,7 +4122,7 @@ unsafe impl ::windows::core::Abi for DHCPV6_IP_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCPV6_IP_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_IP_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCPV6_IP_ARRAY {}
@@ -4118,7 +4159,7 @@ unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCPV6_STATELESS_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_STATELESS_PARAMS>()) == 0 }
+        self.Status == other.Status && self.PurgeInterval == other.PurgeInterval
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4152,7 +4193,7 @@ unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_SCOPE_STATS {
 }
 impl ::core::cmp::PartialEq for DHCPV6_STATELESS_SCOPE_STATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_STATELESS_SCOPE_STATS>()) == 0 }
+        self.SubnetAddress == other.SubnetAddress && self.NumStatelessClientsAdded == other.NumStatelessClientsAdded && self.NumStatelessClientsRemoved == other.NumStatelessClientsRemoved
     }
 }
 impl ::core::cmp::Eq for DHCPV6_STATELESS_SCOPE_STATS {}
@@ -4183,7 +4224,7 @@ unsafe impl ::windows::core::Abi for DHCPV6_STATELESS_STATS {
 }
 impl ::core::cmp::PartialEq for DHCPV6_STATELESS_STATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCPV6_STATELESS_STATS>()) == 0 }
+        self.NumScopes == other.NumScopes && self.ScopeStats == other.ScopeStats
     }
 }
 impl ::core::cmp::Eq for DHCPV6_STATELESS_STATS {}
@@ -4223,7 +4264,7 @@ unsafe impl ::windows::core::Abi for DHCP_ADDR_PATTERN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ADDR_PATTERN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ADDR_PATTERN>()) == 0 }
+        self.MatchHWType == other.MatchHWType && self.HWType == other.HWType && self.IsWildcard == other.IsWildcard && self.Length == other.Length && self.Pattern == other.Pattern
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4258,7 +4299,7 @@ unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS {
 }
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTIONS>()) == 0 }
+        self.Flags == other.Flags && self.NonVendorOptions == other.NonVendorOptions && self.NumVendorOptions == other.NumVendorOptions && self.VendorOptions == other.VendorOptions
     }
 }
 impl ::core::cmp::Eq for DHCP_ALL_OPTIONS {}
@@ -4290,7 +4331,7 @@ unsafe impl ::windows::core::Abi for DHCP_ALL_OPTIONS_0 {
 }
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTIONS_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTIONS_0>()) == 0 }
+        self.Option == other.Option && self.VendorName == other.VendorName && self.ClassName == other.ClassName
     }
 }
 impl ::core::cmp::Eq for DHCP_ALL_OPTIONS_0 {}
@@ -4328,7 +4369,7 @@ unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES>()) == 0 }
+        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Options == other.Options
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4369,7 +4410,7 @@ unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES_0>()) == 0 }
+        self.ClassName == other.ClassName && self.VendorName == other.VendorName && self.IsVendor == other.IsVendor && self.OptionsArray == other.OptionsArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4409,7 +4450,7 @@ unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES_PB>()) == 0 }
+        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Options == other.Options
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4450,7 +4491,7 @@ unsafe impl ::windows::core::Abi for DHCP_ALL_OPTION_VALUES_PB_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ALL_OPTION_VALUES_PB_0>()) == 0 }
+        self.PolicyName == other.PolicyName && self.VendorName == other.VendorName && self.IsVendor == other.IsVendor && self.OptionsArray == other.OptionsArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4482,14 +4523,6 @@ unsafe impl ::windows::core::Abi for DHCP_ATTRIB {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ATTRIB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ATTRIB>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ATTRIB {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ATTRIB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4514,14 +4547,6 @@ impl ::core::clone::Clone for DHCP_ATTRIB_0 {
 unsafe impl ::windows::core::Abi for DHCP_ATTRIB_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_ATTRIB_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ATTRIB_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_ATTRIB_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_ATTRIB_0 {
     fn default() -> Self {
@@ -4556,7 +4581,7 @@ unsafe impl ::windows::core::Abi for DHCP_ATTRIB_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_ATTRIB_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_ATTRIB_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.DhcpAttribs == other.DhcpAttribs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4589,7 +4614,7 @@ unsafe impl ::windows::core::Abi for DHCP_BINARY_DATA {
 }
 impl ::core::cmp::PartialEq for DHCP_BINARY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BINARY_DATA>()) == 0 }
+        self.DataLength == other.DataLength && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for DHCP_BINARY_DATA {}
@@ -4631,7 +4656,7 @@ unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BIND_ELEMENT>()) == 0 }
+        self.Flags == other.Flags && self.fBoundToDHCPServer == other.fBoundToDHCPServer && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress && self.AdapterSubnetAddress == other.AdapterSubnetAddress && self.IfDescription == other.IfDescription && self.IfIdSize == other.IfIdSize && self.IfId == other.IfId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4670,7 +4695,7 @@ unsafe impl ::windows::core::Abi for DHCP_BIND_ELEMENT_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_BIND_ELEMENT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BIND_ELEMENT_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4705,7 +4730,7 @@ unsafe impl ::windows::core::Abi for DHCP_BOOTP_IP_RANGE {
 }
 impl ::core::cmp::PartialEq for DHCP_BOOTP_IP_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_BOOTP_IP_RANGE>()) == 0 }
+        self.StartAddress == other.StartAddress && self.EndAddress == other.EndAddress && self.BootpAllocated == other.BootpAllocated && self.MaxBootpAllowed == other.MaxBootpAllowed
     }
 }
 impl ::core::cmp::Eq for DHCP_BOOTP_IP_RANGE {}
@@ -4740,32 +4765,13 @@ impl ::core::clone::Clone for DHCP_CALLOUT_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DHCP_CALLOUT_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DHCP_CALLOUT_TABLE")
-            .field("DhcpControlHook", &self.DhcpControlHook.map(|f| f as usize))
-            .field("DhcpNewPktHook", &self.DhcpNewPktHook.map(|f| f as usize))
-            .field("DhcpPktDropHook", &self.DhcpPktDropHook.map(|f| f as usize))
-            .field("DhcpPktSendHook", &self.DhcpPktSendHook.map(|f| f as usize))
-            .field("DhcpAddressDelHook", &self.DhcpAddressDelHook.map(|f| f as usize))
-            .field("DhcpAddressOfferHook", &self.DhcpAddressOfferHook.map(|f| f as usize))
-            .field("DhcpHandleOptionsHook", &self.DhcpHandleOptionsHook.map(|f| f as usize))
-            .field("DhcpDeleteClientHook", &self.DhcpDeleteClientHook.map(|f| f as usize))
-            .field("DhcpExtensionHook", &self.DhcpExtensionHook)
-            .field("DhcpReservedHook", &self.DhcpReservedHook)
-            .finish()
+        f.debug_struct("DHCP_CALLOUT_TABLE").field("DhcpExtensionHook", &self.DhcpExtensionHook).field("DhcpReservedHook", &self.DhcpReservedHook).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CALLOUT_TABLE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DHCP_CALLOUT_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CALLOUT_TABLE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DHCP_CALLOUT_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_CALLOUT_TABLE {
     fn default() -> Self {
@@ -4804,7 +4810,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO>()) == 0 }
+        self.ClassName == other.ClassName && self.ClassComment == other.ClassComment && self.ClassDataLength == other.ClassDataLength && self.IsVendor == other.IsVendor && self.Flags == other.Flags && self.ClassData == other.ClassData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4843,7 +4849,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Classes == other.Classes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4882,7 +4888,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_ARRAY_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_ARRAY_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO_ARRAY_V6>()) == 0 }
+        self.NumElements == other.NumElements && self.Classes == other.Classes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4926,7 +4932,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLASS_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLASS_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLASS_INFO_V6>()) == 0 }
+        self.ClassName == other.ClassName && self.ClassComment == other.ClassComment && self.ClassDataLength == other.ClassDataLength && self.IsVendor == other.IsVendor && self.EnterpriseNumber == other.EnterpriseNumber && self.Flags == other.Flags && self.ClassData == other.ClassData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4990,7 +4996,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_FILTER_STATUS_INFO>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5029,7 +5035,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5067,7 +5073,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO {}
@@ -5098,7 +5104,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY {}
@@ -5129,7 +5135,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V4 {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_V4>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V4 {}
@@ -5160,7 +5166,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V5 {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_V5>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V5 {}
@@ -5191,7 +5197,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_V6>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V6 {}
@@ -5228,7 +5234,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_ARRAY_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_ARRAY_VQ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_ARRAY_VQ>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5296,7 +5302,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_EX>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus && self.PolicyName == other.PolicyName && self.Properties == other.Properties
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5335,7 +5341,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_EX_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_EX_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_EX_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5401,7 +5407,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_PB>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable && self.FilterStatus == other.FilterStatus && self.PolicyName == other.PolicyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5440,7 +5446,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_PB_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_PB_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_PB_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Clients == other.Clients
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5479,7 +5485,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V4 {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_V4>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V4 {}
@@ -5517,7 +5523,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V5 {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_V5>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V5 {}
@@ -5555,7 +5561,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_V6>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.ClientDUID == other.ClientDUID && self.AddressType == other.AddressType && self.IAID == other.IAID && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientValidLeaseExpires == other.ClientValidLeaseExpires && self.ClientPrefLeaseExpires == other.ClientPrefLeaseExpires && self.OwnerHost == other.OwnerHost
     }
 }
 impl ::core::cmp::Eq for DHCP_CLIENT_INFO_V6 {}
@@ -5615,7 +5621,7 @@ unsafe impl ::windows::core::Abi for DHCP_CLIENT_INFO_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_CLIENT_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_CLIENT_INFO_VQ>()) == 0 }
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState && self.Status == other.Status && self.ProbationEnds == other.ProbationEnds && self.QuarantineCapable == other.QuarantineCapable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5677,7 +5683,7 @@ unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP {
 }
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FAILOVER_RELATIONSHIP>()) == 0 }
+        self.PrimaryServer == other.PrimaryServer && self.SecondaryServer == other.SecondaryServer && self.Mode == other.Mode && self.ServerType == other.ServerType && self.State == other.State && self.PrevState == other.PrevState && self.Mclt == other.Mclt && self.SafePeriod == other.SafePeriod && self.RelationshipName == other.RelationshipName && self.PrimaryServerName == other.PrimaryServerName && self.SecondaryServerName == other.SecondaryServerName && self.pScopes == other.pScopes && self.Percentage == other.Percentage && self.SharedSecret == other.SharedSecret
     }
 }
 impl ::core::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP {}
@@ -5708,7 +5714,7 @@ unsafe impl ::windows::core::Abi for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FAILOVER_RELATIONSHIP_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.pRelationships == other.pRelationships
     }
 }
 impl ::core::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
@@ -5744,7 +5750,7 @@ unsafe impl ::windows::core::Abi for DHCP_FAILOVER_STATISTICS {
 }
 impl ::core::cmp::PartialEq for DHCP_FAILOVER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FAILOVER_STATISTICS>()) == 0 }
+        self.NumAddr == other.NumAddr && self.AddrFree == other.AddrFree && self.AddrInUse == other.AddrInUse && self.PartnerAddrFree == other.PartnerAddrFree && self.ThisAddrFree == other.ThisAddrFree && self.PartnerAddrInUse == other.PartnerAddrInUse && self.ThisAddrInUse == other.ThisAddrInUse
     }
 }
 impl ::core::cmp::Eq for DHCP_FAILOVER_STATISTICS {}
@@ -5782,7 +5788,7 @@ unsafe impl ::windows::core::Abi for DHCP_FILTER_ADD_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_ADD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_ADD_INFO>()) == 0 }
+        self.AddrPatt == other.AddrPatt && self.Comment == other.Comment && self.ListType == other.ListType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5821,7 +5827,7 @@ unsafe impl ::windows::core::Abi for DHCP_FILTER_ENUM_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_ENUM_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_ENUM_INFO>()) == 0 }
+        self.NumElements == other.NumElements && self.pEnumRecords == other.pEnumRecords
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5860,7 +5866,7 @@ unsafe impl ::windows::core::Abi for DHCP_FILTER_GLOBAL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_GLOBAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_GLOBAL_INFO>()) == 0 }
+        self.EnforceAllowList == other.EnforceAllowList && self.EnforceDenyList == other.EnforceDenyList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5899,7 +5905,7 @@ unsafe impl ::windows::core::Abi for DHCP_FILTER_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_FILTER_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_FILTER_RECORD>()) == 0 }
+        self.AddrPatt == other.AddrPatt && self.Comment == other.Comment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5933,7 +5939,7 @@ unsafe impl ::windows::core::Abi for DHCP_HOST_INFO {
 }
 impl ::core::cmp::PartialEq for DHCP_HOST_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_HOST_INFO>()) == 0 }
+        self.IpAddress == other.IpAddress && self.NetBiosName == other.NetBiosName && self.HostName == other.HostName
     }
 }
 impl ::core::cmp::Eq for DHCP_HOST_INFO {}
@@ -5965,7 +5971,7 @@ unsafe impl ::windows::core::Abi for DHCP_HOST_INFO_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_HOST_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_HOST_INFO_V6>()) == 0 }
+        self.IpAddress == other.IpAddress && self.NetBiosName == other.NetBiosName && self.HostName == other.HostName
     }
 }
 impl ::core::cmp::Eq for DHCP_HOST_INFO_V6 {}
@@ -5996,7 +6002,7 @@ unsafe impl ::windows::core::Abi for DHCP_IPV6_ADDRESS {
 }
 impl ::core::cmp::PartialEq for DHCP_IPV6_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IPV6_ADDRESS>()) == 0 }
+        self.HighOrderBits == other.HighOrderBits && self.LowOrderBits == other.LowOrderBits
     }
 }
 impl ::core::cmp::Eq for DHCP_IPV6_ADDRESS {}
@@ -6027,7 +6033,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_ARRAY {}
@@ -6058,7 +6064,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_CLUSTER {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_CLUSTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_CLUSTER>()) == 0 }
+        self.ClusterAddress == other.ClusterAddress && self.ClusterMask == other.ClusterMask
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_CLUSTER {}
@@ -6089,7 +6095,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_RANGE {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RANGE>()) == 0 }
+        self.StartAddress == other.StartAddress && self.EndAddress == other.EndAddress
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_RANGE {}
@@ -6120,7 +6126,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RANGE_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RANGE_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_RANGE_ARRAY {}
@@ -6151,7 +6157,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_RANGE_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RANGE_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RANGE_V6>()) == 0 }
+        self.StartAddress == other.StartAddress && self.EndAddress == other.EndAddress
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_RANGE_V6 {}
@@ -6182,7 +6188,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION>()) == 0 }
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_RESERVATION {}
@@ -6217,7 +6223,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_INFO {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION_INFO>()) == 0 }
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.ReservedClientName == other.ReservedClientName && self.ReservedClientDesc == other.ReservedClientDesc && self.bAllowedClientTypes == other.bAllowedClientTypes && self.fOptionsPresent == other.fOptionsPresent
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_RESERVATION_INFO {}
@@ -6249,7 +6255,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V4 {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION_V4>()) == 0 }
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.bAllowedClientTypes == other.bAllowedClientTypes
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_RESERVATION_V4 {}
@@ -6281,7 +6287,7 @@ unsafe impl ::windows::core::Abi for DHCP_IP_RESERVATION_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_IP_RESERVATION_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_IP_RESERVATION_V6>()) == 0 }
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.InterfaceId == other.InterfaceId
     }
 }
 impl ::core::cmp::Eq for DHCP_IP_RESERVATION_V6 {}
@@ -6320,7 +6326,7 @@ unsafe impl ::windows::core::Abi for DHCP_MIB_INFO {
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO>()) == 0 }
+        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::core::cmp::Eq for DHCP_MIB_INFO {}
@@ -6388,7 +6394,7 @@ unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V5 {
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO_V5>()) == 0 }
+        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients && self.QtnIASErrors == other.QtnIASErrors && self.DelayedOffers == other.DelayedOffers && self.ScopesWithDelayedOffers == other.ScopesWithDelayedOffers && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::core::cmp::Eq for DHCP_MIB_INFO_V5 {}
@@ -6444,7 +6450,7 @@ unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO_V6>()) == 0 }
+        self.Solicits == other.Solicits && self.Advertises == other.Advertises && self.Requests == other.Requests && self.Renews == other.Renews && self.Rebinds == other.Rebinds && self.Replies == other.Replies && self.Confirms == other.Confirms && self.Declines == other.Declines && self.Releases == other.Releases && self.Informs == other.Informs && self.ServerStartTime == other.ServerStartTime && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::core::cmp::Eq for DHCP_MIB_INFO_V6 {}
@@ -6508,7 +6514,7 @@ unsafe impl ::windows::core::Abi for DHCP_MIB_INFO_VQ {
 }
 impl ::core::cmp::PartialEq for DHCP_MIB_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_MIB_INFO_VQ>()) == 0 }
+        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients && self.QtnIASErrors == other.QtnIASErrors && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::core::cmp::Eq for DHCP_MIB_INFO_VQ {}
@@ -6542,7 +6548,7 @@ unsafe impl ::windows::core::Abi for DHCP_OPTION {
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION>()) == 0 }
+        self.OptionID == other.OptionID && self.OptionName == other.OptionName && self.OptionComment == other.OptionComment && self.DefaultValue == other.DefaultValue && self.OptionType == other.OptionType
     }
 }
 impl ::core::cmp::Eq for DHCP_OPTION {}
@@ -6573,7 +6579,7 @@ unsafe impl ::windows::core::Abi for DHCP_OPTION_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Options == other.Options
     }
 }
 impl ::core::cmp::Eq for DHCP_OPTION_ARRAY {}
@@ -6604,7 +6610,7 @@ unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA {
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_DATA>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_OPTION_DATA {}
@@ -6628,12 +6634,6 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT {
 unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_DATA_ELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_DATA_ELEMENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_DATA_ELEMENT {}
 impl ::core::default::Default for DHCP_OPTION_DATA_ELEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6661,12 +6661,6 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT_0 {
 unsafe impl ::windows::core::Abi for DHCP_OPTION_DATA_ELEMENT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_DATA_ELEMENT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_DATA_ELEMENT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_DATA_ELEMENT_0 {}
 impl ::core::default::Default for DHCP_OPTION_DATA_ELEMENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6696,7 +6690,7 @@ unsafe impl ::windows::core::Abi for DHCP_OPTION_LIST {
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_LIST>()) == 0 }
+        self.NumOptions == other.NumOptions && self.Options == other.Options
     }
 }
 impl ::core::cmp::Eq for DHCP_OPTION_LIST {}
@@ -6720,12 +6714,6 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO {
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO {}
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6749,12 +6737,6 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO_0 {
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO_0 {}
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6775,12 +6757,6 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6 {
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO6>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO6 {}
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6802,12 +6778,6 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6_0 {
 unsafe impl ::windows::core::Abi for DHCP_OPTION_SCOPE_INFO6_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_SCOPE_INFO6_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_OPTION_SCOPE_INFO6_0 {}
 impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO6_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6837,7 +6807,7 @@ unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE {
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_VALUE>()) == 0 }
+        self.OptionID == other.OptionID && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for DHCP_OPTION_VALUE {}
@@ -6868,7 +6838,7 @@ unsafe impl ::windows::core::Abi for DHCP_OPTION_VALUE_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_OPTION_VALUE_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_OPTION_VALUE_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Values == other.Values
     }
 }
 impl ::core::cmp::Eq for DHCP_OPTION_VALUE_ARRAY {}
@@ -6936,7 +6906,25 @@ unsafe impl ::windows::core::Abi for DHCP_PERF_STATS {
 }
 impl ::core::cmp::PartialEq for DHCP_PERF_STATS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PERF_STATS>()) == 0 }
+        self.dwNumPacketsReceived == other.dwNumPacketsReceived
+            && self.dwNumPacketsDuplicate == other.dwNumPacketsDuplicate
+            && self.dwNumPacketsExpired == other.dwNumPacketsExpired
+            && self.dwNumMilliSecondsProcessed == other.dwNumMilliSecondsProcessed
+            && self.dwNumPacketsInActiveQueue == other.dwNumPacketsInActiveQueue
+            && self.dwNumPacketsInPingQueue == other.dwNumPacketsInPingQueue
+            && self.dwNumDiscoversReceived == other.dwNumDiscoversReceived
+            && self.dwNumOffersSent == other.dwNumOffersSent
+            && self.dwNumRequestsReceived == other.dwNumRequestsReceived
+            && self.dwNumInformsReceived == other.dwNumInformsReceived
+            && self.dwNumAcksSent == other.dwNumAcksSent
+            && self.dwNumNacksSent == other.dwNumNacksSent
+            && self.dwNumDeclinesReceived == other.dwNumDeclinesReceived
+            && self.dwNumReleasesReceived == other.dwNumReleasesReceived
+            && self.dwNumDelayedOfferInQueue == other.dwNumDelayedOfferInQueue
+            && self.dwNumPacketsProcessed == other.dwNumPacketsProcessed
+            && self.dwNumPacketsInQuarWaitingQueue == other.dwNumPacketsInQuarWaitingQueue
+            && self.dwNumPacketsInQuarReadyQueue == other.dwNumPacketsInQuarReadyQueue
+            && self.dwNumPacketsInQuarDecisionQueue == other.dwNumPacketsInQuarDecisionQueue
     }
 }
 impl ::core::cmp::Eq for DHCP_PERF_STATS {}
@@ -6980,7 +6968,7 @@ unsafe impl ::windows::core::Abi for DHCP_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY>()) == 0 }
+        self.PolicyName == other.PolicyName && self.IsGlobalPolicy == other.IsGlobalPolicy && self.Subnet == other.Subnet && self.ProcessingOrder == other.ProcessingOrder && self.Conditions == other.Conditions && self.Expressions == other.Expressions && self.Ranges == other.Ranges && self.Description == other.Description && self.Enabled == other.Enabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7019,7 +7007,7 @@ unsafe impl ::windows::core::Abi for DHCP_POLICY_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7066,7 +7054,7 @@ unsafe impl ::windows::core::Abi for DHCP_POLICY_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY_EX>()) == 0 }
+        self.PolicyName == other.PolicyName && self.IsGlobalPolicy == other.IsGlobalPolicy && self.Subnet == other.Subnet && self.ProcessingOrder == other.ProcessingOrder && self.Conditions == other.Conditions && self.Expressions == other.Expressions && self.Ranges == other.Ranges && self.Description == other.Description && self.Enabled == other.Enabled && self.Properties == other.Properties
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7105,7 +7093,7 @@ unsafe impl ::windows::core::Abi for DHCP_POLICY_EX_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_POLICY_EX_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POLICY_EX_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7144,7 +7132,7 @@ unsafe impl ::windows::core::Abi for DHCP_POL_COND {
 }
 impl ::core::cmp::PartialEq for DHCP_POL_COND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_COND>()) == 0 }
+        self.ParentExpr == other.ParentExpr && self.Type == other.Type && self.OptionID == other.OptionID && self.SubOptionID == other.SubOptionID && self.VendorName == other.VendorName && self.Operator == other.Operator && self.Value == other.Value && self.ValueLength == other.ValueLength
     }
 }
 impl ::core::cmp::Eq for DHCP_POL_COND {}
@@ -7175,7 +7163,7 @@ unsafe impl ::windows::core::Abi for DHCP_POL_COND_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_POL_COND_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_COND_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_POL_COND_ARRAY {}
@@ -7206,7 +7194,7 @@ unsafe impl ::windows::core::Abi for DHCP_POL_EXPR {
 }
 impl ::core::cmp::PartialEq for DHCP_POL_EXPR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_EXPR>()) == 0 }
+        self.ParentExpr == other.ParentExpr && self.Operator == other.Operator
     }
 }
 impl ::core::cmp::Eq for DHCP_POL_EXPR {}
@@ -7237,7 +7225,7 @@ unsafe impl ::windows::core::Abi for DHCP_POL_EXPR_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_POL_EXPR_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_POL_EXPR_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_POL_EXPR_ARRAY {}
@@ -7262,12 +7250,6 @@ impl ::core::clone::Clone for DHCP_PROPERTY {
 unsafe impl ::windows::core::Abi for DHCP_PROPERTY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PROPERTY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_PROPERTY {}
 impl ::core::default::Default for DHCP_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7291,12 +7273,6 @@ impl ::core::clone::Clone for DHCP_PROPERTY_0 {
 unsafe impl ::windows::core::Abi for DHCP_PROPERTY_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_PROPERTY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PROPERTY_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_PROPERTY_0 {}
 impl ::core::default::Default for DHCP_PROPERTY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7324,7 +7300,7 @@ unsafe impl ::windows::core::Abi for DHCP_PROPERTY_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_PROPERTY_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_PROPERTY_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_PROPERTY_ARRAY {}
@@ -7355,7 +7331,7 @@ unsafe impl ::windows::core::Abi for DHCP_RESERVATION_INFO_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_RESERVATION_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_RESERVATION_INFO_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_RESERVATION_INFO_ARRAY {}
@@ -7386,7 +7362,7 @@ unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE {
 }
 impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_RESERVED_SCOPE>()) == 0 }
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
     }
 }
 impl ::core::cmp::Eq for DHCP_RESERVED_SCOPE {}
@@ -7417,7 +7393,7 @@ unsafe impl ::windows::core::Abi for DHCP_RESERVED_SCOPE6 {
 }
 impl ::core::cmp::PartialEq for DHCP_RESERVED_SCOPE6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_RESERVED_SCOPE6>()) == 0 }
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
     }
 }
 impl ::core::cmp::Eq for DHCP_RESERVED_SCOPE6 {}
@@ -7448,7 +7424,7 @@ unsafe impl ::windows::core::Abi for DHCP_SCAN_ITEM {
 }
 impl ::core::cmp::PartialEq for DHCP_SCAN_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SCAN_ITEM>()) == 0 }
+        self.IpAddress == other.IpAddress && self.ScanFlag == other.ScanFlag
     }
 }
 impl ::core::cmp::Eq for DHCP_SCAN_ITEM {}
@@ -7479,7 +7455,7 @@ unsafe impl ::windows::core::Abi for DHCP_SCAN_LIST {
 }
 impl ::core::cmp::PartialEq for DHCP_SCAN_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SCAN_LIST>()) == 0 }
+        self.NumScanItems == other.NumScanItems && self.ScanItems == other.ScanItems
     }
 }
 impl ::core::cmp::Eq for DHCP_SCAN_LIST {}
@@ -7503,12 +7479,6 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO {
 unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO {}
 impl ::core::default::Default for DHCP_SEARCH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7530,12 +7500,6 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_0 {
 unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO_0 {}
 impl ::core::default::Default for DHCP_SEARCH_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7556,12 +7520,6 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6 {
 unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO_V6>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO_V6 {}
 impl ::core::default::Default for DHCP_SEARCH_INFO_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7583,12 +7541,6 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_V6_0 {
 unsafe impl ::windows::core::Abi for DHCP_SEARCH_INFO_V6_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SEARCH_INFO_V6_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SEARCH_INFO_V6_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SEARCH_INFO_V6_0 {}
 impl ::core::default::Default for DHCP_SEARCH_INFO_V6_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7623,7 +7575,7 @@ unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO {
 }
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO>()) == 0 }
+        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag
     }
 }
 impl ::core::cmp::Eq for DHCP_SERVER_CONFIG_INFO {}
@@ -7685,7 +7637,7 @@ unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO_V4>()) == 0 }
+        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag && self.dwPingRetries == other.dwPingRetries && self.cbBootTableString == other.cbBootTableString && self.wszBootTableString == other.wszBootTableString && self.fAuditLog == other.fAuditLog
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7731,7 +7683,7 @@ unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO_V6>()) == 0 }
+        self.UnicastFlag == other.UnicastFlag && self.RapidCommitFlag == other.RapidCommitFlag && self.PreferredLifetime == other.PreferredLifetime && self.ValidLifetime == other.ValidLifetime && self.T1 == other.T1 && self.T2 == other.T2 && self.PreferredLifetimeIATA == other.PreferredLifetimeIATA && self.ValidLifetimeIATA == other.ValidLifetimeIATA && self.fAuditLog == other.fAuditLog
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7801,7 +7753,7 @@ unsafe impl ::windows::core::Abi for DHCP_SERVER_CONFIG_INFO_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_CONFIG_INFO_VQ>()) == 0 }
+        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag && self.dwPingRetries == other.dwPingRetries && self.cbBootTableString == other.cbBootTableString && self.wszBootTableString == other.wszBootTableString && self.fAuditLog == other.fAuditLog && self.QuarantineOn == other.QuarantineOn && self.QuarDefFail == other.QuarDefFail && self.QuarRuntimeStatus == other.QuarRuntimeStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7889,7 +7841,31 @@ unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_OPTIONS>()) == 0 }
+        self.MessageType == other.MessageType
+            && self.SubnetMask == other.SubnetMask
+            && self.RequestedAddress == other.RequestedAddress
+            && self.RequestLeaseTime == other.RequestLeaseTime
+            && self.OverlayFields == other.OverlayFields
+            && self.RouterAddress == other.RouterAddress
+            && self.Server == other.Server
+            && self.ParameterRequestList == other.ParameterRequestList
+            && self.ParameterRequestListLength == other.ParameterRequestListLength
+            && self.MachineName == other.MachineName
+            && self.MachineNameLength == other.MachineNameLength
+            && self.ClientHardwareAddressType == other.ClientHardwareAddressType
+            && self.ClientHardwareAddressLength == other.ClientHardwareAddressLength
+            && self.ClientHardwareAddress == other.ClientHardwareAddress
+            && self.ClassIdentifier == other.ClassIdentifier
+            && self.ClassIdentifierLength == other.ClassIdentifierLength
+            && self.VendorClass == other.VendorClass
+            && self.VendorClassLength == other.VendorClassLength
+            && self.DNSFlags == other.DNSFlags
+            && self.DNSNameLength == other.DNSNameLength
+            && self.DNSName == other.DNSName
+            && self.DSDomainNameRequested == other.DSDomainNameRequested
+            && self.DSDomainName == other.DSDomainName
+            && self.DSDomainNameLen == other.DSDomainNameLen
+            && self.ScopeId == other.ScopeId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7922,7 +7898,7 @@ unsafe impl ::windows::core::Abi for DHCP_SERVER_SPECIFIC_STRINGS {
 }
 impl ::core::cmp::PartialEq for DHCP_SERVER_SPECIFIC_STRINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_SPECIFIC_STRINGS>()) == 0 }
+        self.DefaultVendorClassName == other.DefaultVendorClassName && self.DefaultUserClassName == other.DefaultUserClassName
     }
 }
 impl ::core::cmp::Eq for DHCP_SERVER_SPECIFIC_STRINGS {}
@@ -7946,12 +7922,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7975,12 +7945,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_0 {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_0 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8001,12 +7965,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4 {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V4>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8030,12 +7988,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V4_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8056,12 +8008,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5 {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V5 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V5>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8085,12 +8031,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V5_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8111,12 +8051,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6 {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V6>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8138,12 +8072,6 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
 unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_DATA_V6_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
 impl ::core::default::Default for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8171,7 +8099,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {}
@@ -8202,7 +8130,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
@@ -8233,7 +8161,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {}
@@ -8264,7 +8192,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6>()) == 0 }
+        self.NumElements == other.NumElements && self.Elements == other.Elements
     }
 }
 impl ::core::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
@@ -8305,7 +8233,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO {
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_INFO>()) == 0 }
+        self.SubnetAddress == other.SubnetAddress && self.SubnetMask == other.SubnetMask && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.PrimaryHost == other.PrimaryHost && self.SubnetState == other.SubnetState
     }
 }
 impl ::core::cmp::Eq for DHCP_SUBNET_INFO {}
@@ -8341,7 +8269,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_V6 {
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_INFO_V6>()) == 0 }
+        self.SubnetAddress == other.SubnetAddress && self.Prefix == other.Prefix && self.Preference == other.Preference && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.State == other.State && self.ScopeId == other.ScopeId
     }
 }
 impl ::core::cmp::Eq for DHCP_SUBNET_INFO_V6 {}
@@ -8381,7 +8309,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUBNET_INFO_VQ {
 }
 impl ::core::cmp::PartialEq for DHCP_SUBNET_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUBNET_INFO_VQ>()) == 0 }
+        self.SubnetAddress == other.SubnetAddress && self.SubnetMask == other.SubnetMask && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.PrimaryHost == other.PrimaryHost && self.SubnetState == other.SubnetState && self.QuarantineOn == other.QuarantineOn && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
     }
 }
 impl ::core::cmp::Eq for DHCP_SUBNET_INFO_VQ {}
@@ -8412,7 +8340,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE {
 }
 impl ::core::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUPER_SCOPE_TABLE>()) == 0 }
+        self.cEntries == other.cEntries && self.pEntries == other.pEntries
     }
 }
 impl ::core::cmp::Eq for DHCP_SUPER_SCOPE_TABLE {}
@@ -8445,7 +8373,7 @@ unsafe impl ::windows::core::Abi for DHCP_SUPER_SCOPE_TABLE_ENTRY {
 }
 impl ::core::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SUPER_SCOPE_TABLE_ENTRY>()) == 0 }
+        self.SubnetAddress == other.SubnetAddress && self.SuperScopeNumber == other.SuperScopeNumber && self.NextInSuperScope == other.NextInSuperScope && self.SuperScopeName == other.SuperScopeName
     }
 }
 impl ::core::cmp::Eq for DHCP_SUPER_SCOPE_TABLE_ENTRY {}
@@ -8476,7 +8404,7 @@ unsafe impl ::windows::core::Abi for DWORD_DWORD {
 }
 impl ::core::cmp::PartialEq for DWORD_DWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWORD_DWORD>()) == 0 }
+        self.DWord1 == other.DWord1 && self.DWord2 == other.DWord2
     }
 }
 impl ::core::cmp::Eq for DWORD_DWORD {}
@@ -8509,7 +8437,7 @@ unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO {
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO>()) == 0 }
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers
     }
 }
 impl ::core::cmp::Eq for SCOPE_MIB_INFO {}
@@ -8542,7 +8470,7 @@ unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V5 {
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO_V5>()) == 0 }
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers
     }
 }
 impl ::core::cmp::Eq for SCOPE_MIB_INFO_V5 {}
@@ -8575,7 +8503,7 @@ unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_V6 {
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO_V6>()) == 0 }
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingAdvertises == other.NumPendingAdvertises
     }
 }
 impl ::core::cmp::Eq for SCOPE_MIB_INFO_V6 {}
@@ -8625,7 +8553,7 @@ unsafe impl ::windows::core::Abi for SCOPE_MIB_INFO_VQ {
 }
 impl ::core::cmp::PartialEq for SCOPE_MIB_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPE_MIB_INFO_VQ>()) == 0 }
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients
     }
 }
 impl ::core::cmp::Eq for SCOPE_MIB_INFO_VQ {}
