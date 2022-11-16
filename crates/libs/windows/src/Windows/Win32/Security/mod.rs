@@ -1051,6 +1051,26 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn LookupAccountNameLocalA<'a, P0>(lpaccountname: P0, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountNameLocalA ( lpaccountname : :: windows::core::PCSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
+    LookupAccountNameLocalA(lpaccountname.into(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
+}
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LookupAccountNameLocalW<'a, P0>(lpaccountname: P0, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountNameLocalW ( lpaccountname : :: windows::core::PCWSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
+    LookupAccountNameLocalW(lpaccountname.into(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
+}
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LookupAccountNameW<'a, P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1069,6 +1089,26 @@ where
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountSidA ( lpsystemname : :: windows::core::PCSTR , sid : super::Foundation:: PSID , name : :: windows::core::PSTR , cchname : *mut u32 , referenceddomainname : :: windows::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
     LookupAccountSidA(lpsystemname.into(), sid.into(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
+}
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LookupAccountSidLocalA<'a, P0>(sid: P0, name: ::windows::core::PSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::Foundation::PSID>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountSidLocalA ( sid : super::Foundation:: PSID , name : :: windows::core::PSTR , cchname : *mut u32 , referenceddomainname : :: windows::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
+    LookupAccountSidLocalA(sid.into(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
+}
+#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LookupAccountSidLocalW<'a, P0>(sid: P0, name: ::windows::core::PWSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::Foundation::PSID>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountSidLocalW ( sid : super::Foundation:: PSID , name : :: windows::core::PWSTR , cchname : *mut u32 , referenceddomainname : :: windows::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
+    LookupAccountSidLocalW(sid.into(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

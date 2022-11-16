@@ -12674,28 +12674,28 @@ impl IPublishingWizard_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IQueryAssociations_Impl: Sized {
-    fn Init(&self, flags: u32, pszassoc: &::windows::core::PCWSTR, hkprogid: super::super::System::Registry::HKEY, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn GetString(&self, flags: u32, str: ASSOCSTR, pszextra: &::windows::core::PCWSTR, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>;
-    fn GetKey(&self, flags: u32, key: ASSOCKEY, pszextra: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Registry::HKEY>;
-    fn GetData(&self, flags: u32, data: ASSOCDATA, pszextra: &::windows::core::PCWSTR, pvout: *mut ::core::ffi::c_void, pcbout: *mut u32) -> ::windows::core::Result<()>;
-    fn GetEnum(&self, flags: u32, assocenum: ASSOCENUM, pszextra: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Init(&self, flags: ASSOCF, pszassoc: &::windows::core::PCWSTR, hkprogid: super::super::System::Registry::HKEY, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn GetString(&self, flags: ASSOCF, str: ASSOCSTR, pszextra: &::windows::core::PCWSTR, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>;
+    fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Registry::HKEY>;
+    fn GetData(&self, flags: ASSOCF, data: ASSOCDATA, pszextra: &::windows::core::PCWSTR, pvout: *mut ::core::ffi::c_void, pcbout: *mut u32) -> ::windows::core::Result<()>;
+    fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::windows::core::RuntimeName for IQueryAssociations {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl IQueryAssociations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>() -> IQueryAssociations_Vtbl {
-        unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, pszassoc: ::windows::core::PCWSTR, hkprogid: super::super::System::Registry::HKEY, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: ASSOCF, pszassoc: ::windows::core::PCWSTR, hkprogid: super::super::System::Registry::HKEY, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Init(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&pszassoc), ::core::mem::transmute_copy(&hkprogid), ::core::mem::transmute_copy(&hwnd)).into()
         }
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, str: ASSOCSTR, pszextra: ::windows::core::PCWSTR, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: ASSOCF, str: ASSOCSTR, pszextra: ::windows::core::PCWSTR, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetString(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&str), ::core::mem::transmute(&pszextra), ::core::mem::transmute_copy(&pszout), ::core::mem::transmute_copy(&pcchout)).into()
         }
-        unsafe extern "system" fn GetKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, key: ASSOCKEY, pszextra: ::windows::core::PCWSTR, phkeyout: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: ASSOCF, key: ASSOCKEY, pszextra: ::windows::core::PCWSTR, phkeyout: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetKey(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&key), ::core::mem::transmute(&pszextra)) {
@@ -12706,12 +12706,12 @@ impl IQueryAssociations_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, data: ASSOCDATA, pszextra: ::windows::core::PCWSTR, pvout: *mut ::core::ffi::c_void, pcbout: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: ASSOCF, data: ASSOCDATA, pszextra: ::windows::core::PCWSTR, pvout: *mut ::core::ffi::c_void, pcbout: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetData(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&data), ::core::mem::transmute(&pszextra), ::core::mem::transmute_copy(&pvout), ::core::mem::transmute_copy(&pcbout)).into()
         }
-        unsafe extern "system" fn GetEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: u32, assocenum: ASSOCENUM, pszextra: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAssociations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetEnum(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&assocenum), ::core::mem::transmute(&pszextra), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvout)).into()

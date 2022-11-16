@@ -264,8 +264,8 @@ pub unsafe fn I_RpcNsGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS {
-    ::windows::core::link ! ( "rpcrt4.dll""system" fn I_RpcNsInterfaceExported ( entrynamesyntax : u32 , entryname : *mut u16 , rpcinterfaceinformation : *mut RPC_SERVER_INTERFACE ) -> RPC_STATUS );
+pub unsafe fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *const u16, rpcinterfaceinformation: *const RPC_SERVER_INTERFACE) -> RPC_STATUS {
+    ::windows::core::link ! ( "rpcrt4.dll""system" fn I_RpcNsInterfaceExported ( entrynamesyntax : u32 , entryname : *const u16 , rpcinterfaceinformation : *const RPC_SERVER_INTERFACE ) -> RPC_STATUS );
     I_RpcNsInterfaceExported(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(rpcinterfaceinformation))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]

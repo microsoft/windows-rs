@@ -3192,12 +3192,14 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SendMessageA<'a, P0>(hwnd: P0, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT
+pub unsafe fn SendMessageA<'a, P0, P1, P2>(hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> super::super::Foundation::LRESULT
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
+    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SendMessageA ( hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
-    SendMessageA(hwnd.into(), msg, ::core::mem::transmute(wparam), ::core::mem::transmute(lparam))
+    SendMessageA(hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -6737,66 +6737,6 @@ impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_DISPLAY_FIXED_OUTPUT(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(0u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(2u32);
-impl ::core::marker::Copy for DEVMODE_DISPLAY_FIXED_OUTPUT {}
-impl ::core::clone::Clone for DEVMODE_DISPLAY_FIXED_OUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVMODE_DISPLAY_FIXED_OUTPUT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DEVMODE_DISPLAY_FIXED_OUTPUT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DEVMODE_DISPLAY_FIXED_OUTPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DEVMODE_DISPLAY_FIXED_OUTPUT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_DISPLAY_ORIENTATION(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(0u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DMDO_90: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DMDO_180: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DMDO_270: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(3u32);
-impl ::core::marker::Copy for DEVMODE_DISPLAY_ORIENTATION {}
-impl ::core::clone::Clone for DEVMODE_DISPLAY_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVMODE_DISPLAY_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DEVMODE_DISPLAY_ORIENTATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DEVMODE_DISPLAY_ORIENTATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DEVMODE_DISPLAY_ORIENTATION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);

@@ -294,8 +294,8 @@ pub struct IAudioProcessingObject_Vtbl {
 #[repr(transparent)]
 pub struct IAudioProcessingObjectConfiguration(::windows::core::IUnknown);
 impl IAudioProcessingObjectConfiguration {
-    pub unsafe fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LockForProcess)(::windows::core::Vtable::as_raw(self), u32numinputconnections, ::core::mem::transmute(ppinputconnections), u32numoutputconnections, ::core::mem::transmute(ppoutputconnections)).ok()
+    pub unsafe fn LockForProcess(&self, ppinputconnections: &[*const APO_CONNECTION_DESCRIPTOR], ppoutputconnections: &[*const APO_CONNECTION_DESCRIPTOR]) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).LockForProcess)(::windows::core::Vtable::as_raw(self), ppinputconnections.len() as _, ::core::mem::transmute(ppinputconnections.as_ptr()), ppoutputconnections.len() as _, ::core::mem::transmute(ppoutputconnections.as_ptr())).ok()
     }
     pub unsafe fn UnlockForProcess(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnlockForProcess)(::windows::core::Vtable::as_raw(self)).ok()

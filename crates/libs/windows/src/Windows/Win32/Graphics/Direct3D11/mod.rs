@@ -15084,11 +15084,11 @@ impl ::core::fmt::Debug for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct D3D11_CLEAR_FLAG(pub i32);
+pub struct D3D11_CLEAR_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_CLEAR_DEPTH: D3D11_CLEAR_FLAG = D3D11_CLEAR_FLAG(1i32);
+pub const D3D11_CLEAR_DEPTH: D3D11_CLEAR_FLAG = D3D11_CLEAR_FLAG(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-pub const D3D11_CLEAR_STENCIL: D3D11_CLEAR_FLAG = D3D11_CLEAR_FLAG(2i32);
+pub const D3D11_CLEAR_STENCIL: D3D11_CLEAR_FLAG = D3D11_CLEAR_FLAG(2u32);
 impl ::core::marker::Copy for D3D11_CLEAR_FLAG {}
 impl ::core::clone::Clone for D3D11_CLEAR_FLAG {
     fn clone(&self) -> Self {
@@ -15106,6 +15106,34 @@ unsafe impl ::windows::core::Abi for D3D11_CLEAR_FLAG {
 impl ::core::fmt::Debug for D3D11_CLEAR_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D11_CLEAR_FLAG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D3D11_CLEAR_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D3D11_CLEAR_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D3D11_CLEAR_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D3D11_CLEAR_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D3D11_CLEAR_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
