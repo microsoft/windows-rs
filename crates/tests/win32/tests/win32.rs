@@ -88,12 +88,10 @@ fn constant() {
     assert!(UIA_ScrollPatternNoScroll == -1f64);
     assert!(CLSID_D2D1Shadow == GUID::from("C67EA361-1863-4e69-89DB-695D3E9A5B6B"));
 
-    let a: PCWSTR = D3DCOMPILER_DLL;
     let b: PCSTR = D3DCOMPILER_DLL_A;
     let c: PCWSTR = D3DCOMPILER_DLL_W;
 
     unsafe {
-        assert_eq!(a.to_string().unwrap(), "d3dcompiler_47.dll");
         assert_eq!(b.to_string().unwrap(), "d3dcompiler_47.dll");
         assert_eq!(c.to_string().unwrap(), "d3dcompiler_47.dll");
     }
