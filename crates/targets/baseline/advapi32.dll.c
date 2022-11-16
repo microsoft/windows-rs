@@ -321,8 +321,12 @@ void __stdcall LogonUserExA(int p0, int p1, int p2, int p3, int p4, int p5, int 
 void __stdcall LogonUserExW(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall LogonUserW(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall LookupAccountNameA(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall LookupAccountNameLocalA(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall LookupAccountNameLocalW(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall LookupAccountNameW(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall LookupAccountSidA(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall LookupAccountSidLocalA(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall LookupAccountSidLocalW(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall LookupAccountSidW(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall LookupPrivilegeDisplayNameA(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall LookupPrivilegeDisplayNameW(int p0, int p1, int p2, int p3, int p4) {}

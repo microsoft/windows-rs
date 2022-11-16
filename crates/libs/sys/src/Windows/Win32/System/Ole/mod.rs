@@ -1477,21 +1477,7 @@ pub const OLECMDERR_E_UNKNOWNGROUP: ::windows_sys::core::HRESULT = -2147221244i3
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_HIDE: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_INPLACEACTIVATE: i32 = -5i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_OPEN: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_PRIMARY: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEIVERB_PROPERTIES: i32 = -7i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_SHOW: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_UIACTIVATE: i32 = -4i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLESTDDELIM: ::windows_sys::core::PCWSTR = ::windows_sys::w!("\\");
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2565,6 +2551,22 @@ pub const OLEGETMONIKER_FORCEASSIGN: OLEGETMONIKER = 2i32;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type OLEIVERB = i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_PRIMARY: OLEIVERB = 0i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_SHOW: OLEIVERB = -1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_OPEN: OLEIVERB = -2i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_HIDE: OLEIVERB = -3i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_UIACTIVATE: OLEIVERB = -4i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_INPLACEACTIVATE: OLEIVERB = -5i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_DISCARDUNDOSTATE: OLEIVERB = -6i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type OLELINKBIND = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3980,7 +3982,7 @@ impl ::core::clone::Clone for OLEUIVIEWPROPSW {
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct OLEVERB {
-    pub lVerb: i32,
+    pub lVerb: OLEIVERB,
     pub lpszVerbName: ::windows_sys::core::PWSTR,
     pub fuFlags: super::super::UI::WindowsAndMessaging::MENU_ITEM_FLAGS,
     pub grfAttribs: OLEVERBATTRIB,

@@ -487,12 +487,13 @@ pub unsafe fn InitializeSecurityContextW(phcredential: ::core::option::Option<*c
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaAddAccountRights<'a, P0>(policyhandle: *const ::core::ffi::c_void, accountsid: P0, userrights: &[super::super::super::Foundation::UNICODE_STRING]) -> ::windows::core::Result<()>
+pub unsafe fn LsaAddAccountRights<'a, P0, P1>(policyhandle: P0, accountsid: P1, userrights: &[super::super::super::Foundation::UNICODE_STRING]) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::std::convert::Into<LSA_HANDLE>,
+    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaAddAccountRights ( policyhandle : *const ::core::ffi::c_void , accountsid : super::super::super::Foundation:: PSID , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaAddAccountRights(::core::mem::transmute(policyhandle), accountsid.into(), ::core::mem::transmute(userrights.as_ptr()), userrights.len() as _).ok()
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaAddAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaAddAccountRights(policyhandle.into(), accountsid.into(), ::core::mem::transmute(userrights.as_ptr()), userrights.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -507,9 +508,12 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaClose(objecthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaClose ( objecthandle : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaClose(::core::mem::transmute(objecthandle)).ok()
+pub unsafe fn LsaClose<'a, P0>(objecthandle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaClose ( objecthandle : LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaClose(objecthandle.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -521,46 +525,54 @@ pub unsafe fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundatio
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaCreateTrustedDomainEx(policyhandle: *const ::core::ffi::c_void, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaCreateTrustedDomainEx ( policyhandle : *const ::core::ffi::c_void , trusteddomaininformation : *const TRUSTED_DOMAIN_INFORMATION_EX , authenticationinformation : *const TRUSTED_DOMAIN_AUTH_INFORMATION , desiredaccess : u32 , trusteddomainhandle : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaCreateTrustedDomainEx(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomaininformation), ::core::mem::transmute(authenticationinformation), desiredaccess, ::core::mem::transmute(trusteddomainhandle)).ok()
+pub unsafe fn LsaCreateTrustedDomainEx<'a, P0>(policyhandle: P0, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut LSA_HANDLE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaCreateTrustedDomainEx ( policyhandle : LSA_HANDLE , trusteddomaininformation : *const TRUSTED_DOMAIN_INFORMATION_EX , authenticationinformation : *const TRUSTED_DOMAIN_AUTH_INFORMATION , desiredaccess : u32 , trusteddomainhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaCreateTrustedDomainEx(policyhandle.into(), ::core::mem::transmute(trusteddomaininformation), ::core::mem::transmute(authenticationinformation), desiredaccess, ::core::mem::transmute(trusteddomainhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaDeleteTrustedDomain<'a, P0>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: P0) -> ::windows::core::Result<()>
+pub unsafe fn LsaDeleteTrustedDomain<'a, P0, P1>(policyhandle: P0, trusteddomainsid: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::std::convert::Into<LSA_HANDLE>,
+    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaDeleteTrustedDomain ( policyhandle : *const ::core::ffi::c_void , trusteddomainsid : super::super::super::Foundation:: PSID ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaDeleteTrustedDomain(::core::mem::transmute(policyhandle), trusteddomainsid.into()).ok()
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaDeleteTrustedDomain ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaDeleteTrustedDomain(policyhandle.into(), trusteddomainsid.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaDeregisterLogonProcess<'a, P0>(lsahandle: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LsaHandle>,
+    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaDeregisterLogonProcess ( lsahandle : LsaHandle ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::core::link ! ( "secur32.dll""system" fn LsaDeregisterLogonProcess ( lsahandle : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
     LsaDeregisterLogonProcess(lsahandle.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaEnumerateAccountRights<'a, P0>(policyhandle: *const ::core::ffi::c_void, accountsid: P0, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn LsaEnumerateAccountRights<'a, P0, P1>(policyhandle: P0, accountsid: P1, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::std::convert::Into<LSA_HANDLE>,
+    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountRights ( policyhandle : *const ::core::ffi::c_void , accountsid : super::super::super::Foundation:: PSID , userrights : *mut *mut super::super::super::Foundation:: UNICODE_STRING , countofrights : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateAccountRights(::core::mem::transmute(policyhandle), accountsid.into(), ::core::mem::transmute(userrights), ::core::mem::transmute(countofrights)).ok()
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , userrights : *mut *mut super::super::super::Foundation:: UNICODE_STRING , countofrights : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateAccountRights(policyhandle.into(), accountsid.into(), ::core::mem::transmute(userrights), ::core::mem::transmute(countofrights)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaEnumerateAccountsWithUserRight(policyhandle: *const ::core::ffi::c_void, userright: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountsWithUserRight ( policyhandle : *const ::core::ffi::c_void , userright : *const super::super::super::Foundation:: UNICODE_STRING , buffer : *mut *mut ::core::ffi::c_void , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateAccountsWithUserRight(::core::mem::transmute(policyhandle), ::core::mem::transmute(userright.unwrap_or(::std::ptr::null())), ::core::mem::transmute(buffer), ::core::mem::transmute(countreturned)).ok()
+pub unsafe fn LsaEnumerateAccountsWithUserRight<'a, P0>(policyhandle: P0, userright: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountsWithUserRight ( policyhandle : LSA_HANDLE , userright : *const super::super::super::Foundation:: UNICODE_STRING , buffer : *mut *mut ::core::ffi::c_void , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateAccountsWithUserRight(policyhandle.into(), ::core::mem::transmute(userright.unwrap_or(::std::ptr::null())), ::core::mem::transmute(buffer), ::core::mem::transmute(countreturned)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -572,16 +584,22 @@ pub unsafe fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessio
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaEnumerateTrustedDomains(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomains ( policyhandle : *const ::core::ffi::c_void , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateTrustedDomains(::core::mem::transmute(policyhandle), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), preferedmaximumlength, ::core::mem::transmute(countreturned)).ok()
+pub unsafe fn LsaEnumerateTrustedDomains<'a, P0>(policyhandle: P0, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomains ( policyhandle : LSA_HANDLE , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateTrustedDomains(policyhandle.into(), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), preferedmaximumlength, ::core::mem::transmute(countreturned)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaEnumerateTrustedDomainsEx(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomainsEx ( policyhandle : *const ::core::ffi::c_void , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateTrustedDomainsEx(::core::mem::transmute(policyhandle), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), preferedmaximumlength, ::core::mem::transmute(countreturned)).ok()
+pub unsafe fn LsaEnumerateTrustedDomainsEx<'a, P0>(policyhandle: P0, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomainsEx ( policyhandle : LSA_HANDLE , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateTrustedDomainsEx(policyhandle.into(), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), preferedmaximumlength, ::core::mem::transmute(countreturned)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -650,30 +668,42 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaLookupNames(policyhandle: *const ::core::ffi::c_void, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupNames ( policyhandle : *const ::core::ffi::c_void , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupNames(::core::mem::transmute(policyhandle), count, ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
+pub unsafe fn LsaLookupNames<'a, P0>(policyhandle: P0, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupNames ( policyhandle : LSA_HANDLE , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupNames(policyhandle.into(), count, ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaLookupNames2(policyhandle: *const ::core::ffi::c_void, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupNames2 ( policyhandle : *const ::core::ffi::c_void , flags : u32 , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID2 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupNames2(::core::mem::transmute(policyhandle), flags, count, ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
+pub unsafe fn LsaLookupNames2<'a, P0>(policyhandle: P0, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupNames2 ( policyhandle : LSA_HANDLE , flags : u32 , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID2 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupNames2(policyhandle.into(), flags, count, ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaLookupSids(policyhandle: *const ::core::ffi::c_void, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupSids ( policyhandle : *const ::core::ffi::c_void , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupSids(::core::mem::transmute(policyhandle), count, ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
+pub unsafe fn LsaLookupSids<'a, P0>(policyhandle: P0, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupSids ( policyhandle : LSA_HANDLE , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupSids(policyhandle.into(), count, ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaLookupSids2(policyhandle: *const ::core::ffi::c_void, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupSids2 ( policyhandle : *const ::core::ffi::c_void , lookupoptions : u32 , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupSids2(::core::mem::transmute(policyhandle), lookupoptions, count, ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
+pub unsafe fn LsaLookupSids2<'a, P0>(policyhandle: P0, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupSids2 ( policyhandle : LSA_HANDLE , lookupoptions : u32 , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupSids2(policyhandle.into(), lookupoptions, count, ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -688,16 +718,19 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn LsaOpenPolicy(systemname: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaOpenPolicy ( systemname : *const super::super::super::Foundation:: UNICODE_STRING , objectattributes : *const super::super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES , desiredaccess : u32 , policyhandle : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+pub unsafe fn LsaOpenPolicy(systemname: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut LSA_HANDLE) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaOpenPolicy ( systemname : *const super::super::super::Foundation:: UNICODE_STRING , objectattributes : *const super::super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES , desiredaccess : u32 , policyhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
     LsaOpenPolicy(::core::mem::transmute(systemname.unwrap_or(::std::ptr::null())), ::core::mem::transmute(objectattributes), desiredaccess, ::core::mem::transmute(policyhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaOpenTrustedDomainByName ( policyhandle : *const ::core::ffi::c_void , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , desiredaccess : u32 , trusteddomainhandle : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaOpenTrustedDomainByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), desiredaccess, ::core::mem::transmute(trusteddomainhandle)).ok()
+pub unsafe fn LsaOpenTrustedDomainByName<'a, P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut LSA_HANDLE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaOpenTrustedDomainByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , desiredaccess : u32 , trusteddomainhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaOpenTrustedDomainByName(policyhandle.into(), ::core::mem::transmute(trusteddomainname), desiredaccess, ::core::mem::transmute(trusteddomainhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -709,46 +742,59 @@ pub unsafe fn LsaQueryCAPs(capids: ::core::option::Option<&[super::super::super:
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaQueryDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryDomainInformationPolicy ( policyhandle : *const ::core::ffi::c_void , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryDomainInformationPolicy(::core::mem::transmute(policyhandle), informationclass, ::core::mem::transmute(buffer)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LsaQueryForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryForestTrustInformation ( policyhandle : *const ::core::ffi::c_void , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *mut *mut LSA_FOREST_TRUST_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryForestTrustInformation(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LsaQueryInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryInformationPolicy ( policyhandle : *const ::core::ffi::c_void , informationclass : POLICY_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryInformationPolicy(::core::mem::transmute(policyhandle), informationclass, ::core::mem::transmute(buffer)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LsaQueryTrustedDomainInfo<'a, P0>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: P0, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn LsaQueryDomainInformationPolicy<'a, P0>(policyhandle: P0, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::std::convert::Into<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfo ( policyhandle : *const ::core::ffi::c_void , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryTrustedDomainInfo(::core::mem::transmute(policyhandle), trusteddomainsid.into(), informationclass, ::core::mem::transmute(buffer)).ok()
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryDomainInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryDomainInformationPolicy(policyhandle.into(), informationclass, ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaQueryTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfoByName ( policyhandle : *const ::core::ffi::c_void , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryTrustedDomainInfoByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), informationclass, ::core::mem::transmute(buffer)).ok()
+pub unsafe fn LsaQueryForestTrustInformation<'a, P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryForestTrustInformation ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *mut *mut LSA_FOREST_TRUST_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryForestTrustInformation(policyhandle.into(), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LsaQueryInformationPolicy<'a, P0>(policyhandle: P0, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryInformationPolicy(policyhandle.into(), informationclass, ::core::mem::transmute(buffer)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LsaQueryTrustedDomainInfo<'a, P0, P1>(policyhandle: P0, trusteddomainsid: P1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfo ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryTrustedDomainInfo(policyhandle.into(), trusteddomainsid.into(), informationclass, ::core::mem::transmute(buffer)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LsaQueryTrustedDomainInfoByName<'a, P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfoByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryTrustedDomainInfoByName(policyhandle.into(), ::core::mem::transmute(trusteddomainname), informationclass, ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut LsaHandle, securitymode: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaRegisterLogonProcess ( logonprocessname : *const super::super::super::System::Kernel:: STRING , lsahandle : *mut LsaHandle , securitymode : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut super::super::super::Foundation::HANDLE, securitymode: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "secur32.dll""system" fn LsaRegisterLogonProcess ( logonprocessname : *const super::super::super::System::Kernel:: STRING , lsahandle : *mut super::super::super::Foundation:: HANDLE , securitymode : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
     LsaRegisterLogonProcess(::core::mem::transmute(logonprocessname), ::core::mem::transmute(lsahandle), ::core::mem::transmute(securitymode)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -764,20 +810,24 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaRemoveAccountRights<'a, P0, P1>(policyhandle: *const ::core::ffi::c_void, accountsid: P0, allrights: P1, userrights: ::core::option::Option<&[super::super::super::Foundation::UNICODE_STRING]>) -> ::windows::core::Result<()>
+pub unsafe fn LsaRemoveAccountRights<'a, P0, P1, P2>(policyhandle: P0, accountsid: P1, allrights: P2, userrights: ::core::option::Option<&[super::super::super::Foundation::UNICODE_STRING]>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
-    P1: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+    P0: ::std::convert::Into<LSA_HANDLE>,
+    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaRemoveAccountRights ( policyhandle : *const ::core::ffi::c_void , accountsid : super::super::super::Foundation:: PSID , allrights : super::super::super::Foundation:: BOOLEAN , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaRemoveAccountRights(::core::mem::transmute(policyhandle), accountsid.into(), allrights.into(), ::core::mem::transmute(userrights.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaRemoveAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , allrights : super::super::super::Foundation:: BOOLEAN , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaRemoveAccountRights(policyhandle.into(), accountsid.into(), allrights.into(), ::core::mem::transmute(userrights.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaRetrievePrivateData ( policyhandle : *const ::core::ffi::c_void , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *mut *mut super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaRetrievePrivateData(::core::mem::transmute(policyhandle), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata)).ok()
+pub unsafe fn LsaRetrievePrivateData<'a, P0>(policyhandle: P0, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaRetrievePrivateData ( policyhandle : LSA_HANDLE , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *mut *mut super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaRetrievePrivateData(policyhandle.into(), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -789,50 +839,64 @@ pub unsafe fn LsaSetCAPs(capdns: ::core::option::Option<&[super::super::super::F
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaSetDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetDomainInformationPolicy ( policyhandle : *const ::core::ffi::c_void , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetDomainInformationPolicy(::core::mem::transmute(policyhandle), informationclass, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null()))).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LsaSetForestTrustInformation<'a, P0>(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: P0, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> ::windows::core::Result<()>
+pub unsafe fn LsaSetDomainInformationPolicy<'a, P0>(policyhandle: P0, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+    P0: ::std::convert::Into<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetForestTrustInformation ( policyhandle : *const ::core::ffi::c_void , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION , checkonly : super::super::super::Foundation:: BOOLEAN , collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetForestTrustInformation(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo), checkonly.into(), ::core::mem::transmute(collisioninfo)).ok()
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetDomainInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetDomainInformationPolicy(policyhandle.into(), informationclass, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaSetInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetInformationPolicy ( policyhandle : *const ::core::ffi::c_void , informationclass : POLICY_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetInformationPolicy(::core::mem::transmute(policyhandle), informationclass, ::core::mem::transmute(buffer)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LsaSetTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInfoByName ( policyhandle : *const ::core::ffi::c_void , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetTrustedDomainInfoByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), informationclass, ::core::mem::transmute(buffer)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LsaSetTrustedDomainInformation<'a, P0>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: P0, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn LsaSetForestTrustInformation<'a, P0, P1>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: P1, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::std::convert::Into<LSA_HANDLE>,
+    P1: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInformation ( policyhandle : *const ::core::ffi::c_void , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetTrustedDomainInformation(::core::mem::transmute(policyhandle), trusteddomainsid.into(), informationclass, ::core::mem::transmute(buffer)).ok()
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetForestTrustInformation ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION , checkonly : super::super::super::Foundation:: BOOLEAN , collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetForestTrustInformation(policyhandle.into(), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo), checkonly.into(), ::core::mem::transmute(collisioninfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaStorePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaStorePrivateData ( policyhandle : *const ::core::ffi::c_void , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *const super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaStorePrivateData(::core::mem::transmute(policyhandle), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata.unwrap_or(::std::ptr::null()))).ok()
+pub unsafe fn LsaSetInformationPolicy<'a, P0>(policyhandle: P0, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetInformationPolicy(policyhandle.into(), informationclass, ::core::mem::transmute(buffer)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LsaSetTrustedDomainInfoByName<'a, P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInfoByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetTrustedDomainInfoByName(policyhandle.into(), ::core::mem::transmute(trusteddomainname), informationclass, ::core::mem::transmute(buffer)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LsaSetTrustedDomainInformation<'a, P0, P1>(policyhandle: P0, trusteddomainsid: P1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInformation ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetTrustedDomainInformation(policyhandle.into(), trusteddomainsid.into(), informationclass, ::core::mem::transmute(buffer)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LsaStorePrivateData<'a, P0>(policyhandle: P0, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<LSA_HANDLE>,
+{
+    ::windows::core::link ! ( "advapi32.dll""system" fn LsaStorePrivateData ( policyhandle : LSA_HANDLE , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *const super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaStorePrivateData(policyhandle.into(), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11127,6 +11191,38 @@ impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LSA_HANDLE(pub isize);
+impl LSA_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for LSA_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LSA_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LSA_HANDLE {}
+impl ::core::fmt::Debug for LSA_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LSA_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<LSA_HANDLE>> for LSA_HANDLE {
+    fn from(optional: ::core::option::Option<LSA_HANDLE>) -> LSA_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for LSA_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub struct LSA_LAST_INTER_LOGON_INFO {
@@ -11643,38 +11739,6 @@ impl ::core::default::Default for LSA_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LsaHandle(pub isize);
-impl LsaHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for LsaHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for LsaHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for LsaHandle {}
-impl ::core::fmt::Debug for LsaHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LsaHandle").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<LsaHandle>> for LsaHandle {
-    fn from(optional: ::core::option::Option<LsaHandle>) -> LsaHandle {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for LsaHandle {
-    type Abi = Self;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]

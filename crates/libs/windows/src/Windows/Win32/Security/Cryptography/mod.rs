@@ -26314,6 +26314,11 @@ impl ::core::convert::From<::core::option::Option<NCRYPT_KEY_HANDLE>> for NCRYPT
 unsafe impl ::windows::core::Abi for NCRYPT_KEY_HANDLE {
     type Abi = Self;
 }
+impl ::core::convert::From<NCRYPT_KEY_HANDLE> for NCRYPT_HANDLE {
+    fn from(item: NCRYPT_KEY_HANDLE) -> NCRYPT_HANDLE {
+        NCRYPT_HANDLE(item.0)
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
@@ -26587,6 +26592,11 @@ impl ::core::convert::From<::core::option::Option<NCRYPT_PROV_HANDLE>> for NCRYP
 }
 unsafe impl ::windows::core::Abi for NCRYPT_PROV_HANDLE {
     type Abi = Self;
+}
+impl ::core::convert::From<NCRYPT_PROV_HANDLE> for NCRYPT_HANDLE {
+    fn from(item: NCRYPT_PROV_HANDLE) -> NCRYPT_HANDLE {
+        NCRYPT_HANDLE(item.0)
+    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

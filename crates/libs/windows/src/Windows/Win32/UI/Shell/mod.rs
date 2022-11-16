@@ -56,67 +56,67 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn AssocQueryKeyA<'a, P0, P1>(flags: u32, key: ASSOCKEY, pszassoc: P0, pszextra: P1) -> ::windows::core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn AssocQueryKeyA<'a, P0, P1>(flags: ASSOCF, key: ASSOCKEY, pszassoc: P0, pszextra: P1) -> ::windows::core::Result<super::super::System::Registry::HKEY>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryKeyA ( flags : u32 , key : ASSOCKEY , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryKeyA ( flags : ASSOCF , key : ASSOCKEY , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     AssocQueryKeyA(flags, key, pszassoc.into(), pszextra.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Registry::HKEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn AssocQueryKeyW<'a, P0, P1>(flags: u32, key: ASSOCKEY, pszassoc: P0, pszextra: P1) -> ::windows::core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn AssocQueryKeyW<'a, P0, P1>(flags: ASSOCF, key: ASSOCKEY, pszassoc: P0, pszextra: P1) -> ::windows::core::Result<super::super::System::Registry::HKEY>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryKeyW ( flags : u32 , key : ASSOCKEY , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryKeyW ( flags : ASSOCF , key : ASSOCKEY , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , phkeyout : *mut super::super::System::Registry:: HKEY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     AssocQueryKeyW(flags, key, pszassoc.into(), pszextra.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Registry::HKEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn AssocQueryStringA<'a, P0, P1>(flags: u32, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringA<'a, P0, P1>(flags: ASSOCF, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringA ( flags : u32 , str : ASSOCSTR , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringA ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCSTR , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringA(flags, str, pszassoc.into(), pszextra.into(), ::core::mem::transmute(pszout), ::core::mem::transmute(pcchout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn AssocQueryStringByKeyA<'a, P0, P1>(flags: u32, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringByKeyA<'a, P0, P1>(flags: ASSOCF, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyA ( flags : u32 , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyA ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCSTR , pszout : :: windows::core::PSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringByKeyA(flags, str, hkassoc.into(), pszextra.into(), ::core::mem::transmute(pszout), ::core::mem::transmute(pcchout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn AssocQueryStringByKeyW<'a, P0, P1>(flags: u32, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringByKeyW<'a, P0, P1>(flags: ASSOCF, str: ASSOCSTR, hkassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyW ( flags : u32 , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringByKeyW ( flags : ASSOCF , str : ASSOCSTR , hkassoc : super::super::System::Registry:: HKEY , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringByKeyW(flags, str, hkassoc.into(), pszextra.into(), ::core::mem::transmute(pszout), ::core::mem::transmute(pcchout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn AssocQueryStringW<'a, P0, P1>(flags: u32, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn AssocQueryStringW<'a, P0, P1>(flags: ASSOCF, str: ASSOCSTR, pszassoc: P0, pszextra: P1, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringW ( flags : u32 , str : ASSOCSTR , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn AssocQueryStringW ( flags : ASSOCF , str : ASSOCSTR , pszassoc : :: windows::core::PCWSTR , pszextra : :: windows::core::PCWSTR , pszout : :: windows::core::PWSTR , pcchout : *mut u32 ) -> :: windows::core::HRESULT );
     AssocQueryStringW(flags, str, pszassoc.into(), pszextra.into(), ::core::mem::transmute(pszout), ::core::mem::transmute(pcchout)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`, `\"Win32_UI_Shell_Common\"`*"]
@@ -5360,30 +5360,30 @@ where
     ::windows::core::link ! ( "shell32.dll""system" fn ShellExecuteW ( hwnd : super::super::Foundation:: HWND , lpoperation : :: windows::core::PCWSTR , lpfile : :: windows::core::PCWSTR , lpparameters : :: windows::core::PCWSTR , lpdirectory : :: windows::core::PCWSTR , nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD ) -> super::super::Foundation:: HINSTANCE );
     ShellExecuteW(hwnd.into(), lpoperation.into(), lpfile.into(), lpparameters.into(), lpdirectory.into(), nshowcmd)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ShellMessageBoxA<'a, P0, P1, P2, P3>(happinst: P0, hwnd: P1, lpctext: P2, lpctitle: P3, fustyle: u32) -> i32
+pub unsafe fn ShellMessageBoxA<'a, P0, P1, P2, P3>(happinst: P0, hwnd: P1, lpctext: P2, lpctitle: P3, fustyle: super::WindowsAndMessaging::MESSAGEBOX_STYLE) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxA ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCSTR , lpctitle : :: windows::core::PCSTR , fustyle : u32 ) -> i32 );
+    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxA ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCSTR , lpctitle : :: windows::core::PCSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
     ShellMessageBoxA(happinst.into(), hwnd.into(), lpctext.into(), lpctitle.into(), fustyle)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ShellMessageBoxW<'a, P0, P1, P2, P3>(happinst: P0, hwnd: P1, lpctext: P2, lpctitle: P3, fustyle: u32) -> i32
+pub unsafe fn ShellMessageBoxW<'a, P0, P1, P2, P3>(happinst: P0, hwnd: P1, lpctext: P2, lpctitle: P3, fustyle: super::WindowsAndMessaging::MESSAGEBOX_STYLE) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxW ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCWSTR , lpctitle : :: windows::core::PCWSTR , fustyle : u32 ) -> i32 );
+    ::windows::core::link ! ( "shlwapi.dll""cdecl" fn ShellMessageBoxW ( happinst : super::super::Foundation:: HINSTANCE , hwnd : super::super::Foundation:: HWND , lpctext : :: windows::core::PCWSTR , lpctitle : :: windows::core::PCWSTR , fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE ) -> i32 );
     ShellMessageBoxW(happinst.into(), hwnd.into(), lpctext.into(), lpctitle.into(), fustyle)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -26444,7 +26444,7 @@ pub struct IQueryAssociations(::windows::core::IUnknown);
 impl IQueryAssociations {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub unsafe fn Init<'a, P0, P1, P2>(&self, flags: u32, pszassoc: P0, hkprogid: P1, hwnd: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Init<'a, P0, P1, P2>(&self, flags: ASSOCF, pszassoc: P0, hkprogid: P1, hwnd: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::System::Registry::HKEY>,
@@ -26452,7 +26452,7 @@ impl IQueryAssociations {
     {
         (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), flags, pszassoc.into(), hkprogid.into(), hwnd.into()).ok()
     }
-    pub unsafe fn GetString<'a, P0>(&self, flags: u32, str: ASSOCSTR, pszextra: P0, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetString<'a, P0>(&self, flags: ASSOCF, str: ASSOCSTR, pszextra: P0, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -26460,20 +26460,20 @@ impl IQueryAssociations {
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn GetKey<'a, P0>(&self, flags: u32, key: ASSOCKEY, pszextra: P0) -> ::windows::core::Result<super::super::System::Registry::HKEY>
+    pub unsafe fn GetKey<'a, P0>(&self, flags: ASSOCF, key: ASSOCKEY, pszextra: P0) -> ::windows::core::Result<super::super::System::Registry::HKEY>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetKey)(::windows::core::Vtable::as_raw(self), flags, key, pszextra.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Registry::HKEY>(result__)
     }
-    pub unsafe fn GetData<'a, P0>(&self, flags: u32, data: ASSOCDATA, pszextra: P0, pvout: ::core::option::Option<*mut ::core::ffi::c_void>, pcbout: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+    pub unsafe fn GetData<'a, P0>(&self, flags: ASSOCF, data: ASSOCDATA, pszextra: P0, pvout: ::core::option::Option<*mut ::core::ffi::c_void>, pcbout: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), flags, data, pszextra.into(), ::core::mem::transmute(pvout.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbout.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetEnum<'a, P0>(&self, flags: u32, assocenum: ASSOCENUM, pszextra: P0, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn GetEnum<'a, P0>(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: P0, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -26508,16 +26508,16 @@ unsafe impl ::windows::core::Interface for IQueryAssociations {
 pub struct IQueryAssociations_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, pszassoc: ::windows::core::PCWSTR, hkprogid: super::super::System::Registry::HKEY, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ASSOCF, pszassoc: ::windows::core::PCWSTR, hkprogid: super::super::System::Registry::HKEY, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))]
     Init: usize,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, str: ASSOCSTR, pszextra: ::windows::core::PCWSTR, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ASSOCF, str: ASSOCSTR, pszextra: ::windows::core::PCWSTR, pszout: ::windows::core::PWSTR, pcchout: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Registry")]
-    pub GetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, key: ASSOCKEY, pszextra: ::windows::core::PCWSTR, phkeyout: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
+    pub GetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ASSOCF, key: ASSOCKEY, pszextra: ::windows::core::PCWSTR, phkeyout: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]
     GetKey: usize,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, data: ASSOCDATA, pszextra: ::windows::core::PCWSTR, pvout: *mut ::core::ffi::c_void, pcbout: *mut u32) -> ::windows::core::HRESULT,
-    pub GetEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, assocenum: ASSOCENUM, pszextra: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ASSOCF, data: ASSOCDATA, pszextra: ::windows::core::PCWSTR, pvout: *mut ::core::ffi::c_void, pcbout: *mut u32) -> ::windows::core::HRESULT,
+    pub GetEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
@@ -43143,44 +43143,6 @@ pub const ARCONTENT_SVCD: u32 = 2048u32;
 pub const ARCONTENT_UNKNOWNCONTENT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const ARCONTENT_VCD: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_APP_TO_APP: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_IGNOREBASECLASS: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_INIT_BYEXENAME: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_INIT_DEFAULTTOFOLDER: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_INIT_DEFAULTTOSTAR: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_INIT_FIXED_PROGID: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_INIT_FOR_FILE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_INIT_IGNOREUNKNOWN: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_INIT_NOREMAPCLSID: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_IS_FULL_URI: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_IS_PROTOCOL: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_NOFIXUPS: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_NONE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_NOTRUNCATE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_NOUSERSETTINGS: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_OPEN_BYEXENAME: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_PER_MACHINE_ONLY: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_REMAPRUNDLL: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const ASSOCF_VERIFY: i32 = 64i32;
 pub const AccessibilityDockingService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ce1d46_b481_4aa0_a08a_d3ebc8aca402);
 pub const AlphabeticalCategorizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
 pub const AppShellVerbHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ed3a719_cea8_4bd9_910d_e252f997afc2);
@@ -46584,6 +46546,95 @@ unsafe impl ::windows::core::Abi for ASSOCENUM {
 impl ::core::fmt::Debug for ASSOCENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ASSOCENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ASSOCF(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_NONE: ASSOCF = ASSOCF(0u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_INIT_NOREMAPCLSID: ASSOCF = ASSOCF(1u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_INIT_BYEXENAME: ASSOCF = ASSOCF(2u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_OPEN_BYEXENAME: ASSOCF = ASSOCF(2u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_INIT_DEFAULTTOSTAR: ASSOCF = ASSOCF(4u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_INIT_DEFAULTTOFOLDER: ASSOCF = ASSOCF(8u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_NOUSERSETTINGS: ASSOCF = ASSOCF(16u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_NOTRUNCATE: ASSOCF = ASSOCF(32u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_VERIFY: ASSOCF = ASSOCF(64u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_REMAPRUNDLL: ASSOCF = ASSOCF(128u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_NOFIXUPS: ASSOCF = ASSOCF(256u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_IGNOREBASECLASS: ASSOCF = ASSOCF(512u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_INIT_IGNOREUNKNOWN: ASSOCF = ASSOCF(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_INIT_FIXED_PROGID: ASSOCF = ASSOCF(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_IS_PROTOCOL: ASSOCF = ASSOCF(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_INIT_FOR_FILE: ASSOCF = ASSOCF(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_IS_FULL_URI: ASSOCF = ASSOCF(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_PER_MACHINE_ONLY: ASSOCF = ASSOCF(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const ASSOCF_APP_TO_APP: ASSOCF = ASSOCF(65536u32);
+impl ::core::marker::Copy for ASSOCF {}
+impl ::core::clone::Clone for ASSOCF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ASSOCF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ASSOCF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ASSOCF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ASSOCF").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ASSOCF {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ASSOCF {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ASSOCF {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ASSOCF {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ASSOCF {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
