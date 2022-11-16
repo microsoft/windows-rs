@@ -78,11 +78,6 @@ pub use windows_implement::implement;
 #[cfg(feature = "interface")]
 pub use windows_interface::interface;
 
-extern "C" {
-    #[doc(hidden)]
-    pub fn memcmp(left: *const std::ffi::c_void, right: *const std::ffi::c_void, len: usize) -> i32;
-}
-
 #[doc(hidden)]
 pub extern crate alloc;
 
