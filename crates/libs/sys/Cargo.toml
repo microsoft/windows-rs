@@ -15,7 +15,7 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 all-features = true
 
-[dependencies]
+[target.'cfg(not(windows_raw_dylib))'.dependencies]
 windows-targets = { path = "../targets",  version = "0.43.0" }
 
 [features]

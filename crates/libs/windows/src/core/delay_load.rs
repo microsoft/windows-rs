@@ -1,4 +1,5 @@
 use super::*;
+use bindings::*;
 
 /// Attempts to load a function from a given library.
 ///
@@ -22,11 +23,4 @@ pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
 
     FreeLibrary(library);
     None
-}
-
-#[link(name = "windows")]
-extern "system" {
-    fn GetProcAddress(library: isize, name: PCSTR) -> *const std::ffi::c_void;
-    fn LoadLibraryA(name: PCSTR) -> isize;
-    fn FreeLibrary(library: isize) -> i32;
 }

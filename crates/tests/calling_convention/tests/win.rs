@@ -10,3 +10,7 @@ fn calling_convention() {
         GetTickCount();
     }
 }
+
+#[test]
+#[cfg(windows_raw_dylib)]
+fn raw_dylib() {}
