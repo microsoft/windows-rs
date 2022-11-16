@@ -135,14 +135,6 @@ unsafe impl ::windows::core::Abi for OVERLAPPED {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OVERLAPPED {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OVERLAPPED {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -167,14 +159,6 @@ impl ::core::clone::Clone for OVERLAPPED_0 {
 unsafe impl ::windows::core::Abi for OVERLAPPED_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OVERLAPPED_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OVERLAPPED_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED_0 {
     fn default() -> Self {
@@ -209,7 +193,7 @@ unsafe impl ::windows::core::Abi for OVERLAPPED_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OVERLAPPED_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_0_0>()) == 0 }
+        self.Offset == other.Offset && self.OffsetHigh == other.OffsetHigh
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -250,7 +234,7 @@ unsafe impl ::windows::core::Abi for OVERLAPPED_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OVERLAPPED_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_ENTRY>()) == 0 }
+        self.lpCompletionKey == other.lpCompletionKey && self.lpOverlapped == other.lpOverlapped && self.Internal == other.Internal && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred
     }
 }
 #[cfg(feature = "Win32_Foundation")]

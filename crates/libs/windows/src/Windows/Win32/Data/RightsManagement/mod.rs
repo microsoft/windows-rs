@@ -1171,7 +1171,7 @@ unsafe impl ::windows::core::Abi for DRMBOUNDLICENSEPARAMS {
 }
 impl ::core::cmp::PartialEq for DRMBOUNDLICENSEPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRMBOUNDLICENSEPARAMS>()) == 0 }
+        self.uVersion == other.uVersion && self.hEnablingPrincipal == other.hEnablingPrincipal && self.hSecureStore == other.hSecureStore && self.wszRightsRequested == other.wszRightsRequested && self.wszRightsGroup == other.wszRightsGroup && self.idResource == other.idResource && self.cAuthenticatorCount == other.cAuthenticatorCount && self.rghAuthenticators == other.rghAuthenticators && self.wszDefaultEnablingPrincipalCredentials == other.wszDefaultEnablingPrincipalCredentials && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for DRMBOUNDLICENSEPARAMS {}
@@ -1203,7 +1203,7 @@ unsafe impl ::windows::core::Abi for DRMID {
 }
 impl ::core::cmp::PartialEq for DRMID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRMID>()) == 0 }
+        self.uVersion == other.uVersion && self.wszIDType == other.wszIDType && self.wszID == other.wszID
     }
 }
 impl ::core::cmp::Eq for DRMID {}
@@ -1235,7 +1235,7 @@ unsafe impl ::windows::core::Abi for DRM_ACTSERV_INFO {
 }
 impl ::core::cmp::PartialEq for DRM_ACTSERV_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_ACTSERV_INFO>()) == 0 }
+        self.uVersion == other.uVersion && self.wszPubKey == other.wszPubKey && self.wszURL == other.wszURL
     }
 }
 impl ::core::cmp::Eq for DRM_ACTSERV_INFO {}
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::core::Abi for DRM_CLIENT_VERSION_INFO {
 }
 impl ::core::cmp::PartialEq for DRM_CLIENT_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_CLIENT_VERSION_INFO>()) == 0 }
+        self.uStructVersion == other.uStructVersion && self.dwVersion == other.dwVersion && self.wszHierarchy == other.wszHierarchy && self.wszProductId == other.wszProductId && self.wszProductDescription == other.wszProductDescription
     }
 }
 impl ::core::cmp::Eq for DRM_CLIENT_VERSION_INFO {}
@@ -1304,7 +1304,7 @@ unsafe impl ::windows::core::Abi for DRM_LICENSE_ACQ_DATA {
 }
 impl ::core::cmp::PartialEq for DRM_LICENSE_ACQ_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_LICENSE_ACQ_DATA>()) == 0 }
+        self.uVersion == other.uVersion && self.wszURL == other.wszURL && self.wszLocalFilename == other.wszLocalFilename && self.pbPostData == other.pbPostData && self.dwPostDataSize == other.dwPostDataSize && self.wszFriendlyName == other.wszFriendlyName
     }
 }
 impl ::core::cmp::Eq for DRM_LICENSE_ACQ_DATA {}

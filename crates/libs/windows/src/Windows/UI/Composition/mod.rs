@@ -37934,7 +37934,7 @@ unsafe impl ::windows::core::RuntimeType for InkTrailPoint {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for InkTrailPoint {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InkTrailPoint>()) == 0 }
+        self.Point == other.Point && self.Radius == other.Radius
     }
 }
 #[cfg(feature = "Foundation")]

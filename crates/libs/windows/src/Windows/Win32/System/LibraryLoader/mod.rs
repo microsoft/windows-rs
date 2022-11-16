@@ -639,7 +639,7 @@ unsafe impl ::windows::core::Abi for ENUMUILANG {
 }
 impl ::core::cmp::PartialEq for ENUMUILANG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUMUILANG>()) == 0 }
+        self.NumOfEnumUILang == other.NumOfEnumUILang && self.SizeOfEnumUIBuffer == other.SizeOfEnumUIBuffer && self.pEnumUIBuffer == other.pEnumUIBuffer
     }
 }
 impl ::core::cmp::Eq for ENUMUILANG {}
@@ -671,7 +671,7 @@ unsafe impl ::windows::core::Abi for REDIRECTION_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for REDIRECTION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REDIRECTION_DESCRIPTOR>()) == 0 }
+        self.Version == other.Version && self.FunctionCount == other.FunctionCount && self.Redirections == other.Redirections
     }
 }
 impl ::core::cmp::Eq for REDIRECTION_DESCRIPTOR {}
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::Abi for REDIRECTION_FUNCTION_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REDIRECTION_FUNCTION_DESCRIPTOR>()) == 0 }
+        self.DllName == other.DllName && self.FunctionName == other.FunctionName && self.RedirectionTarget == other.RedirectionTarget
     }
 }
 impl ::core::cmp::Eq for REDIRECTION_FUNCTION_DESCRIPTOR {}

@@ -946,21 +946,13 @@ impl ::core::clone::Clone for HCS_CREATE_OPTIONS_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for HCS_CREATE_OPTIONS_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCS_CREATE_OPTIONS_1").field("Version", &self.Version).field("UserToken", &self.UserToken).field("SecurityDescriptor", &self.SecurityDescriptor).field("CallbackOptions", &self.CallbackOptions).field("CallbackContext", &self.CallbackContext).field("Callback", &self.Callback.map(|f| f as usize)).finish()
+        f.debug_struct("HCS_CREATE_OPTIONS_1").field("Version", &self.Version).field("UserToken", &self.UserToken).field("SecurityDescriptor", &self.SecurityDescriptor).field("CallbackOptions", &self.CallbackOptions).field("CallbackContext", &self.CallbackContext).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS_1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for HCS_CREATE_OPTIONS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_CREATE_OPTIONS_1>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for HCS_CREATE_OPTIONS_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for HCS_CREATE_OPTIONS_1 {
     fn default() -> Self {
@@ -990,7 +982,7 @@ unsafe impl ::windows::core::Abi for HCS_EVENT {
 }
 impl ::core::cmp::PartialEq for HCS_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_EVENT>()) == 0 }
+        self.Type == other.Type && self.EventData == other.EventData && self.Operation == other.Operation
     }
 }
 impl ::core::cmp::Eq for HCS_EVENT {}
@@ -1094,7 +1086,7 @@ unsafe impl ::windows::core::Abi for HCS_PROCESS_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HCS_PROCESS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_PROCESS_INFORMATION>()) == 0 }
+        self.ProcessId == other.ProcessId && self.Reserved == other.Reserved && self.StdInput == other.StdInput && self.StdOutput == other.StdOutput && self.StdError == other.StdError
     }
 }
 #[cfg(feature = "Win32_Foundation")]

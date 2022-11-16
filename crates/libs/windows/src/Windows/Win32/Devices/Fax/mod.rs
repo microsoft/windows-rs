@@ -9708,7 +9708,7 @@ unsafe impl ::windows::core::Abi for FAX_CONFIGURATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_CONFIGURATIONA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_CONFIGURATIONA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.Retries == other.Retries && self.RetryDelay == other.RetryDelay && self.DirtyDays == other.DirtyDays && self.Branding == other.Branding && self.UseDeviceTsid == other.UseDeviceTsid && self.ServerCp == other.ServerCp && self.PauseServerQueue == other.PauseServerQueue && self.StartCheapTime == other.StartCheapTime && self.StopCheapTime == other.StopCheapTime && self.ArchiveOutgoingFaxes == other.ArchiveOutgoingFaxes && self.ArchiveDirectory == other.ArchiveDirectory && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9772,7 +9772,7 @@ unsafe impl ::windows::core::Abi for FAX_CONFIGURATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_CONFIGURATIONW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_CONFIGURATIONW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.Retries == other.Retries && self.RetryDelay == other.RetryDelay && self.DirtyDays == other.DirtyDays && self.Branding == other.Branding && self.UseDeviceTsid == other.UseDeviceTsid && self.ServerCp == other.ServerCp && self.PauseServerQueue == other.PauseServerQueue && self.StartCheapTime == other.StartCheapTime && self.StopCheapTime == other.StopCheapTime && self.ArchiveOutgoingFaxes == other.ArchiveOutgoingFaxes && self.ArchiveDirectory == other.ArchiveDirectory && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9812,7 +9812,7 @@ unsafe impl ::windows::core::Abi for FAX_CONTEXT_INFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for FAX_CONTEXT_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_CONTEXT_INFOA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.hDC == other.hDC && self.ServerName == other.ServerName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9852,7 +9852,7 @@ unsafe impl ::windows::core::Abi for FAX_CONTEXT_INFOW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for FAX_CONTEXT_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_CONTEXT_INFOW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.hDC == other.hDC && self.ServerName == other.ServerName
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9948,7 +9948,35 @@ unsafe impl ::windows::core::Abi for FAX_COVERPAGE_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_COVERPAGE_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_COVERPAGE_INFOA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct
+            && self.CoverPageName == other.CoverPageName
+            && self.UseServerCoverPage == other.UseServerCoverPage
+            && self.RecName == other.RecName
+            && self.RecFaxNumber == other.RecFaxNumber
+            && self.RecCompany == other.RecCompany
+            && self.RecStreetAddress == other.RecStreetAddress
+            && self.RecCity == other.RecCity
+            && self.RecState == other.RecState
+            && self.RecZip == other.RecZip
+            && self.RecCountry == other.RecCountry
+            && self.RecTitle == other.RecTitle
+            && self.RecDepartment == other.RecDepartment
+            && self.RecOfficeLocation == other.RecOfficeLocation
+            && self.RecHomePhone == other.RecHomePhone
+            && self.RecOfficePhone == other.RecOfficePhone
+            && self.SdrName == other.SdrName
+            && self.SdrFaxNumber == other.SdrFaxNumber
+            && self.SdrCompany == other.SdrCompany
+            && self.SdrAddress == other.SdrAddress
+            && self.SdrTitle == other.SdrTitle
+            && self.SdrDepartment == other.SdrDepartment
+            && self.SdrOfficeLocation == other.SdrOfficeLocation
+            && self.SdrHomePhone == other.SdrHomePhone
+            && self.SdrOfficePhone == other.SdrOfficePhone
+            && self.Note == other.Note
+            && self.Subject == other.Subject
+            && self.TimeSent == other.TimeSent
+            && self.PageCount == other.PageCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10044,7 +10072,35 @@ unsafe impl ::windows::core::Abi for FAX_COVERPAGE_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_COVERPAGE_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_COVERPAGE_INFOW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct
+            && self.CoverPageName == other.CoverPageName
+            && self.UseServerCoverPage == other.UseServerCoverPage
+            && self.RecName == other.RecName
+            && self.RecFaxNumber == other.RecFaxNumber
+            && self.RecCompany == other.RecCompany
+            && self.RecStreetAddress == other.RecStreetAddress
+            && self.RecCity == other.RecCity
+            && self.RecState == other.RecState
+            && self.RecZip == other.RecZip
+            && self.RecCountry == other.RecCountry
+            && self.RecTitle == other.RecTitle
+            && self.RecDepartment == other.RecDepartment
+            && self.RecOfficeLocation == other.RecOfficeLocation
+            && self.RecHomePhone == other.RecHomePhone
+            && self.RecOfficePhone == other.RecOfficePhone
+            && self.SdrName == other.SdrName
+            && self.SdrFaxNumber == other.SdrFaxNumber
+            && self.SdrCompany == other.SdrCompany
+            && self.SdrAddress == other.SdrAddress
+            && self.SdrTitle == other.SdrTitle
+            && self.SdrDepartment == other.SdrDepartment
+            && self.SdrOfficeLocation == other.SdrOfficeLocation
+            && self.SdrHomePhone == other.SdrHomePhone
+            && self.SdrOfficePhone == other.SdrOfficePhone
+            && self.Note == other.Note
+            && self.Subject == other.Subject
+            && self.TimeSent == other.TimeSent
+            && self.PageCount == other.PageCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10122,7 +10178,7 @@ unsafe impl ::windows::core::Abi for FAX_DEVICE_STATUSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_DEVICE_STATUSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_DEVICE_STATUSA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.CallerId == other.CallerId && self.Csid == other.Csid && self.CurrentPage == other.CurrentPage && self.DeviceId == other.DeviceId && self.DeviceName == other.DeviceName && self.DocumentName == other.DocumentName && self.JobType == other.JobType && self.PhoneNumber == other.PhoneNumber && self.RoutingString == other.RoutingString && self.SenderName == other.SenderName && self.RecipientName == other.RecipientName && self.Size == other.Size && self.StartTime == other.StartTime && self.Status == other.Status && self.StatusString == other.StatusString && self.SubmittedTime == other.SubmittedTime && self.TotalPages == other.TotalPages && self.Tsid == other.Tsid && self.UserName == other.UserName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10200,7 +10256,7 @@ unsafe impl ::windows::core::Abi for FAX_DEVICE_STATUSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_DEVICE_STATUSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_DEVICE_STATUSW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.CallerId == other.CallerId && self.Csid == other.Csid && self.CurrentPage == other.CurrentPage && self.DeviceId == other.DeviceId && self.DeviceName == other.DeviceName && self.DocumentName == other.DocumentName && self.JobType == other.JobType && self.PhoneNumber == other.PhoneNumber && self.RoutingString == other.RoutingString && self.SenderName == other.SenderName && self.RecipientName == other.RecipientName && self.Size == other.Size && self.StartTime == other.StartTime && self.Status == other.Status && self.StatusString == other.StatusString && self.SubmittedTime == other.SubmittedTime && self.TotalPages == other.TotalPages && self.Tsid == other.Tsid && self.UserName == other.UserName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10240,7 +10296,7 @@ unsafe impl ::windows::core::Abi for FAX_DEV_STATUS {
 }
 impl ::core::cmp::PartialEq for FAX_DEV_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_DEV_STATUS>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.StatusId == other.StatusId && self.StringId == other.StringId && self.PageCount == other.PageCount && self.CSI == other.CSI && self.CallerId == other.CallerId && self.RoutingInfo == other.RoutingInfo && self.ErrorCode == other.ErrorCode && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for FAX_DEV_STATUS {}
@@ -10280,7 +10336,7 @@ unsafe impl ::windows::core::Abi for FAX_EVENTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_EVENTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_EVENTA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.TimeStamp == other.TimeStamp && self.DeviceId == other.DeviceId && self.EventId == other.EventId && self.JobId == other.JobId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10322,7 +10378,7 @@ unsafe impl ::windows::core::Abi for FAX_EVENTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_EVENTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_EVENTW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.TimeStamp == other.TimeStamp && self.DeviceId == other.DeviceId && self.EventId == other.EventId && self.JobId == other.JobId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10360,7 +10416,7 @@ unsafe impl ::windows::core::Abi for FAX_GLOBAL_ROUTING_INFOA {
 }
 impl ::core::cmp::PartialEq for FAX_GLOBAL_ROUTING_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_GLOBAL_ROUTING_INFOA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.Priority == other.Priority && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
     }
 }
 impl ::core::cmp::Eq for FAX_GLOBAL_ROUTING_INFOA {}
@@ -10396,7 +10452,7 @@ unsafe impl ::windows::core::Abi for FAX_GLOBAL_ROUTING_INFOW {
 }
 impl ::core::cmp::PartialEq for FAX_GLOBAL_ROUTING_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_GLOBAL_ROUTING_INFOW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.Priority == other.Priority && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
     }
 }
 impl ::core::cmp::Eq for FAX_GLOBAL_ROUTING_INFOW {}
@@ -10472,7 +10528,26 @@ unsafe impl ::windows::core::Abi for FAX_JOB_ENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_JOB_ENTRYA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_JOB_ENTRYA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct
+            && self.JobId == other.JobId
+            && self.UserName == other.UserName
+            && self.JobType == other.JobType
+            && self.QueueStatus == other.QueueStatus
+            && self.Status == other.Status
+            && self.Size == other.Size
+            && self.PageCount == other.PageCount
+            && self.RecipientNumber == other.RecipientNumber
+            && self.RecipientName == other.RecipientName
+            && self.Tsid == other.Tsid
+            && self.SenderName == other.SenderName
+            && self.SenderCompany == other.SenderCompany
+            && self.SenderDept == other.SenderDept
+            && self.BillingCode == other.BillingCode
+            && self.ScheduleAction == other.ScheduleAction
+            && self.ScheduleTime == other.ScheduleTime
+            && self.DeliveryReportType == other.DeliveryReportType
+            && self.DeliveryReportAddress == other.DeliveryReportAddress
+            && self.DocumentName == other.DocumentName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10550,7 +10625,26 @@ unsafe impl ::windows::core::Abi for FAX_JOB_ENTRYW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_JOB_ENTRYW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_JOB_ENTRYW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct
+            && self.JobId == other.JobId
+            && self.UserName == other.UserName
+            && self.JobType == other.JobType
+            && self.QueueStatus == other.QueueStatus
+            && self.Status == other.Status
+            && self.Size == other.Size
+            && self.PageCount == other.PageCount
+            && self.RecipientNumber == other.RecipientNumber
+            && self.RecipientName == other.RecipientName
+            && self.Tsid == other.Tsid
+            && self.SenderName == other.SenderName
+            && self.SenderCompany == other.SenderCompany
+            && self.SenderDept == other.SenderDept
+            && self.BillingCode == other.BillingCode
+            && self.ScheduleAction == other.ScheduleAction
+            && self.ScheduleTime == other.ScheduleTime
+            && self.DeliveryReportType == other.DeliveryReportType
+            && self.DeliveryReportAddress == other.DeliveryReportAddress
+            && self.DocumentName == other.DocumentName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10618,7 +10712,7 @@ unsafe impl ::windows::core::Abi for FAX_JOB_PARAMA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_JOB_PARAMA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_JOB_PARAMA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.RecipientNumber == other.RecipientNumber && self.RecipientName == other.RecipientName && self.Tsid == other.Tsid && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.BillingCode == other.BillingCode && self.ScheduleAction == other.ScheduleAction && self.ScheduleTime == other.ScheduleTime && self.DeliveryReportType == other.DeliveryReportType && self.DeliveryReportAddress == other.DeliveryReportAddress && self.DocumentName == other.DocumentName && self.CallHandle == other.CallHandle && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10686,7 +10780,7 @@ unsafe impl ::windows::core::Abi for FAX_JOB_PARAMW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_JOB_PARAMW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_JOB_PARAMW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.RecipientNumber == other.RecipientNumber && self.RecipientName == other.RecipientName && self.Tsid == other.Tsid && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.BillingCode == other.BillingCode && self.ScheduleAction == other.ScheduleAction && self.ScheduleTime == other.ScheduleTime && self.DeliveryReportType == other.DeliveryReportType && self.DeliveryReportAddress == other.DeliveryReportAddress && self.DocumentName == other.DocumentName && self.CallHandle == other.CallHandle && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10720,7 +10814,7 @@ unsafe impl ::windows::core::Abi for FAX_LOG_CATEGORYA {
 }
 impl ::core::cmp::PartialEq for FAX_LOG_CATEGORYA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_LOG_CATEGORYA>()) == 0 }
+        self.Name == other.Name && self.Category == other.Category && self.Level == other.Level
     }
 }
 impl ::core::cmp::Eq for FAX_LOG_CATEGORYA {}
@@ -10752,7 +10846,7 @@ unsafe impl ::windows::core::Abi for FAX_LOG_CATEGORYW {
 }
 impl ::core::cmp::PartialEq for FAX_LOG_CATEGORYW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_LOG_CATEGORYW>()) == 0 }
+        self.Name == other.Name && self.Category == other.Category && self.Level == other.Level
     }
 }
 impl ::core::cmp::Eq for FAX_LOG_CATEGORYW {}
@@ -10790,7 +10884,7 @@ unsafe impl ::windows::core::Abi for FAX_PORT_INFOA {
 }
 impl ::core::cmp::PartialEq for FAX_PORT_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_PORT_INFOA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.State == other.State && self.Flags == other.Flags && self.Rings == other.Rings && self.Priority == other.Priority && self.DeviceName == other.DeviceName && self.Tsid == other.Tsid && self.Csid == other.Csid
     }
 }
 impl ::core::cmp::Eq for FAX_PORT_INFOA {}
@@ -10828,7 +10922,7 @@ unsafe impl ::windows::core::Abi for FAX_PORT_INFOW {
 }
 impl ::core::cmp::PartialEq for FAX_PORT_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_PORT_INFOW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.State == other.State && self.Flags == other.Flags && self.Rings == other.Rings && self.Priority == other.Priority && self.DeviceName == other.DeviceName && self.Tsid == other.Tsid && self.Csid == other.Csid
     }
 }
 impl ::core::cmp::Eq for FAX_PORT_INFOW {}
@@ -10880,7 +10974,7 @@ unsafe impl ::windows::core::Abi for FAX_PRINT_INFOA {
 }
 impl ::core::cmp::PartialEq for FAX_PRINT_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_PRINT_INFOA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.DocName == other.DocName && self.RecipientName == other.RecipientName && self.RecipientNumber == other.RecipientNumber && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.SenderBillingCode == other.SenderBillingCode && self.Reserved == other.Reserved && self.DrEmailAddress == other.DrEmailAddress && self.OutputFileName == other.OutputFileName
     }
 }
 impl ::core::cmp::Eq for FAX_PRINT_INFOA {}
@@ -10932,7 +11026,7 @@ unsafe impl ::windows::core::Abi for FAX_PRINT_INFOW {
 }
 impl ::core::cmp::PartialEq for FAX_PRINT_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_PRINT_INFOW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.DocName == other.DocName && self.RecipientName == other.RecipientName && self.RecipientNumber == other.RecipientNumber && self.SenderName == other.SenderName && self.SenderCompany == other.SenderCompany && self.SenderDept == other.SenderDept && self.SenderBillingCode == other.SenderBillingCode && self.Reserved == other.Reserved && self.DrEmailAddress == other.DrEmailAddress && self.OutputFileName == other.OutputFileName
     }
 }
 impl ::core::cmp::Eq for FAX_PRINT_INFOW {}
@@ -10966,7 +11060,7 @@ unsafe impl ::windows::core::Abi for FAX_RECEIVE {
 }
 impl ::core::cmp::PartialEq for FAX_RECEIVE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_RECEIVE>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.FileName == other.FileName && self.ReceiverName == other.ReceiverName && self.ReceiverNumber == other.ReceiverNumber && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for FAX_RECEIVE {}
@@ -11026,7 +11120,7 @@ unsafe impl ::windows::core::Abi for FAX_ROUTE {
 }
 impl ::core::cmp::PartialEq for FAX_ROUTE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_ROUTE>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.JobId == other.JobId && self.ElapsedTime == other.ElapsedTime && self.ReceiveTime == other.ReceiveTime && self.PageCount == other.PageCount && self.Csid == other.Csid && self.Tsid == other.Tsid && self.CallerId == other.CallerId && self.RoutingInfo == other.RoutingInfo && self.ReceiverName == other.ReceiverName && self.ReceiverNumber == other.ReceiverNumber && self.DeviceName == other.DeviceName && self.DeviceId == other.DeviceId && self.RoutingInfoData == other.RoutingInfoData && self.RoutingInfoDataSize == other.RoutingInfoDataSize
     }
 }
 impl ::core::cmp::Eq for FAX_ROUTE {}
@@ -11057,21 +11151,13 @@ impl ::core::clone::Clone for FAX_ROUTE_CALLBACKROUTINES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FAX_ROUTE_CALLBACKROUTINES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FAX_ROUTE_CALLBACKROUTINES").field("SizeOfStruct", &self.SizeOfStruct).field("FaxRouteAddFile", &self.FaxRouteAddFile.map(|f| f as usize)).field("FaxRouteDeleteFile", &self.FaxRouteDeleteFile.map(|f| f as usize)).field("FaxRouteGetFile", &self.FaxRouteGetFile.map(|f| f as usize)).field("FaxRouteEnumFiles", &self.FaxRouteEnumFiles.map(|f| f as usize)).field("FaxRouteModifyRoutingData", &self.FaxRouteModifyRoutingData.map(|f| f as usize)).finish()
+        f.debug_struct("FAX_ROUTE_CALLBACKROUTINES").field("SizeOfStruct", &self.SizeOfStruct).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FAX_ROUTE_CALLBACKROUTINES {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FAX_ROUTE_CALLBACKROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_ROUTE_CALLBACKROUTINES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FAX_ROUTE_CALLBACKROUTINES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FAX_ROUTE_CALLBACKROUTINES {
     fn default() -> Self {
@@ -11113,7 +11199,7 @@ unsafe impl ::windows::core::Abi for FAX_ROUTING_METHODA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_ROUTING_METHODA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_ROUTING_METHODA>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.Enabled == other.Enabled && self.DeviceName == other.DeviceName && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11159,7 +11245,7 @@ unsafe impl ::windows::core::Abi for FAX_ROUTING_METHODW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_ROUTING_METHODW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_ROUTING_METHODW>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.DeviceId == other.DeviceId && self.Enabled == other.Enabled && self.DeviceName == other.DeviceName && self.Guid == other.Guid && self.FriendlyName == other.FriendlyName && self.FunctionName == other.FunctionName && self.ExtensionImageName == other.ExtensionImageName && self.ExtensionFriendlyName == other.ExtensionFriendlyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11205,7 +11291,7 @@ unsafe impl ::windows::core::Abi for FAX_SEND {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FAX_SEND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_SEND>()) == 0 }
+        self.SizeOfStruct == other.SizeOfStruct && self.FileName == other.FileName && self.CallerName == other.CallerName && self.CallerNumber == other.CallerNumber && self.ReceiverName == other.ReceiverName && self.ReceiverNumber == other.ReceiverNumber && self.Branding == other.Branding && self.CallHandle == other.CallHandle && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11238,7 +11324,7 @@ unsafe impl ::windows::core::Abi for FAX_TIME {
 }
 impl ::core::cmp::PartialEq for FAX_TIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FAX_TIME>()) == 0 }
+        self.Hour == other.Hour && self.Minute == other.Minute
     }
 }
 impl ::core::cmp::Eq for FAX_TIME {}
@@ -11270,7 +11356,7 @@ unsafe impl ::windows::core::Abi for STINOTIFY {
 }
 impl ::core::cmp::PartialEq for STINOTIFY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STINOTIFY>()) == 0 }
+        self.dwSize == other.dwSize && self.guidNotificationCode == other.guidNotificationCode && self.abNotificationData == other.abNotificationData
     }
 }
 impl ::core::cmp::Eq for STINOTIFY {}
@@ -11311,7 +11397,7 @@ unsafe impl ::windows::core::Abi for STISUBSCRIBE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STISUBSCRIBE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STISUBSCRIBE>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwFilter == other.dwFilter && self.hWndNotify == other.hWndNotify && self.hEvent == other.hEvent && self.uiNotificationMessage == other.uiNotificationMessage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11363,7 +11449,7 @@ unsafe impl ::windows::core::Abi for STI_DEVICE_INFORMATIONW {
 }
 impl ::core::cmp::PartialEq for STI_DEVICE_INFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STI_DEVICE_INFORMATIONW>()) == 0 }
+        self.dwSize == other.dwSize && self.DeviceType == other.DeviceType && self.szDeviceInternalName == other.szDeviceInternalName && self.DeviceCapabilitiesA == other.DeviceCapabilitiesA && self.dwHardwareConfiguration == other.dwHardwareConfiguration && self.pszVendorDescription == other.pszVendorDescription && self.pszDeviceDescription == other.pszDeviceDescription && self.pszPortName == other.pszPortName && self.pszPropProvider == other.pszPropProvider && self.pszLocalName == other.pszLocalName
     }
 }
 impl ::core::cmp::Eq for STI_DEVICE_INFORMATIONW {}
@@ -11398,7 +11484,7 @@ unsafe impl ::windows::core::Abi for STI_DEVICE_STATUS {
 }
 impl ::core::cmp::PartialEq for STI_DEVICE_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STI_DEVICE_STATUS>()) == 0 }
+        self.dwSize == other.dwSize && self.StatusMask == other.StatusMask && self.dwOnlineState == other.dwOnlineState && self.dwHardwareStatusCode == other.dwHardwareStatusCode && self.dwEventHandlingState == other.dwEventHandlingState && self.dwPollingInterval == other.dwPollingInterval
     }
 }
 impl ::core::cmp::Eq for STI_DEVICE_STATUS {}
@@ -11428,7 +11514,7 @@ unsafe impl ::windows::core::Abi for STI_DEV_CAPS {
 }
 impl ::core::cmp::PartialEq for STI_DEV_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STI_DEV_CAPS>()) == 0 }
+        self.dwGeneric == other.dwGeneric
     }
 }
 impl ::core::cmp::Eq for STI_DEV_CAPS {}
@@ -11462,7 +11548,7 @@ unsafe impl ::windows::core::Abi for STI_DIAG {
 }
 impl ::core::cmp::PartialEq for STI_DIAG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STI_DIAG>()) == 0 }
+        self.dwSize == other.dwSize && self.dwBasicDiagCode == other.dwBasicDiagCode && self.dwVendorDiagCode == other.dwVendorDiagCode && self.dwStatusMask == other.dwStatusMask && self.sErrorInfo == other.sErrorInfo
     }
 }
 impl ::core::cmp::Eq for STI_DIAG {}
@@ -11493,7 +11579,7 @@ unsafe impl ::windows::core::Abi for STI_USD_CAPS {
 }
 impl ::core::cmp::PartialEq for STI_USD_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STI_USD_CAPS>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwGenericCaps == other.dwGenericCaps
     }
 }
 impl ::core::cmp::Eq for STI_USD_CAPS {}
@@ -11547,7 +11633,7 @@ unsafe impl ::windows::core::Abi for STI_WIA_DEVICE_INFORMATIONW {
 }
 impl ::core::cmp::PartialEq for STI_WIA_DEVICE_INFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STI_WIA_DEVICE_INFORMATIONW>()) == 0 }
+        self.dwSize == other.dwSize && self.DeviceType == other.DeviceType && self.szDeviceInternalName == other.szDeviceInternalName && self.DeviceCapabilitiesA == other.DeviceCapabilitiesA && self.dwHardwareConfiguration == other.dwHardwareConfiguration && self.pszVendorDescription == other.pszVendorDescription && self.pszDeviceDescription == other.pszDeviceDescription && self.pszPortName == other.pszPortName && self.pszPropProvider == other.pszPropProvider && self.pszLocalName == other.pszLocalName && self.pszUiDll == other.pszUiDll && self.pszServer == other.pszServer
     }
 }
 impl ::core::cmp::Eq for STI_WIA_DEVICE_INFORMATIONW {}
@@ -11580,7 +11666,7 @@ unsafe impl ::windows::core::Abi for _ERROR_INFOW {
 }
 impl ::core::cmp::PartialEq for _ERROR_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_ERROR_INFOW>()) == 0 }
+        self.dwSize == other.dwSize && self.dwGenericError == other.dwGenericError && self.dwVendorError == other.dwVendorError && self.szExtendedErrorText == other.szExtendedErrorText
     }
 }
 impl ::core::cmp::Eq for _ERROR_INFOW {}

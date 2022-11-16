@@ -417,7 +417,7 @@ unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudget {
 }
 impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudget {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreAdapterMemoryBudget>()) == 0 }
+        self.budget == other.budget && self.currentUsage == other.currentUsage && self.availableForReservation == other.availableForReservation && self.currentReservation == other.currentReservation
     }
 }
 impl ::core::cmp::Eq for DXCoreAdapterMemoryBudget {}
@@ -448,7 +448,7 @@ unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
 }
 impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreAdapterMemoryBudgetNodeSegmentGroup>()) == 0 }
+        self.nodeIndex == other.nodeIndex && self.segmentGroup == other.segmentGroup
     }
 }
 impl ::core::cmp::Eq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
@@ -481,7 +481,7 @@ unsafe impl ::windows::core::Abi for DXCoreHardwareID {
 }
 impl ::core::cmp::PartialEq for DXCoreHardwareID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreHardwareID>()) == 0 }
+        self.vendorID == other.vendorID && self.deviceID == other.deviceID && self.subSysID == other.subSysID && self.revision == other.revision
     }
 }
 impl ::core::cmp::Eq for DXCoreHardwareID {}
@@ -515,7 +515,7 @@ unsafe impl ::windows::core::Abi for DXCoreHardwareIDParts {
 }
 impl ::core::cmp::PartialEq for DXCoreHardwareIDParts {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXCoreHardwareIDParts>()) == 0 }
+        self.vendorID == other.vendorID && self.deviceID == other.deviceID && self.subSystemID == other.subSystemID && self.subVendorID == other.subVendorID && self.revisionID == other.revisionID
     }
 }
 impl ::core::cmp::Eq for DXCoreHardwareIDParts {}

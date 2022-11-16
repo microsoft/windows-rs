@@ -498,7 +498,7 @@ unsafe impl ::windows::core::RuntimeType for HdmiDisplayHdr2086Metadata {
 }
 impl ::core::cmp::PartialEq for HdmiDisplayHdr2086Metadata {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HdmiDisplayHdr2086Metadata>()) == 0 }
+        self.RedPrimaryX == other.RedPrimaryX && self.RedPrimaryY == other.RedPrimaryY && self.GreenPrimaryX == other.GreenPrimaryX && self.GreenPrimaryY == other.GreenPrimaryY && self.BluePrimaryX == other.BluePrimaryX && self.BluePrimaryY == other.BluePrimaryY && self.WhitePointX == other.WhitePointX && self.WhitePointY == other.WhitePointY && self.MaxMasteringLuminance == other.MaxMasteringLuminance && self.MinMasteringLuminance == other.MinMasteringLuminance && self.MaxContentLightLevel == other.MaxContentLightLevel && self.MaxFrameAverageLightLevel == other.MaxFrameAverageLightLevel
     }
 }
 impl ::core::cmp::Eq for HdmiDisplayHdr2086Metadata {}

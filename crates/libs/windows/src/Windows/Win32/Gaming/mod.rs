@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::Abi for GAMING_DEVICE_MODEL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for GAMING_DEVICE_MODEL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GAMING_DEVICE_MODEL_INFORMATION>()) == 0 }
+        self.vendorId == other.vendorId && self.deviceId == other.deviceId
     }
 }
 impl ::core::cmp::Eq for GAMING_DEVICE_MODEL_INFORMATION {}

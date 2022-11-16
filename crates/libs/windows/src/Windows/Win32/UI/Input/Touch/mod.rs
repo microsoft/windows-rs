@@ -810,7 +810,7 @@ unsafe impl ::windows::core::Abi for GESTURECONFIG {
 }
 impl ::core::cmp::PartialEq for GESTURECONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTURECONFIG>()) == 0 }
+        self.dwID == other.dwID && self.dwWant == other.dwWant && self.dwBlock == other.dwBlock
     }
 }
 impl ::core::cmp::Eq for GESTURECONFIG {}
@@ -854,7 +854,7 @@ unsafe impl ::windows::core::Abi for GESTUREINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GESTUREINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTUREINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwID == other.dwID && self.hwndTarget == other.hwndTarget && self.ptsLocation == other.ptsLocation && self.dwInstanceID == other.dwInstanceID && self.dwSequenceID == other.dwSequenceID && self.ullArguments == other.ullArguments && self.cbExtraArgs == other.cbExtraArgs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -896,7 +896,7 @@ unsafe impl ::windows::core::Abi for GESTURENOTIFYSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GESTURENOTIFYSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GESTURENOTIFYSTRUCT>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTarget == other.hwndTarget && self.ptsLocation == other.ptsLocation && self.dwInstanceID == other.dwInstanceID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1007,7 +1007,7 @@ unsafe impl ::windows::core::Abi for TOUCHINPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TOUCHINPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOUCHINPUT>()) == 0 }
+        self.x == other.x && self.y == other.y && self.hSource == other.hSource && self.dwID == other.dwID && self.dwFlags == other.dwFlags && self.dwMask == other.dwMask && self.dwTime == other.dwTime && self.dwExtraInfo == other.dwExtraInfo && self.cxContact == other.cxContact && self.cyContact == other.cyContact
     }
 }
 #[cfg(feature = "Win32_Foundation")]

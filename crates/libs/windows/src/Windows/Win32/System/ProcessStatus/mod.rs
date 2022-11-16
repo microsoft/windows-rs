@@ -300,7 +300,7 @@ unsafe impl ::windows::core::Abi for ENUM_PAGE_FILE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for ENUM_PAGE_FILE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_PAGE_FILE_INFORMATION>()) == 0 }
+        self.cb == other.cb && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize && self.TotalInUse == other.TotalInUse && self.PeakUsage == other.PeakUsage
     }
 }
 impl ::core::cmp::Eq for ENUM_PAGE_FILE_INFORMATION {}
@@ -332,7 +332,7 @@ unsafe impl ::windows::core::Abi for MODULEINFO {
 }
 impl ::core::cmp::PartialEq for MODULEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODULEINFO>()) == 0 }
+        self.lpBaseOfDll == other.lpBaseOfDll && self.SizeOfImage == other.SizeOfImage && self.EntryPoint == other.EntryPoint
     }
 }
 impl ::core::cmp::Eq for MODULEINFO {}
@@ -390,7 +390,7 @@ unsafe impl ::windows::core::Abi for PERFORMANCE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PERFORMANCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PERFORMANCE_INFORMATION>()) == 0 }
+        self.cb == other.cb && self.CommitTotal == other.CommitTotal && self.CommitLimit == other.CommitLimit && self.CommitPeak == other.CommitPeak && self.PhysicalTotal == other.PhysicalTotal && self.PhysicalAvailable == other.PhysicalAvailable && self.SystemCache == other.SystemCache && self.KernelTotal == other.KernelTotal && self.KernelPaged == other.KernelPaged && self.KernelNonpaged == other.KernelNonpaged && self.PageSize == other.PageSize && self.HandleCount == other.HandleCount && self.ProcessCount == other.ProcessCount && self.ThreadCount == other.ThreadCount
     }
 }
 impl ::core::cmp::Eq for PERFORMANCE_INFORMATION {}
@@ -440,7 +440,7 @@ unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS {
 }
 impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MEMORY_COUNTERS>()) == 0 }
+        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage
     }
 }
 impl ::core::cmp::Eq for PROCESS_MEMORY_COUNTERS {}
@@ -492,7 +492,7 @@ unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS_EX {
 }
 impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MEMORY_COUNTERS_EX>()) == 0 }
+        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.PrivateUsage == other.PrivateUsage
     }
 }
 impl ::core::cmp::Eq for PROCESS_MEMORY_COUNTERS_EX {}
@@ -516,12 +516,6 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_BLOCK {
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_BLOCK {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_BLOCK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PSAPI_WORKING_SET_BLOCK {}
 impl ::core::default::Default for PSAPI_WORKING_SET_BLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -548,7 +542,7 @@ unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_BLOCK_0 {
 }
 impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_BLOCK_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_BLOCK_0 {}
@@ -572,12 +566,6 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK {
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_EX_BLOCK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK {}
 impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -598,12 +586,6 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK_0 {
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_EX_BLOCK_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0 {}
 impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -630,7 +612,7 @@ unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
 }
 impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_EX_BLOCK_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {}
@@ -660,7 +642,7 @@ unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
 }
 impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_EX_BLOCK_0_1>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {}
@@ -684,12 +666,6 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_INFORMATION {
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_EX_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PSAPI_WORKING_SET_EX_INFORMATION {}
 impl ::core::default::Default for PSAPI_WORKING_SET_EX_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -710,12 +686,6 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_INFORMATION {
 unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WORKING_SET_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PSAPI_WORKING_SET_INFORMATION {}
 impl ::core::default::Default for PSAPI_WORKING_SET_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -743,7 +713,7 @@ unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WS_WATCH_INFORMATION>()) == 0 }
+        self.FaultingPc == other.FaultingPc && self.FaultingVa == other.FaultingVa
     }
 }
 impl ::core::cmp::Eq for PSAPI_WS_WATCH_INFORMATION {}
@@ -775,7 +745,7 @@ unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION_EX {
 }
 impl ::core::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSAPI_WS_WATCH_INFORMATION_EX>()) == 0 }
+        self.BasicInfo == other.BasicInfo && self.FaultingThreadId == other.FaultingThreadId && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for PSAPI_WS_WATCH_INFORMATION_EX {}

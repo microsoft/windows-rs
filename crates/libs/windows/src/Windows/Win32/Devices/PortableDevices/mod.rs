@@ -6542,7 +6542,7 @@ unsafe impl ::windows::core::Abi for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WPD_COMMAND_ACCESS_LOOKUP_ENTRY>()) == 0 }
+        self.Command == other.Command && self.AccessType == other.AccessType && self.AccessProperty == other.AccessProperty
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

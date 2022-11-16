@@ -823,12 +823,6 @@ impl ::core::clone::Clone for WINBIO_ACCOUNT_POLICY {
 unsafe impl ::windows::core::Abi for WINBIO_ACCOUNT_POLICY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_ACCOUNT_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ACCOUNT_POLICY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_ACCOUNT_POLICY {}
 impl ::core::default::Default for WINBIO_ACCOUNT_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -856,7 +850,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ADAPTER_INTERFACE_VERSION {
 }
 impl ::core::cmp::PartialEq for WINBIO_ADAPTER_INTERFACE_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ADAPTER_INTERFACE_VERSION>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
 impl ::core::cmp::Eq for WINBIO_ADAPTER_INTERFACE_VERSION {}
@@ -887,7 +881,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ANTI_SPOOF_POLICY {
 }
 impl ::core::cmp::PartialEq for WINBIO_ANTI_SPOOF_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ANTI_SPOOF_POLICY>()) == 0 }
+        self.Action == other.Action && self.Source == other.Source
     }
 }
 impl ::core::cmp::Eq for WINBIO_ANTI_SPOOF_POLICY {}
@@ -921,14 +915,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT {
     fn default() -> Self {
@@ -974,14 +960,6 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1016,7 +994,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_0>()) == 0 }
+        self.Sample == other.Sample && self.SampleSize == other.SampleSize && self.RejectDetail == other.RejectDetail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1061,7 +1039,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_1>()) == 0 }
+        self.Component == other.Component && self.ControlCode == other.ControlCode && self.OperationStatus == other.OperationStatus && self.SendBuffer == other.SendBuffer && self.SendBufferSize == other.SendBufferSize && self.ReceiveBuffer == other.ReceiveBuffer && self.ReceiveBufferSize == other.ReceiveBufferSize && self.ReceiveDataSize == other.ReceiveDataSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1091,14 +1069,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_2 {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_2 {
     fn default() -> Self {
@@ -1132,7 +1102,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_3>()) == 0 }
+        self.SubFactor == other.SubFactor
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1170,7 +1140,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_4>()) == 0 }
+        self.RejectDetail == other.RejectDetail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1200,14 +1170,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_5 {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_5 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_5>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_5 {
     fn default() -> Self {
@@ -1241,7 +1203,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_6>()) == 0 }
+        self.SelectorValue == other.SelectorValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1280,7 +1242,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_7 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_7>()) == 0 }
+        self.UnitCount == other.UnitCount && self.UnitSchemaArray == other.UnitSchemaArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1319,7 +1281,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_8 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_8>()) == 0 }
+        self.StorageCount == other.StorageCount && self.StorageSchemaArray == other.StorageSchemaArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1350,14 +1312,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_9 {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_9 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_9 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_9>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_9 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_9 {
     fn default() -> Self {
@@ -1392,7 +1346,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_10 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_10>()) == 0 }
+        self.BspCount == other.BspCount && self.BspSchemaArray == other.BspSchemaArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1421,14 +1375,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_11 {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_11 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_11 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_11>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_11 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_11 {
     fn default() -> Self {
@@ -1459,14 +1405,6 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_12 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_12 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_12>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_12 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_12 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1491,14 +1429,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_13 {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_13 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_13 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_13>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_13 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_13 {
     fn default() -> Self {
@@ -1527,14 +1457,6 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_14 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_14 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_14>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_14 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_14 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1560,14 +1482,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_15 {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_15 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_15 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_15>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_15 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_15 {
     fn default() -> Self {
@@ -1603,7 +1517,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_16 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_16 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_16>()) == 0 }
+        self.ChangeType == other.ChangeType && self.PresenceCount == other.PresenceCount && self.PresenceArray == other.PresenceArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1641,7 +1555,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_17 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_17 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_17>()) == 0 }
+        self.ExtendedStatus == other.ExtendedStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1675,14 +1589,6 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_18 {
 unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_18 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_18 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_18>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_18 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_18 {
     fn default() -> Self {
@@ -1718,7 +1624,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_19 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_19 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_19>()) == 0 }
+        self.Match == other.Match && self.RejectDetail == other.RejectDetail && self.Ticket == other.Ticket
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1757,7 +1663,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_20 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_20 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_20>()) == 0 }
+        self.Match == other.Match && self.RejectDetail == other.RejectDetail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1819,7 +1725,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_HEADER {
 }
 impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BDB_ANSI_381_HEADER>()) == 0 }
+        self.RecordLength == other.RecordLength && self.FormatIdentifier == other.FormatIdentifier && self.VersionNumber == other.VersionNumber && self.ProductId == other.ProductId && self.CaptureDeviceId == other.CaptureDeviceId && self.ImageAcquisitionLevel == other.ImageAcquisitionLevel && self.HorizontalScanResolution == other.HorizontalScanResolution && self.VerticalScanResolution == other.VerticalScanResolution && self.HorizontalImageResolution == other.HorizontalImageResolution && self.VerticalImageResolution == other.VerticalImageResolution && self.ElementCount == other.ElementCount && self.ScaleUnits == other.ScaleUnits && self.PixelDepth == other.PixelDepth && self.ImageCompressionAlg == other.ImageCompressionAlg && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_HEADER {}
@@ -1857,7 +1763,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_RECORD {
 }
 impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BDB_ANSI_381_RECORD>()) == 0 }
+        self.BlockLength == other.BlockLength && self.HorizontalLineLength == other.HorizontalLineLength && self.VerticalLineLength == other.VerticalLineLength && self.Position == other.Position && self.CountOfViews == other.CountOfViews && self.ViewNumber == other.ViewNumber && self.ImageQuality == other.ImageQuality && self.ImpressionType == other.ImpressionType && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_RECORD {}
@@ -1890,7 +1796,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BIR {
 }
 impl ::core::cmp::PartialEq for WINBIO_BIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR>()) == 0 }
+        self.HeaderBlock == other.HeaderBlock && self.StandardDataBlock == other.StandardDataBlock && self.VendorDataBlock == other.VendorDataBlock && self.SignatureBlock == other.SignatureBlock
     }
 }
 impl ::core::cmp::Eq for WINBIO_BIR {}
@@ -1921,7 +1827,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BIR_DATA {
 }
 impl ::core::cmp::PartialEq for WINBIO_BIR_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR_DATA>()) == 0 }
+        self.Size == other.Size && self.Offset == other.Offset
     }
 }
 impl ::core::cmp::Eq for WINBIO_BIR_DATA {}
@@ -1975,7 +1881,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER {
 }
 impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR_HEADER>()) == 0 }
+        self.ValidFields == other.ValidFields && self.HeaderVersion == other.HeaderVersion && self.PatronHeaderVersion == other.PatronHeaderVersion && self.DataFlags == other.DataFlags && self.Type == other.Type && self.Subtype == other.Subtype && self.Purpose == other.Purpose && self.DataQuality == other.DataQuality && self.CreationDate == other.CreationDate && self.ValidityPeriod == other.ValidityPeriod && self.BiometricDataFormat == other.BiometricDataFormat && self.ProductId == other.ProductId
     }
 }
 impl ::core::cmp::Eq for WINBIO_BIR_HEADER {}
@@ -2006,7 +1912,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR_HEADER_0>()) == 0 }
+        self.BeginDate == other.BeginDate && self.EndDate == other.EndDate
     }
 }
 impl ::core::cmp::Eq for WINBIO_BIR_HEADER_0 {}
@@ -2037,7 +1943,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BLANK_PAYLOAD {
 }
 impl ::core::cmp::PartialEq for WINBIO_BLANK_PAYLOAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BLANK_PAYLOAD>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult
     }
 }
 impl ::core::cmp::Eq for WINBIO_BLANK_PAYLOAD {}
@@ -2071,7 +1977,7 @@ unsafe impl ::windows::core::Abi for WINBIO_BSP_SCHEMA {
 }
 impl ::core::cmp::PartialEq for WINBIO_BSP_SCHEMA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BSP_SCHEMA>()) == 0 }
+        self.BiometricFactor == other.BiometricFactor && self.BspId == other.BspId && self.Description == other.Description && self.Vendor == other.Vendor && self.Version == other.Version
     }
 }
 impl ::core::cmp::Eq for WINBIO_BSP_SCHEMA {}
@@ -2103,7 +2009,7 @@ unsafe impl ::windows::core::Abi for WINBIO_CALIBRATION_INFO {
 }
 impl ::core::cmp::PartialEq for WINBIO_CALIBRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_CALIBRATION_INFO>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.CalibrationData == other.CalibrationData
     }
 }
 impl ::core::cmp::Eq for WINBIO_CALIBRATION_INFO {}
@@ -2137,7 +2043,7 @@ unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_DATA {
 }
 impl ::core::cmp::PartialEq for WINBIO_CAPTURE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_CAPTURE_DATA>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.RejectDetail == other.RejectDetail && self.CaptureData == other.CaptureData
     }
 }
 impl ::core::cmp::Eq for WINBIO_CAPTURE_DATA {}
@@ -2171,7 +2077,7 @@ unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for WINBIO_CAPTURE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_CAPTURE_PARAMETERS>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for WINBIO_CAPTURE_PARAMETERS {}
@@ -2202,7 +2108,7 @@ unsafe impl ::windows::core::Abi for WINBIO_DATA {
 }
 impl ::core::cmp::PartialEq for WINBIO_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_DATA>()) == 0 }
+        self.Size == other.Size && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for WINBIO_DATA {}
@@ -2235,7 +2141,7 @@ unsafe impl ::windows::core::Abi for WINBIO_DIAGNOSTICS {
 }
 impl ::core::cmp::PartialEq for WINBIO_DIAGNOSTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_DIAGNOSTICS>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.VendorDiagnostics == other.VendorDiagnostics
     }
 }
 impl ::core::cmp::Eq for WINBIO_DIAGNOSTICS {}
@@ -2270,7 +2176,7 @@ unsafe impl ::windows::core::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
 }
 impl ::core::cmp::PartialEq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ENCRYPTED_CAPTURE_PARAMS>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags && self.NonceSize == other.NonceSize
     }
 }
 impl ::core::cmp::Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
@@ -2340,67 +2246,13 @@ impl ::core::clone::Clone for WINBIO_ENGINE_INTERFACE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::fmt::Debug for WINBIO_ENGINE_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_ENGINE_INTERFACE")
-            .field("Version", &self.Version)
-            .field("Type", &self.Type)
-            .field("Size", &self.Size)
-            .field("AdapterId", &self.AdapterId)
-            .field("Attach", &self.Attach.map(|f| f as usize))
-            .field("Detach", &self.Detach.map(|f| f as usize))
-            .field("ClearContext", &self.ClearContext.map(|f| f as usize))
-            .field("QueryPreferredFormat", &self.QueryPreferredFormat.map(|f| f as usize))
-            .field("QueryIndexVectorSize", &self.QueryIndexVectorSize.map(|f| f as usize))
-            .field("QueryHashAlgorithms", &self.QueryHashAlgorithms.map(|f| f as usize))
-            .field("SetHashAlgorithm", &self.SetHashAlgorithm.map(|f| f as usize))
-            .field("QuerySampleHint", &self.QuerySampleHint.map(|f| f as usize))
-            .field("AcceptSampleData", &self.AcceptSampleData.map(|f| f as usize))
-            .field("ExportEngineData", &self.ExportEngineData.map(|f| f as usize))
-            .field("VerifyFeatureSet", &self.VerifyFeatureSet.map(|f| f as usize))
-            .field("IdentifyFeatureSet", &self.IdentifyFeatureSet.map(|f| f as usize))
-            .field("CreateEnrollment", &self.CreateEnrollment.map(|f| f as usize))
-            .field("UpdateEnrollment", &self.UpdateEnrollment.map(|f| f as usize))
-            .field("GetEnrollmentStatus", &self.GetEnrollmentStatus.map(|f| f as usize))
-            .field("GetEnrollmentHash", &self.GetEnrollmentHash.map(|f| f as usize))
-            .field("CheckForDuplicate", &self.CheckForDuplicate.map(|f| f as usize))
-            .field("CommitEnrollment", &self.CommitEnrollment.map(|f| f as usize))
-            .field("DiscardEnrollment", &self.DiscardEnrollment.map(|f| f as usize))
-            .field("ControlUnit", &self.ControlUnit.map(|f| f as usize))
-            .field("ControlUnitPrivileged", &self.ControlUnitPrivileged.map(|f| f as usize))
-            .field("NotifyPowerChange", &self.NotifyPowerChange.map(|f| f as usize))
-            .field("Reserved_1", &self.Reserved_1.map(|f| f as usize))
-            .field("PipelineInit", &self.PipelineInit.map(|f| f as usize))
-            .field("PipelineCleanup", &self.PipelineCleanup.map(|f| f as usize))
-            .field("Activate", &self.Activate.map(|f| f as usize))
-            .field("Deactivate", &self.Deactivate.map(|f| f as usize))
-            .field("QueryExtendedInfo", &self.QueryExtendedInfo.map(|f| f as usize))
-            .field("IdentifyAll", &self.IdentifyAll.map(|f| f as usize))
-            .field("SetEnrollmentSelector", &self.SetEnrollmentSelector.map(|f| f as usize))
-            .field("SetEnrollmentParameters", &self.SetEnrollmentParameters.map(|f| f as usize))
-            .field("QueryExtendedEnrollmentStatus", &self.QueryExtendedEnrollmentStatus.map(|f| f as usize))
-            .field("RefreshCache", &self.RefreshCache.map(|f| f as usize))
-            .field("SelectCalibrationFormat", &self.SelectCalibrationFormat.map(|f| f as usize))
-            .field("QueryCalibrationData", &self.QueryCalibrationData.map(|f| f as usize))
-            .field("SetAccountPolicy", &self.SetAccountPolicy.map(|f| f as usize))
-            .field("CreateKey", &self.CreateKey.map(|f| f as usize))
-            .field("IdentifyFeatureSetSecure", &self.IdentifyFeatureSetSecure.map(|f| f as usize))
-            .field("AcceptPrivateSensorTypeInfo", &self.AcceptPrivateSensorTypeInfo.map(|f| f as usize))
-            .field("CreateEnrollmentAuthenticated", &self.CreateEnrollmentAuthenticated.map(|f| f as usize))
-            .field("IdentifyFeatureSetAuthenticated", &self.IdentifyFeatureSetAuthenticated.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WINBIO_ENGINE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_ENGINE_INTERFACE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_ENGINE_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ENGINE_INTERFACE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_ENGINE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_ENGINE_INTERFACE {
     fn default() -> Self {
@@ -2422,12 +2274,6 @@ impl ::core::clone::Clone for WINBIO_EVENT {
 unsafe impl ::windows::core::Abi for WINBIO_EVENT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT {}
 impl ::core::default::Default for WINBIO_EVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2449,12 +2295,6 @@ impl ::core::clone::Clone for WINBIO_EVENT_0 {
 unsafe impl ::windows::core::Abi for WINBIO_EVENT_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_EVENT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT_0 {}
 impl ::core::default::Default for WINBIO_EVENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2481,7 +2321,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EVENT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0_0>()) == 0 }
+        self.ErrorCode == other.ErrorCode
     }
 }
 impl ::core::cmp::Eq for WINBIO_EVENT_0_0 {}
@@ -2507,12 +2347,6 @@ impl ::core::clone::Clone for WINBIO_EVENT_0_1 {
 unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_EVENT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT_0_1 {}
 impl ::core::default::Default for WINBIO_EVENT_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2540,7 +2374,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_2 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EVENT_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0_2>()) == 0 }
+        self.UnitId == other.UnitId && self.RejectDetail == other.RejectDetail
     }
 }
 impl ::core::cmp::Eq for WINBIO_EVENT_0_2 {}
@@ -2565,12 +2399,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO {
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2594,12 +2422,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0 {
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2627,7 +2449,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_0>()) == 0 }
+        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
@@ -2657,7 +2479,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_0_0>()) == 0 }
+        self.Null == other.Null
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
@@ -2688,7 +2510,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_1>()) == 0 }
+        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
@@ -2723,7 +2545,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_1_0>()) == 0 }
+        self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
@@ -2754,7 +2576,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_2>()) == 0 }
+        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
@@ -2784,7 +2606,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_2_0>()) == 0 }
+        self.Null == other.Null
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
@@ -2815,7 +2637,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_3>()) == 0 }
+        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
@@ -2845,7 +2667,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_3_0>()) == 0 }
+        self.Null == other.Null
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
@@ -2876,7 +2698,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_PARAMETERS>()) == 0 }
+        self.Size == other.Size && self.SubFactor == other.SubFactor
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
@@ -2909,14 +2731,6 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2944,14 +2758,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     fn default() -> Self {
@@ -2987,7 +2793,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0>()) == 0 }
+        self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3026,7 +2832,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0>()) == 0 }
+        self.AdapterId == other.AdapterId && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3069,7 +2875,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1>()) == 0 }
+        self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3125,7 +2931,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2>()) == 0 }
+        self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance && self.GridPointCompletionPercent == other.GridPointCompletionPercent && self.GridPointIndex == other.GridPointIndex && self.Point3D == other.Point3D && self.StopCaptureAndShowCriticalFeedback == other.StopCaptureAndShowCriticalFeedback
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3165,7 +2971,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3203,7 +3009,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3>()) == 0 }
+        self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3235,14 +3041,6 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3270,14 +3068,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0 {
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
     fn default() -> Self {
@@ -3314,7 +3104,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_0>()) == 0 }
+        self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation && self.HardwareInfo == other.HardwareInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3354,7 +3144,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_0_0>()) == 0 }
+        self.ColorSensorId == other.ColorSensorId && self.InfraredSensorId == other.InfraredSensorId && self.InfraredSensorRotationAngle == other.InfraredSensorRotationAngle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3392,7 +3182,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_1>()) == 0 }
+        self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3432,7 +3222,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_2>()) == 0 }
+        self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3470,7 +3260,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_3>()) == 0 }
+        self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3497,12 +3287,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO {
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3526,12 +3310,6 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0 {
 unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3558,7 +3336,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_0>()) == 0 }
+        self.Capabilities == other.Capabilities
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
@@ -3588,7 +3366,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_1>()) == 0 }
+        self.Capabilities == other.Capabilities
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
@@ -3618,7 +3396,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_2>()) == 0 }
+        self.Capabilities == other.Capabilities
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
@@ -3648,7 +3426,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_3>()) == 0 }
+        self.Capabilities == other.Capabilities
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
@@ -3679,7 +3457,7 @@ unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_UNIT_STATUS {
 }
 impl ::core::cmp::PartialEq for WINBIO_EXTENDED_UNIT_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_UNIT_STATUS>()) == 0 }
+        self.Availability == other.Availability && self.ReasonCode == other.ReasonCode
     }
 }
 impl ::core::cmp::Eq for WINBIO_EXTENDED_UNIT_STATUS {}
@@ -3716,7 +3494,7 @@ unsafe impl ::windows::core::Abi for WINBIO_FP_BU_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_FP_BU_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_FP_BU_STATE>()) == 0 }
+        self.SensorAttached == other.SensorAttached && self.CreationResult == other.CreationResult
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3791,70 +3569,13 @@ impl ::core::clone::Clone for WINBIO_FRAMEWORK_INTERFACE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::fmt::Debug for WINBIO_FRAMEWORK_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_FRAMEWORK_INTERFACE")
-            .field("Version", &self.Version)
-            .field("Type", &self.Type)
-            .field("Size", &self.Size)
-            .field("AdapterId", &self.AdapterId)
-            .field("SetUnitStatus", &self.SetUnitStatus.map(|f| f as usize))
-            .field("VsmStorageAttach", &self.VsmStorageAttach.map(|f| f as usize))
-            .field("VsmStorageDetach", &self.VsmStorageDetach.map(|f| f as usize))
-            .field("VsmStorageClearContext", &self.VsmStorageClearContext.map(|f| f as usize))
-            .field("VsmStorageCreateDatabase", &self.VsmStorageCreateDatabase.map(|f| f as usize))
-            .field("VsmStorageOpenDatabase", &self.VsmStorageOpenDatabase.map(|f| f as usize))
-            .field("VsmStorageCloseDatabase", &self.VsmStorageCloseDatabase.map(|f| f as usize))
-            .field("VsmStorageDeleteRecord", &self.VsmStorageDeleteRecord.map(|f| f as usize))
-            .field("VsmStorageNotifyPowerChange", &self.VsmStorageNotifyPowerChange.map(|f| f as usize))
-            .field("VsmStoragePipelineInit", &self.VsmStoragePipelineInit.map(|f| f as usize))
-            .field("VsmStoragePipelineCleanup", &self.VsmStoragePipelineCleanup.map(|f| f as usize))
-            .field("VsmStorageActivate", &self.VsmStorageActivate.map(|f| f as usize))
-            .field("VsmStorageDeactivate", &self.VsmStorageDeactivate.map(|f| f as usize))
-            .field("VsmStorageQueryExtendedInfo", &self.VsmStorageQueryExtendedInfo.map(|f| f as usize))
-            .field("VsmStorageCacheClear", &self.VsmStorageCacheClear.map(|f| f as usize))
-            .field("VsmStorageCacheImportBegin", &self.VsmStorageCacheImportBegin.map(|f| f as usize))
-            .field("VsmStorageCacheImportNext", &self.VsmStorageCacheImportNext.map(|f| f as usize))
-            .field("VsmStorageCacheImportEnd", &self.VsmStorageCacheImportEnd.map(|f| f as usize))
-            .field("VsmStorageCacheExportBegin", &self.VsmStorageCacheExportBegin.map(|f| f as usize))
-            .field("VsmStorageCacheExportNext", &self.VsmStorageCacheExportNext.map(|f| f as usize))
-            .field("VsmStorageCacheExportEnd", &self.VsmStorageCacheExportEnd.map(|f| f as usize))
-            .field("VsmSensorAttach", &self.VsmSensorAttach.map(|f| f as usize))
-            .field("VsmSensorDetach", &self.VsmSensorDetach.map(|f| f as usize))
-            .field("VsmSensorClearContext", &self.VsmSensorClearContext.map(|f| f as usize))
-            .field("VsmSensorPushDataToEngine", &self.VsmSensorPushDataToEngine.map(|f| f as usize))
-            .field("VsmSensorNotifyPowerChange", &self.VsmSensorNotifyPowerChange.map(|f| f as usize))
-            .field("VsmSensorPipelineInit", &self.VsmSensorPipelineInit.map(|f| f as usize))
-            .field("VsmSensorPipelineCleanup", &self.VsmSensorPipelineCleanup.map(|f| f as usize))
-            .field("VsmSensorActivate", &self.VsmSensorActivate.map(|f| f as usize))
-            .field("VsmSensorDeactivate", &self.VsmSensorDeactivate.map(|f| f as usize))
-            .field("VsmSensorAsyncImportRawBuffer", &self.VsmSensorAsyncImportRawBuffer.map(|f| f as usize))
-            .field("VsmSensorAsyncImportSecureBuffer", &self.VsmSensorAsyncImportSecureBuffer.map(|f| f as usize))
-            .field("Reserved1", &self.Reserved1.map(|f| f as usize))
-            .field("Reserved2", &self.Reserved2.map(|f| f as usize))
-            .field("Reserved3", &self.Reserved3.map(|f| f as usize))
-            .field("Reserved4", &self.Reserved4.map(|f| f as usize))
-            .field("Reserved5", &self.Reserved5.map(|f| f as usize))
-            .field("AllocateMemory", &self.AllocateMemory.map(|f| f as usize))
-            .field("FreeMemory", &self.FreeMemory.map(|f| f as usize))
-            .field("GetProperty", &self.GetProperty.map(|f| f as usize))
-            .field("LockAndValidateSecureBuffer", &self.LockAndValidateSecureBuffer.map(|f| f as usize))
-            .field("ReleaseSecureBuffer", &self.ReleaseSecureBuffer.map(|f| f as usize))
-            .field("QueryAuthorizedEnrollments", &self.QueryAuthorizedEnrollments.map(|f| f as usize))
-            .field("DecryptSample", &self.DecryptSample.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WINBIO_FRAMEWORK_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_FRAMEWORK_INTERFACE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_FRAMEWORK_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_FRAMEWORK_INTERFACE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_FRAMEWORK_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_FRAMEWORK_INTERFACE {
     fn default() -> Self {
@@ -3885,7 +3606,7 @@ unsafe impl ::windows::core::Abi for WINBIO_GESTURE_METADATA {
 }
 impl ::core::cmp::PartialEq for WINBIO_GESTURE_METADATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_GESTURE_METADATA>()) == 0 }
+        self.Size == other.Size && self.BiometricType == other.BiometricType && self.MatchType == other.MatchType && self.ProtectionType == other.ProtectionType
     }
 }
 impl ::core::cmp::Eq for WINBIO_GESTURE_METADATA {}
@@ -3917,7 +3638,7 @@ unsafe impl ::windows::core::Abi for WINBIO_GET_INDICATOR {
 }
 impl ::core::cmp::PartialEq for WINBIO_GET_INDICATOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_GET_INDICATOR>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.IndicatorStatus == other.IndicatorStatus
     }
 }
 impl ::core::cmp::Eq for WINBIO_GET_INDICATOR {}
@@ -3941,12 +3662,6 @@ impl ::core::clone::Clone for WINBIO_IDENTITY {
 unsafe impl ::windows::core::Abi for WINBIO_IDENTITY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_IDENTITY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_IDENTITY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_IDENTITY {}
 impl ::core::default::Default for WINBIO_IDENTITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3970,12 +3685,6 @@ impl ::core::clone::Clone for WINBIO_IDENTITY_0 {
 unsafe impl ::windows::core::Abi for WINBIO_IDENTITY_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_IDENTITY_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_IDENTITY_0 {}
 impl ::core::default::Default for WINBIO_IDENTITY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4003,7 +3712,7 @@ unsafe impl ::windows::core::Abi for WINBIO_IDENTITY_0_0 {
 }
 impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_IDENTITY_0_0>()) == 0 }
+        self.Size == other.Size && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for WINBIO_IDENTITY_0_0 {}
@@ -4035,7 +3744,7 @@ unsafe impl ::windows::core::Abi for WINBIO_NOTIFY_WAKE {
 }
 impl ::core::cmp::PartialEq for WINBIO_NOTIFY_WAKE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_NOTIFY_WAKE>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.Reason == other.Reason
     }
 }
 impl ::core::cmp::Eq for WINBIO_NOTIFY_WAKE {}
@@ -4091,7 +3800,7 @@ unsafe impl ::windows::core::Abi for WINBIO_PIPELINE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::cmp::PartialEq for WINBIO_PIPELINE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PIPELINE>()) == 0 }
+        self.SensorHandle == other.SensorHandle && self.EngineHandle == other.EngineHandle && self.StorageHandle == other.StorageHandle && self.SensorInterface == other.SensorInterface && self.EngineInterface == other.EngineInterface && self.StorageInterface == other.StorageInterface && self.SensorContext == other.SensorContext && self.EngineContext == other.EngineContext && self.StorageContext == other.StorageContext && self.FrameworkInterface == other.FrameworkInterface
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4129,14 +3838,6 @@ unsafe impl ::windows::core::Abi for WINBIO_PRESENCE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4170,7 +3871,7 @@ unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_PRESENCE_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_0>()) == 0 }
+        self.Size == other.Size && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4200,14 +3901,6 @@ impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES {
 unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES {
     fn default() -> Self {
@@ -4243,7 +3936,7 @@ unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES_0>()) == 0 }
+        self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4282,7 +3975,7 @@ unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES_0_0>()) == 0 }
+        self.AdapterId == other.AdapterId && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4324,7 +4017,7 @@ unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES_1>()) == 0 }
+        self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4358,7 +4051,7 @@ unsafe impl ::windows::core::Abi for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
 }
 impl ::core::cmp::PartialEq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRIVATE_SENSOR_TYPE_INFO>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.PrivateSensorTypeInfo == other.PrivateSensorTypeInfo
     }
 }
 impl ::core::cmp::Eq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
@@ -4386,12 +4079,6 @@ impl ::core::clone::Clone for WINBIO_PROTECTION_POLICY {
 unsafe impl ::windows::core::Abi for WINBIO_PROTECTION_POLICY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINBIO_PROTECTION_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PROTECTION_POLICY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINBIO_PROTECTION_POLICY {}
 impl ::core::default::Default for WINBIO_PROTECTION_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4419,7 +4106,7 @@ unsafe impl ::windows::core::Abi for WINBIO_REGISTERED_FORMAT {
 }
 impl ::core::cmp::PartialEq for WINBIO_REGISTERED_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_REGISTERED_FORMAT>()) == 0 }
+        self.Owner == other.Owner && self.Type == other.Type
     }
 }
 impl ::core::cmp::Eq for WINBIO_REGISTERED_FORMAT {}
@@ -4452,7 +4139,7 @@ unsafe impl ::windows::core::Abi for WINBIO_SECURE_BUFFER_HEADER_V1 {
 }
 impl ::core::cmp::PartialEq for WINBIO_SECURE_BUFFER_HEADER_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SECURE_BUFFER_HEADER_V1>()) == 0 }
+        self.Type == other.Type && self.Size == other.Size && self.Flags == other.Flags && self.ValidationTag == other.ValidationTag
     }
 }
 impl ::core::cmp::Eq for WINBIO_SECURE_BUFFER_HEADER_V1 {}
@@ -4487,7 +4174,7 @@ unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_DATA {
 }
 impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SECURE_CONNECTION_DATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Flags == other.Flags && self.ModelCertificateSize == other.ModelCertificateSize && self.IntermediateCA1Size == other.IntermediateCA1Size && self.IntermediateCA2Size == other.IntermediateCA2Size
     }
 }
 impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_DATA {}
@@ -4519,7 +4206,7 @@ unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_PARAMS {
 }
 impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SECURE_CONNECTION_PARAMS>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.Version == other.Version && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_PARAMS {}
@@ -4573,7 +4260,7 @@ unsafe impl ::windows::core::Abi for WINBIO_SENSOR_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SENSOR_ATTRIBUTES>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.WinBioVersion == other.WinBioVersion && self.SensorType == other.SensorType && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.ManufacturerName == other.ManufacturerName && self.ModelName == other.ModelName && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion && self.SupportedFormatEntries == other.SupportedFormatEntries && self.SupportedFormat == other.SupportedFormat
     }
 }
 impl ::core::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
@@ -4633,57 +4320,13 @@ impl ::core::clone::Clone for WINBIO_SENSOR_INTERFACE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::fmt::Debug for WINBIO_SENSOR_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_SENSOR_INTERFACE")
-            .field("Version", &self.Version)
-            .field("Type", &self.Type)
-            .field("Size", &self.Size)
-            .field("AdapterId", &self.AdapterId)
-            .field("Attach", &self.Attach.map(|f| f as usize))
-            .field("Detach", &self.Detach.map(|f| f as usize))
-            .field("ClearContext", &self.ClearContext.map(|f| f as usize))
-            .field("QueryStatus", &self.QueryStatus.map(|f| f as usize))
-            .field("Reset", &self.Reset.map(|f| f as usize))
-            .field("SetMode", &self.SetMode.map(|f| f as usize))
-            .field("SetIndicatorStatus", &self.SetIndicatorStatus.map(|f| f as usize))
-            .field("GetIndicatorStatus", &self.GetIndicatorStatus.map(|f| f as usize))
-            .field("StartCapture", &self.StartCapture.map(|f| f as usize))
-            .field("FinishCapture", &self.FinishCapture.map(|f| f as usize))
-            .field("ExportSensorData", &self.ExportSensorData.map(|f| f as usize))
-            .field("Cancel", &self.Cancel.map(|f| f as usize))
-            .field("PushDataToEngine", &self.PushDataToEngine.map(|f| f as usize))
-            .field("ControlUnit", &self.ControlUnit.map(|f| f as usize))
-            .field("ControlUnitPrivileged", &self.ControlUnitPrivileged.map(|f| f as usize))
-            .field("NotifyPowerChange", &self.NotifyPowerChange.map(|f| f as usize))
-            .field("PipelineInit", &self.PipelineInit.map(|f| f as usize))
-            .field("PipelineCleanup", &self.PipelineCleanup.map(|f| f as usize))
-            .field("Activate", &self.Activate.map(|f| f as usize))
-            .field("Deactivate", &self.Deactivate.map(|f| f as usize))
-            .field("QueryExtendedInfo", &self.QueryExtendedInfo.map(|f| f as usize))
-            .field("QueryCalibrationFormats", &self.QueryCalibrationFormats.map(|f| f as usize))
-            .field("SetCalibrationFormat", &self.SetCalibrationFormat.map(|f| f as usize))
-            .field("AcceptCalibrationData", &self.AcceptCalibrationData.map(|f| f as usize))
-            .field("AsyncImportRawBuffer", &self.AsyncImportRawBuffer.map(|f| f as usize))
-            .field("AsyncImportSecureBuffer", &self.AsyncImportSecureBuffer.map(|f| f as usize))
-            .field("QueryPrivateSensorType", &self.QueryPrivateSensorType.map(|f| f as usize))
-            .field("ConnectSecure", &self.ConnectSecure.map(|f| f as usize))
-            .field("StartCaptureEx", &self.StartCaptureEx.map(|f| f as usize))
-            .field("StartNotifyWake", &self.StartNotifyWake.map(|f| f as usize))
-            .field("FinishNotifyWake", &self.FinishNotifyWake.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WINBIO_SENSOR_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_SENSOR_INTERFACE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_SENSOR_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SENSOR_INTERFACE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_SENSOR_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_SENSOR_INTERFACE {
     fn default() -> Self {
@@ -4712,7 +4355,7 @@ unsafe impl ::windows::core::Abi for WINBIO_SET_INDICATOR {
 }
 impl ::core::cmp::PartialEq for WINBIO_SET_INDICATOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SET_INDICATOR>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.IndicatorStatus == other.IndicatorStatus
     }
 }
 impl ::core::cmp::Eq for WINBIO_SET_INDICATOR {}
@@ -4771,56 +4414,13 @@ impl ::core::clone::Clone for WINBIO_STORAGE_INTERFACE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::fmt::Debug for WINBIO_STORAGE_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINBIO_STORAGE_INTERFACE")
-            .field("Version", &self.Version)
-            .field("Type", &self.Type)
-            .field("Size", &self.Size)
-            .field("AdapterId", &self.AdapterId)
-            .field("Attach", &self.Attach.map(|f| f as usize))
-            .field("Detach", &self.Detach.map(|f| f as usize))
-            .field("ClearContext", &self.ClearContext.map(|f| f as usize))
-            .field("CreateDatabase", &self.CreateDatabase.map(|f| f as usize))
-            .field("EraseDatabase", &self.EraseDatabase.map(|f| f as usize))
-            .field("OpenDatabase", &self.OpenDatabase.map(|f| f as usize))
-            .field("CloseDatabase", &self.CloseDatabase.map(|f| f as usize))
-            .field("GetDataFormat", &self.GetDataFormat.map(|f| f as usize))
-            .field("GetDatabaseSize", &self.GetDatabaseSize.map(|f| f as usize))
-            .field("AddRecord", &self.AddRecord.map(|f| f as usize))
-            .field("DeleteRecord", &self.DeleteRecord.map(|f| f as usize))
-            .field("QueryBySubject", &self.QueryBySubject.map(|f| f as usize))
-            .field("QueryByContent", &self.QueryByContent.map(|f| f as usize))
-            .field("GetRecordCount", &self.GetRecordCount.map(|f| f as usize))
-            .field("FirstRecord", &self.FirstRecord.map(|f| f as usize))
-            .field("NextRecord", &self.NextRecord.map(|f| f as usize))
-            .field("GetCurrentRecord", &self.GetCurrentRecord.map(|f| f as usize))
-            .field("ControlUnit", &self.ControlUnit.map(|f| f as usize))
-            .field("ControlUnitPrivileged", &self.ControlUnitPrivileged.map(|f| f as usize))
-            .field("NotifyPowerChange", &self.NotifyPowerChange.map(|f| f as usize))
-            .field("PipelineInit", &self.PipelineInit.map(|f| f as usize))
-            .field("PipelineCleanup", &self.PipelineCleanup.map(|f| f as usize))
-            .field("Activate", &self.Activate.map(|f| f as usize))
-            .field("Deactivate", &self.Deactivate.map(|f| f as usize))
-            .field("QueryExtendedInfo", &self.QueryExtendedInfo.map(|f| f as usize))
-            .field("NotifyDatabaseChange", &self.NotifyDatabaseChange.map(|f| f as usize))
-            .field("Reserved1", &self.Reserved1.map(|f| f as usize))
-            .field("Reserved2", &self.Reserved2.map(|f| f as usize))
-            .field("UpdateRecordBegin", &self.UpdateRecordBegin.map(|f| f as usize))
-            .field("UpdateRecordCommit", &self.UpdateRecordCommit.map(|f| f as usize))
-            .finish()
+        f.debug_struct("WINBIO_STORAGE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for WINBIO_STORAGE_INTERFACE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_STORAGE_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_STORAGE_INTERFACE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_STORAGE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_STORAGE_INTERFACE {
     fn default() -> Self {
@@ -4855,7 +4455,7 @@ unsafe impl ::windows::core::Abi for WINBIO_STORAGE_RECORD {
 }
 impl ::core::cmp::PartialEq for WINBIO_STORAGE_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_STORAGE_RECORD>()) == 0 }
+        self.Identity == other.Identity && self.SubFactor == other.SubFactor && self.IndexVector == other.IndexVector && self.IndexElementCount == other.IndexElementCount && self.TemplateBlob == other.TemplateBlob && self.TemplateBlobSize == other.TemplateBlobSize && self.PayloadBlob == other.PayloadBlob && self.PayloadBlobSize == other.PayloadBlobSize
     }
 }
 impl ::core::cmp::Eq for WINBIO_STORAGE_RECORD {}
@@ -4890,7 +4490,7 @@ unsafe impl ::windows::core::Abi for WINBIO_STORAGE_SCHEMA {
 }
 impl ::core::cmp::PartialEq for WINBIO_STORAGE_SCHEMA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_STORAGE_SCHEMA>()) == 0 }
+        self.BiometricFactor == other.BiometricFactor && self.DatabaseId == other.DatabaseId && self.DataFormat == other.DataFormat && self.Attributes == other.Attributes && self.FilePath == other.FilePath && self.ConnectionString == other.ConnectionString
     }
 }
 impl ::core::cmp::Eq for WINBIO_STORAGE_SCHEMA {}
@@ -4923,7 +4523,7 @@ unsafe impl ::windows::core::Abi for WINBIO_SUPPORTED_ALGORITHMS {
 }
 impl ::core::cmp::PartialEq for WINBIO_SUPPORTED_ALGORITHMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SUPPORTED_ALGORITHMS>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.NumberOfAlgorithms == other.NumberOfAlgorithms && self.AlgorithmData == other.AlgorithmData
     }
 }
 impl ::core::cmp::Eq for WINBIO_SUPPORTED_ALGORITHMS {}
@@ -4975,7 +4575,7 @@ unsafe impl ::windows::core::Abi for WINBIO_UNIT_SCHEMA {
 }
 impl ::core::cmp::PartialEq for WINBIO_UNIT_SCHEMA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_UNIT_SCHEMA>()) == 0 }
+        self.UnitId == other.UnitId && self.PoolType == other.PoolType && self.BiometricFactor == other.BiometricFactor && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.DeviceInstanceId == other.DeviceInstanceId && self.Description == other.Description && self.Manufacturer == other.Manufacturer && self.Model == other.Model && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion
     }
 }
 impl ::core::cmp::Eq for WINBIO_UNIT_SCHEMA {}
@@ -5006,7 +4606,7 @@ unsafe impl ::windows::core::Abi for WINBIO_UPDATE_FIRMWARE {
 }
 impl ::core::cmp::PartialEq for WINBIO_UPDATE_FIRMWARE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_UPDATE_FIRMWARE>()) == 0 }
+        self.PayloadSize == other.PayloadSize && self.FirmwareData == other.FirmwareData
     }
 }
 impl ::core::cmp::Eq for WINBIO_UPDATE_FIRMWARE {}
@@ -5037,7 +4637,7 @@ unsafe impl ::windows::core::Abi for WINBIO_VERSION {
 }
 impl ::core::cmp::PartialEq for WINBIO_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_VERSION>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
 impl ::core::cmp::Eq for WINBIO_VERSION {}

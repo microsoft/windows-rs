@@ -69,7 +69,7 @@ unsafe impl ::windows::core::Abi for NV_MEMORY_RANGE {
 }
 impl ::core::cmp::PartialEq for NV_MEMORY_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NV_MEMORY_RANGE>()) == 0 }
+        self.BaseAddress == other.BaseAddress && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for NV_MEMORY_RANGE {}

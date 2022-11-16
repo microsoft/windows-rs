@@ -10787,7 +10787,7 @@ unsafe impl ::windows::core::Abi for ACCEL {
 }
 impl ::core::cmp::PartialEq for ACCEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCEL>()) == 0 }
+        self.fVirt == other.fVirt && self.key == other.key && self.cmd == other.cmd
     }
 }
 impl ::core::cmp::Eq for ACCEL {}
@@ -10831,7 +10831,7 @@ unsafe impl ::windows::core::Abi for ALTTABINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ALTTABINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ALTTABINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.cItems == other.cItems && self.cColumns == other.cColumns && self.cRows == other.cRows && self.iColFocus == other.iColFocus && self.iRowFocus == other.iRowFocus && self.cxItem == other.cxItem && self.cyItem == other.cyItem && self.ptStart == other.ptStart
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10864,7 +10864,7 @@ unsafe impl ::windows::core::Abi for ANIMATIONINFO {
 }
 impl ::core::cmp::PartialEq for ANIMATIONINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ANIMATIONINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.iMinAnimate == other.iMinAnimate
     }
 }
 impl ::core::cmp::Eq for ANIMATIONINFO {}
@@ -10902,7 +10902,7 @@ unsafe impl ::windows::core::Abi for AUDIODESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIODESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIODESCRIPTION>()) == 0 }
+        self.cbSize == other.cbSize && self.Enabled == other.Enabled && self.Locale == other.Locale
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10941,7 +10941,7 @@ unsafe impl ::windows::core::Abi for CBTACTIVATESTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CBTACTIVATESTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CBTACTIVATESTRUCT>()) == 0 }
+        self.fMouse == other.fMouse && self.hWndActive == other.hWndActive
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10980,7 +10980,7 @@ unsafe impl ::windows::core::Abi for CBT_CREATEWNDA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CBT_CREATEWNDA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CBT_CREATEWNDA>()) == 0 }
+        self.lpcs == other.lpcs && self.hwndInsertAfter == other.hwndInsertAfter
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11019,7 +11019,7 @@ unsafe impl ::windows::core::Abi for CBT_CREATEWNDW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CBT_CREATEWNDW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CBT_CREATEWNDW>()) == 0 }
+        self.lpcs == other.lpcs && self.hwndInsertAfter == other.hwndInsertAfter
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11052,7 +11052,7 @@ unsafe impl ::windows::core::Abi for CHANGEFILTERSTRUCT {
 }
 impl ::core::cmp::PartialEq for CHANGEFILTERSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANGEFILTERSTRUCT>()) == 0 }
+        self.cbSize == other.cbSize && self.ExtStatus == other.ExtStatus
     }
 }
 impl ::core::cmp::Eq for CHANGEFILTERSTRUCT {}
@@ -11089,7 +11089,7 @@ unsafe impl ::windows::core::Abi for CLIENTCREATESTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLIENTCREATESTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENTCREATESTRUCT>()) == 0 }
+        self.hWindowMenu == other.hWindowMenu && self.idFirstChild == other.idFirstChild
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11138,7 +11138,7 @@ unsafe impl ::windows::core::Abi for CREATESTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATESTRUCTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATESTRUCTA>()) == 0 }
+        self.lpCreateParams == other.lpCreateParams && self.hInstance == other.hInstance && self.hMenu == other.hMenu && self.hwndParent == other.hwndParent && self.cy == other.cy && self.cx == other.cx && self.y == other.y && self.x == other.x && self.style == other.style && self.lpszName == other.lpszName && self.lpszClass == other.lpszClass && self.dwExStyle == other.dwExStyle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11187,7 +11187,7 @@ unsafe impl ::windows::core::Abi for CREATESTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATESTRUCTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATESTRUCTW>()) == 0 }
+        self.lpCreateParams == other.lpCreateParams && self.hInstance == other.hInstance && self.hMenu == other.hMenu && self.hwndParent == other.hwndParent && self.cy == other.cy && self.cx == other.cx && self.y == other.y && self.x == other.x && self.style == other.style && self.lpszName == other.lpszName && self.lpszClass == other.lpszClass && self.dwExStyle == other.dwExStyle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11228,7 +11228,7 @@ unsafe impl ::windows::core::Abi for CURSORINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CURSORINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CURSORINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.flags == other.flags && self.hCursor == other.hCursor && self.ptScreenPos == other.ptScreenPos
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11266,7 +11266,7 @@ unsafe impl ::windows::core::Abi for CURSORSHAPE {
 }
 impl ::core::cmp::PartialEq for CURSORSHAPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CURSORSHAPE>()) == 0 }
+        self.xHotSpot == other.xHotSpot && self.yHotSpot == other.yHotSpot && self.cx == other.cx && self.cy == other.cy && self.cbWidth == other.cbWidth && self.Planes == other.Planes && self.BitsPixel == other.BitsPixel
     }
 }
 impl ::core::cmp::Eq for CURSORSHAPE {}
@@ -11306,7 +11306,7 @@ unsafe impl ::windows::core::Abi for CWPRETSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CWPRETSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CWPRETSTRUCT>()) == 0 }
+        self.lResult == other.lResult && self.lParam == other.lParam && self.wParam == other.wParam && self.message == other.message && self.hwnd == other.hwnd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11347,7 +11347,7 @@ unsafe impl ::windows::core::Abi for CWPSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CWPSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CWPSTRUCT>()) == 0 }
+        self.lParam == other.lParam && self.wParam == other.wParam && self.message == other.message && self.hwnd == other.hwnd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11389,7 +11389,7 @@ unsafe impl ::windows::core::Abi for DEBUGHOOKINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUGHOOKINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEBUGHOOKINFO>()) == 0 }
+        self.idThread == other.idThread && self.idThreadInstaller == other.idThreadInstaller && self.lParam == other.lParam && self.wParam == other.wParam && self.code == other.code
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11420,12 +11420,6 @@ impl ::core::clone::Clone for DLGITEMTEMPLATE {
 unsafe impl ::windows::core::Abi for DLGITEMTEMPLATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DLGITEMTEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLGITEMTEMPLATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DLGITEMTEMPLATE {}
 impl ::core::default::Default for DLGITEMTEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11451,12 +11445,6 @@ impl ::core::clone::Clone for DLGTEMPLATE {
 unsafe impl ::windows::core::Abi for DLGTEMPLATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DLGTEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLGTEMPLATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DLGTEMPLATE {}
 impl ::core::default::Default for DLGTEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11494,7 +11482,7 @@ unsafe impl ::windows::core::Abi for DROPSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DROPSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DROPSTRUCT>()) == 0 }
+        self.hwndSource == other.hwndSource && self.hwndSink == other.hwndSink && self.wFmt == other.wFmt && self.dwData == other.dwData && self.ptDrop == other.ptDrop && self.dwControlData == other.dwControlData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11536,7 +11524,7 @@ unsafe impl ::windows::core::Abi for EVENTMSG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENTMSG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENTMSG>()) == 0 }
+        self.message == other.message && self.paramL == other.paramL && self.paramH == other.paramH && self.time == other.time && self.hwnd == other.hwnd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11578,7 +11566,7 @@ unsafe impl ::windows::core::Abi for FLASHWINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FLASHWINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLASHWINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.hwnd == other.hwnd && self.dwFlags == other.dwFlags && self.uCount == other.uCount && self.dwTimeout == other.dwTimeout
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11624,7 +11612,7 @@ unsafe impl ::windows::core::Abi for GUITHREADINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GUITHREADINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GUITHREADINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.flags == other.flags && self.hwndActive == other.hwndActive && self.hwndFocus == other.hwndFocus && self.hwndCapture == other.hwndCapture && self.hwndMenuOwner == other.hwndMenuOwner && self.hwndMoveSize == other.hwndMoveSize && self.hwndCaret == other.hwndCaret && self.rcCaret == other.rcCaret
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11697,7 +11685,7 @@ unsafe impl ::windows::core::Abi for HARDWAREHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HARDWAREHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWAREHOOKSTRUCT>()) == 0 }
+        self.hwnd == other.hwnd && self.message == other.message && self.wParam == other.wParam && self.lParam == other.lParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11904,7 +11892,7 @@ unsafe impl ::windows::core::Abi for ICONINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICONINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONINFO>()) == 0 }
+        self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11950,7 +11938,7 @@ unsafe impl ::windows::core::Abi for ICONINFOEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICONINFOEXA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONINFOEXA>()) == 0 }
+        self.cbSize == other.cbSize && self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor && self.wResID == other.wResID && self.szModName == other.szModName && self.szResName == other.szResName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11996,7 +11984,7 @@ unsafe impl ::windows::core::Abi for ICONINFOEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICONINFOEXW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONINFOEXW>()) == 0 }
+        self.cbSize == other.cbSize && self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor && self.wResID == other.wResID && self.szModName == other.szModName && self.szResName == other.szResName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12038,7 +12026,7 @@ unsafe impl ::windows::core::Abi for ICONMETRICSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICONMETRICSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONMETRICSA>()) == 0 }
+        self.cbSize == other.cbSize && self.iHorzSpacing == other.iHorzSpacing && self.iVertSpacing == other.iVertSpacing && self.iTitleWrap == other.iTitleWrap && self.lfFont == other.lfFont
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12080,7 +12068,7 @@ unsafe impl ::windows::core::Abi for ICONMETRICSW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICONMETRICSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONMETRICSW>()) == 0 }
+        self.cbSize == other.cbSize && self.iHorzSpacing == other.iHorzSpacing && self.iVertSpacing == other.iVertSpacing && self.iTitleWrap == other.iTitleWrap && self.lfFont == other.lfFont
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12113,7 +12101,7 @@ unsafe impl ::windows::core::Abi for IndexedResourceQualifier {
 }
 impl ::core::cmp::PartialEq for IndexedResourceQualifier {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IndexedResourceQualifier>()) == 0 }
+        self.name == other.name && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for IndexedResourceQualifier {}
@@ -12147,7 +12135,7 @@ unsafe impl ::windows::core::Abi for KBDLLHOOKSTRUCT {
 }
 impl ::core::cmp::PartialEq for KBDLLHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDLLHOOKSTRUCT>()) == 0 }
+        self.vkCode == other.vkCode && self.scanCode == other.scanCode && self.flags == other.flags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 impl ::core::cmp::Eq for KBDLLHOOKSTRUCT {}
@@ -12191,7 +12179,7 @@ unsafe impl ::windows::core::Abi for MDICREATESTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MDICREATESTRUCTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDICREATESTRUCTA>()) == 0 }
+        self.szClass == other.szClass && self.szTitle == other.szTitle && self.hOwner == other.hOwner && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.style == other.style && self.lParam == other.lParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12237,7 +12225,7 @@ unsafe impl ::windows::core::Abi for MDICREATESTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MDICREATESTRUCTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDICREATESTRUCTW>()) == 0 }
+        self.szClass == other.szClass && self.szTitle == other.szTitle && self.hOwner == other.hOwner && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.style == other.style && self.lParam == other.lParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12277,7 +12265,7 @@ unsafe impl ::windows::core::Abi for MDINEXTMENU {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MDINEXTMENU {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDINEXTMENU>()) == 0 }
+        self.hmenuIn == other.hmenuIn && self.hmenuNext == other.hmenuNext && self.hwndNext == other.hwndNext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12319,7 +12307,7 @@ unsafe impl ::windows::core::Abi for MENUBARINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MENUBARINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUBARINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.rcBar == other.rcBar && self.hMenu == other.hMenu && self.hwndMenu == other.hwndMenu && self._bitfield == other._bitfield
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12355,7 +12343,7 @@ unsafe impl ::windows::core::Abi for MENUGETOBJECTINFO {
 }
 impl ::core::cmp::PartialEq for MENUGETOBJECTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUGETOBJECTINFO>()) == 0 }
+        self.dwFlags == other.dwFlags && self.uPos == other.uPos && self.hmenu == other.hmenu && self.riid == other.riid && self.pvObj == other.pvObj
     }
 }
 impl ::core::cmp::Eq for MENUGETOBJECTINFO {}
@@ -12397,7 +12385,7 @@ unsafe impl ::windows::core::Abi for MENUINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for MENUINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.fMask == other.fMask && self.dwStyle == other.dwStyle && self.cyMax == other.cyMax && self.hbrBack == other.hbrBack && self.dwContextHelpID == other.dwContextHelpID && self.dwMenuData == other.dwMenuData
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12446,7 +12434,7 @@ unsafe impl ::windows::core::Abi for MENUITEMINFOA {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for MENUITEMINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMINFOA>()) == 0 }
+        self.cbSize == other.cbSize && self.fMask == other.fMask && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hSubMenu == other.hSubMenu && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.dwTypeData == other.dwTypeData && self.cch == other.cch && self.hbmpItem == other.hbmpItem
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12495,7 +12483,7 @@ unsafe impl ::windows::core::Abi for MENUITEMINFOW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for MENUITEMINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMINFOW>()) == 0 }
+        self.cbSize == other.cbSize && self.fMask == other.fMask && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hSubMenu == other.hSubMenu && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.dwTypeData == other.dwTypeData && self.cch == other.cch && self.hbmpItem == other.hbmpItem
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12529,7 +12517,7 @@ unsafe impl ::windows::core::Abi for MENUITEMTEMPLATE {
 }
 impl ::core::cmp::PartialEq for MENUITEMTEMPLATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMTEMPLATE>()) == 0 }
+        self.mtOption == other.mtOption && self.mtID == other.mtID && self.mtString == other.mtString
     }
 }
 impl ::core::cmp::Eq for MENUITEMTEMPLATE {}
@@ -12560,7 +12548,7 @@ unsafe impl ::windows::core::Abi for MENUITEMTEMPLATEHEADER {
 }
 impl ::core::cmp::PartialEq for MENUITEMTEMPLATEHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMTEMPLATEHEADER>()) == 0 }
+        self.versionNumber == other.versionNumber && self.offset == other.offset
     }
 }
 impl ::core::cmp::Eq for MENUITEMTEMPLATEHEADER {}
@@ -12592,7 +12580,7 @@ unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_BLOCK {
 }
 impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MESSAGE_RESOURCE_BLOCK>()) == 0 }
+        self.LowId == other.LowId && self.HighId == other.HighId && self.OffsetToEntries == other.OffsetToEntries
     }
 }
 impl ::core::cmp::Eq for MESSAGE_RESOURCE_BLOCK {}
@@ -12623,7 +12611,7 @@ unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_DATA {
 }
 impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MESSAGE_RESOURCE_DATA>()) == 0 }
+        self.NumberOfBlocks == other.NumberOfBlocks && self.Blocks == other.Blocks
     }
 }
 impl ::core::cmp::Eq for MESSAGE_RESOURCE_DATA {}
@@ -12655,7 +12643,7 @@ unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_ENTRY {
 }
 impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MESSAGE_RESOURCE_ENTRY>()) == 0 }
+        self.Length == other.Length && self.Flags == other.Flags && self.Text == other.Text
     }
 }
 impl ::core::cmp::Eq for MESSAGE_RESOURCE_ENTRY {}
@@ -12689,7 +12677,7 @@ unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS {
 }
 impl ::core::cmp::PartialEq for MINIMIZEDMETRICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIMIZEDMETRICS>()) == 0 }
+        self.cbSize == other.cbSize && self.iWidth == other.iWidth && self.iHorzGap == other.iHorzGap && self.iVertGap == other.iVertGap && self.iArrange == other.iArrange
     }
 }
 impl ::core::cmp::Eq for MINIMIZEDMETRICS {}
@@ -12729,7 +12717,7 @@ unsafe impl ::windows::core::Abi for MINMAXINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MINMAXINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINMAXINFO>()) == 0 }
+        self.ptReserved == other.ptReserved && self.ptMaxSize == other.ptMaxSize && self.ptMaxPosition == other.ptMaxPosition && self.ptMinTrackSize == other.ptMinTrackSize && self.ptMaxTrackSize == other.ptMaxTrackSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12770,7 +12758,7 @@ unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEHOOKSTRUCT>()) == 0 }
+        self.pt == other.pt && self.hwnd == other.hwnd && self.wHitTestCode == other.wHitTestCode && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12809,7 +12797,7 @@ unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCTEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCTEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEHOOKSTRUCTEX>()) == 0 }
+        self.Base == other.Base && self.mouseData == other.mouseData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12852,7 +12840,7 @@ unsafe impl ::windows::core::Abi for MSG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG>()) == 0 }
+        self.hwnd == other.hwnd && self.message == other.message && self.wParam == other.wParam && self.lParam == other.lParam && self.time == other.time && self.pt == other.pt
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12889,21 +12877,13 @@ impl ::core::clone::Clone for MSGBOXPARAMSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::fmt::Debug for MSGBOXPARAMSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSGBOXPARAMSA").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback.map(|f| f as usize)).field("dwLanguageId", &self.dwLanguageId).finish()
+        f.debug_struct("MSGBOXPARAMSA").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("dwLanguageId", &self.dwLanguageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::core::Abi for MSGBOXPARAMSA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::PartialEq for MSGBOXPARAMSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSGBOXPARAMSA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::Eq for MSGBOXPARAMSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::default::Default for MSGBOXPARAMSA {
     fn default() -> Self {
@@ -12936,21 +12916,13 @@ impl ::core::clone::Clone for MSGBOXPARAMSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::fmt::Debug for MSGBOXPARAMSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSGBOXPARAMSW").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("lpfnMsgBoxCallback", &self.lpfnMsgBoxCallback.map(|f| f as usize)).field("dwLanguageId", &self.dwLanguageId).finish()
+        f.debug_struct("MSGBOXPARAMSW").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("dwLanguageId", &self.dwLanguageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::core::Abi for MSGBOXPARAMSW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::PartialEq for MSGBOXPARAMSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSGBOXPARAMSW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::Eq for MSGBOXPARAMSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::default::Default for MSGBOXPARAMSW {
     fn default() -> Self {
@@ -12988,7 +12960,7 @@ unsafe impl ::windows::core::Abi for MSLLHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSLLHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSLLHOOKSTRUCT>()) == 0 }
+        self.pt == other.pt && self.mouseData == other.mouseData && self.flags == other.flags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13020,7 +12992,7 @@ unsafe impl ::windows::core::Abi for MrmResourceIndexerHandle {
 }
 impl ::core::cmp::PartialEq for MrmResourceIndexerHandle {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MrmResourceIndexerHandle>()) == 0 }
+        self.handle == other.handle
     }
 }
 impl ::core::cmp::Eq for MrmResourceIndexerHandle {}
@@ -13052,7 +13024,7 @@ unsafe impl ::windows::core::Abi for MrmResourceIndexerMessage {
 }
 impl ::core::cmp::PartialEq for MrmResourceIndexerMessage {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MrmResourceIndexerMessage>()) == 0 }
+        self.severity == other.severity && self.id == other.id && self.text == other.text
     }
 }
 impl ::core::cmp::Eq for MrmResourceIndexerMessage {}
@@ -13089,7 +13061,7 @@ unsafe impl ::windows::core::Abi for NCCALCSIZE_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NCCALCSIZE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NCCALCSIZE_PARAMS>()) == 0 }
+        self.rgrc == other.rgrc && self.lppos == other.lppos
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13159,7 +13131,7 @@ unsafe impl ::windows::core::Abi for NONCLIENTMETRICSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NONCLIENTMETRICSA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NONCLIENTMETRICSA>()) == 0 }
+        self.cbSize == other.cbSize && self.iBorderWidth == other.iBorderWidth && self.iScrollWidth == other.iScrollWidth && self.iScrollHeight == other.iScrollHeight && self.iCaptionWidth == other.iCaptionWidth && self.iCaptionHeight == other.iCaptionHeight && self.lfCaptionFont == other.lfCaptionFont && self.iSmCaptionWidth == other.iSmCaptionWidth && self.iSmCaptionHeight == other.iSmCaptionHeight && self.lfSmCaptionFont == other.lfSmCaptionFont && self.iMenuWidth == other.iMenuWidth && self.iMenuHeight == other.iMenuHeight && self.lfMenuFont == other.lfMenuFont && self.lfStatusFont == other.lfStatusFont && self.lfMessageFont == other.lfMessageFont && self.iPaddedBorderWidth == other.iPaddedBorderWidth
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13229,7 +13201,7 @@ unsafe impl ::windows::core::Abi for NONCLIENTMETRICSW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for NONCLIENTMETRICSW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NONCLIENTMETRICSW>()) == 0 }
+        self.cbSize == other.cbSize && self.iBorderWidth == other.iBorderWidth && self.iScrollWidth == other.iScrollWidth && self.iScrollHeight == other.iScrollHeight && self.iCaptionWidth == other.iCaptionWidth && self.iCaptionHeight == other.iCaptionHeight && self.lfCaptionFont == other.lfCaptionFont && self.iSmCaptionWidth == other.iSmCaptionWidth && self.iSmCaptionHeight == other.iSmCaptionHeight && self.lfSmCaptionFont == other.lfSmCaptionFont && self.iMenuWidth == other.iMenuWidth && self.iMenuHeight == other.iMenuHeight && self.lfMenuFont == other.lfMenuFont && self.lfStatusFont == other.lfStatusFont && self.lfMessageFont == other.lfMessageFont && self.iPaddedBorderWidth == other.iPaddedBorderWidth
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -13273,7 +13245,7 @@ unsafe impl ::windows::core::Abi for SCROLLBARINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCROLLBARINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCROLLBARINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.rcScrollBar == other.rcScrollBar && self.dxyLineButton == other.dxyLineButton && self.xyThumbTop == other.xyThumbTop && self.xyThumbBottom == other.xyThumbBottom && self.reserved == other.reserved && self.rgstate == other.rgstate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13311,7 +13283,7 @@ unsafe impl ::windows::core::Abi for SCROLLINFO {
 }
 impl ::core::cmp::PartialEq for SCROLLINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCROLLINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.fMask == other.fMask && self.nMin == other.nMin && self.nMax == other.nMax && self.nPage == other.nPage && self.nPos == other.nPos && self.nTrackPos == other.nTrackPos
     }
 }
 impl ::core::cmp::Eq for SCROLLINFO {}
@@ -13348,7 +13320,7 @@ unsafe impl ::windows::core::Abi for SHELLHOOKINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SHELLHOOKINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHELLHOOKINFO>()) == 0 }
+        self.hwnd == other.hwnd && self.rc == other.rc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13381,7 +13353,7 @@ unsafe impl ::windows::core::Abi for STYLESTRUCT {
 }
 impl ::core::cmp::PartialEq for STYLESTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STYLESTRUCT>()) == 0 }
+        self.styleOld == other.styleOld && self.styleNew == other.styleNew
     }
 }
 impl ::core::cmp::Eq for STYLESTRUCT {}
@@ -13419,7 +13391,7 @@ unsafe impl ::windows::core::Abi for TITLEBARINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TITLEBARINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TITLEBARINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.rcTitleBar == other.rcTitleBar && self.rgstate == other.rgstate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13460,7 +13432,7 @@ unsafe impl ::windows::core::Abi for TITLEBARINFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TITLEBARINFOEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TITLEBARINFOEX>()) == 0 }
+        self.cbSize == other.cbSize && self.rcTitleBar == other.rcTitleBar && self.rgstate == other.rgstate && self.rgrect == other.rgrect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13495,7 +13467,7 @@ unsafe impl ::windows::core::Abi for TOUCHPREDICTIONPARAMETERS {
 }
 impl ::core::cmp::PartialEq for TOUCHPREDICTIONPARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOUCHPREDICTIONPARAMETERS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwLatency == other.dwLatency && self.dwSampleTime == other.dwSampleTime && self.bUseHWTimeStamp == other.bUseHWTimeStamp
     }
 }
 impl ::core::cmp::Eq for TOUCHPREDICTIONPARAMETERS {}
@@ -13532,7 +13504,7 @@ unsafe impl ::windows::core::Abi for TPMPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TPMPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TPMPARAMS>()) == 0 }
+        self.cbSize == other.cbSize && self.rcExclude == other.rcExclude
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13579,7 +13551,7 @@ unsafe impl ::windows::core::Abi for UPDATELAYEREDWINDOWINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for UPDATELAYEREDWINDOWINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UPDATELAYEREDWINDOWINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.hdcDst == other.hdcDst && self.pptDst == other.pptDst && self.psize == other.psize && self.hdcSrc == other.hdcSrc && self.pptSrc == other.pptSrc && self.crKey == other.crKey && self.pblend == other.pblend && self.dwFlags == other.dwFlags && self.prcDirty == other.prcDirty
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -13626,7 +13598,7 @@ unsafe impl ::windows::core::Abi for WINDOWINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINDOWINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINDOWINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.rcWindow == other.rcWindow && self.rcClient == other.rcClient && self.dwStyle == other.dwStyle && self.dwExStyle == other.dwExStyle && self.dwWindowStatus == other.dwWindowStatus && self.cxWindowBorders == other.cxWindowBorders && self.cyWindowBorders == other.cyWindowBorders && self.atomWindowType == other.atomWindowType && self.wCreatorVersion == other.wCreatorVersion
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13669,7 +13641,7 @@ unsafe impl ::windows::core::Abi for WINDOWPLACEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINDOWPLACEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINDOWPLACEMENT>()) == 0 }
+        self.length == other.length && self.flags == other.flags && self.showCmd == other.showCmd && self.ptMinPosition == other.ptMinPosition && self.ptMaxPosition == other.ptMaxPosition && self.rcNormalPosition == other.rcNormalPosition
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13713,7 +13685,7 @@ unsafe impl ::windows::core::Abi for WINDOWPOS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINDOWPOS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINDOWPOS>()) == 0 }
+        self.hwnd == other.hwnd && self.hwndInsertAfter == other.hwndInsertAfter && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.flags == other.flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13750,21 +13722,13 @@ impl ::core::clone::Clone for WNDCLASSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSA").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize)).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
+        f.debug_struct("WNDCLASSA").field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSA {
     fn default() -> Self {
@@ -13799,34 +13763,13 @@ impl ::core::clone::Clone for WNDCLASSEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSEXA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSEXA")
-            .field("cbSize", &self.cbSize)
-            .field("style", &self.style)
-            .field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize))
-            .field("cbClsExtra", &self.cbClsExtra)
-            .field("cbWndExtra", &self.cbWndExtra)
-            .field("hInstance", &self.hInstance)
-            .field("hIcon", &self.hIcon)
-            .field("hCursor", &self.hCursor)
-            .field("hbrBackground", &self.hbrBackground)
-            .field("lpszMenuName", &self.lpszMenuName)
-            .field("lpszClassName", &self.lpszClassName)
-            .field("hIconSm", &self.hIconSm)
-            .finish()
+        f.debug_struct("WNDCLASSEXA").field("cbSize", &self.cbSize).field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSEXA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSEXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSEXA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSEXA {
     fn default() -> Self {
@@ -13861,34 +13804,13 @@ impl ::core::clone::Clone for WNDCLASSEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSEXW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSEXW")
-            .field("cbSize", &self.cbSize)
-            .field("style", &self.style)
-            .field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize))
-            .field("cbClsExtra", &self.cbClsExtra)
-            .field("cbWndExtra", &self.cbWndExtra)
-            .field("hInstance", &self.hInstance)
-            .field("hIcon", &self.hIcon)
-            .field("hCursor", &self.hCursor)
-            .field("hbrBackground", &self.hbrBackground)
-            .field("lpszMenuName", &self.lpszMenuName)
-            .field("lpszClassName", &self.lpszClassName)
-            .field("hIconSm", &self.hIconSm)
-            .finish()
+        f.debug_struct("WNDCLASSEXW").field("cbSize", &self.cbSize).field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSEXW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSEXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSEXW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSEXW {
     fn default() -> Self {
@@ -13921,21 +13843,13 @@ impl ::core::clone::Clone for WNDCLASSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNDCLASSW").field("style", &self.style).field("lpfnWndProc", &self.lpfnWndProc.map(|f| f as usize)).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
+        f.debug_struct("WNDCLASSW").field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for WNDCLASSW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSW {
     fn default() -> Self {

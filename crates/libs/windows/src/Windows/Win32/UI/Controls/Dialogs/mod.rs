@@ -1297,16 +1297,6 @@ unsafe impl ::windows::core::Abi for CHOOSECOLORA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1344,16 +1334,6 @@ unsafe impl ::windows::core::Abi for CHOOSECOLORA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1391,16 +1371,6 @@ unsafe impl ::windows::core::Abi for CHOOSECOLORW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1438,16 +1408,6 @@ unsafe impl ::windows::core::Abi for CHOOSECOLORW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1492,16 +1452,6 @@ unsafe impl ::windows::core::Abi for CHOOSEFONTA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1546,16 +1496,6 @@ unsafe impl ::windows::core::Abi for CHOOSEFONTA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTA {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1600,16 +1540,6 @@ unsafe impl ::windows::core::Abi for CHOOSEFONTW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1654,16 +1584,6 @@ unsafe impl ::windows::core::Abi for CHOOSEFONTW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTW {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1691,14 +1611,6 @@ unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DEVNAMES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DEVNAMES {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DEVNAMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1725,14 +1637,6 @@ impl ::core::clone::Clone for DEVNAMES {
 unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DEVNAMES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DEVNAMES {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DEVNAMES {
     fn default() -> Self {
@@ -1771,16 +1675,6 @@ impl ::core::clone::Clone for FINDREPLACEA {
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEA {
@@ -1820,16 +1714,6 @@ impl ::core::clone::Clone for FINDREPLACEA {
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEA {
@@ -1869,16 +1753,6 @@ impl ::core::clone::Clone for FINDREPLACEW {
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEW {
@@ -1918,16 +1792,6 @@ impl ::core::clone::Clone for FINDREPLACEW {
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEW {
@@ -1959,16 +1823,6 @@ impl ::core::clone::Clone for OFNOTIFYA {
 unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYA {
@@ -2000,16 +1854,6 @@ impl ::core::clone::Clone for OFNOTIFYA {
 unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYA {
@@ -2042,16 +1886,6 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
 unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXA {
@@ -2084,16 +1918,6 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
 unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXA {
@@ -2126,16 +1950,6 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
 unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXW {
@@ -2168,16 +1982,6 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
 unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXW {
@@ -2209,16 +2013,6 @@ impl ::core::clone::Clone for OFNOTIFYW {
 unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYW {
@@ -2250,16 +2044,6 @@ impl ::core::clone::Clone for OFNOTIFYW {
 unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYW {
@@ -2311,16 +2095,6 @@ impl ::core::clone::Clone for OPENFILENAMEA {
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEA {
@@ -2372,16 +2146,6 @@ impl ::core::clone::Clone for OPENFILENAMEA {
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEA {
@@ -2433,16 +2197,6 @@ impl ::core::clone::Clone for OPENFILENAMEW {
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEW {
@@ -2494,16 +2248,6 @@ impl ::core::clone::Clone for OPENFILENAMEW {
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEW {
@@ -2552,16 +2296,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4A {
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4A {
@@ -2610,16 +2344,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4A {
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4A {
@@ -2668,16 +2392,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4W {
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4W {
@@ -2726,16 +2440,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4W {
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4W {
@@ -2778,16 +2482,6 @@ impl ::core::clone::Clone for PAGESETUPDLGA {
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGA {
@@ -2830,16 +2524,6 @@ impl ::core::clone::Clone for PAGESETUPDLGA {
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGA {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGA {
@@ -2882,16 +2566,6 @@ impl ::core::clone::Clone for PAGESETUPDLGW {
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGW {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGW {
@@ -2934,16 +2608,6 @@ impl ::core::clone::Clone for PAGESETUPDLGW {
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGW {}
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGW {
@@ -2991,16 +2655,6 @@ impl ::core::clone::Clone for PRINTDLGA {
 unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGA {
@@ -3048,16 +2702,6 @@ impl ::core::clone::Clone for PRINTDLGA {
 unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGA {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGA {
@@ -3128,36 +2772,6 @@ unsafe impl ::windows::core::Abi for PRINTDLGEXA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGEXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hDevMode == other.hDevMode
-            && self.hDevNames == other.hDevNames
-            && self.hDC == other.hDC
-            && self.Flags == other.Flags
-            && self.Flags2 == other.Flags2
-            && self.ExclusionFlags == other.ExclusionFlags
-            && self.nPageRanges == other.nPageRanges
-            && self.nMaxPageRanges == other.nMaxPageRanges
-            && self.lpPageRanges == other.lpPageRanges
-            && self.nMinPage == other.nMinPage
-            && self.nMaxPage == other.nMaxPage
-            && self.nCopies == other.nCopies
-            && self.hInstance == other.hInstance
-            && self.lpPrintTemplateName == other.lpPrintTemplateName
-            && self.lpCallback == other.lpCallback
-            && self.nPropertyPages == other.nPropertyPages
-            && self.lphPropertyPages == other.lphPropertyPages
-            && self.nStartPage == other.nStartPage
-            && self.dwResultAction == other.dwResultAction
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGEXA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3195,16 +2809,6 @@ pub struct PRINTDLGEXA {
 unsafe impl ::windows::core::Abi for PRINTDLGEXA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGEXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGEXA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGEXA {}
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXA {
@@ -3275,36 +2879,6 @@ unsafe impl ::windows::core::Abi for PRINTDLGEXW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGEXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hDevMode == other.hDevMode
-            && self.hDevNames == other.hDevNames
-            && self.hDC == other.hDC
-            && self.Flags == other.Flags
-            && self.Flags2 == other.Flags2
-            && self.ExclusionFlags == other.ExclusionFlags
-            && self.nPageRanges == other.nPageRanges
-            && self.nMaxPageRanges == other.nMaxPageRanges
-            && self.lpPageRanges == other.lpPageRanges
-            && self.nMinPage == other.nMinPage
-            && self.nMaxPage == other.nMaxPage
-            && self.nCopies == other.nCopies
-            && self.hInstance == other.hInstance
-            && self.lpPrintTemplateName == other.lpPrintTemplateName
-            && self.lpCallback == other.lpCallback
-            && self.nPropertyPages == other.nPropertyPages
-            && self.lphPropertyPages == other.lphPropertyPages
-            && self.nStartPage == other.nStartPage
-            && self.dwResultAction == other.dwResultAction
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGEXW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3344,16 +2918,6 @@ unsafe impl ::windows::core::Abi for PRINTDLGEXW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGEXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGEXW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGEXW {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3401,16 +2965,6 @@ unsafe impl ::windows::core::Abi for PRINTDLGW {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3458,16 +3012,6 @@ unsafe impl ::windows::core::Abi for PRINTDLGW {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for PRINTDLGW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for PRINTDLGW {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3493,14 +3037,6 @@ unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for PRINTPAGERANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTPAGERANGE>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for PRINTPAGERANGE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for PRINTPAGERANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3525,14 +3061,6 @@ impl ::core::clone::Clone for PRINTPAGERANGE {
 unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for PRINTPAGERANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTPAGERANGE>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for PRINTPAGERANGE {}
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for PRINTPAGERANGE {
     fn default() -> Self {

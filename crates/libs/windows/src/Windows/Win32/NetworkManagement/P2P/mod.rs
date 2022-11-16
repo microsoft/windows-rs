@@ -3035,7 +3035,7 @@ unsafe impl ::windows::core::Abi for DRT_ADDRESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for DRT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_ADDRESS>()) == 0 }
+        self.socketAddress == other.socketAddress && self.flags == other.flags && self.nearness == other.nearness && self.latency == other.latency
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3074,7 +3074,7 @@ unsafe impl ::windows::core::Abi for DRT_ADDRESS_LIST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for DRT_ADDRESS_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_ADDRESS_LIST>()) == 0 }
+        self.AddressCount == other.AddressCount && self.AddressList == other.AddressList
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3113,7 +3113,7 @@ unsafe impl ::windows::core::Abi for DRT_BOOTSTRAP_PROVIDER {
 }
 impl ::core::cmp::PartialEq for DRT_BOOTSTRAP_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_BOOTSTRAP_PROVIDER>()) == 0 }
+        self.pvContext == other.pvContext && self.Attach == other.Attach && self.Detach == other.Detach && self.InitResolve == other.InitResolve && self.IssueResolve == other.IssueResolve && self.EndResolve == other.EndResolve && self.Register == other.Register && self.Unregister == other.Unregister
     }
 }
 impl ::core::cmp::Eq for DRT_BOOTSTRAP_PROVIDER {}
@@ -3144,7 +3144,7 @@ unsafe impl ::windows::core::Abi for DRT_DATA {
 }
 impl ::core::cmp::PartialEq for DRT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_DATA>()) == 0 }
+        self.cb == other.cb && self.pb == other.pb
     }
 }
 impl ::core::cmp::Eq for DRT_DATA {}
@@ -3175,14 +3175,6 @@ unsafe impl ::windows::core::Abi for DRT_EVENT_DATA {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3208,14 +3200,6 @@ impl ::core::clone::Clone for DRT_EVENT_DATA_0 {
 unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for DRT_EVENT_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for DRT_EVENT_DATA_0 {
     fn default() -> Self {
@@ -3251,7 +3235,7 @@ unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_0>()) == 0 }
+        self.change == other.change && self.localKey == other.localKey && self.remoteKey == other.remoteKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3290,7 +3274,7 @@ unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_1>()) == 0 }
+        self.state == other.state && self.localKey == other.localKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3329,7 +3313,7 @@ unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_2>()) == 0 }
+        self.status == other.status && self.bootstrapAddresses == other.bootstrapAddresses
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3368,7 +3352,7 @@ unsafe impl ::windows::core::Abi for DRT_EVENT_DATA_0_2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for DRT_EVENT_DATA_0_2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_EVENT_DATA_0_2_0>()) == 0 }
+        self.cntAddress == other.cntAddress && self.pAddresses == other.pAddresses
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3401,7 +3385,7 @@ unsafe impl ::windows::core::Abi for DRT_REGISTRATION {
 }
 impl ::core::cmp::PartialEq for DRT_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_REGISTRATION>()) == 0 }
+        self.key == other.key && self.appData == other.appData
     }
 }
 impl ::core::cmp::Eq for DRT_REGISTRATION {}
@@ -3443,7 +3427,7 @@ unsafe impl ::windows::core::Abi for DRT_SEARCH_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRT_SEARCH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SEARCH_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.fIterative == other.fIterative && self.fAllowCurrentInstanceMatch == other.fAllowCurrentInstanceMatch && self.fAnyMatchInRange == other.fAnyMatchInRange && self.cMaxEndpoints == other.cMaxEndpoints && self.pMaximumKey == other.pMaximumKey && self.pMinimumKey == other.pMinimumKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3478,7 +3462,7 @@ unsafe impl ::windows::core::Abi for DRT_SEARCH_RESULT {
 }
 impl ::core::cmp::PartialEq for DRT_SEARCH_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SEARCH_RESULT>()) == 0 }
+        self.dwSize == other.dwSize && self.r#type == other.r#type && self.pvContext == other.pvContext && self.registration == other.registration
     }
 }
 impl ::core::cmp::Eq for DRT_SEARCH_RESULT {}
@@ -3536,7 +3520,7 @@ unsafe impl ::windows::core::Abi for DRT_SECURITY_PROVIDER {
 }
 impl ::core::cmp::PartialEq for DRT_SECURITY_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SECURITY_PROVIDER>()) == 0 }
+        self.pvContext == other.pvContext && self.Attach == other.Attach && self.Detach == other.Detach && self.RegisterKey == other.RegisterKey && self.UnregisterKey == other.UnregisterKey && self.ValidateAndUnpackPayload == other.ValidateAndUnpackPayload && self.SecureAndPackPayload == other.SecureAndPackPayload && self.FreeData == other.FreeData && self.EncryptData == other.EncryptData && self.DecryptData == other.DecryptData && self.GetSerializedCredential == other.GetSerializedCredential && self.ValidateRemoteCredential == other.ValidateRemoteCredential && self.SignData == other.SignData && self.VerifyData == other.VerifyData
     }
 }
 impl ::core::cmp::Eq for DRT_SECURITY_PROVIDER {}
@@ -3586,7 +3570,7 @@ unsafe impl ::windows::core::Abi for DRT_SETTINGS {
 }
 impl ::core::cmp::PartialEq for DRT_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRT_SETTINGS>()) == 0 }
+        self.dwSize == other.dwSize && self.cbKey == other.cbKey && self.bProtocolMajorVersion == other.bProtocolMajorVersion && self.bProtocolMinorVersion == other.bProtocolMinorVersion && self.ulMaxRoutingAddresses == other.ulMaxRoutingAddresses && self.pwzDrtInstancePrefix == other.pwzDrtInstancePrefix && self.hTransport == other.hTransport && self.pSecurityProvider == other.pSecurityProvider && self.pBootstrapProvider == other.pBootstrapProvider && self.eSecurityMode == other.eSecurityMode
     }
 }
 impl ::core::cmp::Eq for DRT_SETTINGS {}
@@ -3622,7 +3606,7 @@ unsafe impl ::windows::core::Abi for PEERDIST_CLIENT_BASIC_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEERDIST_CLIENT_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_CLIENT_BASIC_INFO>()) == 0 }
+        self.fFlashCrowd == other.fFlashCrowd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3654,7 +3638,7 @@ unsafe impl ::windows::core::Abi for PEERDIST_CONTENT_TAG {
 }
 impl ::core::cmp::PartialEq for PEERDIST_CONTENT_TAG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_CONTENT_TAG>()) == 0 }
+        self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for PEERDIST_CONTENT_TAG {}
@@ -3685,7 +3669,7 @@ unsafe impl ::windows::core::Abi for PEERDIST_PUBLICATION_OPTIONS {
 }
 impl ::core::cmp::PartialEq for PEERDIST_PUBLICATION_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_PUBLICATION_OPTIONS>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for PEERDIST_PUBLICATION_OPTIONS {}
@@ -3718,7 +3702,7 @@ unsafe impl ::windows::core::Abi for PEERDIST_RETRIEVAL_OPTIONS {
 }
 impl ::core::cmp::PartialEq for PEERDIST_RETRIEVAL_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_RETRIEVAL_OPTIONS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwContentInfoMinVersion == other.dwContentInfoMinVersion && self.dwContentInfoMaxVersion == other.dwContentInfoMaxVersion && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for PEERDIST_RETRIEVAL_OPTIONS {}
@@ -3751,7 +3735,7 @@ unsafe impl ::windows::core::Abi for PEERDIST_STATUS_INFO {
 }
 impl ::core::cmp::PartialEq for PEERDIST_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEERDIST_STATUS_INFO>()) == 0 }
+        self.cbSize == other.cbSize && self.status == other.status && self.dwMinVer == other.dwMinVer && self.dwMaxVer == other.dwMaxVer
     }
 }
 impl ::core::cmp::Eq for PEERDIST_STATUS_INFO {}
@@ -3779,14 +3763,6 @@ impl ::core::clone::Clone for PEER_ADDRESS {
 unsafe impl ::windows::core::Abi for PEER_ADDRESS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for PEER_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_ADDRESS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for PEER_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_ADDRESS {
     fn default() -> Self {
@@ -3816,7 +3792,7 @@ unsafe impl ::windows::core::Abi for PEER_APPLICATION {
 }
 impl ::core::cmp::PartialEq for PEER_APPLICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_APPLICATION>()) == 0 }
+        self.id == other.id && self.data == other.data && self.pwzDescription == other.pwzDescription
     }
 }
 impl ::core::cmp::Eq for PEER_APPLICATION {}
@@ -3849,7 +3825,7 @@ unsafe impl ::windows::core::Abi for PEER_APPLICATION_REGISTRATION_INFO {
 }
 impl ::core::cmp::PartialEq for PEER_APPLICATION_REGISTRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_APPLICATION_REGISTRATION_INFO>()) == 0 }
+        self.application == other.application && self.pwzApplicationToLaunch == other.pwzApplicationToLaunch && self.pwzApplicationArguments == other.pwzApplicationArguments && self.dwPublicationScope == other.dwPublicationScope
     }
 }
 impl ::core::cmp::Eq for PEER_APPLICATION_REGISTRATION_INFO {}
@@ -3887,7 +3863,7 @@ unsafe impl ::windows::core::Abi for PEER_APP_LAUNCH_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PEER_APP_LAUNCH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_APP_LAUNCH_INFO>()) == 0 }
+        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.pInvitation == other.pInvitation
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3917,14 +3893,6 @@ impl ::core::clone::Clone for PEER_COLLAB_EVENT_DATA {
 unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_DATA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_COLLAB_EVENT_DATA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_COLLAB_EVENT_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_COLLAB_EVENT_DATA {
     fn default() -> Self {
@@ -3956,14 +3924,6 @@ unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_DATA_0 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_COLLAB_EVENT_DATA_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-impl ::core::cmp::Eq for PEER_COLLAB_EVENT_DATA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for PEER_COLLAB_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3991,7 +3951,7 @@ unsafe impl ::windows::core::Abi for PEER_COLLAB_EVENT_REGISTRATION {
 }
 impl ::core::cmp::PartialEq for PEER_COLLAB_EVENT_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_COLLAB_EVENT_REGISTRATION>()) == 0 }
+        self.eventType == other.eventType && self.pInstance == other.pInstance
     }
 }
 impl ::core::cmp::Eq for PEER_COLLAB_EVENT_REGISTRATION {}
@@ -4023,14 +3983,6 @@ impl ::core::clone::Clone for PEER_CONNECTION_INFO {
 unsafe impl ::windows::core::Abi for PEER_CONNECTION_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for PEER_CONNECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_CONNECTION_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for PEER_CONNECTION_INFO {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_CONNECTION_INFO {
     fn default() -> Self {
@@ -4070,7 +4022,7 @@ unsafe impl ::windows::core::Abi for PEER_CONTACT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_CONTACT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_CONTACT>()) == 0 }
+        self.pwzPeerName == other.pwzPeerName && self.pwzNickName == other.pwzNickName && self.pwzDisplayName == other.pwzDisplayName && self.pwzEmailAddress == other.pwzEmailAddress && self.fWatch == other.fWatch && self.WatcherPermissions == other.WatcherPermissions && self.credentials == other.credentials
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4117,7 +4069,7 @@ unsafe impl ::windows::core::Abi for PEER_CREDENTIAL_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for PEER_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_CREDENTIAL_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzFriendlyName == other.pwzFriendlyName && self.pPublicKey == other.pPublicKey && self.pwzIssuerPeerName == other.pwzIssuerPeerName && self.pwzIssuerFriendlyName == other.pwzIssuerFriendlyName && self.ftValidityStart == other.ftValidityStart && self.ftValidityEnd == other.ftValidityEnd && self.cRoles == other.cRoles && self.pRoles == other.pRoles
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -4150,7 +4102,7 @@ unsafe impl ::windows::core::Abi for PEER_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_DATA>()) == 0 }
+        self.cbData == other.cbData && self.pbData == other.pbData
     }
 }
 impl ::core::cmp::Eq for PEER_DATA {}
@@ -4178,14 +4130,6 @@ impl ::core::clone::Clone for PEER_ENDPOINT {
 unsafe impl ::windows::core::Abi for PEER_ENDPOINT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for PEER_ENDPOINT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_ENDPOINT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for PEER_ENDPOINT {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_ENDPOINT {
     fn default() -> Self {
@@ -4222,7 +4166,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_APPLICATION_CHANGED_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PEER_EVENT_APPLICATION_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_APPLICATION_CHANGED_DATA>()) == 0 }
+        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pApplication == other.pApplication
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4259,7 +4203,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_CONNECTION_CHANGE_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_EVENT_CONNECTION_CHANGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_CONNECTION_CHANGE_DATA>()) == 0 }
+        self.dwSize == other.dwSize && self.status == other.status && self.ullConnectionId == other.ullConnectionId && self.ullNodeId == other.ullNodeId && self.ullNextConnectionId == other.ullNextConnectionId && self.hrConnectionFailedReason == other.hrConnectionFailedReason
     }
 }
 impl ::core::cmp::Eq for PEER_EVENT_CONNECTION_CHANGE_DATA {}
@@ -4296,7 +4240,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_ENDPOINT_CHANGED_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_ENDPOINT_CHANGED_DATA>()) == 0 }
+        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4331,7 +4275,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_INCOMING_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_EVENT_INCOMING_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_INCOMING_DATA>()) == 0 }
+        self.dwSize == other.dwSize && self.ullConnectionId == other.ullConnectionId && self.r#type == other.r#type && self.data == other.data
     }
 }
 impl ::core::cmp::Eq for PEER_EVENT_INCOMING_DATA {}
@@ -4363,7 +4307,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_MEMBER_CHANGE_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_EVENT_MEMBER_CHANGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_MEMBER_CHANGE_DATA>()) == 0 }
+        self.dwSize == other.dwSize && self.changeType == other.changeType && self.pwzIdentity == other.pwzIdentity
     }
 }
 impl ::core::cmp::Eq for PEER_EVENT_MEMBER_CHANGE_DATA {}
@@ -4396,7 +4340,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_NODE_CHANGE_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_EVENT_NODE_CHANGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_NODE_CHANGE_DATA>()) == 0 }
+        self.dwSize == other.dwSize && self.changeType == other.changeType && self.ullNodeId == other.ullNodeId && self.pwzPeerId == other.pwzPeerId
     }
 }
 impl ::core::cmp::Eq for PEER_EVENT_NODE_CHANGE_DATA {}
@@ -4435,7 +4379,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_OBJECT_CHANGED_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PEER_EVENT_OBJECT_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_OBJECT_CHANGED_DATA>()) == 0 }
+        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pObject == other.pObject
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4474,7 +4418,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA>()) == 0 }
+        self.changeType == other.changeType && self.pPeopleNearMe == other.pPeopleNearMe
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4515,7 +4459,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_PRESENCE_CHANGED_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PEER_EVENT_PRESENCE_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_PRESENCE_CHANGED_DATA>()) == 0 }
+        self.pContact == other.pContact && self.pEndpoint == other.pEndpoint && self.changeType == other.changeType && self.pPresenceInfo == other.pPresenceInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4550,7 +4494,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_RECORD_CHANGE_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_EVENT_RECORD_CHANGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_RECORD_CHANGE_DATA>()) == 0 }
+        self.dwSize == other.dwSize && self.changeType == other.changeType && self.recordId == other.recordId && self.recordType == other.recordType
     }
 }
 impl ::core::cmp::Eq for PEER_EVENT_RECORD_CHANGE_DATA {}
@@ -4587,7 +4531,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_REQUEST_STATUS_CHANGED_DATA>()) == 0 }
+        self.pEndpoint == other.pEndpoint && self.hrChange == other.hrChange
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4620,7 +4564,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_SYNCHRONIZED_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_EVENT_SYNCHRONIZED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_SYNCHRONIZED_DATA>()) == 0 }
+        self.dwSize == other.dwSize && self.recordType == other.recordType
     }
 }
 impl ::core::cmp::Eq for PEER_EVENT_SYNCHRONIZED_DATA {}
@@ -4657,7 +4601,7 @@ unsafe impl ::windows::core::Abi for PEER_EVENT_WATCHLIST_CHANGED_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_EVENT_WATCHLIST_CHANGED_DATA>()) == 0 }
+        self.pContact == other.pContact && self.changeType == other.changeType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4683,12 +4627,6 @@ impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA {
 unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PEER_GRAPH_EVENT_DATA {}
 impl ::core::default::Default for PEER_GRAPH_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4713,12 +4651,6 @@ impl ::core::clone::Clone for PEER_GRAPH_EVENT_DATA_0 {
 unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_EVENT_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PEER_GRAPH_EVENT_DATA_0 {}
 impl ::core::default::Default for PEER_GRAPH_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4746,7 +4678,7 @@ unsafe impl ::windows::core::Abi for PEER_GRAPH_EVENT_REGISTRATION {
 }
 impl ::core::cmp::PartialEq for PEER_GRAPH_EVENT_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_EVENT_REGISTRATION>()) == 0 }
+        self.eventType == other.eventType && self.pType == other.pType
     }
 }
 impl ::core::cmp::Eq for PEER_GRAPH_EVENT_REGISTRATION {}
@@ -4785,7 +4717,7 @@ unsafe impl ::windows::core::Abi for PEER_GRAPH_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for PEER_GRAPH_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GRAPH_PROPERTIES>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwScope == other.dwScope && self.dwMaxRecordSize == other.dwMaxRecordSize && self.pwzGraphId == other.pwzGraphId && self.pwzCreatorId == other.pwzCreatorId && self.pwzFriendlyName == other.pwzFriendlyName && self.pwzComment == other.pwzComment && self.ulPresenceLifetime == other.ulPresenceLifetime && self.cPresenceMax == other.cPresenceMax
     }
 }
 impl ::core::cmp::Eq for PEER_GRAPH_PROPERTIES {}
@@ -4809,12 +4741,6 @@ impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA {
 unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_EVENT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PEER_GROUP_EVENT_DATA {}
 impl ::core::default::Default for PEER_GROUP_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4839,12 +4765,6 @@ impl ::core::clone::Clone for PEER_GROUP_EVENT_DATA_0 {
 unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_EVENT_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PEER_GROUP_EVENT_DATA_0 {}
 impl ::core::default::Default for PEER_GROUP_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4872,7 +4792,7 @@ unsafe impl ::windows::core::Abi for PEER_GROUP_EVENT_REGISTRATION {
 }
 impl ::core::cmp::PartialEq for PEER_GROUP_EVENT_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_EVENT_REGISTRATION>()) == 0 }
+        self.eventType == other.eventType && self.pType == other.pType
     }
 }
 impl ::core::cmp::Eq for PEER_GROUP_EVENT_REGISTRATION {}
@@ -4928,7 +4848,7 @@ unsafe impl ::windows::core::Abi for PEER_GROUP_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for PEER_GROUP_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_GROUP_PROPERTIES>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzCloud == other.pwzCloud && self.pwzClassifier == other.pwzClassifier && self.pwzGroupPeerName == other.pwzGroupPeerName && self.pwzCreatorPeerName == other.pwzCreatorPeerName && self.pwzFriendlyName == other.pwzFriendlyName && self.pwzComment == other.pwzComment && self.ulMemberDataLifetime == other.ulMemberDataLifetime && self.ulPresenceLifetime == other.ulPresenceLifetime && self.dwAuthenticationSchemes == other.dwAuthenticationSchemes && self.pwzGroupPassword == other.pwzGroupPassword && self.groupPasswordRole == other.groupPasswordRole
     }
 }
 impl ::core::cmp::Eq for PEER_GROUP_PROPERTIES {}
@@ -4960,7 +4880,7 @@ unsafe impl ::windows::core::Abi for PEER_INVITATION {
 }
 impl ::core::cmp::PartialEq for PEER_INVITATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_INVITATION>()) == 0 }
+        self.applicationId == other.applicationId && self.applicationData == other.applicationData && self.pwzMessage == other.pwzMessage
     }
 }
 impl ::core::cmp::Eq for PEER_INVITATION {}
@@ -5034,7 +4954,25 @@ unsafe impl ::windows::core::Abi for PEER_INVITATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for PEER_INVITATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_INVITATION_INFO>()) == 0 }
+        self.dwSize == other.dwSize
+            && self.dwFlags == other.dwFlags
+            && self.pwzCloudName == other.pwzCloudName
+            && self.dwScope == other.dwScope
+            && self.dwCloudFlags == other.dwCloudFlags
+            && self.pwzGroupPeerName == other.pwzGroupPeerName
+            && self.pwzIssuerPeerName == other.pwzIssuerPeerName
+            && self.pwzSubjectPeerName == other.pwzSubjectPeerName
+            && self.pwzGroupFriendlyName == other.pwzGroupFriendlyName
+            && self.pwzIssuerFriendlyName == other.pwzIssuerFriendlyName
+            && self.pwzSubjectFriendlyName == other.pwzSubjectFriendlyName
+            && self.ftValidityStart == other.ftValidityStart
+            && self.ftValidityEnd == other.ftValidityEnd
+            && self.cRoles == other.cRoles
+            && self.pRoles == other.pRoles
+            && self.cClassifiers == other.cClassifiers
+            && self.ppwzClassifiers == other.ppwzClassifiers
+            && self.pSubjectPublicKey == other.pSubjectPublicKey
+            && self.authScheme == other.authScheme
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -5068,7 +5006,7 @@ unsafe impl ::windows::core::Abi for PEER_INVITATION_RESPONSE {
 }
 impl ::core::cmp::PartialEq for PEER_INVITATION_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_INVITATION_RESPONSE>()) == 0 }
+        self.action == other.action && self.pwzMessage == other.pwzMessage && self.hrExtendedInfo == other.hrExtendedInfo
     }
 }
 impl ::core::cmp::Eq for PEER_INVITATION_RESPONSE {}
@@ -5111,7 +5049,7 @@ unsafe impl ::windows::core::Abi for PEER_MEMBER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for PEER_MEMBER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_MEMBER>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.pwzIdentity == other.pwzIdentity && self.pwzAttributes == other.pwzAttributes && self.ullNodeId == other.ullNodeId && self.cAddresses == other.cAddresses && self.pAddresses == other.pAddresses && self.pCredentialInfo == other.pCredentialInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -5145,7 +5083,7 @@ unsafe impl ::windows::core::Abi for PEER_NAME_PAIR {
 }
 impl ::core::cmp::PartialEq for PEER_NAME_PAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_NAME_PAIR>()) == 0 }
+        self.dwSize == other.dwSize && self.pwzPeerName == other.pwzPeerName && self.pwzFriendlyName == other.pwzFriendlyName
     }
 }
 impl ::core::cmp::Eq for PEER_NAME_PAIR {}
@@ -5186,7 +5124,7 @@ unsafe impl ::windows::core::Abi for PEER_NODE_INFO {
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for PEER_NODE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_NODE_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.ullNodeId == other.ullNodeId && self.pwzPeerId == other.pwzPeerId && self.cAddresses == other.cAddresses && self.pAddresses == other.pAddresses && self.pwzAttributes == other.pwzAttributes
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -5220,7 +5158,7 @@ unsafe impl ::windows::core::Abi for PEER_OBJECT {
 }
 impl ::core::cmp::PartialEq for PEER_OBJECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_OBJECT>()) == 0 }
+        self.id == other.id && self.data == other.data && self.dwPublicationScope == other.dwPublicationScope
     }
 }
 impl ::core::cmp::Eq for PEER_OBJECT {}
@@ -5250,14 +5188,6 @@ unsafe impl ::windows::core::Abi for PEER_PEOPLE_NEAR_ME {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for PEER_PEOPLE_NEAR_ME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PEOPLE_NEAR_ME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for PEER_PEOPLE_NEAR_ME {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for PEER_PEOPLE_NEAR_ME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5286,7 +5216,7 @@ unsafe impl ::windows::core::Abi for PEER_PNRP_CLOUD_INFO {
 }
 impl ::core::cmp::PartialEq for PEER_PNRP_CLOUD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PNRP_CLOUD_INFO>()) == 0 }
+        self.pwzCloudName == other.pwzCloudName && self.dwScope == other.dwScope && self.dwScopeId == other.dwScopeId
     }
 }
 impl ::core::cmp::Eq for PEER_PNRP_CLOUD_INFO {}
@@ -5326,7 +5256,7 @@ unsafe impl ::windows::core::Abi for PEER_PNRP_ENDPOINT_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PEER_PNRP_ENDPOINT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PNRP_ENDPOINT_INFO>()) == 0 }
+        self.pwzPeerName == other.pwzPeerName && self.cAddresses == other.cAddresses && self.ppAddresses == other.ppAddresses && self.pwzComment == other.pwzComment && self.payload == other.payload
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -5370,7 +5300,7 @@ unsafe impl ::windows::core::Abi for PEER_PNRP_REGISTRATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PEER_PNRP_REGISTRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PNRP_REGISTRATION_INFO>()) == 0 }
+        self.pwzCloudName == other.pwzCloudName && self.pwzPublishingIdentity == other.pwzPublishingIdentity && self.cAddresses == other.cAddresses && self.ppAddresses == other.ppAddresses && self.wPort == other.wPort && self.pwzComment == other.pwzComment && self.payload == other.payload
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -5403,7 +5333,7 @@ unsafe impl ::windows::core::Abi for PEER_PRESENCE_INFO {
 }
 impl ::core::cmp::PartialEq for PEER_PRESENCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_PRESENCE_INFO>()) == 0 }
+        self.status == other.status && self.pwzDescriptiveText == other.pwzDescriptiveText
     }
 }
 impl ::core::cmp::Eq for PEER_PRESENCE_INFO {}
@@ -5465,7 +5395,7 @@ unsafe impl ::windows::core::Abi for PEER_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PEER_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_RECORD>()) == 0 }
+        self.dwSize == other.dwSize && self.r#type == other.r#type && self.id == other.id && self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.pwzCreatorId == other.pwzCreatorId && self.pwzModifiedById == other.pwzModifiedById && self.pwzAttributes == other.pwzAttributes && self.ftCreation == other.ftCreation && self.ftExpiration == other.ftExpiration && self.ftLastModified == other.ftLastModified && self.securityData == other.securityData && self.data == other.data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5502,32 +5432,13 @@ impl ::core::clone::Clone for PEER_SECURITY_INTERFACE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PEER_SECURITY_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PEER_SECURITY_INTERFACE")
-            .field("dwSize", &self.dwSize)
-            .field("pwzSspFilename", &self.pwzSspFilename)
-            .field("pwzPackageName", &self.pwzPackageName)
-            .field("cbSecurityInfo", &self.cbSecurityInfo)
-            .field("pbSecurityInfo", &self.pbSecurityInfo)
-            .field("pvContext", &self.pvContext)
-            .field("pfnValidateRecord", &self.pfnValidateRecord.map(|f| f as usize))
-            .field("pfnSecureRecord", &self.pfnSecureRecord.map(|f| f as usize))
-            .field("pfnFreeSecurityData", &self.pfnFreeSecurityData.map(|f| f as usize))
-            .field("pfnAuthFailed", &self.pfnAuthFailed.map(|f| f as usize))
-            .finish()
+        f.debug_struct("PEER_SECURITY_INTERFACE").field("dwSize", &self.dwSize).field("pwzSspFilename", &self.pwzSspFilename).field("pwzPackageName", &self.pwzPackageName).field("cbSecurityInfo", &self.cbSecurityInfo).field("pbSecurityInfo", &self.pbSecurityInfo).field("pvContext", &self.pvContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PEER_SECURITY_INTERFACE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PEER_SECURITY_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_SECURITY_INTERFACE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PEER_SECURITY_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PEER_SECURITY_INTERFACE {
     fn default() -> Self {
@@ -5556,7 +5467,7 @@ unsafe impl ::windows::core::Abi for PEER_VERSION_DATA {
 }
 impl ::core::cmp::PartialEq for PEER_VERSION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEER_VERSION_DATA>()) == 0 }
+        self.wVersion == other.wVersion && self.wHighestVersion == other.wHighestVersion
     }
 }
 impl ::core::cmp::Eq for PEER_VERSION_DATA {}
@@ -5589,7 +5500,7 @@ unsafe impl ::windows::core::Abi for PNRPCLOUDINFO {
 }
 impl ::core::cmp::PartialEq for PNRPCLOUDINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPCLOUDINFO>()) == 0 }
+        self.dwSize == other.dwSize && self.Cloud == other.Cloud && self.enCloudState == other.enCloudState && self.enCloudFlags == other.enCloudFlags
     }
 }
 impl ::core::cmp::Eq for PNRPCLOUDINFO {}
@@ -5633,7 +5544,7 @@ unsafe impl ::windows::core::Abi for PNRPINFO_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for PNRPINFO_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPINFO_V1>()) == 0 }
+        self.dwSize == other.dwSize && self.lpwszIdentity == other.lpwszIdentity && self.nMaxResolve == other.nMaxResolve && self.dwTimeout == other.dwTimeout && self.dwLifetime == other.dwLifetime && self.enResolveCriteria == other.enResolveCriteria && self.dwFlags == other.dwFlags && self.saHint == other.saHint && self.enNameState == other.enNameState
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -5673,14 +5584,6 @@ unsafe impl ::windows::core::Abi for PNRPINFO_V2 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for PNRPINFO_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPINFO_V2>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for PNRPINFO_V2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::core::default::Default for PNRPINFO_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5705,14 +5608,6 @@ impl ::core::clone::Clone for PNRPINFO_V2_0 {
 unsafe impl ::windows::core::Abi for PNRPINFO_V2_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for PNRPINFO_V2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRPINFO_V2_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for PNRPINFO_V2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::core::default::Default for PNRPINFO_V2_0 {
     fn default() -> Self {
@@ -5742,7 +5637,7 @@ unsafe impl ::windows::core::Abi for PNRP_CLOUD_ID {
 }
 impl ::core::cmp::PartialEq for PNRP_CLOUD_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PNRP_CLOUD_ID>()) == 0 }
+        self.AddressFamily == other.AddressFamily && self.Scope == other.Scope && self.ScopeId == other.ScopeId
     }
 }
 impl ::core::cmp::Eq for PNRP_CLOUD_ID {}

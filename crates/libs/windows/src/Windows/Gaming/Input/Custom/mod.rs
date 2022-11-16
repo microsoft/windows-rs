@@ -1144,7 +1144,7 @@ unsafe impl ::windows::core::RuntimeType for GameControllerVersionInfo {
 }
 impl ::core::cmp::PartialEq for GameControllerVersionInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GameControllerVersionInfo>()) == 0 }
+        self.Major == other.Major && self.Minor == other.Minor && self.Build == other.Build && self.Revision == other.Revision
     }
 }
 impl ::core::cmp::Eq for GameControllerVersionInfo {}
@@ -1182,7 +1182,7 @@ unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateProgress {
 }
 impl ::core::cmp::PartialEq for GipFirmwareUpdateProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GipFirmwareUpdateProgress>()) == 0 }
+        self.PercentCompleted == other.PercentCompleted && self.CurrentComponentId == other.CurrentComponentId
     }
 }
 impl ::core::cmp::Eq for GipFirmwareUpdateProgress {}

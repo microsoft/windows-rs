@@ -388,7 +388,7 @@ unsafe impl ::windows::core::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
 }
 impl ::core::cmp::PartialEq for DFS_GET_PKT_ENTRY_STATE_ARG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_GET_PKT_ENTRY_STATE_ARG>()) == 0 }
+        self.DfsEntryPathLen == other.DfsEntryPathLen && self.ServerNameLen == other.ServerNameLen && self.ShareNameLen == other.ShareNameLen && self.Level == other.Level && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for DFS_GET_PKT_ENTRY_STATE_ARG {}
@@ -418,7 +418,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_1 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_1>()) == 0 }
+        self.EntryPath == other.EntryPath
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_1 {}
@@ -448,7 +448,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_100 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_100>()) == 0 }
+        self.Comment == other.Comment
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_100 {}
@@ -478,7 +478,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_101 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_101>()) == 0 }
+        self.State == other.State
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_101 {}
@@ -508,7 +508,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_102 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_102>()) == 0 }
+        self.Timeout == other.Timeout
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_102 {}
@@ -539,7 +539,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_103 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_103 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_103>()) == 0 }
+        self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_103 {}
@@ -569,7 +569,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_104 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_104 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_104>()) == 0 }
+        self.TargetPriority == other.TargetPriority
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_104 {}
@@ -603,7 +603,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_105 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_105 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_105>()) == 0 }
+        self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_105 {}
@@ -634,7 +634,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_106 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_106 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_106>()) == 0 }
+        self.State == other.State && self.TargetPriority == other.TargetPriority
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_106 {}
@@ -676,7 +676,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_107 {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_107 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_107>()) == 0 }
+        self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -715,7 +715,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_150 {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_150 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_150>()) == 0 }
+        self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -753,7 +753,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_1_32 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_1_32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_1_32>()) == 0 }
+        self.EntryPath == other.EntryPath
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -788,7 +788,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_2 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_2>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_2 {}
@@ -818,7 +818,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_200 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_200 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_200>()) == 0 }
+        self.FtDfsName == other.FtDfsName
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_200 {}
@@ -857,7 +857,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_2_32 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_2_32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_2_32>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -893,7 +893,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_3 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_3>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_3 {}
@@ -924,7 +924,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_300 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_300 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_300>()) == 0 }
+        self.Flags == other.Flags && self.DfsName == other.DfsName
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_300 {}
@@ -964,7 +964,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_3_32 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_3_32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_3_32>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1002,7 +1002,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_4 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_4>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_4 {}
@@ -1044,7 +1044,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_4_32 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_4_32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_4_32>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1083,7 +1083,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_5 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_5 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_5>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_5 {}
@@ -1115,7 +1115,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_50 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_50 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_50>()) == 0 }
+        self.NamespaceMajorVersion == other.NamespaceMajorVersion && self.NamespaceMinorVersion == other.NamespaceMinorVersion && self.NamespaceCapabilities == other.NamespaceCapabilities
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_50 {}
@@ -1153,7 +1153,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_6 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_6>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_6 {}
@@ -1183,7 +1183,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_7 {
 }
 impl ::core::cmp::PartialEq for DFS_INFO_7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_7>()) == 0 }
+        self.GenerationGuid == other.GenerationGuid
     }
 }
 impl ::core::cmp::Eq for DFS_INFO_7 {}
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_8 {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_8 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_8>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -1276,7 +1276,7 @@ unsafe impl ::windows::core::Abi for DFS_INFO_9 {
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_9 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_INFO_9>()) == 0 }
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -1309,7 +1309,7 @@ unsafe impl ::windows::core::Abi for DFS_SITELIST_INFO {
 }
 impl ::core::cmp::PartialEq for DFS_SITELIST_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_SITELIST_INFO>()) == 0 }
+        self.cSites == other.cSites && self.Site == other.Site
     }
 }
 impl ::core::cmp::Eq for DFS_SITELIST_INFO {}
@@ -1340,7 +1340,7 @@ unsafe impl ::windows::core::Abi for DFS_SITENAME_INFO {
 }
 impl ::core::cmp::PartialEq for DFS_SITENAME_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_SITENAME_INFO>()) == 0 }
+        self.SiteFlags == other.SiteFlags && self.SiteName == other.SiteName
     }
 }
 impl ::core::cmp::Eq for DFS_SITENAME_INFO {}
@@ -1372,7 +1372,7 @@ unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO {
 }
 impl ::core::cmp::PartialEq for DFS_STORAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_STORAGE_INFO>()) == 0 }
+        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName
     }
 }
 impl ::core::cmp::Eq for DFS_STORAGE_INFO {}
@@ -1410,7 +1410,7 @@ unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_0_32 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_STORAGE_INFO_0_32>()) == 0 }
+        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1445,7 +1445,7 @@ unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_1 {
 }
 impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_STORAGE_INFO_1>()) == 0 }
+        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName && self.TargetPriority == other.TargetPriority
     }
 }
 impl ::core::cmp::Eq for DFS_STORAGE_INFO_1 {}
@@ -1480,7 +1480,7 @@ unsafe impl ::windows::core::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
 }
 impl ::core::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_SUPPORTED_NAMESPACE_VERSION_INFO>()) == 0 }
+        self.DomainDfsMajorVersion == other.DomainDfsMajorVersion && self.DomainDfsMinorVersion == other.DomainDfsMinorVersion && self.DomainDfsCapabilities == other.DomainDfsCapabilities && self.StandaloneDfsMajorVersion == other.StandaloneDfsMajorVersion && self.StandaloneDfsMinorVersion == other.StandaloneDfsMinorVersion && self.StandaloneDfsCapabilities == other.StandaloneDfsCapabilities
     }
 }
 impl ::core::cmp::Eq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
@@ -1512,7 +1512,7 @@ unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY {
 }
 impl ::core::cmp::PartialEq for DFS_TARGET_PRIORITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DFS_TARGET_PRIORITY>()) == 0 }
+        self.TargetPriorityClass == other.TargetPriorityClass && self.TargetPriorityRank == other.TargetPriorityRank && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for DFS_TARGET_PRIORITY {}

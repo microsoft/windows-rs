@@ -689,30 +689,13 @@ impl ::core::clone::Clone for PRJ_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PRJ_CALLBACKS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PRJ_CALLBACKS")
-            .field("StartDirectoryEnumerationCallback", &self.StartDirectoryEnumerationCallback.map(|f| f as usize))
-            .field("EndDirectoryEnumerationCallback", &self.EndDirectoryEnumerationCallback.map(|f| f as usize))
-            .field("GetDirectoryEnumerationCallback", &self.GetDirectoryEnumerationCallback.map(|f| f as usize))
-            .field("GetPlaceholderInfoCallback", &self.GetPlaceholderInfoCallback.map(|f| f as usize))
-            .field("GetFileDataCallback", &self.GetFileDataCallback.map(|f| f as usize))
-            .field("QueryFileNameCallback", &self.QueryFileNameCallback.map(|f| f as usize))
-            .field("NotificationCallback", &self.NotificationCallback.map(|f| f as usize))
-            .field("CancelCommandCallback", &self.CancelCommandCallback.map(|f| f as usize))
-            .finish()
+        f.debug_struct("PRJ_CALLBACKS").finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PRJ_CALLBACKS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PRJ_CALLBACKS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_CALLBACKS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PRJ_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PRJ_CALLBACKS {
     fn default() -> Self {
@@ -762,7 +745,7 @@ unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA {
 }
 impl ::core::cmp::PartialEq for PRJ_CALLBACK_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_CALLBACK_DATA>()) == 0 }
+        self.Size == other.Size && self.Flags == other.Flags && self.NamespaceVirtualizationContext == other.NamespaceVirtualizationContext && self.CommandId == other.CommandId && self.FileId == other.FileId && self.DataStreamId == other.DataStreamId && self.FilePathName == other.FilePathName && self.VersionInfo == other.VersionInfo && self.TriggeringProcessId == other.TriggeringProcessId && self.TriggeringProcessImageFileName == other.TriggeringProcessImageFileName && self.InstanceContext == other.InstanceContext
     }
 }
 impl ::core::cmp::Eq for PRJ_CALLBACK_DATA {}
@@ -786,12 +769,6 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
 unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
 impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -812,12 +789,6 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
 impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -844,7 +815,7 @@ unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_
 }
 impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0>()) == 0 }
+        self.DirEntryBufferHandle == other.DirEntryBufferHandle
     }
 }
 impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
@@ -874,7 +845,7 @@ unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_
 }
 impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1>()) == 0 }
+        self.NotificationMask == other.NotificationMask
     }
 }
 impl ::core::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
@@ -931,12 +902,6 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
 unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_EXTENDED_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PRJ_EXTENDED_INFO {}
 impl ::core::default::Default for PRJ_EXTENDED_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -956,12 +921,6 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0 {
 unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_EXTENDED_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PRJ_EXTENDED_INFO_0 {}
 impl ::core::default::Default for PRJ_EXTENDED_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -988,7 +947,7 @@ unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO_0_0 {
 }
 impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_EXTENDED_INFO_0_0>()) == 0 }
+        self.TargetName == other.TargetName
     }
 }
 impl ::core::cmp::Eq for PRJ_EXTENDED_INFO_0_0 {}
@@ -1030,7 +989,7 @@ unsafe impl ::windows::core::Abi for PRJ_FILE_BASIC_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_FILE_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_FILE_BASIC_INFO>()) == 0 }
+        self.IsDirectory == other.IsDirectory && self.FileSize == other.FileSize && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.FileAttributes == other.FileAttributes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1095,7 +1054,7 @@ unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_MAPPING {
 }
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_MAPPING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_NOTIFICATION_MAPPING>()) == 0 }
+        self.NotificationBitMask == other.NotificationBitMask && self.NotificationRoot == other.NotificationRoot
     }
 }
 impl ::core::cmp::Eq for PRJ_NOTIFICATION_MAPPING {}
@@ -1124,14 +1083,6 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS {
 unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_NOTIFICATION_PARAMETERS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS {
     fn default() -> Self {
@@ -1165,7 +1116,7 @@ unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_NOTIFICATION_PARAMETERS_0>()) == 0 }
+        self.IsFileModified == other.IsFileModified
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1203,7 +1154,7 @@ unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_NOTIFICATION_PARAMETERS_1>()) == 0 }
+        self.NotificationMask == other.NotificationMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1241,7 +1192,7 @@ unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_NOTIFICATION_PARAMETERS_2>()) == 0 }
+        self.NotificationMask == other.NotificationMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1284,7 +1235,7 @@ unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_PLACEHOLDER_INFO>()) == 0 }
+        self.FileBasicInfo == other.FileBasicInfo && self.EaInformation == other.EaInformation && self.SecurityInformation == other.SecurityInformation && self.StreamsInformation == other.StreamsInformation && self.VersionInfo == other.VersionInfo && self.VariableData == other.VariableData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1323,7 +1274,7 @@ unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_PLACEHOLDER_INFO_0>()) == 0 }
+        self.EaBufferSize == other.EaBufferSize && self.OffsetToFirstEa == other.OffsetToFirstEa
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1362,7 +1313,7 @@ unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_PLACEHOLDER_INFO_1>()) == 0 }
+        self.SecurityBufferSize == other.SecurityBufferSize && self.OffsetToSecurityDescriptor == other.OffsetToSecurityDescriptor
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1401,7 +1352,7 @@ unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_PLACEHOLDER_INFO_2>()) == 0 }
+        self.StreamsInfoBufferSize == other.StreamsInfoBufferSize && self.OffsetToFirstStreamInfo == other.OffsetToFirstStreamInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1434,7 +1385,7 @@ unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
 }
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_PLACEHOLDER_VERSION_INFO>()) == 0 }
+        self.ProviderID == other.ProviderID && self.ContentID == other.ContentID
     }
 }
 impl ::core::cmp::Eq for PRJ_PLACEHOLDER_VERSION_INFO {}
@@ -1468,7 +1419,7 @@ unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
 }
 impl ::core::cmp::PartialEq for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_STARTVIRTUALIZING_OPTIONS>()) == 0 }
+        self.Flags == other.Flags && self.PoolThreadCount == other.PoolThreadCount && self.ConcurrentThreadCount == other.ConcurrentThreadCount && self.NotificationMappings == other.NotificationMappings && self.NotificationMappingsCount == other.NotificationMappingsCount
     }
 }
 impl ::core::cmp::Eq for PRJ_STARTVIRTUALIZING_OPTIONS {}
@@ -1499,7 +1450,7 @@ unsafe impl ::windows::core::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {
 }
 impl ::core::cmp::PartialEq for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRJ_VIRTUALIZATION_INSTANCE_INFO>()) == 0 }
+        self.InstanceID == other.InstanceID && self.WriteAlignment == other.WriteAlignment
     }
 }
 impl ::core::cmp::Eq for PRJ_VIRTUALIZATION_INSTANCE_INFO {}

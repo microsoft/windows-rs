@@ -2325,12 +2325,6 @@ impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
 unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_ADDRESS {}
 impl ::core::default::Default for BLUETOOTH_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2351,12 +2345,6 @@ impl ::core::clone::Clone for BLUETOOTH_ADDRESS_0 {
 unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_ADDRESS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_ADDRESS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_ADDRESS_0 {}
 impl ::core::default::Default for BLUETOOTH_ADDRESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2379,12 +2367,6 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
 unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATE_RESPONSE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE {}
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2407,12 +2389,6 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
 unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATE_RESPONSE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2441,14 +2417,6 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2473,14 +2441,6 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
 unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn default() -> Self {
@@ -2509,7 +2469,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_COD_PAIRS {
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_COD_PAIRS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_COD_PAIRS>()) == 0 }
+        self.ulCODMask == other.ulCODMask && self.pcszDescription == other.pcszDescription
     }
 }
 impl ::core::cmp::Eq for BLUETOOTH_COD_PAIRS {}
@@ -2544,14 +2504,6 @@ impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
 unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_DEVICE_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_DEVICE_INFO {
     fn default() -> Self {
@@ -2592,7 +2544,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_SEARCH_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_DEVICE_SEARCH_PARAMS>()) == 0 }
+        self.dwSize == other.dwSize && self.fReturnAuthenticated == other.fReturnAuthenticated && self.fReturnRemembered == other.fReturnRemembered && self.fReturnUnknown == other.fReturnUnknown && self.fReturnConnected == other.fReturnConnected && self.fIssueInquiry == other.fIssueInquiry && self.cTimeoutMultiplier == other.cTimeoutMultiplier && self.hRadio == other.hRadio
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2624,7 +2576,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_FIND_RADIO_PARAMS {
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_FIND_RADIO_PARAMS>()) == 0 }
+        self.dwSize == other.dwSize
     }
 }
 impl ::core::cmp::Eq for BLUETOOTH_FIND_RADIO_PARAMS {}
@@ -2656,7 +2608,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_GATT_VALUE_CHANGED_EVENT>()) == 0 }
+        self.ChangedAttributeHandle == other.ChangedAttributeHandle && self.CharacteristicValueDataSize == other.CharacteristicValueDataSize && self.CharacteristicValue == other.CharacteristicValue
     }
 }
 impl ::core::cmp::Eq for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {}
@@ -2685,14 +2637,6 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRA
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2720,14 +2664,6 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_LOCAL_SERVICE_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_LOCAL_SERVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_LOCAL_SERVICE_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_LOCAL_SERVICE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_LOCAL_SERVICE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2754,7 +2690,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_NUMERIC_COMPARISON_INFO {
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_NUMERIC_COMPARISON_INFO>()) == 0 }
+        self.NumericValue == other.NumericValue
     }
 }
 impl ::core::cmp::Eq for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
@@ -2785,7 +2721,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_OOB_DATA_INFO {
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_OOB_DATA_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_OOB_DATA_INFO>()) == 0 }
+        self.C == other.C && self.R == other.R
     }
 }
 impl ::core::cmp::Eq for BLUETOOTH_OOB_DATA_INFO {}
@@ -2815,7 +2751,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_PASSKEY_INFO {
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_PASSKEY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_PASSKEY_INFO>()) == 0 }
+        self.passkey == other.passkey
     }
 }
 impl ::core::cmp::Eq for BLUETOOTH_PASSKEY_INFO {}
@@ -2846,7 +2782,7 @@ unsafe impl ::windows::core::Abi for BLUETOOTH_PIN_INFO {
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_PIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_PIN_INFO>()) == 0 }
+        self.pin == other.pin && self.pinLength == other.pinLength
     }
 }
 impl ::core::cmp::Eq for BLUETOOTH_PIN_INFO {}
@@ -2874,12 +2810,6 @@ impl ::core::clone::Clone for BLUETOOTH_RADIO_INFO {
 unsafe impl ::windows::core::Abi for BLUETOOTH_RADIO_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BLUETOOTH_RADIO_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_RADIO_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BLUETOOTH_RADIO_INFO {}
 impl ::core::default::Default for BLUETOOTH_RADIO_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2928,7 +2858,6 @@ impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
             .field("fShowUnknown", &self.fShowUnknown)
             .field("fAddNewDeviceWizard", &self.fAddNewDeviceWizard)
             .field("fSkipServicesPage", &self.fSkipServicesPage)
-            .field("pfnDeviceCallback", &self.pfnDeviceCallback.map(|f| f as usize))
             .field("pvParam", &self.pvParam)
             .field("cNumDevices", &self.cNumDevices)
             .field("pDevices", &self.pDevices)
@@ -2939,14 +2868,6 @@ impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
 unsafe impl ::windows::core::Abi for BLUETOOTH_SELECT_DEVICE_PARAMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLUETOOTH_SELECT_DEVICE_PARAMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BLUETOOTH_SELECT_DEVICE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
     fn default() -> Self {
@@ -2983,7 +2904,7 @@ unsafe impl ::windows::core::Abi for BTH_DEVICE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_DEVICE_INFO>()) == 0 }
+        self.flags == other.flags && self.address == other.address && self.classOfDevice == other.classOfDevice && self.name == other.name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3017,7 +2938,7 @@ unsafe impl ::windows::core::Abi for BTH_HCI_EVENT_INFO {
 }
 impl ::core::cmp::PartialEq for BTH_HCI_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_HCI_EVENT_INFO>()) == 0 }
+        self.bthAddress == other.bthAddress && self.connectionType == other.connectionType && self.connected == other.connected
     }
 }
 impl ::core::cmp::Eq for BTH_HCI_EVENT_INFO {}
@@ -3041,12 +2962,6 @@ impl ::core::clone::Clone for BTH_INFO_REQ {
 unsafe impl ::windows::core::Abi for BTH_INFO_REQ {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BTH_INFO_REQ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_INFO_REQ>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BTH_INFO_REQ {}
 impl ::core::default::Default for BTH_INFO_REQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3068,12 +2983,6 @@ impl ::core::clone::Clone for BTH_INFO_RSP {
 unsafe impl ::windows::core::Abi for BTH_INFO_RSP {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BTH_INFO_RSP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_INFO_RSP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BTH_INFO_RSP {}
 impl ::core::default::Default for BTH_INFO_RSP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3094,12 +3003,6 @@ impl ::core::clone::Clone for BTH_INFO_RSP_0 {
 unsafe impl ::windows::core::Abi for BTH_INFO_RSP_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BTH_INFO_RSP_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_INFO_RSP_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BTH_INFO_RSP_0 {}
 impl ::core::default::Default for BTH_INFO_RSP_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3129,7 +3032,7 @@ unsafe impl ::windows::core::Abi for BTH_L2CAP_EVENT_INFO {
 }
 impl ::core::cmp::PartialEq for BTH_L2CAP_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_L2CAP_EVENT_INFO>()) == 0 }
+        self.bthAddress == other.bthAddress && self.psm == other.psm && self.connected == other.connected && self.initiated == other.initiated
     }
 }
 impl ::core::cmp::Eq for BTH_L2CAP_EVENT_INFO {}
@@ -3168,14 +3071,6 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_CHARACTERISTIC {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_GATT_CHARACTERISTIC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_CHARACTERISTIC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_GATT_CHARACTERISTIC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_CHARACTERISTIC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3203,7 +3098,7 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_CHARACTERISTIC_VALUE {
 }
 impl ::core::cmp::PartialEq for BTH_LE_GATT_CHARACTERISTIC_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_CHARACTERISTIC_VALUE>()) == 0 }
+        self.DataSize == other.DataSize && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for BTH_LE_GATT_CHARACTERISTIC_VALUE {}
@@ -3235,14 +3130,6 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_DESCRIPTOR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_GATT_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3271,14 +3158,6 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_DESCRIPTOR_VALUE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_GATT_DESCRIPTOR_VALUE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3305,14 +3184,6 @@ impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
 unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_DESCRIPTOR_VALUE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     fn default() -> Self {
@@ -3347,7 +3218,7 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_DESCRIPTOR_VALUE_0_0>()) == 0 }
+        self.IsReliableWriteEnabled == other.IsReliableWriteEnabled && self.IsAuxiliariesWritable == other.IsAuxiliariesWritable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3380,14 +3251,6 @@ impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
 unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_DESCRIPTOR_VALUE_0_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     fn default() -> Self {
@@ -3422,7 +3285,7 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_DESCRIPTOR_VALUE_0_2>()) == 0 }
+        self.IsSubscribeToNotification == other.IsSubscribeToNotification && self.IsSubscribeToIndication == other.IsSubscribeToIndication
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3460,7 +3323,7 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_DESCRIPTOR_VALUE_0_3>()) == 0 }
+        self.IsBroadcast == other.IsBroadcast
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3491,14 +3354,6 @@ unsafe impl ::windows::core::Abi for BTH_LE_GATT_SERVICE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_GATT_SERVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_GATT_SERVICE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_GATT_SERVICE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_SERVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3523,14 +3378,6 @@ impl ::core::clone::Clone for BTH_LE_UUID {
 unsafe impl ::windows::core::Abi for BTH_LE_UUID {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_UUID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_UUID>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_UUID {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_UUID {
     fn default() -> Self {
@@ -3557,14 +3404,6 @@ unsafe impl ::windows::core::Abi for BTH_LE_UUID_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_LE_UUID_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_LE_UUID_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_LE_UUID_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_UUID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3586,12 +3425,6 @@ impl ::core::clone::Clone for BTH_PING_REQ {
 unsafe impl ::windows::core::Abi for BTH_PING_REQ {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BTH_PING_REQ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_PING_REQ>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BTH_PING_REQ {}
 impl ::core::default::Default for BTH_PING_REQ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3619,7 +3452,7 @@ unsafe impl ::windows::core::Abi for BTH_PING_RSP {
 }
 impl ::core::cmp::PartialEq for BTH_PING_RSP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_PING_RSP>()) == 0 }
+        self.dataLen == other.dataLen && self.data == other.data
     }
 }
 impl ::core::cmp::Eq for BTH_PING_RSP {}
@@ -3643,12 +3476,6 @@ impl ::core::clone::Clone for BTH_QUERY_DEVICE {
 unsafe impl ::windows::core::Abi for BTH_QUERY_DEVICE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BTH_QUERY_DEVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_QUERY_DEVICE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BTH_QUERY_DEVICE {}
 impl ::core::default::Default for BTH_QUERY_DEVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3672,12 +3499,6 @@ impl ::core::clone::Clone for BTH_QUERY_SERVICE {
 unsafe impl ::windows::core::Abi for BTH_QUERY_SERVICE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BTH_QUERY_SERVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_QUERY_SERVICE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BTH_QUERY_SERVICE {}
 impl ::core::default::Default for BTH_QUERY_SERVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3711,7 +3532,7 @@ unsafe impl ::windows::core::Abi for BTH_RADIO_IN_RANGE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_RADIO_IN_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_RADIO_IN_RANGE>()) == 0 }
+        self.deviceInfo == other.deviceInfo && self.previousDeviceFlags == other.previousDeviceFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3745,14 +3566,6 @@ impl ::core::clone::Clone for BTH_SET_SERVICE {
 unsafe impl ::windows::core::Abi for BTH_SET_SERVICE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BTH_SET_SERVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BTH_SET_SERVICE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BTH_SET_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_SET_SERVICE {
     fn default() -> Self {
@@ -3806,12 +3619,6 @@ impl ::core::clone::Clone for RFCOMM_COMMAND {
 unsafe impl ::windows::core::Abi for RFCOMM_COMMAND {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFCOMM_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_COMMAND>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFCOMM_COMMAND {}
 impl ::core::default::Default for RFCOMM_COMMAND {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3833,12 +3640,6 @@ impl ::core::clone::Clone for RFCOMM_COMMAND_0 {
 unsafe impl ::windows::core::Abi for RFCOMM_COMMAND_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RFCOMM_COMMAND_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_COMMAND_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFCOMM_COMMAND_0 {}
 impl ::core::default::Default for RFCOMM_COMMAND_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3866,7 +3667,7 @@ unsafe impl ::windows::core::Abi for RFCOMM_MSC_DATA {
 }
 impl ::core::cmp::PartialEq for RFCOMM_MSC_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_MSC_DATA>()) == 0 }
+        self.Signals == other.Signals && self.Break == other.Break
     }
 }
 impl ::core::cmp::Eq for RFCOMM_MSC_DATA {}
@@ -3896,7 +3697,7 @@ unsafe impl ::windows::core::Abi for RFCOMM_RLS_DATA {
 }
 impl ::core::cmp::PartialEq for RFCOMM_RLS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_RLS_DATA>()) == 0 }
+        self.LineStatus == other.LineStatus
     }
 }
 impl ::core::cmp::Eq for RFCOMM_RLS_DATA {}
@@ -3932,7 +3733,7 @@ unsafe impl ::windows::core::Abi for RFCOMM_RPN_DATA {
 }
 impl ::core::cmp::PartialEq for RFCOMM_RPN_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFCOMM_RPN_DATA>()) == 0 }
+        self.Baud == other.Baud && self.Data == other.Data && self.FlowControl == other.FlowControl && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ParameterMask1 == other.ParameterMask1 && self.ParameterMask2 == other.ParameterMask2
     }
 }
 impl ::core::cmp::Eq for RFCOMM_RPN_DATA {}
@@ -3961,14 +3762,6 @@ impl ::core::clone::Clone for SDP_ELEMENT_DATA {
 unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SDP_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA {
     fn default() -> Self {
@@ -4011,14 +3804,6 @@ unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SDP_ELEMENT_DATA_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4052,7 +3837,7 @@ unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_0>()) == 0 }
+        self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4091,7 +3876,7 @@ unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_1>()) == 0 }
+        self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4130,7 +3915,7 @@ unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_2>()) == 0 }
+        self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4169,7 +3954,7 @@ unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ELEMENT_DATA_0_3>()) == 0 }
+        self.value == other.value && self.length == other.length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4202,7 +3987,7 @@ unsafe impl ::windows::core::Abi for SDP_LARGE_INTEGER_16 {
 }
 impl ::core::cmp::PartialEq for SDP_LARGE_INTEGER_16 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_LARGE_INTEGER_16>()) == 0 }
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
 impl ::core::cmp::Eq for SDP_LARGE_INTEGER_16 {}
@@ -4234,7 +4019,7 @@ unsafe impl ::windows::core::Abi for SDP_STRING_TYPE_DATA {
 }
 impl ::core::cmp::PartialEq for SDP_STRING_TYPE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_STRING_TYPE_DATA>()) == 0 }
+        self.encoding == other.encoding && self.mibeNum == other.mibeNum && self.attributeId == other.attributeId
     }
 }
 impl ::core::cmp::Eq for SDP_STRING_TYPE_DATA {}
@@ -4265,7 +4050,7 @@ unsafe impl ::windows::core::Abi for SDP_ULARGE_INTEGER_16 {
 }
 impl ::core::cmp::PartialEq for SDP_ULARGE_INTEGER_16 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SDP_ULARGE_INTEGER_16>()) == 0 }
+        self.LowPart == other.LowPart && self.HighPart == other.HighPart
     }
 }
 impl ::core::cmp::Eq for SDP_ULARGE_INTEGER_16 {}
@@ -4291,12 +4076,6 @@ impl ::core::clone::Clone for SOCKADDR_BTH {
 unsafe impl ::windows::core::Abi for SOCKADDR_BTH {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SOCKADDR_BTH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOCKADDR_BTH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SOCKADDR_BTH {}
 impl ::core::default::Default for SOCKADDR_BTH {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4324,7 +4103,7 @@ unsafe impl ::windows::core::Abi for SdpAttributeRange {
 }
 impl ::core::cmp::PartialEq for SdpAttributeRange {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SdpAttributeRange>()) == 0 }
+        self.minAttribute == other.minAttribute && self.maxAttribute == other.maxAttribute
     }
 }
 impl ::core::cmp::Eq for SdpAttributeRange {}
@@ -4348,12 +4127,6 @@ impl ::core::clone::Clone for SdpQueryUuid {
 unsafe impl ::windows::core::Abi for SdpQueryUuid {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SdpQueryUuid {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SdpQueryUuid>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SdpQueryUuid {}
 impl ::core::default::Default for SdpQueryUuid {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4375,12 +4148,6 @@ impl ::core::clone::Clone for SdpQueryUuidUnion {
 unsafe impl ::windows::core::Abi for SdpQueryUuidUnion {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SdpQueryUuidUnion {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SdpQueryUuidUnion>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SdpQueryUuidUnion {}
 impl ::core::default::Default for SdpQueryUuidUnion {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

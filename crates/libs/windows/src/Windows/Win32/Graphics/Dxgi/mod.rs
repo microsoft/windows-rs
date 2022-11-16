@@ -7814,7 +7814,7 @@ unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_ADAPTER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_ADAPTER_DESC>()) == 0 }
+        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7861,7 +7861,7 @@ unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_ADAPTER_DESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_ADAPTER_DESC1>()) == 0 }
+        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7923,7 +7923,7 @@ unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_ADAPTER_DESC2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_ADAPTER_DESC2>()) == 0 }
+        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7985,7 +7985,7 @@ unsafe impl ::windows::core::Abi for DXGI_ADAPTER_DESC3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_ADAPTER_DESC3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_ADAPTER_DESC3>()) == 0 }
+        self.Description == other.Description && self.VendorId == other.VendorId && self.DeviceId == other.DeviceId && self.SubSysId == other.SubSysId && self.Revision == other.Revision && self.DedicatedVideoMemory == other.DedicatedVideoMemory && self.DedicatedSystemMemory == other.DedicatedSystemMemory && self.SharedSystemMemory == other.SharedSystemMemory && self.AdapterLuid == other.AdapterLuid && self.Flags == other.Flags && self.GraphicsPreemptionGranularity == other.GraphicsPreemptionGranularity && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8017,7 +8017,7 @@ unsafe impl ::windows::core::Abi for DXGI_DECODE_SWAP_CHAIN_DESC {
 }
 impl ::core::cmp::PartialEq for DXGI_DECODE_SWAP_CHAIN_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_DECODE_SWAP_CHAIN_DESC>()) == 0 }
+        self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for DXGI_DECODE_SWAP_CHAIN_DESC {}
@@ -8048,7 +8048,7 @@ unsafe impl ::windows::core::Abi for DXGI_DISPLAY_COLOR_SPACE {
 }
 impl ::core::cmp::PartialEq for DXGI_DISPLAY_COLOR_SPACE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_DISPLAY_COLOR_SPACE>()) == 0 }
+        self.PrimaryCoordinates == other.PrimaryCoordinates && self.WhitePoints == other.WhitePoints
     }
 }
 impl ::core::cmp::Eq for DXGI_DISPLAY_COLOR_SPACE {}
@@ -8082,7 +8082,7 @@ unsafe impl ::windows::core::Abi for DXGI_FRAME_STATISTICS {
 }
 impl ::core::cmp::PartialEq for DXGI_FRAME_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_FRAME_STATISTICS>()) == 0 }
+        self.PresentCount == other.PresentCount && self.PresentRefreshCount == other.PresentRefreshCount && self.SyncRefreshCount == other.SyncRefreshCount && self.SyncQPCTime == other.SyncQPCTime && self.SyncGPUTime == other.SyncGPUTime
     }
 }
 impl ::core::cmp::Eq for DXGI_FRAME_STATISTICS {}
@@ -8118,7 +8118,7 @@ unsafe impl ::windows::core::Abi for DXGI_FRAME_STATISTICS_MEDIA {
 }
 impl ::core::cmp::PartialEq for DXGI_FRAME_STATISTICS_MEDIA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_FRAME_STATISTICS_MEDIA>()) == 0 }
+        self.PresentCount == other.PresentCount && self.PresentRefreshCount == other.PresentRefreshCount && self.SyncRefreshCount == other.SyncRefreshCount && self.SyncQPCTime == other.SyncQPCTime && self.SyncGPUTime == other.SyncGPUTime && self.CompositionMode == other.CompositionMode && self.ApprovedPresentDuration == other.ApprovedPresentDuration
     }
 }
 impl ::core::cmp::Eq for DXGI_FRAME_STATISTICS_MEDIA {}
@@ -8155,7 +8155,7 @@ unsafe impl ::windows::core::Abi for DXGI_HDR_METADATA_HDR10 {
 }
 impl ::core::cmp::PartialEq for DXGI_HDR_METADATA_HDR10 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_HDR_METADATA_HDR10>()) == 0 }
+        self.RedPrimary == other.RedPrimary && self.GreenPrimary == other.GreenPrimary && self.BluePrimary == other.BluePrimary && self.WhitePoint == other.WhitePoint && self.MaxMasteringLuminance == other.MaxMasteringLuminance && self.MinMasteringLuminance == other.MinMasteringLuminance && self.MaxContentLightLevel == other.MaxContentLightLevel && self.MaxFrameAverageLightLevel == other.MaxFrameAverageLightLevel
     }
 }
 impl ::core::cmp::Eq for DXGI_HDR_METADATA_HDR10 {}
@@ -8185,7 +8185,7 @@ unsafe impl ::windows::core::Abi for DXGI_HDR_METADATA_HDR10PLUS {
 }
 impl ::core::cmp::PartialEq for DXGI_HDR_METADATA_HDR10PLUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_HDR_METADATA_HDR10PLUS>()) == 0 }
+        self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for DXGI_HDR_METADATA_HDR10PLUS {}
@@ -8216,7 +8216,7 @@ unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_FILTER {
 }
 impl ::core::cmp::PartialEq for DXGI_INFO_QUEUE_FILTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_INFO_QUEUE_FILTER>()) == 0 }
+        self.AllowList == other.AllowList && self.DenyList == other.DenyList
     }
 }
 impl ::core::cmp::Eq for DXGI_INFO_QUEUE_FILTER {}
@@ -8251,7 +8251,7 @@ unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_FILTER_DESC {
 }
 impl ::core::cmp::PartialEq for DXGI_INFO_QUEUE_FILTER_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_INFO_QUEUE_FILTER_DESC>()) == 0 }
+        self.NumCategories == other.NumCategories && self.pCategoryList == other.pCategoryList && self.NumSeverities == other.NumSeverities && self.pSeverityList == other.pSeverityList && self.NumIDs == other.NumIDs && self.pIDList == other.pIDList
     }
 }
 impl ::core::cmp::Eq for DXGI_INFO_QUEUE_FILTER_DESC {}
@@ -8286,7 +8286,7 @@ unsafe impl ::windows::core::Abi for DXGI_INFO_QUEUE_MESSAGE {
 }
 impl ::core::cmp::PartialEq for DXGI_INFO_QUEUE_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_INFO_QUEUE_MESSAGE>()) == 0 }
+        self.Producer == other.Producer && self.Category == other.Category && self.Severity == other.Severity && self.ID == other.ID && self.pDescription == other.pDescription && self.DescriptionByteLength == other.DescriptionByteLength
     }
 }
 impl ::core::cmp::Eq for DXGI_INFO_QUEUE_MESSAGE {}
@@ -8317,7 +8317,7 @@ unsafe impl ::windows::core::Abi for DXGI_MAPPED_RECT {
 }
 impl ::core::cmp::PartialEq for DXGI_MAPPED_RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_MAPPED_RECT>()) == 0 }
+        self.Pitch == other.Pitch && self.pBits == other.pBits
     }
 }
 impl ::core::cmp::Eq for DXGI_MAPPED_RECT {}
@@ -8352,7 +8352,7 @@ unsafe impl ::windows::core::Abi for DXGI_MATRIX_3X2_F {
 }
 impl ::core::cmp::PartialEq for DXGI_MATRIX_3X2_F {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_MATRIX_3X2_F>()) == 0 }
+        self._11 == other._11 && self._12 == other._12 && self._21 == other._21 && self._22 == other._22 && self._31 == other._31 && self._32 == other._32
     }
 }
 impl ::core::cmp::Eq for DXGI_MATRIX_3X2_F {}
@@ -8394,7 +8394,7 @@ unsafe impl ::windows::core::Abi for DXGI_MODE_DESC1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_MODE_DESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_MODE_DESC1>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.RefreshRate == other.RefreshRate && self.Format == other.Format && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling && self.Stereo == other.Stereo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8434,7 +8434,7 @@ unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_OUTDUPL_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_OUTDUPL_DESC>()) == 0 }
+        self.ModeDesc == other.ModeDesc && self.Rotation == other.Rotation && self.DesktopImageInSystemMemory == other.DesktopImageInSystemMemory
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8488,7 +8488,7 @@ unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_FRAME_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_OUTDUPL_FRAME_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_OUTDUPL_FRAME_INFO>()) == 0 }
+        self.LastPresentTime == other.LastPresentTime && self.LastMouseUpdateTime == other.LastMouseUpdateTime && self.AccumulatedFrames == other.AccumulatedFrames && self.RectsCoalesced == other.RectsCoalesced && self.ProtectedContentMaskedOut == other.ProtectedContentMaskedOut && self.PointerPosition == other.PointerPosition && self.TotalMetadataBufferSize == other.TotalMetadataBufferSize && self.PointerShapeBufferSize == other.PointerShapeBufferSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8527,7 +8527,7 @@ unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_MOVE_RECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_OUTDUPL_MOVE_RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_OUTDUPL_MOVE_RECT>()) == 0 }
+        self.SourcePoint == other.SourcePoint && self.DestinationRect == other.DestinationRect
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8566,7 +8566,7 @@ unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_POINTER_POSITION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_OUTDUPL_POINTER_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_OUTDUPL_POINTER_POSITION>()) == 0 }
+        self.Position == other.Position && self.Visible == other.Visible
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8608,7 +8608,7 @@ unsafe impl ::windows::core::Abi for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_OUTDUPL_POINTER_SHAPE_INFO>()) == 0 }
+        self.Type == other.Type && self.Width == other.Width && self.Height == other.Height && self.Pitch == other.Pitch && self.HotSpot == other.HotSpot
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8650,7 +8650,7 @@ unsafe impl ::windows::core::Abi for DXGI_OUTPUT_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DXGI_OUTPUT_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_OUTPUT_DESC>()) == 0 }
+        self.DeviceName == other.DeviceName && self.DesktopCoordinates == other.DesktopCoordinates && self.AttachedToDesktop == other.AttachedToDesktop && self.Rotation == other.Rotation && self.Monitor == other.Monitor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -8716,7 +8716,7 @@ unsafe impl ::windows::core::Abi for DXGI_OUTPUT_DESC1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DXGI_OUTPUT_DESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_OUTPUT_DESC1>()) == 0 }
+        self.DeviceName == other.DeviceName && self.DesktopCoordinates == other.DesktopCoordinates && self.AttachedToDesktop == other.AttachedToDesktop && self.Rotation == other.Rotation && self.Monitor == other.Monitor && self.BitsPerColor == other.BitsPerColor && self.ColorSpace == other.ColorSpace && self.RedPrimary == other.RedPrimary && self.GreenPrimary == other.GreenPrimary && self.BluePrimary == other.BluePrimary && self.WhitePoint == other.WhitePoint && self.MinLuminance == other.MinLuminance && self.MaxLuminance == other.MaxLuminance && self.MaxFullFrameLuminance == other.MaxFullFrameLuminance
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -8757,7 +8757,7 @@ unsafe impl ::windows::core::Abi for DXGI_PRESENT_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_PRESENT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_PRESENT_PARAMETERS>()) == 0 }
+        self.DirtyRectsCount == other.DirtyRectsCount && self.pDirtyRects == other.pDirtyRects && self.pScrollRect == other.pScrollRect && self.pScrollOffset == other.pScrollOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8792,7 +8792,7 @@ unsafe impl ::windows::core::Abi for DXGI_QUERY_VIDEO_MEMORY_INFO {
 }
 impl ::core::cmp::PartialEq for DXGI_QUERY_VIDEO_MEMORY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_QUERY_VIDEO_MEMORY_INFO>()) == 0 }
+        self.Budget == other.Budget && self.CurrentUsage == other.CurrentUsage && self.AvailableForReservation == other.AvailableForReservation && self.CurrentReservation == other.CurrentReservation
     }
 }
 impl ::core::cmp::Eq for DXGI_QUERY_VIDEO_MEMORY_INFO {}
@@ -8825,7 +8825,7 @@ unsafe impl ::windows::core::Abi for DXGI_RGBA {
 }
 impl ::core::cmp::PartialEq for DXGI_RGBA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_RGBA>()) == 0 }
+        self.r == other.r && self.g == other.g && self.b == other.b && self.a == other.a
     }
 }
 impl ::core::cmp::Eq for DXGI_RGBA {}
@@ -8861,7 +8861,7 @@ unsafe impl ::windows::core::Abi for DXGI_SHARED_RESOURCE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_SHARED_RESOURCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_SHARED_RESOURCE>()) == 0 }
+        self.Handle == other.Handle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8902,7 +8902,7 @@ unsafe impl ::windows::core::Abi for DXGI_SURFACE_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for DXGI_SURFACE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_SURFACE_DESC>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.SampleDesc == other.SampleDesc
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8947,7 +8947,7 @@ unsafe impl ::windows::core::Abi for DXGI_SWAP_CHAIN_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_SWAP_CHAIN_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_SWAP_CHAIN_DESC>()) == 0 }
+        self.BufferDesc == other.BufferDesc && self.SampleDesc == other.SampleDesc && self.BufferUsage == other.BufferUsage && self.BufferCount == other.BufferCount && self.OutputWindow == other.OutputWindow && self.Windowed == other.Windowed && self.SwapEffect == other.SwapEffect && self.Flags == other.Flags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8995,7 +8995,7 @@ unsafe impl ::windows::core::Abi for DXGI_SWAP_CHAIN_DESC1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_SWAP_CHAIN_DESC1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_SWAP_CHAIN_DESC1>()) == 0 }
+        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.Stereo == other.Stereo && self.SampleDesc == other.SampleDesc && self.BufferUsage == other.BufferUsage && self.BufferCount == other.BufferCount && self.Scaling == other.Scaling && self.SwapEffect == other.SwapEffect && self.AlphaMode == other.AlphaMode && self.Flags == other.Flags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -9036,7 +9036,7 @@ unsafe impl ::windows::core::Abi for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>()) == 0 }
+        self.RefreshRate == other.RefreshRate && self.ScanlineOrdering == other.ScanlineOrdering && self.Scaling == other.Scaling && self.Windowed == other.Windowed
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]

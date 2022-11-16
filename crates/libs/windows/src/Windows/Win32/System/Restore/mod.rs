@@ -140,14 +140,6 @@ unsafe impl ::windows::core::Abi for RESTOREPOINTINFOA {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RESTOREPOINTINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESTOREPOINTINFOA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RESTOREPOINTINFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESTOREPOINTINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -176,14 +168,6 @@ unsafe impl ::windows::core::Abi for RESTOREPOINTINFOEX {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RESTOREPOINTINFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESTOREPOINTINFOEX>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RESTOREPOINTINFOEX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESTOREPOINTINFOEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -206,12 +190,6 @@ impl ::core::clone::Clone for RESTOREPOINTINFOW {
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFOW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RESTOREPOINTINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESTOREPOINTINFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RESTOREPOINTINFOW {}
 impl ::core::default::Default for RESTOREPOINTINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -232,12 +210,6 @@ impl ::core::clone::Clone for STATEMGRSTATUS {
 unsafe impl ::windows::core::Abi for STATEMGRSTATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for STATEMGRSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STATEMGRSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for STATEMGRSTATUS {}
 impl ::core::default::Default for STATEMGRSTATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

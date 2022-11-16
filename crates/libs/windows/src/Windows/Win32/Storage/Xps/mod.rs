@@ -8640,7 +8640,7 @@ unsafe impl ::windows::core::Abi for DOCINFOA {
 }
 impl ::core::cmp::PartialEq for DOCINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOCINFOA>()) == 0 }
+        self.cbSize == other.cbSize && self.lpszDocName == other.lpszDocName && self.lpszOutput == other.lpszOutput && self.lpszDatatype == other.lpszDatatype && self.fwType == other.fwType
     }
 }
 impl ::core::cmp::Eq for DOCINFOA {}
@@ -8674,7 +8674,7 @@ unsafe impl ::windows::core::Abi for DOCINFOW {
 }
 impl ::core::cmp::PartialEq for DOCINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOCINFOW>()) == 0 }
+        self.cbSize == other.cbSize && self.lpszDocName == other.lpszDocName && self.lpszOutput == other.lpszOutput && self.lpszDatatype == other.lpszDatatype && self.fwType == other.fwType
     }
 }
 impl ::core::cmp::Eq for DOCINFOW {}
@@ -8713,7 +8713,7 @@ unsafe impl ::windows::core::Abi for DRAWPATRECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRAWPATRECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRAWPATRECT>()) == 0 }
+        self.ptPosition == other.ptPosition && self.ptSize == other.ptSize && self.wStyle == other.wStyle && self.wPattern == other.wPattern
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8781,7 +8781,7 @@ unsafe impl ::windows::core::Abi for PSFEATURE_CUSTPAPER {
 }
 impl ::core::cmp::PartialEq for PSFEATURE_CUSTPAPER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSFEATURE_CUSTPAPER>()) == 0 }
+        self.lOrientation == other.lOrientation && self.lWidth == other.lWidth && self.lHeight == other.lHeight && self.lWidthOffset == other.lWidthOffset && self.lHeightOffset == other.lHeightOffset
     }
 }
 impl ::core::cmp::Eq for PSFEATURE_CUSTPAPER {}
@@ -8818,7 +8818,7 @@ unsafe impl ::windows::core::Abi for PSFEATURE_OUTPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSFEATURE_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSFEATURE_OUTPUT>()) == 0 }
+        self.bPageIndependent == other.bPageIndependent && self.bSetPageDevice == other.bSetPageDevice
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8852,7 +8852,7 @@ unsafe impl ::windows::core::Abi for PSINJECTDATA {
 }
 impl ::core::cmp::PartialEq for PSINJECTDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PSINJECTDATA>()) == 0 }
+        self.DataBytes == other.DataBytes && self.InjectionPoint == other.InjectionPoint && self.PageNumber == other.PageNumber
     }
 }
 impl ::core::cmp::Eq for PSINJECTDATA {}
@@ -8876,12 +8876,6 @@ impl ::core::clone::Clone for XPS_COLOR {
 unsafe impl ::windows::core::Abi for XPS_COLOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XPS_COLOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_COLOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for XPS_COLOR {}
 impl ::core::default::Default for XPS_COLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8903,12 +8897,6 @@ impl ::core::clone::Clone for XPS_COLOR_0 {
 unsafe impl ::windows::core::Abi for XPS_COLOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XPS_COLOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_COLOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for XPS_COLOR_0 {}
 impl ::core::default::Default for XPS_COLOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8936,7 +8924,7 @@ unsafe impl ::windows::core::Abi for XPS_COLOR_0_0 {
 }
 impl ::core::cmp::PartialEq for XPS_COLOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_COLOR_0_0>()) == 0 }
+        self.channelCount == other.channelCount && self.channels == other.channels
     }
 }
 impl ::core::cmp::Eq for XPS_COLOR_0_0 {}
@@ -8969,7 +8957,7 @@ unsafe impl ::windows::core::Abi for XPS_COLOR_0_1 {
 }
 impl ::core::cmp::PartialEq for XPS_COLOR_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_COLOR_0_1>()) == 0 }
+        self.alpha == other.alpha && self.red == other.red && self.green == other.green && self.blue == other.blue
     }
 }
 impl ::core::cmp::Eq for XPS_COLOR_0_1 {}
@@ -9002,7 +8990,7 @@ unsafe impl ::windows::core::Abi for XPS_COLOR_0_2 {
 }
 impl ::core::cmp::PartialEq for XPS_COLOR_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_COLOR_0_2>()) == 0 }
+        self.alpha == other.alpha && self.red == other.red && self.green == other.green && self.blue == other.blue
     }
 }
 impl ::core::cmp::Eq for XPS_COLOR_0_2 {}
@@ -9033,7 +9021,7 @@ unsafe impl ::windows::core::Abi for XPS_DASH {
 }
 impl ::core::cmp::PartialEq for XPS_DASH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_DASH>()) == 0 }
+        self.length == other.length && self.gap == other.gap
     }
 }
 impl ::core::cmp::Eq for XPS_DASH {}
@@ -9066,7 +9054,7 @@ unsafe impl ::windows::core::Abi for XPS_GLYPH_INDEX {
 }
 impl ::core::cmp::PartialEq for XPS_GLYPH_INDEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_GLYPH_INDEX>()) == 0 }
+        self.index == other.index && self.advanceWidth == other.advanceWidth && self.horizontalOffset == other.horizontalOffset && self.verticalOffset == other.verticalOffset
     }
 }
 impl ::core::cmp::Eq for XPS_GLYPH_INDEX {}
@@ -9099,7 +9087,7 @@ unsafe impl ::windows::core::Abi for XPS_GLYPH_MAPPING {
 }
 impl ::core::cmp::PartialEq for XPS_GLYPH_MAPPING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_GLYPH_MAPPING>()) == 0 }
+        self.unicodeStringStart == other.unicodeStringStart && self.unicodeStringLength == other.unicodeStringLength && self.glyphIndicesStart == other.glyphIndicesStart && self.glyphIndicesLength == other.glyphIndicesLength
     }
 }
 impl ::core::cmp::Eq for XPS_GLYPH_MAPPING {}
@@ -9134,7 +9122,7 @@ unsafe impl ::windows::core::Abi for XPS_MATRIX {
 }
 impl ::core::cmp::PartialEq for XPS_MATRIX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_MATRIX>()) == 0 }
+        self.m11 == other.m11 && self.m12 == other.m12 && self.m21 == other.m21 && self.m22 == other.m22 && self.m31 == other.m31 && self.m32 == other.m32
     }
 }
 impl ::core::cmp::Eq for XPS_MATRIX {}
@@ -9165,7 +9153,7 @@ unsafe impl ::windows::core::Abi for XPS_POINT {
 }
 impl ::core::cmp::PartialEq for XPS_POINT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_POINT>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for XPS_POINT {}
@@ -9198,7 +9186,7 @@ unsafe impl ::windows::core::Abi for XPS_RECT {
 }
 impl ::core::cmp::PartialEq for XPS_RECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_RECT>()) == 0 }
+        self.x == other.x && self.y == other.y && self.width == other.width && self.height == other.height
     }
 }
 impl ::core::cmp::Eq for XPS_RECT {}
@@ -9229,7 +9217,7 @@ unsafe impl ::windows::core::Abi for XPS_SIZE {
 }
 impl ::core::cmp::PartialEq for XPS_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XPS_SIZE>()) == 0 }
+        self.width == other.width && self.height == other.height
     }
 }
 impl ::core::cmp::Eq for XPS_SIZE {}

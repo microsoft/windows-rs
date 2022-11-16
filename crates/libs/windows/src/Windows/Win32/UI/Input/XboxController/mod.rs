@@ -582,7 +582,7 @@ unsafe impl ::windows::core::Abi for XINPUT_BATTERY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XINPUT_BATTERY_INFORMATION>()) == 0 }
+        self.BatteryType == other.BatteryType && self.BatteryLevel == other.BatteryLevel
     }
 }
 impl ::core::cmp::Eq for XINPUT_BATTERY_INFORMATION {}
@@ -616,7 +616,7 @@ unsafe impl ::windows::core::Abi for XINPUT_CAPABILITIES {
 }
 impl ::core::cmp::PartialEq for XINPUT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XINPUT_CAPABILITIES>()) == 0 }
+        self.Type == other.Type && self.SubType == other.SubType && self.Flags == other.Flags && self.Gamepad == other.Gamepad && self.Vibration == other.Vibration
     }
 }
 impl ::core::cmp::Eq for XINPUT_CAPABILITIES {}
@@ -652,7 +652,7 @@ unsafe impl ::windows::core::Abi for XINPUT_GAMEPAD {
 }
 impl ::core::cmp::PartialEq for XINPUT_GAMEPAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XINPUT_GAMEPAD>()) == 0 }
+        self.wButtons == other.wButtons && self.bLeftTrigger == other.bLeftTrigger && self.bRightTrigger == other.bRightTrigger && self.sThumbLX == other.sThumbLX && self.sThumbLY == other.sThumbLY && self.sThumbRX == other.sThumbRX && self.sThumbRY == other.sThumbRY
     }
 }
 impl ::core::cmp::Eq for XINPUT_GAMEPAD {}
@@ -686,7 +686,7 @@ unsafe impl ::windows::core::Abi for XINPUT_KEYSTROKE {
 }
 impl ::core::cmp::PartialEq for XINPUT_KEYSTROKE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XINPUT_KEYSTROKE>()) == 0 }
+        self.VirtualKey == other.VirtualKey && self.Unicode == other.Unicode && self.Flags == other.Flags && self.UserIndex == other.UserIndex && self.HidCode == other.HidCode
     }
 }
 impl ::core::cmp::Eq for XINPUT_KEYSTROKE {}
@@ -717,7 +717,7 @@ unsafe impl ::windows::core::Abi for XINPUT_STATE {
 }
 impl ::core::cmp::PartialEq for XINPUT_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XINPUT_STATE>()) == 0 }
+        self.dwPacketNumber == other.dwPacketNumber && self.Gamepad == other.Gamepad
     }
 }
 impl ::core::cmp::Eq for XINPUT_STATE {}
@@ -748,7 +748,7 @@ unsafe impl ::windows::core::Abi for XINPUT_VIBRATION {
 }
 impl ::core::cmp::PartialEq for XINPUT_VIBRATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XINPUT_VIBRATION>()) == 0 }
+        self.wLeftMotorSpeed == other.wLeftMotorSpeed && self.wRightMotorSpeed == other.wRightMotorSpeed
     }
 }
 impl ::core::cmp::Eq for XINPUT_VIBRATION {}

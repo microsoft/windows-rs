@@ -4511,7 +4511,7 @@ unsafe impl ::windows::core::RuntimeType for PackageInstallProgress {
 }
 impl ::core::cmp::PartialEq for PackageInstallProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PackageInstallProgress>()) == 0 }
+        self.PercentComplete == other.PercentComplete
     }
 }
 impl ::core::cmp::Eq for PackageInstallProgress {}
@@ -4551,7 +4551,7 @@ unsafe impl ::windows::core::RuntimeType for PackageVersion {
 }
 impl ::core::cmp::PartialEq for PackageVersion {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PackageVersion>()) == 0 }
+        self.Major == other.Major && self.Minor == other.Minor && self.Build == other.Build && self.Revision == other.Revision
     }
 }
 impl ::core::cmp::Eq for PackageVersion {}

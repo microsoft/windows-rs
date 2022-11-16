@@ -4216,7 +4216,7 @@ unsafe impl ::windows::core::Abi for APP_MEMORY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for APP_MEMORY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_MEMORY_INFORMATION>()) == 0 }
+        self.AvailableCommit == other.AvailableCommit && self.PrivateCommitUsage == other.PrivateCommitUsage && self.PeakPrivateCommitUsage == other.PeakPrivateCommitUsage && self.TotalCommitUsage == other.TotalCommitUsage
     }
 }
 impl ::core::cmp::Eq for APP_MEMORY_INFORMATION {}
@@ -4283,7 +4283,7 @@ unsafe impl ::windows::core::Abi for IO_COUNTERS {
 }
 impl ::core::cmp::PartialEq for IO_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IO_COUNTERS>()) == 0 }
+        self.ReadOperationCount == other.ReadOperationCount && self.WriteOperationCount == other.WriteOperationCount && self.OtherOperationCount == other.OtherOperationCount && self.ReadTransferCount == other.ReadTransferCount && self.WriteTransferCount == other.WriteTransferCount && self.OtherTransferCount == other.OtherTransferCount
     }
 }
 impl ::core::cmp::Eq for IO_COUNTERS {}
@@ -4345,7 +4345,7 @@ unsafe impl ::windows::core::Abi for MEMORY_PRIORITY_INFORMATION {
 }
 impl ::core::cmp::PartialEq for MEMORY_PRIORITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEMORY_PRIORITY_INFORMATION>()) == 0 }
+        self.MemoryPriority == other.MemoryPriority
     }
 }
 impl ::core::cmp::Eq for MEMORY_PRIORITY_INFORMATION {}
@@ -4437,7 +4437,6 @@ impl ::core::fmt::Debug for PEB {
             .field("AtlThunkSListPtr32", &self.AtlThunkSListPtr32)
             .field("Reserved9", &self.Reserved9)
             .field("Reserved10", &self.Reserved10)
-            .field("PostProcessInitRoutine", &self.PostProcessInitRoutine.map(|f| f as usize))
             .field("Reserved11", &self.Reserved11)
             .field("Reserved12", &self.Reserved12)
             .field("SessionId", &self.SessionId)
@@ -4448,14 +4447,6 @@ impl ::core::fmt::Debug for PEB {
 unsafe impl ::windows::core::Abi for PEB {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for PEB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEB>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for PEB {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for PEB {
     fn default() -> Self {
@@ -4491,7 +4482,7 @@ unsafe impl ::windows::core::Abi for PEB_LDR_DATA {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for PEB_LDR_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEB_LDR_DATA>()) == 0 }
+        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.InMemoryOrderModuleList == other.InMemoryOrderModuleList
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -4533,7 +4524,7 @@ unsafe impl ::windows::core::Abi for PROCESS_BASIC_INFORMATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for PROCESS_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_BASIC_INFORMATION>()) == 0 }
+        self.Reserved1 == other.Reserved1 && self.PebBaseAddress == other.PebBaseAddress && self.Reserved2 == other.Reserved2 && self.UniqueProcessId == other.UniqueProcessId && self.Reserved3 == other.Reserved3
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4566,7 +4557,7 @@ unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
 }
 impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_EH_CONTINUATION_TARGET>()) == 0 }
+        self.TargetAddress == other.TargetAddress && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
@@ -4599,7 +4590,7 @@ unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INF
 }
 impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION>()) == 0 }
+        self.NumberOfTargets == other.NumberOfTargets && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Targets == other.Targets
     }
 }
 impl ::core::cmp::Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
@@ -4631,7 +4622,7 @@ unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
 }
 impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE>()) == 0 }
+        self.BaseAddress == other.BaseAddress && self.Size == other.Size && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
@@ -4664,7 +4655,7 @@ unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INF
 }
 impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION>()) == 0 }
+        self.NumberOfRanges == other.NumberOfRanges && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Ranges == other.Ranges
     }
 }
 impl ::core::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
@@ -4703,7 +4694,7 @@ unsafe impl ::windows::core::Abi for PROCESS_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_INFORMATION>()) == 0 }
+        self.hProcess == other.hProcess && self.hThread == other.hThread && self.dwProcessId == other.dwProcessId && self.dwThreadId == other.dwThreadId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4736,7 +4727,7 @@ unsafe impl ::windows::core::Abi for PROCESS_LEAP_SECOND_INFO {
 }
 impl ::core::cmp::PartialEq for PROCESS_LEAP_SECOND_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_LEAP_SECOND_INFO>()) == 0 }
+        self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for PROCESS_LEAP_SECOND_INFO {}
@@ -4774,7 +4765,7 @@ unsafe impl ::windows::core::Abi for PROCESS_MACHINE_INFORMATION {
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::cmp::PartialEq for PROCESS_MACHINE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MACHINE_INFORMATION>()) == 0 }
+        self.ProcessMachine == other.ProcessMachine && self.Res0 == other.Res0 && self.MachineAttributes == other.MachineAttributes
     }
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -4809,7 +4800,7 @@ unsafe impl ::windows::core::Abi for PROCESS_MEMORY_EXHAUSTION_INFO {
 }
 impl ::core::cmp::PartialEq for PROCESS_MEMORY_EXHAUSTION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MEMORY_EXHAUSTION_INFO>()) == 0 }
+        self.Version == other.Version && self.Reserved == other.Reserved && self.Type == other.Type && self.Value == other.Value
     }
 }
 impl ::core::cmp::Eq for PROCESS_MEMORY_EXHAUSTION_INFO {}
@@ -4841,7 +4832,7 @@ unsafe impl ::windows::core::Abi for PROCESS_POWER_THROTTLING_STATE {
 }
 impl ::core::cmp::PartialEq for PROCESS_POWER_THROTTLING_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_POWER_THROTTLING_STATE>()) == 0 }
+        self.Version == other.Version && self.ControlMask == other.ControlMask && self.StateMask == other.StateMask
     }
 }
 impl ::core::cmp::Eq for PROCESS_POWER_THROTTLING_STATE {}
@@ -4871,7 +4862,7 @@ unsafe impl ::windows::core::Abi for PROCESS_PROTECTION_LEVEL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PROCESS_PROTECTION_LEVEL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_PROTECTION_LEVEL_INFORMATION>()) == 0 }
+        self.ProtectionLevel == other.ProtectionLevel
     }
 }
 impl ::core::cmp::Eq for PROCESS_PROTECTION_LEVEL_INFORMATION {}
@@ -4928,14 +4919,6 @@ unsafe impl ::windows::core::Abi for REASON_CONTEXT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for REASON_CONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REASON_CONTEXT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for REASON_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REASON_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4960,14 +4943,6 @@ impl ::core::clone::Clone for REASON_CONTEXT_0 {
 unsafe impl ::windows::core::Abi for REASON_CONTEXT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for REASON_CONTEXT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REASON_CONTEXT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for REASON_CONTEXT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REASON_CONTEXT_0 {
     fn default() -> Self {
@@ -5004,7 +4979,7 @@ unsafe impl ::windows::core::Abi for REASON_CONTEXT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for REASON_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REASON_CONTEXT_0_0>()) == 0 }
+        self.LocalizedReasonModule == other.LocalizedReasonModule && self.LocalizedReasonId == other.LocalizedReasonId && self.ReasonStringCount == other.ReasonStringCount && self.ReasonStrings == other.ReasonStrings
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5040,7 +5015,7 @@ unsafe impl ::windows::core::Abi for RTL_BARRIER {
 }
 impl ::core::cmp::PartialEq for RTL_BARRIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_BARRIER>()) == 0 }
+        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5
     }
 }
 impl ::core::cmp::Eq for RTL_BARRIER {}
@@ -5070,7 +5045,7 @@ unsafe impl ::windows::core::Abi for RTL_CONDITION_VARIABLE {
 }
 impl ::core::cmp::PartialEq for RTL_CONDITION_VARIABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_CONDITION_VARIABLE>()) == 0 }
+        self.Ptr == other.Ptr
     }
 }
 impl ::core::cmp::Eq for RTL_CONDITION_VARIABLE {}
@@ -5111,7 +5086,7 @@ unsafe impl ::windows::core::Abi for RTL_CRITICAL_SECTION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_CRITICAL_SECTION>()) == 0 }
+        self.DebugInfo == other.DebugInfo && self.LockCount == other.LockCount && self.RecursionCount == other.RecursionCount && self.OwningThread == other.OwningThread && self.LockSemaphore == other.LockSemaphore && self.SpinCount == other.SpinCount
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5157,7 +5132,7 @@ unsafe impl ::windows::core::Abi for RTL_CRITICAL_SECTION_DEBUG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION_DEBUG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_CRITICAL_SECTION_DEBUG>()) == 0 }
+        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.SpareWORD == other.SpareWORD
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -5182,12 +5157,6 @@ impl ::core::clone::Clone for RTL_RUN_ONCE {
 unsafe impl ::windows::core::Abi for RTL_RUN_ONCE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RTL_RUN_ONCE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_RUN_ONCE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RTL_RUN_ONCE {}
 impl ::core::default::Default for RTL_RUN_ONCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5214,7 +5183,7 @@ unsafe impl ::windows::core::Abi for RTL_SRWLOCK {
 }
 impl ::core::cmp::PartialEq for RTL_SRWLOCK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_SRWLOCK>()) == 0 }
+        self.Ptr == other.Ptr
     }
 }
 impl ::core::cmp::Eq for RTL_SRWLOCK {}
@@ -5253,7 +5222,7 @@ unsafe impl ::windows::core::Abi for RTL_USER_PROCESS_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RTL_USER_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_USER_PROCESS_PARAMETERS>()) == 0 }
+        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.ImagePathName == other.ImagePathName && self.CommandLine == other.CommandLine
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5327,7 +5296,7 @@ unsafe impl ::windows::core::Abi for STARTUPINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STARTUPINFOA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOA>()) == 0 }
+        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5366,7 +5335,7 @@ unsafe impl ::windows::core::Abi for STARTUPINFOEXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STARTUPINFOEXA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOEXA>()) == 0 }
+        self.StartupInfo == other.StartupInfo && self.lpAttributeList == other.lpAttributeList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5405,7 +5374,7 @@ unsafe impl ::windows::core::Abi for STARTUPINFOEXW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STARTUPINFOEXW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOEXW>()) == 0 }
+        self.StartupInfo == other.StartupInfo && self.lpAttributeList == other.lpAttributeList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5479,7 +5448,7 @@ unsafe impl ::windows::core::Abi for STARTUPINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STARTUPINFOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOW>()) == 0 }
+        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5513,7 +5482,7 @@ unsafe impl ::windows::core::Abi for THREAD_POWER_THROTTLING_STATE {
 }
 impl ::core::cmp::PartialEq for THREAD_POWER_THROTTLING_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THREAD_POWER_THROTTLING_STATE>()) == 0 }
+        self.Version == other.Version && self.ControlMask == other.ControlMask && self.StateMask == other.StateMask
     }
 }
 impl ::core::cmp::Eq for THREAD_POWER_THROTTLING_STATE {}
@@ -5545,12 +5514,6 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
 unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_CALLBACK_ENVIRON_V3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3 {}
 impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5573,12 +5536,6 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1 {
 unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_CALLBACK_ENVIRON_V3_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1 {}
 impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5605,7 +5562,7 @@ unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3_1_0 {
 }
 impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_CALLBACK_ENVIRON_V3_1_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1_0 {}
@@ -5640,7 +5597,7 @@ unsafe impl ::windows::core::Abi for TP_POOL_STACK_INFORMATION {
 }
 impl ::core::cmp::PartialEq for TP_POOL_STACK_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_POOL_STACK_INFORMATION>()) == 0 }
+        self.StackReserve == other.StackReserve && self.StackCommit == other.StackCommit
     }
 }
 impl ::core::cmp::Eq for TP_POOL_STACK_INFORMATION {}
@@ -5707,21 +5664,13 @@ impl ::core::clone::Clone for UMS_SCHEDULER_STARTUP_INFO {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::fmt::Debug for UMS_SCHEDULER_STARTUP_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UMS_SCHEDULER_STARTUP_INFO").field("UmsVersion", &self.UmsVersion).field("CompletionList", &self.CompletionList).field("SchedulerProc", &self.SchedulerProc.map(|f| f as usize)).field("SchedulerParam", &self.SchedulerParam).finish()
+        f.debug_struct("UMS_SCHEDULER_STARTUP_INFO").field("UmsVersion", &self.UmsVersion).field("CompletionList", &self.CompletionList).field("SchedulerParam", &self.SchedulerParam).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::core::Abi for UMS_SCHEDULER_STARTUP_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::PartialEq for UMS_SCHEDULER_STARTUP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SCHEDULER_STARTUP_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::Eq for UMS_SCHEDULER_STARTUP_INFO {}
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::default::Default for UMS_SCHEDULER_STARTUP_INFO {
     fn default() -> Self {
@@ -5743,12 +5692,6 @@ impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION {
 unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SYSTEM_THREAD_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION {}
 impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5769,12 +5712,6 @@ impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0 {
 unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SYSTEM_THREAD_INFORMATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0 {}
 impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5801,7 +5738,7 @@ unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
 }
 impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SYSTEM_THREAD_INFORMATION_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}

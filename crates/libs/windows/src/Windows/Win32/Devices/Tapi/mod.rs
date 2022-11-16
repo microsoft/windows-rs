@@ -16009,7 +16009,7 @@ unsafe impl ::windows::core::Abi for ADDRALIAS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ADDRALIAS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRALIAS>()) == 0 }
+        self.rgchName == other.rgchName && self.rgchEName == other.rgchEName && self.rgchSrvr == other.rgchSrvr && self.dibDetail == other.dibDetail && self.r#type == other.r#type
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16040,12 +16040,6 @@ impl ::core::clone::Clone for DTR {
 unsafe impl ::windows::core::Abi for DTR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DTR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DTR {}
 impl ::core::default::Default for DTR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16072,7 +16066,7 @@ unsafe impl ::windows::core::Abi for HDRVCALL__ {
 }
 impl ::core::cmp::PartialEq for HDRVCALL__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDRVCALL__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HDRVCALL__ {}
@@ -16102,7 +16096,7 @@ unsafe impl ::windows::core::Abi for HDRVDIALOGINSTANCE__ {
 }
 impl ::core::cmp::PartialEq for HDRVDIALOGINSTANCE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDRVDIALOGINSTANCE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HDRVDIALOGINSTANCE__ {}
@@ -16132,7 +16126,7 @@ unsafe impl ::windows::core::Abi for HDRVLINE__ {
 }
 impl ::core::cmp::PartialEq for HDRVLINE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDRVLINE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HDRVLINE__ {}
@@ -16162,7 +16156,7 @@ unsafe impl ::windows::core::Abi for HDRVMSPLINE__ {
 }
 impl ::core::cmp::PartialEq for HDRVMSPLINE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDRVMSPLINE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HDRVMSPLINE__ {}
@@ -16192,7 +16186,7 @@ unsafe impl ::windows::core::Abi for HDRVPHONE__ {
 }
 impl ::core::cmp::PartialEq for HDRVPHONE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HDRVPHONE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HDRVPHONE__ {}
@@ -16222,7 +16216,7 @@ unsafe impl ::windows::core::Abi for HPROVIDER__ {
 }
 impl ::core::cmp::PartialEq for HPROVIDER__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HPROVIDER__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HPROVIDER__ {}
@@ -16252,7 +16246,7 @@ unsafe impl ::windows::core::Abi for HTAPICALL__ {
 }
 impl ::core::cmp::PartialEq for HTAPICALL__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTAPICALL__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HTAPICALL__ {}
@@ -16282,7 +16276,7 @@ unsafe impl ::windows::core::Abi for HTAPILINE__ {
 }
 impl ::core::cmp::PartialEq for HTAPILINE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTAPILINE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HTAPILINE__ {}
@@ -16312,7 +16306,7 @@ unsafe impl ::windows::core::Abi for HTAPIPHONE__ {
 }
 impl ::core::cmp::PartialEq for HTAPIPHONE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTAPIPHONE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for HTAPIPHONE__ {}
@@ -16391,12 +16385,6 @@ impl ::core::clone::Clone for LINEADDRESSCAPS {
 unsafe impl ::windows::core::Abi for LINEADDRESSCAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEADDRESSCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEADDRESSCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEADDRESSCAPS {}
 impl ::core::default::Default for LINEADDRESSCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16431,12 +16419,6 @@ impl ::core::clone::Clone for LINEADDRESSSTATUS {
 unsafe impl ::windows::core::Abi for LINEADDRESSSTATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEADDRESSSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEADDRESSSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEADDRESSSTATUS {}
 impl ::core::default::Default for LINEADDRESSSTATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16458,12 +16440,6 @@ impl ::core::clone::Clone for LINEAGENTACTIVITYENTRY {
 unsafe impl ::windows::core::Abi for LINEAGENTACTIVITYENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTACTIVITYENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTACTIVITYENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTACTIVITYENTRY {}
 impl ::core::default::Default for LINEAGENTACTIVITYENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16488,12 +16464,6 @@ impl ::core::clone::Clone for LINEAGENTACTIVITYLIST {
 unsafe impl ::windows::core::Abi for LINEAGENTACTIVITYLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTACTIVITYLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTACTIVITYLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTACTIVITYLIST {}
 impl ::core::default::Default for LINEAGENTACTIVITYLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16527,12 +16497,6 @@ impl ::core::clone::Clone for LINEAGENTCAPS {
 unsafe impl ::windows::core::Abi for LINEAGENTCAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTCAPS {}
 impl ::core::default::Default for LINEAGENTCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16558,12 +16522,6 @@ impl ::core::clone::Clone for LINEAGENTENTRY {
 unsafe impl ::windows::core::Abi for LINEAGENTENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTENTRY {}
 impl ::core::default::Default for LINEAGENTENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16585,12 +16543,6 @@ impl ::core::clone::Clone for LINEAGENTGROUPENTRY {
 unsafe impl ::windows::core::Abi for LINEAGENTGROUPENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTGROUPENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTGROUPENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTGROUPENTRY {}
 impl ::core::default::Default for LINEAGENTGROUPENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16613,12 +16565,6 @@ impl ::core::clone::Clone for LINEAGENTGROUPENTRY_0 {
 unsafe impl ::windows::core::Abi for LINEAGENTGROUPENTRY_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTGROUPENTRY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTGROUPENTRY_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTGROUPENTRY_0 {}
 impl ::core::default::Default for LINEAGENTGROUPENTRY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16643,12 +16589,6 @@ impl ::core::clone::Clone for LINEAGENTGROUPLIST {
 unsafe impl ::windows::core::Abi for LINEAGENTGROUPLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTGROUPLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTGROUPLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTGROUPLIST {}
 impl ::core::default::Default for LINEAGENTGROUPLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16685,14 +16625,6 @@ unsafe impl ::windows::core::Abi for LINEAGENTINFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEAGENTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEAGENTINFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEAGENTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16717,12 +16649,6 @@ impl ::core::clone::Clone for LINEAGENTLIST {
 unsafe impl ::windows::core::Abi for LINEAGENTLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTLIST {}
 impl ::core::default::Default for LINEAGENTLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16745,12 +16671,6 @@ impl ::core::clone::Clone for LINEAGENTSESSIONENTRY {
 unsafe impl ::windows::core::Abi for LINEAGENTSESSIONENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTSESSIONENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTSESSIONENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTSESSIONENTRY {}
 impl ::core::default::Default for LINEAGENTSESSIONENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16791,14 +16711,6 @@ unsafe impl ::windows::core::Abi for LINEAGENTSESSIONINFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEAGENTSESSIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTSESSIONINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEAGENTSESSIONINFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEAGENTSESSIONINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16823,12 +16735,6 @@ impl ::core::clone::Clone for LINEAGENTSESSIONLIST {
 unsafe impl ::windows::core::Abi for LINEAGENTSESSIONLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTSESSIONLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTSESSIONLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTSESSIONLIST {}
 impl ::core::default::Default for LINEAGENTSESSIONLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16861,12 +16767,6 @@ impl ::core::clone::Clone for LINEAGENTSTATUS {
 unsafe impl ::windows::core::Abi for LINEAGENTSTATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAGENTSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAGENTSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAGENTSTATUS {}
 impl ::core::default::Default for LINEAGENTSTATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16895,12 +16795,6 @@ impl ::core::clone::Clone for LINEAPPINFO {
 unsafe impl ::windows::core::Abi for LINEAPPINFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEAPPINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEAPPINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEAPPINFO {}
 impl ::core::default::Default for LINEAPPINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16997,12 +16891,6 @@ impl ::core::clone::Clone for LINECALLINFO {
 unsafe impl ::windows::core::Abi for LINECALLINFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINECALLINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECALLINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINECALLINFO {}
 impl ::core::default::Default for LINECALLINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17027,12 +16915,6 @@ impl ::core::clone::Clone for LINECALLLIST {
 unsafe impl ::windows::core::Abi for LINECALLLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINECALLLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECALLLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINECALLLIST {}
 impl ::core::default::Default for LINECALLLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17092,12 +16974,6 @@ impl ::core::clone::Clone for LINECALLPARAMS {
 unsafe impl ::windows::core::Abi for LINECALLPARAMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINECALLPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECALLPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINECALLPARAMS {}
 impl ::core::default::Default for LINECALLPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17132,14 +17008,6 @@ unsafe impl ::windows::core::Abi for LINECALLSTATUS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LINECALLSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECALLSTATUS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LINECALLSTATUS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LINECALLSTATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17161,12 +17029,6 @@ impl ::core::clone::Clone for LINECALLTREATMENTENTRY {
 unsafe impl ::windows::core::Abi for LINECALLTREATMENTENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINECALLTREATMENTENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECALLTREATMENTENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINECALLTREATMENTENTRY {}
 impl ::core::default::Default for LINECALLTREATMENTENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17196,12 +17058,6 @@ impl ::core::clone::Clone for LINECARDENTRY {
 unsafe impl ::windows::core::Abi for LINECARDENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINECARDENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECARDENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINECARDENTRY {}
 impl ::core::default::Default for LINECARDENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17231,12 +17087,6 @@ impl ::core::clone::Clone for LINECOUNTRYENTRY {
 unsafe impl ::windows::core::Abi for LINECOUNTRYENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINECOUNTRYENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECOUNTRYENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINECOUNTRYENTRY {}
 impl ::core::default::Default for LINECOUNTRYENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17261,12 +17111,6 @@ impl ::core::clone::Clone for LINECOUNTRYLIST {
 unsafe impl ::windows::core::Abi for LINECOUNTRYLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINECOUNTRYLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINECOUNTRYLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINECOUNTRYLIST {}
 impl ::core::default::Default for LINECOUNTRYLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17340,12 +17184,6 @@ impl ::core::clone::Clone for LINEDEVCAPS {
 unsafe impl ::windows::core::Abi for LINEDEVCAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEDEVCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEDEVCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEDEVCAPS {}
 impl ::core::default::Default for LINEDEVCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17386,12 +17224,6 @@ impl ::core::clone::Clone for LINEDEVSTATUS {
 unsafe impl ::windows::core::Abi for LINEDEVSTATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEDEVSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEDEVSTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEDEVSTATUS {}
 impl ::core::default::Default for LINEDEVSTATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17414,12 +17246,6 @@ impl ::core::clone::Clone for LINEDIALPARAMS {
 unsafe impl ::windows::core::Abi for LINEDIALPARAMS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEDIALPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEDIALPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEDIALPARAMS {}
 impl ::core::default::Default for LINEDIALPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17442,12 +17268,6 @@ impl ::core::clone::Clone for LINEEXTENSIONID {
 unsafe impl ::windows::core::Abi for LINEEXTENSIONID {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEEXTENSIONID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEEXTENSIONID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEEXTENSIONID {}
 impl ::core::default::Default for LINEEXTENSIONID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17472,12 +17292,6 @@ impl ::core::clone::Clone for LINEFORWARD {
 unsafe impl ::windows::core::Abi for LINEFORWARD {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEFORWARD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEFORWARD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEFORWARD {}
 impl ::core::default::Default for LINEFORWARD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17499,12 +17313,6 @@ impl ::core::clone::Clone for LINEFORWARDLIST {
 unsafe impl ::windows::core::Abi for LINEFORWARDLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEFORWARDLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEFORWARDLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEFORWARDLIST {}
 impl ::core::default::Default for LINEFORWARDLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17527,12 +17335,6 @@ impl ::core::clone::Clone for LINEGENERATETONE {
 unsafe impl ::windows::core::Abi for LINEGENERATETONE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEGENERATETONE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEGENERATETONE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEGENERATETONE {}
 impl ::core::default::Default for LINEGENERATETONE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17562,14 +17364,6 @@ unsafe impl ::windows::core::Abi for LINEINITIALIZEEXPARAMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LINEINITIALIZEEXPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEINITIALIZEEXPARAMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LINEINITIALIZEEXPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LINEINITIALIZEEXPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17594,14 +17388,6 @@ impl ::core::clone::Clone for LINEINITIALIZEEXPARAMS_0 {
 unsafe impl ::windows::core::Abi for LINEINITIALIZEEXPARAMS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LINEINITIALIZEEXPARAMS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEINITIALIZEEXPARAMS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LINEINITIALIZEEXPARAMS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LINEINITIALIZEEXPARAMS_0 {
     fn default() -> Self {
@@ -17638,12 +17424,6 @@ impl ::core::clone::Clone for LINELOCATIONENTRY {
 unsafe impl ::windows::core::Abi for LINELOCATIONENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINELOCATIONENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINELOCATIONENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINELOCATIONENTRY {}
 impl ::core::default::Default for LINELOCATIONENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17664,12 +17444,6 @@ impl ::core::clone::Clone for LINEMEDIACONTROLCALLSTATE {
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLCALLSTATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEMEDIACONTROLCALLSTATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEMEDIACONTROLCALLSTATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEMEDIACONTROLCALLSTATE {}
 impl ::core::default::Default for LINEMEDIACONTROLCALLSTATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17691,12 +17465,6 @@ impl ::core::clone::Clone for LINEMEDIACONTROLDIGIT {
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLDIGIT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEMEDIACONTROLDIGIT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEMEDIACONTROLDIGIT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEMEDIACONTROLDIGIT {}
 impl ::core::default::Default for LINEMEDIACONTROLDIGIT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17718,12 +17486,6 @@ impl ::core::clone::Clone for LINEMEDIACONTROLMEDIA {
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLMEDIA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEMEDIACONTROLMEDIA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEMEDIACONTROLMEDIA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEMEDIACONTROLMEDIA {}
 impl ::core::default::Default for LINEMEDIACONTROLMEDIA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17748,12 +17510,6 @@ impl ::core::clone::Clone for LINEMEDIACONTROLTONE {
 unsafe impl ::windows::core::Abi for LINEMEDIACONTROLTONE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEMEDIACONTROLTONE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEMEDIACONTROLTONE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEMEDIACONTROLTONE {}
 impl ::core::default::Default for LINEMEDIACONTROLTONE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17778,12 +17534,6 @@ impl ::core::clone::Clone for LINEMESSAGE {
 unsafe impl ::windows::core::Abi for LINEMESSAGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEMESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEMESSAGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEMESSAGE {}
 impl ::core::default::Default for LINEMESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17807,12 +17557,6 @@ impl ::core::clone::Clone for LINEMONITORTONE {
 unsafe impl ::windows::core::Abi for LINEMONITORTONE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEMONITORTONE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEMONITORTONE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEMONITORTONE {}
 impl ::core::default::Default for LINEMONITORTONE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17834,12 +17578,6 @@ impl ::core::clone::Clone for LINEPROVIDERENTRY {
 unsafe impl ::windows::core::Abi for LINEPROVIDERENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEPROVIDERENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROVIDERENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEPROVIDERENTRY {}
 impl ::core::default::Default for LINEPROVIDERENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17864,12 +17602,6 @@ impl ::core::clone::Clone for LINEPROVIDERLIST {
 unsafe impl ::windows::core::Abi for LINEPROVIDERLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEPROVIDERLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROVIDERLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEPROVIDERLIST {}
 impl ::core::default::Default for LINEPROVIDERLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17900,14 +17632,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST {
     fn default() -> Self {
@@ -17952,14 +17676,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17986,14 +17702,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_0 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_0 {
     fn default() -> Self {
@@ -18024,14 +17732,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_1 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_1>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18060,14 +17760,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_2 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18092,14 +17784,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_3 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_3 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_3>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_3 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_3 {
     fn default() -> Self {
@@ -18126,14 +17810,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_4 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_4>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18158,14 +17834,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_5 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_5 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_5>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_5 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_5 {
     fn default() -> Self {
@@ -18192,14 +17860,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_6 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_6>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18224,14 +17884,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_7 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_7 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_7>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_7 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_7 {
     fn default() -> Self {
@@ -18258,14 +17910,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_8 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_8 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_8>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_8 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_8 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18291,14 +17935,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_9 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_9 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_9>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_9 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18322,14 +17958,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_10 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_10 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_10 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_10>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_10 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_10 {
     fn default() -> Self {
@@ -18356,14 +17984,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_11 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_11 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_11>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_11 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_11 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18388,14 +18008,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_12 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_12 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_12 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_12>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_12 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_12 {
     fn default() -> Self {
@@ -18422,14 +18034,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_13 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_13 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_13>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_13 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_13 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18455,14 +18059,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_14 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_14 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_14>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_14 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_14 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18487,14 +18083,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_15 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_15 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_15 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_15>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_15 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_15 {
     fn default() -> Self {
@@ -18522,14 +18110,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_16 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_16 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_16>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_16 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_16 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18555,14 +18135,6 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_17 {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_17 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_17 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_17>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_17 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_17 {
     fn default() -> Self {
@@ -18590,14 +18162,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_18 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_18 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_18>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_18 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_18 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18623,14 +18187,6 @@ unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_19 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_19 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_19>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for LINEPROXYREQUEST_0_19 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_19 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18655,12 +18211,6 @@ impl ::core::clone::Clone for LINEPROXYREQUESTLIST {
 unsafe impl ::windows::core::Abi for LINEPROXYREQUESTLIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEPROXYREQUESTLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUESTLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEPROXYREQUESTLIST {}
 impl ::core::default::Default for LINEPROXYREQUESTLIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18682,12 +18232,6 @@ impl ::core::clone::Clone for LINEQUEUEENTRY {
 unsafe impl ::windows::core::Abi for LINEQUEUEENTRY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEQUEUEENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEQUEUEENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEQUEUEENTRY {}
 impl ::core::default::Default for LINEQUEUEENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18719,12 +18263,6 @@ impl ::core::clone::Clone for LINEQUEUEINFO {
 unsafe impl ::windows::core::Abi for LINEQUEUEINFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEQUEUEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEQUEUEINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEQUEUEINFO {}
 impl ::core::default::Default for LINEQUEUEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18749,12 +18287,6 @@ impl ::core::clone::Clone for LINEQUEUELIST {
 unsafe impl ::windows::core::Abi for LINEQUEUELIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEQUEUELIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEQUEUELIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEQUEUELIST {}
 impl ::core::default::Default for LINEQUEUELIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18790,7 +18322,7 @@ unsafe impl ::windows::core::Abi for LINEREQMAKECALL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LINEREQMAKECALL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEREQMAKECALL>()) == 0 }
+        self.szDestAddress == other.szDestAddress && self.szAppName == other.szAppName && self.szCalledParty == other.szCalledParty && self.szComment == other.szComment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18818,12 +18350,6 @@ impl ::core::clone::Clone for LINEREQMAKECALLW {
 unsafe impl ::windows::core::Abi for LINEREQMAKECALLW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINEREQMAKECALLW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEREQMAKECALLW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINEREQMAKECALLW {}
 impl ::core::default::Default for LINEREQMAKECALLW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18856,14 +18382,6 @@ impl ::core::clone::Clone for LINEREQMEDIACALL {
 unsafe impl ::windows::core::Abi for LINEREQMEDIACALL {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LINEREQMEDIACALL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEREQMEDIACALL>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LINEREQMEDIACALL {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LINEREQMEDIACALL {
     fn default() -> Self {
@@ -18898,14 +18416,6 @@ unsafe impl ::windows::core::Abi for LINEREQMEDIACALLW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LINEREQMEDIACALLW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEREQMEDIACALLW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LINEREQMEDIACALLW {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LINEREQMEDIACALLW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18927,12 +18437,6 @@ impl ::core::clone::Clone for LINETERMCAPS {
 unsafe impl ::windows::core::Abi for LINETERMCAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINETERMCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINETERMCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINETERMCAPS {}
 impl ::core::default::Default for LINETERMCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18962,12 +18466,6 @@ impl ::core::clone::Clone for LINETRANSLATECAPS {
 unsafe impl ::windows::core::Abi for LINETRANSLATECAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINETRANSLATECAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINETRANSLATECAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINETRANSLATECAPS {}
 impl ::core::default::Default for LINETRANSLATECAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18996,12 +18494,6 @@ impl ::core::clone::Clone for LINETRANSLATEOUTPUT {
 unsafe impl ::windows::core::Abi for LINETRANSLATEOUTPUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LINETRANSLATEOUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINETRANSLATEOUTPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LINETRANSLATEOUTPUT {}
 impl ::core::default::Default for LINETRANSLATEOUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19026,14 +18518,6 @@ impl ::core::clone::Clone for MSP_EVENT_INFO {
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MSP_EVENT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.Event == other.Event && self.hCall == other.hCall && self.Anonymous == other.Anonymous
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MSP_EVENT_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO {
     fn default() -> Self {
@@ -19063,14 +18547,6 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MSP_EVENT_INFO_0 {}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0 {
     fn default() -> Self {
@@ -19339,7 +18815,7 @@ unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_6 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_6>()) == 0 }
+        self.dwBufferSize == other.dwBufferSize && self.pBuffer == other.pBuffer
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19410,14 +18886,6 @@ unsafe impl ::windows::core::Abi for NSID {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NSID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NSID>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NSID {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NSID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19442,14 +18910,6 @@ impl ::core::clone::Clone for NSID_0 {
 unsafe impl ::windows::core::Abi for NSID_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NSID_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NSID_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NSID_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NSID_0 {
     fn default() -> Self {
@@ -19479,12 +18939,6 @@ impl ::core::clone::Clone for PHONEBUTTONINFO {
 unsafe impl ::windows::core::Abi for PHONEBUTTONINFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PHONEBUTTONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHONEBUTTONINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PHONEBUTTONINFO {}
 impl ::core::default::Default for PHONEBUTTONINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19549,12 +19003,6 @@ impl ::core::clone::Clone for PHONECAPS {
 unsafe impl ::windows::core::Abi for PHONECAPS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PHONECAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHONECAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PHONECAPS {}
 impl ::core::default::Default for PHONECAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19577,12 +19025,6 @@ impl ::core::clone::Clone for PHONEEXTENSIONID {
 unsafe impl ::windows::core::Abi for PHONEEXTENSIONID {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PHONEEXTENSIONID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHONEEXTENSIONID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PHONEEXTENSIONID {}
 impl ::core::default::Default for PHONEEXTENSIONID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19612,14 +19054,6 @@ unsafe impl ::windows::core::Abi for PHONEINITIALIZEEXPARAMS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PHONEINITIALIZEEXPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHONEINITIALIZEEXPARAMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PHONEINITIALIZEEXPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PHONEINITIALIZEEXPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19645,14 +19079,6 @@ unsafe impl ::windows::core::Abi for PHONEINITIALIZEEXPARAMS_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PHONEINITIALIZEEXPARAMS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHONEINITIALIZEEXPARAMS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PHONEINITIALIZEEXPARAMS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PHONEINITIALIZEEXPARAMS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19677,12 +19103,6 @@ impl ::core::clone::Clone for PHONEMESSAGE {
 unsafe impl ::windows::core::Abi for PHONEMESSAGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PHONEMESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHONEMESSAGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PHONEMESSAGE {}
 impl ::core::default::Default for PHONEMESSAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19727,12 +19147,6 @@ impl ::core::clone::Clone for PHONESTATUS {
 unsafe impl ::windows::core::Abi for PHONESTATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PHONESTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PHONESTATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PHONESTATUS {}
 impl ::core::default::Default for PHONESTATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19756,12 +19170,6 @@ impl ::core::clone::Clone for RENDDATA {
 unsafe impl ::windows::core::Abi for RENDDATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RENDDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RENDDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RENDDATA {}
 impl ::core::default::Default for RENDDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -19791,7 +19199,7 @@ unsafe impl ::windows::core::Abi for STnefProblem {
 }
 impl ::core::cmp::PartialEq for STnefProblem {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STnefProblem>()) == 0 }
+        self.ulComponent == other.ulComponent && self.ulAttribute == other.ulAttribute && self.ulPropTag == other.ulPropTag && self.scode == other.scode
     }
 }
 impl ::core::cmp::Eq for STnefProblem {}
@@ -19822,7 +19230,7 @@ unsafe impl ::windows::core::Abi for STnefProblemArray {
 }
 impl ::core::cmp::PartialEq for STnefProblemArray {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STnefProblemArray>()) == 0 }
+        self.cProblem == other.cProblem && self.aProblem == other.aProblem
     }
 }
 impl ::core::cmp::Eq for STnefProblemArray {}
@@ -19855,7 +19263,7 @@ unsafe impl ::windows::core::Abi for TAPI_CUSTOMTONE {
 }
 impl ::core::cmp::PartialEq for TAPI_CUSTOMTONE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAPI_CUSTOMTONE>()) == 0 }
+        self.dwFrequency == other.dwFrequency && self.dwCadenceOn == other.dwCadenceOn && self.dwCadenceOff == other.dwCadenceOff && self.dwVolume == other.dwVolume
     }
 }
 impl ::core::cmp::Eq for TAPI_CUSTOMTONE {}
@@ -19889,7 +19297,7 @@ unsafe impl ::windows::core::Abi for TAPI_DETECTTONE {
 }
 impl ::core::cmp::PartialEq for TAPI_DETECTTONE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAPI_DETECTTONE>()) == 0 }
+        self.dwAppSpecific == other.dwAppSpecific && self.dwDuration == other.dwDuration && self.dwFrequency1 == other.dwFrequency1 && self.dwFrequency2 == other.dwFrequency2 && self.dwFrequency3 == other.dwFrequency3
     }
 }
 impl ::core::cmp::Eq for TAPI_DETECTTONE {}
@@ -19922,7 +19330,7 @@ unsafe impl ::windows::core::Abi for TRP {
 }
 impl ::core::cmp::PartialEq for TRP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRP>()) == 0 }
+        self.trpid == other.trpid && self.cbgrtrp == other.cbgrtrp && self.cch == other.cch && self.cbRgb == other.cbRgb
     }
 }
 impl ::core::cmp::Eq for TRP {}
@@ -19957,7 +19365,7 @@ unsafe impl ::windows::core::Abi for TUISPICREATEDIALOGINSTANCEPARAMS {
 }
 impl ::core::cmp::PartialEq for TUISPICREATEDIALOGINSTANCEPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TUISPICREATEDIALOGINSTANCEPARAMS>()) == 0 }
+        self.dwRequestID == other.dwRequestID && self.hdDlgInst == other.hdDlgInst && self.htDlgInst == other.htDlgInst && self.lpszUIDLLName == other.lpszUIDLLName && self.lpParams == other.lpParams && self.dwSize == other.dwSize
     }
 }
 impl ::core::cmp::Eq for TUISPICREATEDIALOGINSTANCEPARAMS {}
@@ -19985,12 +19393,6 @@ impl ::core::clone::Clone for VARSTRING {
 unsafe impl ::windows::core::Abi for VARSTRING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VARSTRING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARSTRING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VARSTRING {}
 impl ::core::default::Default for VARSTRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -439,7 +439,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferResult {
 }
 impl ::core::cmp::PartialEq for ProviderI2cTransferResult {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ProviderI2cTransferResult>()) == 0 }
+        self.Status == other.Status && self.BytesTransferred == other.BytesTransferred
     }
 }
 impl ::core::cmp::Eq for ProviderI2cTransferResult {}

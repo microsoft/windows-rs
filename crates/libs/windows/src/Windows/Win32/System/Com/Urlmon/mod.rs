@@ -5343,7 +5343,7 @@ unsafe impl ::windows::core::Abi for CODEBASEHOLD {
 }
 impl ::core::cmp::PartialEq for CODEBASEHOLD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CODEBASEHOLD>()) == 0 }
+        self.cbSize == other.cbSize && self.szDistUnit == other.szDistUnit && self.szCodeBase == other.szCodeBase && self.dwVersionMS == other.dwVersionMS && self.dwVersionLS == other.dwVersionLS && self.dwStyle == other.dwStyle
     }
 }
 impl ::core::cmp::Eq for CODEBASEHOLD {}
@@ -5407,7 +5407,7 @@ unsafe impl ::windows::core::Abi for DATAINFO {
 }
 impl ::core::cmp::PartialEq for DATAINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATAINFO>()) == 0 }
+        self.ulTotalSize == other.ulTotalSize && self.ulavrPacketSize == other.ulavrPacketSize && self.ulConnectSpeed == other.ulConnectSpeed && self.ulProcessorSpeed == other.ulProcessorSpeed
     }
 }
 impl ::core::cmp::Eq for DATAINFO {}
@@ -5447,7 +5447,7 @@ unsafe impl ::windows::core::Abi for HIT_LOGGING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HIT_LOGGING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIT_LOGGING_INFO>()) == 0 }
+        self.dwStructSize == other.dwStructSize && self.lpszLoggedUrlName == other.lpszLoggedUrlName && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.lpszExtendedInfo == other.lpszExtendedInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5482,7 +5482,7 @@ unsafe impl ::windows::core::Abi for PROTOCOLDATA {
 }
 impl ::core::cmp::PartialEq for PROTOCOLDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTOCOLDATA>()) == 0 }
+        self.grfFlags == other.grfFlags && self.dwState == other.dwState && self.pData == other.pData && self.cbData == other.cbData
     }
 }
 impl ::core::cmp::Eq for PROTOCOLDATA {}
@@ -5552,7 +5552,7 @@ unsafe impl ::windows::core::Abi for PROTOCOL_ARGUMENT {
 }
 impl ::core::cmp::PartialEq for PROTOCOL_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROTOCOL_ARGUMENT>()) == 0 }
+        self.szMethod == other.szMethod && self.szTargetUrl == other.szTargetUrl
     }
 }
 impl ::core::cmp::Eq for PROTOCOL_ARGUMENT {}
@@ -5590,7 +5590,7 @@ unsafe impl ::windows::core::Abi for REMSECURITY_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for REMSECURITY_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REMSECURITY_ATTRIBUTES>()) == 0 }
+        self.nLength == other.nLength && self.lpSecurityDescriptor == other.lpSecurityDescriptor && self.bInheritHandle == other.bInheritHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5702,7 +5702,7 @@ unsafe impl ::windows::core::Abi for RemFORMATETC {
 }
 impl ::core::cmp::PartialEq for RemFORMATETC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemFORMATETC>()) == 0 }
+        self.cfFormat == other.cfFormat && self.ptd == other.ptd && self.dwAspect == other.dwAspect && self.lindex == other.lindex && self.tymed == other.tymed
     }
 }
 impl ::core::cmp::Eq for RemFORMATETC {}
@@ -5758,7 +5758,7 @@ unsafe impl ::windows::core::Abi for SOFTDISTINFO {
 }
 impl ::core::cmp::PartialEq for SOFTDISTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOFTDISTINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwAdState == other.dwAdState && self.szTitle == other.szTitle && self.szAbstract == other.szAbstract && self.szHREF == other.szHREF && self.dwInstalledVersionMS == other.dwInstalledVersionMS && self.dwInstalledVersionLS == other.dwInstalledVersionLS && self.dwUpdateVersionMS == other.dwUpdateVersionMS && self.dwUpdateVersionLS == other.dwUpdateVersionLS && self.dwAdvertisedVersionMS == other.dwAdvertisedVersionMS && self.dwAdvertisedVersionLS == other.dwAdvertisedVersionLS && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for SOFTDISTINFO {}
@@ -5826,7 +5826,7 @@ unsafe impl ::windows::core::Abi for ZONEATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for ZONEATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ZONEATTRIBUTES>()) == 0 }
+        self.cbSize == other.cbSize && self.szDisplayName == other.szDisplayName && self.szDescription == other.szDescription && self.szIconPath == other.szIconPath && self.dwTemplateMinLevel == other.dwTemplateMinLevel && self.dwTemplateRecommended == other.dwTemplateRecommended && self.dwTemplateCurrentLevel == other.dwTemplateCurrentLevel && self.dwFlags == other.dwFlags
     }
 }
 impl ::core::cmp::Eq for ZONEATTRIBUTES {}

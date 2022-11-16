@@ -4948,12 +4948,6 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.Anonymous == other.Anonymous
-    }
-}
-impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT {}
 impl ::core::default::Default for VDS_ASYNC_OUTPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4979,12 +4973,6 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0 {}
 impl ::core::default::Default for VDS_ASYNC_OUTPUT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5070,7 +5058,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_2 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_2>()) == 0 }
+        self.ullOffset == other.ullOffset && self.volumeId == other.volumeId
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_2 {}
@@ -5216,7 +5204,7 @@ unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_7 {
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_7 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ASYNC_OUTPUT_0_7>()) == 0 }
+        self.ullReclaimedBytes == other.ullReclaimedBytes
     }
 }
 impl ::core::cmp::Eq for VDS_ASYNC_OUTPUT_0_7 {}
@@ -5247,7 +5235,7 @@ unsafe impl ::windows::core::Abi for VDS_CONTROLLER_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_CONTROLLER_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_CONTROLLER_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.controllerId == other.controllerId
     }
 }
 impl ::core::cmp::Eq for VDS_CONTROLLER_NOTIFICATION {}
@@ -5282,7 +5270,7 @@ unsafe impl ::windows::core::Abi for VDS_CONTROLLER_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_CONTROLLER_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_CONTROLLER_PROP>()) == 0 }
+        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.status == other.status && self.health == other.health && self.sNumberOfPorts == other.sNumberOfPorts
     }
 }
 impl ::core::cmp::Eq for VDS_CONTROLLER_PROP {}
@@ -5313,7 +5301,7 @@ unsafe impl ::windows::core::Abi for VDS_DISK_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_DISK_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_DISK_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.diskId == other.diskId
     }
 }
 impl ::core::cmp::Eq for VDS_DISK_NOTIFICATION {}
@@ -5352,7 +5340,7 @@ unsafe impl ::windows::core::Abi for VDS_DRIVE_EXTENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_DRIVE_EXTENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_DRIVE_EXTENT>()) == 0 }
+        self.id == other.id && self.LunId == other.LunId && self.ullSize == other.ullSize && self.bUsed == other.bUsed
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5386,7 +5374,7 @@ unsafe impl ::windows::core::Abi for VDS_DRIVE_LETTER_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_LETTER_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_DRIVE_LETTER_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.wcLetter == other.wcLetter && self.volumeId == other.volumeId
     }
 }
 impl ::core::cmp::Eq for VDS_DRIVE_LETTER_NOTIFICATION {}
@@ -5417,7 +5405,7 @@ unsafe impl ::windows::core::Abi for VDS_DRIVE_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_DRIVE_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.driveId == other.driveId
     }
 }
 impl ::core::cmp::Eq for VDS_DRIVE_NOTIFICATION {}
@@ -5455,7 +5443,7 @@ unsafe impl ::windows::core::Abi for VDS_DRIVE_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_DRIVE_PROP>()) == 0 }
+        self.id == other.id && self.ullSize == other.ullSize && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.status == other.status && self.health == other.health && self.sInternalBusNumber == other.sInternalBusNumber && self.sSlotNumber == other.sSlotNumber
     }
 }
 impl ::core::cmp::Eq for VDS_DRIVE_PROP {}
@@ -5509,7 +5497,7 @@ unsafe impl ::windows::core::Abi for VDS_DRIVE_PROP2 {
 }
 impl ::core::cmp::PartialEq for VDS_DRIVE_PROP2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_DRIVE_PROP2>()) == 0 }
+        self.id == other.id && self.ullSize == other.ullSize && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.status == other.status && self.health == other.health && self.sInternalBusNumber == other.sInternalBusNumber && self.sSlotNumber == other.sSlotNumber && self.ulEnclosureNumber == other.ulEnclosureNumber && self.busType == other.busType && self.ulSpindleSpeed == other.ulSpindleSpeed
     }
 }
 impl ::core::cmp::Eq for VDS_DRIVE_PROP2 {}
@@ -5541,7 +5529,7 @@ unsafe impl ::windows::core::Abi for VDS_FILE_SYSTEM_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_FILE_SYSTEM_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_FILE_SYSTEM_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.volumeId == other.volumeId && self.dwPercentCompleted == other.dwPercentCompleted
     }
 }
 impl ::core::cmp::Eq for VDS_FILE_SYSTEM_NOTIFICATION {}
@@ -5577,7 +5565,7 @@ unsafe impl ::windows::core::Abi for VDS_HBAPORT_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_HBAPORT_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_HBAPORT_PROP>()) == 0 }
+        self.id == other.id && self.wwnNode == other.wwnNode && self.wwnPort == other.wwnPort && self.r#type == other.r#type && self.status == other.status && self.ulPortSpeed == other.ulPortSpeed && self.ulSupportedPortSpeed == other.ulSupportedPortSpeed
     }
 }
 impl ::core::cmp::Eq for VDS_HBAPORT_PROP {}
@@ -5649,7 +5637,24 @@ unsafe impl ::windows::core::Abi for VDS_HINTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_HINTS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_HINTS>()) == 0 }
+        self.ullHintMask == other.ullHintMask
+            && self.ullExpectedMaximumSize == other.ullExpectedMaximumSize
+            && self.ulOptimalReadSize == other.ulOptimalReadSize
+            && self.ulOptimalReadAlignment == other.ulOptimalReadAlignment
+            && self.ulOptimalWriteSize == other.ulOptimalWriteSize
+            && self.ulOptimalWriteAlignment == other.ulOptimalWriteAlignment
+            && self.ulMaximumDriveCount == other.ulMaximumDriveCount
+            && self.ulStripeSize == other.ulStripeSize
+            && self.bFastCrashRecoveryRequired == other.bFastCrashRecoveryRequired
+            && self.bMostlyReads == other.bMostlyReads
+            && self.bOptimizeForSequentialReads == other.bOptimizeForSequentialReads
+            && self.bOptimizeForSequentialWrites == other.bOptimizeForSequentialWrites
+            && self.bRemapEnabled == other.bRemapEnabled
+            && self.bReadBackVerifyEnabled == other.bReadBackVerifyEnabled
+            && self.bWriteThroughCachingEnabled == other.bWriteThroughCachingEnabled
+            && self.bHardwareChecksumEnabled == other.bHardwareChecksumEnabled
+            && self.bIsYankable == other.bIsYankable
+            && self.sRebuildPriority == other.sRebuildPriority
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5749,7 +5754,37 @@ unsafe impl ::windows::core::Abi for VDS_HINTS2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_HINTS2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_HINTS2>()) == 0 }
+        self.ullHintMask == other.ullHintMask
+            && self.ullExpectedMaximumSize == other.ullExpectedMaximumSize
+            && self.ulOptimalReadSize == other.ulOptimalReadSize
+            && self.ulOptimalReadAlignment == other.ulOptimalReadAlignment
+            && self.ulOptimalWriteSize == other.ulOptimalWriteSize
+            && self.ulOptimalWriteAlignment == other.ulOptimalWriteAlignment
+            && self.ulMaximumDriveCount == other.ulMaximumDriveCount
+            && self.ulStripeSize == other.ulStripeSize
+            && self.ulReserved1 == other.ulReserved1
+            && self.ulReserved2 == other.ulReserved2
+            && self.ulReserved3 == other.ulReserved3
+            && self.bFastCrashRecoveryRequired == other.bFastCrashRecoveryRequired
+            && self.bMostlyReads == other.bMostlyReads
+            && self.bOptimizeForSequentialReads == other.bOptimizeForSequentialReads
+            && self.bOptimizeForSequentialWrites == other.bOptimizeForSequentialWrites
+            && self.bRemapEnabled == other.bRemapEnabled
+            && self.bReadBackVerifyEnabled == other.bReadBackVerifyEnabled
+            && self.bWriteThroughCachingEnabled == other.bWriteThroughCachingEnabled
+            && self.bHardwareChecksumEnabled == other.bHardwareChecksumEnabled
+            && self.bIsYankable == other.bIsYankable
+            && self.bAllocateHotSpare == other.bAllocateHotSpare
+            && self.bUseMirroredCache == other.bUseMirroredCache
+            && self.bReadCachingEnabled == other.bReadCachingEnabled
+            && self.bWriteCachingEnabled == other.bWriteCachingEnabled
+            && self.bMediaScanEnabled == other.bMediaScanEnabled
+            && self.bConsistencyCheckEnabled == other.bConsistencyCheckEnabled
+            && self.BusType == other.BusType
+            && self.bReserved1 == other.bReserved1
+            && self.bReserved2 == other.bReserved2
+            && self.bReserved3 == other.bReserved3
+            && self.sRebuildPriority == other.sRebuildPriority
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5785,7 +5820,7 @@ unsafe impl ::windows::core::Abi for VDS_INTERCONNECT {
 }
 impl ::core::cmp::PartialEq for VDS_INTERCONNECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_INTERCONNECT>()) == 0 }
+        self.m_addressType == other.m_addressType && self.m_cbPort == other.m_cbPort && self.m_pbPort == other.m_pbPort && self.m_cbAddress == other.m_cbAddress && self.m_pbAddress == other.m_pbAddress
     }
 }
 impl ::core::cmp::Eq for VDS_INTERCONNECT {}
@@ -5821,7 +5856,7 @@ unsafe impl ::windows::core::Abi for VDS_IPADDRESS {
 }
 impl ::core::cmp::PartialEq for VDS_IPADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_IPADDRESS>()) == 0 }
+        self.r#type == other.r#type && self.ipv4Address == other.ipv4Address && self.ipv6Address == other.ipv6Address && self.ulIpv6FlowInfo == other.ulIpv6FlowInfo && self.ulIpv6ScopeId == other.ulIpv6ScopeId && self.wszTextAddress == other.wszTextAddress && self.ulPort == other.ulPort
     }
 }
 impl ::core::cmp::Eq for VDS_IPADDRESS {}
@@ -5852,7 +5887,7 @@ unsafe impl ::windows::core::Abi for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ISCSI_INITIATOR_ADAPTER_PROP>()) == 0 }
+        self.id == other.id && self.pwszName == other.pwszName
     }
 }
 impl ::core::cmp::Eq for VDS_ISCSI_INITIATOR_ADAPTER_PROP {}
@@ -5884,7 +5919,7 @@ unsafe impl ::windows::core::Abi for VDS_ISCSI_INITIATOR_PORTAL_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ISCSI_INITIATOR_PORTAL_PROP>()) == 0 }
+        self.id == other.id && self.address == other.address && self.ulPortIndex == other.ulPortIndex
     }
 }
 impl ::core::cmp::Eq for VDS_ISCSI_INITIATOR_PORTAL_PROP {}
@@ -5915,7 +5950,7 @@ unsafe impl ::windows::core::Abi for VDS_ISCSI_IPSEC_KEY {
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_IPSEC_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ISCSI_IPSEC_KEY>()) == 0 }
+        self.pKey == other.pKey && self.ulKeySize == other.ulKeySize
     }
 }
 impl ::core::cmp::Eq for VDS_ISCSI_IPSEC_KEY {}
@@ -5946,7 +5981,7 @@ unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTALGROUP_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_PORTALGROUP_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ISCSI_PORTALGROUP_PROP>()) == 0 }
+        self.id == other.id && self.tag == other.tag
     }
 }
 impl ::core::cmp::Eq for VDS_ISCSI_PORTALGROUP_PROP {}
@@ -5978,7 +6013,7 @@ unsafe impl ::windows::core::Abi for VDS_ISCSI_PORTAL_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_PORTAL_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ISCSI_PORTAL_PROP>()) == 0 }
+        self.id == other.id && self.address == other.address && self.status == other.status
     }
 }
 impl ::core::cmp::Eq for VDS_ISCSI_PORTAL_PROP {}
@@ -6009,7 +6044,7 @@ unsafe impl ::windows::core::Abi for VDS_ISCSI_SHARED_SECRET {
 }
 impl ::core::cmp::PartialEq for VDS_ISCSI_SHARED_SECRET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ISCSI_SHARED_SECRET>()) == 0 }
+        self.pSharedSecret == other.pSharedSecret && self.ulSharedSecretSize == other.ulSharedSecretSize
     }
 }
 impl ::core::cmp::Eq for VDS_ISCSI_SHARED_SECRET {}
@@ -6048,7 +6083,7 @@ unsafe impl ::windows::core::Abi for VDS_ISCSI_TARGET_PROP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_ISCSI_TARGET_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_ISCSI_TARGET_PROP>()) == 0 }
+        self.id == other.id && self.pwszIscsiName == other.pwszIscsiName && self.pwszFriendlyName == other.pwszFriendlyName && self.bChapEnabled == other.bChapEnabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6112,7 +6147,7 @@ unsafe impl ::windows::core::Abi for VDS_LUN_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_LUN_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_LUN_INFORMATION>()) == 0 }
+        self.m_version == other.m_version && self.m_DeviceType == other.m_DeviceType && self.m_DeviceTypeModifier == other.m_DeviceTypeModifier && self.m_bCommandQueueing == other.m_bCommandQueueing && self.m_BusType == other.m_BusType && self.m_szVendorId == other.m_szVendorId && self.m_szProductId == other.m_szProductId && self.m_szProductRevision == other.m_szProductRevision && self.m_szSerialNumber == other.m_szSerialNumber && self.m_diskSignature == other.m_diskSignature && self.m_deviceIdDescriptor == other.m_deviceIdDescriptor && self.m_cInterconnects == other.m_cInterconnects && self.m_rgInterconnects == other.m_rgInterconnects
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6145,7 +6180,7 @@ unsafe impl ::windows::core::Abi for VDS_LUN_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_LUN_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_LUN_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.LunId == other.LunId
     }
 }
 impl ::core::cmp::Eq for VDS_LUN_NOTIFICATION {}
@@ -6183,7 +6218,7 @@ unsafe impl ::windows::core::Abi for VDS_LUN_PLEX_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_LUN_PLEX_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_LUN_PLEX_PROP>()) == 0 }
+        self.id == other.id && self.ullSize == other.ullSize && self.r#type == other.r#type && self.status == other.status && self.health == other.health && self.TransitionState == other.TransitionState && self.ulFlags == other.ulFlags && self.ulStripeSize == other.ulStripeSize && self.sRebuildPriority == other.sRebuildPriority
     }
 }
 impl ::core::cmp::Eq for VDS_LUN_PLEX_PROP {}
@@ -6223,7 +6258,7 @@ unsafe impl ::windows::core::Abi for VDS_LUN_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_LUN_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_LUN_PROP>()) == 0 }
+        self.id == other.id && self.ullSize == other.ullSize && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.pwszUnmaskingList == other.pwszUnmaskingList && self.ulFlags == other.ulFlags && self.r#type == other.r#type && self.status == other.status && self.health == other.health && self.TransitionState == other.TransitionState && self.sRebuildPriority == other.sRebuildPriority
     }
 }
 impl ::core::cmp::Eq for VDS_LUN_PROP {}
@@ -6254,7 +6289,7 @@ unsafe impl ::windows::core::Abi for VDS_MOUNT_POINT_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_MOUNT_POINT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_MOUNT_POINT_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.volumeId == other.volumeId
     }
 }
 impl ::core::cmp::Eq for VDS_MOUNT_POINT_NOTIFICATION {}
@@ -6278,12 +6313,6 @@ impl ::core::clone::Clone for VDS_NOTIFICATION {
 unsafe impl ::windows::core::Abi for VDS_NOTIFICATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VDS_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_NOTIFICATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VDS_NOTIFICATION {}
 impl ::core::default::Default for VDS_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6318,12 +6347,6 @@ impl ::core::clone::Clone for VDS_NOTIFICATION_0 {
 unsafe impl ::windows::core::Abi for VDS_NOTIFICATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VDS_NOTIFICATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_NOTIFICATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VDS_NOTIFICATION_0 {}
 impl ::core::default::Default for VDS_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6351,7 +6374,7 @@ unsafe impl ::windows::core::Abi for VDS_PACK_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_PACK_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PACK_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.packId == other.packId
     }
 }
 impl ::core::cmp::Eq for VDS_PACK_NOTIFICATION {}
@@ -6383,7 +6406,7 @@ unsafe impl ::windows::core::Abi for VDS_PARTITION_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_PARTITION_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PARTITION_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.diskId == other.diskId && self.ullOffset == other.ullOffset
     }
 }
 impl ::core::cmp::Eq for VDS_PARTITION_NOTIFICATION {}
@@ -6414,7 +6437,7 @@ unsafe impl ::windows::core::Abi for VDS_PATH_ID {
 }
 impl ::core::cmp::PartialEq for VDS_PATH_ID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PATH_ID>()) == 0 }
+        self.ullSourceId == other.ullSourceId && self.ullPathId == other.ullPathId
     }
 }
 impl ::core::cmp::Eq for VDS_PATH_ID {}
@@ -6442,12 +6465,6 @@ impl ::core::clone::Clone for VDS_PATH_INFO {
 unsafe impl ::windows::core::Abi for VDS_PATH_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VDS_PATH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PATH_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VDS_PATH_INFO {}
 impl ::core::default::Default for VDS_PATH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6468,12 +6485,6 @@ impl ::core::clone::Clone for VDS_PATH_INFO_0 {
 unsafe impl ::windows::core::Abi for VDS_PATH_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VDS_PATH_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PATH_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VDS_PATH_INFO_0 {}
 impl ::core::default::Default for VDS_PATH_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6494,12 +6505,6 @@ impl ::core::clone::Clone for VDS_PATH_INFO_1 {
 unsafe impl ::windows::core::Abi for VDS_PATH_INFO_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VDS_PATH_INFO_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PATH_INFO_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VDS_PATH_INFO_1 {}
 impl ::core::default::Default for VDS_PATH_INFO_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6520,12 +6525,6 @@ impl ::core::clone::Clone for VDS_PATH_INFO_2 {
 unsafe impl ::windows::core::Abi for VDS_PATH_INFO_2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VDS_PATH_INFO_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PATH_INFO_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for VDS_PATH_INFO_2 {}
 impl ::core::default::Default for VDS_PATH_INFO_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6560,7 +6559,7 @@ unsafe impl ::windows::core::Abi for VDS_PATH_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_PATH_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PATH_POLICY>()) == 0 }
+        self.pathId == other.pathId && self.bPrimaryPath == other.bPrimaryPath && self.ulWeight == other.ulWeight
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6674,7 +6673,44 @@ unsafe impl ::windows::core::Abi for VDS_POOL_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_POOL_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_POOL_ATTRIBUTES>()) == 0 }
+        self.ullAttributeMask == other.ullAttributeMask
+            && self.raidType == other.raidType
+            && self.busType == other.busType
+            && self.pwszIntendedUsage == other.pwszIntendedUsage
+            && self.bSpinDown == other.bSpinDown
+            && self.bIsThinProvisioned == other.bIsThinProvisioned
+            && self.ullProvisionedSpace == other.ullProvisionedSpace
+            && self.bNoSinglePointOfFailure == other.bNoSinglePointOfFailure
+            && self.ulDataRedundancyMax == other.ulDataRedundancyMax
+            && self.ulDataRedundancyMin == other.ulDataRedundancyMin
+            && self.ulDataRedundancyDefault == other.ulDataRedundancyDefault
+            && self.ulPackageRedundancyMax == other.ulPackageRedundancyMax
+            && self.ulPackageRedundancyMin == other.ulPackageRedundancyMin
+            && self.ulPackageRedundancyDefault == other.ulPackageRedundancyDefault
+            && self.ulStripeSize == other.ulStripeSize
+            && self.ulStripeSizeMax == other.ulStripeSizeMax
+            && self.ulStripeSizeMin == other.ulStripeSizeMin
+            && self.ulDefaultStripeSize == other.ulDefaultStripeSize
+            && self.ulNumberOfColumns == other.ulNumberOfColumns
+            && self.ulNumberOfColumnsMax == other.ulNumberOfColumnsMax
+            && self.ulNumberOfColumnsMin == other.ulNumberOfColumnsMin
+            && self.ulDefaultNumberofColumns == other.ulDefaultNumberofColumns
+            && self.ulDataAvailabilityHint == other.ulDataAvailabilityHint
+            && self.ulAccessRandomnessHint == other.ulAccessRandomnessHint
+            && self.ulAccessDirectionHint == other.ulAccessDirectionHint
+            && self.ulAccessSizeHint == other.ulAccessSizeHint
+            && self.ulAccessLatencyHint == other.ulAccessLatencyHint
+            && self.ulAccessBandwidthWeightHint == other.ulAccessBandwidthWeightHint
+            && self.ulStorageCostHint == other.ulStorageCostHint
+            && self.ulStorageEfficiencyHint == other.ulStorageEfficiencyHint
+            && self.ulNumOfCustomAttributes == other.ulNumOfCustomAttributes
+            && self.pPoolCustomAttributes == other.pPoolCustomAttributes
+            && self.bReserved1 == other.bReserved1
+            && self.bReserved2 == other.bReserved2
+            && self.ulReserved1 == other.ulReserved1
+            && self.ulReserved2 == other.ulReserved2
+            && self.ullReserved1 == other.ullReserved1
+            && self.ullReserved2 == other.ullReserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6707,7 +6743,7 @@ unsafe impl ::windows::core::Abi for VDS_POOL_CUSTOM_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for VDS_POOL_CUSTOM_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_POOL_CUSTOM_ATTRIBUTES>()) == 0 }
+        self.pwszName == other.pwszName && self.pwszValue == other.pwszValue
     }
 }
 impl ::core::cmp::Eq for VDS_POOL_CUSTOM_ATTRIBUTES {}
@@ -6738,7 +6774,7 @@ unsafe impl ::windows::core::Abi for VDS_PORTAL_GROUP_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_PORTAL_GROUP_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PORTAL_GROUP_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.portalGroupId == other.portalGroupId
     }
 }
 impl ::core::cmp::Eq for VDS_PORTAL_GROUP_NOTIFICATION {}
@@ -6769,7 +6805,7 @@ unsafe impl ::windows::core::Abi for VDS_PORTAL_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_PORTAL_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PORTAL_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.portalId == other.portalId
     }
 }
 impl ::core::cmp::Eq for VDS_PORTAL_NOTIFICATION {}
@@ -6800,7 +6836,7 @@ unsafe impl ::windows::core::Abi for VDS_PORT_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_PORT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PORT_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.portId == other.portId
     }
 }
 impl ::core::cmp::Eq for VDS_PORT_NOTIFICATION {}
@@ -6833,7 +6869,7 @@ unsafe impl ::windows::core::Abi for VDS_PORT_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_PORT_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PORT_PROP>()) == 0 }
+        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.status == other.status
     }
 }
 impl ::core::cmp::Eq for VDS_PORT_PROP {}
@@ -6870,7 +6906,7 @@ unsafe impl ::windows::core::Abi for VDS_PROVIDER_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_PROVIDER_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_PROVIDER_PROP>()) == 0 }
+        self.id == other.id && self.pwszName == other.pwszName && self.guidVersionId == other.guidVersionId && self.pwszVersion == other.pwszVersion && self.r#type == other.r#type && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.sRebuildPriority == other.sRebuildPriority
     }
 }
 impl ::core::cmp::Eq for VDS_PROVIDER_PROP {}
@@ -6901,7 +6937,7 @@ unsafe impl ::windows::core::Abi for VDS_SERVICE_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_SERVICE_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_SERVICE_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.action == other.action
     }
 }
 impl ::core::cmp::Eq for VDS_SERVICE_NOTIFICATION {}
@@ -6933,7 +6969,7 @@ unsafe impl ::windows::core::Abi for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_STORAGE_DEVICE_ID_DESCRIPTOR>()) == 0 }
+        self.m_version == other.m_version && self.m_cIdentifiers == other.m_cIdentifiers && self.m_rgIdentifiers == other.m_rgIdentifiers
     }
 }
 impl ::core::cmp::Eq for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {}
@@ -6966,7 +7002,7 @@ unsafe impl ::windows::core::Abi for VDS_STORAGE_IDENTIFIER {
 }
 impl ::core::cmp::PartialEq for VDS_STORAGE_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_STORAGE_IDENTIFIER>()) == 0 }
+        self.m_CodeSet == other.m_CodeSet && self.m_Type == other.m_Type && self.m_cbIdentifier == other.m_cbIdentifier && self.m_rgbIdentifier == other.m_rgbIdentifier
     }
 }
 impl ::core::cmp::Eq for VDS_STORAGE_IDENTIFIER {}
@@ -7004,7 +7040,7 @@ unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_DRIVE_EXTENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_STORAGE_POOL_DRIVE_EXTENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_STORAGE_POOL_DRIVE_EXTENT>()) == 0 }
+        self.id == other.id && self.ullSize == other.ullSize && self.bUsed == other.bUsed
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7044,7 +7080,7 @@ unsafe impl ::windows::core::Abi for VDS_STORAGE_POOL_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_STORAGE_POOL_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_STORAGE_POOL_PROP>()) == 0 }
+        self.id == other.id && self.status == other.status && self.health == other.health && self.r#type == other.r#type && self.pwszName == other.pwszName && self.pwszDescription == other.pwszDescription && self.ullTotalConsumedSpace == other.ullTotalConsumedSpace && self.ullTotalManagedSpace == other.ullTotalManagedSpace && self.ullRemainingFreeSpace == other.ullRemainingFreeSpace
     }
 }
 impl ::core::cmp::Eq for VDS_STORAGE_POOL_PROP {}
@@ -7075,7 +7111,7 @@ unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_SUB_SYSTEM_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.subSystemId == other.subSystemId
     }
 }
 impl ::core::cmp::Eq for VDS_SUB_SYSTEM_NOTIFICATION {}
@@ -7127,7 +7163,7 @@ unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_PROP {
 }
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_PROP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_SUB_SYSTEM_PROP>()) == 0 }
+        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.status == other.status && self.health == other.health && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers && self.sRebuildPriority == other.sRebuildPriority
     }
 }
 impl ::core::cmp::Eq for VDS_SUB_SYSTEM_PROP {}
@@ -7183,7 +7219,7 @@ unsafe impl ::windows::core::Abi for VDS_SUB_SYSTEM_PROP2 {
 }
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_PROP2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_SUB_SYSTEM_PROP2>()) == 0 }
+        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.ulSupportedRaidTypeFlags == other.ulSupportedRaidTypeFlags && self.status == other.status && self.health == other.health && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers && self.sRebuildPriority == other.sRebuildPriority && self.ulNumberOfEnclosures == other.ulNumberOfEnclosures
     }
 }
 impl ::core::cmp::Eq for VDS_SUB_SYSTEM_PROP2 {}
@@ -7214,7 +7250,7 @@ unsafe impl ::windows::core::Abi for VDS_TARGET_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_TARGET_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_TARGET_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.targetId == other.targetId
     }
 }
 impl ::core::cmp::Eq for VDS_TARGET_NOTIFICATION {}
@@ -7247,7 +7283,7 @@ unsafe impl ::windows::core::Abi for VDS_VOLUME_NOTIFICATION {
 }
 impl ::core::cmp::PartialEq for VDS_VOLUME_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_VOLUME_NOTIFICATION>()) == 0 }
+        self.ulEvent == other.ulEvent && self.volumeId == other.volumeId && self.plexId == other.plexId && self.ulPercentCompleted == other.ulPercentCompleted
     }
 }
 impl ::core::cmp::Eq for VDS_VOLUME_NOTIFICATION {}
@@ -7277,7 +7313,7 @@ unsafe impl ::windows::core::Abi for VDS_WWN {
 }
 impl ::core::cmp::PartialEq for VDS_WWN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDS_WWN>()) == 0 }
+        self.rguchWwn == other.rguchWwn
     }
 }
 impl ::core::cmp::Eq for VDS_WWN {}

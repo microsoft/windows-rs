@@ -504,7 +504,7 @@ unsafe impl ::windows::core::Abi for DEVPROPCOMPKEY {
 }
 impl ::core::cmp::PartialEq for DEVPROPCOMPKEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROPCOMPKEY>()) == 0 }
+        self.Key == other.Key && self.Store == other.Store && self.LocaleName == other.LocaleName
     }
 }
 impl ::core::cmp::Eq for DEVPROPCOMPKEY {}
@@ -537,7 +537,7 @@ unsafe impl ::windows::core::Abi for DEVPROPERTY {
 }
 impl ::core::cmp::PartialEq for DEVPROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROPERTY>()) == 0 }
+        self.CompKey == other.CompKey && self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for DEVPROPERTY {}
@@ -568,7 +568,7 @@ unsafe impl ::windows::core::Abi for DEVPROPKEY {
 }
 impl ::core::cmp::PartialEq for DEVPROPKEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROPKEY>()) == 0 }
+        self.fmtid == other.fmtid && self.pid == other.pid
     }
 }
 impl ::core::cmp::Eq for DEVPROPKEY {}

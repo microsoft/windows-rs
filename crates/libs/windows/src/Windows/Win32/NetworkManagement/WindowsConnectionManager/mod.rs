@@ -261,7 +261,7 @@ unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT {
 }
 impl ::core::cmp::PartialEq for NET_INTERFACE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_INTERFACE_CONTEXT>()) == 0 }
+        self.InterfaceIndex == other.InterfaceIndex && self.ConfigurationName == other.ConfigurationName
     }
 }
 impl ::core::cmp::Eq for NET_INTERFACE_CONTEXT {}
@@ -299,7 +299,7 @@ unsafe impl ::windows::core::Abi for NET_INTERFACE_CONTEXT_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_INTERFACE_CONTEXT_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_INTERFACE_CONTEXT_TABLE>()) == 0 }
+        self.InterfaceContextHandle == other.InterfaceContextHandle && self.NumberOfEntries == other.NumberOfEntries && self.InterfaceContextArray == other.InterfaceContextArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::Abi for WCM_BILLING_CYCLE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_BILLING_CYCLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_BILLING_CYCLE_INFO>()) == 0 }
+        self.StartDate == other.StartDate && self.Duration == other.Duration && self.Reset == other.Reset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -372,7 +372,7 @@ unsafe impl ::windows::core::Abi for WCM_CONNECTION_COST_DATA {
 }
 impl ::core::cmp::PartialEq for WCM_CONNECTION_COST_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_CONNECTION_COST_DATA>()) == 0 }
+        self.ConnectionCost == other.ConnectionCost && self.CostSource == other.CostSource
     }
 }
 impl ::core::cmp::Eq for WCM_CONNECTION_COST_DATA {}
@@ -414,7 +414,7 @@ unsafe impl ::windows::core::Abi for WCM_DATAPLAN_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_DATAPLAN_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_DATAPLAN_STATUS>()) == 0 }
+        self.UsageData == other.UsageData && self.DataLimitInMegabytes == other.DataLimitInMegabytes && self.InboundBandwidthInKbps == other.InboundBandwidthInKbps && self.OutboundBandwidthInKbps == other.OutboundBandwidthInKbps && self.BillingCycle == other.BillingCycle && self.MaxTransferSizeInMegabytes == other.MaxTransferSizeInMegabytes && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -453,7 +453,7 @@ unsafe impl ::windows::core::Abi for WCM_POLICY_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_POLICY_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_POLICY_VALUE>()) == 0 }
+        self.fValue == other.fValue && self.fIsGroupPolicy == other.fIsGroupPolicy
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -487,7 +487,7 @@ unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO {
 }
 impl ::core::cmp::PartialEq for WCM_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_PROFILE_INFO>()) == 0 }
+        self.strProfileName == other.strProfileName && self.AdapterGUID == other.AdapterGUID && self.Media == other.Media
     }
 }
 impl ::core::cmp::Eq for WCM_PROFILE_INFO {}
@@ -518,7 +518,7 @@ unsafe impl ::windows::core::Abi for WCM_PROFILE_INFO_LIST {
 }
 impl ::core::cmp::PartialEq for WCM_PROFILE_INFO_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_PROFILE_INFO_LIST>()) == 0 }
+        self.dwNumberOfItems == other.dwNumberOfItems && self.ProfileInfo == other.ProfileInfo
     }
 }
 impl ::core::cmp::Eq for WCM_PROFILE_INFO_LIST {}
@@ -554,7 +554,7 @@ unsafe impl ::windows::core::Abi for WCM_TIME_INTERVAL {
 }
 impl ::core::cmp::PartialEq for WCM_TIME_INTERVAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_TIME_INTERVAL>()) == 0 }
+        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
     }
 }
 impl ::core::cmp::Eq for WCM_TIME_INTERVAL {}
@@ -591,7 +591,7 @@ unsafe impl ::windows::core::Abi for WCM_USAGE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCM_USAGE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCM_USAGE_DATA>()) == 0 }
+        self.UsageInMegabytes == other.UsageInMegabytes && self.LastSyncTime == other.LastSyncTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]

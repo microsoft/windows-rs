@@ -638,7 +638,7 @@ unsafe impl ::windows::core::Abi for DDP_FILE_EXTENT {
 }
 impl ::core::cmp::PartialEq for DDP_FILE_EXTENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDP_FILE_EXTENT>()) == 0 }
+        self.Length == other.Length && self.Offset == other.Offset
     }
 }
 impl ::core::cmp::Eq for DDP_FILE_EXTENT {}
@@ -671,7 +671,7 @@ unsafe impl ::windows::core::Abi for DEDUP_CHUNK_INFO_HASH32 {
 }
 impl ::core::cmp::PartialEq for DEDUP_CHUNK_INFO_HASH32 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEDUP_CHUNK_INFO_HASH32>()) == 0 }
+        self.ChunkFlags == other.ChunkFlags && self.ChunkOffsetInStream == other.ChunkOffsetInStream && self.ChunkSize == other.ChunkSize && self.HashVal == other.HashVal
     }
 }
 impl ::core::cmp::Eq for DEDUP_CHUNK_INFO_HASH32 {}
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::Abi for DEDUP_CONTAINER_EXTENT {
 }
 impl ::core::cmp::PartialEq for DEDUP_CONTAINER_EXTENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEDUP_CONTAINER_EXTENT>()) == 0 }
+        self.ContainerIndex == other.ContainerIndex && self.StartOffset == other.StartOffset && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for DEDUP_CONTAINER_EXTENT {}
@@ -736,7 +736,7 @@ unsafe impl ::windows::core::Abi for DedupChunk {
 }
 impl ::core::cmp::PartialEq for DedupChunk {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DedupChunk>()) == 0 }
+        self.Hash == other.Hash && self.Flags == other.Flags && self.LogicalSize == other.LogicalSize && self.DataSize == other.DataSize
     }
 }
 impl ::core::cmp::Eq for DedupChunk {}
@@ -766,7 +766,7 @@ unsafe impl ::windows::core::Abi for DedupHash {
 }
 impl ::core::cmp::PartialEq for DedupHash {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DedupHash>()) == 0 }
+        self.Hash == other.Hash
     }
 }
 impl ::core::cmp::Eq for DedupHash {}
@@ -830,7 +830,7 @@ unsafe impl ::windows::core::Abi for DedupStreamEntry {
 }
 impl ::core::cmp::PartialEq for DedupStreamEntry {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DedupStreamEntry>()) == 0 }
+        self.Hash == other.Hash && self.LogicalSize == other.LogicalSize && self.Offset == other.Offset
     }
 }
 impl ::core::cmp::Eq for DedupStreamEntry {}

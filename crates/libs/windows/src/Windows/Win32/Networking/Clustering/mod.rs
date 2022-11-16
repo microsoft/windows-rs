@@ -13413,37 +13413,13 @@ impl ::core::clone::Clone for CLRES_CALLBACK_FUNCTION_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CLRES_CALLBACK_FUNCTION_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_CALLBACK_FUNCTION_TABLE")
-            .field("LogEvent", &self.LogEvent.map(|f| f as usize))
-            .field("SetResourceStatusEx", &self.SetResourceStatusEx.map(|f| f as usize))
-            .field("SetResourceLockedMode", &self.SetResourceLockedMode.map(|f| f as usize))
-            .field("SignalFailure", &self.SignalFailure.map(|f| f as usize))
-            .field("SetResourceInMemoryNodeLocalProperties", &self.SetResourceInMemoryNodeLocalProperties.map(|f| f as usize))
-            .field("EndControlCall", &self.EndControlCall.map(|f| f as usize))
-            .field("EndTypeControlCall", &self.EndTypeControlCall.map(|f| f as usize))
-            .field("ExtendControlCall", &self.ExtendControlCall.map(|f| f as usize))
-            .field("ExtendTypeControlCall", &self.ExtendTypeControlCall.map(|f| f as usize))
-            .field("RaiseResTypeNotification", &self.RaiseResTypeNotification.map(|f| f as usize))
-            .field("ChangeResourceProcessForDumps", &self.ChangeResourceProcessForDumps.map(|f| f as usize))
-            .field("ChangeResTypeProcessForDumps", &self.ChangeResTypeProcessForDumps.map(|f| f as usize))
-            .field("SetInternalState", &self.SetInternalState.map(|f| f as usize))
-            .field("SetResourceLockedModeEx", &self.SetResourceLockedModeEx.map(|f| f as usize))
-            .field("RequestDump", &self.RequestDump.map(|f| f as usize))
-            .finish()
+        f.debug_struct("CLRES_CALLBACK_FUNCTION_TABLE").finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CLRES_CALLBACK_FUNCTION_TABLE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CLRES_CALLBACK_FUNCTION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLRES_CALLBACK_FUNCTION_TABLE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CLRES_CALLBACK_FUNCTION_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CLRES_CALLBACK_FUNCTION_TABLE {
     fn default() -> Self {
@@ -13471,14 +13447,6 @@ unsafe impl ::windows::core::Abi for CLRES_FUNCTION_TABLE {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::PartialEq for CLRES_FUNCTION_TABLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLRES_FUNCTION_TABLE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::Eq for CLRES_FUNCTION_TABLE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::default::Default for CLRES_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13505,14 +13473,6 @@ impl ::core::clone::Clone for CLRES_FUNCTION_TABLE_0 {
 unsafe impl ::windows::core::Abi for CLRES_FUNCTION_TABLE_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::PartialEq for CLRES_FUNCTION_TABLE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLRES_FUNCTION_TABLE_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::Eq for CLRES_FUNCTION_TABLE_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::default::Default for CLRES_FUNCTION_TABLE_0 {
     fn default() -> Self {
@@ -13546,33 +13506,13 @@ impl ::core::clone::Clone for CLRES_V1_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::fmt::Debug for CLRES_V1_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_V1_FUNCTIONS")
-            .field("Open", &self.Open.map(|f| f as usize))
-            .field("Close", &self.Close.map(|f| f as usize))
-            .field("Online", &self.Online.map(|f| f as usize))
-            .field("Offline", &self.Offline.map(|f| f as usize))
-            .field("Terminate", &self.Terminate.map(|f| f as usize))
-            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
-            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
-            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
-            .field("Release", &self.Release.map(|f| f as usize))
-            .field("ResourceControl", &self.ResourceControl.map(|f| f as usize))
-            .field("ResourceTypeControl", &self.ResourceTypeControl.map(|f| f as usize))
-            .finish()
+        f.debug_struct("CLRES_V1_FUNCTIONS").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V1_FUNCTIONS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::PartialEq for CLRES_V1_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLRES_V1_FUNCTIONS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::Eq for CLRES_V1_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::default::Default for CLRES_V1_FUNCTIONS {
     fn default() -> Self {
@@ -13607,34 +13547,13 @@ impl ::core::clone::Clone for CLRES_V2_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::fmt::Debug for CLRES_V2_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_V2_FUNCTIONS")
-            .field("Open", &self.Open.map(|f| f as usize))
-            .field("Close", &self.Close.map(|f| f as usize))
-            .field("Online", &self.Online.map(|f| f as usize))
-            .field("Offline", &self.Offline.map(|f| f as usize))
-            .field("Terminate", &self.Terminate.map(|f| f as usize))
-            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
-            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
-            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
-            .field("Release", &self.Release.map(|f| f as usize))
-            .field("ResourceControl", &self.ResourceControl.map(|f| f as usize))
-            .field("ResourceTypeControl", &self.ResourceTypeControl.map(|f| f as usize))
-            .field("Cancel", &self.Cancel.map(|f| f as usize))
-            .finish()
+        f.debug_struct("CLRES_V2_FUNCTIONS").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V2_FUNCTIONS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::PartialEq for CLRES_V2_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLRES_V2_FUNCTIONS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::Eq for CLRES_V2_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::default::Default for CLRES_V2_FUNCTIONS {
     fn default() -> Self {
@@ -13669,34 +13588,13 @@ impl ::core::clone::Clone for CLRES_V3_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::fmt::Debug for CLRES_V3_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_V3_FUNCTIONS")
-            .field("Open", &self.Open.map(|f| f as usize))
-            .field("Close", &self.Close.map(|f| f as usize))
-            .field("Online", &self.Online.map(|f| f as usize))
-            .field("Offline", &self.Offline.map(|f| f as usize))
-            .field("Terminate", &self.Terminate.map(|f| f as usize))
-            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
-            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
-            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
-            .field("Release", &self.Release.map(|f| f as usize))
-            .field("BeginResourceControl", &self.BeginResourceControl.map(|f| f as usize))
-            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl.map(|f| f as usize))
-            .field("Cancel", &self.Cancel.map(|f| f as usize))
-            .finish()
+        f.debug_struct("CLRES_V3_FUNCTIONS").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V3_FUNCTIONS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::PartialEq for CLRES_V3_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLRES_V3_FUNCTIONS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::Eq for CLRES_V3_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::default::Default for CLRES_V3_FUNCTIONS {
     fn default() -> Self {
@@ -13733,36 +13631,13 @@ impl ::core::clone::Clone for CLRES_V4_FUNCTIONS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::fmt::Debug for CLRES_V4_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLRES_V4_FUNCTIONS")
-            .field("Open", &self.Open.map(|f| f as usize))
-            .field("Close", &self.Close.map(|f| f as usize))
-            .field("Online", &self.Online.map(|f| f as usize))
-            .field("Offline", &self.Offline.map(|f| f as usize))
-            .field("Terminate", &self.Terminate.map(|f| f as usize))
-            .field("LooksAlive", &self.LooksAlive.map(|f| f as usize))
-            .field("IsAlive", &self.IsAlive.map(|f| f as usize))
-            .field("Arbitrate", &self.Arbitrate.map(|f| f as usize))
-            .field("Release", &self.Release.map(|f| f as usize))
-            .field("BeginResourceControl", &self.BeginResourceControl.map(|f| f as usize))
-            .field("BeginResourceTypeControl", &self.BeginResourceTypeControl.map(|f| f as usize))
-            .field("Cancel", &self.Cancel.map(|f| f as usize))
-            .field("BeginResourceControlAsUser", &self.BeginResourceControlAsUser.map(|f| f as usize))
-            .field("BeginResourceTypeControlAsUser", &self.BeginResourceTypeControlAsUser.map(|f| f as usize))
-            .finish()
+        f.debug_struct("CLRES_V4_FUNCTIONS").finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::core::Abi for CLRES_V4_FUNCTIONS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::PartialEq for CLRES_V4_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLRES_V4_FUNCTIONS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-impl ::core::cmp::Eq for CLRES_V4_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::default::Default for CLRES_V4_FUNCTIONS {
     fn default() -> Self {
@@ -13798,7 +13673,7 @@ unsafe impl ::windows::core::Abi for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT>()) == 0 }
+        self.GetTickCount64 == other.GetTickCount64 && self.GetSystemTime == other.GetSystemTime && self.NodeId == other.NodeId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13832,7 +13707,7 @@ unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT
 }
 impl ::core::cmp::PartialEq for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT>()) == 0 }
+        self.dwSize == other.dwSize && self.dwVersion == other.dwVersion && self.eReason == other.eReason
     }
 }
 impl ::core::cmp::Eq for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {}
@@ -13863,7 +13738,7 @@ unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE
 }
 impl ::core::cmp::PartialEq for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT>()) == 0 }
+        self.dwFlags == other.dwFlags && self.guidPoolFilter == other.guidPoolFilter
     }
 }
 impl ::core::cmp::Eq for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {}
@@ -13887,12 +13762,6 @@ impl ::core::clone::Clone for CLUSPROP_BINARY {
 unsafe impl ::windows::core::Abi for CLUSPROP_BINARY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_BINARY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_BINARY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_BINARY {}
 impl ::core::default::Default for CLUSPROP_BINARY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13944,14 +13813,6 @@ unsafe impl ::windows::core::Abi for CLUSPROP_BUFFER_HELPER {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::core::cmp::PartialEq for CLUSPROP_BUFFER_HELPER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_BUFFER_HELPER>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::core::cmp::Eq for CLUSPROP_BUFFER_HELPER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::default::Default for CLUSPROP_BUFFER_HELPER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13972,12 +13833,6 @@ impl ::core::clone::Clone for CLUSPROP_DWORD {
 unsafe impl ::windows::core::Abi for CLUSPROP_DWORD {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_DWORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_DWORD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_DWORD {}
 impl ::core::default::Default for CLUSPROP_DWORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14003,14 +13858,6 @@ unsafe impl ::windows::core::Abi for CLUSPROP_FILETIME {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CLUSPROP_FILETIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_FILETIME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CLUSPROP_FILETIME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CLUSPROP_FILETIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14031,12 +13878,6 @@ impl ::core::clone::Clone for CLUSPROP_FTSET_INFO {
 unsafe impl ::windows::core::Abi for CLUSPROP_FTSET_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_FTSET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_FTSET_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_FTSET_INFO {}
 impl ::core::default::Default for CLUSPROP_FTSET_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14057,12 +13898,6 @@ impl ::core::clone::Clone for CLUSPROP_LARGE_INTEGER {
 unsafe impl ::windows::core::Abi for CLUSPROP_LARGE_INTEGER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_LARGE_INTEGER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_LARGE_INTEGER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_LARGE_INTEGER {}
 impl ::core::default::Default for CLUSPROP_LARGE_INTEGER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14083,12 +13918,6 @@ impl ::core::clone::Clone for CLUSPROP_LIST {
 unsafe impl ::windows::core::Abi for CLUSPROP_LIST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_LIST {}
 impl ::core::default::Default for CLUSPROP_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14109,12 +13938,6 @@ impl ::core::clone::Clone for CLUSPROP_LONG {
 unsafe impl ::windows::core::Abi for CLUSPROP_LONG {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_LONG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_LONG>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_LONG {}
 impl ::core::default::Default for CLUSPROP_LONG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14135,12 +13958,6 @@ impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO {
 unsafe impl ::windows::core::Abi for CLUSPROP_PARTITION_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_PARTITION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_PARTITION_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_PARTITION_INFO {}
 impl ::core::default::Default for CLUSPROP_PARTITION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14161,12 +13978,6 @@ impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX {
 unsafe impl ::windows::core::Abi for CLUSPROP_PARTITION_INFO_EX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_PARTITION_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_PARTITION_INFO_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_PARTITION_INFO_EX {}
 impl ::core::default::Default for CLUSPROP_PARTITION_INFO_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14187,12 +13998,6 @@ impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX2 {
 unsafe impl ::windows::core::Abi for CLUSPROP_PARTITION_INFO_EX2 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_PARTITION_INFO_EX2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_PARTITION_INFO_EX2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_PARTITION_INFO_EX2 {}
 impl ::core::default::Default for CLUSPROP_PARTITION_INFO_EX2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14214,12 +14019,6 @@ impl ::core::clone::Clone for CLUSPROP_REQUIRED_DEPENDENCY {
 unsafe impl ::windows::core::Abi for CLUSPROP_REQUIRED_DEPENDENCY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_REQUIRED_DEPENDENCY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_REQUIRED_DEPENDENCY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_REQUIRED_DEPENDENCY {}
 impl ::core::default::Default for CLUSPROP_REQUIRED_DEPENDENCY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14240,12 +14039,6 @@ impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS {
 unsafe impl ::windows::core::Abi for CLUSPROP_RESOURCE_CLASS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_RESOURCE_CLASS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_RESOURCE_CLASS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_RESOURCE_CLASS {}
 impl ::core::default::Default for CLUSPROP_RESOURCE_CLASS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14266,12 +14059,6 @@ impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS_INFO {
 unsafe impl ::windows::core::Abi for CLUSPROP_RESOURCE_CLASS_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_RESOURCE_CLASS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_RESOURCE_CLASS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_RESOURCE_CLASS_INFO {}
 impl ::core::default::Default for CLUSPROP_RESOURCE_CLASS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14292,12 +14079,6 @@ impl ::core::clone::Clone for CLUSPROP_SCSI_ADDRESS {
 unsafe impl ::windows::core::Abi for CLUSPROP_SCSI_ADDRESS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_SCSI_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_SCSI_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_SCSI_ADDRESS {}
 impl ::core::default::Default for CLUSPROP_SCSI_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14322,14 +14103,6 @@ impl ::core::clone::Clone for CLUSPROP_SECURITY_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for CLUSPROP_SECURITY_DESCRIPTOR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::PartialEq for CLUSPROP_SECURITY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_SECURITY_DESCRIPTOR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::Eq for CLUSPROP_SECURITY_DESCRIPTOR {}
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::default::Default for CLUSPROP_SECURITY_DESCRIPTOR {
     fn default() -> Self {
@@ -14356,14 +14129,6 @@ unsafe impl ::windows::core::Abi for CLUSPROP_SECURITY_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::PartialEq for CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_SECURITY_DESCRIPTOR_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::Eq for CLUSPROP_SECURITY_DESCRIPTOR_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::default::Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14384,12 +14149,6 @@ impl ::core::clone::Clone for CLUSPROP_SYNTAX {
 unsafe impl ::windows::core::Abi for CLUSPROP_SYNTAX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_SYNTAX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_SYNTAX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_SYNTAX {}
 impl ::core::default::Default for CLUSPROP_SYNTAX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14417,7 +14176,7 @@ unsafe impl ::windows::core::Abi for CLUSPROP_SYNTAX_0 {
 }
 impl ::core::cmp::PartialEq for CLUSPROP_SYNTAX_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_SYNTAX_0>()) == 0 }
+        self.wFormat == other.wFormat && self.wType == other.wType
     }
 }
 impl ::core::cmp::Eq for CLUSPROP_SYNTAX_0 {}
@@ -14441,12 +14200,6 @@ impl ::core::clone::Clone for CLUSPROP_SZ {
 unsafe impl ::windows::core::Abi for CLUSPROP_SZ {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_SZ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_SZ>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_SZ {}
 impl ::core::default::Default for CLUSPROP_SZ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14467,12 +14220,6 @@ impl ::core::clone::Clone for CLUSPROP_ULARGE_INTEGER {
 unsafe impl ::windows::core::Abi for CLUSPROP_ULARGE_INTEGER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_ULARGE_INTEGER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_ULARGE_INTEGER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_ULARGE_INTEGER {}
 impl ::core::default::Default for CLUSPROP_ULARGE_INTEGER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14493,12 +14240,6 @@ impl ::core::clone::Clone for CLUSPROP_VALUE {
 unsafe impl ::windows::core::Abi for CLUSPROP_VALUE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_VALUE {}
 impl ::core::default::Default for CLUSPROP_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14519,12 +14260,6 @@ impl ::core::clone::Clone for CLUSPROP_WORD {
 unsafe impl ::windows::core::Abi for CLUSPROP_WORD {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSPROP_WORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSPROP_WORD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSPROP_WORD {}
 impl ::core::default::Default for CLUSPROP_WORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14571,7 +14306,7 @@ unsafe impl ::windows::core::Abi for CLUSTERVERSIONINFO {
 }
 impl ::core::cmp::PartialEq for CLUSTERVERSIONINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTERVERSIONINFO>()) == 0 }
+        self.dwVersionInfoSize == other.dwVersionInfoSize && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.BuildNumber == other.BuildNumber && self.szVendorId == other.szVendorId && self.szCSDVersion == other.szCSDVersion && self.dwClusterHighestVersion == other.dwClusterHighestVersion && self.dwClusterLowestVersion == other.dwClusterLowestVersion && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for CLUSTERVERSIONINFO {}
@@ -14606,7 +14341,7 @@ unsafe impl ::windows::core::Abi for CLUSTERVERSIONINFO_NT4 {
 }
 impl ::core::cmp::PartialEq for CLUSTERVERSIONINFO_NT4 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTERVERSIONINFO_NT4>()) == 0 }
+        self.dwVersionInfoSize == other.dwVersionInfoSize && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.BuildNumber == other.BuildNumber && self.szVendorId == other.szVendorId && self.szCSDVersion == other.szCSDVersion
     }
 }
 impl ::core::cmp::Eq for CLUSTERVERSIONINFO_NT4 {}
@@ -14645,7 +14380,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_AVAILABILITY_SET_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUSTER_AVAILABILITY_SET_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_AVAILABILITY_SET_CONFIG>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwUpdateDomains == other.dwUpdateDomains && self.dwFaultDomains == other.dwFaultDomains && self.bReserveSpareNode == other.bReserveSpareNode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14681,7 +14416,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_BATCH_COMMAND {
 }
 impl ::core::cmp::PartialEq for CLUSTER_BATCH_COMMAND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_BATCH_COMMAND>()) == 0 }
+        self.Command == other.Command && self.dwOptions == other.dwOptions && self.wzName == other.wzName && self.lpData == other.lpData && self.cbData == other.cbData
     }
 }
 impl ::core::cmp::Eq for CLUSTER_BATCH_COMMAND {}
@@ -14712,7 +14447,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_CREATE_GROUP_INFO {
 }
 impl ::core::cmp::PartialEq for CLUSTER_CREATE_GROUP_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_CREATE_GROUP_INFO>()) == 0 }
+        self.dwVersion == other.dwVersion && self.groupType == other.groupType
     }
 }
 impl ::core::cmp::Eq for CLUSTER_CREATE_GROUP_INFO {}
@@ -14747,7 +14482,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_ENUM_ITEM {
 }
 impl ::core::cmp::PartialEq for CLUSTER_ENUM_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_ENUM_ITEM>()) == 0 }
+        self.dwVersion == other.dwVersion && self.dwType == other.dwType && self.cbId == other.cbId && self.lpszId == other.lpszId && self.cbName == other.cbName && self.lpszName == other.lpszName
     }
 }
 impl ::core::cmp::Eq for CLUSTER_ENUM_ITEM {}
@@ -14803,7 +14538,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_GROUP_ENUM_ITEM {
 }
 impl ::core::cmp::PartialEq for CLUSTER_GROUP_ENUM_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_GROUP_ENUM_ITEM>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbId == other.cbId && self.lpszId == other.lpszId && self.cbName == other.cbName && self.lpszName == other.lpszName && self.state == other.state && self.cbOwnerNode == other.cbOwnerNode && self.lpszOwnerNode == other.lpszOwnerNode && self.dwFlags == other.dwFlags && self.cbProperties == other.cbProperties && self.pProperties == other.pProperties && self.cbRoProperties == other.cbRoProperties && self.pRoProperties == other.pRoProperties
     }
 }
 impl ::core::cmp::Eq for CLUSTER_GROUP_ENUM_ITEM {}
@@ -14839,7 +14574,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_HEALTH_FAULT {
 }
 impl ::core::cmp::PartialEq for CLUSTER_HEALTH_FAULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_HEALTH_FAULT>()) == 0 }
+        self.Id == other.Id && self.ErrorType == other.ErrorType && self.ErrorCode == other.ErrorCode && self.Description == other.Description && self.Provider == other.Provider && self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for CLUSTER_HEALTH_FAULT {}
@@ -14870,7 +14605,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_HEALTH_FAULT_ARRAY {
 }
 impl ::core::cmp::PartialEq for CLUSTER_HEALTH_FAULT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_HEALTH_FAULT_ARRAY>()) == 0 }
+        self.numFaults == other.numFaults && self.faults == other.faults
     }
 }
 impl ::core::cmp::Eq for CLUSTER_HEALTH_FAULT_ARRAY {}
@@ -14901,7 +14636,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_IP_ENTRY {
 }
 impl ::core::cmp::PartialEq for CLUSTER_IP_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_IP_ENTRY>()) == 0 }
+        self.lpszIpAddress == other.lpszIpAddress && self.dwPrefixLength == other.dwPrefixLength
     }
 }
 impl ::core::cmp::Eq for CLUSTER_IP_ENTRY {}
@@ -14939,7 +14674,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_MEMBERSHIP_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUSTER_MEMBERSHIP_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_MEMBERSHIP_INFO>()) == 0 }
+        self.HasQuorum == other.HasQuorum && self.UpnodesSize == other.UpnodesSize && self.Upnodes == other.Upnodes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14976,7 +14711,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_READ_BATCH_COMMAND {
 }
 impl ::core::cmp::PartialEq for CLUSTER_READ_BATCH_COMMAND {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_READ_BATCH_COMMAND>()) == 0 }
+        self.Command == other.Command && self.dwOptions == other.dwOptions && self.wzSubkeyName == other.wzSubkeyName && self.wzValueName == other.wzValueName && self.lpData == other.lpData && self.cbData == other.cbData
     }
 }
 impl ::core::cmp::Eq for CLUSTER_READ_BATCH_COMMAND {}
@@ -15032,7 +14767,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_ENUM_ITEM {
 }
 impl ::core::cmp::PartialEq for CLUSTER_RESOURCE_ENUM_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_RESOURCE_ENUM_ITEM>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbId == other.cbId && self.lpszId == other.lpszId && self.cbName == other.cbName && self.lpszName == other.lpszName && self.cbOwnerGroupName == other.cbOwnerGroupName && self.lpszOwnerGroupName == other.lpszOwnerGroupName && self.cbOwnerGroupId == other.cbOwnerGroupId && self.lpszOwnerGroupId == other.lpszOwnerGroupId && self.cbProperties == other.cbProperties && self.pProperties == other.pProperties && self.cbRoProperties == other.cbRoProperties && self.pRoProperties == other.pRoProperties
     }
 }
 impl ::core::cmp::Eq for CLUSTER_RESOURCE_ENUM_ITEM {}
@@ -15070,7 +14805,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_SET_PASSWORD_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUSTER_SET_PASSWORD_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SET_PASSWORD_STATUS>()) == 0 }
+        self.NodeId == other.NodeId && self.SetAttempted == other.SetAttempted && self.ReturnStatus == other.ReturnStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15096,12 +14831,6 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {}
 impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15122,12 +14851,6 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_RENAME_INPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
 impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15155,7 +14878,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAM
 }
 impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME>()) == 0 }
+        self.NewVolumeName == other.NewVolumeName && self.NewVolumeGuid == other.NewVolumeGuid
     }
 }
 impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {}
@@ -15185,7 +14908,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
 }
 impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME>()) == 0 }
+        self.NewVolumeName == other.NewVolumeName
     }
 }
 impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {}
@@ -15209,12 +14932,6 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {}
 impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15237,12 +14954,6 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
 unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {}
 impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15271,7 +14982,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_STATE_INFO {
 }
 impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_STATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_STATE_INFO>()) == 0 }
+        self.szVolumeName == other.szVolumeName && self.szNodeName == other.szNodeName && self.VolumeState == other.VolumeState
     }
 }
 impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_STATE_INFO {}
@@ -15306,7 +15017,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
 }
 impl ::core::cmp::PartialEq for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_SHARED_VOLUME_STATE_INFO_EX>()) == 0 }
+        self.szVolumeName == other.szVolumeName && self.szNodeName == other.szNodeName && self.VolumeState == other.VolumeState && self.szVolumeFriendlyName == other.szVolumeFriendlyName && self.RedirectedIOReason == other.RedirectedIOReason && self.VolumeRedirectedIOReason == other.VolumeRedirectedIOReason
     }
 }
 impl ::core::cmp::Eq for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {}
@@ -15336,7 +15047,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_CSV_FILENAME {
 }
 impl ::core::cmp::PartialEq for CLUSTER_VALIDATE_CSV_FILENAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_VALIDATE_CSV_FILENAME>()) == 0 }
+        self.szFileName == other.szFileName
     }
 }
 impl ::core::cmp::Eq for CLUSTER_VALIDATE_CSV_FILENAME {}
@@ -15366,7 +15077,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_DIRECTORY {
 }
 impl ::core::cmp::PartialEq for CLUSTER_VALIDATE_DIRECTORY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_VALIDATE_DIRECTORY>()) == 0 }
+        self.szPath == other.szPath
     }
 }
 impl ::core::cmp::Eq for CLUSTER_VALIDATE_DIRECTORY {}
@@ -15396,7 +15107,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_NETNAME {
 }
 impl ::core::cmp::PartialEq for CLUSTER_VALIDATE_NETNAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_VALIDATE_NETNAME>()) == 0 }
+        self.szNetworkName == other.szNetworkName
     }
 }
 impl ::core::cmp::Eq for CLUSTER_VALIDATE_NETNAME {}
@@ -15426,7 +15137,7 @@ unsafe impl ::windows::core::Abi for CLUSTER_VALIDATE_PATH {
 }
 impl ::core::cmp::PartialEq for CLUSTER_VALIDATE_PATH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUSTER_VALIDATE_PATH>()) == 0 }
+        self.szPath == other.szPath
     }
 }
 impl ::core::cmp::Eq for CLUSTER_VALIDATE_PATH {}
@@ -15459,7 +15170,7 @@ unsafe impl ::windows::core::Abi for CLUS_CHKDSK_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_CHKDSK_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_CHKDSK_INFO>()) == 0 }
+        self.PartitionNumber == other.PartitionNumber && self.ChkdskState == other.ChkdskState && self.FileIdCount == other.FileIdCount && self.FileIdList == other.FileIdList
     }
 }
 impl ::core::cmp::Eq for CLUS_CHKDSK_INFO {}
@@ -15489,7 +15200,7 @@ unsafe impl ::windows::core::Abi for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT
 }
 impl ::core::cmp::PartialEq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT>()) == 0 }
+        self.FileServerName == other.FileServerName
     }
 }
 impl ::core::cmp::Eq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {}
@@ -15519,7 +15230,7 @@ unsafe impl ::windows::core::Abi for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPU
 }
 impl ::core::cmp::PartialEq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT>()) == 0 }
+        self.FileServerName == other.FileServerName
     }
 }
 impl ::core::cmp::Eq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {}
@@ -15556,7 +15267,7 @@ unsafe impl ::windows::core::Abi for CLUS_CSV_MAINTENANCE_MODE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_CSV_MAINTENANCE_MODE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_CSV_MAINTENANCE_MODE_INFO>()) == 0 }
+        self.InMaintenance == other.InMaintenance && self.VolumeName == other.VolumeName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15593,7 +15304,7 @@ unsafe impl ::windows::core::Abi for CLUS_CSV_VOLUME_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_CSV_VOLUME_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_CSV_VOLUME_INFO>()) == 0 }
+        self.VolumeOffset == other.VolumeOffset && self.PartitionNumber == other.PartitionNumber && self.FaultState == other.FaultState && self.BackupState == other.BackupState && self.szVolumeFriendlyName == other.szVolumeFriendlyName && self.szVolumeName == other.szVolumeName
     }
 }
 impl ::core::cmp::Eq for CLUS_CSV_VOLUME_INFO {}
@@ -15625,7 +15336,7 @@ unsafe impl ::windows::core::Abi for CLUS_CSV_VOLUME_NAME {
 }
 impl ::core::cmp::PartialEq for CLUS_CSV_VOLUME_NAME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_CSV_VOLUME_NAME>()) == 0 }
+        self.VolumeOffset == other.VolumeOffset && self.szVolumeName == other.szVolumeName && self.szRootPath == other.szRootPath
     }
 }
 impl ::core::cmp::Eq for CLUS_CSV_VOLUME_NAME {}
@@ -15656,7 +15367,7 @@ unsafe impl ::windows::core::Abi for CLUS_DISK_NUMBER_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_DISK_NUMBER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_DISK_NUMBER_INFO>()) == 0 }
+        self.DiskNumber == other.DiskNumber && self.BytesPerSector == other.BytesPerSector
     }
 }
 impl ::core::cmp::Eq for CLUS_DISK_NUMBER_INFO {}
@@ -15693,7 +15404,7 @@ unsafe impl ::windows::core::Abi for CLUS_DNN_LEADER_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_DNN_LEADER_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_DNN_LEADER_STATUS>()) == 0 }
+        self.IsOnline == other.IsOnline && self.IsFileServerPresent == other.IsFileServerPresent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15726,7 +15437,7 @@ unsafe impl ::windows::core::Abi for CLUS_DNN_SODAFS_CLONE_STATUS {
 }
 impl ::core::cmp::PartialEq for CLUS_DNN_SODAFS_CLONE_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_DNN_SODAFS_CLONE_STATUS>()) == 0 }
+        self.NodeId == other.NodeId && self.Status == other.Status
     }
 }
 impl ::core::cmp::Eq for CLUS_DNN_SODAFS_CLONE_STATUS {}
@@ -15759,7 +15470,7 @@ unsafe impl ::windows::core::Abi for CLUS_FORCE_QUORUM_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_FORCE_QUORUM_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_FORCE_QUORUM_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.dwNodeBitMask == other.dwNodeBitMask && self.dwMaxNumberofNodes == other.dwMaxNumberofNodes && self.multiszNodeList == other.multiszNodeList
     }
 }
 impl ::core::cmp::Eq for CLUS_FORCE_QUORUM_INFO {}
@@ -15790,7 +15501,7 @@ unsafe impl ::windows::core::Abi for CLUS_FTSET_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_FTSET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_FTSET_INFO>()) == 0 }
+        self.dwRootSignature == other.dwRootSignature && self.dwFtType == other.dwFtType
     }
 }
 impl ::core::cmp::Eq for CLUS_FTSET_INFO {}
@@ -15826,7 +15537,7 @@ unsafe impl ::windows::core::Abi for CLUS_MAINTENANCE_MODE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_MAINTENANCE_MODE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_MAINTENANCE_MODE_INFO>()) == 0 }
+        self.InMaintenance == other.InMaintenance
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15867,7 +15578,7 @@ unsafe impl ::windows::core::Abi for CLUS_MAINTENANCE_MODE_INFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_MAINTENANCE_MODE_INFOEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_MAINTENANCE_MODE_INFOEX>()) == 0 }
+        self.InMaintenance == other.InMaintenance && self.MaintainenceModeType == other.MaintainenceModeType && self.InternalState == other.InternalState && self.Signature == other.Signature
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15901,7 +15612,7 @@ unsafe impl ::windows::core::Abi for CLUS_NETNAME_IP_INFO_ENTRY {
 }
 impl ::core::cmp::PartialEq for CLUS_NETNAME_IP_INFO_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_NETNAME_IP_INFO_ENTRY>()) == 0 }
+        self.NodeId == other.NodeId && self.AddressSize == other.AddressSize && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for CLUS_NETNAME_IP_INFO_ENTRY {}
@@ -15933,7 +15644,7 @@ unsafe impl ::windows::core::Abi for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
 }
 impl ::core::cmp::PartialEq for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL>()) == 0 }
+        self.szName == other.szName && self.NumEntries == other.NumEntries && self.IpInfo == other.IpInfo
     }
 }
 impl ::core::cmp::Eq for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {}
@@ -15966,7 +15677,7 @@ unsafe impl ::windows::core::Abi for CLUS_NETNAME_PWD_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_NETNAME_PWD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_NETNAME_PWD_INFO>()) == 0 }
+        self.Flags == other.Flags && self.Password == other.Password && self.CreatingDC == other.CreatingDC && self.ObjectGuid == other.ObjectGuid
     }
 }
 impl ::core::cmp::Eq for CLUS_NETNAME_PWD_INFO {}
@@ -15999,7 +15710,7 @@ unsafe impl ::windows::core::Abi for CLUS_NETNAME_PWD_INFOEX {
 }
 impl ::core::cmp::PartialEq for CLUS_NETNAME_PWD_INFOEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_NETNAME_PWD_INFOEX>()) == 0 }
+        self.Flags == other.Flags && self.Password == other.Password && self.CreatingDC == other.CreatingDC && self.ObjectGuid == other.ObjectGuid
     }
 }
 impl ::core::cmp::Eq for CLUS_NETNAME_PWD_INFOEX {}
@@ -16037,7 +15748,7 @@ unsafe impl ::windows::core::Abi for CLUS_NETNAME_VS_TOKEN_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_NETNAME_VS_TOKEN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_NETNAME_VS_TOKEN_INFO>()) == 0 }
+        self.ProcessID == other.ProcessID && self.DesiredAccess == other.DesiredAccess && self.InheritHandle == other.InheritHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16075,7 +15786,7 @@ unsafe impl ::windows::core::Abi for CLUS_PARTITION_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_PARTITION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_PARTITION_INFO>()) == 0 }
+        self.dwFlags == other.dwFlags && self.szDeviceName == other.szDeviceName && self.szVolumeLabel == other.szVolumeLabel && self.dwSerialNumber == other.dwSerialNumber && self.rgdwMaximumComponentLength == other.rgdwMaximumComponentLength && self.dwFileSystemFlags == other.dwFileSystemFlags && self.szFileSystem == other.szFileSystem
     }
 }
 impl ::core::cmp::Eq for CLUS_PARTITION_INFO {}
@@ -16129,7 +15840,7 @@ unsafe impl ::windows::core::Abi for CLUS_PARTITION_INFO_EX {
 }
 impl ::core::cmp::PartialEq for CLUS_PARTITION_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_PARTITION_INFO_EX>()) == 0 }
+        self.dwFlags == other.dwFlags && self.szDeviceName == other.szDeviceName && self.szVolumeLabel == other.szVolumeLabel && self.dwSerialNumber == other.dwSerialNumber && self.rgdwMaximumComponentLength == other.rgdwMaximumComponentLength && self.dwFileSystemFlags == other.dwFileSystemFlags && self.szFileSystem == other.szFileSystem && self.TotalSizeInBytes == other.TotalSizeInBytes && self.FreeSizeInBytes == other.FreeSizeInBytes && self.DeviceNumber == other.DeviceNumber && self.PartitionNumber == other.PartitionNumber && self.VolumeGuid == other.VolumeGuid
     }
 }
 impl ::core::cmp::Eq for CLUS_PARTITION_INFO_EX {}
@@ -16161,7 +15872,7 @@ unsafe impl ::windows::core::Abi for CLUS_PARTITION_INFO_EX2 {
 }
 impl ::core::cmp::PartialEq for CLUS_PARTITION_INFO_EX2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_PARTITION_INFO_EX2>()) == 0 }
+        self.GptPartitionId == other.GptPartitionId && self.szPartitionName == other.szPartitionName && self.EncryptionFlags == other.EncryptionFlags
     }
 }
 impl ::core::cmp::Eq for CLUS_PARTITION_INFO_EX2 {}
@@ -16193,7 +15904,7 @@ unsafe impl ::windows::core::Abi for CLUS_PROVIDER_STATE_CHANGE_INFO {
 }
 impl ::core::cmp::PartialEq for CLUS_PROVIDER_STATE_CHANGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_PROVIDER_STATE_CHANGE_INFO>()) == 0 }
+        self.dwSize == other.dwSize && self.resourceState == other.resourceState && self.szProviderId == other.szProviderId
     }
 }
 impl ::core::cmp::Eq for CLUS_PROVIDER_STATE_CHANGE_INFO {}
@@ -16216,12 +15927,6 @@ impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO {
 unsafe impl ::windows::core::Abi for CLUS_RESOURCE_CLASS_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_RESOURCE_CLASS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUS_RESOURCE_CLASS_INFO {}
 impl ::core::default::Default for CLUS_RESOURCE_CLASS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16242,12 +15947,6 @@ impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0 {
 unsafe impl ::windows::core::Abi for CLUS_RESOURCE_CLASS_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_RESOURCE_CLASS_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUS_RESOURCE_CLASS_INFO_0 {}
 impl ::core::default::Default for CLUS_RESOURCE_CLASS_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16268,12 +15967,6 @@ impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0_0 {
 unsafe impl ::windows::core::Abi for CLUS_RESOURCE_CLASS_INFO_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_RESOURCE_CLASS_INFO_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUS_RESOURCE_CLASS_INFO_0_0 {}
 impl ::core::default::Default for CLUS_RESOURCE_CLASS_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16294,12 +15987,6 @@ impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
 unsafe impl ::windows::core::Abi for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_RESOURCE_CLASS_INFO_0_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUS_RESOURCE_CLASS_INFO_0_0_0 {}
 impl ::core::default::Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16319,12 +16006,6 @@ impl ::core::clone::Clone for CLUS_SCSI_ADDRESS {
 unsafe impl ::windows::core::Abi for CLUS_SCSI_ADDRESS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUS_SCSI_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_SCSI_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUS_SCSI_ADDRESS {}
 impl ::core::default::Default for CLUS_SCSI_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16345,12 +16026,6 @@ impl ::core::clone::Clone for CLUS_SCSI_ADDRESS_0 {
 unsafe impl ::windows::core::Abi for CLUS_SCSI_ADDRESS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CLUS_SCSI_ADDRESS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_SCSI_ADDRESS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLUS_SCSI_ADDRESS_0 {}
 impl ::core::default::Default for CLUS_SCSI_ADDRESS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -16380,7 +16055,7 @@ unsafe impl ::windows::core::Abi for CLUS_SCSI_ADDRESS_0_0 {
 }
 impl ::core::cmp::PartialEq for CLUS_SCSI_ADDRESS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_SCSI_ADDRESS_0_0>()) == 0 }
+        self.PortNumber == other.PortNumber && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun
     }
 }
 impl ::core::cmp::Eq for CLUS_SCSI_ADDRESS_0_0 {}
@@ -16418,7 +16093,7 @@ unsafe impl ::windows::core::Abi for CLUS_SET_MAINTENANCE_MODE_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_SET_MAINTENANCE_MODE_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_SET_MAINTENANCE_MODE_INPUT>()) == 0 }
+        self.InMaintenance == other.InMaintenance && self.ExtraParameterSize == other.ExtraParameterSize && self.ExtraParameter == other.ExtraParameter
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16452,7 +16127,7 @@ unsafe impl ::windows::core::Abi for CLUS_SHARED_VOLUME_BACKUP_MODE {
 }
 impl ::core::cmp::PartialEq for CLUS_SHARED_VOLUME_BACKUP_MODE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_SHARED_VOLUME_BACKUP_MODE>()) == 0 }
+        self.BackupState == other.BackupState && self.DelayTimerInSecs == other.DelayTimerInSecs && self.VolumeName == other.VolumeName
     }
 }
 impl ::core::cmp::Eq for CLUS_SHARED_VOLUME_BACKUP_MODE {}
@@ -16490,7 +16165,7 @@ unsafe impl ::windows::core::Abi for CLUS_STARTING_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_STARTING_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_STARTING_PARAMS>()) == 0 }
+        self.dwSize == other.dwSize && self.bForm == other.bForm && self.bFirst == other.bFirst
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16522,7 +16197,7 @@ unsafe impl ::windows::core::Abi for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
 }
 impl ::core::cmp::PartialEq for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS>()) == 0 }
+        self.AvailDrivelettersMask == other.AvailDrivelettersMask
     }
 }
 impl ::core::cmp::Eq for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {}
@@ -16553,7 +16228,7 @@ unsafe impl ::windows::core::Abi for CLUS_STORAGE_REMAP_DRIVELETTER {
 }
 impl ::core::cmp::PartialEq for CLUS_STORAGE_REMAP_DRIVELETTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_STORAGE_REMAP_DRIVELETTER>()) == 0 }
+        self.CurrentDriveLetterMask == other.CurrentDriveLetterMask && self.TargetDriveLetterMask == other.TargetDriveLetterMask
     }
 }
 impl ::core::cmp::Eq for CLUS_STORAGE_REMAP_DRIVELETTER {}
@@ -16584,7 +16259,7 @@ unsafe impl ::windows::core::Abi for CLUS_STORAGE_SET_DRIVELETTER {
 }
 impl ::core::cmp::PartialEq for CLUS_STORAGE_SET_DRIVELETTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_STORAGE_SET_DRIVELETTER>()) == 0 }
+        self.PartitionNumber == other.PartitionNumber && self.DriveLetterMask == other.DriveLetterMask
     }
 }
 impl ::core::cmp::Eq for CLUS_STORAGE_SET_DRIVELETTER {}
@@ -16621,7 +16296,7 @@ unsafe impl ::windows::core::Abi for CLUS_WORKER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLUS_WORKER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLUS_WORKER>()) == 0 }
+        self.hThread == other.hThread && self.Terminate == other.Terminate
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16667,7 +16342,7 @@ unsafe impl ::windows::core::Abi for CREATE_CLUSTER_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATE_CLUSTER_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATE_CLUSTER_CONFIG>()) == 0 }
+        self.dwVersion == other.dwVersion && self.lpszClusterName == other.lpszClusterName && self.cNodes == other.cNodes && self.ppszNodeNames == other.ppszNodeNames && self.cIpEntries == other.cIpEntries && self.pIpEntries == other.pIpEntries && self.fEmptyCluster == other.fEmptyCluster && self.managementPointType == other.managementPointType && self.managementPointResType == other.managementPointResType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16713,7 +16388,7 @@ unsafe impl ::windows::core::Abi for CREATE_CLUSTER_NAME_ACCOUNT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATE_CLUSTER_NAME_ACCOUNT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATE_CLUSTER_NAME_ACCOUNT>()) == 0 }
+        self.dwVersion == other.dwVersion && self.lpszClusterName == other.lpszClusterName && self.dwFlags == other.dwFlags && self.pszUserName == other.pszUserName && self.pszPassword == other.pszPassword && self.pszDomain == other.pszDomain && self.managementPointType == other.managementPointType && self.managementPointResType == other.managementPointResType && self.bUpgradeVCOs == other.bUpgradeVCOs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16746,7 +16421,7 @@ unsafe impl ::windows::core::Abi for FILESHARE_CHANGE {
 }
 impl ::core::cmp::PartialEq for FILESHARE_CHANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILESHARE_CHANGE>()) == 0 }
+        self.Change == other.Change && self.ShareName == other.ShareName
     }
 }
 impl ::core::cmp::Eq for FILESHARE_CHANGE {}
@@ -16777,7 +16452,7 @@ unsafe impl ::windows::core::Abi for FILESHARE_CHANGE_LIST {
 }
 impl ::core::cmp::PartialEq for FILESHARE_CHANGE_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILESHARE_CHANGE_LIST>()) == 0 }
+        self.NumEntries == other.NumEntries && self.ChangeEntry == other.ChangeEntry
     }
 }
 impl ::core::cmp::Eq for FILESHARE_CHANGE_LIST {}
@@ -16810,7 +16485,7 @@ unsafe impl ::windows::core::Abi for GET_OPERATION_CONTEXT_PARAMS {
 }
 impl ::core::cmp::PartialEq for GET_OPERATION_CONTEXT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GET_OPERATION_CONTEXT_PARAMS>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Type == other.Type && self.Priority == other.Priority
     }
 }
 impl ::core::cmp::Eq for GET_OPERATION_CONTEXT_PARAMS {}
@@ -16841,7 +16516,7 @@ unsafe impl ::windows::core::Abi for GROUP_FAILURE_INFO {
 }
 impl ::core::cmp::PartialEq for GROUP_FAILURE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_FAILURE_INFO>()) == 0 }
+        self.dwFailoverAttemptsRemaining == other.dwFailoverAttemptsRemaining && self.dwFailoverPeriodRemaining == other.dwFailoverPeriodRemaining
     }
 }
 impl ::core::cmp::Eq for GROUP_FAILURE_INFO {}
@@ -16872,7 +16547,7 @@ unsafe impl ::windows::core::Abi for GROUP_FAILURE_INFO_BUFFER {
 }
 impl ::core::cmp::PartialEq for GROUP_FAILURE_INFO_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_FAILURE_INFO_BUFFER>()) == 0 }
+        self.dwVersion == other.dwVersion && self.Info == other.Info
     }
 }
 impl ::core::cmp::Eq for GROUP_FAILURE_INFO_BUFFER {}
@@ -16911,7 +16586,7 @@ unsafe impl ::windows::core::Abi for MONITOR_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MONITOR_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONITOR_STATE>()) == 0 }
+        self.LastUpdate == other.LastUpdate && self.State == other.State && self.ActiveResource == other.ActiveResource && self.ResmonStop == other.ResmonStop
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16944,7 +16619,7 @@ unsafe impl ::windows::core::Abi for NOTIFY_FILTER_AND_TYPE {
 }
 impl ::core::cmp::PartialEq for NOTIFY_FILTER_AND_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFY_FILTER_AND_TYPE>()) == 0 }
+        self.dwObjectType == other.dwObjectType && self.FilterFlags == other.FilterFlags
     }
 }
 impl ::core::cmp::Eq for NOTIFY_FILTER_AND_TYPE {}
@@ -16976,7 +16651,7 @@ unsafe impl ::windows::core::Abi for NodeUtilizationInfoElement {
 }
 impl ::core::cmp::PartialEq for NodeUtilizationInfoElement {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NodeUtilizationInfoElement>()) == 0 }
+        self.Id == other.Id && self.AvailableMemory == other.AvailableMemory && self.AvailableMemoryAfterReclamation == other.AvailableMemoryAfterReclamation
     }
 }
 impl ::core::cmp::Eq for NodeUtilizationInfoElement {}
@@ -17010,7 +16685,7 @@ unsafe impl ::windows::core::Abi for POST_UPGRADE_VERSION_INFO {
 }
 impl ::core::cmp::PartialEq for POST_UPGRADE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POST_UPGRADE_VERSION_INFO>()) == 0 }
+        self.newMajorVersion == other.newMajorVersion && self.newUpgradeVersion == other.newUpgradeVersion && self.oldMajorVersion == other.oldMajorVersion && self.oldUpgradeVersion == other.oldUpgradeVersion && self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for POST_UPGRADE_VERSION_INFO {}
@@ -17066,7 +16741,19 @@ unsafe impl ::windows::core::Abi for PaxosTagCStruct {
 }
 impl ::core::cmp::PartialEq for PaxosTagCStruct {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PaxosTagCStruct>()) == 0 }
+        self.__padding__PaxosTagVtable == other.__padding__PaxosTagVtable
+            && self.__padding__NextEpochVtable == other.__padding__NextEpochVtable
+            && self.__padding__NextEpoch_DateTimeVtable == other.__padding__NextEpoch_DateTimeVtable
+            && self.NextEpoch_DateTime_ticks == other.NextEpoch_DateTime_ticks
+            && self.NextEpoch_Value == other.NextEpoch_Value
+            && self.__padding__BoundryNextEpoch == other.__padding__BoundryNextEpoch
+            && self.__padding__EpochVtable == other.__padding__EpochVtable
+            && self.__padding__Epoch_DateTimeVtable == other.__padding__Epoch_DateTimeVtable
+            && self.Epoch_DateTime_ticks == other.Epoch_DateTime_ticks
+            && self.Epoch_Value == other.Epoch_Value
+            && self.__padding__BoundryEpoch == other.__padding__BoundryEpoch
+            && self.Sequence == other.Sequence
+            && self.__padding__BoundrySequence == other.__padding__BoundrySequence
     }
 }
 impl ::core::cmp::Eq for PaxosTagCStruct {}
@@ -17097,7 +16784,7 @@ unsafe impl ::windows::core::Abi for RESOURCE_FAILURE_INFO {
 }
 impl ::core::cmp::PartialEq for RESOURCE_FAILURE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESOURCE_FAILURE_INFO>()) == 0 }
+        self.dwRestartAttemptsRemaining == other.dwRestartAttemptsRemaining && self.dwRestartPeriodRemaining == other.dwRestartPeriodRemaining
     }
 }
 impl ::core::cmp::Eq for RESOURCE_FAILURE_INFO {}
@@ -17128,7 +16815,7 @@ unsafe impl ::windows::core::Abi for RESOURCE_FAILURE_INFO_BUFFER {
 }
 impl ::core::cmp::PartialEq for RESOURCE_FAILURE_INFO_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESOURCE_FAILURE_INFO_BUFFER>()) == 0 }
+        self.dwVersion == other.dwVersion && self.Info == other.Info
     }
 }
 impl ::core::cmp::Eq for RESOURCE_FAILURE_INFO_BUFFER {}
@@ -17167,7 +16854,7 @@ unsafe impl ::windows::core::Abi for RESOURCE_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESOURCE_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESOURCE_STATUS>()) == 0 }
+        self.ResourceState == other.ResourceState && self.CheckPoint == other.CheckPoint && self.WaitHint == other.WaitHint && self.EventHandle == other.EventHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17210,7 +16897,7 @@ unsafe impl ::windows::core::Abi for RESOURCE_STATUS_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESOURCE_STATUS_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESOURCE_STATUS_EX>()) == 0 }
+        self.ResourceState == other.ResourceState && self.CheckPoint == other.CheckPoint && self.EventHandle == other.EventHandle && self.ApplicationSpecificErrorCode == other.ApplicationSpecificErrorCode && self.Flags == other.Flags && self.WaitHint == other.WaitHint
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17249,7 +16936,7 @@ unsafe impl ::windows::core::Abi for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESOURCE_TERMINAL_FAILURE_INFO_BUFFER>()) == 0 }
+        self.isTerminalFailure == other.isTerminalFailure && self.restartPeriodRemaining == other.restartPeriodRemaining
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17289,7 +16976,7 @@ unsafe impl ::windows::core::Abi for RESUTIL_FILETIME_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESUTIL_FILETIME_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESUTIL_FILETIME_DATA>()) == 0 }
+        self.Default == other.Default && self.Minimum == other.Minimum && self.Maximum == other.Maximum
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17323,7 +17010,7 @@ unsafe impl ::windows::core::Abi for RESUTIL_LARGEINT_DATA {
 }
 impl ::core::cmp::PartialEq for RESUTIL_LARGEINT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESUTIL_LARGEINT_DATA>()) == 0 }
+        self.Default == other.Default && self.Minimum == other.Minimum && self.Maximum == other.Maximum
     }
 }
 impl ::core::cmp::Eq for RESUTIL_LARGEINT_DATA {}
@@ -17358,14 +17045,6 @@ unsafe impl ::windows::core::Abi for RESUTIL_PROPERTY_ITEM {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RESUTIL_PROPERTY_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESUTIL_PROPERTY_ITEM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RESUTIL_PROPERTY_ITEM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESUTIL_PROPERTY_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17395,14 +17074,6 @@ unsafe impl ::windows::core::Abi for RESUTIL_PROPERTY_ITEM_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RESUTIL_PROPERTY_ITEM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESUTIL_PROPERTY_ITEM_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RESUTIL_PROPERTY_ITEM_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESUTIL_PROPERTY_ITEM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17431,7 +17102,7 @@ unsafe impl ::windows::core::Abi for RESUTIL_ULARGEINT_DATA {
 }
 impl ::core::cmp::PartialEq for RESUTIL_ULARGEINT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESUTIL_ULARGEINT_DATA>()) == 0 }
+        self.Default == other.Default && self.Minimum == other.Minimum && self.Maximum == other.Maximum
     }
 }
 impl ::core::cmp::Eq for RESUTIL_ULARGEINT_DATA {}
@@ -17462,7 +17133,7 @@ unsafe impl ::windows::core::Abi for ResourceUtilizationInfoElement {
 }
 impl ::core::cmp::PartialEq for ResourceUtilizationInfoElement {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ResourceUtilizationInfoElement>()) == 0 }
+        self.PhysicalNumaId == other.PhysicalNumaId && self.CurrentMemory == other.CurrentMemory
     }
 }
 impl ::core::cmp::Eq for ResourceUtilizationInfoElement {}
@@ -17522,7 +17193,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP>()) == 0 }
+        self.ReplicationGroupName == other.ReplicationGroupName && self.Description == other.Description && self.LogPath == other.LogPath && self.MaxLogSizeInBytes == other.MaxLogSizeInBytes && self.LogType == other.LogType && self.ReplicationMode == other.ReplicationMode && self.MinimumPartnersInSync == other.MinimumPartnersInSync && self.EnableWriteConsistency == other.EnableWriteConsistency && self.EnableEncryption == other.EnableEncryption && self.CertificateThumbprint == other.CertificateThumbprint && self.VolumeNameCount == other.VolumeNameCount && self.VolumeNames == other.VolumeNames
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17555,7 +17226,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESU
 }
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT>()) == 0 }
+        self.Result == other.Result && self.ErrorString == other.ErrorString
     }
 }
 impl ::core::cmp::Eq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {}
@@ -17586,7 +17257,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_DISK_INFO {
 }
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_DISK_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_DISK_INFO>()) == 0 }
+        self.Reason == other.Reason && self.DiskGuid == other.DiskGuid
     }
 }
 impl ::core::cmp::Eq for SR_RESOURCE_TYPE_DISK_INFO {}
@@ -17617,7 +17288,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
 }
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT>()) == 0 }
+        self.Count == other.Count && self.DiskInfo == other.DiskInfo
     }
 }
 impl ::core::cmp::Eq for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {}
@@ -17654,7 +17325,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS>()) == 0 }
+        self.DataDiskGuid == other.DataDiskGuid && self.IncludeOfflineDisks == other.IncludeOfflineDisks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17693,7 +17364,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATA
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS>()) == 0 }
+        self.DataDiskGuid == other.DataDiskGuid && self.IncludeAvailableStoargeDisks == other.IncludeAvailableStoargeDisks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17734,7 +17405,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATA
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS>()) == 0 }
+        self.SourceDataDiskGuid == other.SourceDataDiskGuid && self.TargetReplicationGroupGuid == other.TargetReplicationGroupGuid && self.SkipConnectivityCheck == other.SkipConnectivityCheck && self.IncludeOfflineDisks == other.IncludeOfflineDisks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17769,7 +17440,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_DISK {
 }
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_DISK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_REPLICATED_DISK>()) == 0 }
+        self.Type == other.Type && self.ClusterDiskResourceGuid == other.ClusterDiskResourceGuid && self.ReplicationGroupId == other.ReplicationGroupId && self.ReplicationGroupName == other.ReplicationGroupName
     }
 }
 impl ::core::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_DISK {}
@@ -17800,7 +17471,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
 }
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT>()) == 0 }
+        self.Count == other.Count && self.ReplicatedDisks == other.ReplicatedDisks
     }
 }
 impl ::core::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {}
@@ -17831,7 +17502,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY
 }
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY>()) == 0 }
+        self.Count == other.Count && self.PartitionArray == other.PartitionArray
     }
 }
 impl ::core::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {}
@@ -17862,7 +17533,7 @@ unsafe impl ::windows::core::Abi for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO 
 }
 impl ::core::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO>()) == 0 }
+        self.PartitionOffset == other.PartitionOffset && self.Capabilities == other.Capabilities
     }
 }
 impl ::core::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
@@ -17893,7 +17564,7 @@ unsafe impl ::windows::core::Abi for WitnessTagHelper {
 }
 impl ::core::cmp::PartialEq for WitnessTagHelper {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WitnessTagHelper>()) == 0 }
+        self.Version == other.Version && self.paxosToValidate == other.paxosToValidate
     }
 }
 impl ::core::cmp::Eq for WitnessTagHelper {}
@@ -17925,7 +17596,7 @@ unsafe impl ::windows::core::Abi for WitnessTagUpdateHelper {
 }
 impl ::core::cmp::PartialEq for WitnessTagUpdateHelper {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WitnessTagUpdateHelper>()) == 0 }
+        self.Version == other.Version && self.paxosToSet == other.paxosToSet && self.paxosToValidate == other.paxosToValidate
     }
 }
 impl ::core::cmp::Eq for WitnessTagUpdateHelper {}

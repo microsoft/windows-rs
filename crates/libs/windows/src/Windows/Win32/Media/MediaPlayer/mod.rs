@@ -14387,7 +14387,7 @@ unsafe impl ::windows::core::Abi for TimedLevel {
 }
 impl ::core::cmp::PartialEq for TimedLevel {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TimedLevel>()) == 0 }
+        self.frequency == other.frequency && self.waveform == other.waveform && self.state == other.state && self.timeStamp == other.timeStamp
     }
 }
 impl ::core::cmp::Eq for TimedLevel {}
@@ -14446,12 +14446,6 @@ impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
 unsafe impl ::windows::core::Abi for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {}
 impl ::core::default::Default for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -14472,12 +14466,6 @@ impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
 unsafe impl ::windows::core::Abi for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {}
 impl ::core::default::Default for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

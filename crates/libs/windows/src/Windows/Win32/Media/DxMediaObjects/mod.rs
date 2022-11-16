@@ -935,7 +935,7 @@ unsafe impl ::windows::core::Abi for DMO_PARTIAL_MEDIATYPE {
 }
 impl ::core::cmp::PartialEq for DMO_PARTIAL_MEDIATYPE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMO_PARTIAL_MEDIATYPE>()) == 0 }
+        self.r#type == other.r#type && self.subtype == other.subtype
     }
 }
 impl ::core::cmp::Eq for DMO_PARTIAL_MEDIATYPE {}

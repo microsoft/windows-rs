@@ -4144,7 +4144,7 @@ unsafe impl ::windows::core::Abi for EMRPIXELFORMAT {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMRPIXELFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRPIXELFORMAT>()) == 0 }
+        self.emr == other.emr && self.pfd == other.pfd
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4186,7 +4186,7 @@ unsafe impl ::windows::core::Abi for GLYPHMETRICSFLOAT {
 }
 impl ::core::cmp::PartialEq for GLYPHMETRICSFLOAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLYPHMETRICSFLOAT>()) == 0 }
+        self.gmfBlackBoxX == other.gmfBlackBoxX && self.gmfBlackBoxY == other.gmfBlackBoxY && self.gmfptGlyphOrigin == other.gmfptGlyphOrigin && self.gmfCellIncX == other.gmfCellIncX && self.gmfCellIncY == other.gmfCellIncY
     }
 }
 impl ::core::cmp::Eq for GLYPHMETRICSFLOAT {}
@@ -4302,7 +4302,30 @@ unsafe impl ::windows::core::Abi for LAYERPLANEDESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LAYERPLANEDESCRIPTOR>()) == 0 }
+        self.nSize == other.nSize
+            && self.nVersion == other.nVersion
+            && self.dwFlags == other.dwFlags
+            && self.iPixelType == other.iPixelType
+            && self.cColorBits == other.cColorBits
+            && self.cRedBits == other.cRedBits
+            && self.cRedShift == other.cRedShift
+            && self.cGreenBits == other.cGreenBits
+            && self.cGreenShift == other.cGreenShift
+            && self.cBlueBits == other.cBlueBits
+            && self.cBlueShift == other.cBlueShift
+            && self.cAlphaBits == other.cAlphaBits
+            && self.cAlphaShift == other.cAlphaShift
+            && self.cAccumBits == other.cAccumBits
+            && self.cAccumRedBits == other.cAccumRedBits
+            && self.cAccumGreenBits == other.cAccumGreenBits
+            && self.cAccumBlueBits == other.cAccumBlueBits
+            && self.cAccumAlphaBits == other.cAccumAlphaBits
+            && self.cDepthBits == other.cDepthBits
+            && self.cStencilBits == other.cStencilBits
+            && self.cAuxBuffers == other.cAuxBuffers
+            && self.iLayerPlane == other.iLayerPlane
+            && self.bReserved == other.bReserved
+            && self.crTransparent == other.crTransparent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4386,7 +4409,32 @@ unsafe impl ::windows::core::Abi for PIXELFORMATDESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PIXELFORMATDESCRIPTOR>()) == 0 }
+        self.nSize == other.nSize
+            && self.nVersion == other.nVersion
+            && self.dwFlags == other.dwFlags
+            && self.iPixelType == other.iPixelType
+            && self.cColorBits == other.cColorBits
+            && self.cRedBits == other.cRedBits
+            && self.cRedShift == other.cRedShift
+            && self.cGreenBits == other.cGreenBits
+            && self.cGreenShift == other.cGreenShift
+            && self.cBlueBits == other.cBlueBits
+            && self.cBlueShift == other.cBlueShift
+            && self.cAlphaBits == other.cAlphaBits
+            && self.cAlphaShift == other.cAlphaShift
+            && self.cAccumBits == other.cAccumBits
+            && self.cAccumRedBits == other.cAccumRedBits
+            && self.cAccumGreenBits == other.cAccumGreenBits
+            && self.cAccumBlueBits == other.cAccumBlueBits
+            && self.cAccumAlphaBits == other.cAccumAlphaBits
+            && self.cDepthBits == other.cDepthBits
+            && self.cStencilBits == other.cStencilBits
+            && self.cAuxBuffers == other.cAuxBuffers
+            && self.iLayerType == other.iLayerType
+            && self.bReserved == other.bReserved
+            && self.dwLayerMask == other.dwLayerMask
+            && self.dwVisibleMask == other.dwVisibleMask
+            && self.dwDamageMask == other.dwDamageMask
     }
 }
 impl ::core::cmp::Eq for PIXELFORMATDESCRIPTOR {}
@@ -4417,7 +4465,7 @@ unsafe impl ::windows::core::Abi for POINTFLOAT {
 }
 impl ::core::cmp::PartialEq for POINTFLOAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTFLOAT>()) == 0 }
+        self.x == other.x && self.y == other.y
     }
 }
 impl ::core::cmp::Eq for POINTFLOAT {}

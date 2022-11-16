@@ -26076,7 +26076,7 @@ unsafe impl ::windows::core::Abi for CAINFO {
 }
 impl ::core::cmp::PartialEq for CAINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.CAType == other.CAType && self.cCASignatureCerts == other.cCASignatureCerts && self.cCAExchangeCerts == other.cCAExchangeCerts && self.cExitModules == other.cExitModules && self.lPropIdMax == other.lPropIdMax && self.lRoleSeparationEnabled == other.lRoleSeparationEnabled && self.cKRACertUsedCount == other.cKRACertUsedCount && self.cKRACertCount == other.cKRACertCount && self.fAdvancedServer == other.fAdvancedServer
     }
 }
 impl ::core::cmp::Eq for CAINFO {}
@@ -26107,7 +26107,7 @@ unsafe impl ::windows::core::Abi for CERTTRANSBLOB {
 }
 impl ::core::cmp::PartialEq for CERTTRANSBLOB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CERTTRANSBLOB>()) == 0 }
+        self.cb == other.cb && self.pb == other.pb
     }
 }
 impl ::core::cmp::Eq for CERTTRANSBLOB {}
@@ -26141,7 +26141,7 @@ unsafe impl ::windows::core::Abi for CERTVIEWRESTRICTION {
 }
 impl ::core::cmp::PartialEq for CERTVIEWRESTRICTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CERTVIEWRESTRICTION>()) == 0 }
+        self.ColumnIndex == other.ColumnIndex && self.SeekOperator == other.SeekOperator && self.SortOrder == other.SortOrder && self.pbValue == other.pbValue && self.cbValue == other.cbValue
     }
 }
 impl ::core::cmp::Eq for CERTVIEWRESTRICTION {}
@@ -26172,7 +26172,7 @@ unsafe impl ::windows::core::Abi for CSEDB_RSTMAPW {
 }
 impl ::core::cmp::PartialEq for CSEDB_RSTMAPW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSEDB_RSTMAPW>()) == 0 }
+        self.pwszDatabaseName == other.pwszDatabaseName && self.pwszNewDatabaseName == other.pwszNewDatabaseName
     }
 }
 impl ::core::cmp::Eq for CSEDB_RSTMAPW {}

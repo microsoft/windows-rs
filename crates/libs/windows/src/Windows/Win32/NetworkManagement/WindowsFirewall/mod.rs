@@ -5208,7 +5208,7 @@ unsafe impl ::windows::core::Abi for FW_DYNAMIC_KEYWORD_ADDRESS0 {
 }
 impl ::core::cmp::PartialEq for FW_DYNAMIC_KEYWORD_ADDRESS0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FW_DYNAMIC_KEYWORD_ADDRESS0>()) == 0 }
+        self.id == other.id && self.keyword == other.keyword && self.flags == other.flags && self.addresses == other.addresses
     }
 }
 impl ::core::cmp::Eq for FW_DYNAMIC_KEYWORD_ADDRESS0 {}
@@ -5241,7 +5241,7 @@ unsafe impl ::windows::core::Abi for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
 }
 impl ::core::cmp::PartialEq for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FW_DYNAMIC_KEYWORD_ADDRESS_DATA0>()) == 0 }
+        self.dynamicKeywordAddress == other.dynamicKeywordAddress && self.next == other.next && self.schemaVersion == other.schemaVersion && self.originType == other.originType
     }
 }
 impl ::core::cmp::Eq for FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
@@ -5272,7 +5272,7 @@ unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_BINARIES {
 }
 impl ::core::cmp::PartialEq for INET_FIREWALL_AC_BINARIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_BINARIES>()) == 0 }
+        self.count == other.count && self.binaries == other.binaries
     }
 }
 impl ::core::cmp::Eq for INET_FIREWALL_AC_BINARIES {}
@@ -5309,7 +5309,7 @@ unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CAPABILITIES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CAPABILITIES>()) == 0 }
+        self.count == other.count && self.capabilities == other.capabilities
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -5344,14 +5344,6 @@ unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CHANGE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for INET_FIREWALL_AC_CHANGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for INET_FIREWALL_AC_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5376,14 +5368,6 @@ impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_0 {
 unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CHANGE_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for INET_FIREWALL_AC_CHANGE_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_0 {
     fn default() -> Self {
@@ -5425,7 +5409,7 @@ unsafe impl ::windows::core::Abi for INET_FIREWALL_APP_CONTAINER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for INET_FIREWALL_APP_CONTAINER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_APP_CONTAINER>()) == 0 }
+        self.appContainerSid == other.appContainerSid && self.userSid == other.userSid && self.appContainerName == other.appContainerName && self.displayName == other.displayName && self.description == other.description && self.capabilities == other.capabilities && self.binaries == other.binaries && self.workingDirectory == other.workingDirectory && self.packageFullName == other.packageFullName
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -5464,7 +5448,7 @@ unsafe impl ::windows::core::Abi for NETCON_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for NETCON_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETCON_PROPERTIES>()) == 0 }
+        self.guidId == other.guidId && self.pszwName == other.pszwName && self.pszwDeviceName == other.pszwDeviceName && self.Status == other.Status && self.MediaType == other.MediaType && self.dwCharacter == other.dwCharacter && self.clsidThisObject == other.clsidThisObject && self.clsidUiObject == other.clsidUiObject
     }
 }
 impl ::core::cmp::Eq for NETCON_PROPERTIES {}

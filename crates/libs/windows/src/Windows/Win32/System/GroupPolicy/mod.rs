@@ -6344,7 +6344,7 @@ unsafe impl ::windows::core::Abi for GPOBROWSEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GPOBROWSEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GPOBROWSEINFO>()) == 0 }
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.hwndOwner == other.hwndOwner && self.lpTitle == other.lpTitle && self.lpInitialOU == other.lpInitialOU && self.lpDSPath == other.lpDSPath && self.dwDSPathSize == other.dwDSPathSize && self.lpName == other.lpName && self.dwNameSize == other.dwNameSize && self.gpoType == other.gpoType && self.gpoHint == other.gpoHint
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6408,7 +6408,7 @@ unsafe impl ::windows::core::Abi for GROUP_POLICY_OBJECTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GROUP_POLICY_OBJECTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_POLICY_OBJECTA>()) == 0 }
+        self.dwOptions == other.dwOptions && self.dwVersion == other.dwVersion && self.lpDSPath == other.lpDSPath && self.lpFileSysPath == other.lpFileSysPath && self.lpDisplayName == other.lpDisplayName && self.szGPOName == other.szGPOName && self.GPOLink == other.GPOLink && self.lParam == other.lParam && self.pNext == other.pNext && self.pPrev == other.pPrev && self.lpExtensions == other.lpExtensions && self.lParam2 == other.lParam2 && self.lpLink == other.lpLink
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6472,7 +6472,7 @@ unsafe impl ::windows::core::Abi for GROUP_POLICY_OBJECTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GROUP_POLICY_OBJECTW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GROUP_POLICY_OBJECTW>()) == 0 }
+        self.dwOptions == other.dwOptions && self.dwVersion == other.dwVersion && self.lpDSPath == other.lpDSPath && self.lpFileSysPath == other.lpFileSysPath && self.lpDisplayName == other.lpDisplayName && self.szGPOName == other.szGPOName && self.GPOLink == other.GPOLink && self.lParam == other.lParam && self.pNext == other.pNext && self.pPrev == other.pPrev && self.lpExtensions == other.lpExtensions && self.lParam2 == other.lParam2 && self.lpLink == other.lpLink
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6498,12 +6498,6 @@ impl ::core::clone::Clone for INSTALLDATA {
 unsafe impl ::windows::core::Abi for INSTALLDATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INSTALLDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTALLDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INSTALLDATA {}
 impl ::core::default::Default for INSTALLDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6526,12 +6520,6 @@ impl ::core::clone::Clone for INSTALLSPEC {
 unsafe impl ::windows::core::Abi for INSTALLSPEC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INSTALLSPEC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTALLSPEC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INSTALLSPEC {}
 impl ::core::default::Default for INSTALLSPEC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6559,7 +6547,7 @@ unsafe impl ::windows::core::Abi for INSTALLSPEC_0 {
 }
 impl ::core::cmp::PartialEq for INSTALLSPEC_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTALLSPEC_0>()) == 0 }
+        self.Name == other.Name && self.GPOId == other.GPOId
     }
 }
 impl ::core::cmp::Eq for INSTALLSPEC_0 {}
@@ -6590,7 +6578,7 @@ unsafe impl ::windows::core::Abi for INSTALLSPEC_1 {
 }
 impl ::core::cmp::PartialEq for INSTALLSPEC_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTALLSPEC_1>()) == 0 }
+        self.Clsid == other.Clsid && self.ClsCtx == other.ClsCtx
     }
 }
 impl ::core::cmp::Eq for INSTALLSPEC_1 {}
@@ -6623,7 +6611,7 @@ unsafe impl ::windows::core::Abi for LOCALMANAGEDAPPLICATION {
 }
 impl ::core::cmp::PartialEq for LOCALMANAGEDAPPLICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOCALMANAGEDAPPLICATION>()) == 0 }
+        self.pszDeploymentName == other.pszDeploymentName && self.pszPolicyName == other.pszPolicyName && self.pszProductId == other.pszProductId && self.dwState == other.dwState
     }
 }
 impl ::core::cmp::Eq for LOCALMANAGEDAPPLICATION {}
@@ -6691,7 +6679,7 @@ unsafe impl ::windows::core::Abi for MANAGEDAPPLICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MANAGEDAPPLICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MANAGEDAPPLICATION>()) == 0 }
+        self.pszPackageName == other.pszPackageName && self.pszPublisher == other.pszPublisher && self.dwVersionHi == other.dwVersionHi && self.dwVersionLo == other.dwVersionLo && self.dwRevision == other.dwRevision && self.GpoId == other.GpoId && self.pszPolicyName == other.pszPolicyName && self.ProductId == other.ProductId && self.Language == other.Language && self.pszOwner == other.pszOwner && self.pszCompany == other.pszCompany && self.pszComments == other.pszComments && self.pszContact == other.pszContact && self.pszSupportUrl == other.pszSupportUrl && self.dwPathType == other.dwPathType && self.bInstalled == other.bInstalled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6735,7 +6723,7 @@ unsafe impl ::windows::core::Abi for POLICYSETTINGSTATUSINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICYSETTINGSTATUSINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POLICYSETTINGSTATUSINFO>()) == 0 }
+        self.szKey == other.szKey && self.szEventSource == other.szEventSource && self.szEventLogName == other.szEventLogName && self.dwEventID == other.dwEventID && self.dwErrorCode == other.dwErrorCode && self.status == other.status && self.timeLogged == other.timeLogged
     }
 }
 #[cfg(feature = "Win32_Foundation")]

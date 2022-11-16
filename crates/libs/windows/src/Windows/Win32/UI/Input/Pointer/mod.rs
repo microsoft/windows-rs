@@ -398,7 +398,7 @@ unsafe impl ::windows::core::Abi for INPUT_INJECTION_VALUE {
 }
 impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_INJECTION_VALUE>()) == 0 }
+        self.page == other.page && self.usage == other.usage && self.value == other.value && self.index == other.index
     }
 }
 impl ::core::cmp::Eq for INPUT_INJECTION_VALUE {}
@@ -421,12 +421,6 @@ impl ::core::clone::Clone for INPUT_TRANSFORM {
 unsafe impl ::windows::core::Abi for INPUT_TRANSFORM {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INPUT_TRANSFORM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_TRANSFORM {}
 impl ::core::default::Default for INPUT_TRANSFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -447,12 +441,6 @@ impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
 unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INPUT_TRANSFORM_0 {}
 impl ::core::default::Default for INPUT_TRANSFORM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -494,7 +482,7 @@ unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0_0 {
 }
 impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INPUT_TRANSFORM_0_0>()) == 0 }
+        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
     }
 }
 impl ::core::cmp::Eq for INPUT_TRANSFORM_0_0 {}
@@ -562,7 +550,7 @@ unsafe impl ::windows::core::Abi for POINTER_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTER_INFO>()) == 0 }
+        self.pointerType == other.pointerType && self.pointerId == other.pointerId && self.frameId == other.frameId && self.pointerFlags == other.pointerFlags && self.sourceDevice == other.sourceDevice && self.hwndTarget == other.hwndTarget && self.ptPixelLocation == other.ptPixelLocation && self.ptHimetricLocation == other.ptHimetricLocation && self.ptPixelLocationRaw == other.ptPixelLocationRaw && self.ptHimetricLocationRaw == other.ptHimetricLocationRaw && self.dwTime == other.dwTime && self.historyCount == other.historyCount && self.InputData == other.InputData && self.dwKeyStates == other.dwKeyStates && self.PerformanceCount == other.PerformanceCount && self.ButtonChangeType == other.ButtonChangeType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -606,7 +594,7 @@ unsafe impl ::windows::core::Abi for POINTER_PEN_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_PEN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTER_PEN_INFO>()) == 0 }
+        self.pointerInfo == other.pointerInfo && self.penFlags == other.penFlags && self.penMask == other.penMask && self.pressure == other.pressure && self.rotation == other.rotation && self.tiltX == other.tiltX && self.tiltY == other.tiltY
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -650,7 +638,7 @@ unsafe impl ::windows::core::Abi for POINTER_TOUCH_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_TOUCH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTER_TOUCH_INFO>()) == 0 }
+        self.pointerInfo == other.pointerInfo && self.touchFlags == other.touchFlags && self.touchMask == other.touchMask && self.rcContact == other.rcContact && self.rcContactRaw == other.rcContactRaw && self.orientation == other.orientation && self.pressure == other.pressure
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

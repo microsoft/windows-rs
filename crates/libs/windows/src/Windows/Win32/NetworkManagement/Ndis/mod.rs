@@ -5157,7 +5157,7 @@ unsafe impl ::windows::core::Abi for BSSID_INFO {
 }
 impl ::core::cmp::PartialEq for BSSID_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSSID_INFO>()) == 0 }
+        self.BSSID == other.BSSID && self.PMKID == other.PMKID
     }
 }
 impl ::core::cmp::Eq for BSSID_INFO {}
@@ -5187,7 +5187,7 @@ unsafe impl ::windows::core::Abi for GEN_GET_NETCARD_TIME {
 }
 impl ::core::cmp::PartialEq for GEN_GET_NETCARD_TIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GEN_GET_NETCARD_TIME>()) == 0 }
+        self.ReadTime == other.ReadTime
     }
 }
 impl ::core::cmp::Eq for GEN_GET_NETCARD_TIME {}
@@ -5218,7 +5218,7 @@ unsafe impl ::windows::core::Abi for GEN_GET_TIME_CAPS {
 }
 impl ::core::cmp::PartialEq for GEN_GET_TIME_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GEN_GET_TIME_CAPS>()) == 0 }
+        self.Flags == other.Flags && self.ClockPrecision == other.ClockPrecision
     }
 }
 impl ::core::cmp::Eq for GEN_GET_TIME_CAPS {}
@@ -5249,7 +5249,7 @@ unsafe impl ::windows::core::Abi for IF_COUNTED_STRING_LH {
 }
 impl ::core::cmp::PartialEq for IF_COUNTED_STRING_LH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IF_COUNTED_STRING_LH>()) == 0 }
+        self.Length == other.Length && self.String == other.String
     }
 }
 impl ::core::cmp::Eq for IF_COUNTED_STRING_LH {}
@@ -5280,7 +5280,7 @@ unsafe impl ::windows::core::Abi for IF_PHYSICAL_ADDRESS_LH {
 }
 impl ::core::cmp::PartialEq for IF_PHYSICAL_ADDRESS_LH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IF_PHYSICAL_ADDRESS_LH>()) == 0 }
+        self.Length == other.Length && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for IF_PHYSICAL_ADDRESS_LH {}
@@ -5312,7 +5312,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_AI_REQFI {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AI_REQFI {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AI_REQFI>()) == 0 }
+        self.Capabilities == other.Capabilities && self.ListenInterval == other.ListenInterval && self.CurrentAPAddress == other.CurrentAPAddress
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_AI_REQFI {}
@@ -5344,7 +5344,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_AI_RESFI {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AI_RESFI {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AI_RESFI>()) == 0 }
+        self.Capabilities == other.Capabilities && self.StatusCode == other.StatusCode && self.AssociationId == other.AssociationId
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_AI_RESFI {}
@@ -5392,7 +5392,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_ASSOCIATION_INFORMATION {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_ASSOCIATION_INFORMATION>()) == 0 }
+        self.Length == other.Length && self.AvailableRequestFixedIEs == other.AvailableRequestFixedIEs && self.RequestFixedIEs == other.RequestFixedIEs && self.RequestIELength == other.RequestIELength && self.OffsetRequestIEs == other.OffsetRequestIEs && self.AvailableResponseFixedIEs == other.AvailableResponseFixedIEs && self.ResponseFixedIEs == other.ResponseFixedIEs && self.ResponseIELength == other.ResponseIELength && self.OffsetResponseIEs == other.OffsetResponseIEs
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_ASSOCIATION_INFORMATION {}
@@ -5423,7 +5423,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_ENCRYPTION>()) == 0 }
+        self.AuthModeSupported == other.AuthModeSupported && self.EncryptStatusSupported == other.EncryptStatusSupported
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
@@ -5454,7 +5454,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_EVENT {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_EVENT>()) == 0 }
+        self.Status == other.Status && self.Request == other.Request
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_EVENT {}
@@ -5486,7 +5486,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_REQUEST {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_REQUEST>()) == 0 }
+        self.Length == other.Length && self.Bssid == other.Bssid && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_REQUEST {}
@@ -5517,7 +5517,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_BSSID_LIST>()) == 0 }
+        self.NumberOfItems == other.NumberOfItems && self.Bssid == other.Bssid
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_BSSID_LIST {}
@@ -5548,7 +5548,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST_EX {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_BSSID_LIST_EX>()) == 0 }
+        self.NumberOfItems == other.NumberOfItems && self.Bssid == other.Bssid
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_BSSID_LIST_EX {}
@@ -5582,7 +5582,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_CAPABILITY {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CAPABILITY>()) == 0 }
+        self.Length == other.Length && self.Version == other.Version && self.NoOfPMKIDs == other.NoOfPMKIDs && self.NoOfAuthEncryptPairsSupported == other.NoOfAuthEncryptPairsSupported && self.AuthenticationEncryptionSupported == other.AuthenticationEncryptionSupported
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_CAPABILITY {}
@@ -5616,7 +5616,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CONFIGURATION>()) == 0 }
+        self.Length == other.Length && self.BeaconPeriod == other.BeaconPeriod && self.ATIMWindow == other.ATIMWindow && self.DSConfig == other.DSConfig && self.FHConfig == other.FHConfig
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_CONFIGURATION {}
@@ -5649,7 +5649,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION_FH {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION_FH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CONFIGURATION_FH>()) == 0 }
+        self.Length == other.Length && self.HopPattern == other.HopPattern && self.HopSet == other.HopSet && self.DwellTime == other.DwellTime
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_CONFIGURATION_FH {}
@@ -5681,7 +5681,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_FIXED_IEs {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_FIXED_IEs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_FIXED_IEs>()) == 0 }
+        self.Timestamp == other.Timestamp && self.BeaconInterval == other.BeaconInterval && self.Capabilities == other.Capabilities
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_FIXED_IEs {}
@@ -5716,7 +5716,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_KEY {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_KEY>()) == 0 }
+        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.KeyLength == other.KeyLength && self.BSSID == other.BSSID && self.KeyRSC == other.KeyRSC && self.KeyMaterial == other.KeyMaterial
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_KEY {}
@@ -5747,7 +5747,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE_LIST {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_NETWORK_TYPE_LIST>()) == 0 }
+        self.NumberOfItems == other.NumberOfItems && self.NetworkType == other.NetworkType
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_NETWORK_TYPE_LIST {}
@@ -5778,7 +5778,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_NON_BCAST_SSID_LIST {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_NON_BCAST_SSID_LIST>()) == 0 }
+        self.NumberOfItems == other.NumberOfItems && self.Non_Bcast_Ssid == other.Non_Bcast_Ssid
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_NON_BCAST_SSID_LIST {}
@@ -5810,7 +5810,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_PMKID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_PMKID>()) == 0 }
+        self.Length == other.Length && self.BSSIDInfoCount == other.BSSIDInfoCount && self.BSSIDInfo == other.BSSIDInfo
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_PMKID {}
@@ -5842,7 +5842,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID_CANDIDATE_LIST {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_PMKID_CANDIDATE_LIST>()) == 0 }
+        self.Version == other.Version && self.NumCandidates == other.NumCandidates && self.CandidateList == other.CandidateList
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_PMKID_CANDIDATE_LIST {}
@@ -5874,7 +5874,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_REMOVE_KEY {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_REMOVE_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_REMOVE_KEY>()) == 0 }
+        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.BSSID == other.BSSID
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_REMOVE_KEY {}
@@ -5905,7 +5905,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_SSID {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_SSID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_SSID>()) == 0 }
+        self.SsidLength == other.SsidLength && self.Ssid == other.Ssid
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_SSID {}
@@ -5985,7 +5985,31 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_STATISTICS {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_STATISTICS>()) == 0 }
+        self.Length == other.Length
+            && self.TransmittedFragmentCount == other.TransmittedFragmentCount
+            && self.MulticastTransmittedFrameCount == other.MulticastTransmittedFrameCount
+            && self.FailedCount == other.FailedCount
+            && self.RetryCount == other.RetryCount
+            && self.MultipleRetryCount == other.MultipleRetryCount
+            && self.RTSSuccessCount == other.RTSSuccessCount
+            && self.RTSFailureCount == other.RTSFailureCount
+            && self.ACKFailureCount == other.ACKFailureCount
+            && self.FrameDuplicateCount == other.FrameDuplicateCount
+            && self.ReceivedFragmentCount == other.ReceivedFragmentCount
+            && self.MulticastReceivedFrameCount == other.MulticastReceivedFrameCount
+            && self.FCSErrorCount == other.FCSErrorCount
+            && self.TKIPLocalMICFailures == other.TKIPLocalMICFailures
+            && self.TKIPICVErrorCount == other.TKIPICVErrorCount
+            && self.TKIPCounterMeasuresInvoked == other.TKIPCounterMeasuresInvoked
+            && self.TKIPReplays == other.TKIPReplays
+            && self.CCMPFormatErrors == other.CCMPFormatErrors
+            && self.CCMPReplays == other.CCMPReplays
+            && self.CCMPDecryptErrors == other.CCMPDecryptErrors
+            && self.FourWayHandshakeFailures == other.FourWayHandshakeFailures
+            && self.WEPUndecryptableCount == other.WEPUndecryptableCount
+            && self.WEPICVErrorCount == other.WEPICVErrorCount
+            && self.DecryptSuccessCount == other.DecryptSuccessCount
+            && self.DecryptFailureCount == other.DecryptFailureCount
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_STATISTICS {}
@@ -6015,7 +6039,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_INDICATION {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_STATUS_INDICATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_STATUS_INDICATION>()) == 0 }
+        self.StatusType == other.StatusType
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_STATUS_INDICATION {}
@@ -6040,12 +6064,6 @@ impl ::core::clone::Clone for NDIS_802_11_TEST {
 unsafe impl ::windows::core::Abi for NDIS_802_11_TEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NDIS_802_11_TEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_TEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_TEST {}
 impl ::core::default::Default for NDIS_802_11_TEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6066,12 +6084,6 @@ impl ::core::clone::Clone for NDIS_802_11_TEST_0 {
 unsafe impl ::windows::core::Abi for NDIS_802_11_TEST_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NDIS_802_11_TEST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_TEST_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_TEST_0 {}
 impl ::core::default::Default for NDIS_802_11_TEST_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6100,7 +6112,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_VARIABLE_IEs {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_VARIABLE_IEs {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_VARIABLE_IEs>()) == 0 }
+        self.ElementID == other.ElementID && self.Length == other.Length && self.data == other.data
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_VARIABLE_IEs {}
@@ -6133,7 +6145,7 @@ unsafe impl ::windows::core::Abi for NDIS_802_11_WEP {
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_WEP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_WEP>()) == 0 }
+        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.KeyLength == other.KeyLength && self.KeyMaterial == other.KeyMaterial
     }
 }
 impl ::core::cmp::Eq for NDIS_802_11_WEP {}
@@ -6219,7 +6231,34 @@ unsafe impl ::windows::core::Abi for NDIS_CO_DEVICE_PROFILE {
 }
 impl ::core::cmp::PartialEq for NDIS_CO_DEVICE_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_CO_DEVICE_PROFILE>()) == 0 }
+        self.DeviceDescription == other.DeviceDescription
+            && self.DevSpecificInfo == other.DevSpecificInfo
+            && self.ulTAPISupplementaryPassThru == other.ulTAPISupplementaryPassThru
+            && self.ulAddressModes == other.ulAddressModes
+            && self.ulNumAddresses == other.ulNumAddresses
+            && self.ulBearerModes == other.ulBearerModes
+            && self.ulMaxTxRate == other.ulMaxTxRate
+            && self.ulMinTxRate == other.ulMinTxRate
+            && self.ulMaxRxRate == other.ulMaxRxRate
+            && self.ulMinRxRate == other.ulMinRxRate
+            && self.ulMediaModes == other.ulMediaModes
+            && self.ulGenerateToneModes == other.ulGenerateToneModes
+            && self.ulGenerateToneMaxNumFreq == other.ulGenerateToneMaxNumFreq
+            && self.ulGenerateDigitModes == other.ulGenerateDigitModes
+            && self.ulMonitorToneMaxNumFreq == other.ulMonitorToneMaxNumFreq
+            && self.ulMonitorToneMaxNumEntries == other.ulMonitorToneMaxNumEntries
+            && self.ulMonitorDigitModes == other.ulMonitorDigitModes
+            && self.ulGatherDigitsMinTimeout == other.ulGatherDigitsMinTimeout
+            && self.ulGatherDigitsMaxTimeout == other.ulGatherDigitsMaxTimeout
+            && self.ulDevCapFlags == other.ulDevCapFlags
+            && self.ulMaxNumActiveCalls == other.ulMaxNumActiveCalls
+            && self.ulAnswerMode == other.ulAnswerMode
+            && self.ulUUIAcceptSize == other.ulUUIAcceptSize
+            && self.ulUUIAnswerSize == other.ulUUIAnswerSize
+            && self.ulUUIMakeCallSize == other.ulUUIMakeCallSize
+            && self.ulUUIDropSize == other.ulUUIDropSize
+            && self.ulUUISendUserUserInfoSize == other.ulUUISendUserUserInfoSize
+            && self.ulUUICallInfoSize == other.ulUUICallInfoSize
     }
 }
 impl ::core::cmp::Eq for NDIS_CO_DEVICE_PROFILE {}
@@ -6250,7 +6289,7 @@ unsafe impl ::windows::core::Abi for NDIS_CO_LINK_SPEED {
 }
 impl ::core::cmp::PartialEq for NDIS_CO_LINK_SPEED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_CO_LINK_SPEED>()) == 0 }
+        self.Outbound == other.Outbound && self.Inbound == other.Inbound
     }
 }
 impl ::core::cmp::Eq for NDIS_CO_LINK_SPEED {}
@@ -6276,12 +6315,6 @@ impl ::core::clone::Clone for NDIS_GUID {
 unsafe impl ::windows::core::Abi for NDIS_GUID {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NDIS_GUID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_GUID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_GUID {}
 impl ::core::default::Default for NDIS_GUID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6302,12 +6335,6 @@ impl ::core::clone::Clone for NDIS_GUID_0 {
 unsafe impl ::windows::core::Abi for NDIS_GUID_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NDIS_GUID_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_GUID_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_GUID_0 {}
 impl ::core::default::Default for NDIS_GUID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6338,7 +6365,7 @@ unsafe impl ::windows::core::Abi for NDIS_HARDWARE_CROSSTIMESTAMP {
 }
 impl ::core::cmp::PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_HARDWARE_CROSSTIMESTAMP>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.SystemTimestamp1 == other.SystemTimestamp1 && self.HardwareClockTimestamp == other.HardwareClockTimestamp && self.SystemTimestamp2 == other.SystemTimestamp2
     }
 }
 impl ::core::cmp::Eq for NDIS_HARDWARE_CROSSTIMESTAMP {}
@@ -6438,7 +6465,38 @@ unsafe impl ::windows::core::Abi for NDIS_INTERFACE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_INTERFACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_INTERFACE_INFORMATION>()) == 0 }
+        self.ifOperStatus == other.ifOperStatus
+            && self.ifOperStatusFlags == other.ifOperStatusFlags
+            && self.MediaConnectState == other.MediaConnectState
+            && self.MediaDuplexState == other.MediaDuplexState
+            && self.ifMtu == other.ifMtu
+            && self.ifPromiscuousMode == other.ifPromiscuousMode
+            && self.ifDeviceWakeUpEnable == other.ifDeviceWakeUpEnable
+            && self.XmitLinkSpeed == other.XmitLinkSpeed
+            && self.RcvLinkSpeed == other.RcvLinkSpeed
+            && self.ifLastChange == other.ifLastChange
+            && self.ifCounterDiscontinuityTime == other.ifCounterDiscontinuityTime
+            && self.ifInUnknownProtos == other.ifInUnknownProtos
+            && self.ifInDiscards == other.ifInDiscards
+            && self.ifInErrors == other.ifInErrors
+            && self.ifHCInOctets == other.ifHCInOctets
+            && self.ifHCInUcastPkts == other.ifHCInUcastPkts
+            && self.ifHCInMulticastPkts == other.ifHCInMulticastPkts
+            && self.ifHCInBroadcastPkts == other.ifHCInBroadcastPkts
+            && self.ifHCOutOctets == other.ifHCOutOctets
+            && self.ifHCOutUcastPkts == other.ifHCOutUcastPkts
+            && self.ifHCOutMulticastPkts == other.ifHCOutMulticastPkts
+            && self.ifHCOutBroadcastPkts == other.ifHCOutBroadcastPkts
+            && self.ifOutErrors == other.ifOutErrors
+            && self.ifOutDiscards == other.ifOutDiscards
+            && self.ifHCInUcastOctets == other.ifHCInUcastOctets
+            && self.ifHCInMulticastOctets == other.ifHCInMulticastOctets
+            && self.ifHCInBroadcastOctets == other.ifHCInBroadcastOctets
+            && self.ifHCOutUcastOctets == other.ifHCOutUcastOctets
+            && self.ifHCOutMulticastOctets == other.ifHCOutMulticastOctets
+            && self.ifHCOutBroadcastOctets == other.ifHCOutBroadcastOctets
+            && self.CompartmentId == other.CompartmentId
+            && self.SupportedStatistics == other.SupportedStatistics
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6472,7 +6530,7 @@ unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_INTERRUPT_MODERATION_PARAMETERS>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.InterruptModeration == other.InterruptModeration
     }
 }
 impl ::core::cmp::Eq for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
@@ -6504,7 +6562,7 @@ unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1 {
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1>()) == 0 }
+        self.Supported == other.Supported && self.IPv4AH == other.IPv4AH && self.IPv4ESP == other.IPv4ESP
     }
 }
 impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1 {}
@@ -6534,7 +6592,7 @@ unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_0 {}
@@ -6564,7 +6622,7 @@ unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_1 {
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_1>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_1 {}
@@ -6598,7 +6656,7 @@ unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_2 {
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_2>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.AhEspCombined == other.AhEspCombined && self.TransportTunnelCombined == other.TransportTunnelCombined && self.IPv4Options == other.IPv4Options && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_2 {}
@@ -6630,7 +6688,7 @@ unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATE {
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATE>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.IpOperationalStatus == other.IpOperationalStatus
     }
 }
 impl ::core::cmp::Eq for NDIS_IP_OPER_STATE {}
@@ -6662,7 +6720,7 @@ unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS {
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATUS>()) == 0 }
+        self.AddressFamily == other.AddressFamily && self.OperationalStatus == other.OperationalStatus && self.OperationalStatusFlags == other.OperationalStatusFlags
     }
 }
 impl ::core::cmp::Eq for NDIS_IP_OPER_STATUS {}
@@ -6695,7 +6753,7 @@ unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS_INFO {
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATUS_INFO>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.NumberofAddressFamiliesReturned == other.NumberofAddressFamiliesReturned && self.IpOperationalStatus == other.IpOperationalStatus
     }
 }
 impl ::core::cmp::Eq for NDIS_IP_OPER_STATUS_INFO {}
@@ -6726,7 +6784,7 @@ unsafe impl ::windows::core::Abi for NDIS_IRDA_PACKET_INFO {
 }
 impl ::core::cmp::PartialEq for NDIS_IRDA_PACKET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IRDA_PACKET_INFO>()) == 0 }
+        self.ExtraBOFs == other.ExtraBOFs && self.MinTurnAroundTime == other.MinTurnAroundTime
     }
 }
 impl ::core::cmp::Eq for NDIS_IRDA_PACKET_INFO {}
@@ -6761,7 +6819,7 @@ unsafe impl ::windows::core::Abi for NDIS_LINK_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_PARAMETERS>()) == 0 }
+        self.Header == other.Header && self.MediaDuplexState == other.MediaDuplexState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.PauseFunctions == other.PauseFunctions && self.AutoNegotiationFlags == other.AutoNegotiationFlags
     }
 }
 impl ::core::cmp::Eq for NDIS_LINK_PARAMETERS {}
@@ -6792,7 +6850,7 @@ unsafe impl ::windows::core::Abi for NDIS_LINK_SPEED {
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_SPEED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_SPEED>()) == 0 }
+        self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed
     }
 }
 impl ::core::cmp::Eq for NDIS_LINK_SPEED {}
@@ -6828,7 +6886,7 @@ unsafe impl ::windows::core::Abi for NDIS_LINK_STATE {
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_STATE>()) == 0 }
+        self.Header == other.Header && self.MediaConnectState == other.MediaConnectState && self.MediaDuplexState == other.MediaDuplexState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.PauseFunctions == other.PauseFunctions && self.AutoNegotiationFlags == other.AutoNegotiationFlags
     }
 }
 impl ::core::cmp::Eq for NDIS_LINK_STATE {}
@@ -6860,7 +6918,7 @@ unsafe impl ::windows::core::Abi for NDIS_OBJECT_HEADER {
 }
 impl ::core::cmp::PartialEq for NDIS_OBJECT_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OBJECT_HEADER>()) == 0 }
+        self.Type == other.Type && self.Revision == other.Revision && self.Size == other.Size
     }
 }
 impl ::core::cmp::Eq for NDIS_OBJECT_HEADER {}
@@ -6895,7 +6953,7 @@ unsafe impl ::windows::core::Abi for NDIS_OFFLOAD {
 }
 impl ::core::cmp::PartialEq for NDIS_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OFFLOAD>()) == 0 }
+        self.Header == other.Header && self.Checksum == other.Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2 == other.LsoV2 && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_OFFLOAD {}
@@ -6951,7 +7009,7 @@ unsafe impl ::windows::core::Abi for NDIS_OFFLOAD_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for NDIS_OFFLOAD_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OFFLOAD_PARAMETERS>()) == 0 }
+        self.Header == other.Header && self.IPv4Checksum == other.IPv4Checksum && self.TCPIPv4Checksum == other.TCPIPv4Checksum && self.UDPIPv4Checksum == other.UDPIPv4Checksum && self.TCPIPv6Checksum == other.TCPIPv6Checksum && self.UDPIPv6Checksum == other.UDPIPv6Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2IPv4 == other.LsoV2IPv4 && self.LsoV2IPv6 == other.LsoV2IPv6 && self.TcpConnectionIPv4 == other.TcpConnectionIPv4 && self.TcpConnectionIPv6 == other.TcpConnectionIPv6 && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_OFFLOAD_PARAMETERS {}
@@ -6983,7 +7041,7 @@ unsafe impl ::windows::core::Abi for NDIS_OPER_STATE {
 }
 impl ::core::cmp::PartialEq for NDIS_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OPER_STATE>()) == 0 }
+        self.Header == other.Header && self.OperationalStatus == other.OperationalStatus && self.OperationalStatusFlags == other.OperationalStatusFlags
     }
 }
 impl ::core::cmp::Eq for NDIS_OPER_STATE {}
@@ -7039,7 +7097,7 @@ unsafe impl ::windows::core::Abi for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PCI_DEVICE_CUSTOM_PROPERTIES>()) == 0 }
+        self.Header == other.Header && self.DeviceType == other.DeviceType && self.CurrentSpeedAndMode == other.CurrentSpeedAndMode && self.CurrentPayloadSize == other.CurrentPayloadSize && self.MaxPayloadSize == other.MaxPayloadSize && self.MaxReadRequestSize == other.MaxReadRequestSize && self.CurrentLinkSpeed == other.CurrentLinkSpeed && self.CurrentLinkWidth == other.CurrentLinkWidth && self.MaxLinkSpeed == other.MaxLinkSpeed && self.MaxLinkWidth == other.MaxLinkWidth && self.PciExpressVersion == other.PciExpressVersion && self.InterruptType == other.InterruptType && self.MaxInterruptMessages == other.MaxInterruptMessages
     }
 }
 impl ::core::cmp::Eq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
@@ -7074,7 +7132,7 @@ unsafe impl ::windows::core::Abi for NDIS_PM_PACKET_PATTERN {
 }
 impl ::core::cmp::PartialEq for NDIS_PM_PACKET_PATTERN {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PM_PACKET_PATTERN>()) == 0 }
+        self.Priority == other.Priority && self.Reserved == other.Reserved && self.MaskSize == other.MaskSize && self.PatternOffset == other.PatternOffset && self.PatternSize == other.PatternSize && self.PatternFlags == other.PatternFlags
     }
 }
 impl ::core::cmp::Eq for NDIS_PM_PACKET_PATTERN {}
@@ -7106,7 +7164,7 @@ unsafe impl ::windows::core::Abi for NDIS_PM_WAKE_UP_CAPABILITIES {
 }
 impl ::core::cmp::PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PM_WAKE_UP_CAPABILITIES>()) == 0 }
+        self.MinMagicPacketWakeUp == other.MinMagicPacketWakeUp && self.MinPatternWakeUp == other.MinPatternWakeUp && self.MinLinkChangeWakeUp == other.MinLinkChangeWakeUp
     }
 }
 impl ::core::cmp::Eq for NDIS_PM_WAKE_UP_CAPABILITIES {}
@@ -7137,7 +7195,7 @@ unsafe impl ::windows::core::Abi for NDIS_PNP_CAPABILITIES {
 }
 impl ::core::cmp::PartialEq for NDIS_PNP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PNP_CAPABILITIES>()) == 0 }
+        self.Flags == other.Flags && self.WakeUpCapabilities == other.WakeUpCapabilities
     }
 }
 impl ::core::cmp::Eq for NDIS_PNP_CAPABILITIES {}
@@ -7171,7 +7229,7 @@ unsafe impl ::windows::core::Abi for NDIS_PORT {
 }
 impl ::core::cmp::PartialEq for NDIS_PORT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT>()) == 0 }
+        self.Next == other.Next && self.NdisReserved == other.NdisReserved && self.MiniportReserved == other.MiniportReserved && self.ProtocolReserved == other.ProtocolReserved && self.PortCharacteristics == other.PortCharacteristics
     }
 }
 impl ::core::cmp::Eq for NDIS_PORT {}
@@ -7205,7 +7263,7 @@ unsafe impl ::windows::core::Abi for NDIS_PORT_ARRAY {
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_ARRAY>()) == 0 }
+        self.Header == other.Header && self.NumberOfPorts == other.NumberOfPorts && self.OffsetFirstPort == other.OffsetFirstPort && self.ElementSize == other.ElementSize && self.Ports == other.Ports
     }
 }
 impl ::core::cmp::Eq for NDIS_PORT_ARRAY {}
@@ -7239,7 +7297,7 @@ unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHENTICATION_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_AUTHENTICATION_PARAMETERS>()) == 0 }
+        self.Header == other.Header && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState
     }
 }
 impl ::core::cmp::Eq for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
@@ -7293,7 +7351,7 @@ unsafe impl ::windows::core::Abi for NDIS_PORT_CHARACTERISTICS {
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_CHARACTERISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_CHARACTERISTICS>()) == 0 }
+        self.Header == other.Header && self.PortNumber == other.PortNumber && self.Flags == other.Flags && self.Type == other.Type && self.MediaConnectState == other.MediaConnectState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.Direction == other.Direction && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState
     }
 }
 impl ::core::cmp::Eq for NDIS_PORT_CHARACTERISTICS {}
@@ -7343,7 +7401,7 @@ unsafe impl ::windows::core::Abi for NDIS_PORT_STATE {
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_STATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_STATE>()) == 0 }
+        self.Header == other.Header && self.MediaConnectState == other.MediaConnectState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.Direction == other.Direction && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_PORT_STATE {}
@@ -7377,7 +7435,7 @@ unsafe impl ::windows::core::Abi for NDIS_RECEIVE_HASH_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_HASH_PARAMETERS>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.HashInformation == other.HashInformation && self.HashSecretKeySize == other.HashSecretKeySize && self.HashSecretKeyOffset == other.HashSecretKeyOffset
     }
 }
 impl ::core::cmp::Eq for NDIS_RECEIVE_HASH_PARAMETERS {}
@@ -7410,7 +7468,7 @@ unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_CAPABILITIES {
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_SCALE_CAPABILITIES>()) == 0 }
+        self.Header == other.Header && self.CapabilitiesFlags == other.CapabilitiesFlags && self.NumberOfInterruptMessages == other.NumberOfInterruptMessages && self.NumberOfReceiveQueues == other.NumberOfReceiveQueues
     }
 }
 impl ::core::cmp::Eq for NDIS_RECEIVE_SCALE_CAPABILITIES {}
@@ -7447,7 +7505,7 @@ unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_SCALE_PARAMETERS>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.BaseCpuNumber == other.BaseCpuNumber && self.HashInformation == other.HashInformation && self.IndirectionTableSize == other.IndirectionTableSize && self.IndirectionTableOffset == other.IndirectionTableOffset && self.HashSecretKeySize == other.HashSecretKeySize && self.HashSecretKeyOffset == other.HashSecretKeyOffset
     }
 }
 impl ::core::cmp::Eq for NDIS_RECEIVE_SCALE_PARAMETERS {}
@@ -7517,7 +7575,26 @@ unsafe impl ::windows::core::Abi for NDIS_STATISTICS_INFO {
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_INFO>()) == 0 }
+        self.Header == other.Header
+            && self.SupportedStatistics == other.SupportedStatistics
+            && self.ifInDiscards == other.ifInDiscards
+            && self.ifInErrors == other.ifInErrors
+            && self.ifHCInOctets == other.ifHCInOctets
+            && self.ifHCInUcastPkts == other.ifHCInUcastPkts
+            && self.ifHCInMulticastPkts == other.ifHCInMulticastPkts
+            && self.ifHCInBroadcastPkts == other.ifHCInBroadcastPkts
+            && self.ifHCOutOctets == other.ifHCOutOctets
+            && self.ifHCOutUcastPkts == other.ifHCOutUcastPkts
+            && self.ifHCOutMulticastPkts == other.ifHCOutMulticastPkts
+            && self.ifHCOutBroadcastPkts == other.ifHCOutBroadcastPkts
+            && self.ifOutErrors == other.ifOutErrors
+            && self.ifOutDiscards == other.ifOutDiscards
+            && self.ifHCInUcastOctets == other.ifHCInUcastOctets
+            && self.ifHCInMulticastOctets == other.ifHCInMulticastOctets
+            && self.ifHCInBroadcastOctets == other.ifHCInBroadcastOctets
+            && self.ifHCOutUcastOctets == other.ifHCOutUcastOctets
+            && self.ifHCOutMulticastOctets == other.ifHCOutMulticastOctets
+            && self.ifHCOutBroadcastOctets == other.ifHCOutBroadcastOctets
     }
 }
 impl ::core::cmp::Eq for NDIS_STATISTICS_INFO {}
@@ -7549,7 +7626,7 @@ unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE {
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_VALUE>()) == 0 }
+        self.Oid == other.Oid && self.DataLength == other.DataLength && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for NDIS_STATISTICS_VALUE {}
@@ -7582,7 +7659,7 @@ unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE_EX {
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_VALUE_EX>()) == 0 }
+        self.Oid == other.Oid && self.DataLength == other.DataLength && self.Length == other.Length && self.Data == other.Data
     }
 }
 impl ::core::cmp::Eq for NDIS_STATISTICS_VALUE_EX {}
@@ -7616,7 +7693,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_CONNECTION_OFFLOAD {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_CONNECTION_OFFLOAD>()) == 0 }
+        self.Header == other.Header && self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_CONNECTION_OFFLOAD {}
@@ -7649,7 +7726,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD>()) == 0 }
+        self.IPv4Transmit == other.IPv4Transmit && self.IPv4Receive == other.IPv4Receive && self.IPv6Transmit == other.IPv6Transmit && self.IPv6Receive == other.IPv6Receive
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
@@ -7680,7 +7757,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_0>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
@@ -7711,7 +7788,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_1>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
@@ -7742,7 +7819,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_2>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
@@ -7773,7 +7850,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_3>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
@@ -7803,7 +7880,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V1>()) == 0 }
+        self.IPv4 == other.IPv4
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
@@ -7836,7 +7913,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
@@ -7867,7 +7944,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2>()) == 0 }
+        self.IPv4 == other.IPv4 && self.IPv6 == other.IPv6
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
@@ -7899,7 +7976,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
@@ -7932,7 +8009,7 @@ unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
@@ -7965,7 +8042,7 @@ unsafe impl ::windows::core::Abi for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 }
 impl ::core::cmp::PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.TimeoutArrayLength == other.TimeoutArrayLength && self.TimeoutArray == other.TimeoutArray
     }
 }
 impl ::core::cmp::Eq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
@@ -8006,7 +8083,7 @@ unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMESTAMP_CAPABILITIES>()) == 0 }
+        self.Header == other.Header && self.HardwareClockFrequencyHz == other.HardwareClockFrequencyHz && self.CrossTimestamp == other.CrossTimestamp && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.TimestampFlags == other.TimestampFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8072,7 +8149,20 @@ unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMESTAMP_CAPABILITY_FLAGS>()) == 0 }
+        self.PtpV2OverUdpIPv4EventMsgReceiveHw == other.PtpV2OverUdpIPv4EventMsgReceiveHw
+            && self.PtpV2OverUdpIPv4AllMsgReceiveHw == other.PtpV2OverUdpIPv4AllMsgReceiveHw
+            && self.PtpV2OverUdpIPv4EventMsgTransmitHw == other.PtpV2OverUdpIPv4EventMsgTransmitHw
+            && self.PtpV2OverUdpIPv4AllMsgTransmitHw == other.PtpV2OverUdpIPv4AllMsgTransmitHw
+            && self.PtpV2OverUdpIPv6EventMsgReceiveHw == other.PtpV2OverUdpIPv6EventMsgReceiveHw
+            && self.PtpV2OverUdpIPv6AllMsgReceiveHw == other.PtpV2OverUdpIPv6AllMsgReceiveHw
+            && self.PtpV2OverUdpIPv6EventMsgTransmitHw == other.PtpV2OverUdpIPv6EventMsgTransmitHw
+            && self.PtpV2OverUdpIPv6AllMsgTransmitHw == other.PtpV2OverUdpIPv6AllMsgTransmitHw
+            && self.AllReceiveHw == other.AllReceiveHw
+            && self.AllTransmitHw == other.AllTransmitHw
+            && self.TaggedTransmitHw == other.TaggedTransmitHw
+            && self.AllReceiveSw == other.AllReceiveSw
+            && self.AllTransmitSw == other.AllTransmitSw
+            && self.TaggedTransmitSw == other.TaggedTransmitSw
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8106,7 +8196,7 @@ unsafe impl ::windows::core::Abi for NDIS_VAR_DATA_DESC {
 }
 impl ::core::cmp::PartialEq for NDIS_VAR_DATA_DESC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_VAR_DATA_DESC>()) == 0 }
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Offset == other.Offset
     }
 }
 impl ::core::cmp::Eq for NDIS_VAR_DATA_DESC {}
@@ -8137,7 +8227,7 @@ unsafe impl ::windows::core::Abi for NDIS_WAN_PROTOCOL_CAPS {
 }
 impl ::core::cmp::PartialEq for NDIS_WAN_PROTOCOL_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WAN_PROTOCOL_CAPS>()) == 0 }
+        self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for NDIS_WAN_PROTOCOL_CAPS {}
@@ -8176,7 +8266,7 @@ unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID {
 }
 impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WLAN_BSSID>()) == 0 }
+        self.Length == other.Length && self.MacAddress == other.MacAddress && self.Reserved == other.Reserved && self.Ssid == other.Ssid && self.Privacy == other.Privacy && self.Rssi == other.Rssi && self.NetworkTypeInUse == other.NetworkTypeInUse && self.Configuration == other.Configuration && self.InfrastructureMode == other.InfrastructureMode && self.SupportedRates == other.SupportedRates
     }
 }
 impl ::core::cmp::Eq for NDIS_WLAN_BSSID {}
@@ -8230,7 +8320,7 @@ unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID_EX {
 }
 impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WLAN_BSSID_EX>()) == 0 }
+        self.Length == other.Length && self.MacAddress == other.MacAddress && self.Reserved == other.Reserved && self.Ssid == other.Ssid && self.Privacy == other.Privacy && self.Rssi == other.Rssi && self.NetworkTypeInUse == other.NetworkTypeInUse && self.Configuration == other.Configuration && self.InfrastructureMode == other.InfrastructureMode && self.SupportedRates == other.SupportedRates && self.IELength == other.IELength && self.IEs == other.IEs
     }
 }
 impl ::core::cmp::Eq for NDIS_WLAN_BSSID_EX {}
@@ -8262,14 +8352,6 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_ENUM_ADAPTER {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NDIS_WMI_ENUM_ADAPTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_ENUM_ADAPTER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8296,12 +8378,6 @@ impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
 unsafe impl ::windows::core::Abi for NDIS_WMI_EVENT_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NDIS_WMI_EVENT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_EVENT_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_EVENT_HEADER {}
 impl ::core::default::Default for NDIS_WMI_EVENT_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8330,7 +8406,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1>()) == 0 }
+        self.Supported == other.Supported && self.IPv4AH == other.IPv4AH && self.IPv4ESP == other.IPv4ESP
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
@@ -8365,7 +8441,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_0>()) == 0 }
+        self.Md5 == other.Md5 && self.Sha_1 == other.Sha_1 && self.Transport == other.Transport && self.Tunnel == other.Tunnel && self.Send == other.Send && self.Receive == other.Receive
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
@@ -8402,7 +8478,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_1>()) == 0 }
+        self.Des == other.Des && self.Reserved == other.Reserved && self.TripleDes == other.TripleDes && self.NullEsp == other.NullEsp && self.Transport == other.Transport && self.Tunnel == other.Tunnel && self.Send == other.Send && self.Receive == other.Receive
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
@@ -8436,7 +8512,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_2>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.AhEspCombined == other.AhEspCombined && self.TransportTunnelCombined == other.TransportTunnelCombined && self.IPv4Options == other.IPv4Options && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
@@ -8464,12 +8540,6 @@ impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
 unsafe impl ::windows::core::Abi for NDIS_WMI_METHOD_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NDIS_WMI_METHOD_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_METHOD_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_METHOD_HEADER {}
 impl ::core::default::Default for NDIS_WMI_METHOD_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8501,7 +8571,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_OFFLOAD {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_OFFLOAD>()) == 0 }
+        self.Header == other.Header && self.Checksum == other.Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2 == other.LsoV2 && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_OFFLOAD {}
@@ -8534,7 +8604,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_OUTPUT_INFO {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_OUTPUT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_OUTPUT_INFO>()) == 0 }
+        self.Header == other.Header && self.Flags == other.Flags && self.SupportedRevision == other.SupportedRevision && self.DataOffset == other.DataOffset
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_OUTPUT_INFO {}
@@ -8562,12 +8632,6 @@ impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
 unsafe impl ::windows::core::Abi for NDIS_WMI_SET_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NDIS_WMI_SET_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_SET_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_SET_HEADER {}
 impl ::core::default::Default for NDIS_WMI_SET_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8601,7 +8665,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_CONNECTION_OFFLOAD>()) == 0 }
+        self.Header == other.Header && self.Encapsulation == other.Encapsulation && self.SupportIPv4 == other.SupportIPv4 && self.SupportIPv6 == other.SupportIPv6 && self.SupportIPv6ExtensionHeaders == other.SupportIPv6ExtensionHeaders && self.SupportSack == other.SupportSack && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
@@ -8634,7 +8698,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD>()) == 0 }
+        self.IPv4Transmit == other.IPv4Transmit && self.IPv4Receive == other.IPv4Receive && self.IPv6Transmit == other.IPv6Transmit && self.IPv6Receive == other.IPv6Receive
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
@@ -8669,7 +8733,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.IpOptionsSupported == other.IpOptionsSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum && self.IpChecksum == other.IpChecksum
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
@@ -8704,7 +8768,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.IpOptionsSupported == other.IpOptionsSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum && self.IpChecksum == other.IpChecksum
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
@@ -8738,7 +8802,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
@@ -8772,7 +8836,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
@@ -8802,7 +8866,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1>()) == 0 }
+        self.IPv4 == other.IPv4
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
@@ -8836,7 +8900,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self.TcpOptions == other.TcpOptions && self.IpOptions == other.IpOptions
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
@@ -8867,7 +8931,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2>()) == 0 }
+        self.IPv4 == other.IPv4 && self.IPv6 == other.IPv6
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
@@ -8899,7 +8963,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
@@ -8933,7 +8997,7 @@ unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1>()) == 0 }
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported
     }
 }
 impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
@@ -9007,7 +9071,28 @@ unsafe impl ::windows::core::Abi for NDK_ADAPTER_INFO {
 }
 impl ::core::cmp::PartialEq for NDK_ADAPTER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDK_ADAPTER_INFO>()) == 0 }
+        self.Version == other.Version
+            && self.VendorId == other.VendorId
+            && self.DeviceId == other.DeviceId
+            && self.MaxRegistrationSize == other.MaxRegistrationSize
+            && self.MaxWindowSize == other.MaxWindowSize
+            && self.FRMRPageCount == other.FRMRPageCount
+            && self.MaxInitiatorRequestSge == other.MaxInitiatorRequestSge
+            && self.MaxReceiveRequestSge == other.MaxReceiveRequestSge
+            && self.MaxReadRequestSge == other.MaxReadRequestSge
+            && self.MaxTransferLength == other.MaxTransferLength
+            && self.MaxInlineDataSize == other.MaxInlineDataSize
+            && self.MaxInboundReadLimit == other.MaxInboundReadLimit
+            && self.MaxOutboundReadLimit == other.MaxOutboundReadLimit
+            && self.MaxReceiveQueueDepth == other.MaxReceiveQueueDepth
+            && self.MaxInitiatorQueueDepth == other.MaxInitiatorQueueDepth
+            && self.MaxSrqDepth == other.MaxSrqDepth
+            && self.MaxCqDepth == other.MaxCqDepth
+            && self.LargeRequestThreshold == other.LargeRequestThreshold
+            && self.MaxCallerData == other.MaxCallerData
+            && self.MaxCalleeData == other.MaxCalleeData
+            && self.AdapterFlags == other.AdapterFlags
+            && self.RdmaTechnology == other.RdmaTechnology
     }
 }
 impl ::core::cmp::Eq for NDK_ADAPTER_INFO {}
@@ -9038,7 +9123,7 @@ unsafe impl ::windows::core::Abi for NDK_VERSION {
 }
 impl ::core::cmp::PartialEq for NDK_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDK_VERSION>()) == 0 }
+        self.Major == other.Major && self.Minor == other.Minor
     }
 }
 impl ::core::cmp::Eq for NDK_VERSION {}
@@ -9070,7 +9155,7 @@ unsafe impl ::windows::core::Abi for NETWORK_ADDRESS {
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS>()) == 0 }
+        self.AddressLength == other.AddressLength && self.AddressType == other.AddressType && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for NETWORK_ADDRESS {}
@@ -9102,7 +9187,7 @@ unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP {
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IP>()) == 0 }
+        self.sin_port == other.sin_port && self.IN_ADDR == other.IN_ADDR && self.sin_zero == other.sin_zero
     }
 }
 impl ::core::cmp::Eq for NETWORK_ADDRESS_IP {}
@@ -9135,7 +9220,7 @@ unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP6 {
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP6 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IP6>()) == 0 }
+        self.sin6_port == other.sin6_port && self.sin6_flowinfo == other.sin6_flowinfo && self.sin6_addr == other.sin6_addr && self.sin6_scope_id == other.sin6_scope_id
     }
 }
 impl ::core::cmp::Eq for NETWORK_ADDRESS_IP6 {}
@@ -9167,7 +9252,7 @@ unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IPX {
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IPX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IPX>()) == 0 }
+        self.NetworkAddress == other.NetworkAddress && self.NodeAddress == other.NodeAddress && self.Socket == other.Socket
     }
 }
 impl ::core::cmp::Eq for NETWORK_ADDRESS_IPX {}
@@ -9199,7 +9284,7 @@ unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_LIST {
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_LIST>()) == 0 }
+        self.AddressCount == other.AddressCount && self.AddressType == other.AddressType && self.Address == other.Address
     }
 }
 impl ::core::cmp::Eq for NETWORK_ADDRESS_LIST {}
@@ -9230,7 +9315,7 @@ unsafe impl ::windows::core::Abi for NET_IF_ALIAS_LH {
 }
 impl ::core::cmp::PartialEq for NET_IF_ALIAS_LH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_IF_ALIAS_LH>()) == 0 }
+        self.ifAliasLength == other.ifAliasLength && self.ifAliasOffset == other.ifAliasOffset
     }
 }
 impl ::core::cmp::Eq for NET_IF_ALIAS_LH {}
@@ -9262,7 +9347,7 @@ unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_LH {
 }
 impl ::core::cmp::PartialEq for NET_IF_RCV_ADDRESS_LH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_IF_RCV_ADDRESS_LH>()) == 0 }
+        self.ifRcvAddressType == other.ifRcvAddressType && self.ifRcvAddressLength == other.ifRcvAddressLength && self.ifRcvAddressOffset == other.ifRcvAddressOffset
     }
 }
 impl ::core::cmp::Eq for NET_IF_RCV_ADDRESS_LH {}
@@ -9286,12 +9371,6 @@ impl ::core::clone::Clone for NET_LUID_LH {
 unsafe impl ::windows::core::Abi for NET_LUID_LH {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NET_LUID_LH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_LUID_LH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_LUID_LH {}
 impl ::core::default::Default for NET_LUID_LH {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9318,7 +9397,7 @@ unsafe impl ::windows::core::Abi for NET_LUID_LH_0 {
 }
 impl ::core::cmp::PartialEq for NET_LUID_LH_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_LUID_LH_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for NET_LUID_LH_0 {}
@@ -9350,7 +9429,7 @@ unsafe impl ::windows::core::Abi for NET_PHYSICAL_LOCATION_LH {
 }
 impl ::core::cmp::PartialEq for NET_PHYSICAL_LOCATION_LH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_PHYSICAL_LOCATION_LH>()) == 0 }
+        self.BusNumber == other.BusNumber && self.SlotNumber == other.SlotNumber && self.FunctionNumber == other.FunctionNumber
     }
 }
 impl ::core::cmp::Eq for NET_PHYSICAL_LOCATION_LH {}
@@ -9382,7 +9461,7 @@ unsafe impl ::windows::core::Abi for OFFLOAD_ALGO_INFO {
 }
 impl ::core::cmp::PartialEq for OFFLOAD_ALGO_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_ALGO_INFO>()) == 0 }
+        self.algoIdentifier == other.algoIdentifier && self.algoKeylen == other.algoKeylen && self.algoRounds == other.algoRounds
     }
 }
 impl ::core::cmp::Eq for OFFLOAD_ALGO_INFO {}
@@ -9448,7 +9527,7 @@ unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_SA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_ADD_SA>()) == 0 }
+        self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DestAddr == other.DestAddr && self.DestMask == other.DestMask && self.Protocol == other.Protocol && self.SrcPort == other.SrcPort && self.DestPort == other.DestPort && self.SrcTunnelAddr == other.SrcTunnelAddr && self.DestTunnelAddr == other.DestTunnelAddr && self.Flags == other.Flags && self.NumSAs == other.NumSAs && self.SecAssoc == other.SecAssoc && self.OffloadHandle == other.OffloadHandle && self.KeyLen == other.KeyLen && self.KeyMat == other.KeyMat
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9520,7 +9599,7 @@ unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_UDPESP_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_ADD_UDPESP_SA>()) == 0 }
+        self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DstAddr == other.DstAddr && self.DstMask == other.DstMask && self.Protocol == other.Protocol && self.SrcPort == other.SrcPort && self.DstPort == other.DstPort && self.SrcTunnelAddr == other.SrcTunnelAddr && self.DstTunnelAddr == other.DstTunnelAddr && self.Flags == other.Flags && self.NumSAs == other.NumSAs && self.SecAssoc == other.SecAssoc && self.OffloadHandle == other.OffloadHandle && self.EncapTypeEntry == other.EncapTypeEntry && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle && self.KeyLen == other.KeyLen && self.KeyMat == other.KeyMat
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9558,7 +9637,7 @@ unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_SA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_DELETE_SA>()) == 0 }
+        self.OffloadHandle == other.OffloadHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9597,7 +9676,7 @@ unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_DELETE_UDPESP_SA>()) == 0 }
+        self.OffloadHandle == other.OffloadHandle && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9630,7 +9709,7 @@ unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
 }
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY>()) == 0 }
+        self.UdpEncapType == other.UdpEncapType && self.DstEncapPort == other.DstEncapPort
     }
 }
 impl ::core::cmp::Eq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
@@ -9664,7 +9743,7 @@ unsafe impl ::windows::core::Abi for OFFLOAD_SECURITY_ASSOCIATION {
 }
 impl ::core::cmp::PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_SECURITY_ASSOCIATION>()) == 0 }
+        self.Operation == other.Operation && self.SPI == other.SPI && self.IntegrityAlgo == other.IntegrityAlgo && self.ConfAlgo == other.ConfAlgo && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for OFFLOAD_SECURITY_ASSOCIATION {}
@@ -9695,7 +9774,7 @@ unsafe impl ::windows::core::Abi for PMKID_CANDIDATE {
 }
 impl ::core::cmp::PartialEq for PMKID_CANDIDATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PMKID_CANDIDATE>()) == 0 }
+        self.BSSID == other.BSSID && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for PMKID_CANDIDATE {}
@@ -9726,7 +9805,7 @@ unsafe impl ::windows::core::Abi for TRANSPORT_HEADER_OFFSET {
 }
 impl ::core::cmp::PartialEq for TRANSPORT_HEADER_OFFSET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSPORT_HEADER_OFFSET>()) == 0 }
+        self.ProtocolType == other.ProtocolType && self.HeaderOffset == other.HeaderOffset
     }
 }
 impl ::core::cmp::Eq for TRANSPORT_HEADER_OFFSET {}

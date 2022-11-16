@@ -3893,7 +3893,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPresentationRate {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for DisplayPresentationRate {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DisplayPresentationRate>()) == 0 }
+        self.VerticalSyncRate == other.VerticalSyncRate && self.VerticalSyncsPerPresentation == other.VerticalSyncsPerPresentation
     }
 }
 #[cfg(feature = "Foundation_Numerics")]

@@ -320,12 +320,6 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER {
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WEB_SOCKET_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEB_SOCKET_BUFFER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WEB_SOCKET_BUFFER {}
 impl ::core::default::Default for WEB_SOCKET_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -354,7 +348,7 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_0 {
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_BUFFER_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEB_SOCKET_BUFFER_0>()) == 0 }
+        self.pbReason == other.pbReason && self.ulReasonLength == other.ulReasonLength && self.usStatus == other.usStatus
     }
 }
 impl ::core::cmp::Eq for WEB_SOCKET_BUFFER_0 {}
@@ -385,7 +379,7 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_1 {
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_BUFFER_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEB_SOCKET_BUFFER_1>()) == 0 }
+        self.pbBuffer == other.pbBuffer && self.ulBufferLength == other.ulBufferLength
     }
 }
 impl ::core::cmp::Eq for WEB_SOCKET_BUFFER_1 {}
@@ -450,7 +444,7 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_HTTP_HEADER {
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_HTTP_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEB_SOCKET_HTTP_HEADER>()) == 0 }
+        self.pcName == other.pcName && self.ulNameLength == other.ulNameLength && self.pcValue == other.pcValue && self.ulValueLength == other.ulValueLength
     }
 }
 impl ::core::cmp::Eq for WEB_SOCKET_HTTP_HEADER {}
@@ -482,7 +476,7 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY {
 }
 impl ::core::cmp::PartialEq for WEB_SOCKET_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEB_SOCKET_PROPERTY>()) == 0 }
+        self.Type == other.Type && self.pvValue == other.pvValue && self.ulValueSize == other.ulValueSize
     }
 }
 impl ::core::cmp::Eq for WEB_SOCKET_PROPERTY {}

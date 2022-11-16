@@ -1049,7 +1049,7 @@ unsafe impl ::windows::core::RuntimeType for GpioChangeCount {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for GpioChangeCount {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GpioChangeCount>()) == 0 }
+        self.Count == other.Count && self.RelativeTime == other.RelativeTime
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1096,7 +1096,7 @@ unsafe impl ::windows::core::RuntimeType for GpioChangeRecord {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for GpioChangeRecord {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GpioChangeRecord>()) == 0 }
+        self.RelativeTime == other.RelativeTime && self.Edge == other.Edge
     }
 }
 #[cfg(feature = "Foundation")]

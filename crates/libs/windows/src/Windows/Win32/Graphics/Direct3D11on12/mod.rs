@@ -260,7 +260,7 @@ unsafe impl ::windows::core::Abi for D3D11_RESOURCE_FLAGS {
 }
 impl ::core::cmp::PartialEq for D3D11_RESOURCE_FLAGS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3D11_RESOURCE_FLAGS>()) == 0 }
+        self.BindFlags == other.BindFlags && self.MiscFlags == other.MiscFlags && self.CPUAccessFlags == other.CPUAccessFlags && self.StructureByteStride == other.StructureByteStride
     }
 }
 impl ::core::cmp::Eq for D3D11_RESOURCE_FLAGS {}

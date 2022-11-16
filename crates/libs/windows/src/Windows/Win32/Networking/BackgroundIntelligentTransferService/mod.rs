@@ -4174,12 +4174,6 @@ impl ::core::clone::Clone for BG_AUTH_CREDENTIALS {
 unsafe impl ::windows::core::Abi for BG_AUTH_CREDENTIALS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BG_AUTH_CREDENTIALS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_AUTH_CREDENTIALS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BG_AUTH_CREDENTIALS {}
 impl ::core::default::Default for BG_AUTH_CREDENTIALS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4199,12 +4193,6 @@ impl ::core::clone::Clone for BG_AUTH_CREDENTIALS_UNION {
 unsafe impl ::windows::core::Abi for BG_AUTH_CREDENTIALS_UNION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BG_AUTH_CREDENTIALS_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_AUTH_CREDENTIALS_UNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BG_AUTH_CREDENTIALS_UNION {}
 impl ::core::default::Default for BG_AUTH_CREDENTIALS_UNION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4232,7 +4220,7 @@ unsafe impl ::windows::core::Abi for BG_BASIC_CREDENTIALS {
 }
 impl ::core::cmp::PartialEq for BG_BASIC_CREDENTIALS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_BASIC_CREDENTIALS>()) == 0 }
+        self.UserName == other.UserName && self.Password == other.Password
     }
 }
 impl ::core::cmp::Eq for BG_BASIC_CREDENTIALS {}
@@ -4263,7 +4251,7 @@ unsafe impl ::windows::core::Abi for BG_FILE_INFO {
 }
 impl ::core::cmp::PartialEq for BG_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_FILE_INFO>()) == 0 }
+        self.RemoteName == other.RemoteName && self.LocalName == other.LocalName
     }
 }
 impl ::core::cmp::Eq for BG_FILE_INFO {}
@@ -4301,7 +4289,7 @@ unsafe impl ::windows::core::Abi for BG_FILE_PROGRESS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BG_FILE_PROGRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_FILE_PROGRESS>()) == 0 }
+        self.BytesTotal == other.BytesTotal && self.BytesTransferred == other.BytesTransferred && self.Completed == other.Completed
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4334,7 +4322,7 @@ unsafe impl ::windows::core::Abi for BG_FILE_RANGE {
 }
 impl ::core::cmp::PartialEq for BG_FILE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_FILE_RANGE>()) == 0 }
+        self.InitialOffset == other.InitialOffset && self.Length == other.Length
     }
 }
 impl ::core::cmp::Eq for BG_FILE_RANGE {}
@@ -4367,7 +4355,7 @@ unsafe impl ::windows::core::Abi for BG_JOB_PROGRESS {
 }
 impl ::core::cmp::PartialEq for BG_JOB_PROGRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_JOB_PROGRESS>()) == 0 }
+        self.BytesTotal == other.BytesTotal && self.BytesTransferred == other.BytesTransferred && self.FilesTotal == other.FilesTotal && self.FilesTransferred == other.FilesTransferred
     }
 }
 impl ::core::cmp::Eq for BG_JOB_PROGRESS {}
@@ -4398,7 +4386,7 @@ unsafe impl ::windows::core::Abi for BG_JOB_REPLY_PROGRESS {
 }
 impl ::core::cmp::PartialEq for BG_JOB_REPLY_PROGRESS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_JOB_REPLY_PROGRESS>()) == 0 }
+        self.BytesTotal == other.BytesTotal && self.BytesTransferred == other.BytesTransferred
     }
 }
 impl ::core::cmp::Eq for BG_JOB_REPLY_PROGRESS {}
@@ -4436,7 +4424,7 @@ unsafe impl ::windows::core::Abi for BG_JOB_TIMES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BG_JOB_TIMES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BG_JOB_TIMES>()) == 0 }
+        self.CreationTime == other.CreationTime && self.ModificationTime == other.ModificationTime && self.TransferCompletionTime == other.TransferCompletionTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4461,12 +4449,6 @@ impl ::core::clone::Clone for BITS_FILE_PROPERTY_VALUE {
 unsafe impl ::windows::core::Abi for BITS_FILE_PROPERTY_VALUE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BITS_FILE_PROPERTY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BITS_FILE_PROPERTY_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BITS_FILE_PROPERTY_VALUE {}
 impl ::core::default::Default for BITS_FILE_PROPERTY_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4494,14 +4476,6 @@ impl ::core::clone::Clone for BITS_JOB_PROPERTY_VALUE {
 unsafe impl ::windows::core::Abi for BITS_JOB_PROPERTY_VALUE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BITS_JOB_PROPERTY_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BITS_JOB_PROPERTY_VALUE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BITS_JOB_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BITS_JOB_PROPERTY_VALUE {
     fn default() -> Self {

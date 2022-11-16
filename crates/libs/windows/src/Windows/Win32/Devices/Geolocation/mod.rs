@@ -1498,14 +1498,6 @@ unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_AGNSS_INJECT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_AGNSS_INJECT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_AGNSS_INJECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1531,14 +1523,6 @@ impl ::core::clone::Clone for GNSS_AGNSS_INJECT_0 {
 unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_AGNSS_INJECT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_AGNSS_INJECT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_AGNSS_INJECT_0 {
     fn default() -> Self {
@@ -1572,7 +1556,7 @@ unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTBLOB {
 }
 impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECTBLOB {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_AGNSS_INJECTBLOB>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.BlobOui == other.BlobOui && self.BlobVersion == other.BlobVersion && self.AgnssFormat == other.AgnssFormat && self.BlobSize == other.BlobSize && self.BlobData == other.BlobData
     }
 }
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECTBLOB {}
@@ -1606,7 +1590,7 @@ unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTPOSITION {
 }
 impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECTPOSITION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_AGNSS_INJECTPOSITION>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Age == other.Age && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData
     }
 }
 impl ::core::cmp::Eq for GNSS_AGNSS_INJECTPOSITION {}
@@ -1645,7 +1629,7 @@ unsafe impl ::windows::core::Abi for GNSS_AGNSS_INJECTTIME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_AGNSS_INJECTTIME {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_AGNSS_INJECTTIME>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.UtcTime == other.UtcTime && self.TimeUncertainty == other.TimeUncertainty
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1680,7 +1664,7 @@ unsafe impl ::windows::core::Abi for GNSS_AGNSS_REQUEST_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_AGNSS_REQUEST_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_AGNSS_REQUEST_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.RequestType == other.RequestType && self.BlobFormat == other.BlobFormat
     }
 }
 impl ::core::cmp::Eq for GNSS_AGNSS_REQUEST_PARAM {}
@@ -1712,7 +1696,7 @@ unsafe impl ::windows::core::Abi for GNSS_BREADCRUMBING_ALERT_DATA {
 }
 impl ::core::cmp::PartialEq for GNSS_BREADCRUMBING_ALERT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_BREADCRUMBING_ALERT_DATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for GNSS_BREADCRUMBING_ALERT_DATA {}
@@ -1747,7 +1731,7 @@ unsafe impl ::windows::core::Abi for GNSS_BREADCRUMBING_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_BREADCRUMBING_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_BREADCRUMBING_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.MaximumHorizontalUncertainty == other.MaximumHorizontalUncertainty && self.MinDistanceBetweenFixes == other.MinDistanceBetweenFixes && self.MaximumErrorTimeoutMs == other.MaximumErrorTimeoutMs && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for GNSS_BREADCRUMBING_PARAM {}
@@ -1778,14 +1762,6 @@ unsafe impl ::windows::core::Abi for GNSS_BREADCRUMB_LIST {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_BREADCRUMB_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_BREADCRUMB_LIST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_BREADCRUMB_LIST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_BREADCRUMB_LIST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1809,14 +1785,6 @@ impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST_0 {
 unsafe impl ::windows::core::Abi for GNSS_BREADCRUMB_LIST_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_BREADCRUMB_LIST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_BREADCRUMB_LIST_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_BREADCRUMB_LIST_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_BREADCRUMB_LIST_0 {
     fn default() -> Self {
@@ -1872,7 +1840,7 @@ unsafe impl ::windows::core::Abi for GNSS_BREADCRUMB_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_BREADCRUMB_V1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_BREADCRUMB_V1>()) == 0 }
+        self.FixTimeStamp == other.FixTimeStamp && self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.HorizontalAccuracy == other.HorizontalAccuracy && self.Speed == other.Speed && self.SpeedAccuracy == other.SpeedAccuracy && self.Altitude == other.Altitude && self.AltitudeAccuracy == other.AltitudeAccuracy && self.Heading == other.Heading && self.HeadingAccuracy == other.HeadingAccuracy && self.FixSuccess == other.FixSuccess
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1909,7 +1877,7 @@ unsafe impl ::windows::core::Abi for GNSS_CHIPSETINFO {
 }
 impl ::core::cmp::PartialEq for GNSS_CHIPSETINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_CHIPSETINFO>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.ManufacturerID == other.ManufacturerID && self.HardwareID == other.HardwareID && self.FirmwareVersion == other.FirmwareVersion && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for GNSS_CHIPSETINFO {}
@@ -1941,7 +1909,7 @@ unsafe impl ::windows::core::Abi for GNSS_CONTINUOUSTRACKING_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_CONTINUOUSTRACKING_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_CONTINUOUSTRACKING_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.PreferredInterval == other.PreferredInterval
     }
 }
 impl ::core::cmp::Eq for GNSS_CONTINUOUSTRACKING_PARAM {}
@@ -1974,7 +1942,7 @@ unsafe impl ::windows::core::Abi for GNSS_CP_NI_INFO {
 }
 impl ::core::cmp::PartialEq for GNSS_CP_NI_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_CP_NI_INFO>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.RequestorId == other.RequestorId && self.NotificationText == other.NotificationText
     }
 }
 impl ::core::cmp::Eq for GNSS_CP_NI_INFO {}
@@ -2015,7 +1983,7 @@ unsafe impl ::windows::core::Abi for GNSS_CWTESTDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_CWTESTDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_CWTESTDATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.TestResultStatus == other.TestResultStatus && self.SignalToNoiseRatio == other.SignalToNoiseRatio && self.Frequency == other.Frequency && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2107,7 +2075,33 @@ unsafe impl ::windows::core::Abi for GNSS_DEVICE_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_DEVICE_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_DEVICE_CAPABILITY>()) == 0 }
+        self.Size == other.Size
+            && self.Version == other.Version
+            && self.SupportMultipleFixSessions == other.SupportMultipleFixSessions
+            && self.SupportMultipleAppSessions == other.SupportMultipleAppSessions
+            && self.RequireAGnssInjection == other.RequireAGnssInjection
+            && self.AgnssFormatSupported == other.AgnssFormatSupported
+            && self.AgnssFormatPreferred == other.AgnssFormatPreferred
+            && self.SupportDistanceTracking == other.SupportDistanceTracking
+            && self.SupportContinuousTracking == other.SupportContinuousTracking
+            && self.Reserved1 == other.Reserved1
+            && self.Reserved2 == other.Reserved2
+            && self.Reserved3 == other.Reserved3
+            && self.Reserved4 == other.Reserved4
+            && self.Reserved5 == other.Reserved5
+            && self.GeofencingSupport == other.GeofencingSupport
+            && self.Reserved6 == other.Reserved6
+            && self.Reserved7 == other.Reserved7
+            && self.SupportCpLocation == other.SupportCpLocation
+            && self.SupportUplV2 == other.SupportUplV2
+            && self.SupportSuplV1 == other.SupportSuplV1
+            && self.SupportSuplV2 == other.SupportSuplV2
+            && self.SupportedSuplVersion == other.SupportedSuplVersion
+            && self.MaxGeofencesSupported == other.MaxGeofencesSupported
+            && self.SupportMultipleSuplRootCert == other.SupportMultipleSuplRootCert
+            && self.GnssBreadCrumbPayloadVersion == other.GnssBreadCrumbPayloadVersion
+            && self.MaxGnssBreadCrumbFixes == other.MaxGnssBreadCrumbFixes
+            && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2141,7 +2135,7 @@ unsafe impl ::windows::core::Abi for GNSS_DISTANCETRACKING_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_DISTANCETRACKING_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_DISTANCETRACKING_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.MovementThreshold == other.MovementThreshold
     }
 }
 impl ::core::cmp::Eq for GNSS_DISTANCETRACKING_PARAM {}
@@ -2177,7 +2171,7 @@ unsafe impl ::windows::core::Abi for GNSS_DRIVERCOMMAND_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_DRIVERCOMMAND_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_DRIVERCOMMAND_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.CommandType == other.CommandType && self.Reserved == other.Reserved && self.CommandDataSize == other.CommandDataSize && self.Unused == other.Unused && self.CommandData == other.CommandData
     }
 }
 impl ::core::cmp::Eq for GNSS_DRIVERCOMMAND_PARAM {}
@@ -2210,7 +2204,7 @@ unsafe impl ::windows::core::Abi for GNSS_DRIVER_REQUEST_DATA {
 }
 impl ::core::cmp::PartialEq for GNSS_DRIVER_REQUEST_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_DRIVER_REQUEST_DATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Request == other.Request && self.RequestFlag == other.RequestFlag
     }
 }
 impl ::core::cmp::Eq for GNSS_DRIVER_REQUEST_DATA {}
@@ -2251,7 +2245,7 @@ unsafe impl ::windows::core::Abi for GNSS_ERRORINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_ERRORINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_ERRORINFO>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.ErrorCode == other.ErrorCode && self.IsRecoverable == other.IsRecoverable && self.ErrorDescription == other.ErrorDescription && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2286,14 +2280,6 @@ unsafe impl ::windows::core::Abi for GNSS_EVENT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_EVENT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_EVENT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2327,14 +2313,6 @@ unsafe impl ::windows::core::Abi for GNSS_EVENT_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_EVENT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_EVENT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_EVENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2363,14 +2341,6 @@ impl ::core::clone::Clone for GNSS_EVENT_2 {
 unsafe impl ::windows::core::Abi for GNSS_EVENT_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_EVENT_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_EVENT_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_EVENT_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT_2 {
     fn default() -> Self {
@@ -2405,14 +2375,6 @@ impl ::core::clone::Clone for GNSS_EVENT_2_0 {
 unsafe impl ::windows::core::Abi for GNSS_EVENT_2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_EVENT_2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_EVENT_2_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_EVENT_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_EVENT_2_0 {
     fn default() -> Self {
@@ -2455,7 +2417,7 @@ unsafe impl ::windows::core::Abi for GNSS_FIXDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_FIXDATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXDATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.FixTimeStamp == other.FixTimeStamp && self.IsFinalFix == other.IsFinalFix && self.FixStatus == other.FixStatus && self.FixLevelOfDetails == other.FixLevelOfDetails && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData && self.SatelliteData == other.SatelliteData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2502,7 +2464,7 @@ unsafe impl ::windows::core::Abi for GNSS_FIXDATA_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXDATA_2>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.FixTimeStamp == other.FixTimeStamp && self.IsFinalFix == other.IsFinalFix && self.FixStatus == other.FixStatus && self.FixLevelOfDetails == other.FixLevelOfDetails && self.BasicData == other.BasicData && self.AccuracyData == other.AccuracyData && self.SatelliteData == other.SatelliteData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2566,7 +2528,22 @@ unsafe impl ::windows::core::Abi for GNSS_FIXDATA_ACCURACY {
 }
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_ACCURACY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXDATA_ACCURACY>()) == 0 }
+        self.Size == other.Size
+            && self.Version == other.Version
+            && self.HorizontalAccuracy == other.HorizontalAccuracy
+            && self.HorizontalErrorMajorAxis == other.HorizontalErrorMajorAxis
+            && self.HorizontalErrorMinorAxis == other.HorizontalErrorMinorAxis
+            && self.HorizontalErrorAngle == other.HorizontalErrorAngle
+            && self.HeadingAccuracy == other.HeadingAccuracy
+            && self.AltitudeAccuracy == other.AltitudeAccuracy
+            && self.SpeedAccuracy == other.SpeedAccuracy
+            && self.HorizontalConfidence == other.HorizontalConfidence
+            && self.HeadingConfidence == other.HeadingConfidence
+            && self.AltitudeConfidence == other.AltitudeConfidence
+            && self.SpeedConfidence == other.SpeedConfidence
+            && self.PositionDilutionOfPrecision == other.PositionDilutionOfPrecision
+            && self.HorizontalDilutionOfPrecision == other.HorizontalDilutionOfPrecision
+            && self.VerticalDilutionOfPrecision == other.VerticalDilutionOfPrecision
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_ACCURACY {}
@@ -2632,7 +2609,24 @@ unsafe impl ::windows::core::Abi for GNSS_FIXDATA_ACCURACY_2 {
 }
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_ACCURACY_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXDATA_ACCURACY_2>()) == 0 }
+        self.Size == other.Size
+            && self.Version == other.Version
+            && self.HorizontalAccuracy == other.HorizontalAccuracy
+            && self.HorizontalErrorMajorAxis == other.HorizontalErrorMajorAxis
+            && self.HorizontalErrorMinorAxis == other.HorizontalErrorMinorAxis
+            && self.HorizontalErrorAngle == other.HorizontalErrorAngle
+            && self.HeadingAccuracy == other.HeadingAccuracy
+            && self.AltitudeAccuracy == other.AltitudeAccuracy
+            && self.SpeedAccuracy == other.SpeedAccuracy
+            && self.HorizontalConfidence == other.HorizontalConfidence
+            && self.HeadingConfidence == other.HeadingConfidence
+            && self.AltitudeConfidence == other.AltitudeConfidence
+            && self.SpeedConfidence == other.SpeedConfidence
+            && self.PositionDilutionOfPrecision == other.PositionDilutionOfPrecision
+            && self.HorizontalDilutionOfPrecision == other.HorizontalDilutionOfPrecision
+            && self.VerticalDilutionOfPrecision == other.VerticalDilutionOfPrecision
+            && self.GeometricDilutionOfPrecision == other.GeometricDilutionOfPrecision
+            && self.TimeDilutionOfPrecision == other.TimeDilutionOfPrecision
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_ACCURACY_2 {}
@@ -2668,7 +2662,7 @@ unsafe impl ::windows::core::Abi for GNSS_FIXDATA_BASIC {
 }
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_BASIC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXDATA_BASIC>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude && self.Speed == other.Speed && self.Heading == other.Heading
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_BASIC {}
@@ -2705,7 +2699,7 @@ unsafe impl ::windows::core::Abi for GNSS_FIXDATA_BASIC_2 {
 }
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_BASIC_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXDATA_BASIC_2>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude && self.Speed == other.Speed && self.Heading == other.Heading && self.AltitudeEllipsoid == other.AltitudeEllipsoid
     }
 }
 impl ::core::cmp::Eq for GNSS_FIXDATA_BASIC_2 {}
@@ -2744,7 +2738,7 @@ unsafe impl ::windows::core::Abi for GNSS_FIXDATA_SATELLITE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_FIXDATA_SATELLITE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXDATA_SATELLITE>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.SatelliteCount == other.SatelliteCount && self.SatelliteArray == other.SatelliteArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2778,12 +2772,6 @@ impl ::core::clone::Clone for GNSS_FIXSESSION_PARAM {
 unsafe impl ::windows::core::Abi for GNSS_FIXSESSION_PARAM {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GNSS_FIXSESSION_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXSESSION_PARAM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GNSS_FIXSESSION_PARAM {}
 impl ::core::default::Default for GNSS_FIXSESSION_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2807,12 +2795,6 @@ impl ::core::clone::Clone for GNSS_FIXSESSION_PARAM_0 {
 unsafe impl ::windows::core::Abi for GNSS_FIXSESSION_PARAM_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GNSS_FIXSESSION_PARAM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_FIXSESSION_PARAM_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GNSS_FIXSESSION_PARAM_0 {}
 impl ::core::default::Default for GNSS_FIXSESSION_PARAM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2849,7 +2831,7 @@ unsafe impl ::windows::core::Abi for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOFENCES_TRACKINGSTATUS_DATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.Status == other.Status && self.StatusTimeStamp == other.StatusTimeStamp && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2887,7 +2869,7 @@ unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_ALERT_DATA {
 }
 impl ::core::cmp::PartialEq for GNSS_GEOFENCE_ALERT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOFENCE_ALERT_DATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.GeofenceID == other.GeofenceID && self.GeofenceState == other.GeofenceState && self.FixBasicData == other.FixBasicData && self.FixAccuracyData == other.FixAccuracyData && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOFENCE_ALERT_DATA {}
@@ -2915,12 +2897,6 @@ impl ::core::clone::Clone for GNSS_GEOFENCE_CREATE_PARAM {
 unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_CREATE_PARAM {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GNSS_GEOFENCE_CREATE_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOFENCE_CREATE_PARAM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GNSS_GEOFENCE_CREATE_PARAM {}
 impl ::core::default::Default for GNSS_GEOFENCE_CREATE_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2957,7 +2933,7 @@ unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_CREATE_RESPONSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_GEOFENCE_CREATE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOFENCE_CREATE_RESPONSE>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.CreationStatus == other.CreationStatus && self.GeofenceID == other.GeofenceID && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2992,7 +2968,7 @@ unsafe impl ::windows::core::Abi for GNSS_GEOFENCE_DELETE_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_GEOFENCE_DELETE_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOFENCE_DELETE_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.GeofenceID == other.GeofenceID && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOFENCE_DELETE_PARAM {}
@@ -3018,12 +2994,6 @@ impl ::core::clone::Clone for GNSS_GEOREGION {
 unsafe impl ::windows::core::Abi for GNSS_GEOREGION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GNSS_GEOREGION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOREGION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GNSS_GEOREGION {}
 impl ::core::default::Default for GNSS_GEOREGION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3044,12 +3014,6 @@ impl ::core::clone::Clone for GNSS_GEOREGION_0 {
 unsafe impl ::windows::core::Abi for GNSS_GEOREGION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GNSS_GEOREGION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOREGION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GNSS_GEOREGION_0 {}
 impl ::core::default::Default for GNSS_GEOREGION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3078,7 +3042,7 @@ unsafe impl ::windows::core::Abi for GNSS_GEOREGION_CIRCLE {
 }
 impl ::core::cmp::PartialEq for GNSS_GEOREGION_CIRCLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_GEOREGION_CIRCLE>()) == 0 }
+        self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.RadiusInMeters == other.RadiusInMeters
     }
 }
 impl ::core::cmp::Eq for GNSS_GEOREGION_CIRCLE {}
@@ -3109,7 +3073,7 @@ unsafe impl ::windows::core::Abi for GNSS_LKGFIX_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_LKGFIX_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_LKGFIX_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version
     }
 }
 impl ::core::cmp::Eq for GNSS_LKGFIX_PARAM {}
@@ -3145,14 +3109,6 @@ unsafe impl ::windows::core::Abi for GNSS_NI_REQUEST_PARAM {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_NI_REQUEST_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_NI_REQUEST_PARAM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_NI_REQUEST_PARAM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_NI_REQUEST_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3178,14 +3134,6 @@ impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM_0 {
 unsafe impl ::windows::core::Abi for GNSS_NI_REQUEST_PARAM_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GNSS_NI_REQUEST_PARAM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_NI_REQUEST_PARAM_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GNSS_NI_REQUEST_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GNSS_NI_REQUEST_PARAM_0 {
     fn default() -> Self {
@@ -3216,7 +3164,7 @@ unsafe impl ::windows::core::Abi for GNSS_NI_RESPONSE {
 }
 impl ::core::cmp::PartialEq for GNSS_NI_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_NI_RESPONSE>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.RequestId == other.RequestId && self.UserResponse == other.UserResponse
     }
 }
 impl ::core::cmp::Eq for GNSS_NI_RESPONSE {}
@@ -3254,7 +3202,7 @@ unsafe impl ::windows::core::Abi for GNSS_NMEA_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_NMEA_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_NMEA_DATA>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.NmeaSentences == other.NmeaSentences
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3296,7 +3244,7 @@ unsafe impl ::windows::core::Abi for GNSS_PLATFORM_CAPABILITY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_PLATFORM_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_PLATFORM_CAPABILITY>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.SupportAgnssInjection == other.SupportAgnssInjection && self.AgnssFormatSupported == other.AgnssFormatSupported && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3338,7 +3286,7 @@ unsafe impl ::windows::core::Abi for GNSS_SATELLITEINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SATELLITEINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SATELLITEINFO>()) == 0 }
+        self.SatelliteId == other.SatelliteId && self.UsedInPositiong == other.UsedInPositiong && self.Elevation == other.Elevation && self.Azimuth == other.Azimuth && self.SignalToNoiseRatio == other.SignalToNoiseRatio
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3375,7 +3323,7 @@ unsafe impl ::windows::core::Abi for GNSS_SELFTESTCONFIG {
 }
 impl ::core::cmp::PartialEq for GNSS_SELFTESTCONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SELFTESTCONFIG>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.TestType == other.TestType && self.Unused == other.Unused && self.InBufLen == other.InBufLen && self.InBuffer == other.InBuffer
     }
 }
 impl ::core::cmp::Eq for GNSS_SELFTESTCONFIG {}
@@ -3418,7 +3366,7 @@ unsafe impl ::windows::core::Abi for GNSS_SELFTESTRESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SELFTESTRESULT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SELFTESTRESULT>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.TestResultStatus == other.TestResultStatus && self.Result == other.Result && self.PinFailedBitMask == other.PinFailedBitMask && self.Unused == other.Unused && self.OutBufLen == other.OutBufLen && self.OutBuffer == other.OutBuffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3452,7 +3400,7 @@ unsafe impl ::windows::core::Abi for GNSS_SINGLESHOT_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_SINGLESHOT_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SINGLESHOT_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.ResponseTime == other.ResponseTime
     }
 }
 impl ::core::cmp::Eq for GNSS_SINGLESHOT_PARAM {}
@@ -3485,7 +3433,7 @@ unsafe impl ::windows::core::Abi for GNSS_STOPFIXSESSION_PARAM {
 }
 impl ::core::cmp::PartialEq for GNSS_STOPFIXSESSION_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_STOPFIXSESSION_PARAM>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.FixSessionID == other.FixSessionID && self.Unused == other.Unused
     }
 }
 impl ::core::cmp::Eq for GNSS_STOPFIXSESSION_PARAM {}
@@ -3527,7 +3475,7 @@ unsafe impl ::windows::core::Abi for GNSS_SUPL_CERT_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SUPL_CERT_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SUPL_CERT_CONFIG>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.CertAction == other.CertAction && self.SuplCertName == other.SuplCertName && self.CertSize == other.CertSize && self.Unused == other.Unused && self.CertData == other.CertData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3570,7 +3518,7 @@ unsafe impl ::windows::core::Abi for GNSS_SUPL_HSLP_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SUPL_HSLP_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SUPL_HSLP_CONFIG>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.SuplHslp == other.SuplHslp && self.SuplHslpFromImsi == other.SuplHslpFromImsi && self.Reserved == other.Reserved && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3612,7 +3560,7 @@ unsafe impl ::windows::core::Abi for GNSS_SUPL_NI_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_SUPL_NI_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SUPL_NI_INFO>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.RequestorId == other.RequestorId && self.ClientName == other.ClientName && self.SuplNiUrl == other.SuplNiUrl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3645,7 +3593,7 @@ unsafe impl ::windows::core::Abi for GNSS_SUPL_VERSION {
 }
 impl ::core::cmp::PartialEq for GNSS_SUPL_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SUPL_VERSION>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
 impl ::core::cmp::Eq for GNSS_SUPL_VERSION {}
@@ -3677,7 +3625,7 @@ unsafe impl ::windows::core::Abi for GNSS_SUPL_VERSION_2 {
 }
 impl ::core::cmp::PartialEq for GNSS_SUPL_VERSION_2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_SUPL_VERSION_2>()) == 0 }
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ServiceIndicator == other.ServiceIndicator
     }
 }
 impl ::core::cmp::Eq for GNSS_SUPL_VERSION_2 {}
@@ -3718,7 +3666,7 @@ unsafe impl ::windows::core::Abi for GNSS_V2UPL_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GNSS_V2UPL_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_V2UPL_CONFIG>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.MPC == other.MPC && self.PDE == other.PDE && self.ApplicationTypeIndicator_MR == other.ApplicationTypeIndicator_MR && self.Unused == other.Unused
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3752,7 +3700,7 @@ unsafe impl ::windows::core::Abi for GNSS_V2UPL_NI_INFO {
 }
 impl ::core::cmp::PartialEq for GNSS_V2UPL_NI_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GNSS_V2UPL_NI_INFO>()) == 0 }
+        self.Size == other.Size && self.Version == other.Version && self.RequestorId == other.RequestorId
     }
 }
 impl ::core::cmp::Eq for GNSS_V2UPL_NI_INFO {}

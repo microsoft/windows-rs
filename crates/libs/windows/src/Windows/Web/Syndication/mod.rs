@@ -3645,7 +3645,7 @@ unsafe impl ::windows::core::RuntimeType for RetrievalProgress {
 }
 impl ::core::cmp::PartialEq for RetrievalProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RetrievalProgress>()) == 0 }
+        self.BytesRetrieved == other.BytesRetrieved && self.TotalBytesToRetrieve == other.TotalBytesToRetrieve
     }
 }
 impl ::core::cmp::Eq for RetrievalProgress {}
@@ -3685,7 +3685,7 @@ unsafe impl ::windows::core::RuntimeType for TransferProgress {
 }
 impl ::core::cmp::PartialEq for TransferProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TransferProgress>()) == 0 }
+        self.BytesSent == other.BytesSent && self.TotalBytesToSend == other.TotalBytesToSend && self.BytesRetrieved == other.BytesRetrieved && self.TotalBytesToRetrieve == other.TotalBytesToRetrieve
     }
 }
 impl ::core::cmp::Eq for TransferProgress {}

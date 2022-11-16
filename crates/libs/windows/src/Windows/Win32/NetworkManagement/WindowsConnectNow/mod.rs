@@ -1127,12 +1127,6 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
 impl ::core::default::Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1162,7 +1156,7 @@ unsafe impl ::windows::core::Abi for WCN_VENDOR_EXTENSION_SPEC {
 }
 impl ::core::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WCN_VENDOR_EXTENSION_SPEC>()) == 0 }
+        self.VendorId == other.VendorId && self.SubType == other.SubType && self.Index == other.Index && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for WCN_VENDOR_EXTENSION_SPEC {}

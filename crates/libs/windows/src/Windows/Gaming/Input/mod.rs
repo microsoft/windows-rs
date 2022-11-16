@@ -2829,7 +2829,7 @@ unsafe impl ::windows::core::RuntimeType for ArcadeStickReading {
 }
 impl ::core::cmp::PartialEq for ArcadeStickReading {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ArcadeStickReading>()) == 0 }
+        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons
     }
 }
 impl ::core::cmp::Eq for ArcadeStickReading {}
@@ -2872,7 +2872,7 @@ unsafe impl ::windows::core::RuntimeType for FlightStickReading {
 }
 impl ::core::cmp::PartialEq for FlightStickReading {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FlightStickReading>()) == 0 }
+        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons && self.HatSwitch == other.HatSwitch && self.Roll == other.Roll && self.Pitch == other.Pitch && self.Yaw == other.Yaw && self.Throttle == other.Throttle
     }
 }
 impl ::core::cmp::Eq for FlightStickReading {}
@@ -2916,7 +2916,7 @@ unsafe impl ::windows::core::RuntimeType for GamepadReading {
 }
 impl ::core::cmp::PartialEq for GamepadReading {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamepadReading>()) == 0 }
+        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons && self.LeftTrigger == other.LeftTrigger && self.RightTrigger == other.RightTrigger && self.LeftThumbstickX == other.LeftThumbstickX && self.LeftThumbstickY == other.LeftThumbstickY && self.RightThumbstickX == other.RightThumbstickX && self.RightThumbstickY == other.RightThumbstickY
     }
 }
 impl ::core::cmp::Eq for GamepadReading {}
@@ -2956,7 +2956,7 @@ unsafe impl ::windows::core::RuntimeType for GamepadVibration {
 }
 impl ::core::cmp::PartialEq for GamepadVibration {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GamepadVibration>()) == 0 }
+        self.LeftMotor == other.LeftMotor && self.RightMotor == other.RightMotor && self.LeftTrigger == other.LeftTrigger && self.RightTrigger == other.RightTrigger
     }
 }
 impl ::core::cmp::Eq for GamepadVibration {}
@@ -3000,7 +3000,7 @@ unsafe impl ::windows::core::RuntimeType for RacingWheelReading {
 }
 impl ::core::cmp::PartialEq for RacingWheelReading {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RacingWheelReading>()) == 0 }
+        self.Timestamp == other.Timestamp && self.Buttons == other.Buttons && self.PatternShifterGear == other.PatternShifterGear && self.Wheel == other.Wheel && self.Throttle == other.Throttle && self.Brake == other.Brake && self.Clutch == other.Clutch && self.Handbrake == other.Handbrake
     }
 }
 impl ::core::cmp::Eq for RacingWheelReading {}
@@ -3039,7 +3039,7 @@ unsafe impl ::windows::core::RuntimeType for UINavigationReading {
 }
 impl ::core::cmp::PartialEq for UINavigationReading {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UINavigationReading>()) == 0 }
+        self.Timestamp == other.Timestamp && self.RequiredButtons == other.RequiredButtons && self.OptionalButtons == other.OptionalButtons
     }
 }
 impl ::core::cmp::Eq for UINavigationReading {}

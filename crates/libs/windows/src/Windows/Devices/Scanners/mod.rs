@@ -1713,7 +1713,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerResolution {
 }
 impl ::core::cmp::PartialEq for ImageScannerResolution {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ImageScannerResolution>()) == 0 }
+        self.DpiX == other.DpiX && self.DpiY == other.DpiY
     }
 }
 impl ::core::cmp::Eq for ImageScannerResolution {}

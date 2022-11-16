@@ -1129,7 +1129,7 @@ unsafe impl ::windows::core::Abi for APOInitBaseStruct {
 }
 impl ::core::cmp::PartialEq for APOInitBaseStruct {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APOInitBaseStruct>()) == 0 }
+        self.cbSize == other.cbSize && self.clsid == other.clsid
     }
 }
 impl ::core::cmp::Eq for APOInitBaseStruct {}
@@ -1366,7 +1366,7 @@ unsafe impl ::windows::core::Abi for APO_CONNECTION_PROPERTY {
 }
 impl ::core::cmp::PartialEq for APO_CONNECTION_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APO_CONNECTION_PROPERTY>()) == 0 }
+        self.pBuffer == other.pBuffer && self.u32ValidFrameCount == other.u32ValidFrameCount && self.u32BufferFlags == other.u32BufferFlags && self.u32Signature == other.u32Signature
     }
 }
 impl ::core::cmp::Eq for APO_CONNECTION_PROPERTY {}
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::Abi for APO_CONNECTION_PROPERTY_V2 {
 }
 impl ::core::cmp::PartialEq for APO_CONNECTION_PROPERTY_V2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APO_CONNECTION_PROPERTY_V2>()) == 0 }
+        self.property == other.property && self.u64QPCTime == other.u64QPCTime
     }
 }
 impl ::core::cmp::Eq for APO_CONNECTION_PROPERTY_V2 {}
@@ -1424,14 +1424,6 @@ unsafe impl ::windows::core::Abi for APO_NOTIFICATION {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::PartialEq for APO_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.Anonymous == other.Anonymous
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::Eq for APO_NOTIFICATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for APO_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1456,14 +1448,6 @@ unsafe impl ::windows::core::Abi for APO_NOTIFICATION_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::PartialEq for APO_NOTIFICATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APO_NOTIFICATION_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::Eq for APO_NOTIFICATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for APO_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1483,12 +1467,6 @@ impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for APO_NOTIFICATION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.Anonymous == other.Anonymous
-    }
-}
-impl ::core::cmp::Eq for APO_NOTIFICATION_DESCRIPTOR {}
 impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1509,12 +1487,6 @@ impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
 unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl ::core::cmp::PartialEq for APO_NOTIFICATION_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APO_NOTIFICATION_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for APO_NOTIFICATION_DESCRIPTOR_0 {}
 impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1567,7 +1539,7 @@ unsafe impl ::windows::core::Abi for APO_REG_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for APO_REG_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APO_REG_PROPERTIES>()) == 0 }
+        self.clsid == other.clsid && self.Flags == other.Flags && self.szFriendlyName == other.szFriendlyName && self.szCopyrightInfo == other.szCopyrightInfo && self.u32MajorVersion == other.u32MajorVersion && self.u32MinorVersion == other.u32MinorVersion && self.u32MinInputConnections == other.u32MinInputConnections && self.u32MaxInputConnections == other.u32MaxInputConnections && self.u32MinOutputConnections == other.u32MinOutputConnections && self.u32MaxOutputConnections == other.u32MaxOutputConnections && self.u32MaxInstances == other.u32MaxInstances && self.u32NumAPOInterfaces == other.u32NumAPOInterfaces && self.iidAPOInterfaceList == other.iidAPOInterfaceList
     }
 }
 impl ::core::cmp::Eq for APO_REG_PROPERTIES {}
@@ -1738,7 +1710,7 @@ unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIO_SYSTEMEFFECT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIO_SYSTEMEFFECT>()) == 0 }
+        self.id == other.id && self.canSetState == other.canSetState && self.state == other.state
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1889,7 +1861,7 @@ unsafe impl ::windows::core::Abi for UNCOMPRESSEDAUDIOFORMAT {
 }
 impl ::core::cmp::PartialEq for UNCOMPRESSEDAUDIOFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNCOMPRESSEDAUDIOFORMAT>()) == 0 }
+        self.guidFormatType == other.guidFormatType && self.dwSamplesPerFrame == other.dwSamplesPerFrame && self.dwBytesPerSampleContainer == other.dwBytesPerSampleContainer && self.dwValidBitsPerSample == other.dwValidBitsPerSample && self.fFramesPerSecond == other.fFramesPerSecond && self.dwChannelMask == other.dwChannelMask
     }
 }
 impl ::core::cmp::Eq for UNCOMPRESSEDAUDIOFORMAT {}

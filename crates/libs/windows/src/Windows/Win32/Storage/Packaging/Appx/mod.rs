@@ -6199,7 +6199,7 @@ unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_EXEMPTIONS {
 }
 impl ::core::cmp::PartialEq for APPX_ENCRYPTED_EXEMPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APPX_ENCRYPTED_EXEMPTIONS>()) == 0 }
+        self.count == other.count && self.plainTextFiles == other.plainTextFiles
     }
 }
 impl ::core::cmp::Eq for APPX_ENCRYPTED_EXEMPTIONS {}
@@ -6320,7 +6320,7 @@ unsafe impl ::windows::core::Abi for APPX_KEY_INFO {
 }
 impl ::core::cmp::PartialEq for APPX_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APPX_KEY_INFO>()) == 0 }
+        self.keyLength == other.keyLength && self.keyIdLength == other.keyIdLength && self.key == other.key && self.keyId == other.keyId
     }
 }
 impl ::core::cmp::Eq for APPX_KEY_INFO {}
@@ -6426,7 +6426,7 @@ unsafe impl ::windows::core::Abi for PACKAGEDEPENDENCY_CONTEXT__ {
 }
 impl ::core::cmp::PartialEq for PACKAGEDEPENDENCY_CONTEXT__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKAGEDEPENDENCY_CONTEXT__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for PACKAGEDEPENDENCY_CONTEXT__ {}
@@ -6455,12 +6455,6 @@ impl ::core::clone::Clone for PACKAGE_ID {
 unsafe impl ::windows::core::Abi for PACKAGE_ID {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PACKAGE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKAGE_ID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PACKAGE_ID {}
 impl ::core::default::Default for PACKAGE_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6485,12 +6479,6 @@ impl ::core::clone::Clone for PACKAGE_INFO {
 unsafe impl ::windows::core::Abi for PACKAGE_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PACKAGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKAGE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PACKAGE_INFO {}
 impl ::core::default::Default for PACKAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6510,12 +6498,6 @@ impl ::core::clone::Clone for PACKAGE_VERSION {
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PACKAGE_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKAGE_VERSION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PACKAGE_VERSION {}
 impl ::core::default::Default for PACKAGE_VERSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6536,12 +6518,6 @@ impl ::core::clone::Clone for PACKAGE_VERSION_0 {
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PACKAGE_VERSION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKAGE_VERSION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PACKAGE_VERSION_0 {}
 impl ::core::default::Default for PACKAGE_VERSION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6571,7 +6547,7 @@ unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0_0 {
 }
 impl ::core::cmp::PartialEq for PACKAGE_VERSION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKAGE_VERSION_0_0>()) == 0 }
+        self.Revision == other.Revision && self.Build == other.Build && self.Minor == other.Minor && self.Major == other.Major
     }
 }
 impl ::core::cmp::Eq for PACKAGE_VERSION_0_0 {}
@@ -6601,7 +6577,7 @@ unsafe impl ::windows::core::Abi for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
 }
 impl ::core::cmp::PartialEq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>()) == 0 }
+        self.unused == other.unused
     }
 }
 impl ::core::cmp::Eq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
@@ -6631,7 +6607,7 @@ unsafe impl ::windows::core::Abi for _PACKAGE_INFO_REFERENCE {
 }
 impl ::core::cmp::PartialEq for _PACKAGE_INFO_REFERENCE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_PACKAGE_INFO_REFERENCE>()) == 0 }
+        self.reserved == other.reserved
     }
 }
 impl ::core::cmp::Eq for _PACKAGE_INFO_REFERENCE {}

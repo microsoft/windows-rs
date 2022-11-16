@@ -489,14 +489,6 @@ unsafe impl ::windows::core::Abi for EC_VARIANT {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EC_VARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EC_VARIANT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EC_VARIANT {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EC_VARIANT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -528,14 +520,6 @@ impl ::core::clone::Clone for EC_VARIANT_0 {
 unsafe impl ::windows::core::Abi for EC_VARIANT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EC_VARIANT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EC_VARIANT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EC_VARIANT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EC_VARIANT_0 {
     fn default() -> Self {

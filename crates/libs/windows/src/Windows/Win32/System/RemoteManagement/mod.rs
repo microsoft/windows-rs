@@ -3012,12 +3012,6 @@ impl ::core::clone::Clone for WSMAN_AUTHENTICATION_CREDENTIALS {
 unsafe impl ::windows::core::Abi for WSMAN_AUTHENTICATION_CREDENTIALS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_AUTHENTICATION_CREDENTIALS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_AUTHENTICATION_CREDENTIALS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS {}
 impl ::core::default::Default for WSMAN_AUTHENTICATION_CREDENTIALS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3038,12 +3032,6 @@ impl ::core::clone::Clone for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
 unsafe impl ::windows::core::Abi for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_AUTHENTICATION_CREDENTIALS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS_0 {}
 impl ::core::default::Default for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3073,7 +3061,7 @@ unsafe impl ::windows::core::Abi for WSMAN_AUTHZ_QUOTA {
 }
 impl ::core::cmp::PartialEq for WSMAN_AUTHZ_QUOTA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_AUTHZ_QUOTA>()) == 0 }
+        self.maxAllowedConcurrentShells == other.maxAllowedConcurrentShells && self.maxAllowedConcurrentOperations == other.maxAllowedConcurrentOperations && self.timeslotSize == other.timeslotSize && self.maxAllowedOperationsPerTimeslot == other.maxAllowedOperationsPerTimeslot
     }
 }
 impl ::core::cmp::Eq for WSMAN_AUTHZ_QUOTA {}
@@ -3106,7 +3094,7 @@ unsafe impl ::windows::core::Abi for WSMAN_CERTIFICATE_DETAILS {
 }
 impl ::core::cmp::PartialEq for WSMAN_CERTIFICATE_DETAILS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_CERTIFICATE_DETAILS>()) == 0 }
+        self.subject == other.subject && self.issuerName == other.issuerName && self.issuerThumbprint == other.issuerThumbprint && self.subjectName == other.subjectName
     }
 }
 impl ::core::cmp::Eq for WSMAN_CERTIFICATE_DETAILS {}
@@ -3139,7 +3127,7 @@ unsafe impl ::windows::core::Abi for WSMAN_COMMAND_ARG_SET {
 }
 impl ::core::cmp::PartialEq for WSMAN_COMMAND_ARG_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_COMMAND_ARG_SET>()) == 0 }
+        self.argsCount == other.argsCount && self.args == other.args
     }
 }
 impl ::core::cmp::Eq for WSMAN_COMMAND_ARG_SET {}
@@ -3162,12 +3150,6 @@ impl ::core::clone::Clone for WSMAN_CONNECT_DATA {
 unsafe impl ::windows::core::Abi for WSMAN_CONNECT_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_CONNECT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_CONNECT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_CONNECT_DATA {}
 impl ::core::default::Default for WSMAN_CONNECT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3187,12 +3169,6 @@ impl ::core::clone::Clone for WSMAN_CREATE_SHELL_DATA {
 unsafe impl ::windows::core::Abi for WSMAN_CREATE_SHELL_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_CREATE_SHELL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_CREATE_SHELL_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_CREATE_SHELL_DATA {}
 impl ::core::default::Default for WSMAN_CREATE_SHELL_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3213,12 +3189,6 @@ impl ::core::clone::Clone for WSMAN_DATA {
 unsafe impl ::windows::core::Abi for WSMAN_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_DATA {}
 impl ::core::default::Default for WSMAN_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3240,12 +3210,6 @@ impl ::core::clone::Clone for WSMAN_DATA_0 {
 unsafe impl ::windows::core::Abi for WSMAN_DATA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_DATA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_DATA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_DATA_0 {}
 impl ::core::default::Default for WSMAN_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3273,7 +3237,7 @@ unsafe impl ::windows::core::Abi for WSMAN_DATA_BINARY {
 }
 impl ::core::cmp::PartialEq for WSMAN_DATA_BINARY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_DATA_BINARY>()) == 0 }
+        self.dataLength == other.dataLength && self.data == other.data
     }
 }
 impl ::core::cmp::Eq for WSMAN_DATA_BINARY {}
@@ -3304,7 +3268,7 @@ unsafe impl ::windows::core::Abi for WSMAN_DATA_TEXT {
 }
 impl ::core::cmp::PartialEq for WSMAN_DATA_TEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_DATA_TEXT>()) == 0 }
+        self.bufferLength == other.bufferLength && self.buffer == other.buffer
     }
 }
 impl ::core::cmp::Eq for WSMAN_DATA_TEXT {}
@@ -3335,7 +3299,7 @@ unsafe impl ::windows::core::Abi for WSMAN_ENVIRONMENT_VARIABLE {
 }
 impl ::core::cmp::PartialEq for WSMAN_ENVIRONMENT_VARIABLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_ENVIRONMENT_VARIABLE>()) == 0 }
+        self.name == other.name && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE {}
@@ -3366,7 +3330,7 @@ unsafe impl ::windows::core::Abi for WSMAN_ENVIRONMENT_VARIABLE_SET {
 }
 impl ::core::cmp::PartialEq for WSMAN_ENVIRONMENT_VARIABLE_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_ENVIRONMENT_VARIABLE_SET>()) == 0 }
+        self.varsCount == other.varsCount && self.vars == other.vars
     }
 }
 impl ::core::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE_SET {}
@@ -3400,7 +3364,7 @@ unsafe impl ::windows::core::Abi for WSMAN_ERROR {
 }
 impl ::core::cmp::PartialEq for WSMAN_ERROR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_ERROR>()) == 0 }
+        self.code == other.code && self.errorDetail == other.errorDetail && self.language == other.language && self.machineName == other.machineName && self.pluginName == other.pluginName
     }
 }
 impl ::core::cmp::Eq for WSMAN_ERROR {}
@@ -3431,7 +3395,7 @@ unsafe impl ::windows::core::Abi for WSMAN_FILTER {
 }
 impl ::core::cmp::PartialEq for WSMAN_FILTER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_FILTER>()) == 0 }
+        self.filter == other.filter && self.dialect == other.dialect
     }
 }
 impl ::core::cmp::Eq for WSMAN_FILTER {}
@@ -3462,7 +3426,7 @@ unsafe impl ::windows::core::Abi for WSMAN_FRAGMENT {
 }
 impl ::core::cmp::PartialEq for WSMAN_FRAGMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_FRAGMENT>()) == 0 }
+        self.path == other.path && self.dialect == other.dialect
     }
 }
 impl ::core::cmp::Eq for WSMAN_FRAGMENT {}
@@ -3493,7 +3457,7 @@ unsafe impl ::windows::core::Abi for WSMAN_KEY {
 }
 impl ::core::cmp::PartialEq for WSMAN_KEY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_KEY>()) == 0 }
+        self.key == other.key && self.value == other.value
     }
 }
 impl ::core::cmp::Eq for WSMAN_KEY {}
@@ -3536,7 +3500,7 @@ unsafe impl ::windows::core::Abi for WSMAN_OPERATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSMAN_OPERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_OPERATION_INFO>()) == 0 }
+        self.fragment == other.fragment && self.filter == other.filter && self.selectorSet == other.selectorSet && self.optionSet == other.optionSet && self.reserved == other.reserved && self.version == other.version
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3580,7 +3544,7 @@ unsafe impl ::windows::core::Abi for WSMAN_OPERATION_INFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSMAN_OPERATION_INFOEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_OPERATION_INFOEX>()) == 0 }
+        self.fragment == other.fragment && self.filter == other.filter && self.selectorSet == other.selectorSet && self.optionSet == other.optionSet && self.version == other.version && self.uiLocale == other.uiLocale && self.dataLocale == other.dataLocale
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3620,7 +3584,7 @@ unsafe impl ::windows::core::Abi for WSMAN_OPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSMAN_OPTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_OPTION>()) == 0 }
+        self.name == other.name && self.value == other.value && self.mustComply == other.mustComply
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3660,7 +3624,7 @@ unsafe impl ::windows::core::Abi for WSMAN_OPTION_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSMAN_OPTION_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_OPTION_SET>()) == 0 }
+        self.optionsCount == other.optionsCount && self.options == other.options && self.optionsMustUnderstand == other.optionsMustUnderstand
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3701,7 +3665,7 @@ unsafe impl ::windows::core::Abi for WSMAN_OPTION_SETEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSMAN_OPTION_SETEX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_OPTION_SETEX>()) == 0 }
+        self.optionsCount == other.optionsCount && self.options == other.options && self.optionsMustUnderstand == other.optionsMustUnderstand && self.optionTypes == other.optionTypes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3745,7 +3709,7 @@ unsafe impl ::windows::core::Abi for WSMAN_PLUGIN_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSMAN_PLUGIN_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_PLUGIN_REQUEST>()) == 0 }
+        self.senderDetails == other.senderDetails && self.locale == other.locale && self.resourceUri == other.resourceUri && self.operationInfo == other.operationInfo && self.shutdownNotification == other.shutdownNotification && self.shutdownNotificationHandle == other.shutdownNotificationHandle && self.dataLocale == other.dataLocale
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3771,12 +3735,6 @@ impl ::core::clone::Clone for WSMAN_PROXY_INFO {
 unsafe impl ::windows::core::Abi for WSMAN_PROXY_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_PROXY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_PROXY_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_PROXY_INFO {}
 impl ::core::default::Default for WSMAN_PROXY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3799,12 +3757,6 @@ impl ::core::clone::Clone for WSMAN_RECEIVE_DATA_RESULT {
 unsafe impl ::windows::core::Abi for WSMAN_RECEIVE_DATA_RESULT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_RECEIVE_DATA_RESULT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_RECEIVE_DATA_RESULT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_RECEIVE_DATA_RESULT {}
 impl ::core::default::Default for WSMAN_RECEIVE_DATA_RESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3826,12 +3778,6 @@ impl ::core::clone::Clone for WSMAN_RESPONSE_DATA {
 unsafe impl ::windows::core::Abi for WSMAN_RESPONSE_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_RESPONSE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_RESPONSE_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_RESPONSE_DATA {}
 impl ::core::default::Default for WSMAN_RESPONSE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3859,7 +3805,7 @@ unsafe impl ::windows::core::Abi for WSMAN_SELECTOR_SET {
 }
 impl ::core::cmp::PartialEq for WSMAN_SELECTOR_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_SELECTOR_SET>()) == 0 }
+        self.numberKeys == other.numberKeys && self.keys == other.keys
     }
 }
 impl ::core::cmp::Eq for WSMAN_SELECTOR_SET {}
@@ -3899,7 +3845,7 @@ unsafe impl ::windows::core::Abi for WSMAN_SENDER_DETAILS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSMAN_SENDER_DETAILS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_SENDER_DETAILS>()) == 0 }
+        self.senderName == other.senderName && self.authenticationMechanism == other.authenticationMechanism && self.certificateDetails == other.certificateDetails && self.clientToken == other.clientToken && self.httpURL == other.httpURL
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3928,18 +3874,12 @@ impl ::core::clone::Clone for WSMAN_SHELL_ASYNC {
 }
 impl ::core::fmt::Debug for WSMAN_SHELL_ASYNC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_SHELL_ASYNC").field("operationContext", &self.operationContext).field("completionFunction", &self.completionFunction.map(|f| f as usize)).finish()
+        f.debug_struct("WSMAN_SHELL_ASYNC").field("operationContext", &self.operationContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_ASYNC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WSMAN_SHELL_ASYNC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_SHELL_ASYNC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WSMAN_SHELL_ASYNC {}
 impl ::core::default::Default for WSMAN_SHELL_ASYNC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3966,7 +3906,7 @@ unsafe impl ::windows::core::Abi for WSMAN_SHELL_DISCONNECT_INFO {
 }
 impl ::core::cmp::PartialEq for WSMAN_SHELL_DISCONNECT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_SHELL_DISCONNECT_INFO>()) == 0 }
+        self.idleTimeoutMs == other.idleTimeoutMs
     }
 }
 impl ::core::cmp::Eq for WSMAN_SHELL_DISCONNECT_INFO {}
@@ -4000,7 +3940,7 @@ unsafe impl ::windows::core::Abi for WSMAN_SHELL_STARTUP_INFO_V10 {
 }
 impl ::core::cmp::PartialEq for WSMAN_SHELL_STARTUP_INFO_V10 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_SHELL_STARTUP_INFO_V10>()) == 0 }
+        self.inputStreamSet == other.inputStreamSet && self.outputStreamSet == other.outputStreamSet && self.idleTimeoutMs == other.idleTimeoutMs && self.workingDirectory == other.workingDirectory && self.variableSet == other.variableSet
     }
 }
 impl ::core::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V10 {}
@@ -4031,7 +3971,7 @@ unsafe impl ::windows::core::Abi for WSMAN_SHELL_STARTUP_INFO_V11 {
 }
 impl ::core::cmp::PartialEq for WSMAN_SHELL_STARTUP_INFO_V11 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_SHELL_STARTUP_INFO_V11>()) == 0 }
+        self.Base == other.Base && self.name == other.name
     }
 }
 impl ::core::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V11 {}
@@ -4062,7 +4002,7 @@ unsafe impl ::windows::core::Abi for WSMAN_STREAM_ID_SET {
 }
 impl ::core::cmp::PartialEq for WSMAN_STREAM_ID_SET {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_STREAM_ID_SET>()) == 0 }
+        self.streamIDsCount == other.streamIDsCount && self.streamIDs == other.streamIDs
     }
 }
 impl ::core::cmp::Eq for WSMAN_STREAM_ID_SET {}
@@ -4093,7 +4033,7 @@ unsafe impl ::windows::core::Abi for WSMAN_USERNAME_PASSWORD_CREDS {
 }
 impl ::core::cmp::PartialEq for WSMAN_USERNAME_PASSWORD_CREDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSMAN_USERNAME_PASSWORD_CREDS>()) == 0 }
+        self.username == other.username && self.password == other.password
     }
 }
 impl ::core::cmp::Eq for WSMAN_USERNAME_PASSWORD_CREDS {}

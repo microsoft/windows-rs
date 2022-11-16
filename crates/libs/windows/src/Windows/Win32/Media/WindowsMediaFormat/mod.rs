@@ -10712,7 +10712,7 @@ unsafe impl ::windows::core::Abi for AM_WMT_EVENT_DATA {
 }
 impl ::core::cmp::PartialEq for AM_WMT_EVENT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AM_WMT_EVENT_DATA>()) == 0 }
+        self.hrStatus == other.hrStatus && self.pData == other.pData
     }
 }
 impl ::core::cmp::Eq for AM_WMT_EVENT_DATA {}
@@ -10744,7 +10744,7 @@ unsafe impl ::windows::core::Abi for DRM_COPY_OPL {
 }
 impl ::core::cmp::PartialEq for DRM_COPY_OPL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_COPY_OPL>()) == 0 }
+        self.wMinimumCopyLevel == other.wMinimumCopyLevel && self.oplIdIncludes == other.oplIdIncludes && self.oplIdExcludes == other.oplIdExcludes
     }
 }
 impl ::core::cmp::Eq for DRM_COPY_OPL {}
@@ -10778,7 +10778,7 @@ unsafe impl ::windows::core::Abi for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
 }
 impl ::core::cmp::PartialEq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS>()) == 0 }
+        self.wCompressedDigitalVideo == other.wCompressedDigitalVideo && self.wUncompressedDigitalVideo == other.wUncompressedDigitalVideo && self.wAnalogVideo == other.wAnalogVideo && self.wCompressedDigitalAudio == other.wCompressedDigitalAudio && self.wUncompressedDigitalAudio == other.wUncompressedDigitalAudio
     }
 }
 impl ::core::cmp::Eq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {}
@@ -10809,7 +10809,7 @@ unsafe impl ::windows::core::Abi for DRM_OPL_OUTPUT_IDS {
 }
 impl ::core::cmp::PartialEq for DRM_OPL_OUTPUT_IDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_OPL_OUTPUT_IDS>()) == 0 }
+        self.cIds == other.cIds && self.rgIds == other.rgIds
     }
 }
 impl ::core::cmp::Eq for DRM_OPL_OUTPUT_IDS {}
@@ -10840,7 +10840,7 @@ unsafe impl ::windows::core::Abi for DRM_OUTPUT_PROTECTION {
 }
 impl ::core::cmp::PartialEq for DRM_OUTPUT_PROTECTION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_OUTPUT_PROTECTION>()) == 0 }
+        self.guidId == other.guidId && self.bConfigData == other.bConfigData
     }
 }
 impl ::core::cmp::Eq for DRM_OUTPUT_PROTECTION {}
@@ -10872,7 +10872,7 @@ unsafe impl ::windows::core::Abi for DRM_PLAY_OPL {
 }
 impl ::core::cmp::PartialEq for DRM_PLAY_OPL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_PLAY_OPL>()) == 0 }
+        self.minOPL == other.minOPL && self.oplIdReserved == other.oplIdReserved && self.vopi == other.vopi
     }
 }
 impl ::core::cmp::Eq for DRM_PLAY_OPL {}
@@ -10902,7 +10902,7 @@ unsafe impl ::windows::core::Abi for DRM_VAL16 {
 }
 impl ::core::cmp::PartialEq for DRM_VAL16 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_VAL16>()) == 0 }
+        self.val == other.val
     }
 }
 impl ::core::cmp::Eq for DRM_VAL16 {}
@@ -10933,7 +10933,7 @@ unsafe impl ::windows::core::Abi for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
 }
 impl ::core::cmp::PartialEq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_VIDEO_OUTPUT_PROTECTION_IDS>()) == 0 }
+        self.cEntries == other.cEntries && self.rgVop == other.rgVop
     }
 }
 impl ::core::cmp::Eq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
@@ -10967,7 +10967,7 @@ unsafe impl ::windows::core::Abi for WMDRM_IMPORT_INIT_STRUCT {
 }
 impl ::core::cmp::PartialEq for WMDRM_IMPORT_INIT_STRUCT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMDRM_IMPORT_INIT_STRUCT>()) == 0 }
+        self.dwVersion == other.dwVersion && self.cbEncryptedSessionKeyMessage == other.cbEncryptedSessionKeyMessage && self.pbEncryptedSessionKeyMessage == other.pbEncryptedSessionKeyMessage && self.cbEncryptedKeyMessage == other.cbEncryptedKeyMessage && self.pbEncryptedKeyMessage == other.pbEncryptedKeyMessage
     }
 }
 impl ::core::cmp::Eq for WMDRM_IMPORT_INIT_STRUCT {}
@@ -11009,7 +11009,7 @@ unsafe impl ::windows::core::Abi for WMMPEG2VIDEOINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for WMMPEG2VIDEOINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMMPEG2VIDEOINFO>()) == 0 }
+        self.hdr == other.hdr && self.dwStartTimeCode == other.dwStartTimeCode && self.cbSequenceHeader == other.cbSequenceHeader && self.dwProfile == other.dwProfile && self.dwLevel == other.dwLevel && self.dwFlags == other.dwFlags && self.dwSequenceHeader == other.dwSequenceHeader
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11041,7 +11041,7 @@ unsafe impl ::windows::core::Abi for WMSCRIPTFORMAT {
 }
 impl ::core::cmp::PartialEq for WMSCRIPTFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMSCRIPTFORMAT>()) == 0 }
+        self.scriptType == other.scriptType
     }
 }
 impl ::core::cmp::Eq for WMSCRIPTFORMAT {}
@@ -11104,7 +11104,7 @@ unsafe impl ::windows::core::Abi for WMT_COLORSPACEINFO_EXTENSION_DATA {
 }
 impl ::core::cmp::PartialEq for WMT_COLORSPACEINFO_EXTENSION_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_COLORSPACEINFO_EXTENSION_DATA>()) == 0 }
+        self.ucColorPrimaries == other.ucColorPrimaries && self.ucColorTransferChar == other.ucColorTransferChar && self.ucColorMatrixCoef == other.ucColorMatrixCoef
     }
 }
 impl ::core::cmp::Eq for WMT_COLORSPACEINFO_EXTENSION_DATA {}
@@ -11199,12 +11199,6 @@ impl ::core::clone::Clone for WMT_TIMECODE_EXTENSION_DATA {
 unsafe impl ::windows::core::Abi for WMT_TIMECODE_EXTENSION_DATA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WMT_TIMECODE_EXTENSION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_TIMECODE_EXTENSION_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WMT_TIMECODE_EXTENSION_DATA {}
 impl ::core::default::Default for WMT_TIMECODE_EXTENSION_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11273,7 +11267,27 @@ unsafe impl ::windows::core::Abi for WMT_VIDEOIMAGE_SAMPLE {
 }
 impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_VIDEOIMAGE_SAMPLE>()) == 0 }
+        self.dwMagic == other.dwMagic
+            && self.cbStruct == other.cbStruct
+            && self.dwControlFlags == other.dwControlFlags
+            && self.dwInputFlagsCur == other.dwInputFlagsCur
+            && self.lCurMotionXtoX == other.lCurMotionXtoX
+            && self.lCurMotionYtoX == other.lCurMotionYtoX
+            && self.lCurMotionXoffset == other.lCurMotionXoffset
+            && self.lCurMotionXtoY == other.lCurMotionXtoY
+            && self.lCurMotionYtoY == other.lCurMotionYtoY
+            && self.lCurMotionYoffset == other.lCurMotionYoffset
+            && self.lCurBlendCoef1 == other.lCurBlendCoef1
+            && self.lCurBlendCoef2 == other.lCurBlendCoef2
+            && self.dwInputFlagsPrev == other.dwInputFlagsPrev
+            && self.lPrevMotionXtoX == other.lPrevMotionXtoX
+            && self.lPrevMotionYtoX == other.lPrevMotionYtoX
+            && self.lPrevMotionXoffset == other.lPrevMotionXoffset
+            && self.lPrevMotionXtoY == other.lPrevMotionXtoY
+            && self.lPrevMotionYtoY == other.lPrevMotionYtoY
+            && self.lPrevMotionYoffset == other.lPrevMotionYoffset
+            && self.lPrevBlendCoef1 == other.lPrevBlendCoef1
+            && self.lPrevBlendCoef2 == other.lPrevBlendCoef2
     }
 }
 impl ::core::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE {}
@@ -11363,7 +11377,33 @@ unsafe impl ::windows::core::Abi for WMT_VIDEOIMAGE_SAMPLE2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_VIDEOIMAGE_SAMPLE2>()) == 0 }
+        self.dwMagic == other.dwMagic
+            && self.dwStructSize == other.dwStructSize
+            && self.dwControlFlags == other.dwControlFlags
+            && self.dwViewportWidth == other.dwViewportWidth
+            && self.dwViewportHeight == other.dwViewportHeight
+            && self.dwCurrImageWidth == other.dwCurrImageWidth
+            && self.dwCurrImageHeight == other.dwCurrImageHeight
+            && self.fCurrRegionX0 == other.fCurrRegionX0
+            && self.fCurrRegionY0 == other.fCurrRegionY0
+            && self.fCurrRegionWidth == other.fCurrRegionWidth
+            && self.fCurrRegionHeight == other.fCurrRegionHeight
+            && self.fCurrBlendCoef == other.fCurrBlendCoef
+            && self.dwPrevImageWidth == other.dwPrevImageWidth
+            && self.dwPrevImageHeight == other.dwPrevImageHeight
+            && self.fPrevRegionX0 == other.fPrevRegionX0
+            && self.fPrevRegionY0 == other.fPrevRegionY0
+            && self.fPrevRegionWidth == other.fPrevRegionWidth
+            && self.fPrevRegionHeight == other.fPrevRegionHeight
+            && self.fPrevBlendCoef == other.fPrevBlendCoef
+            && self.dwEffectType == other.dwEffectType
+            && self.dwNumEffectParas == other.dwNumEffectParas
+            && self.fEffectPara0 == other.fEffectPara0
+            && self.fEffectPara1 == other.fEffectPara1
+            && self.fEffectPara2 == other.fEffectPara2
+            && self.fEffectPara3 == other.fEffectPara3
+            && self.fEffectPara4 == other.fEffectPara4
+            && self.bKeepPrevImage == other.bKeepPrevImage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11398,7 +11438,7 @@ unsafe impl ::windows::core::Abi for WMT_WATERMARK_ENTRY {
 }
 impl ::core::cmp::PartialEq for WMT_WATERMARK_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WATERMARK_ENTRY>()) == 0 }
+        self.wmetType == other.wmetType && self.clsid == other.clsid && self.cbDisplayName == other.cbDisplayName && self.pwszDisplayName == other.pwszDisplayName
     }
 }
 impl ::core::cmp::Eq for WMT_WATERMARK_ENTRY {}
@@ -11431,7 +11471,7 @@ unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_FORMAT {
 }
 impl ::core::cmp::PartialEq for WMT_WEBSTREAM_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WEBSTREAM_FORMAT>()) == 0 }
+        self.cbSize == other.cbSize && self.cbSampleHeaderFixedData == other.cbSampleHeaderFixedData && self.wVersion == other.wVersion && self.wReserved == other.wReserved
     }
 }
 impl ::core::cmp::Eq for WMT_WEBSTREAM_FORMAT {}
@@ -11465,7 +11505,7 @@ unsafe impl ::windows::core::Abi for WMT_WEBSTREAM_SAMPLE_HEADER {
 }
 impl ::core::cmp::PartialEq for WMT_WEBSTREAM_SAMPLE_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMT_WEBSTREAM_SAMPLE_HEADER>()) == 0 }
+        self.cbLength == other.cbLength && self.wPart == other.wPart && self.cTotalParts == other.cTotalParts && self.wSampleType == other.wSampleType && self.wszURL == other.wszURL
     }
 }
 impl ::core::cmp::Eq for WMT_WEBSTREAM_SAMPLE_HEADER {}
@@ -11506,7 +11546,7 @@ unsafe impl ::windows::core::Abi for WMVIDEOINFOHEADER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMVIDEOINFOHEADER>()) == 0 }
+        self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.bmiHeader == other.bmiHeader
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11568,7 +11608,7 @@ unsafe impl ::windows::core::Abi for WMVIDEOINFOHEADER2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for WMVIDEOINFOHEADER2 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WMVIDEOINFOHEADER2>()) == 0 }
+        self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.dwInterlaceFlags == other.dwInterlaceFlags && self.dwCopyProtectFlags == other.dwCopyProtectFlags && self.dwPictAspectRatioX == other.dwPictAspectRatioX && self.dwPictAspectRatioY == other.dwPictAspectRatioY && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.bmiHeader == other.bmiHeader
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11601,7 +11641,7 @@ unsafe impl ::windows::core::Abi for WM_ADDRESS_ACCESSENTRY {
 }
 impl ::core::cmp::PartialEq for WM_ADDRESS_ACCESSENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_ADDRESS_ACCESSENTRY>()) == 0 }
+        self.dwIPAddress == other.dwIPAddress && self.dwMask == other.dwMask
     }
 }
 impl ::core::cmp::Eq for WM_ADDRESS_ACCESSENTRY {}
@@ -11632,7 +11672,7 @@ unsafe impl ::windows::core::Abi for WM_CLIENT_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for WM_CLIENT_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_CLIENT_PROPERTIES>()) == 0 }
+        self.dwIPAddress == other.dwIPAddress && self.dwPort == other.dwPort
     }
 }
 impl ::core::cmp::Eq for WM_CLIENT_PROPERTIES {}
@@ -11665,7 +11705,7 @@ unsafe impl ::windows::core::Abi for WM_CLIENT_PROPERTIES_EX {
 }
 impl ::core::cmp::PartialEq for WM_CLIENT_PROPERTIES_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_CLIENT_PROPERTIES_EX>()) == 0 }
+        self.cbSize == other.cbSize && self.pwszIPAddress == other.pwszIPAddress && self.pwszPort == other.pwszPort && self.pwszDNSName == other.pwszDNSName
     }
 }
 impl ::core::cmp::Eq for WM_CLIENT_PROPERTIES_EX {}
@@ -11689,12 +11729,6 @@ impl ::core::clone::Clone for WM_LEAKY_BUCKET_PAIR {
 unsafe impl ::windows::core::Abi for WM_LEAKY_BUCKET_PAIR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WM_LEAKY_BUCKET_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_LEAKY_BUCKET_PAIR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_LEAKY_BUCKET_PAIR {}
 impl ::core::default::Default for WM_LEAKY_BUCKET_PAIR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11772,12 +11806,6 @@ impl ::core::clone::Clone for WM_PICTURE {
 unsafe impl ::windows::core::Abi for WM_PICTURE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WM_PICTURE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_PICTURE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_PICTURE {}
 impl ::core::default::Default for WM_PICTURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11805,7 +11833,7 @@ unsafe impl ::windows::core::Abi for WM_PORT_NUMBER_RANGE {
 }
 impl ::core::cmp::PartialEq for WM_PORT_NUMBER_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_PORT_NUMBER_RANGE>()) == 0 }
+        self.wPortBegin == other.wPortBegin && self.wPortEnd == other.wPortEnd
     }
 }
 impl ::core::cmp::Eq for WM_PORT_NUMBER_RANGE {}
@@ -11849,7 +11877,7 @@ unsafe impl ::windows::core::Abi for WM_READER_CLIENTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WM_READER_CLIENTINFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_READER_CLIENTINFO>()) == 0 }
+        self.cbSize == other.cbSize && self.wszLang == other.wszLang && self.wszBrowserUserAgent == other.wszBrowserUserAgent && self.wszBrowserWebPage == other.wszBrowserWebPage && self.qwReserved == other.qwReserved && self.pReserved == other.pReserved && self.wszHostExe == other.wszHostExe && self.qwHostVersion == other.qwHostVersion && self.wszPlayerUserAgent == other.wszPlayerUserAgent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11886,7 +11914,7 @@ unsafe impl ::windows::core::Abi for WM_READER_STATISTICS {
 }
 impl ::core::cmp::PartialEq for WM_READER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_READER_STATISTICS>()) == 0 }
+        self.cbSize == other.cbSize && self.dwBandwidth == other.dwBandwidth && self.cPacketsReceived == other.cPacketsReceived && self.cPacketsRecovered == other.cPacketsRecovered && self.cPacketsLost == other.cPacketsLost && self.wQuality == other.wQuality
     }
 }
 impl ::core::cmp::Eq for WM_READER_STATISTICS {}
@@ -11915,14 +11943,6 @@ unsafe impl ::windows::core::Abi for WM_STREAM_PRIORITY_RECORD {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WM_STREAM_PRIORITY_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_STREAM_PRIORITY_RECORD>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WM_STREAM_PRIORITY_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WM_STREAM_PRIORITY_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11943,12 +11963,6 @@ impl ::core::clone::Clone for WM_STREAM_TYPE_INFO {
 unsafe impl ::windows::core::Abi for WM_STREAM_TYPE_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WM_STREAM_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_STREAM_TYPE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_STREAM_TYPE_INFO {}
 impl ::core::default::Default for WM_STREAM_TYPE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11972,12 +11986,6 @@ impl ::core::clone::Clone for WM_SYNCHRONISED_LYRICS {
 unsafe impl ::windows::core::Abi for WM_SYNCHRONISED_LYRICS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WM_SYNCHRONISED_LYRICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_SYNCHRONISED_LYRICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_SYNCHRONISED_LYRICS {}
 impl ::core::default::Default for WM_SYNCHRONISED_LYRICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11998,12 +12006,6 @@ impl ::core::clone::Clone for WM_USER_TEXT {
 unsafe impl ::windows::core::Abi for WM_USER_TEXT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WM_USER_TEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_USER_TEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_USER_TEXT {}
 impl ::core::default::Default for WM_USER_TEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12024,12 +12026,6 @@ impl ::core::clone::Clone for WM_USER_WEB_URL {
 unsafe impl ::windows::core::Abi for WM_USER_WEB_URL {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WM_USER_WEB_URL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_USER_WEB_URL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WM_USER_WEB_URL {}
 impl ::core::default::Default for WM_USER_WEB_URL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12076,7 +12072,7 @@ unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS {
 }
 impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_WRITER_STATISTICS>()) == 0 }
+        self.qwSampleCount == other.qwSampleCount && self.qwByteCount == other.qwByteCount && self.qwDroppedSampleCount == other.qwDroppedSampleCount && self.qwDroppedByteCount == other.qwDroppedByteCount && self.dwCurrentBitrate == other.dwCurrentBitrate && self.dwAverageBitrate == other.dwAverageBitrate && self.dwExpectedBitrate == other.dwExpectedBitrate && self.dwCurrentSampleRate == other.dwCurrentSampleRate && self.dwAverageSampleRate == other.dwAverageSampleRate && self.dwExpectedSampleRate == other.dwExpectedSampleRate
     }
 }
 impl ::core::cmp::Eq for WM_WRITER_STATISTICS {}
@@ -12120,7 +12116,7 @@ unsafe impl ::windows::core::Abi for WM_WRITER_STATISTICS_EX {
 }
 impl ::core::cmp::PartialEq for WM_WRITER_STATISTICS_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WM_WRITER_STATISTICS_EX>()) == 0 }
+        self.dwBitratePlusOverhead == other.dwBitratePlusOverhead && self.dwCurrentSampleDropRateInQueue == other.dwCurrentSampleDropRateInQueue && self.dwCurrentSampleDropRateInCodec == other.dwCurrentSampleDropRateInCodec && self.dwCurrentSampleDropRateInMultiplexer == other.dwCurrentSampleDropRateInMultiplexer && self.dwTotalSampleDropsInQueue == other.dwTotalSampleDropsInQueue && self.dwTotalSampleDropsInCodec == other.dwTotalSampleDropsInCodec && self.dwTotalSampleDropsInMultiplexer == other.dwTotalSampleDropsInMultiplexer
     }
 }
 impl ::core::cmp::Eq for WM_WRITER_STATISTICS_EX {}

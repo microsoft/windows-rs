@@ -1894,7 +1894,7 @@ unsafe impl ::windows::core::Abi for ALTERNATE_INTERFACE {
 }
 impl ::core::cmp::PartialEq for ALTERNATE_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ALTERNATE_INTERFACE>()) == 0 }
+        self.InterfaceNumber == other.InterfaceNumber && self.AlternateInterfaceNumber == other.AlternateInterfaceNumber
     }
 }
 impl ::core::cmp::Eq for ALTERNATE_INTERFACE {}
@@ -1918,12 +1918,6 @@ impl ::core::clone::Clone for BM_REQUEST_TYPE {
 unsafe impl ::windows::core::Abi for BM_REQUEST_TYPE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BM_REQUEST_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BM_REQUEST_TYPE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BM_REQUEST_TYPE {}
 impl ::core::default::Default for BM_REQUEST_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1950,7 +1944,7 @@ unsafe impl ::windows::core::Abi for BM_REQUEST_TYPE_0 {
 }
 impl ::core::cmp::PartialEq for BM_REQUEST_TYPE_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BM_REQUEST_TYPE_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for BM_REQUEST_TYPE_0 {}
@@ -1982,7 +1976,7 @@ unsafe impl ::windows::core::Abi for CHANNEL_INFO {
 }
 impl ::core::cmp::PartialEq for CHANNEL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_INFO>()) == 0 }
+        self.EventChannelSize == other.EventChannelSize && self.uReadDataAlignment == other.uReadDataAlignment && self.uWriteDataAlignment == other.uWriteDataAlignment
     }
 }
 impl ::core::cmp::Eq for CHANNEL_INFO {}
@@ -2015,7 +2009,7 @@ unsafe impl ::windows::core::Abi for DEVICE_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for DEVICE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_DESCRIPTOR>()) == 0 }
+        self.usVendorId == other.usVendorId && self.usProductId == other.usProductId && self.usBcdDevice == other.usBcdDevice && self.usLanguageId == other.usLanguageId
     }
 }
 impl ::core::cmp::Eq for DEVICE_DESCRIPTOR {}
@@ -2047,7 +2041,7 @@ unsafe impl ::windows::core::Abi for DRV_VERSION {
 }
 impl ::core::cmp::PartialEq for DRV_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRV_VERSION>()) == 0 }
+        self.major == other.major && self.minor == other.minor && self.internal == other.internal
     }
 }
 impl ::core::cmp::Eq for DRV_VERSION {}
@@ -2080,7 +2074,7 @@ unsafe impl ::windows::core::Abi for IO_BLOCK {
 }
 impl ::core::cmp::PartialEq for IO_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IO_BLOCK>()) == 0 }
+        self.uOffset == other.uOffset && self.uLength == other.uLength && self.pbyData == other.pbyData && self.uIndex == other.uIndex
     }
 }
 impl ::core::cmp::Eq for IO_BLOCK {}
@@ -2116,7 +2110,7 @@ unsafe impl ::windows::core::Abi for IO_BLOCK_EX {
 }
 impl ::core::cmp::PartialEq for IO_BLOCK_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IO_BLOCK_EX>()) == 0 }
+        self.uOffset == other.uOffset && self.uLength == other.uLength && self.pbyData == other.pbyData && self.uIndex == other.uIndex && self.bRequest == other.bRequest && self.bmRequestType == other.bmRequestType && self.fTransferDirectionIn == other.fTransferDirectionIn
     }
 }
 impl ::core::cmp::Eq for IO_BLOCK_EX {}
@@ -2143,12 +2137,6 @@ impl ::core::clone::Clone for OS_STRING {
 unsafe impl ::windows::core::Abi for OS_STRING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OS_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OS_STRING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OS_STRING {}
 impl ::core::default::Default for OS_STRING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2169,12 +2157,6 @@ impl ::core::clone::Clone for OS_STRING_0 {
 unsafe impl ::windows::core::Abi for OS_STRING_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OS_STRING_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OS_STRING_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OS_STRING_0 {}
 impl ::core::default::Default for OS_STRING_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2205,12 +2187,6 @@ impl ::core::clone::Clone for PACKET_PARAMETERS {
 unsafe impl ::windows::core::Abi for PACKET_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PACKET_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PACKET_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PACKET_PARAMETERS {}
 impl ::core::default::Default for PACKET_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2231,12 +2207,6 @@ impl ::core::clone::Clone for RAW_RESET_PORT_PARAMETERS {
 unsafe impl ::windows::core::Abi for RAW_RESET_PORT_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RAW_RESET_PORT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAW_RESET_PORT_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RAW_RESET_PORT_PARAMETERS {}
 impl ::core::default::Default for RAW_RESET_PORT_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2258,12 +2228,6 @@ impl ::core::clone::Clone for RAW_ROOTPORT_FEATURE {
 unsafe impl ::windows::core::Abi for RAW_ROOTPORT_FEATURE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RAW_ROOTPORT_FEATURE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAW_ROOTPORT_FEATURE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RAW_ROOTPORT_FEATURE {}
 impl ::core::default::Default for RAW_ROOTPORT_FEATURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2284,12 +2248,6 @@ impl ::core::clone::Clone for RAW_ROOTPORT_PARAMETERS {
 unsafe impl ::windows::core::Abi for RAW_ROOTPORT_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RAW_ROOTPORT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RAW_ROOTPORT_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RAW_ROOTPORT_PARAMETERS {}
 impl ::core::default::Default for RAW_ROOTPORT_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2309,12 +2267,6 @@ impl ::core::clone::Clone for URB {
 unsafe impl ::windows::core::Abi for URB {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for URB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<URB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for URB {}
 impl ::core::default::Default for URB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2354,12 +2306,6 @@ impl ::core::clone::Clone for URB_0 {
 unsafe impl ::windows::core::Abi for URB_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for URB_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<URB_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for URB_0 {}
 impl ::core::default::Default for URB_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2381,12 +2327,6 @@ impl ::core::clone::Clone for USBD_DEVICE_INFORMATION {
 unsafe impl ::windows::core::Abi for USBD_DEVICE_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBD_DEVICE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBD_DEVICE_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBD_DEVICE_INFORMATION {}
 impl ::core::default::Default for USBD_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2420,12 +2360,6 @@ impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_INFORMATION {
 unsafe impl ::windows::core::Abi for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBD_ENDPOINT_OFFLOAD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBD_ENDPOINT_OFFLOAD_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBD_ENDPOINT_OFFLOAD_INFORMATION {}
 impl ::core::default::Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2461,7 +2395,7 @@ unsafe impl ::windows::core::Abi for USBD_INTERFACE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for USBD_INTERFACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBD_INTERFACE_INFORMATION>()) == 0 }
+        self.Length == other.Length && self.InterfaceNumber == other.InterfaceNumber && self.AlternateSetting == other.AlternateSetting && self.Class == other.Class && self.SubClass == other.SubClass && self.Protocol == other.Protocol && self.Reserved == other.Reserved && self.InterfaceHandle == other.InterfaceHandle && self.NumberOfPipes == other.NumberOfPipes && self.Pipes == other.Pipes
     }
 }
 impl ::core::cmp::Eq for USBD_INTERFACE_INFORMATION {}
@@ -2493,7 +2427,7 @@ unsafe impl ::windows::core::Abi for USBD_ISO_PACKET_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for USBD_ISO_PACKET_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBD_ISO_PACKET_DESCRIPTOR>()) == 0 }
+        self.Offset == other.Offset && self.Length == other.Length && self.Status == other.Status
     }
 }
 impl ::core::cmp::Eq for USBD_ISO_PACKET_DESCRIPTOR {}
@@ -2529,7 +2463,7 @@ unsafe impl ::windows::core::Abi for USBD_PIPE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for USBD_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBD_PIPE_INFORMATION>()) == 0 }
+        self.MaximumPacketSize == other.MaximumPacketSize && self.EndpointAddress == other.EndpointAddress && self.Interval == other.Interval && self.PipeType == other.PipeType && self.PipeHandle == other.PipeHandle && self.MaximumTransferSize == other.MaximumTransferSize && self.PipeFlags == other.PipeFlags
     }
 }
 impl ::core::cmp::Eq for USBD_PIPE_INFORMATION {}
@@ -2562,7 +2496,7 @@ unsafe impl ::windows::core::Abi for USBD_STREAM_INFORMATION {
 }
 impl ::core::cmp::PartialEq for USBD_STREAM_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBD_STREAM_INFORMATION>()) == 0 }
+        self.PipeHandle == other.PipeHandle && self.StreamID == other.StreamID && self.MaximumTransferSize == other.MaximumTransferSize && self.PipeFlags == other.PipeFlags
     }
 }
 impl ::core::cmp::Eq for USBD_STREAM_INFORMATION {}
@@ -2593,7 +2527,7 @@ unsafe impl ::windows::core::Abi for USBD_VERSION_INFORMATION {
 }
 impl ::core::cmp::PartialEq for USBD_VERSION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBD_VERSION_INFORMATION>()) == 0 }
+        self.USBDI_Version == other.USBDI_Version && self.Supported_USB_Version == other.Supported_USB_Version
     }
 }
 impl ::core::cmp::Eq for USBD_VERSION_INFORMATION {}
@@ -2631,7 +2565,7 @@ unsafe impl ::windows::core::Abi for USBFN_BUS_CONFIGURATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USBFN_BUS_CONFIGURATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_BUS_CONFIGURATION_INFO>()) == 0 }
+        self.ConfigurationName == other.ConfigurationName && self.IsCurrent == other.IsCurrent && self.IsActive == other.IsActive
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2666,14 +2600,6 @@ unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USBFN_CLASS_INFORMATION_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_CLASS_INFORMATION_PACKET>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USBFN_CLASS_INFORMATION_PACKET {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBFN_CLASS_INFORMATION_PACKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2703,14 +2629,6 @@ unsafe impl ::windows::core::Abi for USBFN_CLASS_INFORMATION_PACKET_EX {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USBFN_CLASS_INFORMATION_PACKET_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_CLASS_INFORMATION_PACKET_EX>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USBFN_CLASS_INFORMATION_PACKET_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBFN_CLASS_INFORMATION_PACKET_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2732,12 +2650,6 @@ impl ::core::clone::Clone for USBFN_CLASS_INTERFACE {
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBFN_CLASS_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_CLASS_INTERFACE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBFN_CLASS_INTERFACE {}
 impl ::core::default::Default for USBFN_CLASS_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2760,12 +2672,6 @@ impl ::core::clone::Clone for USBFN_CLASS_INTERFACE_EX {
 unsafe impl ::windows::core::Abi for USBFN_CLASS_INTERFACE_EX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBFN_CLASS_INTERFACE_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_CLASS_INTERFACE_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBFN_CLASS_INTERFACE_EX {}
 impl ::core::default::Default for USBFN_CLASS_INTERFACE_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2795,7 +2701,7 @@ unsafe impl ::windows::core::Abi for USBFN_INTERFACE_INFO {
 }
 impl ::core::cmp::PartialEq for USBFN_INTERFACE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_INTERFACE_INFO>()) == 0 }
+        self.InterfaceNumber == other.InterfaceNumber && self.Speed == other.Speed && self.Size == other.Size && self.InterfaceDescriptorSet == other.InterfaceDescriptorSet
     }
 }
 impl ::core::cmp::Eq for USBFN_INTERFACE_INFO {}
@@ -2819,12 +2725,6 @@ impl ::core::clone::Clone for USBFN_NOTIFICATION {
 unsafe impl ::windows::core::Abi for USBFN_NOTIFICATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBFN_NOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_NOTIFICATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBFN_NOTIFICATION {}
 impl ::core::default::Default for USBFN_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2848,12 +2748,6 @@ impl ::core::clone::Clone for USBFN_NOTIFICATION_0 {
 unsafe impl ::windows::core::Abi for USBFN_NOTIFICATION_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBFN_NOTIFICATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_NOTIFICATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBFN_NOTIFICATION_0 {}
 impl ::core::default::Default for USBFN_NOTIFICATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2874,12 +2768,6 @@ impl ::core::clone::Clone for USBFN_PIPE_INFORMATION {
 unsafe impl ::windows::core::Abi for USBFN_PIPE_INFORMATION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBFN_PIPE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_PIPE_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBFN_PIPE_INFORMATION {}
 impl ::core::default::Default for USBFN_PIPE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2907,7 +2795,7 @@ unsafe impl ::windows::core::Abi for USBFN_USB_STRING {
 }
 impl ::core::cmp::PartialEq for USBFN_USB_STRING {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBFN_USB_STRING>()) == 0 }
+        self.StringIndex == other.StringIndex && self.UsbString == other.UsbString
     }
 }
 impl ::core::cmp::Eq for USBFN_USB_STRING {}
@@ -2939,7 +2827,7 @@ unsafe impl ::windows::core::Abi for USBSCAN_GET_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for USBSCAN_GET_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBSCAN_GET_DESCRIPTOR>()) == 0 }
+        self.DescriptorType == other.DescriptorType && self.Index == other.Index && self.LanguageId == other.LanguageId
     }
 }
 impl ::core::cmp::Eq for USBSCAN_GET_DESCRIPTOR {}
@@ -2970,7 +2858,7 @@ unsafe impl ::windows::core::Abi for USBSCAN_PIPE_CONFIGURATION {
 }
 impl ::core::cmp::PartialEq for USBSCAN_PIPE_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBSCAN_PIPE_CONFIGURATION>()) == 0 }
+        self.NumberOfPipes == other.NumberOfPipes && self.PipeInfo == other.PipeInfo
     }
 }
 impl ::core::cmp::Eq for USBSCAN_PIPE_CONFIGURATION {}
@@ -3003,7 +2891,7 @@ unsafe impl ::windows::core::Abi for USBSCAN_PIPE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for USBSCAN_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBSCAN_PIPE_INFORMATION>()) == 0 }
+        self.MaximumPacketSize == other.MaximumPacketSize && self.EndpointAddress == other.EndpointAddress && self.Interval == other.Interval && self.PipeType == other.PipeType
     }
 }
 impl ::core::cmp::Eq for USBSCAN_PIPE_INFORMATION {}
@@ -3035,7 +2923,7 @@ unsafe impl ::windows::core::Abi for USBSCAN_TIMEOUT {
 }
 impl ::core::cmp::PartialEq for USBSCAN_TIMEOUT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBSCAN_TIMEOUT>()) == 0 }
+        self.TimeoutRead == other.TimeoutRead && self.TimeoutWrite == other.TimeoutWrite && self.TimeoutEvent == other.TimeoutEvent
     }
 }
 impl ::core::cmp::Eq for USBSCAN_TIMEOUT {}
@@ -3059,12 +2947,6 @@ impl ::core::clone::Clone for USBUSER_BANDWIDTH_INFO_REQUEST {
 unsafe impl ::windows::core::Abi for USBUSER_BANDWIDTH_INFO_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_BANDWIDTH_INFO_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_BANDWIDTH_INFO_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_BANDWIDTH_INFO_REQUEST {}
 impl ::core::default::Default for USBUSER_BANDWIDTH_INFO_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3090,14 +2972,6 @@ unsafe impl ::windows::core::Abi for USBUSER_BUS_STATISTICS_0_REQUEST {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USBUSER_BUS_STATISTICS_0_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_BUS_STATISTICS_0_REQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USBUSER_BUS_STATISTICS_0_REQUEST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBUSER_BUS_STATISTICS_0_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3118,12 +2992,6 @@ impl ::core::clone::Clone for USBUSER_CLOSE_RAW_DEVICE {
 unsafe impl ::windows::core::Abi for USBUSER_CLOSE_RAW_DEVICE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_CLOSE_RAW_DEVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_CLOSE_RAW_DEVICE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_CLOSE_RAW_DEVICE {}
 impl ::core::default::Default for USBUSER_CLOSE_RAW_DEVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3144,12 +3012,6 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_INFO_0 {
 unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_CONTROLLER_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_CONTROLLER_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_CONTROLLER_INFO_0 {}
 impl ::core::default::Default for USBUSER_CONTROLLER_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3170,12 +3032,6 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_UNICODE_NAME {
 unsafe impl ::windows::core::Abi for USBUSER_CONTROLLER_UNICODE_NAME {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_CONTROLLER_UNICODE_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_CONTROLLER_UNICODE_NAME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_CONTROLLER_UNICODE_NAME {}
 impl ::core::default::Default for USBUSER_CONTROLLER_UNICODE_NAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3201,14 +3057,6 @@ unsafe impl ::windows::core::Abi for USBUSER_GET_DRIVER_VERSION {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USBUSER_GET_DRIVER_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_GET_DRIVER_VERSION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USBUSER_GET_DRIVER_VERSION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBUSER_GET_DRIVER_VERSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3229,12 +3077,6 @@ impl ::core::clone::Clone for USBUSER_GET_USB2HW_VERSION {
 unsafe impl ::windows::core::Abi for USBUSER_GET_USB2HW_VERSION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_GET_USB2HW_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_GET_USB2HW_VERSION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_GET_USB2HW_VERSION {}
 impl ::core::default::Default for USBUSER_GET_USB2HW_VERSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3255,12 +3097,6 @@ impl ::core::clone::Clone for USBUSER_OPEN_RAW_DEVICE {
 unsafe impl ::windows::core::Abi for USBUSER_OPEN_RAW_DEVICE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_OPEN_RAW_DEVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_OPEN_RAW_DEVICE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_OPEN_RAW_DEVICE {}
 impl ::core::default::Default for USBUSER_OPEN_RAW_DEVICE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3281,12 +3117,6 @@ impl ::core::clone::Clone for USBUSER_PASS_THRU_REQUEST {
 unsafe impl ::windows::core::Abi for USBUSER_PASS_THRU_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_PASS_THRU_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_PASS_THRU_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_PASS_THRU_REQUEST {}
 impl ::core::default::Default for USBUSER_PASS_THRU_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3312,14 +3142,6 @@ unsafe impl ::windows::core::Abi for USBUSER_POWER_INFO_REQUEST {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USBUSER_POWER_INFO_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_POWER_INFO_REQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USBUSER_POWER_INFO_REQUEST {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBUSER_POWER_INFO_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3340,12 +3162,6 @@ impl ::core::clone::Clone for USBUSER_RAW_RESET_ROOT_PORT {
 unsafe impl ::windows::core::Abi for USBUSER_RAW_RESET_ROOT_PORT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_RAW_RESET_ROOT_PORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_RAW_RESET_ROOT_PORT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_RAW_RESET_ROOT_PORT {}
 impl ::core::default::Default for USBUSER_RAW_RESET_ROOT_PORT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3366,12 +3182,6 @@ impl ::core::clone::Clone for USBUSER_REFRESH_HCT_REG {
 unsafe impl ::windows::core::Abi for USBUSER_REFRESH_HCT_REG {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_REFRESH_HCT_REG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_REFRESH_HCT_REG>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_REFRESH_HCT_REG {}
 impl ::core::default::Default for USBUSER_REFRESH_HCT_REG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3394,12 +3204,6 @@ impl ::core::clone::Clone for USBUSER_REQUEST_HEADER {
 unsafe impl ::windows::core::Abi for USBUSER_REQUEST_HEADER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_REQUEST_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_REQUEST_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_REQUEST_HEADER {}
 impl ::core::default::Default for USBUSER_REQUEST_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3420,12 +3224,6 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_FEATURE_REQUEST {
 unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_FEATURE_REQUEST {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_ROOTPORT_FEATURE_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_ROOTPORT_FEATURE_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_ROOTPORT_FEATURE_REQUEST {}
 impl ::core::default::Default for USBUSER_ROOTPORT_FEATURE_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3446,12 +3244,6 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_PARAMETERS {
 unsafe impl ::windows::core::Abi for USBUSER_ROOTPORT_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_ROOTPORT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_ROOTPORT_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_ROOTPORT_PARAMETERS {}
 impl ::core::default::Default for USBUSER_ROOTPORT_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3472,12 +3264,6 @@ impl ::core::clone::Clone for USBUSER_SEND_ONE_PACKET {
 unsafe impl ::windows::core::Abi for USBUSER_SEND_ONE_PACKET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_SEND_ONE_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_SEND_ONE_PACKET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_SEND_ONE_PACKET {}
 impl ::core::default::Default for USBUSER_SEND_ONE_PACKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3498,12 +3284,6 @@ impl ::core::clone::Clone for USBUSER_SEND_RAW_COMMAND {
 unsafe impl ::windows::core::Abi for USBUSER_SEND_RAW_COMMAND {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USBUSER_SEND_RAW_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USBUSER_SEND_RAW_COMMAND>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USBUSER_SEND_RAW_COMMAND {}
 impl ::core::default::Default for USBUSER_SEND_RAW_COMMAND {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3524,12 +3304,6 @@ impl ::core::clone::Clone for USB_20_PORT_CHANGE {
 unsafe impl ::windows::core::Abi for USB_20_PORT_CHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_20_PORT_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_20_PORT_CHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_20_PORT_CHANGE {}
 impl ::core::default::Default for USB_20_PORT_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3549,12 +3323,6 @@ impl ::core::clone::Clone for USB_20_PORT_CHANGE_0 {
 unsafe impl ::windows::core::Abi for USB_20_PORT_CHANGE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_20_PORT_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_20_PORT_CHANGE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_20_PORT_CHANGE_0 {}
 impl ::core::default::Default for USB_20_PORT_CHANGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3575,12 +3343,6 @@ impl ::core::clone::Clone for USB_20_PORT_STATUS {
 unsafe impl ::windows::core::Abi for USB_20_PORT_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_20_PORT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_20_PORT_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_20_PORT_STATUS {}
 impl ::core::default::Default for USB_20_PORT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3600,12 +3362,6 @@ impl ::core::clone::Clone for USB_20_PORT_STATUS_0 {
 unsafe impl ::windows::core::Abi for USB_20_PORT_STATUS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_20_PORT_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_20_PORT_STATUS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_20_PORT_STATUS_0 {}
 impl ::core::default::Default for USB_20_PORT_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3633,12 +3389,6 @@ impl ::core::clone::Clone for USB_30_HUB_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_30_HUB_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_30_HUB_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_30_HUB_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_30_HUB_DESCRIPTOR {}
 impl ::core::default::Default for USB_30_HUB_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3659,12 +3409,6 @@ impl ::core::clone::Clone for USB_30_PORT_CHANGE {
 unsafe impl ::windows::core::Abi for USB_30_PORT_CHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_30_PORT_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_30_PORT_CHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_30_PORT_CHANGE {}
 impl ::core::default::Default for USB_30_PORT_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3684,12 +3428,6 @@ impl ::core::clone::Clone for USB_30_PORT_CHANGE_0 {
 unsafe impl ::windows::core::Abi for USB_30_PORT_CHANGE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_30_PORT_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_30_PORT_CHANGE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_30_PORT_CHANGE_0 {}
 impl ::core::default::Default for USB_30_PORT_CHANGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3710,12 +3448,6 @@ impl ::core::clone::Clone for USB_30_PORT_STATUS {
 unsafe impl ::windows::core::Abi for USB_30_PORT_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_30_PORT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_30_PORT_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_30_PORT_STATUS {}
 impl ::core::default::Default for USB_30_PORT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3735,12 +3467,6 @@ impl ::core::clone::Clone for USB_30_PORT_STATUS_0 {
 unsafe impl ::windows::core::Abi for USB_30_PORT_STATUS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_30_PORT_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_30_PORT_STATUS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_30_PORT_STATUS_0 {}
 impl ::core::default::Default for USB_30_PORT_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3770,12 +3496,6 @@ impl ::core::clone::Clone for USB_BANDWIDTH_INFO {
 unsafe impl ::windows::core::Abi for USB_BANDWIDTH_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_BANDWIDTH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_BANDWIDTH_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_BANDWIDTH_INFO {}
 impl ::core::default::Default for USB_BANDWIDTH_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3798,12 +3518,6 @@ impl ::core::clone::Clone for USB_BOS_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_BOS_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_BOS_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_BOS_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_BOS_DESCRIPTOR {}
 impl ::core::default::Default for USB_BOS_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3843,14 +3557,6 @@ unsafe impl ::windows::core::Abi for USB_BUS_STATISTICS_0 {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USB_BUS_STATISTICS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_BUS_STATISTICS_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USB_BUS_STATISTICS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_BUS_STATISTICS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3870,12 +3576,6 @@ impl ::core::clone::Clone for USB_CLOSE_RAW_DEVICE_PARAMETERS {
 unsafe impl ::windows::core::Abi for USB_CLOSE_RAW_DEVICE_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_CLOSE_RAW_DEVICE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_CLOSE_RAW_DEVICE_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_CLOSE_RAW_DEVICE_PARAMETERS {}
 impl ::core::default::Default for USB_CLOSE_RAW_DEVICE_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3903,7 +3603,7 @@ unsafe impl ::windows::core::Abi for USB_COMMON_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for USB_COMMON_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_COMMON_DESCRIPTOR>()) == 0 }
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType
     }
 }
 impl ::core::cmp::Eq for USB_COMMON_DESCRIPTOR {}
@@ -3933,12 +3633,6 @@ impl ::core::clone::Clone for USB_CONFIGURATION_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_CONFIGURATION_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_CONFIGURATION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_CONFIGURATION_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_CONFIGURATION_DESCRIPTOR {}
 impl ::core::default::Default for USB_CONFIGURATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3970,12 +3664,6 @@ impl ::core::clone::Clone for USB_CONFIGURATION_POWER_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_CONFIGURATION_POWER_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_CONFIGURATION_POWER_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_CONFIGURATION_POWER_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_CONFIGURATION_POWER_DESCRIPTOR {}
 impl ::core::default::Default for USB_CONFIGURATION_POWER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4000,12 +3688,6 @@ impl ::core::clone::Clone for USB_CONTROLLER_INFO_0 {
 unsafe impl ::windows::core::Abi for USB_CONTROLLER_INFO_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_CONTROLLER_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_CONTROLLER_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_CONTROLLER_INFO_0 {}
 impl ::core::default::Default for USB_CONTROLLER_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4029,12 +3711,6 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET {
 unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEFAULT_PIPE_SETUP_PACKET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET {}
 impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4055,12 +3731,6 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
 unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEFAULT_PIPE_SETUP_PACKET_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_0 {}
 impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4088,7 +3758,7 @@ unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
 }
 impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEFAULT_PIPE_SETUP_PACKET_0_0>()) == 0 }
+        self.LowByte == other.LowByte && self.HiByte == other.HiByte
     }
 }
 impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {}
@@ -4112,12 +3782,6 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
 unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEFAULT_PIPE_SETUP_PACKET_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_1 {}
 impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4145,7 +3809,7 @@ unsafe impl ::windows::core::Abi for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
 }
 impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEFAULT_PIPE_SETUP_PACKET_1_0>()) == 0 }
+        self.LowByte == other.LowByte && self.HiByte == other.HiByte
     }
 }
 impl ::core::cmp::Eq for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {}
@@ -4177,12 +3841,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4204,12 +3862,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4230,12 +3882,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4255,12 +3901,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4291,7 +3931,7 @@ unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPT
 }
 impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR>()) == 0 }
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bDevCapabilityType == other.bDevCapabilityType && self.bReserved == other.bReserved && self.ContainerID == other.ContainerID
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {}
@@ -4323,7 +3963,7 @@ unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_DESCRIPTOR>()) == 0 }
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bDevCapabilityType == other.bDevCapabilityType
     }
 }
 impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_DESCRIPTOR {}
@@ -4350,12 +3990,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4376,12 +4010,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4401,12 +4029,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4436,12 +4058,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR 
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4462,12 +4078,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4487,12 +4097,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4517,12 +4121,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4551,12 +4149,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4577,12 +4169,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4602,12 +4188,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4628,12 +4208,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4653,12 +4227,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4685,12 +4253,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4711,12 +4273,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4736,12 +4292,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4762,12 +4312,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4787,12 +4331,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4819,12 +4357,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4847,12 +4379,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4873,12 +4399,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4898,12 +4418,6 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0
 unsafe impl ::windows::core::Abi for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {}
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4936,12 +4450,6 @@ impl ::core::clone::Clone for USB_DEVICE_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4969,12 +4477,6 @@ impl ::core::clone::Clone for USB_DEVICE_QUALIFIER_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_QUALIFIER_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_QUALIFIER_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_QUALIFIER_DESCRIPTOR {}
 impl ::core::default::Default for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4995,12 +4497,6 @@ impl ::core::clone::Clone for USB_DEVICE_STATUS {
 unsafe impl ::windows::core::Abi for USB_DEVICE_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_STATUS {}
 impl ::core::default::Default for USB_DEVICE_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5020,12 +4516,6 @@ impl ::core::clone::Clone for USB_DEVICE_STATUS_0 {
 unsafe impl ::windows::core::Abi for USB_DEVICE_STATUS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_DEVICE_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DEVICE_STATUS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_DEVICE_STATUS_0 {}
 impl ::core::default::Default for USB_DEVICE_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5055,14 +4545,6 @@ unsafe impl ::windows::core::Abi for USB_DRIVER_VERSION_PARAMETERS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USB_DRIVER_VERSION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_DRIVER_VERSION_PARAMETERS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USB_DRIVER_VERSION_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_DRIVER_VERSION_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5087,12 +4569,6 @@ impl ::core::clone::Clone for USB_ENDPOINT_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_ENDPOINT_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_ENDPOINT_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_ENDPOINT_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_ENDPOINT_DESCRIPTOR {}
 impl ::core::default::Default for USB_ENDPOINT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5113,12 +4589,6 @@ impl ::core::clone::Clone for USB_ENDPOINT_STATUS {
 unsafe impl ::windows::core::Abi for USB_ENDPOINT_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_ENDPOINT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_ENDPOINT_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_ENDPOINT_STATUS {}
 impl ::core::default::Default for USB_ENDPOINT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5138,12 +4608,6 @@ impl ::core::clone::Clone for USB_ENDPOINT_STATUS_0 {
 unsafe impl ::windows::core::Abi for USB_ENDPOINT_STATUS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_ENDPOINT_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_ENDPOINT_STATUS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_ENDPOINT_STATUS_0 {}
 impl ::core::default::Default for USB_ENDPOINT_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5178,14 +4642,6 @@ unsafe impl ::windows::core::Abi for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFO
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5206,12 +4662,6 @@ impl ::core::clone::Clone for USB_FUNCTION_SUSPEND_OPTIONS {
 unsafe impl ::windows::core::Abi for USB_FUNCTION_SUSPEND_OPTIONS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_FUNCTION_SUSPEND_OPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_FUNCTION_SUSPEND_OPTIONS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_FUNCTION_SUSPEND_OPTIONS {}
 impl ::core::default::Default for USB_FUNCTION_SUSPEND_OPTIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5238,7 +4688,7 @@ unsafe impl ::windows::core::Abi for USB_FUNCTION_SUSPEND_OPTIONS_0 {
 }
 impl ::core::cmp::PartialEq for USB_FUNCTION_SUSPEND_OPTIONS_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_FUNCTION_SUSPEND_OPTIONS_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for USB_FUNCTION_SUSPEND_OPTIONS_0 {}
@@ -5261,12 +4711,6 @@ impl ::core::clone::Clone for USB_HIGH_SPEED_MAXPACKET {
 unsafe impl ::windows::core::Abi for USB_HIGH_SPEED_MAXPACKET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HIGH_SPEED_MAXPACKET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HIGH_SPEED_MAXPACKET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HIGH_SPEED_MAXPACKET {}
 impl ::core::default::Default for USB_HIGH_SPEED_MAXPACKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5286,12 +4730,6 @@ impl ::core::clone::Clone for USB_HIGH_SPEED_MAXPACKET_0 {
 unsafe impl ::windows::core::Abi for USB_HIGH_SPEED_MAXPACKET_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HIGH_SPEED_MAXPACKET_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HIGH_SPEED_MAXPACKET_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HIGH_SPEED_MAXPACKET_0 {}
 impl ::core::default::Default for USB_HIGH_SPEED_MAXPACKET_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5312,12 +4750,6 @@ impl ::core::clone::Clone for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
 unsafe impl ::windows::core::Abi for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_30_PORT_REMOTE_WAKE_MASK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_30_PORT_REMOTE_WAKE_MASK {}
 impl ::core::default::Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5344,7 +4776,7 @@ unsafe impl ::windows::core::Abi for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
 }
 impl ::core::cmp::PartialEq for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_30_PORT_REMOTE_WAKE_MASK_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {}
@@ -5368,12 +4800,6 @@ impl ::core::clone::Clone for USB_HUB_CHANGE {
 unsafe impl ::windows::core::Abi for USB_HUB_CHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_CHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_CHANGE {}
 impl ::core::default::Default for USB_HUB_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5393,12 +4819,6 @@ impl ::core::clone::Clone for USB_HUB_CHANGE_0 {
 unsafe impl ::windows::core::Abi for USB_HUB_CHANGE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_CHANGE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_CHANGE_0 {}
 impl ::core::default::Default for USB_HUB_CHANGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5424,12 +4844,6 @@ impl ::core::clone::Clone for USB_HUB_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_HUB_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_DESCRIPTOR {}
 impl ::core::default::Default for USB_HUB_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5450,12 +4864,6 @@ impl ::core::clone::Clone for USB_HUB_STATUS {
 unsafe impl ::windows::core::Abi for USB_HUB_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_STATUS {}
 impl ::core::default::Default for USB_HUB_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5475,12 +4883,6 @@ impl ::core::clone::Clone for USB_HUB_STATUS_0 {
 unsafe impl ::windows::core::Abi for USB_HUB_STATUS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_STATUS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_STATUS_0 {}
 impl ::core::default::Default for USB_HUB_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5501,12 +4903,6 @@ impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE {
 unsafe impl ::windows::core::Abi for USB_HUB_STATUS_AND_CHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_STATUS_AND_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_STATUS_AND_CHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_STATUS_AND_CHANGE {}
 impl ::core::default::Default for USB_HUB_STATUS_AND_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5527,12 +4923,6 @@ impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE_0 {
 unsafe impl ::windows::core::Abi for USB_HUB_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_HUB_STATUS_AND_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_HUB_STATUS_AND_CHANGE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_HUB_STATUS_AND_CHANGE_0 {}
 impl ::core::default::Default for USB_HUB_STATUS_AND_CHANGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5552,18 +4942,12 @@ impl ::core::clone::Clone for USB_IDLE_CALLBACK_INFO {
 }
 impl ::core::fmt::Debug for USB_IDLE_CALLBACK_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USB_IDLE_CALLBACK_INFO").field("IdleCallback", &self.IdleCallback.map(|f| f as usize)).field("IdleContext", &self.IdleContext).finish()
+        f.debug_struct("USB_IDLE_CALLBACK_INFO").field("IdleContext", &self.IdleContext).finish()
     }
 }
 unsafe impl ::windows::core::Abi for USB_IDLE_CALLBACK_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_IDLE_CALLBACK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_IDLE_CALLBACK_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_IDLE_CALLBACK_INFO {}
 impl ::core::default::Default for USB_IDLE_CALLBACK_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5597,7 +4981,7 @@ unsafe impl ::windows::core::Abi for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_INTERFACE_ASSOCIATION_DESCRIPTOR>()) == 0 }
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bFirstInterface == other.bFirstInterface && self.bInterfaceCount == other.bInterfaceCount && self.bFunctionClass == other.bFunctionClass && self.bFunctionSubClass == other.bFunctionSubClass && self.bFunctionProtocol == other.bFunctionProtocol && self.iFunction == other.iFunction
     }
 }
 impl ::core::cmp::Eq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {}
@@ -5635,7 +5019,7 @@ unsafe impl ::windows::core::Abi for USB_INTERFACE_DESCRIPTOR {
 }
 impl ::core::cmp::PartialEq for USB_INTERFACE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_INTERFACE_DESCRIPTOR>()) == 0 }
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bInterfaceNumber == other.bInterfaceNumber && self.bAlternateSetting == other.bAlternateSetting && self.bNumEndpoints == other.bNumEndpoints && self.bInterfaceClass == other.bInterfaceClass && self.bInterfaceSubClass == other.bInterfaceSubClass && self.bInterfaceProtocol == other.bInterfaceProtocol && self.iInterface == other.iInterface
     }
 }
 impl ::core::cmp::Eq for USB_INTERFACE_DESCRIPTOR {}
@@ -5669,12 +5053,6 @@ impl ::core::clone::Clone for USB_INTERFACE_POWER_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_INTERFACE_POWER_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_INTERFACE_POWER_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_INTERFACE_POWER_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_INTERFACE_POWER_DESCRIPTOR {}
 impl ::core::default::Default for USB_INTERFACE_POWER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5695,12 +5073,6 @@ impl ::core::clone::Clone for USB_INTERFACE_STATUS {
 unsafe impl ::windows::core::Abi for USB_INTERFACE_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_INTERFACE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_INTERFACE_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_INTERFACE_STATUS {}
 impl ::core::default::Default for USB_INTERFACE_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5720,12 +5092,6 @@ impl ::core::clone::Clone for USB_INTERFACE_STATUS_0 {
 unsafe impl ::windows::core::Abi for USB_INTERFACE_STATUS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_INTERFACE_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_INTERFACE_STATUS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_INTERFACE_STATUS_0 {}
 impl ::core::default::Default for USB_INTERFACE_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5746,12 +5112,6 @@ impl ::core::clone::Clone for USB_OPEN_RAW_DEVICE_PARAMETERS {
 unsafe impl ::windows::core::Abi for USB_OPEN_RAW_DEVICE_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_OPEN_RAW_DEVICE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_OPEN_RAW_DEVICE_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_OPEN_RAW_DEVICE_PARAMETERS {}
 impl ::core::default::Default for USB_OPEN_RAW_DEVICE_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5773,12 +5133,6 @@ impl ::core::clone::Clone for USB_PASS_THRU_PARAMETERS {
 unsafe impl ::windows::core::Abi for USB_PASS_THRU_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PASS_THRU_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PASS_THRU_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PASS_THRU_PARAMETERS {}
 impl ::core::default::Default for USB_PASS_THRU_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5800,12 +5154,6 @@ impl ::core::clone::Clone for USB_PORT_CHANGE {
 unsafe impl ::windows::core::Abi for USB_PORT_CHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_CHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_CHANGE {}
 impl ::core::default::Default for USB_PORT_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5826,12 +5174,6 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS {
 unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_EXT_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_EXT_STATUS {}
 impl ::core::default::Default for USB_PORT_EXT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5851,12 +5193,6 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS_0 {
 unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_EXT_STATUS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_EXT_STATUS_0 {}
 impl ::core::default::Default for USB_PORT_EXT_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5877,12 +5213,6 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS_AND_CHANGE {
 unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_AND_CHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS_AND_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_EXT_STATUS_AND_CHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_EXT_STATUS_AND_CHANGE {}
 impl ::core::default::Default for USB_PORT_EXT_STATUS_AND_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5903,12 +5233,6 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
 unsafe impl ::windows::core::Abi for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_EXT_STATUS_AND_CHANGE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_EXT_STATUS_AND_CHANGE_0 {}
 impl ::core::default::Default for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5930,12 +5254,6 @@ impl ::core::clone::Clone for USB_PORT_STATUS {
 unsafe impl ::windows::core::Abi for USB_PORT_STATUS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_STATUS {}
 impl ::core::default::Default for USB_PORT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5956,12 +5274,6 @@ impl ::core::clone::Clone for USB_PORT_STATUS_AND_CHANGE {
 unsafe impl ::windows::core::Abi for USB_PORT_STATUS_AND_CHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_STATUS_AND_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_STATUS_AND_CHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_STATUS_AND_CHANGE {}
 impl ::core::default::Default for USB_PORT_STATUS_AND_CHANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5982,12 +5294,6 @@ impl ::core::clone::Clone for USB_PORT_STATUS_AND_CHANGE_0 {
 unsafe impl ::windows::core::Abi for USB_PORT_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_PORT_STATUS_AND_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_PORT_STATUS_AND_CHANGE_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_PORT_STATUS_AND_CHANGE_0 {}
 impl ::core::default::Default for USB_PORT_STATUS_AND_CHANGE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6021,14 +5327,6 @@ unsafe impl ::windows::core::Abi for USB_POWER_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USB_POWER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_POWER_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USB_POWER_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_POWER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6058,12 +5356,6 @@ impl ::core::clone::Clone for USB_SEND_RAW_COMMAND_PARAMETERS {
 unsafe impl ::windows::core::Abi for USB_SEND_RAW_COMMAND_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_SEND_RAW_COMMAND_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_SEND_RAW_COMMAND_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_SEND_RAW_COMMAND_PARAMETERS {}
 impl ::core::default::Default for USB_SEND_RAW_COMMAND_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6089,14 +5381,6 @@ unsafe impl ::windows::core::Abi for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATIO
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6121,14 +5405,6 @@ unsafe impl ::windows::core::Abi for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6150,12 +5426,6 @@ impl ::core::clone::Clone for USB_STRING_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_STRING_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_STRING_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_STRING_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_STRING_DESCRIPTOR {}
 impl ::core::default::Default for USB_STRING_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6178,12 +5448,6 @@ impl ::core::clone::Clone for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRI
 unsafe impl ::windows::core::Abi for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {}
 impl ::core::default::Default for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6207,12 +5471,6 @@ impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
 unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {}
 impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6234,12 +5492,6 @@ impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
 unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {}
 impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6266,7 +5518,7 @@ unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTO
 }
 impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {}
@@ -6296,7 +5548,7 @@ unsafe impl ::windows::core::Abi for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTO
 }
 impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1>()) == 0 }
+        self._bitfield == other._bitfield
     }
 }
 impl ::core::cmp::Eq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {}
@@ -6320,12 +5572,6 @@ impl ::core::clone::Clone for USB_UNICODE_NAME {
 unsafe impl ::windows::core::Abi for USB_UNICODE_NAME {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_UNICODE_NAME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_UNICODE_NAME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_UNICODE_NAME {}
 impl ::core::default::Default for USB_UNICODE_NAME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6345,12 +5591,6 @@ impl ::core::clone::Clone for USB_USB2HW_VERSION_PARAMETERS {
 unsafe impl ::windows::core::Abi for USB_USB2HW_VERSION_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for USB_USB2HW_VERSION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USB_USB2HW_VERSION_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for USB_USB2HW_VERSION_PARAMETERS {}
 impl ::core::default::Default for USB_USB2HW_VERSION_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6380,7 +5620,7 @@ unsafe impl ::windows::core::Abi for WINUSB_PIPE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for WINUSB_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINUSB_PIPE_INFORMATION>()) == 0 }
+        self.PipeType == other.PipeType && self.PipeId == other.PipeId && self.MaximumPacketSize == other.MaximumPacketSize && self.Interval == other.Interval
     }
 }
 impl ::core::cmp::Eq for WINUSB_PIPE_INFORMATION {}
@@ -6414,7 +5654,7 @@ unsafe impl ::windows::core::Abi for WINUSB_PIPE_INFORMATION_EX {
 }
 impl ::core::cmp::PartialEq for WINUSB_PIPE_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINUSB_PIPE_INFORMATION_EX>()) == 0 }
+        self.PipeType == other.PipeType && self.PipeId == other.PipeId && self.MaximumPacketSize == other.MaximumPacketSize && self.Interval == other.Interval && self.MaximumBytesPerInterval == other.MaximumBytesPerInterval
     }
 }
 impl ::core::cmp::Eq for WINUSB_PIPE_INFORMATION_EX {}
@@ -6441,12 +5681,6 @@ impl ::core::clone::Clone for WINUSB_SETUP_PACKET {
 unsafe impl ::windows::core::Abi for WINUSB_SETUP_PACKET {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WINUSB_SETUP_PACKET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINUSB_SETUP_PACKET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for WINUSB_SETUP_PACKET {}
 impl ::core::default::Default for WINUSB_SETUP_PACKET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6480,7 +5714,7 @@ unsafe impl ::windows::core::Abi for _URB_BULK_OR_INTERRUPT_TRANSFER {
 }
 impl ::core::cmp::PartialEq for _URB_BULK_OR_INTERRUPT_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_BULK_OR_INTERRUPT_TRANSFER>()) == 0 }
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca
     }
 }
 impl ::core::cmp::Eq for _URB_BULK_OR_INTERRUPT_TRANSFER {}
@@ -6536,7 +5770,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_DESCRIPTOR_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_DESCRIPTOR_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_DESCRIPTOR_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1 && self.Index == other.Index && self.DescriptorType == other.DescriptorType && self.LanguageId == other.LanguageId && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_DESCRIPTOR_REQUEST {}
@@ -6577,7 +5811,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_FEATURE_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_FEATURE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_FEATURE_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5 && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved0 == other.Reserved0 && self.FeatureSelector == other.FeatureSelector && self.Index == other.Index && self.Reserved1 == other.Reserved1
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_FEATURE_REQUEST {}
@@ -6615,7 +5849,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_GET_CONFIGURATION_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {}
@@ -6655,7 +5889,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_INTERFACE_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_INTERFACE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_GET_INTERFACE_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1 && self.Interface == other.Interface && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_GET_INTERFACE_REQUEST {}
@@ -6695,7 +5929,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_GET_STATUS_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_STATUS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_GET_STATUS_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1 && self.Index == other.Index && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_GET_STATUS_REQUEST {}
@@ -6733,7 +5967,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_TRANSFER {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_TRANSFER>()) == 0 }
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.SetupPacket == other.SetupPacket
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_TRANSFER {}
@@ -6771,7 +6005,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_TRANSFER_EX {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_TRANSFER_EX>()) == 0 }
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.Timeout == other.Timeout && self.hca == other.hca && self.SetupPacket == other.SetupPacket
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_TRANSFER_EX {}
@@ -6827,7 +6061,7 @@ unsafe impl ::windows::core::Abi for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_CONTROL_VENDOR_OR_CLASS_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.RequestTypeReservedBits == other.RequestTypeReservedBits && self.Request == other.Request && self.Value == other.Value && self.Index == other.Index && self.Reserved1 == other.Reserved1
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {}
@@ -6857,7 +6091,7 @@ unsafe impl ::windows::core::Abi for _URB_FRAME_LENGTH_CONTROL {
 }
 impl ::core::cmp::PartialEq for _URB_FRAME_LENGTH_CONTROL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_FRAME_LENGTH_CONTROL>()) == 0 }
+        self.Hdr == other.Hdr
     }
 }
 impl ::core::cmp::Eq for _URB_FRAME_LENGTH_CONTROL {}
@@ -6888,7 +6122,7 @@ unsafe impl ::windows::core::Abi for _URB_GET_CURRENT_FRAME_NUMBER {
 }
 impl ::core::cmp::PartialEq for _URB_GET_CURRENT_FRAME_NUMBER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_GET_CURRENT_FRAME_NUMBER>()) == 0 }
+        self.Hdr == other.Hdr && self.FrameNumber == other.FrameNumber
     }
 }
 impl ::core::cmp::Eq for _URB_GET_CURRENT_FRAME_NUMBER {}
@@ -6920,7 +6154,7 @@ unsafe impl ::windows::core::Abi for _URB_GET_FRAME_LENGTH {
 }
 impl ::core::cmp::PartialEq for _URB_GET_FRAME_LENGTH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_GET_FRAME_LENGTH>()) == 0 }
+        self.Hdr == other.Hdr && self.FrameLength == other.FrameLength && self.FrameNumber == other.FrameNumber
     }
 }
 impl ::core::cmp::Eq for _URB_GET_FRAME_LENGTH {}
@@ -6953,7 +6187,7 @@ unsafe impl ::windows::core::Abi for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
 }
 impl ::core::cmp::PartialEq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS>()) == 0 }
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.MaximumSendPathDelayInMilliSeconds == other.MaximumSendPathDelayInMilliSeconds && self.MaximumCompletionPathDelayInMilliSeconds == other.MaximumCompletionPathDelayInMilliSeconds
     }
 }
 impl ::core::cmp::Eq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {}
@@ -6983,7 +6217,7 @@ unsafe impl ::windows::core::Abi for _URB_HCD_AREA {
 }
 impl ::core::cmp::PartialEq for _URB_HCD_AREA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_HCD_AREA>()) == 0 }
+        self.Reserved8 == other.Reserved8
     }
 }
 impl ::core::cmp::Eq for _URB_HCD_AREA {}
@@ -7017,7 +6251,7 @@ unsafe impl ::windows::core::Abi for _URB_HEADER {
 }
 impl ::core::cmp::PartialEq for _URB_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_HEADER>()) == 0 }
+        self.Length == other.Length && self.Function == other.Function && self.Status == other.Status && self.UsbdDeviceHandle == other.UsbdDeviceHandle && self.UsbdFlags == other.UsbdFlags
     }
 }
 impl ::core::cmp::Eq for _URB_HEADER {}
@@ -7071,7 +6305,7 @@ unsafe impl ::windows::core::Abi for _URB_ISOCH_TRANSFER {
 }
 impl ::core::cmp::PartialEq for _URB_ISOCH_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_ISOCH_TRANSFER>()) == 0 }
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.StartFrame == other.StartFrame && self.NumberOfPackets == other.NumberOfPackets && self.ErrorCount == other.ErrorCount && self.IsoPacket == other.IsoPacket
     }
 }
 impl ::core::cmp::Eq for _URB_ISOCH_TRANSFER {}
@@ -7106,7 +6340,7 @@ unsafe impl ::windows::core::Abi for _URB_OPEN_STATIC_STREAMS {
 }
 impl ::core::cmp::PartialEq for _URB_OPEN_STATIC_STREAMS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_OPEN_STATIC_STREAMS>()) == 0 }
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.NumberOfStreams == other.NumberOfStreams && self.StreamInfoVersion == other.StreamInfoVersion && self.StreamInfoSize == other.StreamInfoSize && self.Streams == other.Streams
     }
 }
 impl ::core::cmp::Eq for _URB_OPEN_STATIC_STREAMS {}
@@ -7164,7 +6398,7 @@ unsafe impl ::windows::core::Abi for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_OS_FEATURE_DESCRIPTOR_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self._bitfield == other._bitfield && self.Reserved2 == other.Reserved2 && self.InterfaceNumber == other.InterfaceNumber && self.MS_PageIndex == other.MS_PageIndex && self.MS_FeatureDescriptorIndex == other.MS_FeatureDescriptorIndex && self.Reserved3 == other.Reserved3
     }
 }
 impl ::core::cmp::Eq for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {}
@@ -7196,7 +6430,7 @@ unsafe impl ::windows::core::Abi for _URB_PIPE_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_PIPE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_PIPE_REQUEST>()) == 0 }
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for _URB_PIPE_REQUEST {}
@@ -7229,7 +6463,7 @@ unsafe impl ::windows::core::Abi for _URB_SELECT_CONFIGURATION {
 }
 impl ::core::cmp::PartialEq for _URB_SELECT_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_SELECT_CONFIGURATION>()) == 0 }
+        self.Hdr == other.Hdr && self.ConfigurationDescriptor == other.ConfigurationDescriptor && self.ConfigurationHandle == other.ConfigurationHandle && self.Interface == other.Interface
     }
 }
 impl ::core::cmp::Eq for _URB_SELECT_CONFIGURATION {}
@@ -7261,7 +6495,7 @@ unsafe impl ::windows::core::Abi for _URB_SELECT_INTERFACE {
 }
 impl ::core::cmp::PartialEq for _URB_SELECT_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_SELECT_INTERFACE>()) == 0 }
+        self.Hdr == other.Hdr && self.ConfigurationHandle == other.ConfigurationHandle && self.Interface == other.Interface
     }
 }
 impl ::core::cmp::Eq for _URB_SELECT_INTERFACE {}
@@ -7292,7 +6526,7 @@ unsafe impl ::windows::core::Abi for _URB_SET_FRAME_LENGTH {
 }
 impl ::core::cmp::PartialEq for _URB_SET_FRAME_LENGTH {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_URB_SET_FRAME_LENGTH>()) == 0 }
+        self.Hdr == other.Hdr && self.FrameLengthDelta == other.FrameLengthDelta
     }
 }
 impl ::core::cmp::Eq for _URB_SET_FRAME_LENGTH {}

@@ -5765,7 +5765,7 @@ unsafe impl ::windows::core::RuntimeType for CrossSlideThresholds {
 }
 impl ::core::cmp::PartialEq for CrossSlideThresholds {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CrossSlideThresholds>()) == 0 }
+        self.SelectionStart == other.SelectionStart && self.SpeedBumpStart == other.SpeedBumpStart && self.SpeedBumpEnd == other.SpeedBumpEnd && self.RearrangeStart == other.RearrangeStart
     }
 }
 impl ::core::cmp::Eq for CrossSlideThresholds {}
@@ -5812,7 +5812,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationDelta {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ManipulationDelta {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ManipulationDelta>()) == 0 }
+        self.Translation == other.Translation && self.Scale == other.Scale && self.Rotation == other.Rotation && self.Expansion == other.Expansion
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5860,7 +5860,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationVelocities {
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ManipulationVelocities {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ManipulationVelocities>()) == 0 }
+        self.Linear == other.Linear && self.Angular == other.Angular && self.Expansion == other.Expansion
     }
 }
 #[cfg(feature = "Foundation")]

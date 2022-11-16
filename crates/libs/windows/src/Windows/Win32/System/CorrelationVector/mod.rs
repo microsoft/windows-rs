@@ -64,7 +64,7 @@ unsafe impl ::windows::core::Abi for CORRELATION_VECTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CORRELATION_VECTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CORRELATION_VECTOR>()) == 0 }
+        self.Version == other.Version && self.Vector == other.Vector
     }
 }
 #[cfg(feature = "Win32_Foundation")]

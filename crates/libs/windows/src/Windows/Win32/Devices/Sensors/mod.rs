@@ -1988,12 +1988,6 @@ impl ::core::clone::Clone for MATRIX3X3 {
 unsafe impl ::windows::core::Abi for MATRIX3X3 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MATRIX3X3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3 {}
 impl ::core::default::Default for MATRIX3X3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2015,12 +2009,6 @@ impl ::core::clone::Clone for MATRIX3X3_0 {
 unsafe impl ::windows::core::Abi for MATRIX3X3_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MATRIX3X3_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3_0 {}
 impl ::core::default::Default for MATRIX3X3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2055,7 +2043,7 @@ unsafe impl ::windows::core::Abi for MATRIX3X3_0_0 {
 }
 impl ::core::cmp::PartialEq for MATRIX3X3_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0_0>()) == 0 }
+        self.A11 == other.A11 && self.A12 == other.A12 && self.A13 == other.A13 && self.A21 == other.A21 && self.A22 == other.A22 && self.A23 == other.A23 && self.A31 == other.A31 && self.A32 == other.A32 && self.A33 == other.A33
     }
 }
 impl ::core::cmp::Eq for MATRIX3X3_0_0 {}
@@ -2087,7 +2075,7 @@ unsafe impl ::windows::core::Abi for MATRIX3X3_0_1 {
 }
 impl ::core::cmp::PartialEq for MATRIX3X3_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MATRIX3X3_0_1>()) == 0 }
+        self.V1 == other.V1 && self.V2 == other.V2 && self.V3 == other.V3
     }
 }
 impl ::core::cmp::Eq for MATRIX3X3_0_1 {}
@@ -2120,7 +2108,7 @@ unsafe impl ::windows::core::Abi for QUATERNION {
 }
 impl ::core::cmp::PartialEq for QUATERNION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUATERNION>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
     }
 }
 impl ::core::cmp::Eq for QUATERNION {}
@@ -2147,14 +2135,6 @@ impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
 unsafe impl ::windows::core::Abi for SENSOR_COLLECTION_LIST {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::PartialEq for SENSOR_COLLECTION_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllocatedSizeInBytes == other.AllocatedSizeInBytes && self.Count == other.Count && self.List == other.List
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::Eq for SENSOR_COLLECTION_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for SENSOR_COLLECTION_LIST {
     fn default() -> Self {
@@ -2190,7 +2170,7 @@ unsafe impl ::windows::core::Abi for SENSOR_PROPERTY_LIST {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for SENSOR_PROPERTY_LIST {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SENSOR_PROPERTY_LIST>()) == 0 }
+        self.AllocatedSizeInBytes == other.AllocatedSizeInBytes && self.Count == other.Count && self.List == other.List
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2218,14 +2198,6 @@ impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
 unsafe impl ::windows::core::Abi for SENSOR_VALUE_PAIR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::PartialEq for SENSOR_VALUE_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Value == other.Value
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::cmp::Eq for SENSOR_VALUE_PAIR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for SENSOR_VALUE_PAIR {
     fn default() -> Self {
@@ -2255,7 +2227,7 @@ unsafe impl ::windows::core::Abi for VEC3D {
 }
 impl ::core::cmp::PartialEq for VEC3D {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VEC3D>()) == 0 }
+        self.X == other.X && self.Y == other.Y && self.Z == other.Z
     }
 }
 impl ::core::cmp::Eq for VEC3D {}

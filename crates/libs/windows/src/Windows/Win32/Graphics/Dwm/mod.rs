@@ -744,14 +744,6 @@ unsafe impl ::windows::core::Abi for DWM_BLURBEHIND {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for DWM_BLURBEHIND {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWM_BLURBEHIND>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for DWM_BLURBEHIND {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DWM_BLURBEHIND {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -783,14 +775,6 @@ unsafe impl ::windows::core::Abi for DWM_PRESENT_PARAMETERS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DWM_PRESENT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWM_PRESENT_PARAMETERS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DWM_PRESENT_PARAMETERS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DWM_PRESENT_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -819,14 +803,6 @@ impl ::core::clone::Clone for DWM_THUMBNAIL_PROPERTIES {
 unsafe impl ::windows::core::Abi for DWM_THUMBNAIL_PROPERTIES {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DWM_THUMBNAIL_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWM_THUMBNAIL_PROPERTIES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DWM_THUMBNAIL_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DWM_THUMBNAIL_PROPERTIES {
     fn default() -> Self {
@@ -886,12 +862,6 @@ impl ::core::clone::Clone for DWM_TIMING_INFO {
 unsafe impl ::windows::core::Abi for DWM_TIMING_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DWM_TIMING_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWM_TIMING_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DWM_TIMING_INFO {}
 impl ::core::default::Default for DWM_TIMING_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -916,12 +886,6 @@ impl ::core::clone::Clone for MilMatrix3x2D {
 unsafe impl ::windows::core::Abi for MilMatrix3x2D {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MilMatrix3x2D {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MilMatrix3x2D>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MilMatrix3x2D {}
 impl ::core::default::Default for MilMatrix3x2D {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -942,12 +906,6 @@ impl ::core::clone::Clone for UNSIGNED_RATIO {
 unsafe impl ::windows::core::Abi for UNSIGNED_RATIO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UNSIGNED_RATIO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNSIGNED_RATIO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UNSIGNED_RATIO {}
 impl ::core::default::Default for UNSIGNED_RATIO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

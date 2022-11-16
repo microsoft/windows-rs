@@ -1825,7 +1825,7 @@ unsafe impl ::windows::core::Abi for SW_DEVICE_CREATE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for SW_DEVICE_CREATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SW_DEVICE_CREATE_INFO>()) == 0 }
+        self.cbSize == other.cbSize && self.pszInstanceId == other.pszInstanceId && self.pszzHardwareIds == other.pszzHardwareIds && self.pszzCompatibleIds == other.pszzCompatibleIds && self.pContainerId == other.pContainerId && self.CapabilityFlags == other.CapabilityFlags && self.pszDeviceDescription == other.pszDeviceDescription && self.pszDeviceLocation == other.pszDeviceLocation && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

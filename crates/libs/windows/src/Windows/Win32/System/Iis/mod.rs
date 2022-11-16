@@ -3786,7 +3786,7 @@ unsafe impl ::windows::core::Abi for CERT_CONTEXT_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for CERT_CONTEXT_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CERT_CONTEXT_EX>()) == 0 }
+        self.CertContext == other.CertContext && self.cbAllocated == other.cbAllocated && self.dwCertificateFlags == other.dwCertificateFlags
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -3888,7 +3888,7 @@ unsafe impl ::windows::core::Abi for EXTENSION_CONTROL_BLOCK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXTENSION_CONTROL_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXTENSION_CONTROL_BLOCK>()) == 0 }
+        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.ConnID == other.ConnID && self.dwHttpStatusCode == other.dwHttpStatusCode && self.lpszLogData == other.lpszLogData && self.lpszMethod == other.lpszMethod && self.lpszQueryString == other.lpszQueryString && self.lpszPathInfo == other.lpszPathInfo && self.lpszPathTranslated == other.lpszPathTranslated && self.cbTotalBytes == other.cbTotalBytes && self.cbAvailable == other.cbAvailable && self.lpbData == other.lpbData && self.lpszContentType == other.lpszContentType && self.GetServerVariable == other.GetServerVariable && self.WriteClient == other.WriteClient && self.ReadClient == other.ReadClient && self.ServerSupportFunction == other.ServerSupportFunction
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3928,7 +3928,7 @@ unsafe impl ::windows::core::Abi for HSE_CUSTOM_ERROR_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_CUSTOM_ERROR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_CUSTOM_ERROR_INFO>()) == 0 }
+        self.pszStatus == other.pszStatus && self.uHttpSubError == other.uHttpSubError && self.fAsync == other.fAsync
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3971,7 +3971,7 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_EXEC_UNICODE_URL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_EXEC_UNICODE_URL_INFO>()) == 0 }
+        self.pszUrl == other.pszUrl && self.pszMethod == other.pszMethod && self.pszChildHeaders == other.pszChildHeaders && self.pUserInfo == other.pUserInfo && self.pEntity == other.pEntity && self.dwExecUrlFlags == other.dwExecUrlFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4011,7 +4011,7 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_UNICODE_URL_USER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_EXEC_UNICODE_URL_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_EXEC_UNICODE_URL_USER_INFO>()) == 0 }
+        self.hImpersonationToken == other.hImpersonationToken && self.pszCustomUserName == other.pszCustomUserName && self.pszCustomAuthType == other.pszCustomAuthType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4044,7 +4044,7 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_URL_ENTITY_INFO {
 }
 impl ::core::cmp::PartialEq for HSE_EXEC_URL_ENTITY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_EXEC_URL_ENTITY_INFO>()) == 0 }
+        self.cbAvailable == other.cbAvailable && self.lpbData == other.lpbData
     }
 }
 impl ::core::cmp::Eq for HSE_EXEC_URL_ENTITY_INFO {}
@@ -4085,7 +4085,7 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_URL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_EXEC_URL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_EXEC_URL_INFO>()) == 0 }
+        self.pszUrl == other.pszUrl && self.pszMethod == other.pszMethod && self.pszChildHeaders == other.pszChildHeaders && self.pUserInfo == other.pUserInfo && self.pEntity == other.pEntity && self.dwExecUrlFlags == other.dwExecUrlFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4119,7 +4119,7 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_URL_STATUS {
 }
 impl ::core::cmp::PartialEq for HSE_EXEC_URL_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_EXEC_URL_STATUS>()) == 0 }
+        self.uHttpStatusCode == other.uHttpStatusCode && self.uHttpSubStatus == other.uHttpSubStatus && self.dwWin32Error == other.dwWin32Error
     }
 }
 impl ::core::cmp::Eq for HSE_EXEC_URL_STATUS {}
@@ -4157,7 +4157,7 @@ unsafe impl ::windows::core::Abi for HSE_EXEC_URL_USER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_EXEC_URL_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_EXEC_URL_USER_INFO>()) == 0 }
+        self.hImpersonationToken == other.hImpersonationToken && self.pszCustomUserName == other.pszCustomUserName && self.pszCustomAuthType == other.pszCustomAuthType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4193,7 +4193,7 @@ unsafe impl ::windows::core::Abi for HSE_RESPONSE_VECTOR {
 }
 impl ::core::cmp::PartialEq for HSE_RESPONSE_VECTOR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_RESPONSE_VECTOR>()) == 0 }
+        self.dwFlags == other.dwFlags && self.pszStatus == other.pszStatus && self.pszHeaders == other.pszHeaders && self.nElementCount == other.nElementCount && self.lpElementArray == other.lpElementArray
     }
 }
 impl ::core::cmp::Eq for HSE_RESPONSE_VECTOR {}
@@ -4233,7 +4233,7 @@ unsafe impl ::windows::core::Abi for HSE_SEND_HEADER_EX_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_SEND_HEADER_EX_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_SEND_HEADER_EX_INFO>()) == 0 }
+        self.pszStatus == other.pszStatus && self.pszHeader == other.pszHeader && self.cchStatus == other.cchStatus && self.cchHeader == other.cchHeader && self.fKeepConn == other.fKeepConn
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4271,21 +4271,13 @@ impl ::core::clone::Clone for HSE_TF_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HSE_TF_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HSE_TF_INFO").field("pfnHseIO", &self.pfnHseIO.map(|f| f as usize)).field("pContext", &self.pContext).field("hFile", &self.hFile).field("pszStatusCode", &self.pszStatusCode).field("BytesToWrite", &self.BytesToWrite).field("Offset", &self.Offset).field("pHead", &self.pHead).field("HeadLength", &self.HeadLength).field("pTail", &self.pTail).field("TailLength", &self.TailLength).field("dwFlags", &self.dwFlags).finish()
+        f.debug_struct("HSE_TF_INFO").field("pContext", &self.pContext).field("hFile", &self.hFile).field("pszStatusCode", &self.pszStatusCode).field("BytesToWrite", &self.BytesToWrite).field("Offset", &self.Offset).field("pHead", &self.pHead).field("HeadLength", &self.HeadLength).field("pTail", &self.pTail).field("TailLength", &self.TailLength).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HSE_TF_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HSE_TF_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_TF_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HSE_TF_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HSE_TF_INFO {
     fn default() -> Self {
@@ -4322,7 +4314,7 @@ unsafe impl ::windows::core::Abi for HSE_TRACE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_TRACE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_TRACE_INFO>()) == 0 }
+        self.fTraceRequest == other.fTraceRequest && self.TraceContextId == other.TraceContextId && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4357,7 +4349,7 @@ unsafe impl ::windows::core::Abi for HSE_UNICODE_URL_MAPEX_INFO {
 }
 impl ::core::cmp::PartialEq for HSE_UNICODE_URL_MAPEX_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_UNICODE_URL_MAPEX_INFO>()) == 0 }
+        self.lpszPath == other.lpszPath && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL
     }
 }
 impl ::core::cmp::Eq for HSE_UNICODE_URL_MAPEX_INFO {}
@@ -4398,7 +4390,7 @@ unsafe impl ::windows::core::Abi for HSE_URL_MAPEX_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_URL_MAPEX_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_URL_MAPEX_INFO>()) == 0 }
+        self.lpszPath == other.lpszPath && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4433,7 +4425,7 @@ unsafe impl ::windows::core::Abi for HSE_VECTOR_ELEMENT {
 }
 impl ::core::cmp::PartialEq for HSE_VECTOR_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_VECTOR_ELEMENT>()) == 0 }
+        self.ElementType == other.ElementType && self.pvContext == other.pvContext && self.cbOffset == other.cbOffset && self.cbSize == other.cbSize
     }
 }
 impl ::core::cmp::Eq for HSE_VECTOR_ELEMENT {}
@@ -4470,7 +4462,7 @@ unsafe impl ::windows::core::Abi for HSE_VERSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSE_VERSION_INFO>()) == 0 }
+        self.dwExtensionVersion == other.dwExtensionVersion && self.lpszExtensionDesc == other.lpszExtensionDesc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4504,7 +4496,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_ACCESS_DENIED {
 }
 impl ::core::cmp::PartialEq for HTTP_FILTER_ACCESS_DENIED {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_ACCESS_DENIED>()) == 0 }
+        self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.dwReason == other.dwReason
     }
 }
 impl ::core::cmp::Eq for HTTP_FILTER_ACCESS_DENIED {}
@@ -4537,7 +4529,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_AUTHENT {
 }
 impl ::core::cmp::PartialEq for HTTP_FILTER_AUTHENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_AUTHENT>()) == 0 }
+        self.pszUser == other.pszUser && self.cbUserBuff == other.cbUserBuff && self.pszPassword == other.pszPassword && self.cbPasswordBuff == other.cbPasswordBuff
     }
 }
 impl ::core::cmp::Eq for HTTP_FILTER_AUTHENT {}
@@ -4579,7 +4571,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_AUTH_COMPLETE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_AUTH_COMPLETE_INFO>()) == 0 }
+        self.GetHeader == other.GetHeader && self.SetHeader == other.SetHeader && self.AddHeader == other.AddHeader && self.GetUserToken == other.GetUserToken && self.HttpStatus == other.HttpStatus && self.fResetAuth == other.fResetAuth && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4639,7 +4631,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_FILTER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_CONTEXT>()) == 0 }
+        self.cbSize == other.cbSize && self.Revision == other.Revision && self.ServerContext == other.ServerContext && self.ulReserved == other.ulReserved && self.fIsSecurePort == other.fIsSecurePort && self.pFilterContext == other.pFilterContext && self.GetServerVariable == other.GetServerVariable && self.AddResponseHeaders == other.AddResponseHeaders && self.WriteClient == other.WriteClient && self.AllocMem == other.AllocMem && self.ServerSupportFunction == other.ServerSupportFunction
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4693,7 +4685,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_LOG {
 }
 impl ::core::cmp::PartialEq for HTTP_FILTER_LOG {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_LOG>()) == 0 }
+        self.pszClientHostName == other.pszClientHostName && self.pszClientUserName == other.pszClientUserName && self.pszServerName == other.pszServerName && self.pszOperation == other.pszOperation && self.pszTarget == other.pszTarget && self.pszParameters == other.pszParameters && self.dwHttpStatus == other.dwHttpStatus && self.dwWin32Status == other.dwWin32Status && self.dwBytesSent == other.dwBytesSent && self.dwBytesRecvd == other.dwBytesRecvd && self.msTimeForProcessing == other.msTimeForProcessing
     }
 }
 impl ::core::cmp::Eq for HTTP_FILTER_LOG {}
@@ -4727,7 +4719,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_PREPROC_HEADERS {
 }
 impl ::core::cmp::PartialEq for HTTP_FILTER_PREPROC_HEADERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_PREPROC_HEADERS>()) == 0 }
+        self.GetHeader == other.GetHeader && self.SetHeader == other.SetHeader && self.AddHeader == other.AddHeader && self.HttpStatus == other.HttpStatus && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for HTTP_FILTER_PREPROC_HEADERS {}
@@ -4760,7 +4752,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_RAW_DATA {
 }
 impl ::core::cmp::PartialEq for HTTP_FILTER_RAW_DATA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_RAW_DATA>()) == 0 }
+        self.pvInData == other.pvInData && self.cbInData == other.cbInData && self.cbInBuffer == other.cbInBuffer && self.dwReserved == other.dwReserved
     }
 }
 impl ::core::cmp::Eq for HTTP_FILTER_RAW_DATA {}
@@ -4792,7 +4784,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_URL_MAP {
 }
 impl ::core::cmp::PartialEq for HTTP_FILTER_URL_MAP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_URL_MAP>()) == 0 }
+        self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.cbPathBuff == other.cbPathBuff
     }
 }
 impl ::core::cmp::Eq for HTTP_FILTER_URL_MAP {}
@@ -4828,7 +4820,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_URL_MAP_EX {
 }
 impl ::core::cmp::PartialEq for HTTP_FILTER_URL_MAP_EX {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_URL_MAP_EX>()) == 0 }
+        self.pszURL == other.pszURL && self.pszPhysicalPath == other.pszPhysicalPath && self.cbPathBuff == other.cbPathBuff && self.dwFlags == other.dwFlags && self.cchMatchingPath == other.cchMatchingPath && self.cchMatchingURL == other.cchMatchingURL && self.pszScriptMapEntry == other.pszScriptMapEntry
     }
 }
 impl ::core::cmp::Eq for HTTP_FILTER_URL_MAP_EX {}
@@ -4867,7 +4859,7 @@ unsafe impl ::windows::core::Abi for HTTP_FILTER_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_FILTER_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_FILTER_VERSION>()) == 0 }
+        self.dwServerFilterVersion == other.dwServerFilterVersion && self.dwFilterVersion == other.dwFilterVersion && self.lpszFilterDesc == other.lpszFilterDesc && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4908,7 +4900,7 @@ unsafe impl ::windows::core::Abi for HTTP_TRACE_CONFIGURATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_TRACE_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_TRACE_CONFIGURATION>()) == 0 }
+        self.pProviderGuid == other.pProviderGuid && self.dwAreas == other.dwAreas && self.dwVerbosity == other.dwVerbosity && self.fProviderEnabled == other.fProviderEnabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4966,7 +4958,7 @@ unsafe impl ::windows::core::Abi for HTTP_TRACE_EVENT {
 }
 impl ::core::cmp::PartialEq for HTTP_TRACE_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_TRACE_EVENT>()) == 0 }
+        self.pProviderGuid == other.pProviderGuid && self.dwArea == other.dwArea && self.pAreaGuid == other.pAreaGuid && self.dwEvent == other.dwEvent && self.pszEventName == other.pszEventName && self.dwEventVersion == other.dwEventVersion && self.dwVerbosity == other.dwVerbosity && self.pActivityGuid == other.pActivityGuid && self.pRelatedActivityGuid == other.pRelatedActivityGuid && self.dwTimeStamp == other.dwTimeStamp && self.dwFlags == other.dwFlags && self.cEventItems == other.cEventItems && self.pEventItems == other.pEventItems
     }
 }
 impl ::core::cmp::Eq for HTTP_TRACE_EVENT {}
@@ -5000,7 +4992,7 @@ unsafe impl ::windows::core::Abi for HTTP_TRACE_EVENT_ITEM {
 }
 impl ::core::cmp::PartialEq for HTTP_TRACE_EVENT_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_TRACE_EVENT_ITEM>()) == 0 }
+        self.pszName == other.pszName && self.dwDataType == other.dwDataType && self.pbData == other.pbData && self.cbData == other.cbData && self.pszDataDescription == other.pszDataDescription
     }
 }
 impl ::core::cmp::Eq for HTTP_TRACE_EVENT_ITEM {}
@@ -5066,7 +5058,24 @@ unsafe impl ::windows::core::Abi for LOGGING_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for LOGGING_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGGING_PARAMETERS>()) == 0 }
+        self.pszSessionId == other.pszSessionId
+            && self.pszSiteName == other.pszSiteName
+            && self.pszUserName == other.pszUserName
+            && self.pszHostName == other.pszHostName
+            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
+            && self.dwRemoteIpPort == other.dwRemoteIpPort
+            && self.pszLocalIpAddress == other.pszLocalIpAddress
+            && self.dwLocalIpPort == other.dwLocalIpPort
+            && self.BytesSent == other.BytesSent
+            && self.BytesReceived == other.BytesReceived
+            && self.pszCommand == other.pszCommand
+            && self.pszCommandParameters == other.pszCommandParameters
+            && self.pszFullPath == other.pszFullPath
+            && self.dwElapsedMilliseconds == other.dwElapsedMilliseconds
+            && self.FtpStatus == other.FtpStatus
+            && self.FtpSubStatus == other.FtpSubStatus
+            && self.hrStatus == other.hrStatus
+            && self.pszInformation == other.pszInformation
     }
 }
 impl ::core::cmp::Eq for LOGGING_PARAMETERS {}
@@ -5099,7 +5108,7 @@ unsafe impl ::windows::core::Abi for MD_CHANGE_OBJECT_W {
 }
 impl ::core::cmp::PartialEq for MD_CHANGE_OBJECT_W {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MD_CHANGE_OBJECT_W>()) == 0 }
+        self.pszMDPath == other.pszMDPath && self.dwMDChangeType == other.dwMDChangeType && self.dwMDNumDataIDs == other.dwMDNumDataIDs && self.pdwMDDataIDs == other.pdwMDDataIDs
     }
 }
 impl ::core::cmp::Eq for MD_CHANGE_OBJECT_W {}
@@ -5128,12 +5137,6 @@ impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD {
 unsafe impl ::windows::core::Abi for METADATA_GETALL_INTERNAL_RECORD {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<METADATA_GETALL_INTERNAL_RECORD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD {}
 impl ::core::default::Default for METADATA_GETALL_INTERNAL_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5154,12 +5157,6 @@ impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD_0 {
 unsafe impl ::windows::core::Abi for METADATA_GETALL_INTERNAL_RECORD_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<METADATA_GETALL_INTERNAL_RECORD_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD_0 {}
 impl ::core::default::Default for METADATA_GETALL_INTERNAL_RECORD_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5192,7 +5189,7 @@ unsafe impl ::windows::core::Abi for METADATA_GETALL_RECORD {
 }
 impl ::core::cmp::PartialEq for METADATA_GETALL_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<METADATA_GETALL_RECORD>()) == 0 }
+        self.dwMDIdentifier == other.dwMDIdentifier && self.dwMDAttributes == other.dwMDAttributes && self.dwMDUserType == other.dwMDUserType && self.dwMDDataType == other.dwMDDataType && self.dwMDDataLen == other.dwMDDataLen && self.dwMDDataOffset == other.dwMDDataOffset && self.dwMDDataTag == other.dwMDDataTag
     }
 }
 impl ::core::cmp::Eq for METADATA_GETALL_RECORD {}
@@ -5223,7 +5220,7 @@ unsafe impl ::windows::core::Abi for METADATA_HANDLE_INFO {
 }
 impl ::core::cmp::PartialEq for METADATA_HANDLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<METADATA_HANDLE_INFO>()) == 0 }
+        self.dwMDPermissions == other.dwMDPermissions && self.dwMDSystemChangeNumber == other.dwMDSystemChangeNumber
     }
 }
 impl ::core::cmp::Eq for METADATA_HANDLE_INFO {}
@@ -5259,7 +5256,7 @@ unsafe impl ::windows::core::Abi for METADATA_RECORD {
 }
 impl ::core::cmp::PartialEq for METADATA_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<METADATA_RECORD>()) == 0 }
+        self.dwMDIdentifier == other.dwMDIdentifier && self.dwMDAttributes == other.dwMDAttributes && self.dwMDUserType == other.dwMDUserType && self.dwMDDataType == other.dwMDDataType && self.dwMDDataLen == other.dwMDDataLen && self.pbMDData == other.pbMDData && self.dwMDDataTag == other.dwMDDataTag
     }
 }
 impl ::core::cmp::Eq for METADATA_RECORD {}
@@ -5335,7 +5332,26 @@ unsafe impl ::windows::core::Abi for POST_PROCESS_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POST_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POST_PROCESS_PARAMETERS>()) == 0 }
+        self.pszSessionId == other.pszSessionId
+            && self.pszSiteName == other.pszSiteName
+            && self.pszUserName == other.pszUserName
+            && self.pszHostName == other.pszHostName
+            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
+            && self.dwRemoteIpPort == other.dwRemoteIpPort
+            && self.pszLocalIpAddress == other.pszLocalIpAddress
+            && self.dwLocalIpPort == other.dwLocalIpPort
+            && self.BytesSent == other.BytesSent
+            && self.BytesReceived == other.BytesReceived
+            && self.pszCommand == other.pszCommand
+            && self.pszCommandParameters == other.pszCommandParameters
+            && self.pszFullPath == other.pszFullPath
+            && self.pszPhysicalPath == other.pszPhysicalPath
+            && self.FtpStatus == other.FtpStatus
+            && self.FtpSubStatus == other.FtpSubStatus
+            && self.hrStatus == other.hrStatus
+            && self.SessionStartTime == other.SessionStartTime
+            && self.BytesSentPerSession == other.BytesSentPerSession
+            && self.BytesReceivedPerSession == other.BytesReceivedPerSession
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5399,7 +5415,7 @@ unsafe impl ::windows::core::Abi for PRE_PROCESS_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRE_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRE_PROCESS_PARAMETERS>()) == 0 }
+        self.pszSessionId == other.pszSessionId && self.pszSiteName == other.pszSiteName && self.pszUserName == other.pszUserName && self.pszHostName == other.pszHostName && self.pszRemoteIpAddress == other.pszRemoteIpAddress && self.dwRemoteIpPort == other.dwRemoteIpPort && self.pszLocalIpAddress == other.pszLocalIpAddress && self.dwLocalIpPort == other.dwLocalIpPort && self.pszCommand == other.pszCommand && self.pszCommandParameters == other.pszCommandParameters && self.SessionStartTime == other.SessionStartTime && self.BytesSentPerSession == other.BytesSentPerSession && self.BytesReceivedPerSession == other.BytesReceivedPerSession
     }
 }
 #[cfg(feature = "Win32_Foundation")]

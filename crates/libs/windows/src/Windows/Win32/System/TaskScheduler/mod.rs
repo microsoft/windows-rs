@@ -5782,7 +5782,7 @@ unsafe impl ::windows::core::Abi for DAILY {
 }
 impl ::core::cmp::PartialEq for DAILY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAILY>()) == 0 }
+        self.DaysInterval == other.DaysInterval
     }
 }
 impl ::core::cmp::Eq for DAILY {}
@@ -5813,7 +5813,7 @@ unsafe impl ::windows::core::Abi for MONTHLYDATE {
 }
 impl ::core::cmp::PartialEq for MONTHLYDATE {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONTHLYDATE>()) == 0 }
+        self.rgfDays == other.rgfDays && self.rgfMonths == other.rgfMonths
     }
 }
 impl ::core::cmp::Eq for MONTHLYDATE {}
@@ -5845,7 +5845,7 @@ unsafe impl ::windows::core::Abi for MONTHLYDOW {
 }
 impl ::core::cmp::PartialEq for MONTHLYDOW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONTHLYDOW>()) == 0 }
+        self.wWhichWeek == other.wWhichWeek && self.rgfDaysOfTheWeek == other.rgfDaysOfTheWeek && self.rgfMonths == other.rgfMonths
     }
 }
 impl ::core::cmp::Eq for MONTHLYDOW {}
@@ -5884,12 +5884,6 @@ impl ::core::clone::Clone for TASK_TRIGGER {
 unsafe impl ::windows::core::Abi for TASK_TRIGGER {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TASK_TRIGGER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TASK_TRIGGER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TASK_TRIGGER {}
 impl ::core::default::Default for TASK_TRIGGER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5912,12 +5906,6 @@ impl ::core::clone::Clone for TRIGGER_TYPE_UNION {
 unsafe impl ::windows::core::Abi for TRIGGER_TYPE_UNION {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TRIGGER_TYPE_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRIGGER_TYPE_UNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TRIGGER_TYPE_UNION {}
 impl ::core::default::Default for TRIGGER_TYPE_UNION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5945,7 +5933,7 @@ unsafe impl ::windows::core::Abi for WEEKLY {
 }
 impl ::core::cmp::PartialEq for WEEKLY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WEEKLY>()) == 0 }
+        self.WeeksInterval == other.WeeksInterval && self.rgfDaysOfTheWeek == other.rgfDaysOfTheWeek
     }
 }
 impl ::core::cmp::Eq for WEEKLY {}

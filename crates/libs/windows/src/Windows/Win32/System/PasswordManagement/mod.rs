@@ -49,7 +49,7 @@ unsafe impl ::windows::core::Abi for CYPHER_BLOCK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CYPHER_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CYPHER_BLOCK>()) == 0 }
+        self.data == other.data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -87,7 +87,7 @@ unsafe impl ::windows::core::Abi for ENCRYPTED_LM_OWF_PASSWORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENCRYPTED_LM_OWF_PASSWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENCRYPTED_LM_OWF_PASSWORD>()) == 0 }
+        self.data == other.data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -125,7 +125,7 @@ unsafe impl ::windows::core::Abi for LM_OWF_PASSWORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LM_OWF_PASSWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LM_OWF_PASSWORD>()) == 0 }
+        self.data == other.data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -157,7 +157,7 @@ unsafe impl ::windows::core::Abi for SAMPR_ENCRYPTED_USER_PASSWORD {
 }
 impl ::core::cmp::PartialEq for SAMPR_ENCRYPTED_USER_PASSWORD {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAMPR_ENCRYPTED_USER_PASSWORD>()) == 0 }
+        self.Buffer == other.Buffer
     }
 }
 impl ::core::cmp::Eq for SAMPR_ENCRYPTED_USER_PASSWORD {}

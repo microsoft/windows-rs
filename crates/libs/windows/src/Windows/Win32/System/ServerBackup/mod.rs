@@ -229,7 +229,7 @@ unsafe impl ::windows::core::Abi for WSB_OB_REGISTRATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSB_OB_REGISTRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSB_OB_REGISTRATION_INFO>()) == 0 }
+        self.m_wszResourceDLL == other.m_wszResourceDLL && self.m_guidSnapinId == other.m_guidSnapinId && self.m_dwProviderName == other.m_dwProviderName && self.m_dwProviderIcon == other.m_dwProviderIcon && self.m_bSupportsRemoting == other.m_bSupportsRemoting
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -265,7 +265,7 @@ unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY {
 }
 impl ::core::cmp::PartialEq for WSB_OB_STATUS_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSB_OB_STATUS_ENTRY>()) == 0 }
+        self.m_dwIcon == other.m_dwIcon && self.m_dwStatusEntryName == other.m_dwStatusEntryName && self.m_dwStatusEntryValue == other.m_dwStatusEntryValue && self.m_cValueTypePair == other.m_cValueTypePair && self.m_rgValueTypePair == other.m_rgValueTypePair
     }
 }
 impl ::core::cmp::Eq for WSB_OB_STATUS_ENTRY {}
@@ -296,7 +296,7 @@ unsafe impl ::windows::core::Abi for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
 }
 impl ::core::cmp::PartialEq for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR>()) == 0 }
+        self.m_wszObStatusEntryPairValue == other.m_wszObStatusEntryPairValue && self.m_ObStatusEntryPairType == other.m_ObStatusEntryPairType
     }
 }
 impl ::core::cmp::Eq for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {}
@@ -328,7 +328,7 @@ unsafe impl ::windows::core::Abi for WSB_OB_STATUS_INFO {
 }
 impl ::core::cmp::PartialEq for WSB_OB_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSB_OB_STATUS_INFO>()) == 0 }
+        self.m_guidSnapinId == other.m_guidSnapinId && self.m_cStatusEntry == other.m_cStatusEntry && self.m_rgStatusEntry == other.m_rgStatusEntry
     }
 }
 impl ::core::cmp::Eq for WSB_OB_STATUS_INFO {}

@@ -2922,7 +2922,7 @@ unsafe impl ::windows::core::Abi for BerElement {
 }
 impl ::core::cmp::PartialEq for BerElement {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BerElement>()) == 0 }
+        self.opaque == other.opaque
     }
 }
 impl ::core::cmp::Eq for BerElement {}
@@ -2984,7 +2984,7 @@ unsafe impl ::windows::core::Abi for LDAP {
 }
 impl ::core::cmp::PartialEq for LDAP {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP>()) == 0 }
+        self.ld_sb == other.ld_sb && self.ld_host == other.ld_host && self.ld_version == other.ld_version && self.ld_lberoptions == other.ld_lberoptions && self.ld_deref == other.ld_deref && self.ld_timelimit == other.ld_timelimit && self.ld_sizelimit == other.ld_sizelimit && self.ld_errno == other.ld_errno && self.ld_matched == other.ld_matched && self.ld_error == other.ld_error && self.ld_msgid == other.ld_msgid && self.Reserved3 == other.Reserved3 && self.ld_cldaptries == other.ld_cldaptries && self.ld_cldaptimeout == other.ld_cldaptimeout && self.ld_refhoplimit == other.ld_refhoplimit && self.ld_options == other.ld_options
     }
 }
 impl ::core::cmp::Eq for LDAP {}
@@ -3017,7 +3017,7 @@ unsafe impl ::windows::core::Abi for LDAP_0 {
 }
 impl ::core::cmp::PartialEq for LDAP_0 {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_0>()) == 0 }
+        self.sb_sd == other.sb_sd && self.Reserved1 == other.Reserved1 && self.sb_naddr == other.sb_naddr && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for LDAP_0 {}
@@ -3049,7 +3049,7 @@ unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoA {
 }
 impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIFeatureInfoA>()) == 0 }
+        self.ldapaif_info_version == other.ldapaif_info_version && self.ldapaif_name == other.ldapaif_name && self.ldapaif_version == other.ldapaif_version
     }
 }
 impl ::core::cmp::Eq for LDAPAPIFeatureInfoA {}
@@ -3081,7 +3081,7 @@ unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoW {
 }
 impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIFeatureInfoW>()) == 0 }
+        self.ldapaif_info_version == other.ldapaif_info_version && self.ldapaif_name == other.ldapaif_name && self.ldapaif_version == other.ldapaif_version
     }
 }
 impl ::core::cmp::Eq for LDAPAPIFeatureInfoW {}
@@ -3116,7 +3116,7 @@ unsafe impl ::windows::core::Abi for LDAPAPIInfoA {
 }
 impl ::core::cmp::PartialEq for LDAPAPIInfoA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIInfoA>()) == 0 }
+        self.ldapai_info_version == other.ldapai_info_version && self.ldapai_api_version == other.ldapai_api_version && self.ldapai_protocol_version == other.ldapai_protocol_version && self.ldapai_extensions == other.ldapai_extensions && self.ldapai_vendor_name == other.ldapai_vendor_name && self.ldapai_vendor_version == other.ldapai_vendor_version
     }
 }
 impl ::core::cmp::Eq for LDAPAPIInfoA {}
@@ -3151,7 +3151,7 @@ unsafe impl ::windows::core::Abi for LDAPAPIInfoW {
 }
 impl ::core::cmp::PartialEq for LDAPAPIInfoW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIInfoW>()) == 0 }
+        self.ldapai_info_version == other.ldapai_info_version && self.ldapai_api_version == other.ldapai_api_version && self.ldapai_protocol_version == other.ldapai_protocol_version && self.ldapai_extensions == other.ldapai_extensions && self.ldapai_vendor_name == other.ldapai_vendor_name && self.ldapai_vendor_version == other.ldapai_vendor_version
     }
 }
 impl ::core::cmp::Eq for LDAPAPIInfoW {}
@@ -3189,7 +3189,7 @@ unsafe impl ::windows::core::Abi for LDAPControlA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPControlA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPControlA>()) == 0 }
+        self.ldctl_oid == other.ldctl_oid && self.ldctl_value == other.ldctl_value && self.ldctl_iscritical == other.ldctl_iscritical
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3229,7 +3229,7 @@ unsafe impl ::windows::core::Abi for LDAPControlW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPControlW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPControlW>()) == 0 }
+        self.ldctl_oid == other.ldctl_oid && self.ldctl_value == other.ldctl_value && self.ldctl_iscritical == other.ldctl_iscritical
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3293,7 +3293,7 @@ unsafe impl ::windows::core::Abi for LDAPMessage {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPMessage {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPMessage>()) == 0 }
+        self.lm_msgid == other.lm_msgid && self.lm_msgtype == other.lm_msgtype && self.lm_ber == other.lm_ber && self.lm_chain == other.lm_chain && self.lm_next == other.lm_next && self.lm_time == other.lm_time && self.Connection == other.Connection && self.Request == other.Request && self.lm_returncode == other.lm_returncode && self.lm_referral == other.lm_referral && self.lm_chased == other.lm_chased && self.lm_eom == other.lm_eom && self.ConnectionReferenced == other.ConnectionReferenced
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3320,12 +3320,6 @@ impl ::core::clone::Clone for LDAPModA {
 unsafe impl ::windows::core::Abi for LDAPModA {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LDAPModA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPModA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LDAPModA {}
 impl ::core::default::Default for LDAPModA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3346,12 +3340,6 @@ impl ::core::clone::Clone for LDAPModA_0 {
 unsafe impl ::windows::core::Abi for LDAPModA_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LDAPModA_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPModA_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LDAPModA_0 {}
 impl ::core::default::Default for LDAPModA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3373,12 +3361,6 @@ impl ::core::clone::Clone for LDAPModW {
 unsafe impl ::windows::core::Abi for LDAPModW {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LDAPModW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPModW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LDAPModW {}
 impl ::core::default::Default for LDAPModW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3399,12 +3381,6 @@ impl ::core::clone::Clone for LDAPModW_0 {
 unsafe impl ::windows::core::Abi for LDAPModW_0 {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LDAPModW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPModW_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LDAPModW_0 {}
 impl ::core::default::Default for LDAPModW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3441,7 +3417,7 @@ unsafe impl ::windows::core::Abi for LDAPSortKeyA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPSortKeyA {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPSortKeyA>()) == 0 }
+        self.sk_attrtype == other.sk_attrtype && self.sk_matchruleoid == other.sk_matchruleoid && self.sk_reverseorder == other.sk_reverseorder
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3481,7 +3457,7 @@ unsafe impl ::windows::core::Abi for LDAPSortKeyW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPSortKeyW {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPSortKeyW>()) == 0 }
+        self.sk_attrtype == other.sk_attrtype && self.sk_matchruleoid == other.sk_matchruleoid && self.sk_reverseorder == other.sk_reverseorder
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3520,7 +3496,7 @@ unsafe impl ::windows::core::Abi for LDAPVLVInfo {
 }
 impl ::core::cmp::PartialEq for LDAPVLVInfo {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPVLVInfo>()) == 0 }
+        self.ldvlv_version == other.ldvlv_version && self.ldvlv_before_count == other.ldvlv_before_count && self.ldvlv_after_count == other.ldvlv_after_count && self.ldvlv_offset == other.ldvlv_offset && self.ldvlv_count == other.ldvlv_count && self.ldvlv_attrvalue == other.ldvlv_attrvalue && self.ldvlv_context == other.ldvlv_context && self.ldvlv_extradata == other.ldvlv_extradata
     }
 }
 impl ::core::cmp::Eq for LDAPVLVInfo {}
@@ -3551,7 +3527,7 @@ unsafe impl ::windows::core::Abi for LDAP_BERVAL {
 }
 impl ::core::cmp::PartialEq for LDAP_BERVAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_BERVAL>()) == 0 }
+        self.bv_len == other.bv_len && self.bv_val == other.bv_val
     }
 }
 impl ::core::cmp::Eq for LDAP_BERVAL {}
@@ -3580,21 +3556,13 @@ impl ::core::clone::Clone for LDAP_REFERRAL_CALLBACK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LDAP_REFERRAL_CALLBACK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LDAP_REFERRAL_CALLBACK").field("SizeOfCallbacks", &self.SizeOfCallbacks).field("QueryForConnection", &self.QueryForConnection.map(|f| f as usize)).field("NotifyRoutine", &self.NotifyRoutine.map(|f| f as usize)).field("DereferenceRoutine", &self.DereferenceRoutine.map(|f| f as usize)).finish()
+        f.debug_struct("LDAP_REFERRAL_CALLBACK").field("SizeOfCallbacks", &self.SizeOfCallbacks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LDAP_REFERRAL_CALLBACK {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LDAP_REFERRAL_CALLBACK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_REFERRAL_CALLBACK>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LDAP_REFERRAL_CALLBACK {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LDAP_REFERRAL_CALLBACK {
     fn default() -> Self {
@@ -3623,7 +3591,7 @@ unsafe impl ::windows::core::Abi for LDAP_TIMEVAL {
 }
 impl ::core::cmp::PartialEq for LDAP_TIMEVAL {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_TIMEVAL>()) == 0 }
+        self.tv_sec == other.tv_sec && self.tv_usec == other.tv_usec
     }
 }
 impl ::core::cmp::Eq for LDAP_TIMEVAL {}
@@ -3655,7 +3623,7 @@ unsafe impl ::windows::core::Abi for LDAP_VERSION_INFO {
 }
 impl ::core::cmp::PartialEq for LDAP_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_VERSION_INFO>()) == 0 }
+        self.lv_size == other.lv_size && self.lv_major == other.lv_major && self.lv_minor == other.lv_minor
     }
 }
 impl ::core::cmp::Eq for LDAP_VERSION_INFO {}

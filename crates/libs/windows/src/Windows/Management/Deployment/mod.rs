@@ -4363,7 +4363,7 @@ unsafe impl ::windows::core::RuntimeType for DeploymentProgress {
 }
 impl ::core::cmp::PartialEq for DeploymentProgress {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DeploymentProgress>()) == 0 }
+        self.state == other.state && self.percentage == other.percentage
     }
 }
 impl ::core::cmp::Eq for DeploymentProgress {}

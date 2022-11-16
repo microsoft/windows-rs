@@ -648,7 +648,7 @@ unsafe impl ::windows::core::RuntimeType for HandMeshVertex {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for HandMeshVertex {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HandMeshVertex>()) == 0 }
+        self.Position == other.Position && self.Normal == other.Normal
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
@@ -697,7 +697,7 @@ unsafe impl ::windows::core::RuntimeType for JointPose {
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for JointPose {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JointPose>()) == 0 }
+        self.Orientation == other.Orientation && self.Position == other.Position && self.Radius == other.Radius && self.Accuracy == other.Accuracy
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
