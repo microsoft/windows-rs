@@ -91,6 +91,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
           cargo test --target ${{ matrix.target }} -p sample_data_protection &&
           cargo test --target ${{ matrix.target }} -p sample_dcomp &&
+          cargo test --target ${{ matrix.target }} -p sample_device_watcher &&
           cargo test --target ${{ matrix.target }} -p sample_direct2d &&
           cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
           cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
@@ -128,8 +129,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
-          cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&
           cargo test --target ${{ matrix.target }} -p test_interface &&
