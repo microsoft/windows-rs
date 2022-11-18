@@ -4,7 +4,13 @@ namespace test_component
     {
         Class();
         Int32 Property;
+        Flags Flags { get; };
         Int32[] Int32Array(Int32[] a, ref Int32[] b, out Int32[] c);
         String[] StringArray(String[] a, ref String[] b, out String[] c);
     }
+
+    [flags] enum Flags
+    {
+        Ok = 0x00,
+    };
 }
