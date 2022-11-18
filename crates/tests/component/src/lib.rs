@@ -1,5 +1,3 @@
-#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, clashing_extern_declarations, unused_variables, dead_code, clippy::all)]
-
 mod bindings;
 use std::mem::*;
 use std::sync::*;
@@ -17,6 +15,9 @@ impl bindings::IClass_Impl for Class {
         let mut writer = self.0.write().unwrap();
         *writer = value;
         Ok(())
+    }
+    fn Flags(&self) -> Result<bindings::Flags> {
+        Ok(bindings::Flags::Ok)
     }
     fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut Array<i32>) -> Result<Array<i32>> {
         assert_eq!(a.len(), b.len());
