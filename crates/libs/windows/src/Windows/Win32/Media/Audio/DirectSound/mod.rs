@@ -670,9 +670,8 @@ impl IDirectSoundBuffer8 {
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Restore)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: ::core::option::Option<*const DSEFFECTDESC>) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetFX)(::windows::core::Vtable::as_raw(self), dweffectscount, ::core::mem::transmute(pdsfxdesc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: ::core::option::Option<*const DSEFFECTDESC>, pdwresultcodes: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetFX)(::windows::core::Vtable::as_raw(self), dweffectscount, ::core::mem::transmute(pdsfxdesc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdwresultcodes.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AcquireResources)(::windows::core::Vtable::as_raw(self), dwflags, pdwresultcodes.len() as _, ::core::mem::transmute(pdwresultcodes.as_ptr())).ok()

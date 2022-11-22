@@ -654,13 +654,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorRegisters<'a, P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32) -> ::windows::core::Result<WHV_REGISTER_VALUE>
+pub unsafe fn WHvGetVirtualProcessorRegisters<'a, P0>(partition: P0, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WHV_PARTITION_HANDLE>,
 {
     ::windows::core::link ! ( "winhvplatform.dll""system" fn WHvGetVirtualProcessorRegisters ( partition : WHV_PARTITION_HANDLE , vpindex : u32 , registernames : *const WHV_REGISTER_NAME , registercount : u32 , registervalues : *mut WHV_REGISTER_VALUE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WHvGetVirtualProcessorRegisters(partition.into(), vpindex, ::core::mem::transmute(registernames), registercount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WHV_REGISTER_VALUE>(result__)
+    WHvGetVirtualProcessorRegisters(partition.into(), vpindex, ::core::mem::transmute(registernames), registercount, ::core::mem::transmute(registervalues)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]

@@ -2,12 +2,11 @@
 #[repr(transparent)]
 pub struct IDedupBackupSupport(::windows::core::IUnknown);
 impl IDedupBackupSupport {
-    pub unsafe fn RestoreFiles<'a, P0>(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: P0, flags: u32) -> ::windows::core::Result<::windows::core::HRESULT>
+    pub unsafe fn RestoreFiles<'a, P0>(&self, numberoffiles: u32, filefullpaths: *const ::windows::core::BSTR, store: P0, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDedupReadFileCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RestoreFiles)(::windows::core::Vtable::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
+        (::windows::core::Vtable::vtable(self).RestoreFiles)(::windows::core::Vtable::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into().abi(), flags, ::core::mem::transmute(fileresults)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDedupBackupSupport, ::windows::core::IUnknown);

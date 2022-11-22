@@ -1286,6 +1286,9 @@ impl<'a> Reader<'a> {
         if flags.input() || !flags.output() || param.array_info != ArrayInfo::None {
             return false;
         }
+        if self.param_array_info(param.def) != ArrayInfo::None {
+            return false;
+        }
         // TODO: find a way to treat this like COM interface result values.
         !self.type_is_callback(&param.ty.deref())
     }

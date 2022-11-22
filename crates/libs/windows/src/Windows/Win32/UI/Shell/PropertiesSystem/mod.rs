@@ -1495,13 +1495,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn SHPropStgReadMultiple<'a, P0>(pps: P0, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
+pub unsafe fn SHPropStgReadMultiple<'a, P0>(pps: P0, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>>,
 {
     ::windows::core::link ! ( "shell32.dll""system" fn SHPropStgReadMultiple ( pps : * mut::core::ffi::c_void , ucodepage : u32 , cpspec : u32 , rgpspec : *const super::super::super::System::Com::StructuredStorage:: PROPSPEC , rgvar : *mut ::core::mem::ManuallyDrop < super::super::super::System::Com::StructuredStorage:: PROPVARIANT > ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SHPropStgReadMultiple(pps.into().abi(), ucodepage, cpspec, ::core::mem::transmute(rgpspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    SHPropStgReadMultiple(pps.into().abi(), ucodepage, cpspec, ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgvar)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]

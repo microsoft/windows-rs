@@ -910,9 +910,8 @@ impl IDXGIDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReclaimResources)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, pdiscarded: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ReclaimResources)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(pdiscarded.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1014,9 +1013,8 @@ impl IDXGIDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ReclaimResources)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, pdiscarded: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.ReclaimResources)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(pdiscarded.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1113,9 +1111,8 @@ impl IDXGIDevice4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.ReclaimResources)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, pdiscarded: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.ReclaimResources)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(pdiscarded.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1131,9 +1128,8 @@ impl IDXGIDevice4 {
     pub unsafe fn OfferResources1(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OfferResources1)(::windows::core::Vtable::as_raw(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), priority, flags).ok()
     }
-    pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReclaimResources1)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_RECLAIM_RESOURCE_RESULTS>(result__)
+    pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ReclaimResources1)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(presults)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDXGIDevice4, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);

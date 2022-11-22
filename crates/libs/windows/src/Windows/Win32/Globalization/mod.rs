@@ -964,13 +964,12 @@ pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptBreak<'a, P0>(pwcchars: P0, cchars: i32, psa: *const SCRIPT_ANALYSIS) -> ::windows::core::Result<SCRIPT_LOGATTR>
+pub unsafe fn ScriptBreak<'a, P0>(pwcchars: P0, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "usp10.dll""system" fn ScriptBreak ( pwcchars : :: windows::core::PCWSTR , cchars : i32 , psa : *const SCRIPT_ANALYSIS , psla : *mut SCRIPT_LOGATTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ScriptBreak(pwcchars.into(), cchars, ::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SCRIPT_LOGATTR>(result__)
+    ScriptBreak(pwcchars.into(), cchars, ::core::mem::transmute(psa), ::core::mem::transmute(psla)).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1101,10 +1100,9 @@ pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontro
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32) -> ::windows::core::Result<i32> {
+pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "usp10.dll""system" fn ScriptJustify ( psva : *const SCRIPT_VISATTR , piadvance : *const i32 , cglyphs : i32 , idx : i32 , iminkashida : i32 , pijustify : *mut i32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ScriptJustify(::core::mem::transmute(psva), ::core::mem::transmute(piadvance), cglyphs, idx, iminkashida, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    ScriptJustify(::core::mem::transmute(psva), ::core::mem::transmute(piadvance), cglyphs, idx, iminkashida, ::core::mem::transmute(pijustify)).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]

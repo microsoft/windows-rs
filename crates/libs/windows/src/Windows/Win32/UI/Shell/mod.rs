@@ -12131,9 +12131,8 @@ impl ICategorizer {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCategory)(::windows::core::Vtable::as_raw(self), cidl, ::core::mem::transmute(apidl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    pub unsafe fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgcategoryids: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCategory)(::windows::core::Vtable::as_raw(self), cidl, ::core::mem::transmute(apidl), ::core::mem::transmute(rgcategoryids)).ok()
     }
     pub unsafe fn GetCategoryInfo(&self, dwcategoryid: u32) -> ::windows::core::Result<CATEGORY_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

@@ -507,10 +507,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR) -> ::windows::core::Result<u16> {
+pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "urlmon.dll""system" fn RegisterMediaTypes ( ctypes : u32 , rgsztypes : *const :: windows::core::PSTR , rgcftypes : *mut u16 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RegisterMediaTypes(ctypes, ::core::mem::transmute(rgsztypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    RegisterMediaTypes(ctypes, ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgcftypes)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
