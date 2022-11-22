@@ -1138,9 +1138,8 @@ impl IGamutMapModelPlugIn {
     {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxml), psrcplugin.into().abi(), pdestplugin.into().abi(), ::core::mem::transmute(psrcgbd), ::core::mem::transmute(pdestgbd)).ok()
     }
-    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF) -> ::windows::core::Result<JChColorF> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SourceToDestinationAppearanceColors)(::windows::core::Vtable::as_raw(self), ccolors, ::core::mem::transmute(pinputcolors), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<JChColorF>(result__)
+    pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SourceToDestinationAppearanceColors)(::windows::core::Vtable::as_raw(self), ccolors, ::core::mem::transmute(pinputcolors), ::core::mem::transmute(poutputcolors)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IGamutMapModelPlugIn, ::windows::core::IUnknown);

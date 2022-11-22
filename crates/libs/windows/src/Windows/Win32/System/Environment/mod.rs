@@ -51,10 +51,9 @@ pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<*c
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::core::Result<ENCLAVE_INFORMATION> {
+pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "vertdll.dll""system" fn EnclaveGetEnclaveInformation ( informationsize : u32 , enclaveinformation : *mut ENCLAVE_INFORMATION ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    EnclaveGetEnclaveInformation(informationsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ENCLAVE_INFORMATION>(result__)
+    EnclaveGetEnclaveInformation(informationsize, ::core::mem::transmute(enclaveinformation)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]

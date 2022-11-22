@@ -78,13 +78,12 @@ pub unsafe fn DispCallFunc(pvinstance: ::core::option::Option<*const ::core::ffi
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DispGetIDsOfNames<'a, P0>(ptinfo: P0, rgsznames: *const ::windows::core::PWSTR, cnames: u32) -> ::windows::core::Result<i32>
+pub unsafe fn DispGetIDsOfNames<'a, P0>(ptinfo: P0, rgsznames: *const ::windows::core::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn DispGetIDsOfNames ( ptinfo : * mut::core::ffi::c_void , rgsznames : *const :: windows::core::PWSTR , cnames : u32 , rgdispid : *mut i32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DispGetIDsOfNames(ptinfo.into().abi(), ::core::mem::transmute(rgsznames), cnames, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    DispGetIDsOfNames(ptinfo.into().abi(), ::core::mem::transmute(rgsznames), cnames, ::core::mem::transmute(rgdispid)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]

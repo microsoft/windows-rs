@@ -556,10 +556,10 @@ impl IPropertySetStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPropertyStorage_Impl: Sized {
-    fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> ::windows::core::Result<PROPVARIANT>;
+    fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows::core::Result<()>;
     fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()>;
     fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> ::windows::core::Result<()>;
-    fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32) -> ::windows::core::Result<::windows::core::PWSTR>;
+    fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const u32) -> ::windows::core::Result<()>;
     fn Commit(&self, grfcommitflags: u32) -> ::windows::core::Result<()>;
@@ -577,13 +577,7 @@ impl IPropertyStorage_Vtbl {
         unsafe extern "system" fn ReadMultiple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut ::core::mem::ManuallyDrop<PROPVARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReadMultiple(::core::mem::transmute_copy(&cpspec), ::core::mem::transmute_copy(&rgpspec)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(rgpropvar, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.ReadMultiple(::core::mem::transmute_copy(&cpspec), ::core::mem::transmute_copy(&rgpspec), ::core::mem::transmute_copy(&rgpropvar)).into()
         }
         unsafe extern "system" fn WriteMultiple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const ::core::mem::ManuallyDrop<PROPVARIANT>, propidnamefirst: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -598,13 +592,7 @@ impl IPropertyStorage_Vtbl {
         unsafe extern "system" fn ReadPropertyNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReadPropertyNames(::core::mem::transmute_copy(&cpropid), ::core::mem::transmute_copy(&rgpropid)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(rglpwstrname, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.ReadPropertyNames(::core::mem::transmute_copy(&cpropid), ::core::mem::transmute_copy(&rgpropid), ::core::mem::transmute_copy(&rglpwstrname)).into()
         }
         unsafe extern "system" fn WritePropertyNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

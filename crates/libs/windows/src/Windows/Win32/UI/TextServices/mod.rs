@@ -7153,9 +7153,8 @@ impl ITfLangBarItemMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetItemFloatingRect)(::windows::core::Vtable::as_raw(self), dwthreadid, ::core::mem::transmute(rguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    pub unsafe fn GetItemsStatus(&self, ulcount: u32, prgguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemsStatus)(::windows::core::Vtable::as_raw(self), ulcount, ::core::mem::transmute(prgguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    pub unsafe fn GetItemsStatus(&self, ulcount: u32, prgguid: *const ::windows::core::GUID, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetItemsStatus)(::windows::core::Vtable::as_raw(self), ulcount, ::core::mem::transmute(prgguid), ::core::mem::transmute(pdwstatus)).ok()
     }
     pub unsafe fn GetItemNum(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7164,9 +7163,8 @@ impl ITfLangBarItemMgr {
     pub unsafe fn GetItems(&self, ulcount: u32, ppitem: *mut ::core::option::Option<ITfLangBarItem>, pinfo: *mut TF_LANGBARITEMINFO, pdwstatus: *mut u32, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetItems)(::windows::core::Vtable::as_raw(self), ulcount, ::core::mem::transmute(ppitem), ::core::mem::transmute(pinfo), ::core::mem::transmute(pdwstatus), ::core::mem::transmute(pcfetched)).ok()
     }
-    pub unsafe fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const ::core::option::Option<ITfLangBarItemSink>, pguiditem: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AdviseItemsSink)(::windows::core::Vtable::as_raw(self), ulcount, ::core::mem::transmute(ppunk), ::core::mem::transmute(pguiditem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    pub unsafe fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const ::core::option::Option<ITfLangBarItemSink>, pguiditem: *const ::windows::core::GUID, pdwcookie: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).AdviseItemsSink)(::windows::core::Vtable::as_raw(self), ulcount, ::core::mem::transmute(ppunk), ::core::mem::transmute(pguiditem), ::core::mem::transmute(pdwcookie)).ok()
     }
     pub unsafe fn UnadviseItemsSink(&self, pdwcookie: &[u32]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnadviseItemsSink)(::windows::core::Vtable::as_raw(self), pdwcookie.len() as _, ::core::mem::transmute(pdwcookie.as_ptr())).ok()

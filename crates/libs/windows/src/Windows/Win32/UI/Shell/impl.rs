@@ -3145,7 +3145,7 @@ impl ICDBurnExt_Vtbl {
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait ICategorizer_Impl: Sized {
     fn GetDescription(&self, pszdesc: ::windows::core::PWSTR, cch: u32) -> ::windows::core::Result<()>;
-    fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST) -> ::windows::core::Result<u32>;
+    fn GetCategory(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgcategoryids: *mut u32) -> ::windows::core::Result<()>;
     fn GetCategoryInfo(&self, dwcategoryid: u32) -> ::windows::core::Result<CATEGORY_INFO>;
     fn CompareCategory(&self, csfflags: CATSORT_FLAGS, dwcategoryid1: u32, dwcategoryid2: u32) -> ::windows::core::Result<()>;
 }
@@ -3162,13 +3162,7 @@ impl ICategorizer_Vtbl {
         unsafe extern "system" fn GetCategory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICategorizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgcategoryids: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCategory(::core::mem::transmute_copy(&cidl), ::core::mem::transmute_copy(&apidl)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(rgcategoryids, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetCategory(::core::mem::transmute_copy(&cidl), ::core::mem::transmute_copy(&apidl), ::core::mem::transmute_copy(&rgcategoryids)).into()
         }
         unsafe extern "system" fn GetCategoryInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICategorizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcategoryid: u32, pci: *mut CATEGORY_INFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

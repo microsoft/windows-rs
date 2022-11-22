@@ -123,7 +123,7 @@ impl IDeviceModelPlugIn_Vtbl {
 }
 pub trait IGamutMapModelPlugIn_Impl: Sized {
     fn Initialize(&self, bstrxml: &::windows::core::BSTR, psrcplugin: &::core::option::Option<IDeviceModelPlugIn>, pdestplugin: &::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
-    fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF) -> ::windows::core::Result<JChColorF>;
+    fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGamutMapModelPlugIn {}
 impl IGamutMapModelPlugIn_Vtbl {
@@ -136,13 +136,7 @@ impl IGamutMapModelPlugIn_Vtbl {
         unsafe extern "system" fn SourceToDestinationAppearanceColors<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGamutMapModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SourceToDestinationAppearanceColors(::core::mem::transmute_copy(&ccolors), ::core::mem::transmute_copy(&pinputcolors)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(poutputcolors, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.SourceToDestinationAppearanceColors(::core::mem::transmute_copy(&ccolors), ::core::mem::transmute_copy(&pinputcolors), ::core::mem::transmute_copy(&poutputcolors)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

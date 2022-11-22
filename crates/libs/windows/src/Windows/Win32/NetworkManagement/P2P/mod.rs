@@ -102,10 +102,9 @@ pub unsafe fn DrtEndSearch(hsearchcontext: *const ::core::ffi::c_void) -> ::wind
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DrtGetEventData(hdrt: *const ::core::ffi::c_void, uleventdatalen: u32) -> ::windows::core::Result<DRT_EVENT_DATA> {
+pub unsafe fn DrtGetEventData(hdrt: *const ::core::ffi::c_void, uleventdatalen: u32, peventdata: *mut DRT_EVENT_DATA) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "drt.dll""system" fn DrtGetEventData ( hdrt : *const ::core::ffi::c_void , uleventdatalen : u32 , peventdata : *mut DRT_EVENT_DATA ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DrtGetEventData(::core::mem::transmute(hdrt), uleventdatalen, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DRT_EVENT_DATA>(result__)
+    DrtGetEventData(::core::mem::transmute(hdrt), uleventdatalen, ::core::mem::transmute(peventdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -130,10 +129,9 @@ pub unsafe fn DrtGetInstanceNameSize(hdrt: *const ::core::ffi::c_void) -> ::wind
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DrtGetSearchPath(hsearchcontext: *const ::core::ffi::c_void, ulsearchpathsize: u32) -> ::windows::core::Result<DRT_ADDRESS_LIST> {
+pub unsafe fn DrtGetSearchPath(hsearchcontext: *const ::core::ffi::c_void, ulsearchpathsize: u32, psearchpath: *mut DRT_ADDRESS_LIST) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "drt.dll""system" fn DrtGetSearchPath ( hsearchcontext : *const ::core::ffi::c_void , ulsearchpathsize : u32 , psearchpath : *mut DRT_ADDRESS_LIST ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DrtGetSearchPath(::core::mem::transmute(hsearchcontext), ulsearchpathsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DRT_ADDRESS_LIST>(result__)
+    DrtGetSearchPath(::core::mem::transmute(hsearchcontext), ulsearchpathsize, ::core::mem::transmute(psearchpath)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -144,10 +142,9 @@ pub unsafe fn DrtGetSearchPathSize(hsearchcontext: *const ::core::ffi::c_void) -
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn DrtGetSearchResult(hsearchcontext: *const ::core::ffi::c_void, ulsearchresultsize: u32) -> ::windows::core::Result<DRT_SEARCH_RESULT> {
+pub unsafe fn DrtGetSearchResult(hsearchcontext: *const ::core::ffi::c_void, ulsearchresultsize: u32, psearchresult: *mut DRT_SEARCH_RESULT) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "drt.dll""system" fn DrtGetSearchResult ( hsearchcontext : *const ::core::ffi::c_void , ulsearchresultsize : u32 , psearchresult : *mut DRT_SEARCH_RESULT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DrtGetSearchResult(::core::mem::transmute(hsearchcontext), ulsearchresultsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DRT_SEARCH_RESULT>(result__)
+    DrtGetSearchResult(::core::mem::transmute(hsearchcontext), ulsearchresultsize, ::core::mem::transmute(psearchresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]

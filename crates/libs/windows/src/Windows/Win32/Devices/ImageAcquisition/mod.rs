@@ -1588,9 +1588,8 @@ pub struct IWiaPropertyStorage(::windows::core::IUnknown);
 impl IWiaPropertyStorage {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReadMultiple)(::windows::core::Vtable::as_raw(self), cpspec, ::core::mem::transmute(rgpspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ReadMultiple)(::windows::core::Vtable::as_raw(self), cpspec, ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgpropvar)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1602,9 +1601,8 @@ impl IWiaPropertyStorage {
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteMultiple)(::windows::core::Vtable::as_raw(self), rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr())).ok()
     }
-    pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReadPropertyNames)(::windows::core::Vtable::as_raw(self), cpropid, ::core::mem::transmute(rgpropid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ReadPropertyNames)(::windows::core::Vtable::as_raw(self), cpropid, ::core::mem::transmute(rgpropid), ::core::mem::transmute(rglpwstrname)).ok()
     }
     pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).WritePropertyNames)(::windows::core::Vtable::as_raw(self), cpropid, ::core::mem::transmute(rgpropid), ::core::mem::transmute(rglpwstrname)).ok()
