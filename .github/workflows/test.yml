@@ -129,8 +129,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&
           cargo test --target ${{ matrix.target }} -p test_interface &&
@@ -143,6 +143,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_no_use &&
           cargo test --target ${{ matrix.target }} -p test_not_dll &&
           cargo test --target ${{ matrix.target }} -p test_query_signature &&
+          cargo test --target ${{ matrix.target }} -p test_readme &&
           cargo test --target ${{ matrix.target }} -p test_reserved &&
           cargo test --target ${{ matrix.target }} -p test_resources &&
           cargo test --target ${{ matrix.target }} -p test_return_struct &&
