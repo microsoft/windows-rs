@@ -26,7 +26,7 @@ features = [
 Make use of any Windows APIs as needed.
 
 ```rust,no_run
-use windows::{
+use windows::{X
     core::*, Data::Xml::Dom::*, Win32::Foundation::*, Win32::System::Threading::*,
     Win32::UI::WindowsAndMessaging::*,
 };
@@ -73,7 +73,7 @@ features = [
 Make use of any Windows APIs as needed.
 
 ```rust,no_run
-use windows_sys::{
+use windows_sys::{X
     core::*, Win32::Foundation::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*,
 };
 
