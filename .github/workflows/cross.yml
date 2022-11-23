@@ -24,7 +24,7 @@ jobs:
         #
         # See also:
         # https://github.com/rust-lang/rust/issues/79577
-        # https://sourceforge.net/p/mingw-w64/wiki2/Exception%20Handling/
+        # https://sourceforge.net/p/mingw-w64/wiki2/Exception%20Handling
         #
         image: [macos-latest, ubuntu-latest]
         version: [stable, nightly]
