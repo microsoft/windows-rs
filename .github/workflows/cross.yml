@@ -8,7 +8,7 @@ on:
 
 env:
   RUSTFLAGS: -Dwarnings
-  LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220323-ucrt-ubuntu-18.04-x86_64
+  LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220906-ucrt-ubuntu-18.04-x86_64
 
 jobs:
   test:
@@ -24,7 +24,7 @@ jobs:
         #
         # See also:
         # https://github.com/rust-lang/rust/issues/79577
-        # https://sourceforge.net/p/mingw-w64/wiki2/Exception%20Handling/
+        # https://sourceforge.net/p/mingw-w64/wiki2/Exception%20Handling
         #
         image: [macos-latest, ubuntu-latest]
         version: [stable, nightly]
@@ -64,7 +64,7 @@ jobs:
       - name: Install LLVM MinGW toolchain
         if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly' && steps.cache-llvm-mingw-toolchain.outputs.cache-hit != 'true'
         run: |
-          curl -L -o ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz https://github.com/mstorsjo/llvm-mingw/releases/download/20220323/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
+          curl -L -o ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz https://github.com/mstorsjo/llvm-mingw/releases/download/20220906/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
           tar -xf ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.tar.xz
           echo "${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}/bin" >> $GITHUB_PATH
           
