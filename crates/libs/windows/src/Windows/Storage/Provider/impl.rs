@@ -1,32 +1,3 @@
-pub trait IStorageProviderHandlerFactory_Impl: Sized {
-    fn GetStatusSource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusSource>;
-}
-impl ::windows::core::RuntimeName for IStorageProviderHandlerFactory {
-    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderHandlerFactory";
-}
-impl IStorageProviderHandlerFactory_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderHandlerFactory_Impl, const OFFSET: isize>() -> IStorageProviderHandlerFactory_Vtbl {
-        unsafe extern "system" fn GetStatusSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.GetStatusSource(::core::mem::transmute(&syncrootid)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStorageProviderHandlerFactory, OFFSET>(),
-            GetStatusSource: GetStatusSource::<Identity, Impl, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderHandlerFactory as ::windows::core::Interface>::IID
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderItemPropertySource_Impl: Sized {
     fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
@@ -89,22 +60,22 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
     }
 }
 #[cfg(feature = "Foundation")]
-pub trait IStorageProviderStatusSource_Impl: Sized {
-    fn GetStatus(&self) -> ::windows::core::Result<StorageProviderStatus>;
-    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+pub trait IStorageProviderStatusUISource_Impl: Sized {
+    fn GetStatusUI(&self) -> ::windows::core::Result<StorageProviderStatusUI>;
+    fn StatusUIChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveStatusUIChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
-impl ::windows::core::RuntimeName for IStorageProviderStatusSource {
-    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusSource";
+impl ::windows::core::RuntimeName for IStorageProviderStatusUISource {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISource";
 }
 #[cfg(feature = "Foundation")]
-impl IStorageProviderStatusSource_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>() -> IStorageProviderStatusSource_Vtbl {
-        unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+impl IStorageProviderStatusUISource_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>() -> IStorageProviderStatusUISource_Vtbl {
+        unsafe extern "system" fn GetStatusUI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStatus() {
+            match this.GetStatusUI() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -113,10 +84,10 @@ impl IStorageProviderStatusSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Changed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusUIChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Changed(::core::mem::transmute(&handler)) {
+            match this.StatusUIChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -125,20 +96,130 @@ impl IStorageProviderStatusSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveStatusUIChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveChanged(::core::mem::transmute(&token)).into()
+            this.RemoveStatusUIChanged(::core::mem::transmute(&token)).into()
         }
         Self {
-            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStorageProviderStatusSource, OFFSET>(),
-            GetStatus: GetStatus::<Identity, Impl, OFFSET>,
-            Changed: Changed::<Identity, Impl, OFFSET>,
-            RemoveChanged: RemoveChanged::<Identity, Impl, OFFSET>,
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStorageProviderStatusUISource, OFFSET>(),
+            GetStatusUI: GetStatusUI::<Identity, Impl, OFFSET>,
+            StatusUIChanged: StatusUIChanged::<Identity, Impl, OFFSET>,
+            RemoveStatusUIChanged: RemoveStatusUIChanged::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderStatusSource as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderStatusUISource as ::windows::core::Interface>::IID
+    }
+}
+pub trait IStorageProviderStatusUISourceFactory_Impl: Sized {
+    fn GetStatusUISource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusUISource>;
+}
+impl ::windows::core::RuntimeName for IStorageProviderStatusUISourceFactory {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderStatusUISourceFactory";
+}
+impl IStorageProviderStatusUISourceFactory_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISourceFactory_Impl, const OFFSET: isize>() -> IStorageProviderStatusUISourceFactory_Vtbl {
+        unsafe extern "system" fn GetStatusUISource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISourceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetStatusUISource(::core::mem::transmute(&syncrootid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStorageProviderStatusUISourceFactory, OFFSET>(),
+            GetStatusUISource: GetStatusUISource::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageProviderStatusUISourceFactory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Foundation")]
+pub trait IStorageProviderUICommand_Impl: Sized {
+    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Icon(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn State(&self) -> ::windows::core::Result<StorageProviderUICommandState>;
+    fn Invoke(&self) -> ::windows::core::Result<()>;
+}
+#[cfg(feature = "Foundation")]
+impl ::windows::core::RuntimeName for IStorageProviderUICommand {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUICommand";
+}
+#[cfg(feature = "Foundation")]
+impl IStorageProviderUICommand_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>() -> IStorageProviderUICommand_Vtbl {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Label() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Description() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Icon<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Icon() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut StorageProviderUICommandState) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.State() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Invoke().into()
+        }
+        Self {
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStorageProviderUICommand, OFFSET>(),
+            Label: Label::<Identity, Impl, OFFSET>,
+            Description: Description::<Identity, Impl, OFFSET>,
+            Icon: Icon::<Identity, Impl, OFFSET>,
+            State: State::<Identity, Impl, OFFSET>,
+            Invoke: Invoke::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStorageProviderUICommand as ::windows::core::Interface>::IID
     }
 }
 pub trait IStorageProviderUriSource_Impl: Sized {

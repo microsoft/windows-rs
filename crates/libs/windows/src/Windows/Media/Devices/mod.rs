@@ -70,6 +70,24 @@ pub struct IAdvancedVideoCaptureDeviceController10_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IAdvancedVideoCaptureDeviceController11(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IAdvancedVideoCaptureDeviceController11 {
+    type Vtable = IAdvancedVideoCaptureDeviceController11_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAdvancedVideoCaptureDeviceController11 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5b65ae2_3772_580c_a630_e75de9106904);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdvancedVideoCaptureDeviceController11_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Media_Capture")]
+    pub TryAcquireExclusiveControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Media_Capture"))]
+    TryAcquireExclusiveControl: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IAdvancedVideoCaptureDeviceController2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAdvancedVideoCaptureDeviceController2 {
     type Vtable = IAdvancedVideoCaptureDeviceController2_Vtbl;
@@ -5027,6 +5045,15 @@ impl VideoDeviceController {
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).CameraOcclusionInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CameraOcclusionInfo>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_Capture\"`*"]
+    #[cfg(feature = "Media_Capture")]
+    pub fn TryAcquireExclusiveControl(&self, deviceid: &::windows::core::HSTRING, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController11>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).TryAcquireExclusiveControl)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), mode, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn LowLagPhotoSequence(&self) -> ::windows::core::Result<LowLagPhotoSequenceControl> {

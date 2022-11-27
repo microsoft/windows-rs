@@ -140,6 +140,22 @@ pub struct IHttpClient2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IHttpClient3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IHttpClient3 {
+    type Vtable = IHttpClient3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHttpClient3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1172fd01_9899_4194_963f_8f9d72a7ec15);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpClient3_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub DefaultPrivacyAnnotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetDefaultPrivacyAnnotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IHttpClientFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IHttpClientFactory {
     type Vtable = IHttpClientFactory_Vtbl;
@@ -610,6 +626,22 @@ pub struct IHttpRequestMessage_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     SetRequestUri: usize,
     pub TransportInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHttpRequestMessage2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IHttpRequestMessage2 {
+    type Vtable = IHttpRequestMessage2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IHttpRequestMessage2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c60489_62c2_4a3f_9554_226e7c60bd96);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHttpRequestMessage2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub PrivacyAnnotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetPrivacyAnnotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1198,6 +1230,17 @@ impl HttpClient {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TrySendRequestAsync2)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(request), completionoption, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
+    }
+    pub fn DefaultPrivacyAnnotation(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IHttpClient3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).DefaultPrivacyAnnotation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetDefaultPrivacyAnnotation(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IHttpClient3>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).SetDefaultPrivacyAnnotation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     #[cfg(feature = "Web_Http_Filters")]
@@ -3043,6 +3086,17 @@ impl HttpRequestMessage {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TransportInformation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpTransportInformation>(result__)
         }
+    }
+    pub fn PrivacyAnnotation(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IHttpRequestMessage2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).PrivacyAnnotation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetPrivacyAnnotation(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IHttpRequestMessage2>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).SetPrivacyAnnotation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

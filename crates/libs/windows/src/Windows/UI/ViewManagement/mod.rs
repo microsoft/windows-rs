@@ -3647,6 +3647,40 @@ unsafe impl ::windows::core::RuntimeType for HandPreference {
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ScreenCaptureDisabledBehavior(pub i32);
+impl ScreenCaptureDisabledBehavior {
+    pub const DrawAsBlack: Self = Self(0i32);
+    pub const ExcludeFromCapture: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ScreenCaptureDisabledBehavior {}
+impl ::core::clone::Clone for ScreenCaptureDisabledBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ScreenCaptureDisabledBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ScreenCaptureDisabledBehavior {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ScreenCaptureDisabledBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScreenCaptureDisabledBehavior").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ScreenCaptureDisabledBehavior {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
     pub const Background: Self = Self(0i32);

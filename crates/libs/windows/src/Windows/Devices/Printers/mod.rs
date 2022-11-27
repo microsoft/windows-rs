@@ -294,6 +294,42 @@ pub struct IIppPrintDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IIppPrintDevice2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IIppPrintDevice2 {
+    type Vtable = IIppPrintDevice2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IIppPrintDevice2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7c844c9_9d21_5c63_ac20_3676915be2d7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIppPrintDevice2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub GetMaxSupportedPdfSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub GetMaxSupportedPdfVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IsPdlPassthroughSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdlcontenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub GetPdlPassthroughProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IIppPrintDeviceStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IIppPrintDeviceStatics {
+    type Vtable = IIppPrintDeviceStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IIppPrintDeviceStatics {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIppPrintDeviceStatics_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FromPrinterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsIppPrinter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IIppResolution(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIppResolution {
     type Vtable = IIppResolution_Vtbl;
@@ -373,6 +409,70 @@ unsafe impl ::windows::core::Interface for IIppTextWithLanguageFactory {
 pub struct IIppTextWithLanguageFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPageConfigurationSettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IPageConfigurationSettings {
+    type Vtable = IPageConfigurationSettings_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPageConfigurationSettings {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPageConfigurationSettings_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub OrientationSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PageConfigurationSource) -> ::windows::core::HRESULT,
+    pub SetOrientationSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PageConfigurationSource) -> ::windows::core::HRESULT,
+    pub SizeSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PageConfigurationSource) -> ::windows::core::HRESULT,
+    pub SetSizeSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PageConfigurationSource) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPdlPassthroughProvider(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IPdlPassthroughProvider {
+    type Vtable = IPdlPassthroughProvider_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPdlPassthroughProvider {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23c71dd2_6117_553f_9378_180af5849a49);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPdlPassthroughProvider_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedPdlContentTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedPdlContentTypes: usize,
+    #[cfg(feature = "Graphics_Printing")]
+    pub StartPrintJobWithTaskOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pdlcontenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, taskoptions: *mut ::core::ffi::c_void, pageconfigurationsettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing"))]
+    StartPrintJobWithTaskOptions: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub StartPrintJobWithPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, pdlcontenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, printticket: *mut ::core::ffi::c_void, pageconfigurationsettings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    StartPrintJobWithPrintTicket: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPdlPassthroughTarget(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IPdlPassthroughTarget {
+    type Vtable = IPdlPassthroughTarget_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPdlPassthroughTarget {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9840be79_67f8_5385_a5b9_e8c96e0fca76);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPdlPassthroughTarget_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub PrintJobId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetOutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetOutputStream: usize,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1206,6 +1306,63 @@ impl IppPrintDevice {
             (::windows::core::Vtable::vtable(this).SetPrinterAttributes)(::windows::core::Vtable::as_raw(this), printerattributes.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IppSetAttributesResult>(result__)
         }
     }
+    pub fn GetMaxSupportedPdfSize(&self) -> ::windows::core::Result<u64> {
+        let this = &::windows::core::Interface::cast::<IIppPrintDevice2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetMaxSupportedPdfSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
+        }
+    }
+    pub fn GetMaxSupportedPdfVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IIppPrintDevice2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetMaxSupportedPdfVersion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn IsPdlPassthroughSupported(&self, pdlcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IIppPrintDevice2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsPdlPassthroughSupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(pdlcontenttype), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn GetPdlPassthroughProvider(&self) -> ::windows::core::Result<PdlPassthroughProvider> {
+        let this = &::windows::core::Interface::cast::<IIppPrintDevice2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetPdlPassthroughProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PdlPassthroughProvider>(result__)
+        }
+    }
+    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IIppPrintDeviceStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetDeviceSelector)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<IppPrintDevice> {
+        Self::IIppPrintDeviceStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).FromId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<IppPrintDevice>(result__)
+        })
+    }
+    pub fn FromPrinterName(printername: &::windows::core::HSTRING) -> ::windows::core::Result<IppPrintDevice> {
+        Self::IIppPrintDeviceStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).FromPrinterName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printername), result__.as_mut_ptr()).from_abi::<IppPrintDevice>(result__)
+        })
+    }
+    pub fn IsIppPrinter(printername: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
+        Self::IIppPrintDeviceStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsIppPrinter)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printername), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IIppPrintDeviceStatics<R, F: FnOnce(&IIppPrintDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<IppPrintDevice, IIppPrintDeviceStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
 impl ::core::clone::Clone for IppPrintDevice {
     fn clone(&self) -> Self {
@@ -1435,6 +1592,234 @@ impl ::windows::core::RuntimeName for IppTextWithLanguage {
 ::windows::core::interface_hierarchy!(IppTextWithLanguage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IppTextWithLanguage {}
 unsafe impl ::core::marker::Sync for IppTextWithLanguage {}
+#[doc = "*Required features: `\"Devices_Printers\"`*"]
+#[repr(transparent)]
+pub struct PageConfigurationSettings(::windows::core::IUnknown);
+impl PageConfigurationSettings {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<PageConfigurationSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn OrientationSource(&self) -> ::windows::core::Result<PageConfigurationSource> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).OrientationSource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PageConfigurationSource>(result__)
+        }
+    }
+    pub fn SetOrientationSource(&self, value: PageConfigurationSource) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).SetOrientationSource)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    pub fn SizeSource(&self) -> ::windows::core::Result<PageConfigurationSource> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).SizeSource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PageConfigurationSource>(result__)
+        }
+    }
+    pub fn SetSizeSource(&self, value: PageConfigurationSource) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).SetSizeSource)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for PageConfigurationSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PageConfigurationSettings {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PageConfigurationSettings {}
+impl ::core::fmt::Debug for PageConfigurationSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PageConfigurationSettings").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PageConfigurationSettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PageConfigurationSettings;{b6fc1e02-5331-54ff-95a0-1fcb76bb97a9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for PageConfigurationSettings {
+    type Vtable = IPageConfigurationSettings_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PageConfigurationSettings {
+    const IID: ::windows::core::GUID = <IPageConfigurationSettings as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for PageConfigurationSettings {
+    const NAME: &'static str = "Windows.Devices.Printers.PageConfigurationSettings";
+}
+::windows::core::interface_hierarchy!(PageConfigurationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+unsafe impl ::core::marker::Send for PageConfigurationSettings {}
+unsafe impl ::core::marker::Sync for PageConfigurationSettings {}
+#[doc = "*Required features: `\"Devices_Printers\"`*"]
+#[repr(transparent)]
+pub struct PdlPassthroughProvider(::windows::core::IUnknown);
+impl PdlPassthroughProvider {
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedPdlContentTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).SupportedPdlContentTypes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Graphics_Printing\"`*"]
+    #[cfg(feature = "Graphics_Printing")]
+    pub fn StartPrintJobWithTaskOptions(&self, jobname: &::windows::core::HSTRING, pdlcontenttype: &::windows::core::HSTRING, taskoptions: &super::super::Graphics::Printing::PrintTaskOptions, pageconfigurationsettings: &PageConfigurationSettings) -> ::windows::core::Result<PdlPassthroughTarget> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).StartPrintJobWithTaskOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), ::core::mem::transmute_copy(taskoptions), ::core::mem::transmute_copy(pageconfigurationsettings), result__.as_mut_ptr()).from_abi::<PdlPassthroughTarget>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn StartPrintJobWithPrintTicket<'a, P0, E0>(&self, jobname: &::windows::core::HSTRING, pdlcontenttype: &::windows::core::HSTRING, printticket: P0, pageconfigurationsettings: &PageConfigurationSettings) -> ::windows::core::Result<PdlPassthroughTarget>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).StartPrintJobWithPrintTicket)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), printticket.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(pageconfigurationsettings), result__.as_mut_ptr()).from_abi::<PdlPassthroughTarget>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for PdlPassthroughProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PdlPassthroughProvider {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PdlPassthroughProvider {}
+impl ::core::fmt::Debug for PdlPassthroughProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdlPassthroughProvider").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PdlPassthroughProvider {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughProvider;{23c71dd2-6117-553f-9378-180af5849a49})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for PdlPassthroughProvider {
+    type Vtable = IPdlPassthroughProvider_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PdlPassthroughProvider {
+    const IID: ::windows::core::GUID = <IPdlPassthroughProvider as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for PdlPassthroughProvider {
+    const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughProvider";
+}
+::windows::core::interface_hierarchy!(PdlPassthroughProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+unsafe impl ::core::marker::Send for PdlPassthroughProvider {}
+unsafe impl ::core::marker::Sync for PdlPassthroughProvider {}
+#[doc = "*Required features: `\"Devices_Printers\"`*"]
+#[repr(transparent)]
+pub struct PdlPassthroughTarget(::windows::core::IUnknown);
+impl PdlPassthroughTarget {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+    }
+    pub fn PrintJobId(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).PrintJobId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetOutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetOutputStream)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+        }
+    }
+    pub fn Submit(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).Submit)(::windows::core::Vtable::as_raw(this)).ok() }
+    }
+}
+impl ::core::clone::Clone for PdlPassthroughTarget {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for PdlPassthroughTarget {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for PdlPassthroughTarget {}
+impl ::core::fmt::Debug for PdlPassthroughTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdlPassthroughTarget").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PdlPassthroughTarget {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughTarget;{9840be79-67f8-5385-a5b9-e8c96e0fca76})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for PdlPassthroughTarget {
+    type Vtable = IPdlPassthroughTarget_Vtbl;
+}
+unsafe impl ::windows::core::Interface for PdlPassthroughTarget {
+    const IID: ::windows::core::GUID = <IPdlPassthroughTarget as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for PdlPassthroughTarget {
+    const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughTarget";
+}
+::windows::core::interface_hierarchy!(PdlPassthroughTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<PdlPassthroughTarget> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: PdlPassthroughTarget) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&PdlPassthroughTarget> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PdlPassthroughTarget) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&PdlPassthroughTarget> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PdlPassthroughTarget) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for PdlPassthroughTarget {}
+unsafe impl ::core::marker::Sync for PdlPassthroughTarget {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
 pub struct Print3DDevice(::windows::core::IUnknown);
@@ -1695,6 +2080,40 @@ impl ::core::fmt::Debug for IppResolutionUnit {
 }
 unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Printers\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PageConfigurationSource(pub i32);
+impl PageConfigurationSource {
+    pub const PrintJobConfiguration: Self = Self(0i32);
+    pub const PdlContent: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PageConfigurationSource {}
+impl ::core::clone::Clone for PageConfigurationSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PageConfigurationSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PageConfigurationSource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PageConfigurationSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PageConfigurationSource").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PageConfigurationSource {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)

@@ -151,7 +151,7 @@ pub struct IBluetoothLEAdvertisementDataTypesStatics_Vtbl {
     pub ShortenedLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub CompleteLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub TxPowerLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
-    pub SlaveConnectionIntervalRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
+    pub PeripheralConnectionIntervalRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub ServiceSolicitation16BitUuids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub ServiceSolicitation32BitUuids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
     pub ServiceSolicitation128BitUuids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows::core::HRESULT,
@@ -860,10 +860,10 @@ impl BluetoothLEAdvertisementDataTypes {
             (::windows::core::Vtable::vtable(this).TxPowerLevel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
-    pub fn SlaveConnectionIntervalRange() -> ::windows::core::Result<u8> {
+    pub fn PeripheralConnectionIntervalRange() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SlaveConnectionIntervalRange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
+            (::windows::core::Vtable::vtable(this).PeripheralConnectionIntervalRange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn ServiceSolicitation16BitUuids() -> ::windows::core::Result<u8> {

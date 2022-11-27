@@ -1465,6 +1465,21 @@ pub struct ICompositionObject4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct ICompositionObject5(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for ICompositionObject5 {
+    type Vtable = ICompositionObject5_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositionObject5 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d7f391b_a130_5265_a62b_60b8e668965a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompositionObject5_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub StartAnimationWithController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: *mut ::core::ffi::c_void, animationcontroller: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct ICompositionObjectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICompositionObjectFactory {
     type Vtable = ICompositionObjectFactory_Vtbl;
@@ -2588,6 +2603,21 @@ pub struct ICompositor7_Vtbl {
     pub CreateRectangleClipWithSidesAndRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, topleftradius: super::super::Foundation::Numerics::Vector2, toprightradius: super::super::Foundation::Numerics::Vector2, bottomrightradius: super::super::Foundation::Numerics::Vector2, bottomleftradius: super::super::Foundation::Numerics::Vector2, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     CreateRectangleClipWithSidesAndRadius: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICompositor8(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for ICompositor8 {
+    type Vtable = ICompositor8_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ICompositor8 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a0bdee2_fe7b_5f62_a366_9cf8effe2112);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompositor8_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub CreateAnimationController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4236,6 +4266,13 @@ impl AmbientLight {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for AmbientLight {
     fn clone(&self) -> Self {
@@ -4498,6 +4535,13 @@ impl AnimationController {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc(hidden)]
     pub fn IAnimationControllerStatics<R, F: FnOnce(&IAnimationControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<AnimationController, IAnimationControllerStatics> = ::windows::core::FactoryCache::new();
@@ -4722,6 +4766,13 @@ impl AnimationPropertyInfo {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for AnimationPropertyInfo {
     fn clone(&self) -> Self {
@@ -4929,6 +4980,13 @@ impl BackEasingFunction {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for BackEasingFunction {
@@ -5233,6 +5291,13 @@ impl BooleanKeyFrameAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5601,6 +5666,13 @@ impl BounceEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for BounceEasingFunction {
     fn clone(&self) -> Self {
@@ -5922,6 +5994,13 @@ impl BounceScalarNaturalMotionAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -6379,6 +6458,13 @@ impl BounceVector2NaturalMotionAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -6841,6 +6927,13 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
@@ -7196,6 +7289,13 @@ impl CircleEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CircleEasingFunction {
     fn clone(&self) -> Self {
@@ -7517,6 +7617,13 @@ impl ColorKeyFrameAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7955,6 +8062,13 @@ impl CompositionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionAnimation {
     fn clone(&self) -> Self {
@@ -8192,6 +8306,13 @@ impl CompositionAnimationGroup {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -8453,6 +8574,13 @@ impl CompositionBackdropBrush {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionBackdropBrush {
     fn clone(&self) -> Self {
@@ -8662,6 +8790,13 @@ impl CompositionBatchCompletedEventArgs {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionBatchCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -8855,6 +8990,13 @@ impl CompositionBrush {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionBrush {
@@ -9227,6 +9369,13 @@ impl CompositionClip {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionClip {
     fn clone(&self) -> Self {
@@ -9431,6 +9580,13 @@ impl CompositionColorBrush {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionColorBrush {
@@ -9662,6 +9818,13 @@ impl CompositionColorGradientStop {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionColorGradientStop {
@@ -10082,6 +10245,13 @@ impl CompositionCommitBatch {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionCommitBatch {
     fn clone(&self) -> Self {
@@ -10284,6 +10454,13 @@ impl CompositionContainerShape {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -10642,6 +10819,13 @@ impl CompositionDrawingSurface {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionDrawingSurface {
     fn clone(&self) -> Self {
@@ -10923,6 +11107,13 @@ impl CompositionEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc(hidden)]
     pub fn ICompositionEasingFunctionStatics<R, F: FnOnce(&ICompositionEasingFunctionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<CompositionEasingFunction, ICompositionEasingFunctionStatics> = ::windows::core::FactoryCache::new();
@@ -11135,6 +11326,13 @@ impl CompositionEffectBrush {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionEffectBrush {
@@ -11365,6 +11563,13 @@ impl CompositionEffectFactory {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionEffectFactory {
@@ -11703,6 +11908,13 @@ impl CompositionEllipseGeometry {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionEllipseGeometry {
     fn clone(&self) -> Self {
@@ -12034,6 +12246,13 @@ impl CompositionGeometricClip {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionGeometricClip {
     fn clone(&self) -> Self {
@@ -12275,6 +12494,13 @@ impl CompositionGeometry {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionGeometry {
@@ -12607,6 +12833,13 @@ impl CompositionGradientBrush {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionGradientBrush {
     fn clone(&self) -> Self {
@@ -12883,6 +13116,13 @@ impl CompositionGraphicsDevice {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionGraphicsDevice {
     fn clone(&self) -> Self {
@@ -13101,6 +13341,13 @@ impl CompositionLight {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionLight {
@@ -13358,6 +13605,13 @@ impl CompositionLineGeometry {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionLineGeometry {
@@ -13735,6 +13989,13 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionLinearGradientBrush {
     fn clone(&self) -> Self {
@@ -13987,6 +14248,13 @@ impl CompositionMaskBrush {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionMaskBrush {
     fn clone(&self) -> Self {
@@ -14236,6 +14504,13 @@ impl CompositionMipmapSurface {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionMipmapSurface {
@@ -14579,6 +14854,13 @@ impl CompositionNineGridBrush {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionNineGridBrush {
     fn clone(&self) -> Self {
@@ -14787,6 +15069,13 @@ impl CompositionObject {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn StartAnimationWithIAnimationObject<'a, P0, E0, P1>(target: P0, propertyname: &::windows::core::HSTRING, animation: P1) -> ::windows::core::Result<()>
     where
@@ -15101,6 +15390,13 @@ impl CompositionPathGeometry {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Path(&self) -> ::windows::core::Result<CompositionPath> {
         let this = self;
         unsafe {
@@ -15320,6 +15616,13 @@ impl CompositionProjectedShadow {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn BlurRadiusMultiplier(&self) -> ::windows::core::Result<f32> {
         let this = self;
@@ -15576,6 +15879,13 @@ impl CompositionProjectedShadowCaster {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Brush(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
@@ -15797,6 +16107,13 @@ impl CompositionProjectedShadowCasterCollection {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Count(&self) -> ::windows::core::Result<i32> {
         let this = self;
@@ -16081,6 +16398,13 @@ impl CompositionProjectedShadowReceiver {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn ReceivingVisual(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
@@ -16288,6 +16612,13 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Add(&self, value: &CompositionProjectedShadowReceiver) -> ::windows::core::Result<()> {
         let this = self;
@@ -16548,6 +16879,13 @@ impl CompositionPropertySet {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn InsertColor(&self, propertyname: &::windows::core::HSTRING, value: super::Color) -> ::windows::core::Result<()> {
         let this = self;
@@ -17003,6 +17341,13 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn EllipseCenter(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -17305,6 +17650,13 @@ impl CompositionRectangleGeometry {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -17577,6 +17929,13 @@ impl CompositionRoundedRectangleGeometry {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CornerRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -17831,6 +18190,13 @@ impl CompositionScopedBatch {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn IsActive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -18066,6 +18432,13 @@ impl CompositionShadow {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionShadow {
     fn clone(&self) -> Self {
@@ -18259,6 +18632,13 @@ impl CompositionShape {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -18537,6 +18917,13 @@ impl CompositionShapeCollection {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -18916,6 +19303,13 @@ impl CompositionSpriteShape {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -19349,6 +19743,13 @@ impl CompositionStrokeDashArray {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<f32>> {
@@ -19715,6 +20116,13 @@ impl CompositionSurfaceBrush {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn BitmapInterpolationMode(&self) -> ::windows::core::Result<CompositionBitmapInterpolationMode> {
         let this = self;
@@ -20092,6 +20500,13 @@ impl CompositionTarget {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Root(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
@@ -20300,6 +20715,13 @@ impl CompositionTransform {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for CompositionTransform {
     fn clone(&self) -> Self {
@@ -20493,6 +20915,13 @@ impl CompositionViewBox {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn HorizontalAlignmentRatio(&self) -> ::windows::core::Result<f32> {
         let this = self;
@@ -20817,6 +21246,13 @@ impl CompositionVirtualDrawingSurface {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Trim(&self, rects: &[super::super::Graphics::RectInt32]) -> ::windows::core::Result<()> {
@@ -21050,6 +21486,13 @@ impl CompositionVisualSurface {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn SourceVisual(&self) -> ::windows::core::Result<Visual> {
         let this = self;
@@ -21770,6 +22213,13 @@ impl Compositor {
             (::windows::core::Vtable::vtable(this).CreateRectangleClipWithSidesAndRadius)(::windows::core::Vtable::as_raw(this), left, top, right, bottom, topleftradius, toprightradius, bottomrightradius, bottomleftradius, result__.as_mut_ptr()).from_abi::<RectangleClip>(result__)
         }
     }
+    pub fn CreateAnimationController(&self) -> ::windows::core::Result<AnimationController> {
+        let this = &::windows::core::Interface::cast::<ICompositor8>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).CreateAnimationController)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
+        }
+    }
     pub fn MaxGlobalPlaybackRate() -> ::windows::core::Result<f32> {
         Self::ICompositorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -21988,6 +22438,13 @@ impl ContainerVisual {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = self;
@@ -22489,6 +22946,13 @@ impl CubicBezierEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ControlPoint1(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -22715,6 +23179,13 @@ impl DelegatedInkTrailVisual {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -23281,6 +23752,13 @@ impl DistantLight {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Color(&self) -> ::windows::core::Result<super::Color> {
         let this = self;
         unsafe {
@@ -23540,6 +24018,13 @@ impl DropShadow {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn BlurRadius(&self) -> ::windows::core::Result<f32> {
         let this = self;
@@ -23823,6 +24308,13 @@ impl ElasticEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode> {
         let this = self;
         unsafe {
@@ -24052,6 +24544,13 @@ impl ExponentialEasingFunction {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode> {
         let this = self;
@@ -24367,6 +24866,13 @@ impl ExpressionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Expression(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -24605,6 +25111,13 @@ impl ImplicitAnimationCollection {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -24931,6 +25444,13 @@ impl InitialValueExpressionCollection {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -25366,6 +25886,13 @@ impl InsetClip {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn BottomInset(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -25710,6 +26237,13 @@ impl KeyFrameAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
@@ -26040,6 +26574,13 @@ impl LayerVisual {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
@@ -26581,6 +27122,13 @@ impl LinearEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
 }
 impl ::core::clone::Clone for LinearEasingFunction {
     fn clone(&self) -> Self {
@@ -26880,6 +27428,13 @@ impl NaturalMotionAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = self;
@@ -27236,6 +27791,13 @@ impl PathKeyFrameAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -27619,6 +28181,13 @@ impl PointLight {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Color(&self) -> ::windows::core::Result<super::Color> {
         let this = self;
         unsafe {
@@ -27934,6 +28503,13 @@ impl PowerEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode> {
         let this = self;
         unsafe {
@@ -28247,6 +28823,13 @@ impl QuaternionKeyFrameAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -28706,6 +29289,13 @@ impl RectangleClip {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Bottom(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -29018,6 +29608,13 @@ impl RedirectVisual {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
@@ -29548,6 +30145,13 @@ impl RenderingDeviceReplacedEventArgs {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn GraphicsDevice(&self) -> ::windows::core::Result<CompositionGraphicsDevice> {
         let this = self;
         unsafe {
@@ -29839,6 +30443,13 @@ impl ScalarKeyFrameAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -30288,6 +30899,13 @@ impl ScalarNaturalMotionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
@@ -30616,6 +31234,13 @@ impl ShapeVisual {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
@@ -31152,6 +31777,13 @@ impl SineEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Mode(&self) -> ::windows::core::Result<CompositionEasingFunctionMode> {
         let this = self;
         unsafe {
@@ -31392,6 +32024,13 @@ impl SpotLight {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn ConstantAttenuation(&self) -> ::windows::core::Result<f32> {
         let this = self;
@@ -31880,6 +32519,13 @@ impl SpringScalarNaturalMotionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
@@ -32340,6 +32986,13 @@ impl SpringVector2NaturalMotionAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -32806,6 +33459,13 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
@@ -33179,6 +33839,13 @@ impl SpriteVisual {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
@@ -33723,6 +34390,13 @@ impl StepEasingFunction {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn FinalStep(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -34077,6 +34751,13 @@ impl Vector2KeyFrameAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -34530,6 +35211,13 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
@@ -34953,6 +35641,13 @@ impl Vector3KeyFrameAnimation {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -35406,6 +36101,13 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
@@ -35830,6 +36532,13 @@ impl Vector4KeyFrameAnimation {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
@@ -36190,6 +36899,13 @@ impl Visual {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -36669,6 +37385,13 @@ impl VisualCollection {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
@@ -36957,6 +37680,13 @@ impl VisualUnorderedCollection {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
+    }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

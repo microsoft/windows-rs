@@ -253,6 +253,29 @@ pub struct ISharedModeSettingsStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct ISmartAppControlPolicyStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for ISmartAppControlPolicyStatics {
+    type Vtable = ISmartAppControlPolicyStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for ISmartAppControlPolicyStatics {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff8c75b_073e_5015_8d98_5ff224180a0b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISmartAppControlPolicyStatics_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Changed: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct ISystemIdentificationInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ISystemIdentificationInfo {
     type Vtable = ISystemIdentificationInfo_Vtbl;
@@ -293,7 +316,7 @@ unsafe impl ::windows::core::Vtable for ISystemSetupInfoStatics {
     type Vtable = ISystemSetupInfoStatics_Vtbl;
 }
 unsafe impl ::windows::core::Interface for ISystemSetupInfoStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9620a8_1d88_5e2d_a324_a543af4247ee);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8366a4b_fb6a_4571_be0a_9a0f67954123);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -821,6 +844,37 @@ impl SharedModeSettings {
 }
 impl ::windows::core::RuntimeName for SharedModeSettings {
     const NAME: &'static str = "Windows.System.Profile.SharedModeSettings";
+}
+#[doc = "*Required features: `\"System_Profile\"`*"]
+pub struct SmartAppControlPolicy;
+impl SmartAppControlPolicy {
+    pub fn IsEnabled() -> ::windows::core::Result<bool> {
+        Self::ISmartAppControlPolicyStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Changed(handler: &super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        Self::ISmartAppControlPolicyStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::ISmartAppControlPolicyStatics(|this| unsafe { (::windows::core::Vtable::vtable(this).RemoveChanged)(::windows::core::Vtable::as_raw(this), token).ok() })
+    }
+    #[doc(hidden)]
+    pub fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<SmartAppControlPolicy, ISmartAppControlPolicyStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for SmartAppControlPolicy {
+    const NAME: &'static str = "Windows.System.Profile.SmartAppControlPolicy";
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct SystemIdentification;

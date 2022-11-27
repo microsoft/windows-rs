@@ -7608,6 +7608,138 @@ unsafe impl ::core::marker::Send for UserNotificationChangedTrigger {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedTrigger {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
+pub struct WiFiOnDemandHotspotConnectTrigger(::windows::core::IUnknown);
+impl WiFiOnDemandHotspotConnectTrigger {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<WiFiOnDemandHotspotConnectTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for WiFiOnDemandHotspotConnectTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for WiFiOnDemandHotspotConnectTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for WiFiOnDemandHotspotConnectTrigger {}
+impl ::core::fmt::Debug for WiFiOnDemandHotspotConnectTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiOnDemandHotspotConnectTrigger").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for WiFiOnDemandHotspotConnectTrigger {
+    type Vtable = IBackgroundTrigger_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotConnectTrigger {
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
+}
+::windows::core::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+impl ::core::convert::TryFrom<WiFiOnDemandHotspotConnectTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: WiFiOnDemandHotspotConnectTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&WiFiOnDemandHotspotConnectTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WiFiOnDemandHotspotConnectTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&WiFiOnDemandHotspotConnectTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WiFiOnDemandHotspotConnectTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for WiFiOnDemandHotspotConnectTrigger {}
+unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotConnectTrigger {}
+#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
+#[repr(transparent)]
+pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(::windows::core::IUnknown);
+impl WiFiOnDemandHotspotUpdateMetadataTrigger {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<WiFiOnDemandHotspotUpdateMetadataTrigger, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for WiFiOnDemandHotspotUpdateMetadataTrigger {}
+impl ::core::fmt::Debug for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiOnDemandHotspotUpdateMetadataTrigger").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    type Vtable = IBackgroundTrigger_Vtbl;
+}
+unsafe impl ::windows::core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";
+}
+::windows::core::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+impl ::core::convert::TryFrom<WiFiOnDemandHotspotUpdateMetadataTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: WiFiOnDemandHotspotUpdateMetadataTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&WiFiOnDemandHotspotUpdateMetadataTrigger> for IBackgroundTrigger {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WiFiOnDemandHotspotUpdateMetadataTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&WiFiOnDemandHotspotUpdateMetadataTrigger> for ::windows::core::InParam<'a, IBackgroundTrigger> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WiFiOnDemandHotspotUpdateMetadataTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for WiFiOnDemandHotspotUpdateMetadataTrigger {}
+unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotUpdateMetadataTrigger {}
+#[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
+#[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {

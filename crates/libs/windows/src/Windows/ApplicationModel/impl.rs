@@ -62,6 +62,35 @@ impl ILeavingBackgroundEventArgs_Vtbl {
         iid == &<ILeavingBackgroundEventArgs as ::windows::core::Interface>::IID
     }
 }
+pub trait IPackageCatalogStatics2_Impl: Sized {
+    fn OpenForPackage(&self, package: &::core::option::Option<Package>) -> ::windows::core::Result<PackageCatalog>;
+}
+impl ::windows::core::RuntimeName for IPackageCatalogStatics2 {
+    const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
+}
+impl IPackageCatalogStatics2_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> IPackageCatalogStatics2_Vtbl {
+        unsafe extern "system" fn OpenForPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageCatalogStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.OpenForPackage(::core::mem::transmute(&package)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPackageCatalogStatics2, OFFSET>(),
+            OpenForPackage: OpenForPackage::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPackageCatalogStatics2 as ::windows::core::Interface>::IID
+    }
+}
 pub trait ISuspendingDeferral_Impl: Sized {
     fn Complete(&self) -> ::windows::core::Result<()>;
 }

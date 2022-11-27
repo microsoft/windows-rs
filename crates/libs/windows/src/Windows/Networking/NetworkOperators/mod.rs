@@ -71,6 +71,24 @@ pub struct IESim2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IESim3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IESim3 {
+    type Vtable = IESim3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IESim3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe1edf45_01b8_5d31_b8d3_d9cbebb2b831);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IESim3_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation")]
+    pub SlotIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SlotIndex: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IESimAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IESimAddedEventArgs {
     type Vtable = IESimAddedEventArgs_Vtbl;
@@ -1413,6 +1431,21 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IMobileBroadbandDeviceServiceTriggerDetails2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IMobileBroadbandDeviceServiceTriggerDetails2 {
+    type Vtable = IMobileBroadbandDeviceServiceTriggerDetails2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandDeviceServiceTriggerDetails2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd83d5f16_336a_553f_94bb_0cd1a2ff0c81);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMobileBroadbandDeviceServiceTriggerDetails2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub EventId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IMobileBroadbandModem(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IMobileBroadbandModem {
     type Vtable = IMobileBroadbandModem_Vtbl;
@@ -1492,6 +1525,30 @@ pub struct IMobileBroadbandModem3_Vtbl {
     pub RemoveIsInEmergencyCallModeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveIsInEmergencyCallModeChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IMobileBroadbandModem4(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IMobileBroadbandModem4 {
+    type Vtable = IMobileBroadbandModem4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandModem4 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a0398c2_91be_412b_b569_586e9f0030d1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMobileBroadbandModem4_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation")]
+    pub SetIsPassthroughEnabledWithSlotIndexAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, slotindex: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetIsPassthroughEnabledWithSlotIndexAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetIsPassthroughEnabledWithSlotIndexAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, slotindex: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetIsPassthroughEnabledWithSlotIndexAsync: usize,
+    pub SetIsPassthroughEnabledWithSlotIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, slotindex: i32, result__: *mut MobileBroadbandModemStatus) -> ::windows::core::HRESULT,
+    pub GetIsPassthroughEnabledWithSlotIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, slotindex: i32, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1936,6 +1993,21 @@ pub struct IMobileBroadbandSlotInfo_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MobileBroadbandSlotState) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IMobileBroadbandSlotInfo2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IMobileBroadbandSlotInfo2 {
+    type Vtable = IMobileBroadbandSlotInfo2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMobileBroadbandSlotInfo2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x393cb039_ca44_524c_822d_83a3620f0efc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMobileBroadbandSlotInfo2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub IccId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2671,6 +2743,15 @@ impl ESim {
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SlotIndex(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
+        let this = &::windows::core::Interface::cast::<IESim3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).SlotIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -5956,6 +6037,13 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
             (::windows::core::Vtable::vtable(this).ReceivedData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    pub fn EventId(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceServiceTriggerDetails2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).EventId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceTriggerDetails {
     fn clone(&self) -> Self {
@@ -6120,6 +6208,38 @@ impl MobileBroadbandModem {
     pub fn RemoveIsInEmergencyCallModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveIsInEmergencyCallModeChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
+        let this = &::windows::core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).SetIsPassthroughEnabledWithSlotIndexAsync)(::windows::core::Vtable::as_raw(this), value, slotindex, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetIsPassthroughEnabledWithSlotIndexAsync(&self, slotindex: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        let this = &::windows::core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetIsPassthroughEnabledWithSlotIndexAsync)(::windows::core::Vtable::as_raw(this), slotindex, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        }
+    }
+    pub fn SetIsPassthroughEnabledWithSlotIndex(&self, value: bool, slotindex: i32) -> ::windows::core::Result<MobileBroadbandModemStatus> {
+        let this = &::windows::core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).SetIsPassthroughEnabledWithSlotIndex)(::windows::core::Vtable::as_raw(this), value, slotindex, result__.as_mut_ptr()).from_abi::<MobileBroadbandModemStatus>(result__)
+        }
+    }
+    pub fn GetIsPassthroughEnabledWithSlotIndex(&self, slotindex: i32) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IMobileBroadbandModem4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetIsPassthroughEnabledWithSlotIndex)(::windows::core::Vtable::as_raw(this), slotindex, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
@@ -7303,6 +7423,13 @@ impl MobileBroadbandSlotInfo {
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MobileBroadbandSlotState>(result__)
+        }
+    }
+    pub fn IccId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IMobileBroadbandSlotInfo2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IccId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }

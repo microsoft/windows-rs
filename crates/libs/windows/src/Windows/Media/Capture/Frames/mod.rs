@@ -491,6 +491,21 @@ pub struct IMediaFrameSourceInfo3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IMediaFrameSourceInfo4(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IMediaFrameSourceInfo4 {
+    type Vtable = IMediaFrameSourceInfo4_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IMediaFrameSourceInfo4 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4817d721_85eb_470c_8f37_43ca5498e41d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMediaFrameSourceInfo4_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub IsShareable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IMultiSourceMediaFrameArrivedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IMultiSourceMediaFrameArrivedEventArgs {
     type Vtable = IMultiSourceMediaFrameArrivedEventArgs_Vtbl;
@@ -1747,6 +1762,13 @@ impl MediaFrameSourceInfo {
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).GetRelativePanel)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(displayregion), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Enumeration::Panel>(result__)
+        }
+    }
+    pub fn IsShareable(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IMediaFrameSourceInfo4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsShareable)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }

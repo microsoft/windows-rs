@@ -743,7 +743,10 @@ unsafe impl ::windows::core::Interface for IPhoneLine2 {
 #[doc(hidden)]
 pub struct IPhoneLine2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
     pub EnableTextReply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    EnableTextReply: usize,
     pub TransportDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -3215,6 +3218,8 @@ impl PhoneLine {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).DialWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options)).ok() }
     }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
     pub fn EnableTextReply(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhoneLine2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).EnableTextReply)(::windows::core::Vtable::as_raw(this), value).ok() }

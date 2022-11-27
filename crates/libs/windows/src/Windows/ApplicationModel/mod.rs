@@ -360,6 +360,45 @@ pub struct IEnteredBackgroundEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IFindRelatedPackagesOptions(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IFindRelatedPackagesOptions {
+    type Vtable = IFindRelatedPackagesOptions_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFindRelatedPackagesOptions {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41dd7eea_b335_521f_b96c_5ea07f5b7329);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFindRelatedPackagesOptions_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub Relationship: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PackageRelationship) -> ::windows::core::HRESULT,
+    pub SetRelationship: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PackageRelationship) -> ::windows::core::HRESULT,
+    pub IncludeFrameworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIncludeFrameworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub IncludeHostRuntimes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIncludeHostRuntimes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub IncludeOptionals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIncludeOptionals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub IncludeResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIncludeResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFindRelatedPackagesOptionsFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IFindRelatedPackagesOptionsFactory {
+    type Vtable = IFindRelatedPackagesOptionsFactory_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFindRelatedPackagesOptionsFactory {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d17254_a4fd_55c4_98cf_f2710b7d8be2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFindRelatedPackagesOptionsFactory_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationship: PackageRelationship, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IFullTrustProcessLaunchResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IFullTrustProcessLaunchResult {
     type Vtable = IFullTrustProcessLaunchResult_Vtbl;
@@ -723,6 +762,25 @@ pub struct IPackage8_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IPackage9(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IPackage9 {
+    type Vtable = IPackage9_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPackage9 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5ab224f_d7e1_49ec_90ce_720cdbd02e9c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPackage9_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindRelatedPackages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindRelatedPackages: usize,
+    pub SourceUriSchemeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IPackageCatalog(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPackageCatalog {
     type Vtable = IPackageCatalog_Vtbl;
@@ -927,6 +985,54 @@ pub struct IPackageCatalogStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub OpenForCurrentPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OpenForCurrentUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
+#[repr(transparent)]
+pub struct IPackageCatalogStatics2(::windows::core::IUnknown);
+impl IPackageCatalogStatics2 {
+    pub fn OpenForPackage(&self, package: &Package) -> ::windows::core::Result<PackageCatalog> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).OpenForPackage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(package), result__.as_mut_ptr()).from_abi::<PackageCatalog>(result__)
+        }
+    }
+}
+::windows::core::interface_hierarchy!(IPackageCatalogStatics2, ::windows::core::IUnknown, ::windows::core::IInspectable);
+impl ::core::clone::Clone for IPackageCatalogStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IPackageCatalogStatics2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IPackageCatalogStatics2 {}
+impl ::core::fmt::Debug for IPackageCatalogStatics2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPackageCatalogStatics2").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IPackageCatalogStatics2 {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4c11c159-9a28-598c-b185-55e1899b2be4}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for IPackageCatalogStatics2 {
+    type Vtable = IPackageCatalogStatics2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPackageCatalogStatics2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c11c159_9a28_598c_b185_55e1899b2be4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPackageCatalogStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub OpenForPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1958,6 +2064,112 @@ unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
 unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
+pub struct FindRelatedPackagesOptions(::windows::core::IUnknown);
+impl FindRelatedPackagesOptions {
+    pub fn Relationship(&self) -> ::windows::core::Result<PackageRelationship> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).Relationship)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PackageRelationship>(result__)
+        }
+    }
+    pub fn SetRelationship(&self, value: PackageRelationship) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).SetRelationship)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    pub fn IncludeFrameworks(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IncludeFrameworks)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetIncludeFrameworks(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).SetIncludeFrameworks)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    pub fn IncludeHostRuntimes(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IncludeHostRuntimes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetIncludeHostRuntimes(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).SetIncludeHostRuntimes)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    pub fn IncludeOptionals(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IncludeOptionals)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetIncludeOptionals(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).SetIncludeOptionals)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    pub fn IncludeResources(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IncludeResources)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetIncludeResources(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).SetIncludeResources)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    pub fn CreateInstance(relationship: PackageRelationship) -> ::windows::core::Result<FindRelatedPackagesOptions> {
+        Self::IFindRelatedPackagesOptionsFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), relationship, result__.as_mut_ptr()).from_abi::<FindRelatedPackagesOptions>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IFindRelatedPackagesOptionsFactory<R, F: FnOnce(&IFindRelatedPackagesOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<FindRelatedPackagesOptions, IFindRelatedPackagesOptionsFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for FindRelatedPackagesOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FindRelatedPackagesOptions {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FindRelatedPackagesOptions {}
+impl ::core::fmt::Debug for FindRelatedPackagesOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindRelatedPackagesOptions").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FindRelatedPackagesOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FindRelatedPackagesOptions;{41dd7eea-b335-521f-b96c-5ea07f5b7329})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for FindRelatedPackagesOptions {
+    type Vtable = IFindRelatedPackagesOptions_Vtbl;
+}
+unsafe impl ::windows::core::Interface for FindRelatedPackagesOptions {
+    const IID: ::windows::core::GUID = <IFindRelatedPackagesOptions as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FindRelatedPackagesOptions {
+    const NAME: &'static str = "Windows.ApplicationModel.FindRelatedPackagesOptions";
+}
+::windows::core::interface_hierarchy!(FindRelatedPackagesOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+unsafe impl ::core::marker::Send for FindRelatedPackagesOptions {}
+unsafe impl ::core::marker::Sync for FindRelatedPackagesOptions {}
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
+#[repr(transparent)]
 pub struct FullTrustProcessLaunchResult(::windows::core::IUnknown);
 impl FullTrustProcessLaunchResult {
     pub fn LaunchResult(&self) -> ::windows::core::Result<FullTrustLaunchResult> {
@@ -2540,6 +2752,22 @@ impl Package {
             (::windows::core::Vtable::vtable(this).IsStub)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindRelatedPackages(&self, options: &FindRelatedPackagesOptions) -> ::windows::core::Result<super::Foundation::Collections::IVector<Package>> {
+        let this = &::windows::core::Interface::cast::<IPackage9>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).FindRelatedPackages)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVector<Package>>(result__)
+        }
+    }
+    pub fn SourceUriSchemeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IPackage9>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).SourceUriSchemeName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
     pub fn Current() -> ::windows::core::Result<Package> {
         Self::IPackageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2759,9 +2987,20 @@ impl PackageCatalog {
             (::windows::core::Vtable::vtable(this).OpenForCurrentUser)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PackageCatalog>(result__)
         })
     }
+    pub fn OpenForPackage(package: &Package) -> ::windows::core::Result<PackageCatalog> {
+        Self::IPackageCatalogStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).OpenForPackage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(package), result__.as_mut_ptr()).from_abi::<PackageCatalog>(result__)
+        })
+    }
     #[doc(hidden)]
     pub fn IPackageCatalogStatics<R, F: FnOnce(&IPackageCatalogStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<PackageCatalog, IPackageCatalogStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IPackageCatalogStatics2<R, F: FnOnce(&IPackageCatalogStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<PackageCatalog, IPackageCatalogStatics2> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -4367,6 +4606,41 @@ impl ::core::fmt::Debug for PackageContentGroupState {
 }
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PackageRelationship(pub i32);
+impl PackageRelationship {
+    pub const Dependencies: Self = Self(0i32);
+    pub const Dependents: Self = Self(1i32);
+    pub const All: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PackageRelationship {}
+impl ::core::clone::Clone for PackageRelationship {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PackageRelationship {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PackageRelationship {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PackageRelationship {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageRelationship").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PackageRelationship {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageRelationship;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)

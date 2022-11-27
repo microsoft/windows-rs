@@ -64,6 +64,26 @@ pub struct IAddPackageOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IAddPackageOptions2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IAddPackageOptions2 {
+    type Vtable = IAddPackageOptions2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAddPackageOptions2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee515828_bf33_40f7_84af_1b6fad2919d7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAddPackageOptions2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ExpectedDigests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ExpectedDigests: usize,
+    pub LimitToExistingPackages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetLimitToExistingPackages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IAppInstallerManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppInstallerManager {
     type Vtable = IAppInstallerManager_Vtbl;
@@ -866,6 +886,24 @@ pub struct IRegisterPackageOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IRegisterPackageOptions2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IRegisterPackageOptions2 {
+    type Vtable = IRegisterPackageOptions2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IRegisterPackageOptions2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dfa9743_86ff_4a11_bc93_434eb6be3a0b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRegisterPackageOptions2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ExpectedDigests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ExpectedDigests: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct ISharedPackageContainer(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ISharedPackageContainer {
     type Vtable = ISharedPackageContainer_Vtbl;
@@ -1011,6 +1049,24 @@ pub struct IStagePackageOptions_Vtbl {
     pub SetStageInPlace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub AllowUnsigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowUnsigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IStagePackageOptions2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IStagePackageOptions2 {
+    type Vtable = IStagePackageOptions2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IStagePackageOptions2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x990c4ccc_6226_4192_ba92_79875fce0d9c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStagePackageOptions2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ExpectedDigests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ExpectedDigests: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1239,6 +1295,26 @@ impl AddPackageOptions {
     pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ExpectedDigests(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, ::windows::core::HSTRING>> {
+        let this = &::windows::core::Interface::cast::<IAddPackageOptions2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).ExpectedDigests)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, ::windows::core::HSTRING>>(result__)
+        }
+    }
+    pub fn LimitToExistingPackages(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IAddPackageOptions2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).LimitToExistingPackages)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetLimitToExistingPackages(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAddPackageOptions2>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).SetLimitToExistingPackages)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for AddPackageOptions {
@@ -3172,6 +3248,15 @@ impl RegisterPackageOptions {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ExpectedDigests(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, ::windows::core::HSTRING>> {
+        let this = &::windows::core::Interface::cast::<IRegisterPackageOptions2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).ExpectedDigests)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, ::windows::core::HSTRING>>(result__)
+        }
+    }
 }
 impl ::core::clone::Clone for RegisterPackageOptions {
     fn clone(&self) -> Self {
@@ -3594,6 +3679,15 @@ impl StagePackageOptions {
     pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAllowUnsigned)(::windows::core::Vtable::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ExpectedDigests(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, ::windows::core::HSTRING>> {
+        let this = &::windows::core::Interface::cast::<IStagePackageOptions2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).ExpectedDigests)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, ::windows::core::HSTRING>>(result__)
+        }
     }
 }
 impl ::core::clone::Clone for StagePackageOptions {

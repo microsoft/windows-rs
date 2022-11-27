@@ -115,6 +115,13 @@ impl DesktopWindowTarget {
             (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
+    pub fn StartAnimationWithController<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
+    }
     pub fn Root(&self) -> ::windows::core::Result<super::Visual> {
         let this = &::windows::core::Interface::cast::<super::ICompositionTarget>(self)?;
         unsafe {

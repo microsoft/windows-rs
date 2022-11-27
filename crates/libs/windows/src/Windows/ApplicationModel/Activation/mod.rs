@@ -5836,10 +5836,14 @@ pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Media_SpeechRecognition"))]
     Result: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IWalletActionActivatedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl IWalletActionActivatedEventArgs {
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5847,8 +5851,8 @@ impl IWalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).ItemId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-    #[cfg(feature = "ApplicationModel_Wallet")]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub fn ActionKind(&self) -> ::windows::core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -5856,6 +5860,8 @@ impl IWalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).ActionKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Wallet::WalletActionKind>(result__)
         }
     }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5885,19 +5891,23 @@ impl IWalletActionActivatedEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 ::windows::core::interface_hierarchy!(IWalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<IWalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: IWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -5905,22 +5915,27 @@ impl<'a> ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for ::window
         Ok(::windows::core::InParam::owned(item))
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IWalletActionActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for IWalletActionActivatedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IWalletActionActivatedEventArgs {}
+#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for IWalletActionActivatedEventArgs {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IWalletActionActivatedEventArgs").field(&self.0).finish()
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -5928,22 +5943,31 @@ unsafe impl ::windows::core::RuntimeType for IWalletActionActivatedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for IWalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgs_Vtbl;
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IWalletActionActivatedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletActionActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
     pub ItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Wallet")]
+    #[cfg(not(feature = "deprecated"))]
+    ItemId: usize,
+    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub ActionKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Wallet::WalletActionKind) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Wallet"))]
+    #[cfg(not(all(feature = "ApplicationModel_Wallet", feature = "deprecated")))]
     ActionKind: usize,
+    #[cfg(feature = "deprecated")]
     pub ActionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ActionId: usize,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -13081,9 +13105,11 @@ impl<'a> ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows
 }
 unsafe impl ::core::marker::Send for VoiceCommandActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct WalletActionActivatedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl WalletActionActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -13106,6 +13132,8 @@ impl WalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).SplashScreen)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
         }
     }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -13113,8 +13141,8 @@ impl WalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).ItemId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-    #[cfg(feature = "ApplicationModel_Wallet")]
+    #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub fn ActionKind(&self) -> ::windows::core::Result<super::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -13122,6 +13150,8 @@ impl WalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).ActionKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Wallet::WalletActionKind>(result__)
         }
     }
+    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -13130,22 +13160,27 @@ impl WalletActionActivatedEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for WalletActionActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for WalletActionActivatedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for WalletActionActivatedEventArgs {}
+#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for WalletActionActivatedEventArgs {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WalletActionActivatedEventArgs").field(&self.0).finish()
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -13153,28 +13188,35 @@ unsafe impl ::windows::core::RuntimeType for WalletActionActivatedEventArgs {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for WalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgs_Vtbl;
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for WalletActionActivatedEventArgs {
     const IID: ::windows::core::GUID = <IWalletActionActivatedEventArgs as ::windows::core::Interface>::IID;
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 }
+#[cfg(feature = "deprecated")]
 ::windows::core::interface_hierarchy!(WalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<WalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13182,18 +13224,21 @@ impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows
         Ok(::windows::core::InParam::owned(item))
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<WalletActionActivatedEventArgs> for IWalletActionActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for IWalletActionActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IWalletActionActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -13201,7 +13246,9 @@ impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows
         Ok(::windows::core::InParam::owned(item))
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletActionActivatedEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for WalletActionActivatedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
