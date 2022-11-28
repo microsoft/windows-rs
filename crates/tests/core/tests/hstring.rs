@@ -1,3 +1,5 @@
+#![cfg_attr(windows_raw_dylib, feature(raw_dylib, native_link_modifiers_verbatim))]
+
 use std::convert::TryFrom;
 use windows::core::*;
 
@@ -184,18 +186,18 @@ fn hstring_compat() -> Result<()> {
         // Adding +1 to the length of the slice to validate that it is null terminated.
         assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);
 
-        // We need to drop to windows-sys to call the raw WindowsDeleteString function to avoid double-freeing the HSTRING,
+        // We need to drop to raw bindings to call the raw WindowsDeleteString function to avoid double-freeing the HSTRING,
         // but this test is important as it ensures that the allocators match.
-        let hresult = windows_sys::Win32::System::WinRT::WindowsDeleteString(std::mem::transmute_copy(&*std::mem::ManuallyDrop::new(hey)));
+        let hresult = sys::WindowsDeleteString(std::mem::transmute_copy(&*std::mem::ManuallyDrop::new(hey)));
         assert_eq!(hresult, 0);
 
         // An HSTRING reference a.k.a. "fast pass" string is a kind of stack-based HSTRING used by C++ callers
         // to avoid the heap allocation in some cases. It's not used in Rust since it assumes a wide character
-        // string literal, which is inconvenient to create in Rust. Here we again use windows-sys to make one
+        // string literal, which is inconvenient to create in Rust. Here we again use raw bindings to make one
         // and thereby excercise the windows::core::HSTRING support for HSTRING reference duplication.
-        let mut header: windows_sys::Win32::System::WinRT::HSTRING_HEADER = std::mem::zeroed();
-        let mut stack_hstring: windows_sys::core::HSTRING = std::mem::zeroed();
-        let hresult = windows_sys::Win32::System::WinRT::WindowsCreateStringReference([87, 111, 114, 108, 100, 0].as_ptr(), 5, &mut header, &mut stack_hstring);
+        let mut header: sys::HSTRING_HEADER = std::mem::zeroed();
+        let mut stack_hstring: sys::HSTRING = std::mem::zeroed();
+        let hresult = sys::WindowsCreateStringReference([87, 111, 114, 108, 100, 0].as_ptr(), 5, &mut header, &mut stack_hstring);
         assert_eq!(hresult, 0);
         assert_eq!(header.length, 5);
         let stack_hstring: std::mem::ManuallyDrop<HSTRING> = std::mem::transmute(stack_hstring);
@@ -210,5 +212,23 @@ fn hstring_compat() -> Result<()> {
         assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);
 
         Ok(())
+    }
+}
+
+mod sys {
+    windows::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring: PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT);
+    windows::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string: HSTRING) -> HRESULT);
+
+    pub type HRESULT = i32;
+    pub type HSTRING = *mut ::core::ffi::c_void;
+    pub type PCWSTR = *const u16;
+
+    #[repr(C)]
+    pub struct HSTRING_HEADER {
+        pub flags: u32,
+        pub length: u32,
+        pub padding1: u32,
+        pub padding2: u32,
+        pub data: isize,
     }
 }
