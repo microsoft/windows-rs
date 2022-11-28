@@ -741,11 +741,7 @@ mod d3d12_hello_triangle {
         unsafe {
             let mut data = std::ptr::null_mut();
             vertex_buffer.Map(0, None, Some(&mut data))?;
-            std::ptr::copy_nonoverlapping(
-                vertices.as_ptr(),
-                data as *mut Vertex,
-                std::mem::size_of_val(&vertices),
-            );
+            std::ptr::copy_nonoverlapping(vertices.as_ptr(), data as *mut Vertex, vertices.len());
             vertex_buffer.Unmap(0, None);
         }
 
