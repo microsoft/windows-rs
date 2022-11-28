@@ -3,7 +3,35 @@ use std::collections::*;
 use std::io::prelude::*;
 
 /// Namespaces to exclude from code generation for the `windows-sys` crate.
-const EXCLUDE_NAMESPACES: [&str; 4] = ["Windows.Win32.System.WinRT.Xaml", "Windows.Win32.Interop", "Windows.Win32.System.Diagnostics.Debug.WebApp", "Windows.Win32.Web"];
+const EXCLUDE_NAMESPACES: [&str; 27] = [
+    "Windows.Win32.AI.MachineLearning",
+    "Windows.Win32.Graphics.CompositionSwapchain",
+    "Windows.Win32.Graphics.Direct2D",
+    "Windows.Win32.Graphics.Direct3D",
+    "Windows.Win32.Graphics.Direct3D10",
+    "Windows.Win32.Graphics.Direct3D11",
+    "Windows.Win32.Graphics.Direct3D11on12",
+    "Windows.Win32.Graphics.Direct3D12",
+    "Windows.Win32.Graphics.Direct3D9",
+    "Windows.Win32.Graphics.Direct3D9on12",
+    "Windows.Win32.Graphics.DirectComposition",
+    "Windows.Win32.Graphics.DirectDraw",
+    "Windows.Win32.Graphics.DirectManipulation",
+    "Windows.Win32.Graphics.DirectWrite",
+    "Windows.Win32.Graphics.DXCore",
+    "Windows.Win32.Graphics.Dxgi",
+    "Windows.Win32.Graphics.Imaging",
+    "Windows.Win32.Interop",
+    "Windows.Win32.Media.Audio.DirectSound",
+    "Windows.Win32.Media.DirectShow",
+    "Windows.Win32.Media.MediaFoundation",
+    "Windows.Win32.Media.PictureAcquisition",
+    "Windows.Win32.System.Diagnostics.Debug.WebApp",
+    "Windows.Win32.System.SideShow",
+    "Windows.Win32.System.TransactionServer",
+    "Windows.Win32.System.WinRT",
+    "Windows.Win32.Web",
+];
 
 fn main() {
     let mut rustfmt = true;

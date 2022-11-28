@@ -1,11 +1,4 @@
-use windows_sys::{Win32::Graphics::Direct3D::Fxc::*, Win32::Graphics::Gdi::*, Win32::System::Threading::*};
-
-#[test]
-fn linker() {
-    unsafe {
-        D3DCreateLinker(std::ptr::null_mut());
-    }
-}
+use windows_sys::{Win32::Graphics::Gdi::*, Win32::System::Threading::*};
 
 #[test]
 fn gdi() {
