@@ -12,8 +12,6 @@ pub mod LibrarySharingServices;
 pub mod MediaPlayer;
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub mod Multimedia;
-#[cfg(feature = "Win32_Media_PictureAcquisition")]
-pub mod PictureAcquisition;
 #[cfg(feature = "Win32_Media_Speech")]
 pub mod Speech;
 #[cfg(feature = "Win32_Media_Streaming")]

@@ -3,7 +3,7 @@ use std::collections::*;
 use std::io::prelude::*;
 
 /// Namespaces to exclude from code generation for the `windows-sys` crate.
-const EXCLUDE_NAMESPACES: [&str; 24] = [
+const EXCLUDE_NAMESPACES: [&str; 27] = [
     "Windows.Win32.AI.MachineLearning",
     "Windows.Win32.Graphics.CompositionSwapchain",
     "Windows.Win32.Graphics.Direct2D",
@@ -25,7 +25,10 @@ const EXCLUDE_NAMESPACES: [&str; 24] = [
     "Windows.Win32.Media.Audio.DirectSound",
     "Windows.Win32.Media.DirectShow",
     "Windows.Win32.Media.MediaFoundation",
+    "Windows.Win32.Media.PictureAcquisition",
     "Windows.Win32.System.Diagnostics.Debug.WebApp",
+    "Windows.Win32.System.SideShow",
+    "Windows.Win32.System.TransactionServer",
     "Windows.Win32.System.WinRT",
     "Windows.Win32.Web",
 ];
