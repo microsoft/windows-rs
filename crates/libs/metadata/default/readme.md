@@ -8,7 +8,7 @@ dependent crate or workspace has an empty or non-existent `.windows/winmd` direc
 
 ## Windows.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts
-- Version: 10.0.22000.196
+- Version: 10.0.22621.755
 
 The Windows.winmd was created by merging the .winmd files from the second nuget package as follows
 

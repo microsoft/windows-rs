@@ -2086,17 +2086,17 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
         iid == &<IVoiceCommandActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "ApplicationModel_Wallet")]
+#[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
 pub trait IWalletActionActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ActionKind(&self) -> ::windows::core::Result<super::Wallet::WalletActionKind>;
     fn ActionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
-#[cfg(feature = "ApplicationModel_Wallet")]
+#[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IWalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs";
 }
-#[cfg(feature = "ApplicationModel_Wallet")]
+#[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
 impl IWalletActionActivatedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>() -> IWalletActionActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ItemId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {

@@ -11763,6 +11763,40 @@ unsafe impl ::windows::core::RuntimeType for KnownVideoProfile {
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaCaptureDeviceExclusiveControlReleaseMode(pub i32);
+impl MediaCaptureDeviceExclusiveControlReleaseMode {
+    pub const OnDispose: Self = Self(0i32);
+    pub const OnAllStreamsStopped: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaCaptureDeviceExclusiveControlReleaseMode {}
+impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlReleaseMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaCaptureDeviceExclusiveControlReleaseMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaCaptureDeviceExclusiveControlReleaseMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaCaptureDeviceExclusiveControlReleaseMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureDeviceExclusiveControlReleaseMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaCaptureDeviceExclusiveControlReleaseMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlReleaseMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Capture\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
     pub const ExclusiveControlAvailable: Self = Self(0i32);

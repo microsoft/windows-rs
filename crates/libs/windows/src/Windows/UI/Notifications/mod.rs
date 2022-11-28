@@ -1269,6 +1269,29 @@ pub struct IToastNotificationManagerForUser2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IToastNotificationManagerForUser3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IToastNotificationManagerForUser3 {
+    type Vtable = IToastNotificationManagerForUser3_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IToastNotificationManagerForUser3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efcb176_6cc1_56dc_973b_251f7aacb1c5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IToastNotificationManagerForUser3_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub NotificationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ToastNotificationMode) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub NotificationModeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    NotificationModeChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveNotificationModeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveNotificationModeChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IToastNotificationManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IToastNotificationManagerStatics {
     type Vtable = IToastNotificationManagerStatics_Vtbl;
@@ -4136,6 +4159,28 @@ impl ToastNotificationManagerForUser {
             (::windows::core::Vtable::vtable(this).GetToastCollectionManagerWithAppId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appid), result__.as_mut_ptr()).from_abi::<ToastCollectionManager>(result__)
         }
     }
+    pub fn NotificationMode(&self) -> ::windows::core::Result<ToastNotificationMode> {
+        let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).NotificationMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ToastNotificationMode>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn NotificationModeChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ToastNotificationManagerForUser, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).NotificationModeChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveNotificationModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveNotificationModeChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+    }
 }
 impl ::core::clone::Clone for ToastNotificationManagerForUser {
     fn clone(&self) -> Self {
@@ -4928,6 +4973,41 @@ impl ::core::fmt::Debug for ToastHistoryChangedType {
 }
 unsafe impl ::windows::core::RuntimeType for ToastHistoryChangedType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ToastNotificationMode(pub i32);
+impl ToastNotificationMode {
+    pub const Unrestricted: Self = Self(0i32);
+    pub const PriorityOnly: Self = Self(1i32);
+    pub const AlarmsOnly: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ToastNotificationMode {}
+impl ::core::clone::Clone for ToastNotificationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ToastNotificationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ToastNotificationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ToastNotificationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ToastNotificationMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationMode;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)

@@ -1,5 +1,7 @@
 #[cfg(feature = "Devices_Geolocation_Geofencing")]
 pub mod Geofencing;
+#[cfg(feature = "Devices_Geolocation_Provider")]
+pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICivicAddress(::windows::core::IUnknown);

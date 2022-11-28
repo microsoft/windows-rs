@@ -96,6 +96,68 @@ pub struct IAdaptiveCardBuilderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IFocusSession(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IFocusSession {
+    type Vtable = IFocusSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFocusSession {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x069fbab8_0e84_5f2f_8614_9b6544326277);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFocusSession_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFocusSessionManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IFocusSessionManager {
+    type Vtable = IFocusSessionManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFocusSessionManager {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ffbaa9_d8be_5dbf_bac6_49364842e37e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFocusSessionManager_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub IsFocusActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub GetSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TryStartFocusSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub TryStartFocusSession2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endtime: super::super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryStartFocusSession2: usize,
+    pub DeactivateFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub IsFocusActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsFocusActiveChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveIsFocusActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveIsFocusActiveChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFocusSessionManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IFocusSessionManagerStatics {
+    type Vtable = IFocusSessionManagerStatics_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IFocusSessionManagerStatics {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x834df764_cb9a_5d0a_aa9f_73df4f249395);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFocusSessionManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct ISecurityAppManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ISecurityAppManager {
     type Vtable = ISecurityAppManager_Vtbl;
@@ -273,6 +335,163 @@ impl AdaptiveCardBuilder {
 impl ::windows::core::RuntimeName for AdaptiveCardBuilder {
     const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
 }
+#[doc = "*Required features: `\"UI_Shell\"`*"]
+#[repr(transparent)]
+pub struct FocusSession(::windows::core::IUnknown);
+impl FocusSession {
+    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn End(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).End)(::windows::core::Vtable::as_raw(this)).ok() }
+    }
+}
+impl ::core::clone::Clone for FocusSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FocusSession {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FocusSession {}
+impl ::core::fmt::Debug for FocusSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusSession").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FocusSession {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSession;{069fbab8-0e84-5f2f-8614-9b6544326277})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for FocusSession {
+    type Vtable = IFocusSession_Vtbl;
+}
+unsafe impl ::windows::core::Interface for FocusSession {
+    const IID: ::windows::core::GUID = <IFocusSession as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FocusSession {
+    const NAME: &'static str = "Windows.UI.Shell.FocusSession";
+}
+::windows::core::interface_hierarchy!(FocusSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+unsafe impl ::core::marker::Send for FocusSession {}
+unsafe impl ::core::marker::Sync for FocusSession {}
+#[doc = "*Required features: `\"UI_Shell\"`*"]
+#[repr(transparent)]
+pub struct FocusSessionManager(::windows::core::IUnknown);
+impl FocusSessionManager {
+    pub fn IsFocusActive(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsFocusActive)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn GetSession(&self, id: &::windows::core::HSTRING) -> ::windows::core::Result<FocusSession> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<FocusSession>(result__)
+        }
+    }
+    pub fn TryStartFocusSession(&self) -> ::windows::core::Result<FocusSession> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).TryStartFocusSession)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusSession>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TryStartFocusSession2(&self, endtime: super::super::Foundation::DateTime) -> ::windows::core::Result<FocusSession> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).TryStartFocusSession2)(::windows::core::Vtable::as_raw(this), endtime, result__.as_mut_ptr()).from_abi::<FocusSession>(result__)
+        }
+    }
+    pub fn DeactivateFocus(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).DeactivateFocus)(::windows::core::Vtable::as_raw(this)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn IsFocusActiveChanged(&self, handler: &super::super::Foundation::TypedEventHandler<FocusSessionManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsFocusActiveChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveIsFocusActiveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Vtable::vtable(this).RemoveIsFocusActiveChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<FocusSessionManager> {
+        Self::IFocusSessionManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusSessionManager>(result__)
+        })
+    }
+    pub fn IsSupported() -> ::windows::core::Result<bool> {
+        Self::IFocusSessionManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IFocusSessionManagerStatics<R, F: FnOnce(&IFocusSessionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<FocusSessionManager, IFocusSessionManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for FocusSessionManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FocusSessionManager {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FocusSessionManager {}
+impl ::core::fmt::Debug for FocusSessionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusSessionManager").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FocusSessionManager {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSessionManager;{e7ffbaa9-d8be-5dbf-bac6-49364842e37e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Vtable for FocusSessionManager {
+    type Vtable = IFocusSessionManager_Vtbl;
+}
+unsafe impl ::windows::core::Interface for FocusSessionManager {
+    const IID: ::windows::core::GUID = <IFocusSessionManager as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FocusSessionManager {
+    const NAME: &'static str = "Windows.UI.Shell.FocusSessionManager";
+}
+::windows::core::interface_hierarchy!(FocusSessionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+unsafe impl ::core::marker::Send for FocusSessionManager {}
+unsafe impl ::core::marker::Sync for FocusSessionManager {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
 pub struct SecurityAppManager(::windows::core::IUnknown);

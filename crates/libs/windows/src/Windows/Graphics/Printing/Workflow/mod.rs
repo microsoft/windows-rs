@@ -345,6 +345,24 @@ pub struct IPrintWorkflowPdlConverter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IPrintWorkflowPdlConverter2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IPrintWorkflowPdlConverter2 {
+    type Vtable = IPrintWorkflowPdlConverter2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPrintWorkflowPdlConverter2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x854ceec1_7837_5b93_b7af_57a6998c2f71);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintWorkflowPdlConverter2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
+    pub ConvertPdlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticket: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams")))]
+    ConvertPdlAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IPrintWorkflowPdlDataAvailableEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrintWorkflowPdlDataAvailableEventArgs {
     type Vtable = IPrintWorkflowPdlDataAvailableEventArgs_Vtbl;
@@ -395,6 +413,28 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPrintWorkflowPdlModificationRequestedEventArgs2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IPrintWorkflowPdlModificationRequestedEventArgs2 {
+    type Vtable = IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IPrintWorkflowPdlModificationRequestedEventArgs2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d692147_6c62_5e31_a0e7_d49f92c111c0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    pub CreateJobOnPrinterWithAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobattributes: *mut ::core::ffi::c_void, targetcontenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, operationattributes: *mut ::core::ffi::c_void, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Devices_Printers", feature = "Foundation_Collections")))]
+    CreateJobOnPrinterWithAttributes: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub CreateJobOnPrinterWithAttributesBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobattributesbuffer: *mut ::core::ffi::c_void, targetcontenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, operationattributesbuffer: *mut ::core::ffi::c_void, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    CreateJobOnPrinterWithAttributesBuffer: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1602,6 +1642,21 @@ impl PrintWorkflowPdlConverter {
             (::windows::core::Vtable::vtable(this).ConvertPdlAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printticket), inputstream.try_into().map_err(|e| e.into())?.abi(), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
+    pub fn ConvertPdlAsync2<'a, P0, E0, P1, E1>(&self, printticket: &super::PrintTicket::WorkflowPrintTicket, inputstream: P0, outputstream: P1, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IPrintWorkflowPdlConverter2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).ConvertPdlAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printticket), inputstream.try_into().map_err(|e| e.into())?.abi(), outputstream.try_into().map_err(|e| e.into())?.abi(), hostbasedprocessingoperations, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
 }
 impl ::core::clone::Clone for PrintWorkflowPdlConverter {
     fn clone(&self) -> Self {
@@ -1787,6 +1842,36 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
+    pub fn CreateJobOnPrinterWithAttributes2<'a, P0, E0, P1, E1>(&self, jobattributes: P0, targetcontenttype: &::windows::core::HSTRING, operationattributes: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).CreateJobOnPrinterWithAttributes)(::windows::core::Vtable::as_raw(this), jobattributes.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(targetcontenttype), operationattributes.try_into().map_err(|e| e.into())?.abi(), jobattributesmergepolicy, operationattributesmergepolicy, result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlTargetStream>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn CreateJobOnPrinterWithAttributesBuffer2<'a, P0, E0, P1, E1>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows::core::HSTRING, operationattributesbuffer: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(::windows::core::Vtable::as_raw(this), jobattributesbuffer.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(targetcontenttype), operationattributesbuffer.try_into().map_err(|e| e.into())?.abi(), jobattributesmergepolicy, operationattributesmergepolicy, result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlTargetStream>(result__)
         }
     }
 }
@@ -2691,6 +2776,107 @@ impl ::windows::core::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {
 ::windows::core::interface_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PdlConversionHostBasedProcessingOperations(pub u32);
+impl PdlConversionHostBasedProcessingOperations {
+    pub const None: Self = Self(0u32);
+    pub const PageRotation: Self = Self(1u32);
+    pub const PageOrdering: Self = Self(2u32);
+    pub const Copies: Self = Self(4u32);
+    pub const BlankPageInsertion: Self = Self(8u32);
+    pub const All: Self = Self(4294967295u32);
+}
+impl ::core::marker::Copy for PdlConversionHostBasedProcessingOperations {}
+impl ::core::clone::Clone for PdlConversionHostBasedProcessingOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PdlConversionHostBasedProcessingOperations {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PdlConversionHostBasedProcessingOperations {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PdlConversionHostBasedProcessingOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdlConversionHostBasedProcessingOperations").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PdlConversionHostBasedProcessingOperations {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PdlConversionHostBasedProcessingOperations {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PdlConversionHostBasedProcessingOperations {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PdlConversionHostBasedProcessingOperations {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PdlConversionHostBasedProcessingOperations {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PdlConversionHostBasedProcessingOperations {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PdlConversionHostBasedProcessingOperations;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintWorkflowAttributesMergePolicy(pub i32);
+impl PrintWorkflowAttributesMergePolicy {
+    pub const MergePreferPrintTicketOnConflict: Self = Self(0i32);
+    pub const MergePreferPsaOnConflict: Self = Self(1i32);
+    pub const DoNotMergeWithPrintTicket: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PrintWorkflowAttributesMergePolicy {}
+impl ::core::clone::Clone for PrintWorkflowAttributesMergePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowAttributesMergePolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintWorkflowAttributesMergePolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintWorkflowAttributesMergePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowAttributesMergePolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintWorkflowAttributesMergePolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowAttributesMergePolicy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

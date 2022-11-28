@@ -32,6 +32,22 @@ pub struct IAppCapability_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IAppCapability2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IAppCapability2 {
+    type Vtable = IAppCapability2_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IAppCapability2 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c7ccb6_c74f_50a3_b960_88008767d939);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppCapability2_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub DisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetDisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IAppCapabilityAccessChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
@@ -121,6 +137,17 @@ impl AppCapability {
     pub fn RemoveAccessChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveAccessChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
+    }
+    pub fn DisplayMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAppCapability2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).DisplayMessage)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetDisplayMessage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAppCapability2>(self)?;
+        unsafe { (::windows::core::Vtable::vtable(this).SetDisplayMessage)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

@@ -11094,11 +11094,11 @@ impl<'a> ::core::convert::TryFrom<&WebUIVoiceCommandActivatedEventArgs> for ::wi
         Ok(::windows::core::InParam::owned(item))
     }
 }
-#[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel_Activation\"`*"]
-#[cfg(feature = "ApplicationModel_Activation")]
+#[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct WebUIWalletActionActivatedEventArgs(::windows::core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIWalletActionActivatedEventArgs {
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -11134,8 +11134,8 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).ActivatedOperation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivatedOperation>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn ItemId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11143,8 +11143,8 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).ItemId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Wallet\"`*"]
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Wallet"))]
+    #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Wallet\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub fn ActionKind(&self) -> ::windows::core::Result<super::super::ApplicationModel::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -11152,8 +11152,8 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows::core::Vtable::vtable(this).ActionKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Wallet::WalletActionKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn ActionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11162,27 +11162,27 @@ impl WebUIWalletActionActivatedEventArgs {
         }
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::clone::Clone for WebUIWalletActionActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::cmp::PartialEq for WebUIWalletActionActivatedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::cmp::Eq for WebUIWalletActionActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::fmt::Debug for WebUIWalletActionActivatedEventArgs {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebUIWalletActionActivatedEventArgs").field(&self.0).finish()
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for WebUIWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11190,35 +11190,35 @@ unsafe impl ::windows::core::RuntimeType for WebUIWalletActionActivatedEventArgs
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::Vtable for WebUIWalletActionActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs_Vtbl;
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for WebUIWalletActionActivatedEventArgs {
     const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as ::windows::core::Interface>::IID;
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for WebUIWalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs";
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 ::windows::core::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11226,21 +11226,21 @@ impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::wi
         Ok(::windows::core::InParam::owned(item))
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for IActivatedEventArgsDeferral {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsDeferral> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
@@ -11248,21 +11248,21 @@ impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::wi
         Ok(::windows::core::InParam::owned(item))
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl<'a> ::core::convert::TryFrom<&WebUIWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> {
     type Error = ::windows::core::Error;
     fn try_from(value: &WebUIWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {

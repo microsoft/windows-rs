@@ -219,6 +219,21 @@ pub struct IConnectionProfile5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+pub struct IConnectionProfile6(::windows::core::IUnknown);
+unsafe impl ::windows::core::Vtable for IConnectionProfile6 {
+    type Vtable = IConnectionProfile6_Vtbl;
+}
+unsafe impl ::windows::core::Interface for IConnectionProfile6 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc27dfe2_7a6f_5d0e_9589_2fe2e5b6f9aa);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfile6_Vtbl {
+    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub IsDomainAuthenticatedBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: DomainAuthenticationKind, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
 pub struct IConnectionProfileFilter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IConnectionProfileFilter {
     type Vtable = IConnectionProfileFilter_Vtbl;
@@ -1247,6 +1262,13 @@ impl ConnectionProfile {
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Vtable::vtable(this).TryDeleteAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>>(result__)
+        }
+    }
+    pub fn IsDomainAuthenticatedBy(&self, kind: DomainAuthenticationKind) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IConnectionProfile6>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Vtable::vtable(this).IsDomainAuthenticatedBy)(::windows::core::Vtable::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -2893,6 +2915,41 @@ impl ::core::fmt::Debug for DataUsageGranularity {
 }
 unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DomainAuthenticationKind(pub i32);
+impl DomainAuthenticationKind {
+    pub const None: Self = Self(0i32);
+    pub const Ldap: Self = Self(1i32);
+    pub const Tls: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DomainAuthenticationKind {}
+impl ::core::clone::Clone for DomainAuthenticationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DomainAuthenticationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DomainAuthenticationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DomainAuthenticationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DomainAuthenticationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DomainAuthenticationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainAuthenticationKind;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
