@@ -150,8 +150,6 @@ pub mod UpdateAssessment;
 pub mod UserAccessLogging;
 #[cfg(feature = "Win32_System_VirtualDosMachines")]
 pub mod VirtualDosMachines;
-#[cfg(feature = "Win32_System_WinRT")]
-pub mod WinRT;
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 pub mod WindowsProgramming;
 #[cfg(feature = "Win32_System_WindowsSync")]

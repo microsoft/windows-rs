@@ -1,5 +1,3 @@
-#[cfg(feature = "Win32_AI")]
-pub mod AI;
 #[cfg(feature = "Win32_Data")]
 pub mod Data;
 #[cfg(feature = "Win32_Devices")]
