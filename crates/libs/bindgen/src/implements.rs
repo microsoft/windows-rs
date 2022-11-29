@@ -61,18 +61,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         let name = method_names.add(gen, method);
         let signature = gen.reader.method_def_signature(method, generics);
         let signature_tokens = gen.impl_signature(def, &signature);
-        // If it can be implemented but is exclusive and has no return value then
-        // it is a Xaml override so give it a default implementation to make it easier
-        // to override individual methods for Xaml notifications.
-        if !gen.component && gen.reader.type_def_is_exclusive(def) && signature.return_type.is_none() {
-            quote! {
-                fn #name #signature_tokens {
-                    ::core::result::Result::Ok(())
-                }
-            }
-        } else {
-            quote! { fn #name #signature_tokens; }
-        }
+        quote! { fn #name #signature_tokens; }
     });
 
     let mut method_names = MethodNames::new();
