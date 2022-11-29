@@ -33,8 +33,8 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<T> #where_clause {
-                    let mut result__ = ::core::option::Option::None;
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).and_some(result__)
+                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
                 }
             }
         }
@@ -53,19 +53,17 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             }
         }
         SignatureKind::ResultValue => {
-            let leading_params = &signature.params[..signature.params.len() - 1];
-            let args = gen.win32_args(leading_params, kind);
-            let params = gen.win32_params(leading_params, kind);
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let return_type_tokens = gen.type_name(&return_type);
+            let return_type = gen.type_name(&return_type);
 
             quote! {
                 #doc
                 #features
-                pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
+                pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
                     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args ::core::mem::transmute(result__.as_mut_ptr()))
-                    .from_abi::<#return_type_tokens>(result__ )
+                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
                 }
             }
         }
@@ -90,7 +88,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                    let mut result__: #return_type = :: core::mem::zeroed();
+                    let mut result__: #return_type = ::core::mem::zeroed();
                     (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), &mut result__, #args);
                     result__
                 }

@@ -49,7 +49,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
             quote! {
                 let mut result__ = ::core::mem::MaybeUninit::zeroed();
                     (::windows::core::Vtable::vtable(this).#vname)(::windows::core::Vtable::as_raw(this), #args #return_arg)
-                        .from_abi::<#return_type_tokens>(result__ )
+                        .from_abi(result__)
             }
         }
     } else {
