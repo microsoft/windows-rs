@@ -52,7 +52,7 @@ impl PalmRejectionDelayZonePreview {
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForVisual)(::windows::core::Vtable::as_raw(this), inputpanelvisual.into().abi(), inputpanelrect, result__.as_mut_ptr()).from_abi::<PalmRejectionDelayZonePreview>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForVisual)(::windows::core::Vtable::as_raw(this), inputpanelvisual.into().abi(), inputpanelrect, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Composition\"`*"]
@@ -64,7 +64,7 @@ impl PalmRejectionDelayZonePreview {
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForVisualWithViewportClip)(::windows::core::Vtable::as_raw(this), inputpanelvisual.into().abi(), inputpanelrect, viewportvisual.into().abi(), viewportrect, result__.as_mut_ptr()).from_abi::<PalmRejectionDelayZonePreview>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForVisualWithViewportClip)(::windows::core::Vtable::as_raw(this), inputpanelvisual.into().abi(), inputpanelrect, viewportvisual.into().abi(), viewportrect, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

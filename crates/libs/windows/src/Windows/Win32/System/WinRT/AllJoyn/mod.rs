@@ -6,8 +6,8 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -45,7 +45,7 @@ pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows::core::IUnknown)
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -85,8 +85,8 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).CreateFromWin32Handle)(::windows::core::Vtable::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -130,7 +130,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
     }
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).Win32Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);

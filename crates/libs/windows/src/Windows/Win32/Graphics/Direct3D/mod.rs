@@ -51,7 +51,7 @@ pub struct ID3DDestructionNotifier(::windows::core::IUnknown);
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterDestructionCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).RegisterDestructionCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterDestructionCallback)(::windows::core::Vtable::as_raw(self), callbackid).ok()

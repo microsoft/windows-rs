@@ -38,14 +38,14 @@ impl GeolocationProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsOverridden)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsOverridden)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetOverridePosition(&self, newposition: super::BasicGeoposition, positionsource: super::PositionSource, accuracyinmeters: f64) -> ::windows::core::Result<LocationOverrideStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SetOverridePosition)(::windows::core::Vtable::as_raw(this), newposition, positionsource, accuracyinmeters, result__.as_mut_ptr()).from_abi::<LocationOverrideStatus>(result__)
+            (::windows::core::Vtable::vtable(this).SetOverridePosition)(::windows::core::Vtable::as_raw(this), newposition, positionsource, accuracyinmeters, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ClearOverridePosition(&self) -> ::windows::core::Result<()> {
@@ -58,7 +58,7 @@ impl GeolocationProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsOverriddenChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).IsOverriddenChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

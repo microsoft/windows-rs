@@ -4956,7 +4956,7 @@ impl ITfInputScope_Vtbl {
             let this = (*this).get_impl();
             this.GetInputScopes(::core::mem::transmute_copy(&pprginputscopes), ::core::mem::transmute_copy(&pccount)).into()
         }
-        unsafe extern "system" fn GetPhrase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbstrphrases: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pccount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPhrase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITfInputScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbstrphrases: *mut *mut ::windows::core::BSTR, pccount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPhrase(::core::mem::transmute_copy(&ppbstrphrases), ::core::mem::transmute_copy(&pccount)).into()

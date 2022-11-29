@@ -2764,7 +2764,7 @@ where
 {
     ::windows::core::link ! ( "mrmsupport.dll""system" fn MrmGetPriFileContentChecksum ( prifile : :: windows::core::PCWSTR , checksum : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MrmGetPriFileContentChecksum(prifile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    MrmGetPriFileContentChecksum(prifile.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]

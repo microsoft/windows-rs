@@ -272,7 +272,7 @@ impl ISecurityInformation2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> ::windows::core::Result<super::super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, ::core::mem::transmute(rgpsids), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IDataObject>(result__)
+        (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, ::core::mem::transmute(rgpsids), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityInformation2, ::windows::core::IUnknown);
@@ -317,7 +317,7 @@ pub struct ISecurityInformation3(::windows::core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFullResourceName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetFullResourceName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

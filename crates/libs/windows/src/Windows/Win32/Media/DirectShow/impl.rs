@@ -2064,7 +2064,7 @@ impl IAMMediaTypeSample_Vtbl {
             let this = (*this).get_impl();
             this.SetActualDataLength(::core::mem::transmute_copy(&__midl__iammediatypesample0000)).into()
         }
-        unsafe extern "system" fn GetMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaTypeSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmediatype: *mut *mut ::core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaTypeSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmediatype: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMediaType() {
@@ -3238,7 +3238,7 @@ impl IAMStreamConfig_Vtbl {
             let this = (*this).get_impl();
             this.SetFormat(::core::mem::transmute_copy(&pmt)).into()
         }
-        unsafe extern "system" fn GetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMStreamConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmt: *mut *mut ::core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMStreamConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFormat() {
@@ -3254,7 +3254,7 @@ impl IAMStreamConfig_Vtbl {
             let this = (*this).get_impl();
             this.GetNumberOfCapabilities(::core::mem::transmute_copy(&picount), ::core::mem::transmute_copy(&pisize)).into()
         }
-        unsafe extern "system" fn GetStreamCaps<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMStreamConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, ppmt: *mut *mut ::core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>, pscc: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStreamCaps<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMStreamConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, ppmt: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pscc: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetStreamCaps(::core::mem::transmute_copy(&iindex), ::core::mem::transmute_copy(&ppmt), ::core::mem::transmute_copy(&pscc)).into()
@@ -3336,7 +3336,7 @@ impl IAMStreamSelect_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Info<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMStreamSelect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppmt: *mut *mut ::core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>, pdwflags: *mut u32, plcid: *mut u32, pdwgroup: *mut u32, ppszname: *mut ::windows::core::PWSTR, ppobject: *mut *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Info<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMStreamSelect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppmt: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pdwflags: *mut u32, plcid: *mut u32, pdwgroup: *mut u32, ppszname: *mut ::windows::core::PWSTR, ppobject: *mut *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Info(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&ppmt), ::core::mem::transmute_copy(&pdwflags), ::core::mem::transmute_copy(&plcid), ::core::mem::transmute_copy(&pdwgroup), ::core::mem::transmute_copy(&ppszname), ::core::mem::transmute_copy(&ppobject), ::core::mem::transmute_copy(&ppunk)).into()
@@ -19348,7 +19348,7 @@ impl IEncoderAPI_Vtbl {
             let this = (*this).get_impl();
             this.GetParameterRange(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&valuemin), ::core::mem::transmute_copy(&valuemax), ::core::mem::transmute_copy(&steppingdelta)).into()
         }
-        unsafe extern "system" fn GetParameterValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, values: *mut *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, valuescount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterValues(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&valuescount)).into()
@@ -19654,7 +19654,7 @@ impl ::windows::core::RuntimeName for IEnumMediaTypes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl IEnumMediaTypes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMediaTypes_Impl, const OFFSET: isize>() -> IEnumMediaTypes_Vtbl {
-        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMediaTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmediatypes: u32, ppmediatypes: *mut *mut ::core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>, pcfetched: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMediaTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmediatypes: u32, ppmediatypes: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pcfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&cmediatypes), ::core::mem::transmute_copy(&ppmediatypes), ::core::mem::transmute_copy(&pcfetched)).into()
@@ -31657,7 +31657,7 @@ impl IMediaSample_Vtbl {
             let this = (*this).get_impl();
             this.SetActualDataLength(::core::mem::transmute_copy(&__midl__imediasample0000)).into()
         }
-        unsafe extern "system" fn GetMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmediatype: *mut *mut ::core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmediatype: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMediaType() {
@@ -35010,7 +35010,7 @@ impl ISBE2MediaTypeProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISBE2MediaTypeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppmediatype: *mut *mut ::core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISBE2MediaTypeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppmediatype: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStream(::core::mem::transmute_copy(&index)) {

@@ -1088,7 +1088,7 @@ impl IBackgroundCopyJob1_Vtbl {
             let this = (*this).get_impl();
             this.GetStatus(::core::mem::transmute_copy(&pdwstatus), ::core::mem::transmute_copy(&pdwwin32result), ::core::mem::transmute_copy(&pdwtransportresult), ::core::mem::transmute_copy(&pdwnumofretries)).into()
         }
-        unsafe extern "system" fn AddFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfilecount: u32, ppfileset: *const *const ::core::mem::ManuallyDrop<FILESETINFO>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyJob1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfilecount: u32, ppfileset: *const *const FILESETINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddFiles(::core::mem::transmute_copy(&cfilecount), ::core::mem::transmute_copy(&ppfileset)).into()

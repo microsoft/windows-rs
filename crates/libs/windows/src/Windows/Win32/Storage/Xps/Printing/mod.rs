@@ -84,8 +84,8 @@ impl IPrintDocumentPackageTarget {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetPackageTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtargettype), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetPackageTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtargettype), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
@@ -136,7 +136,7 @@ impl IPrintDocumentPackageTargetFactory {
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Vtable::as_raw(self), printername.into(), jobname.into(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintDocumentPackageTarget>(result__)
+        (::windows::core::Vtable::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Vtable::as_raw(self), printername.into(), jobname.into(), joboutputstream.into().abi(), jobprintticketstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows::core::IUnknown);
@@ -180,7 +180,7 @@ impl IXpsPrintJob {
     }
     pub unsafe fn GetJobStatus(&self) -> ::windows::core::Result<XPS_JOB_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJobStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_JOB_STATUS>(result__)
+        (::windows::core::Vtable::vtable(self).GetJobStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXpsPrintJob, ::windows::core::IUnknown);

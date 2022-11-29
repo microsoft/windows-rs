@@ -598,7 +598,7 @@ impl IWinMLEvaluationContext_Vtbl {
             let this = (*this).get_impl();
             this.BindValue(::core::mem::transmute_copy(&pdescriptor)).into()
         }
-        unsafe extern "system" fn GetValueByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, pdescriptor: *mut *mut ::core::mem::ManuallyDrop<WINML_BINDING_DESC>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValueByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValueByName(::core::mem::transmute(&name)) {

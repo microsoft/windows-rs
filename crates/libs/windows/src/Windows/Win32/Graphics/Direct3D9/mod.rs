@@ -61,7 +61,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::core::Result<IDirect3D9Ex> {
     ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9Ex ( sdkversion : u32 , param1 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    Direct3DCreate9Ex(sdkversion, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3D9Ex>(result__)
+    Direct3DCreate9Ex(sdkversion, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
@@ -319,7 +319,7 @@ pub struct IDirect3DBaseTexture9(::windows::core::IUnknown);
 impl IDirect3DBaseTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -401,7 +401,7 @@ pub struct IDirect3DCubeTexture9(::windows::core::IUnknown);
 impl IDirect3DCubeTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -447,7 +447,7 @@ impl IDirect3DCubeTexture9 {
     }
     pub unsafe fn GetCubeMapSurface(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCubeMapSurface)(::windows::core::Vtable::as_raw(self), facetype, level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).GetCubeMapSurface)(::windows::core::Vtable::as_raw(self), facetype, level, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -517,7 +517,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetDirect3D(&self) -> ::windows::core::Result<IDirect3D9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDirect3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3D9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDirect3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDeviceCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcaps)).ok()
@@ -554,7 +554,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> ::windows::core::Result<IDirect3DSwapChain9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSwapChain)(::windows::core::Vtable::as_raw(self), iswapchain, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSwapChain9>(result__)
+        (::windows::core::Vtable::vtable(self).GetSwapChain)(::windows::core::Vtable::as_raw(self), iswapchain, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetNumberOfSwapChains)(::windows::core::Vtable::as_raw(self))
@@ -574,7 +574,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBackBuffer)(::windows::core::Vtable::as_raw(self), iswapchain, ibackbuffer, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).GetBackBuffer)(::windows::core::Vtable::as_raw(self), iswapchain, ibackbuffer, r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -695,7 +695,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRenderTarget)(::windows::core::Vtable::as_raw(self), rendertargetindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).GetRenderTarget)(::windows::core::Vtable::as_raw(self), rendertargetindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetDepthStencilSurface<'a, P0>(&self, pnewzstencil: P0) -> ::windows::core::Result<()>
     where
@@ -705,7 +705,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetDepthStencilSurface(&self) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDepthStencilSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDepthStencilSurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BeginScene(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BeginScene)(::windows::core::Vtable::as_raw(self)).ok()
@@ -780,14 +780,14 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> ::windows::core::Result<IDirect3DStateBlock9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStateBlock)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DStateBlock9>(result__)
+        (::windows::core::Vtable::vtable(self).CreateStateBlock)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BeginStateBlock(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BeginStateBlock)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn EndStateBlock(&self) -> ::windows::core::Result<IDirect3DStateBlock9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EndStateBlock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DStateBlock9>(result__)
+        (::windows::core::Vtable::vtable(self).EndStateBlock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetClipStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclipstatus)).ok()
@@ -797,7 +797,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetTexture(&self, stage: u32) -> ::windows::core::Result<IDirect3DBaseTexture9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTexture)(::windows::core::Vtable::as_raw(self), stage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DBaseTexture9>(result__)
+        (::windows::core::Vtable::vtable(self).GetTexture)(::windows::core::Vtable::as_raw(self), stage, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetTexture<'a, P0>(&self, stage: u32, ptexture: P0) -> ::windows::core::Result<()>
     where
@@ -886,7 +886,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> ::windows::core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVertexDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvertexelements), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexDeclaration9>(result__)
+        (::windows::core::Vtable::vtable(self).CreateVertexDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvertexelements), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetVertexDeclaration<'a, P0>(&self, pdecl: P0) -> ::windows::core::Result<()>
     where
@@ -896,7 +896,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetVertexDeclaration(&self) -> ::windows::core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVertexDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexDeclaration9>(result__)
+        (::windows::core::Vtable::vtable(self).GetVertexDeclaration)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetFVF(&self, fvf: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFVF)(::windows::core::Vtable::as_raw(self), fvf).ok()
@@ -906,7 +906,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn CreateVertexShader(&self, pfunction: *const u32) -> ::windows::core::Result<IDirect3DVertexShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVertexShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexShader9>(result__)
+        (::windows::core::Vtable::vtable(self).CreateVertexShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetVertexShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
     where
@@ -916,7 +916,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetVertexShader(&self) -> ::windows::core::Result<IDirect3DVertexShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVertexShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexShader9>(result__)
+        (::windows::core::Vtable::vtable(self).GetVertexShader)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetVertexShaderConstantF)(::windows::core::Vtable::as_raw(self), startregister, ::core::mem::transmute(pconstantdata), vector4fcount).ok()
@@ -963,11 +963,11 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetIndices(&self) -> ::windows::core::Result<IDirect3DIndexBuffer9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIndices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DIndexBuffer9>(result__)
+        (::windows::core::Vtable::vtable(self).GetIndices)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreatePixelShader(&self, pfunction: *const u32) -> ::windows::core::Result<IDirect3DPixelShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePixelShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DPixelShader9>(result__)
+        (::windows::core::Vtable::vtable(self).CreatePixelShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPixelShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
     where
@@ -977,7 +977,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn GetPixelShader(&self) -> ::windows::core::Result<IDirect3DPixelShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPixelShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DPixelShader9>(result__)
+        (::windows::core::Vtable::vtable(self).GetPixelShader)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPixelShaderConstantF)(::windows::core::Vtable::as_raw(self), startregister, ::core::mem::transmute(pconstantdata), vector4fcount).ok()
@@ -1012,7 +1012,7 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> ::windows::core::Result<IDirect3DQuery9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateQuery)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DQuery9>(result__)
+        (::windows::core::Vtable::vtable(self).CreateQuery)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3DDevice9, ::windows::core::IUnknown);
@@ -1279,7 +1279,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetDirect3D(&self) -> ::windows::core::Result<IDirect3D9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDirect3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3D9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDirect3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDeviceCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcaps)).ok()
@@ -1316,7 +1316,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> ::windows::core::Result<IDirect3DSwapChain9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSwapChain)(::windows::core::Vtable::as_raw(self), iswapchain, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSwapChain9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetSwapChain)(::windows::core::Vtable::as_raw(self), iswapchain, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).base__.GetNumberOfSwapChains)(::windows::core::Vtable::as_raw(self))
@@ -1336,7 +1336,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBackBuffer)(::windows::core::Vtable::as_raw(self), iswapchain, ibackbuffer, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBackBuffer)(::windows::core::Vtable::as_raw(self), iswapchain, ibackbuffer, r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1457,7 +1457,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetRenderTarget)(::windows::core::Vtable::as_raw(self), rendertargetindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetRenderTarget)(::windows::core::Vtable::as_raw(self), rendertargetindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetDepthStencilSurface<'a, P0>(&self, pnewzstencil: P0) -> ::windows::core::Result<()>
     where
@@ -1467,7 +1467,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetDepthStencilSurface(&self) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDepthStencilSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDepthStencilSurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BeginScene(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.BeginScene)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1542,14 +1542,14 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> ::windows::core::Result<IDirect3DStateBlock9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateStateBlock)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DStateBlock9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateStateBlock)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BeginStateBlock(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.BeginStateBlock)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn EndStateBlock(&self) -> ::windows::core::Result<IDirect3DStateBlock9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EndStateBlock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DStateBlock9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.EndStateBlock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetClipStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclipstatus)).ok()
@@ -1559,7 +1559,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetTexture(&self, stage: u32) -> ::windows::core::Result<IDirect3DBaseTexture9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTexture)(::windows::core::Vtable::as_raw(self), stage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DBaseTexture9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetTexture)(::windows::core::Vtable::as_raw(self), stage, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetTexture<'a, P0>(&self, stage: u32, ptexture: P0) -> ::windows::core::Result<()>
     where
@@ -1648,7 +1648,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> ::windows::core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVertexDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvertexelements), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexDeclaration9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVertexDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvertexelements), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetVertexDeclaration<'a, P0>(&self, pdecl: P0) -> ::windows::core::Result<()>
     where
@@ -1658,7 +1658,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetVertexDeclaration(&self) -> ::windows::core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVertexDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexDeclaration9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetVertexDeclaration)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetFVF(&self, fvf: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetFVF)(::windows::core::Vtable::as_raw(self), fvf).ok()
@@ -1668,7 +1668,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn CreateVertexShader(&self, pfunction: *const u32) -> ::windows::core::Result<IDirect3DVertexShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVertexShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexShader9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVertexShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetVertexShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
     where
@@ -1678,7 +1678,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetVertexShader(&self) -> ::windows::core::Result<IDirect3DVertexShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVertexShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexShader9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetVertexShader)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetVertexShaderConstantF)(::windows::core::Vtable::as_raw(self), startregister, ::core::mem::transmute(pconstantdata), vector4fcount).ok()
@@ -1725,11 +1725,11 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetIndices(&self) -> ::windows::core::Result<IDirect3DIndexBuffer9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetIndices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DIndexBuffer9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetIndices)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreatePixelShader(&self, pfunction: *const u32) -> ::windows::core::Result<IDirect3DPixelShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreatePixelShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DPixelShader9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreatePixelShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfunction), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPixelShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
     where
@@ -1739,7 +1739,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn GetPixelShader(&self) -> ::windows::core::Result<IDirect3DPixelShader9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DPixelShader9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetPixelShader)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPixelShaderConstantF)(::windows::core::Vtable::as_raw(self), startregister, ::core::mem::transmute(pconstantdata), vector4fcount).ok()
@@ -1774,7 +1774,7 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> ::windows::core::Result<IDirect3DQuery9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateQuery)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DQuery9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateQuery)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetConvolutionMonoKernel)(::windows::core::Vtable::as_raw(self), width, height, ::core::mem::transmute(rows), ::core::mem::transmute(columns)).ok()
@@ -1919,7 +1919,7 @@ pub struct IDirect3DIndexBuffer9(::windows::core::IUnknown);
 impl IDirect3DIndexBuffer9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -1989,7 +1989,7 @@ pub struct IDirect3DPixelShader9(::windows::core::IUnknown);
 impl IDirect3DPixelShader9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFunction(&self, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetFunction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(psizeofdata)).ok()
@@ -2031,7 +2031,7 @@ pub struct IDirect3DQuery9(::windows::core::IUnknown);
 impl IDirect3DQuery9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> D3DQUERYTYPE {
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self))
@@ -2085,7 +2085,7 @@ pub struct IDirect3DResource9(::windows::core::IUnknown);
 impl IDirect3DResource9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -2151,7 +2151,7 @@ pub struct IDirect3DStateBlock9(::windows::core::IUnknown);
 impl IDirect3DStateBlock9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Capture(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Capture)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2197,7 +2197,7 @@ pub struct IDirect3DSurface9(::windows::core::IUnknown);
 impl IDirect3DSurface9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -2311,7 +2311,7 @@ impl IDirect3DSwapChain9 {
     }
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBackBuffer)(::windows::core::Vtable::as_raw(self), ibackbuffer, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).GetBackBuffer)(::windows::core::Vtable::as_raw(self), ibackbuffer, r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2323,7 +2323,7 @@ impl IDirect3DSwapChain9 {
     }
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2395,7 +2395,7 @@ impl IDirect3DSwapChain9Ex {
     }
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBackBuffer)(::windows::core::Vtable::as_raw(self), ibackbuffer, r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBackBuffer)(::windows::core::Vtable::as_raw(self), ibackbuffer, r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2407,7 +2407,7 @@ impl IDirect3DSwapChain9Ex {
     }
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2461,7 +2461,7 @@ pub struct IDirect3DTexture9(::windows::core::IUnknown);
 impl IDirect3DTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -2507,7 +2507,7 @@ impl IDirect3DTexture9 {
     }
     pub unsafe fn GetSurfaceLevel(&self, level: u32) -> ::windows::core::Result<IDirect3DSurface9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSurfaceLevel)(::windows::core::Vtable::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
+        (::windows::core::Vtable::vtable(self).GetSurfaceLevel)(::windows::core::Vtable::as_raw(self), level, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2568,7 +2568,7 @@ pub struct IDirect3DVertexBuffer9(::windows::core::IUnknown);
 impl IDirect3DVertexBuffer9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -2638,7 +2638,7 @@ pub struct IDirect3DVertexDeclaration9(::windows::core::IUnknown);
 impl IDirect3DVertexDeclaration9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDeclaration(&self, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pelement), ::core::mem::transmute(pnumelements)).ok()
@@ -2680,7 +2680,7 @@ pub struct IDirect3DVertexShader9(::windows::core::IUnknown);
 impl IDirect3DVertexShader9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFunction(&self, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetFunction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(psizeofdata)).ok()
@@ -2722,7 +2722,7 @@ pub struct IDirect3DVolume9(::windows::core::IUnknown);
 impl IDirect3DVolume9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -2788,7 +2788,7 @@ pub struct IDirect3DVolumeTexture9(::windows::core::IUnknown);
 impl IDirect3DVolumeTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DDevice9>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows::core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refguid), ::core::mem::transmute(pdata), sizeofdata, flags).ok()
@@ -2834,7 +2834,7 @@ impl IDirect3DVolumeTexture9 {
     }
     pub unsafe fn GetVolumeLevel(&self, level: u32) -> ::windows::core::Result<IDirect3DVolume9> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVolumeLevel)(::windows::core::Vtable::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVolume9>(result__)
+        (::windows::core::Vtable::vtable(self).GetVolumeLevel)(::windows::core::Vtable::as_raw(self), level, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn LockBox(&self, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).LockBox)(::windows::core::Vtable::as_raw(self), level, ::core::mem::transmute(plockedvolume), ::core::mem::transmute(pbox), flags).ok()

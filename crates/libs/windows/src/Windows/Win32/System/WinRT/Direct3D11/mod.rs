@@ -7,7 +7,7 @@ where
 {
     ::windows::core::link ! ( "d3d11.dll""system" fn CreateDirect3D11DeviceFromDXGIDevice ( dxgidevice : * mut::core::ffi::c_void , graphicsdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+    CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -18,7 +18,7 @@ where
 {
     ::windows::core::link ! ( "d3d11.dll""system" fn CreateDirect3D11SurfaceFromDXGISurface ( dgxisurface : * mut::core::ffi::c_void , graphicssurface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+    CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`*"]
 #[repr(transparent)]
@@ -28,8 +28,8 @@ impl IDirect3DDxgiInterfaceAccess {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetInterface)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetInterface)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows::core::IUnknown);

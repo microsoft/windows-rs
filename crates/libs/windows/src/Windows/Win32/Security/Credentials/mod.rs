@@ -466,7 +466,7 @@ pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *con
 pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::core::Result<*mut KeyCredentialManagerInfo> {
     ::windows::core::link ! ( "keycredmgr.dll""system" fn KeyCredentialManagerGetInformation ( keycredentialmanagerinfo : *mut *mut KeyCredentialManagerInfo ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KeyCredentialManagerGetInformation(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut KeyCredentialManagerInfo>(result__)
+    KeyCredentialManagerGetInformation(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

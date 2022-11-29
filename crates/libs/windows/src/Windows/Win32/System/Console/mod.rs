@@ -63,7 +63,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreatePseudoConsole ( size : COORD , hinput : super::super::Foundation:: HANDLE , houtput : super::super::Foundation:: HANDLE , dwflags : u32 , phpc : *mut HPCON ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreatePseudoConsole(::core::mem::transmute(size), hinput.into(), houtput.into(), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HPCON>(result__)
+    CreatePseudoConsole(::core::mem::transmute(size), hinput.into(), houtput.into(), dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[inline]

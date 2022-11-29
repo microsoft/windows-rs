@@ -41,7 +41,7 @@ pub struct IRandomAccessStreamFileAccessMode(::windows::core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IRandomAccessStreamFileAccessMode, ::windows::core::IUnknown);
@@ -85,7 +85,7 @@ impl IStorageFolderHandleAccess {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IStorageFolderHandleAccess, ::windows::core::IUnknown);
@@ -131,7 +131,7 @@ impl IStorageItemHandleAccess {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IStorageItemHandleAccess, ::windows::core::IUnknown);
@@ -212,7 +212,7 @@ impl IUnbufferedFileHandleProvider {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUnbufferedFileHandleOplockCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self), oplockbreakcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Vtable::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self), oplockbreakcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CloseUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self)).ok()

@@ -8,7 +8,7 @@ where
 {
     ::windows::core::link ! ( "webauthn.dll""system" fn WebAuthNAuthenticatorGetAssertion ( hwnd : super::super::Foundation:: HWND , pwszrpid : :: windows::core::PCWSTR , pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA , pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS , ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into(), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_ASSERTION>(result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into(), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19,7 +19,7 @@ where
 {
     ::windows::core::link ! ( "webauthn.dll""system" fn WebAuthNAuthenticatorMakeCredential ( hwnd : super::super::Foundation:: HWND , prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION , puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION , ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS , pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA , pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS , ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebAuthNAuthenticatorMakeCredential(hwnd.into(), ::core::mem::transmute(prpinformation), ::core::mem::transmute(puserinformation), ::core::mem::transmute(ppubkeycredparams), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>(result__)
+    WebAuthNAuthenticatorMakeCredential(hwnd.into(), ::core::mem::transmute(prpinformation), ::core::mem::transmute(puserinformation), ::core::mem::transmute(ppubkeycredparams), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -51,7 +51,7 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
 pub unsafe fn WebAuthNGetCancellationId() -> ::windows::core::Result<::windows::core::GUID> {
     ::windows::core::link ! ( "webauthn.dll""system" fn WebAuthNGetCancellationId ( pcancellationid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebAuthNGetCancellationId(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    WebAuthNGetCancellationId(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -71,7 +71,7 @@ pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: ::windows::core::HRESULT) -> :
 pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "webauthn.dll""system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable ( pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -225,7 +225,7 @@ pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, propertie
 pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPERTY]>) -> ::windows::core::Result<*mut WS_ERROR> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsCreateError ( properties : *const WS_ERROR_PROPERTY , propertycount : u32 , error : *mut *mut WS_ERROR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WsCreateError(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WS_ERROR>(result__)
+    WsCreateError(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -233,7 +233,7 @@ pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPER
 pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP) -> ::windows::core::Result<WS_FAULT> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsCreateFaultFromError ( error : *const WS_ERROR , faulterrorcode : :: windows::core::HRESULT , faultdisclosure : WS_FAULT_DISCLOSURE , heap : *const WS_HEAP , fault : *mut WS_FAULT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WsCreateFaultFromError(::core::mem::transmute(error), faulterrorcode, faultdisclosure, ::core::mem::transmute(heap), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WS_FAULT>(result__)
+    WsCreateFaultFromError(::core::mem::transmute(error), faulterrorcode, faultdisclosure, ::core::mem::transmute(heap), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -511,7 +511,7 @@ pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_I
 pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows::core::Result<WS_STRING> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsGetErrorString ( error : *const WS_ERROR , index : u32 , string : *mut WS_STRING ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WsGetErrorString(::core::mem::transmute(error), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WS_STRING>(result__)
+    WsGetErrorString(::core::mem::transmute(error), index, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1352,7 +1352,7 @@ impl IContentPrefetcherTaskTrigger {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Vtable::as_raw(self), packagefullname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Vtable::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Vtable::as_raw(self), packagefullname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContentPrefetcherTaskTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);

@@ -6,7 +6,7 @@ where
 {
     ::windows::core::link ! ( "licenseprotection.dll""system" fn RegisterLicenseKeyWithExpiration ( licensekey : :: windows::core::PCWSTR , validityindays : u32 , status : *mut LicenseProtectionStatus ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RegisterLicenseKeyWithExpiration(licensekey.into(), validityindays, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<LicenseProtectionStatus>(result__)
+    RegisterLicenseKeyWithExpiration(licensekey.into(), validityindays, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -39,7 +39,7 @@ where
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterConnectCommunicationPort ( lpportname : :: windows::core::PCWSTR , dwoptions : u32 , lpcontext : *const ::core::ffi::c_void , wsizeofcontext : u16 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , hport : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    FilterConnectCommunicationPort(lpportname.into(), dwoptions, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    FilterConnectCommunicationPort(lpportname.into(), dwoptions, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -49,7 +49,7 @@ where
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterCreate ( lpfiltername : :: windows::core::PCWSTR , hfilter : *mut HFILTER ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    FilterCreate(lpfiltername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HFILTER>(result__)
+    FilterCreate(lpfiltername.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -135,7 +135,7 @@ where
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterInstanceCreate ( lpfiltername : :: windows::core::PCWSTR , lpvolumename : :: windows::core::PCWSTR , lpinstancename : :: windows::core::PCWSTR , hinstance : *mut HFILTER_INSTANCE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    FilterInstanceCreate(lpfiltername.into(), lpvolumename.into(), lpinstancename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HFILTER_INSTANCE>(result__)
+    FilterInstanceCreate(lpfiltername.into(), lpvolumename.into(), lpinstancename.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

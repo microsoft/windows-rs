@@ -88,21 +88,21 @@ where
 {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetCompositionTimingInfo ( hwnd : super::super::Foundation:: HWND , ptiminginfo : *mut DWM_TIMING_INFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetCompositionTimingInfo(hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TIMING_INFO>(result__)
+    DwmGetCompositionTimingInfo(hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetGraphicsStreamClient ( uindex : u32 , pclientuuid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetGraphicsStreamClient(uindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    DwmGetGraphicsStreamClient(uindex, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core::Result<MilMatrix3x2D> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetGraphicsStreamTransformHint ( uindex : u32 , ptransform : *mut MilMatrix3x2D ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetGraphicsStreamTransformHint(uindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MilMatrix3x2D>(result__)
+    DwmGetGraphicsStreamTransformHint(uindex, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -120,7 +120,7 @@ where
 {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetUnmetTabRequirements ( appwindow : super::super::Foundation:: HWND , value : *mut DWM_TAB_WINDOW_REQUIREMENTS ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetUnmetTabRequirements(appwindow.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TAB_WINDOW_REQUIREMENTS>(result__)
+    DwmGetUnmetTabRequirements(appwindow.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -148,7 +148,7 @@ where
 pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmIsCompositionEnabled ( pfenabled : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmIsCompositionEnabled(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    DwmIsCompositionEnabled(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -167,7 +167,7 @@ where
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core::Result<super::super::Foundation::SIZE> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmQueryThumbnailSourceSize ( hthumbnail : isize , psize : *mut super::super::Foundation:: SIZE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmQueryThumbnailSourceSize(hthumbnail, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+    DwmQueryThumbnailSourceSize(hthumbnail, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -179,7 +179,7 @@ where
 {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmRegisterThumbnail ( hwnddestination : super::super::Foundation:: HWND , hwndsource : super::super::Foundation:: HWND , phthumbnailid : *mut isize ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmRegisterThumbnail(hwnddestination.into(), hwndsource.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+    DwmRegisterThumbnail(hwnddestination.into(), hwndsource.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

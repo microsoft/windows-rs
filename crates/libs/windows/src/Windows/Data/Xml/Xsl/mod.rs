@@ -66,7 +66,7 @@ impl XsltProcessor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TransformToString)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).TransformToString)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -79,7 +79,7 @@ impl XsltProcessor {
         let this = &::windows::core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TransformToDocument)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Dom::XmlDocument>(result__)
+            (::windows::core::Vtable::vtable(this).TransformToDocument)(::windows::core::Vtable::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -87,7 +87,7 @@ impl XsltProcessor {
     pub fn CreateInstance(document: &super::Dom::XmlDocument) -> ::windows::core::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(document), result__.as_mut_ptr()).from_abi::<XsltProcessor>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(document), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

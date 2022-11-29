@@ -142,7 +142,7 @@ impl IDirectDraw {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface>(result__)
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
@@ -164,7 +164,7 @@ impl IDirectDraw {
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface>(result__)
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -290,7 +290,7 @@ impl IDirectDraw2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface>(result__)
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
@@ -312,7 +312,7 @@ impl IDirectDraw2 {
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface>(result__)
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -442,7 +442,7 @@ impl IDirectDraw4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface4>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface4>(result__)
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
@@ -464,7 +464,7 @@ impl IDirectDraw4 {
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface4> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface4>(result__)
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -510,7 +510,7 @@ impl IDirectDraw4 {
         P0: ::std::convert::Into<super::Gdi::HDC>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface4>(result__)
+        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RestoreAllSurfaces)(::windows::core::Vtable::as_raw(self)).ok()
@@ -624,7 +624,7 @@ impl IDirectDraw7 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectDrawSurface7>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface7>(result__)
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)).ok()
@@ -646,7 +646,7 @@ impl IDirectDraw7 {
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface7> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface7>(result__)
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -692,7 +692,7 @@ impl IDirectDraw7 {
         P0: ::std::convert::Into<super::Gdi::HDC>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawSurface7>(result__)
+        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RestoreAllSurfaces)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1134,7 +1134,7 @@ impl IDirectDrawSurface {
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawClipper>(result__)
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
@@ -1152,7 +1152,7 @@ impl IDirectDrawSurface {
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawPalette>(result__)
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -1377,7 +1377,7 @@ impl IDirectDrawSurface2 {
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawClipper>(result__)
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
@@ -1395,7 +1395,7 @@ impl IDirectDrawSurface2 {
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawPalette>(result__)
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -1632,7 +1632,7 @@ impl IDirectDrawSurface3 {
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawClipper>(result__)
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
@@ -1650,7 +1650,7 @@ impl IDirectDrawSurface3 {
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawPalette>(result__)
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -1891,7 +1891,7 @@ impl IDirectDrawSurface4 {
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawClipper>(result__)
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
@@ -1909,7 +1909,7 @@ impl IDirectDrawSurface4 {
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawPalette>(result__)
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -2175,7 +2175,7 @@ impl IDirectDrawSurface7 {
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawClipper>(result__)
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
@@ -2193,7 +2193,7 @@ impl IDirectDrawSurface7 {
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectDrawPalette>(result__)
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()

@@ -93,7 +93,7 @@ impl AsyncIFtpAuthorizationProvider {
     }
     pub unsafe fn Finish_GetUserAccessPermission(&self) -> ::windows::core::Result<FTP_ACCESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_ACCESS>(result__)
+        (::windows::core::Vtable::vtable(self).Finish_GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIFtpAuthorizationProvider, ::windows::core::IUnknown);
@@ -140,7 +140,7 @@ impl AsyncIFtpHomeDirectoryProvider {
     }
     pub unsafe fn Finish_GetUserHomeDirectoryData(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Vtable::vtable(self).Finish_GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, ::windows::core::IUnknown);
@@ -225,7 +225,7 @@ impl AsyncIFtpPostprocessProvider {
     }
     pub unsafe fn Finish_HandlePostprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_HandlePostprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
+        (::windows::core::Vtable::vtable(self).Finish_HandlePostprocess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIFtpPostprocessProvider, ::windows::core::IUnknown);
@@ -272,7 +272,7 @@ impl AsyncIFtpPreprocessProvider {
     }
     pub unsafe fn Finish_HandlePreprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_HandlePreprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
+        (::windows::core::Vtable::vtable(self).Finish_HandlePreprocess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIFtpPreprocessProvider, ::windows::core::IUnknown);
@@ -325,7 +325,7 @@ impl AsyncIFtpRoleProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Finish_IsUserInRole(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Finish_IsUserInRole)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).Finish_IsUserInRole)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(AsyncIFtpRoleProvider, ::windows::core::IUnknown);
@@ -515,7 +515,7 @@ impl IFtpAuthorizationProvider {
         P3: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszvirtualpath.into(), pszusername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_ACCESS>(result__)
+        (::windows::core::Vtable::vtable(self).GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszvirtualpath.into(), pszusername.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFtpAuthorizationProvider, ::windows::core::IUnknown);
@@ -558,7 +558,7 @@ impl IFtpHomeDirectoryProvider {
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszusername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszusername.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFtpHomeDirectoryProvider, ::windows::core::IUnknown);
@@ -635,7 +635,7 @@ impl IFtpPostprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HandlePostprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppostprocessparameters), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
+        (::windows::core::Vtable::vtable(self).HandlePostprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppostprocessparameters), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFtpPostprocessProvider, ::windows::core::IUnknown);
@@ -678,7 +678,7 @@ impl IFtpPreprocessProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HandlePreprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppreprocessparameters), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
+        (::windows::core::Vtable::vtable(self).HandlePreprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppreprocessparameters), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFtpPreprocessProvider, ::windows::core::IUnknown);
@@ -769,7 +769,7 @@ impl IFtpRoleProvider {
         P3: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsUserInRole)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszusername.into(), pszrole.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).IsUserInRole)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszusername.into(), pszrole.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFtpRoleProvider, ::windows::core::IUnknown);
@@ -907,7 +907,7 @@ impl IMSAdminBase2W {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.OpenKey)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), dwmdaccessrequested, dwmdtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.OpenKey)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), dwmdaccessrequested, dwmdtimeout, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CloseKey)(::windows::core::Vtable::as_raw(self), hmdhandle).ok()
@@ -920,18 +920,18 @@ impl IMSAdminBase2W {
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHandleInfo)(::windows::core::Vtable::as_raw(self), hmdhandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<METADATA_HANDLE_INFO>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetHandleInfo)(::windows::core::Vtable::as_raw(self), hmdhandle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSystemChangeNumber)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetSystemChangeNumber)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDataSetNumber<'a, P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDataSetNumber)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDataSetNumber)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -982,7 +982,7 @@ impl IMSAdminBase2W {
     }
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.UnmarshalInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSAdminBaseW>(result__)
+        (::windows::core::Vtable::vtable(self).base__.UnmarshalInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetServerGuid(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetServerGuid)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1170,7 +1170,7 @@ impl IMSAdminBase3W {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.OpenKey)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), dwmdaccessrequested, dwmdtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.OpenKey)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), dwmdaccessrequested, dwmdtimeout, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CloseKey)(::windows::core::Vtable::as_raw(self), hmdhandle).ok()
@@ -1183,18 +1183,18 @@ impl IMSAdminBase3W {
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetHandleInfo)(::windows::core::Vtable::as_raw(self), hmdhandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<METADATA_HANDLE_INFO>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetHandleInfo)(::windows::core::Vtable::as_raw(self), hmdhandle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSystemChangeNumber)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetSystemChangeNumber)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDataSetNumber<'a, P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDataSetNumber)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDataSetNumber)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1245,7 +1245,7 @@ impl IMSAdminBase3W {
     }
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.UnmarshalInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSAdminBaseW>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.UnmarshalInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetServerGuid(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetServerGuid)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1472,7 +1472,7 @@ impl IMSAdminBaseW {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenKey)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), dwmdaccessrequested, dwmdtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).OpenKey)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), dwmdaccessrequested, dwmdtimeout, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CloseKey)(::windows::core::Vtable::as_raw(self), hmdhandle).ok()
@@ -1485,18 +1485,18 @@ impl IMSAdminBaseW {
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHandleInfo)(::windows::core::Vtable::as_raw(self), hmdhandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<METADATA_HANDLE_INFO>(result__)
+        (::windows::core::Vtable::vtable(self).GetHandleInfo)(::windows::core::Vtable::as_raw(self), hmdhandle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSystemChangeNumber)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetSystemChangeNumber)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDataSetNumber<'a, P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDataSetNumber)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetDataSetNumber)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1547,7 +1547,7 @@ impl IMSAdminBaseW {
     }
     pub unsafe fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UnmarshalInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSAdminBaseW>(result__)
+        (::windows::core::Vtable::vtable(self).UnmarshalInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetServerGuid(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetServerGuid)(::windows::core::Vtable::as_raw(self)).ok()

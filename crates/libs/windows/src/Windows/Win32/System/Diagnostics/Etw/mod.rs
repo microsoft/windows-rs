@@ -645,15 +645,15 @@ pub struct ITraceEvent(::windows::core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ITraceEvent> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITraceEvent>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUserContext(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
+        (::windows::core::Vtable::vtable(self).GetUserContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetEventRecord(&self) -> ::windows::core::Result<*mut EVENT_RECORD> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEventRecord)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut EVENT_RECORD>(result__)
+        (::windows::core::Vtable::vtable(self).GetEventRecord)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetPayload(&self, payload: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPayload)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(payload.as_ptr()), payload.len() as _).ok()
@@ -785,11 +785,11 @@ pub struct ITraceRelogger(::windows::core::IUnknown);
 impl ITraceRelogger {
     pub unsafe fn AddLogfileTraceStream(&self, logfilename: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddLogfileTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(logfilename), ::core::mem::transmute(usercontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RELOGSTREAM_HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).AddLogfileTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(logfilename), ::core::mem::transmute(usercontext), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddRealtimeTraceStream(&self, loggername: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddRealtimeTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(loggername), ::core::mem::transmute(usercontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RELOGSTREAM_HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).AddRealtimeTraceStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(loggername), ::core::mem::transmute(usercontext), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RegisterCallback<'a, P0>(&self, callback: P0) -> ::windows::core::Result<()>
     where
@@ -808,7 +808,7 @@ impl ITraceRelogger {
         P0: ::std::convert::Into<RELOGSTREAM_HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEventInstance)(::windows::core::Vtable::as_raw(self), tracehandle.into(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITraceEvent>(result__)
+        (::windows::core::Vtable::vtable(self).CreateEventInstance)(::windows::core::Vtable::as_raw(self), tracehandle.into(), flags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ProcessTrace(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ProcessTrace)(::windows::core::Vtable::as_raw(self)).ok()

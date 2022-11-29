@@ -40,7 +40,7 @@ where
 {
     ::windows::core::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslLaunch ( distributionname : :: windows::core::PCWSTR , command : :: windows::core::PCWSTR , usecurrentworkingdirectory : super::super::Foundation:: BOOL , stdin : super::super::Foundation:: HANDLE , stdout : super::super::Foundation:: HANDLE , stderr : super::super::Foundation:: HANDLE , process : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WslLaunch(distributionname.into(), command.into(), usecurrentworkingdirectory.into(), stdin.into(), stdout.into(), stderr.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WslLaunch(distributionname.into(), command.into(), usecurrentworkingdirectory.into(), stdin.into(), stdout.into(), stderr.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -53,7 +53,7 @@ where
 {
     ::windows::core::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslLaunchInteractive ( distributionname : :: windows::core::PCWSTR , command : :: windows::core::PCWSTR , usecurrentworkingdirectory : super::super::Foundation:: BOOL , exitcode : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WslLaunchInteractive(distributionname.into(), command.into(), usecurrentworkingdirectory.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    WslLaunchInteractive(distributionname.into(), command.into(), usecurrentworkingdirectory.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]

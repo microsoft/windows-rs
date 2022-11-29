@@ -2692,7 +2692,7 @@ impl IBrowserService2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBaseBrowserData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbbd: *mut *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBaseBrowserData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbbd: *mut *mut BASEBROWSERDATALH) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBaseBrowserData() {
@@ -2898,7 +2898,7 @@ impl IBrowserService2_Vtbl {
             let this = (*this).get_impl();
             this._CloseAndReleaseToolbars(::core::mem::transmute_copy(&fclose)).into()
         }
-        unsafe extern "system" fn v_MayGetNextToolbarFocus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut ::core::mem::ManuallyDrop<TOOLBARITEM>, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn v_MayGetNextToolbarFocus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.v_MayGetNextToolbarFocus(::core::mem::transmute_copy(&lpmsg), ::core::mem::transmute_copy(&itbnext), ::core::mem::transmute_copy(&citb), ::core::mem::transmute_copy(&pptbi), ::core::mem::transmute_copy(&phwnd)).into()
