@@ -216,7 +216,7 @@ where
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn HrThisThreadAdviseSink ( lpadvisesink : * mut::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HrThisThreadAdviseSink(lpadvisesink.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPIAdviseSink>(result__)
+    HrThisThreadAdviseSink(lpadvisesink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -257,7 +257,7 @@ pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32 {
 pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: ::core::option::Option<*const i8>) -> ::windows::core::Result<super::Com::IStream> {
     ::windows::core::link ! ( "mapi32.dll""system" fn OpenStreamOnFile ( lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OpenStreamOnFile(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), ulflags, ::core::mem::transmute(lpszfilename), ::core::mem::transmute(lpszprefix.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IStream>(result__)
+    OpenStreamOnFile(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), ulflags, ::core::mem::transmute(lpszfilename), ::core::mem::transmute(lpszprefix.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -414,7 +414,7 @@ where
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn WrapCompressedRTFStream ( lpcompressedrtfstream : * mut::core::ffi::c_void , ulflags : u32 , lpuncompressedrtfstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WrapCompressedRTFStream(lpcompressedrtfstream.into().abi(), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IStream>(result__)
+    WrapCompressedRTFStream(lpcompressedrtfstream.into().abi(), ulflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -471,11 +471,11 @@ impl IABContainer {
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
@@ -492,7 +492,7 @@ impl IABContainer {
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulcreateflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPIProp>(result__)
+        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CopyEntries<'a, P0>(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -507,7 +507,7 @@ impl IABContainer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<*const SPropTagArray>, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<FlagList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FlagList>(result__)
+        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IABContainer, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
@@ -856,11 +856,11 @@ impl IDistList {
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
@@ -877,7 +877,7 @@ impl IDistList {
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulcreateflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPIProp>(result__)
+        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CopyEntries<'a, P0>(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -892,7 +892,7 @@ impl IDistList {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<*const SPropTagArray>, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<FlagList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FlagList>(result__)
+        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDistList, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
@@ -1021,11 +1021,11 @@ impl IMAPIContainer {
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
@@ -1086,7 +1086,7 @@ pub struct IMAPIControl(::windows::core::IUnknown);
 impl IMAPIControl {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MAPIERROR>(result__)
+        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Activate(&self, ulflags: u32, uluiparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), ulflags, uluiparam).ok()
@@ -1175,11 +1175,11 @@ impl IMAPIFolder {
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetContentsTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
@@ -1211,7 +1211,7 @@ impl IMAPIFolder {
     }
     pub unsafe fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: ::core::option::Option<*const i8>, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IMAPIFolder> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ulfoldertype, ::core::mem::transmute(lpszfoldername), ::core::mem::transmute(lpszfoldercomment.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPIFolder>(result__)
+        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ulfoldertype, ::core::mem::transmute(lpszfoldername), ::core::mem::transmute(lpszfoldercomment.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CopyFolder<'a, P0>(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, lpdestfolder: *const ::core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -1233,11 +1233,11 @@ impl IMAPIFolder {
     }
     pub unsafe fn GetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulnewstatus: u32, ulnewstatusmask: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulnewstatus, ulnewstatusmask, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).SetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulnewstatus, ulnewstatusmask, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SaveContentsSort(&self, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SaveContentsSort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpsortcriteria), ulflags).ok()
@@ -1799,11 +1799,11 @@ impl IMessage {
     }
     pub unsafe fn GetAttachmentTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttachmentTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).GetAttachmentTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenAttach(&self, ulattachmentnum: u32, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IAttach> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenAttach)(::windows::core::Vtable::as_raw(self), ulattachmentnum, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAttach>(result__)
+        (::windows::core::Vtable::vtable(self).OpenAttach)(::windows::core::Vtable::as_raw(self), ulattachmentnum, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAttach(&self, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: *mut ::core::option::Option<IAttach>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateAttach)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpulattachmentnum), ::core::mem::transmute(lppattach)).ok()
@@ -1816,7 +1816,7 @@ impl IMessage {
     }
     pub unsafe fn GetRecipientTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRecipientTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).GetRecipientTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1921,14 +1921,14 @@ impl IMsgStore {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIAdviseSink>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid.unwrap_or(::std::ptr::null())), uleventmask, lpadvisesink.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid.unwrap_or(::std::ptr::null())), uleventmask, lpadvisesink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, ulconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), ulconnection).ok()
     }
     pub unsafe fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, ::core::mem::transmute(lpentryid1), cbentryid2, ::core::mem::transmute(lpentryid2), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, ::core::mem::transmute(lpentryid1), cbentryid2, ::core::mem::transmute(lpentryid2), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32, lpulobjtype: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(ppunk)).ok()
@@ -1941,7 +1941,7 @@ impl IMsgStore {
     }
     pub unsafe fn GetReceiveFolderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReceiveFolderTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).GetReceiveFolderTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn StoreLogoff(&self, lpulflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).StoreLogoff)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulflags)).ok()
@@ -1951,7 +1951,7 @@ impl IMsgStore {
     }
     pub unsafe fn GetOutgoingQueue(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutgoingQueue)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).GetOutgoingQueue)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetLockState<'a, P0>(&self, lpmessage: P0, ullockstate: u32) -> ::windows::core::Result<()>
     where
@@ -2186,24 +2186,24 @@ pub struct IProviderAdmin(::windows::core::IUnknown);
 impl IProviderAdmin {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MAPIERROR>(result__)
+        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetProviderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderTable)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPITable>(result__)
+        (::windows::core::Vtable::vtable(self).GetProviderTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateProvider(&self, lpszprovider: *const i8, lpprops: &[SPropValue], uluiparam: usize, ulflags: u32) -> ::windows::core::Result<MAPIUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszprovider), lpprops.len() as _, ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MAPIUID>(result__)
+        (::windows::core::Vtable::vtable(self).CreateProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszprovider), lpprops.len() as _, ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeleteProvider(&self, lpuid: *const MAPIUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuid)).ok()
     }
     pub unsafe fn OpenProfileSection(&self, lpuid: ::core::option::Option<*const MAPIUID>, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IProfSect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenProfileSection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IProfSect>(result__)
+        (::windows::core::Vtable::vtable(self).OpenProfileSection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProviderAdmin, ::windows::core::IUnknown);
@@ -2449,7 +2449,7 @@ impl IWABObject {
         P2: ::std::convert::Into<::windows::core::PCSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
+        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn VCardCreate<'a, P0, P1, P2>(&self, lpiab: P0, ulflags: u32, lpszvcard: P1, lpmailuser: P2) -> ::windows::core::Result<()>
     where
@@ -2465,7 +2465,7 @@ impl IWABObject {
         P1: ::std::convert::Into<::windows::core::PCSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VCardRetrieve)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMailUser>(result__)
+        (::windows::core::Vtable::vtable(self).VCardRetrieve)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

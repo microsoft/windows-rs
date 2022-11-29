@@ -84,7 +84,7 @@ impl IUICommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -95,7 +95,7 @@ impl IUICommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UICommandInvokedHandler>(result__)
+            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetInvoked(&self, value: &UICommandInvokedHandler) -> ::windows::core::Result<()> {
@@ -106,7 +106,7 @@ impl IUICommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -183,7 +183,7 @@ impl MessageDialog {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -196,14 +196,14 @@ impl MessageDialog {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Commands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<IUICommand>>(result__)
+            (::windows::core::Vtable::vtable(this).Commands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DefaultCommandIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DefaultCommandIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).DefaultCommandIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetDefaultCommandIndex(&self, value: u32) -> ::windows::core::Result<()> {
@@ -214,7 +214,7 @@ impl MessageDialog {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CancelCommandIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).CancelCommandIndex)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetCancelCommandIndex(&self, value: u32) -> ::windows::core::Result<()> {
@@ -225,7 +225,7 @@ impl MessageDialog {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetContent(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -238,14 +238,14 @@ impl MessageDialog {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
+            (::windows::core::Vtable::vtable(this).ShowAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Options(&self) -> ::windows::core::Result<MessageDialogOptions> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Options)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MessageDialogOptions>(result__)
+            (::windows::core::Vtable::vtable(this).Options)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetOptions(&self, value: MessageDialogOptions) -> ::windows::core::Result<()> {
@@ -255,13 +255,13 @@ impl MessageDialog {
     pub fn Create(content: &::windows::core::HSTRING) -> ::windows::core::Result<MessageDialog> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi::<MessageDialog>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateWithTitle(content: &::windows::core::HSTRING, title: &::windows::core::HSTRING) -> ::windows::core::Result<MessageDialog> {
         Self::IMessageDialogFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithTitle)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), ::core::mem::transmute_copy(title), result__.as_mut_ptr()).from_abi::<MessageDialog>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithTitle)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(content), ::core::mem::transmute_copy(title), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -320,7 +320,7 @@ impl PopupMenu {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Commands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<IUICommand>>(result__)
+            (::windows::core::Vtable::vtable(this).Commands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -329,7 +329,7 @@ impl PopupMenu {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowAsync)(::windows::core::Vtable::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
+            (::windows::core::Vtable::vtable(this).ShowAsync)(::windows::core::Vtable::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -338,7 +338,7 @@ impl PopupMenu {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowAsyncWithRect)(::windows::core::Vtable::as_raw(this), selection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
+            (::windows::core::Vtable::vtable(this).ShowAsyncWithRect)(::windows::core::Vtable::as_raw(this), selection, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -347,7 +347,7 @@ impl PopupMenu {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowAsyncWithRectAndPlacement)(::windows::core::Vtable::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
+            (::windows::core::Vtable::vtable(this).ShowAsyncWithRectAndPlacement)(::windows::core::Vtable::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -399,7 +399,7 @@ impl UICommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -410,7 +410,7 @@ impl UICommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UICommandInvokedHandler>(result__)
+            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetInvoked(&self, value: &UICommandInvokedHandler) -> ::windows::core::Result<()> {
@@ -421,7 +421,7 @@ impl UICommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -434,13 +434,13 @@ impl UICommand {
     pub fn Create(label: &::windows::core::HSTRING) -> ::windows::core::Result<UICommand> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateWithHandler(label: &::windows::core::HSTRING, action: &UICommandInvokedHandler) -> ::windows::core::Result<UICommand> {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithHandler)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(action), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithHandler)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(action), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateWithHandlerAndId<'a, P0>(label: &::windows::core::HSTRING, action: &UICommandInvokedHandler, commandid: P0) -> ::windows::core::Result<UICommand>
@@ -449,7 +449,7 @@ impl UICommand {
     {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithHandlerAndId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(action), commandid.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithHandlerAndId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(action), commandid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -527,7 +527,7 @@ impl UICommandSeparator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -538,7 +538,7 @@ impl UICommandSeparator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<UICommandInvokedHandler>(result__)
+            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetInvoked(&self, value: &UICommandInvokedHandler) -> ::windows::core::Result<()> {
@@ -549,7 +549,7 @@ impl UICommandSeparator {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>

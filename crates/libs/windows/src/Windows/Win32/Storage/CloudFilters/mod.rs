@@ -17,7 +17,7 @@ where
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfConnectSyncRoot ( syncrootpath : :: windows::core::PCWSTR , callbacktable : *const CF_CALLBACK_REGISTRATION , callbackcontext : *const ::core::ffi::c_void , connectflags : CF_CONNECT_FLAGS , connectionkey : *mut CF_CONNECTION_KEY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfConnectSyncRoot(syncrootpath.into(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), connectflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_CONNECTION_KEY>(result__)
+    CfConnectSyncRoot(syncrootpath.into(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), connectflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -74,7 +74,7 @@ where
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfGetCorrelationVector ( filehandle : super::super::Foundation:: HANDLE , correlationvector : *mut super::super::System::CorrelationVector:: CORRELATION_VECTOR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfGetCorrelationVector(filehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::CorrelationVector::CORRELATION_VECTOR>(result__)
+    CfGetCorrelationVector(filehandle.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -121,7 +121,7 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSyst
 pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfGetPlatformInfo ( platformversion : *mut CF_PLATFORM_INFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfGetPlatformInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_PLATFORM_INFO>(result__)
+    CfGetPlatformInfo(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -151,7 +151,7 @@ where
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfGetTransferKey ( filehandle : super::super::Foundation:: HANDLE , transferkey : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfGetTransferKey(filehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    CfGetTransferKey(filehandle.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -182,7 +182,7 @@ where
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfOpenFileWithOplock ( filepath : :: windows::core::PCWSTR , flags : CF_OPEN_FILE_FLAGS , protectedhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfOpenFileWithOplock(filepath.into(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    CfOpenFileWithOplock(filepath.into(), flags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -192,7 +192,7 @@ where
 {
     ::windows::core::link ! ( "cldapi.dll""system" fn CfQuerySyncProviderStatus ( connectionkey : CF_CONNECTION_KEY , providerstatus : *mut CF_SYNC_PROVIDER_STATUS ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CfQuerySyncProviderStatus(connectionkey.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
+    CfQuerySyncProviderStatus(connectionkey.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

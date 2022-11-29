@@ -4,7 +4,7 @@
 pub unsafe fn BstrFromVector(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn BstrFromVector ( psa : *const super::Com:: SAFEARRAY , pbstr : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    BstrFromVector(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    BstrFromVector(::core::mem::transmute(psa), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -25,14 +25,14 @@ pub unsafe fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo:
 pub unsafe fn CreateErrorInfo() -> ::windows::core::Result<ICreateErrorInfo> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn CreateErrorInfo ( pperrinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateErrorInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateErrorInfo>(result__)
+    CreateErrorInfo(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn CreateOleAdviseHolder() -> ::windows::core::Result<IOleAdviseHolder> {
     ::windows::core::link ! ( "ole32.dll""system" fn CreateOleAdviseHolder ( ppoaholder : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateOleAdviseHolder(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleAdviseHolder>(result__)
+    CreateOleAdviseHolder(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -54,7 +54,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn CreateTypeLib ( syskind : super::Com:: SYSKIND , szfile : :: windows::core::PCWSTR , ppctlib : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateTypeLib(syskind, szfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib>(result__)
+    CreateTypeLib(syskind, szfile.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -65,15 +65,15 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn CreateTypeLib2 ( syskind : super::Com:: SYSKIND , szfile : :: windows::core::PCWSTR , ppctlib : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateTypeLib2(syskind, szfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib2>(result__)
+    CreateTypeLib2(syskind, szfile.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn DispCallFunc(pvinstance: ::core::option::Option<*const ::core::ffi::c_void>, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Com::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn DispCallFunc ( pvinstance : *const ::core::ffi::c_void , ovft : usize , cc : super::Com:: CALLCONV , vtreturn : super::Com:: VARENUM , cactuals : u32 , prgvt : *const u16 , prgpvarg : *const *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvargresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn DispCallFunc ( pvinstance : *const ::core::ffi::c_void , ovft : usize , cc : super::Com:: CALLCONV , vtreturn : super::Com:: VARENUM , cactuals : u32 , prgvt : *const u16 , prgpvarg : *const *const super::Com:: VARIANT , pvargresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DispCallFunc(::core::mem::transmute(pvinstance.unwrap_or(::std::ptr::null())), ovft, cc, vtreturn, cactuals, ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    DispCallFunc(::core::mem::transmute(pvinstance.unwrap_or(::std::ptr::null())), ovft, cc, vtreturn, cactuals, ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -130,14 +130,14 @@ pub unsafe fn GetActiveObject(rclsid: *const ::windows::core::GUID, pvreserved: 
 pub unsafe fn GetAltMonthNames(lcid: u32) -> ::windows::core::Result<*mut ::windows::core::PWSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn GetAltMonthNames ( lcid : u32 , prgp : *mut *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetAltMonthNames(lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::windows::core::PWSTR>(result__)
+    GetAltMonthNames(lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::core::GUID) -> ::windows::core::Result<IRecordInfo> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn GetRecordInfoFromGuids ( rguidtypelib : *const :: windows::core::GUID , uvermajor : u32 , uverminor : u32 , lcid : u32 , rguidtypeinfo : *const :: windows::core::GUID , pprecinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetRecordInfoFromGuids(::core::mem::transmute(rguidtypelib), uvermajor, uverminor, lcid, ::core::mem::transmute(rguidtypeinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
+    GetRecordInfoFromGuids(::core::mem::transmute(rguidtypelib), uvermajor, uverminor, lcid, ::core::mem::transmute(rguidtypeinfo), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -148,7 +148,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn GetRecordInfoFromTypeInfo ( ptypeinfo : * mut::core::ffi::c_void , pprecinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetRecordInfoFromTypeInfo(ptypeinfo.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
+    GetRecordInfoFromTypeInfo(ptypeinfo.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -242,7 +242,7 @@ where
 pub unsafe fn LoadRegTypeLib(rguid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32) -> ::windows::core::Result<super::Com::ITypeLib> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn LoadRegTypeLib ( rguid : *const :: windows::core::GUID , wvermajor : u16 , wverminor : u16 , lcid : u32 , pptlib : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    LoadRegTypeLib(::core::mem::transmute(rguid), wvermajor, wverminor, lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
+    LoadRegTypeLib(::core::mem::transmute(rguid), wvermajor, wverminor, lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -253,7 +253,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn LoadTypeLib ( szfile : :: windows::core::PCWSTR , pptlib : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    LoadTypeLib(szfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
+    LoadTypeLib(szfile.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -264,7 +264,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn LoadTypeLibEx ( szfile : :: windows::core::PCWSTR , regkind : REGKIND , pptlib : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    LoadTypeLibEx(szfile.into(), regkind, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
+    LoadTypeLibEx(szfile.into(), regkind, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -478,8 +478,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn OleCreatePictureIndirect ( lppictdesc : *const PICTDESC , riid : *const :: windows::core::GUID , fown : super::super::Foundation:: BOOL , lplpvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::option::Option::None;
-    OleCreatePictureIndirect(::core::mem::transmute(lppictdesc), &<T as ::windows::core::Interface>::IID, fown.into(), &mut result__ as *mut _ as *mut _).and_some(result__)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    OleCreatePictureIndirect(::core::mem::transmute(lppictdesc), &<T as ::windows::core::Interface>::IID, fown.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -526,7 +526,7 @@ where
 {
     ::windows::core::link ! ( "ole32.dll""system" fn OleDoAutoConvert ( pstg : * mut::core::ffi::c_void , pclsidnew : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleDoAutoConvert(pstg.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    OleDoAutoConvert(pstg.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -560,7 +560,7 @@ pub unsafe fn OleFlushClipboard() -> ::windows::core::Result<()> {
 pub unsafe fn OleGetAutoConvert(clsidold: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     ::windows::core::link ! ( "ole32.dll""system" fn OleGetAutoConvert ( clsidold : *const :: windows::core::GUID , pclsidnew : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleGetAutoConvert(::core::mem::transmute(clsidold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    OleGetAutoConvert(::core::mem::transmute(clsidold), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -568,7 +568,7 @@ pub unsafe fn OleGetAutoConvert(clsidold: *const ::windows::core::GUID) -> ::win
 pub unsafe fn OleGetClipboard() -> ::windows::core::Result<super::Com::IDataObject> {
     ::windows::core::link ! ( "ole32.dll""system" fn OleGetClipboard ( ppdataobj : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleGetClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
+    OleGetClipboard(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -688,7 +688,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn OleLoadPictureFile ( varfilename : ::core::mem::ManuallyDrop < super::Com:: VARIANT > , lplpdisppicture : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleLoadPictureFile(varfilename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+    OleLoadPictureFile(varfilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -699,7 +699,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn OleLoadPictureFileEx ( varfilename : ::core::mem::ManuallyDrop < super::Com:: VARIANT > , xsizedesired : u32 , ysizedesired : u32 , dwflags : LOAD_PICTURE_FLAGS , lplpdisppicture : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleLoadPictureFileEx(varfilename.into().abi(), xsizedesired, ysizedesired, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+    OleLoadPictureFileEx(varfilename.into().abi(), xsizedesired, ysizedesired, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -772,28 +772,28 @@ where
 pub unsafe fn OleRegEnumFormatEtc(clsid: *const ::windows::core::GUID, dwdirection: u32) -> ::windows::core::Result<super::Com::IEnumFORMATETC> {
     ::windows::core::link ! ( "ole32.dll""system" fn OleRegEnumFormatEtc ( clsid : *const :: windows::core::GUID , dwdirection : u32 , ppenum : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleRegEnumFormatEtc(::core::mem::transmute(clsid), dwdirection, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumFORMATETC>(result__)
+    OleRegEnumFormatEtc(::core::mem::transmute(clsid), dwdirection, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleRegEnumVerbs(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumOLEVERB> {
     ::windows::core::link ! ( "ole32.dll""system" fn OleRegEnumVerbs ( clsid : *const :: windows::core::GUID , ppenum : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleRegEnumVerbs(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOLEVERB>(result__)
+    OleRegEnumVerbs(::core::mem::transmute(clsid), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleRegGetMiscStatus(clsid: *const ::windows::core::GUID, dwaspect: u32) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "ole32.dll""system" fn OleRegGetMiscStatus ( clsid : *const :: windows::core::GUID , dwaspect : u32 , pdwstatus : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleRegGetMiscStatus(::core::mem::transmute(clsid), dwaspect, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    OleRegGetMiscStatus(::core::mem::transmute(clsid), dwaspect, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: USERCLASSTYPE) -> ::windows::core::Result<::windows::core::PWSTR> {
     ::windows::core::link ! ( "ole32.dll""system" fn OleRegGetUserType ( clsid : *const :: windows::core::GUID , dwformoftype : USERCLASSTYPE , pszusertype : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleRegGetUserType(::core::mem::transmute(clsid), dwformoftype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    OleRegGetUserType(::core::mem::transmute(clsid), dwformoftype, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -896,7 +896,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn OleTranslateColor ( clr : u32 , hpal : super::super::Graphics::Gdi:: HPALETTE , lpcolorref : *mut super::super::Foundation:: COLORREF ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleTranslateColor(clr, hpal.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
+    OleTranslateColor(clr, hpal.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1101,7 +1101,7 @@ pub unsafe fn OleUninitialize() {
 pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32) -> ::windows::core::Result<*mut u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn QueryPathOfRegTypeLib ( guid : *const :: windows::core::GUID , wmaj : u16 , wmin : u16 , lcid : u32 , lpbstrpathname : *mut *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QueryPathOfRegTypeLib(::core::mem::transmute(guid), wmaj, wmin, lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+    QueryPathOfRegTypeLib(::core::mem::transmute(guid), wmaj, wmin, lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -1197,7 +1197,7 @@ pub unsafe fn SafeArrayAllocData(psa: *const super::Com::SAFEARRAY) -> ::windows
 pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayAllocDescriptor ( cdims : u32 , ppsaout : *mut *mut super::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayAllocDescriptor(cdims, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    SafeArrayAllocDescriptor(cdims, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1205,7 +1205,7 @@ pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows::core::Result<*m
 pub unsafe fn SafeArrayAllocDescriptorEx(vt: super::Com::VARENUM, cdims: u32) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayAllocDescriptorEx ( vt : super::Com:: VARENUM , cdims : u32 , ppsaout : *mut *mut super::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayAllocDescriptorEx(vt, cdims, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    SafeArrayAllocDescriptorEx(vt, cdims, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1213,7 +1213,7 @@ pub unsafe fn SafeArrayAllocDescriptorEx(vt: super::Com::VARENUM, cdims: u32) ->
 pub unsafe fn SafeArrayCopy(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayCopy ( psa : *const super::Com:: SAFEARRAY , ppsaout : *mut *mut super::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayCopy(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    SafeArrayCopy(::core::mem::transmute(psa), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1298,7 +1298,7 @@ pub unsafe fn SafeArrayGetElemsize(psa: *const super::Com::SAFEARRAY) -> u32 {
 pub unsafe fn SafeArrayGetIID(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<::windows::core::GUID> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayGetIID ( psa : *const super::Com:: SAFEARRAY , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayGetIID(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    SafeArrayGetIID(::core::mem::transmute(psa), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1306,7 +1306,7 @@ pub unsafe fn SafeArrayGetIID(psa: *const super::Com::SAFEARRAY) -> ::windows::c
 pub unsafe fn SafeArrayGetLBound(psa: *const super::Com::SAFEARRAY, ndim: u32) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayGetLBound ( psa : *const super::Com:: SAFEARRAY , ndim : u32 , pllbound : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayGetLBound(::core::mem::transmute(psa), ndim, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    SafeArrayGetLBound(::core::mem::transmute(psa), ndim, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1314,7 +1314,7 @@ pub unsafe fn SafeArrayGetLBound(psa: *const super::Com::SAFEARRAY, ndim: u32) -
 pub unsafe fn SafeArrayGetRecordInfo(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<IRecordInfo> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayGetRecordInfo ( psa : *const super::Com:: SAFEARRAY , prinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayGetRecordInfo(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
+    SafeArrayGetRecordInfo(::core::mem::transmute(psa), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1322,7 +1322,7 @@ pub unsafe fn SafeArrayGetRecordInfo(psa: *const super::Com::SAFEARRAY) -> ::win
 pub unsafe fn SafeArrayGetUBound(psa: *const super::Com::SAFEARRAY, ndim: u32) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayGetUBound ( psa : *const super::Com:: SAFEARRAY , ndim : u32 , plubound : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayGetUBound(::core::mem::transmute(psa), ndim, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    SafeArrayGetUBound(::core::mem::transmute(psa), ndim, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1330,7 +1330,7 @@ pub unsafe fn SafeArrayGetUBound(psa: *const super::Com::SAFEARRAY, ndim: u32) -
 pub unsafe fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<super::Com::VARENUM> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn SafeArrayGetVartype ( psa : *const super::Com:: SAFEARRAY , pvt : *mut super::Com:: VARENUM ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SafeArrayGetVartype(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARENUM>(result__)
+    SafeArrayGetVartype(::core::mem::transmute(psa), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1431,7 +1431,7 @@ pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmaj
 pub unsafe fn VarAbs(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarAbs ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarAbs(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarAbs(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1439,7 +1439,7 @@ pub unsafe fn VarAbs(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarAdd ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarAdd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarAdd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1447,7 +1447,7 @@ pub unsafe fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarAnd ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1455,7 +1455,7 @@ pub unsafe fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarBoolFromCy(cyin: super::Com::CY) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromCy ( cyin : super::Com:: CY , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1463,7 +1463,7 @@ pub unsafe fn VarBoolFromCy(cyin: super::Com::CY) -> ::windows::core::Result<sup
 pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromDate ( datein : f64 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1471,7 +1471,7 @@ pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::core::Result<super::sup
 pub unsafe fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1482,7 +1482,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1493,7 +1493,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromI1 ( cin : super::super::Foundation:: CHAR , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1501,7 +1501,7 @@ where
 pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromI2 ( sin : i16 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1509,7 +1509,7 @@ pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::core::Result<super::super::F
 pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromI4 ( lin : i32 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1517,7 +1517,7 @@ pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::core::Result<super::super::F
 pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromI8 ( i64in : i64 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1525,7 +1525,7 @@ pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::core::Result<super::super:
 pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromR4 ( fltin : f32 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1533,7 +1533,7 @@ pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::core::Result<super::super:
 pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromR8 ( dblin : f64 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1544,7 +1544,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1552,7 +1552,7 @@ where
 pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromUI1 ( bin : u8 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1560,7 +1560,7 @@ pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::core::Result<super::super::F
 pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromUI2 ( uiin : u16 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1568,7 +1568,7 @@ pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::core::Result<super::super:
 pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromUI4 ( ulin : u32 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1576,14 +1576,14 @@ pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::core::Result<super::super:
 pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBoolFromUI8 ( i64in : u64 , pboolout : *mut super::super::Foundation:: VARIANT_BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+    VarBoolFromUI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrCat(bstrleft: &::windows::core::BSTR, bstrright: &::windows::core::BSTR) -> ::windows::core::Result<*mut u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrCat ( bstrleft : ::core::mem::ManuallyDrop <::windows::core::BSTR > , bstrright : ::core::mem::ManuallyDrop <::windows::core::BSTR > , pbstrresult : *mut *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrCat(::core::mem::transmute_copy(bstrleft), ::core::mem::transmute_copy(bstrright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+    VarBstrCat(::core::mem::transmute_copy(bstrleft), ::core::mem::transmute_copy(bstrright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -1597,7 +1597,7 @@ pub unsafe fn VarBstrCmp(bstrleft: &::windows::core::BSTR, bstrright: &::windows
 pub unsafe fn VarBstrFromBool(boolin: super::super::Foundation::VARIANT_BOOL, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromBool(boolin, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromBool(boolin, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1605,14 +1605,14 @@ pub unsafe fn VarBstrFromBool(boolin: super::super::Foundation::VARIANT_BOOL, lc
 pub unsafe fn VarBstrFromCy(cyin: super::Com::CY, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromCy ( cyin : super::Com:: CY , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromCy(::core::mem::transmute(cyin), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromCy(::core::mem::transmute(cyin), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromDate ( datein : f64 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromDate(datein, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromDate(datein, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1620,7 +1620,7 @@ pub unsafe fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32) -> ::windows
 pub unsafe fn VarBstrFromDec(pdecin: *const super::super::Foundation::DECIMAL, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromDec ( pdecin : *const super::super::Foundation:: DECIMAL , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromDec(::core::mem::transmute(pdecin), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromDec(::core::mem::transmute(pdecin), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1631,7 +1631,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromDisp(pdispin.into().abi(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromDisp(pdispin.into().abi(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1642,70 +1642,70 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromI1 ( cin : super::super::Foundation:: CHAR , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromI1(cin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromI1(cin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromI2 ( ival : i16 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromI2(ival, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromI2(ival, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromI4 ( lin : i32 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromI4(lin, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromI4(lin, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromI8 ( i64in : i64 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromI8(i64in, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromI8(i64in, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromR4 ( fltin : f32 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromR4(fltin, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromR4(fltin, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromR8 ( dblin : f64 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromR8(dblin, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromR8(dblin, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromUI1 ( bval : u8 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromUI1(bval, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromUI1(bval, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromUI2 ( uiin : u16 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromUI2(uiin, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromUI2(uiin, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromUI4 ( ulin : u32 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromUI4(ulin, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromUI4(ulin, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarBstrFromUI8 ( ui64in : u64 , lcid : u32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBstrFromUI8(ui64in, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarBstrFromUI8(ui64in, lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1713,7 +1713,7 @@ pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows:
 pub unsafe fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCat ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCat(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarCat(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1728,7 +1728,7 @@ pub unsafe fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarCyAbs(cyin: super::Com::CY) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyAbs ( cyin : super::Com:: CY , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyAbs(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyAbs(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1736,7 +1736,7 @@ pub unsafe fn VarCyAbs(cyin: super::Com::CY) -> ::windows::core::Result<super::C
 pub unsafe fn VarCyAdd(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyAdd ( cyleft : super::Com:: CY , cyright : super::Com:: CY , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyAdd(::core::mem::transmute(cyleft), ::core::mem::transmute(cyright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyAdd(::core::mem::transmute(cyleft), ::core::mem::transmute(cyright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1758,7 +1758,7 @@ pub unsafe fn VarCyCmpR8(cyleft: super::Com::CY, dblright: f64) -> VARCMP {
 pub unsafe fn VarCyFix(cyin: super::Com::CY) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFix ( cyin : super::Com:: CY , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFix(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFix(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1766,7 +1766,7 @@ pub unsafe fn VarCyFix(cyin: super::Com::CY) -> ::windows::core::Result<super::C
 pub unsafe fn VarCyFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1774,7 +1774,7 @@ pub unsafe fn VarCyFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> :
 pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromDate ( datein : f64 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1782,7 +1782,7 @@ pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::core::Result<super::Com::
 pub unsafe fn VarCyFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1793,7 +1793,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1804,7 +1804,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromI1 ( cin : super::super::Foundation:: CHAR , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1812,7 +1812,7 @@ where
 pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromI2 ( sin : i16 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1820,7 +1820,7 @@ pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::core::Result<super::Com::CY> {
 pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromI4 ( lin : i32 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1828,7 +1828,7 @@ pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::core::Result<super::Com::CY> {
 pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromI8 ( i64in : i64 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1836,7 +1836,7 @@ pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::core::Result<super::Com::CY>
 pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromR4 ( fltin : f32 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1844,7 +1844,7 @@ pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::core::Result<super::Com::CY>
 pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromR8 ( dblin : f64 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1855,7 +1855,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1863,7 +1863,7 @@ where
 pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromUI1 ( bin : u8 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1871,7 +1871,7 @@ pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::core::Result<super::Com::CY> {
 pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromUI2 ( uiin : u16 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1879,7 +1879,7 @@ pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::core::Result<super::Com::CY>
 pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromUI4 ( ulin : u32 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1887,7 +1887,7 @@ pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::core::Result<super::Com::CY>
 pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyFromUI8 ( ui64in : u64 , pcyout : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyFromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyFromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1895,7 +1895,7 @@ pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::core::Result<super::Com::C
 pub unsafe fn VarCyInt(cyin: super::Com::CY) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyInt ( cyin : super::Com:: CY , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyInt(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyInt(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1903,7 +1903,7 @@ pub unsafe fn VarCyInt(cyin: super::Com::CY) -> ::windows::core::Result<super::C
 pub unsafe fn VarCyMul(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyMul ( cyleft : super::Com:: CY , cyright : super::Com:: CY , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyMul(::core::mem::transmute(cyleft), ::core::mem::transmute(cyright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyMul(::core::mem::transmute(cyleft), ::core::mem::transmute(cyright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1911,7 +1911,7 @@ pub unsafe fn VarCyMul(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::win
 pub unsafe fn VarCyMulI4(cyleft: super::Com::CY, lright: i32) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyMulI4 ( cyleft : super::Com:: CY , lright : i32 , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyMulI4(::core::mem::transmute(cyleft), lright, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyMulI4(::core::mem::transmute(cyleft), lright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1919,7 +1919,7 @@ pub unsafe fn VarCyMulI4(cyleft: super::Com::CY, lright: i32) -> ::windows::core
 pub unsafe fn VarCyMulI8(cyleft: super::Com::CY, lright: i64) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyMulI8 ( cyleft : super::Com:: CY , lright : i64 , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyMulI8(::core::mem::transmute(cyleft), lright, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyMulI8(::core::mem::transmute(cyleft), lright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1927,7 +1927,7 @@ pub unsafe fn VarCyMulI8(cyleft: super::Com::CY, lright: i64) -> ::windows::core
 pub unsafe fn VarCyNeg(cyin: super::Com::CY) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyNeg ( cyin : super::Com:: CY , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyNeg(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyNeg(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1935,7 +1935,7 @@ pub unsafe fn VarCyNeg(cyin: super::Com::CY) -> ::windows::core::Result<super::C
 pub unsafe fn VarCyRound(cyin: super::Com::CY, cdecimals: i32) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCyRound ( cyin : super::Com:: CY , cdecimals : i32 , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCyRound(::core::mem::transmute(cyin), cdecimals, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCyRound(::core::mem::transmute(cyin), cdecimals, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1943,7 +1943,7 @@ pub unsafe fn VarCyRound(cyin: super::Com::CY, cdecimals: i32) -> ::windows::cor
 pub unsafe fn VarCySub(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::windows::core::Result<super::Com::CY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarCySub ( cyleft : super::Com:: CY , cyright : super::Com:: CY , pcyresult : *mut super::Com:: CY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarCySub(::core::mem::transmute(cyleft), ::core::mem::transmute(cyright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    VarCySub(::core::mem::transmute(cyleft), ::core::mem::transmute(cyright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1951,7 +1951,7 @@ pub unsafe fn VarCySub(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::win
 pub unsafe fn VarDateFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1959,7 +1959,7 @@ pub unsafe fn VarDateFromBool(boolin: super::super::Foundation::VARIANT_BOOL) ->
 pub unsafe fn VarDateFromCy(cyin: super::Com::CY) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromCy ( cyin : super::Com:: CY , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1967,7 +1967,7 @@ pub unsafe fn VarDateFromCy(cyin: super::Com::CY) -> ::windows::core::Result<f64
 pub unsafe fn VarDateFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1978,7 +1978,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1989,42 +1989,42 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromI1 ( cin : super::super::Foundation:: CHAR , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromI2 ( sin : i16 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromI4 ( lin : i32 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromI8 ( i64in : i64 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromR4 ( fltin : f32 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromR8 ( dblin : f64 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2034,35 +2034,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromUI1 ( bin : u8 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromUI2 ( uiin : u16 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromUI4 ( ulin : u32 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromUI8 ( ui64in : u64 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2070,7 +2070,7 @@ pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::core::Result<f64> {
 pub unsafe fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromUdate ( pudatein : *const UDATE , dwflags : u32 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromUdate(::core::mem::transmute(pudatein), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromUdate(::core::mem::transmute(pudatein), dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2078,7 +2078,7 @@ pub unsafe fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32) -> ::window
 pub unsafe fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDateFromUdateEx ( pudatein : *const UDATE , lcid : u32 , dwflags : u32 , pdateout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDateFromUdateEx(::core::mem::transmute(pudatein), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarDateFromUdateEx(::core::mem::transmute(pudatein), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2086,7 +2086,7 @@ pub unsafe fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32
 pub unsafe fn VarDecAbs(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecAbs ( pdecin : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecAbs(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecAbs(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2094,7 +2094,7 @@ pub unsafe fn VarDecAbs(pdecin: *const super::super::Foundation::DECIMAL) -> ::w
 pub unsafe fn VarDecAdd(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecAdd ( pdecleft : *const super::super::Foundation:: DECIMAL , pdecright : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecAdd(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecAdd(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2116,7 +2116,7 @@ pub unsafe fn VarDecCmpR8(pdecleft: *const super::super::Foundation::DECIMAL, db
 pub unsafe fn VarDecDiv(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecDiv ( pdecleft : *const super::super::Foundation:: DECIMAL , pdecright : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecDiv(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecDiv(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2124,7 +2124,7 @@ pub unsafe fn VarDecDiv(pdecleft: *const super::super::Foundation::DECIMAL, pdec
 pub unsafe fn VarDecFix(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFix ( pdecin : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFix(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFix(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2132,7 +2132,7 @@ pub unsafe fn VarDecFix(pdecin: *const super::super::Foundation::DECIMAL) -> ::w
 pub unsafe fn VarDecFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2140,7 +2140,7 @@ pub unsafe fn VarDecFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> 
 pub unsafe fn VarDecFromCy(cyin: super::Com::CY) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromCy ( cyin : super::Com:: CY , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2148,7 +2148,7 @@ pub unsafe fn VarDecFromCy(cyin: super::Com::CY) -> ::windows::core::Result<supe
 pub unsafe fn VarDecFromDate(datein: f64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromDate ( datein : f64 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2159,7 +2159,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2170,7 +2170,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromI1 ( cin : super::super::Foundation:: CHAR , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2178,7 +2178,7 @@ where
 pub unsafe fn VarDecFromI2(uiin: i16) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromI2 ( uiin : i16 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2186,7 +2186,7 @@ pub unsafe fn VarDecFromI2(uiin: i16) -> ::windows::core::Result<super::super::F
 pub unsafe fn VarDecFromI4(lin: i32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromI4 ( lin : i32 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2194,7 +2194,7 @@ pub unsafe fn VarDecFromI4(lin: i32) -> ::windows::core::Result<super::super::Fo
 pub unsafe fn VarDecFromI8(i64in: i64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromI8 ( i64in : i64 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2202,7 +2202,7 @@ pub unsafe fn VarDecFromI8(i64in: i64) -> ::windows::core::Result<super::super::
 pub unsafe fn VarDecFromR4(fltin: f32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromR4 ( fltin : f32 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2210,7 +2210,7 @@ pub unsafe fn VarDecFromR4(fltin: f32) -> ::windows::core::Result<super::super::
 pub unsafe fn VarDecFromR8(dblin: f64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromR8 ( dblin : f64 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2221,7 +2221,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2229,7 +2229,7 @@ where
 pub unsafe fn VarDecFromUI1(bin: u8) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromUI1 ( bin : u8 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2237,7 +2237,7 @@ pub unsafe fn VarDecFromUI1(bin: u8) -> ::windows::core::Result<super::super::Fo
 pub unsafe fn VarDecFromUI2(uiin: u16) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromUI2 ( uiin : u16 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2245,7 +2245,7 @@ pub unsafe fn VarDecFromUI2(uiin: u16) -> ::windows::core::Result<super::super::
 pub unsafe fn VarDecFromUI4(ulin: u32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromUI4 ( ulin : u32 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2253,7 +2253,7 @@ pub unsafe fn VarDecFromUI4(ulin: u32) -> ::windows::core::Result<super::super::
 pub unsafe fn VarDecFromUI8(ui64in: u64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecFromUI8 ( ui64in : u64 , pdecout : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecFromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecFromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2261,7 +2261,7 @@ pub unsafe fn VarDecFromUI8(ui64in: u64) -> ::windows::core::Result<super::super
 pub unsafe fn VarDecInt(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecInt ( pdecin : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecInt(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecInt(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2269,7 +2269,7 @@ pub unsafe fn VarDecInt(pdecin: *const super::super::Foundation::DECIMAL) -> ::w
 pub unsafe fn VarDecMul(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecMul ( pdecleft : *const super::super::Foundation:: DECIMAL , pdecright : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecMul(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecMul(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2277,7 +2277,7 @@ pub unsafe fn VarDecMul(pdecleft: *const super::super::Foundation::DECIMAL, pdec
 pub unsafe fn VarDecNeg(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecNeg ( pdecin : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecNeg(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecNeg(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2285,7 +2285,7 @@ pub unsafe fn VarDecNeg(pdecin: *const super::super::Foundation::DECIMAL) -> ::w
 pub unsafe fn VarDecRound(pdecin: *const super::super::Foundation::DECIMAL, cdecimals: i32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecRound ( pdecin : *const super::super::Foundation:: DECIMAL , cdecimals : i32 , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecRound(::core::mem::transmute(pdecin), cdecimals, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecRound(::core::mem::transmute(pdecin), cdecimals, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2293,7 +2293,7 @@ pub unsafe fn VarDecRound(pdecin: *const super::super::Foundation::DECIMAL, cdec
 pub unsafe fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDecSub ( pdecleft : *const super::super::Foundation:: DECIMAL , pdecright : *const super::super::Foundation:: DECIMAL , pdecresult : *mut super::super::Foundation:: DECIMAL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDecSub(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    VarDecSub(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2301,7 +2301,7 @@ pub unsafe fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdec
 pub unsafe fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarDiv ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarDiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarDiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2309,7 +2309,7 @@ pub unsafe fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarEqv ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarEqv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarEqv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2317,7 +2317,7 @@ pub unsafe fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarFix(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarFix ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFix(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarFix(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2328,7 +2328,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormat ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pstrformat : :: windows::core::PCWSTR , ifirstday : VARFORMAT_FIRST_DAY , ifirstweek : VARFORMAT_FIRST_WEEK , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormat(::core::mem::transmute(pvarin), pstrformat.into(), ifirstday, ifirstweek, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarFormat(::core::mem::transmute(pvarin), pstrformat.into(), ifirstday, ifirstweek, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2336,7 +2336,7 @@ where
 pub unsafe fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatCurrency ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inumdig : i32 , iinclead : i32 , iuseparens : i32 , igroup : i32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatCurrency(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarFormatCurrency(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2344,7 +2344,7 @@ pub unsafe fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32
 pub unsafe fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatDateTime ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inamedformat : VARFORMAT_NAMED_FORMAT , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatDateTime(::core::mem::transmute(pvarin), inamedformat, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarFormatDateTime(::core::mem::transmute(pvarin), inamedformat, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2362,7 +2362,7 @@ where
 pub unsafe fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatNumber ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inumdig : i32 , iinclead : VARFORMAT_LEADING_DIGIT , iuseparens : VARFORMAT_PARENTHESES , igroup : VARFORMAT_GROUP , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatNumber(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarFormatNumber(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2370,7 +2370,7 @@ pub unsafe fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, 
 pub unsafe fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarFormatPercent ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , inumdig : i32 , iinclead : VARFORMAT_LEADING_DIGIT , iuseparens : VARFORMAT_PARENTHESES , igroup : VARFORMAT_GROUP , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarFormatPercent(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarFormatPercent(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2478,7 +2478,7 @@ pub unsafe fn VarI1FromUI8(i64in: u64, pcout: ::windows::core::PSTR) -> ::window
 pub unsafe fn VarI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2492,7 +2492,7 @@ pub unsafe fn VarI2FromCy(cyin: super::Com::CY, psout: *mut i16) -> ::windows::c
 pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromDate ( datein : f64 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2500,7 +2500,7 @@ pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::core::Result<i16> {
 pub unsafe fn VarI2FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2511,7 +2511,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2522,35 +2522,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromI1 ( cin : super::super::Foundation:: CHAR , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromI4 ( lin : i32 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromI8 ( i64in : i64 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromR4 ( fltin : f32 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromR8 ( dblin : f64 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2560,35 +2560,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromUI1 ( bin : u8 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromUI2 ( uiin : u16 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromUI4 ( ulin : u32 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::core::Result<i16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI2FromUI8 ( ui64in : u64 , psout : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI2FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarI2FromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2596,7 +2596,7 @@ pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::core::Result<i16> {
 pub unsafe fn VarI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2604,14 +2604,14 @@ pub unsafe fn VarI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> :
 pub unsafe fn VarI4FromCy(cyin: super::Com::CY) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromCy ( cyin : super::Com:: CY , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromDate ( datein : f64 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2619,7 +2619,7 @@ pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::core::Result<i32> {
 pub unsafe fn VarI4FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2630,7 +2630,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2641,35 +2641,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromI1 ( cin : super::super::Foundation:: CHAR , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromI2 ( sin : i16 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromI8 ( i64in : i64 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromR4 ( fltin : f32 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromR8 ( dblin : f64 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2679,35 +2679,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromUI1 ( bin : u8 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromUI2 ( uiin : u16 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromUI4 ( ulin : u32 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::core::Result<i32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI4FromUI8 ( ui64in : u64 , plout : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI4FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    VarI4FromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2715,7 +2715,7 @@ pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::core::Result<i32> {
 pub unsafe fn VarI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2723,14 +2723,14 @@ pub unsafe fn VarI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> :
 pub unsafe fn VarI8FromCy(cyin: super::Com::CY) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromCy ( cyin : super::Com:: CY , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromDate ( datein : f64 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2738,7 +2738,7 @@ pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::core::Result<i64> {
 pub unsafe fn VarI8FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2749,7 +2749,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2760,28 +2760,28 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromI1 ( cin : super::super::Foundation:: CHAR , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromI2 ( sin : i16 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromR4 ( fltin : f32 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromR8 ( dblin : f64 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2791,35 +2791,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromUI1 ( bin : u8 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromUI2 ( uiin : u16 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromUI4 ( ulin : u32 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::core::Result<i64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarI8FromUI8 ( ui64in : u64 , pi64out : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarI8FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    VarI8FromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2827,7 +2827,7 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::core::Result<i64> {
 pub unsafe fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarIdiv ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarIdiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarIdiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2835,7 +2835,7 @@ pub unsafe fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const su
 pub unsafe fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarImp ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarImp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarImp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2843,7 +2843,7 @@ pub unsafe fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarInt(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarInt ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarInt(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarInt(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2851,14 +2851,14 @@ pub unsafe fn VarInt(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarMod ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarMod(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarMod(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarMonthName ( imonth : i32 , fabbrev : i32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarMonthName(imonth, fabbrev, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarMonthName(imonth, fabbrev, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2866,7 +2866,7 @@ pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows
 pub unsafe fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarMul ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarMul(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarMul(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2874,7 +2874,7 @@ pub unsafe fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarNeg(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarNeg ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarNeg(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarNeg(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2882,7 +2882,7 @@ pub unsafe fn VarNeg(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarNot(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarNot ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarNot(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarNot(::core::mem::transmute(pvarin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2890,7 +2890,7 @@ pub unsafe fn VarNot(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarNumFromParseNum ( pnumprs : *const NUMPARSE , rgbdig : *const u8 , dwvtbits : u32 , pvar : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarNumFromParseNum(::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig), dwvtbits, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarNumFromParseNum(::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig), dwvtbits, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2898,7 +2898,7 @@ pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dw
 pub unsafe fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarOr ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarOr(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarOr(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2915,7 +2915,7 @@ where
 pub unsafe fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarPow ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarPow(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarPow(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2929,7 +2929,7 @@ pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> VARCMP {
 pub unsafe fn VarR4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2943,7 +2943,7 @@ pub unsafe fn VarR4FromCy(cyin: super::Com::CY, pfltout: *mut f32) -> ::windows:
 pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromDate ( datein : f64 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2951,7 +2951,7 @@ pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::core::Result<f32> {
 pub unsafe fn VarR4FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2962,7 +2962,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2973,35 +2973,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromI1 ( cin : super::super::Foundation:: CHAR , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromI2 ( sin : i16 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromI4 ( lin : i32 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromI8 ( i64in : i64 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromR8 ( dblin : f64 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3011,35 +3011,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromUI1 ( bin : u8 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromUI2 ( uiin : u16 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromUI4 ( ulin : u32 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::core::Result<f32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR4FromUI8 ( ui64in : u64 , pfltout : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR4FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    VarR4FromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3047,7 +3047,7 @@ pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::core::Result<f32> {
 pub unsafe fn VarR8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3061,7 +3061,7 @@ pub unsafe fn VarR8FromCy(cyin: super::Com::CY, pdblout: *mut f64) -> ::windows:
 pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromDate ( datein : f64 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3069,7 +3069,7 @@ pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::core::Result<f64> {
 pub unsafe fn VarR8FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3080,7 +3080,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3097,28 +3097,28 @@ where
 pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromI2 ( sin : i16 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromI4 ( lin : i32 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromI8 ( i64in : i64 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromR4 ( fltin : f32 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3128,49 +3128,49 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromUI1 ( bin : u8 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromUI2 ( uiin : u16 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromUI4 ( ulin : u32 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8FromUI8 ( ui64in : u64 , pdblout : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8FromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8Pow ( dblleft : f64 , dblright : f64 , pdblresult : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8Pow(dblleft, dblright, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8Pow(dblleft, dblright, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarR8Round ( dblin : f64 , cdecimals : i32 , pdblresult : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarR8Round(dblin, cdecimals, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    VarR8Round(dblin, cdecimals, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3178,7 +3178,7 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::core::Result<
 pub unsafe fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarRound ( pvarin : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , cdecimals : i32 , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarRound(::core::mem::transmute(pvarin), cdecimals, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarRound(::core::mem::transmute(pvarin), cdecimals, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3186,7 +3186,7 @@ pub unsafe fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32) -> ::
 pub unsafe fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarSub ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarSub(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarSub(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3203,7 +3203,7 @@ where
 pub unsafe fn VarUI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3211,14 +3211,14 @@ pub unsafe fn VarUI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> 
 pub unsafe fn VarUI1FromCy(cyin: super::Com::CY) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromCy ( cyin : super::Com:: CY , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromDate ( datein : f64 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3226,7 +3226,7 @@ pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::core::Result<u8> {
 pub unsafe fn VarUI1FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3237,7 +3237,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3248,42 +3248,42 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromI1 ( cin : super::super::Foundation:: CHAR , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromI2 ( sin : i16 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromI4 ( lin : i32 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromI8 ( i64in : i64 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromR4 ( fltin : f32 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromR8 ( dblin : f64 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3293,28 +3293,28 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromUI2 ( uiin : u16 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromUI4 ( ulin : u32 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::core::Result<u8> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI1FromUI8 ( ui64in : u64 , pbout : *mut u8 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI1FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    VarUI1FromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3322,7 +3322,7 @@ pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::core::Result<u8> {
 pub unsafe fn VarUI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3330,14 +3330,14 @@ pub unsafe fn VarUI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> 
 pub unsafe fn VarUI2FromCy(cyin: super::Com::CY) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromCy ( cyin : super::Com:: CY , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromDate ( datein : f64 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3345,7 +3345,7 @@ pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::core::Result<u16> {
 pub unsafe fn VarUI2FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3356,7 +3356,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3367,35 +3367,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromI1 ( cin : super::super::Foundation:: CHAR , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromI2 ( uiin : i16 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromI4 ( lin : i32 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromI8 ( i64in : i64 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromR4 ( fltin : f32 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3411,28 +3411,28 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromUI1 ( bin : u8 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromUI4 ( ulin : u32 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::core::Result<u16> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI2FromUI8 ( i64in : u64 , puiout : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI2FromUI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    VarUI2FromUI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3440,7 +3440,7 @@ pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::core::Result<u16> {
 pub unsafe fn VarUI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3448,14 +3448,14 @@ pub unsafe fn VarUI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> 
 pub unsafe fn VarUI4FromCy(cyin: super::Com::CY) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromCy ( cyin : super::Com:: CY , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromDate ( datein : f64 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3463,7 +3463,7 @@ pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::core::Result<u32> {
 pub unsafe fn VarUI4FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3474,7 +3474,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3485,42 +3485,42 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromI1 ( cin : super::super::Foundation:: CHAR , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromI2 ( uiin : i16 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromI4 ( lin : i32 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromI4(lin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromI8 ( i64in : i64 , plout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromI8(i64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromR4 ( fltin : f32 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromR8 ( dblin : f64 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3530,28 +3530,28 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromUI1 ( bin : u8 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromUI2 ( uiin : u16 , pulout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI4FromUI8 ( ui64in : u64 , plout : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI4FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    VarUI4FromUI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3559,7 +3559,7 @@ pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::core::Result<u32> {
 pub unsafe fn VarUI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromBool ( boolin : super::super::Foundation:: VARIANT_BOOL , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromBool(boolin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3567,14 +3567,14 @@ pub unsafe fn VarUI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> 
 pub unsafe fn VarUI8FromCy(cyin: super::Com::CY) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromCy ( cyin : super::Com:: CY , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromCy(::core::mem::transmute(cyin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromDate ( datein : f64 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromDate(datein, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3582,7 +3582,7 @@ pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::core::Result<u64> {
 pub unsafe fn VarUI8FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromDec ( pdecin : *const super::super::Foundation:: DECIMAL , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromDec(::core::mem::transmute(pdecin), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3593,7 +3593,7 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromDisp ( pdispin : * mut::core::ffi::c_void , lcid : u32 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromDisp(pdispin.into().abi(), lcid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3604,35 +3604,35 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromI1 ( cin : super::super::Foundation:: CHAR , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromI1(cin.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromI2 ( sin : i16 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromI2(sin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromI8 ( ui64in : i64 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromI8(ui64in, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromR4 ( fltin : f32 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromR4(fltin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromR8 ( dblin : f64 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromR8(dblin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -3642,28 +3642,28 @@ where
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromStr ( strin : :: windows::core::PCWSTR , lcid : u32 , dwflags : u32 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromStr(strin.into(), lcid, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromUI1 ( bin : u8 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromUI1(bin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromUI2 ( uiin : u16 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromUI2(uiin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUI8FromUI4 ( ulin : u32 , pi64out : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUI8FromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    VarUI8FromUI4(ulin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3671,14 +3671,14 @@ pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::core::Result<u64> {
 pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::core::Result<UDATE> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarUdateFromDate ( datein : f64 , dwflags : u32 , pudateout : *mut UDATE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarUdateFromDate(datein, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UDATE>(result__)
+    VarUdateFromDate(datein, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarWeekdayName ( iweekday : i32 , fabbrev : i32 , ifirstday : i32 , dwflags : u32 , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarWeekdayName(iweekday, fabbrev, ifirstday, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    VarWeekdayName(iweekday, fabbrev, ifirstday, dwflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3686,7 +3686,7 @@ pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflag
 pub unsafe fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VarXor ( pvarleft : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarright : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , pvarresult : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarXor(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    VarXor(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3749,7 +3749,7 @@ pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::supe
 pub unsafe fn VectorFromBstr(bstr: &::windows::core::BSTR) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
     ::windows::core::link ! ( "oleaut32.dll""system" fn VectorFromBstr ( bstr : ::core::mem::ManuallyDrop <::windows::core::BSTR > , ppsa : *mut *mut super::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VectorFromBstr(::core::mem::transmute_copy(bstr), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    VectorFromBstr(::core::mem::transmute_copy(bstr), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3881,8 +3881,8 @@ impl IClassFactory2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.CreateInstance)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.CreateInstance)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3899,7 +3899,7 @@ impl IClassFactory2 {
     }
     pub unsafe fn RequestLicKey(&self, dwreserved: u32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestLicKey)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).RequestLicKey)(::windows::core::Vtable::as_raw(self), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateInstanceLic<'a, P0, P1, T>(&self, punkouter: P0, punkreserved: P1, bstrkey: &::windows::core::BSTR) -> ::windows::core::Result<T>
     where
@@ -3907,8 +3907,8 @@ impl IClassFactory2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).CreateInstanceLic)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), punkreserved.into().abi(), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute_copy(bstrkey), &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).CreateInstanceLic)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), punkreserved.into().abi(), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute_copy(bstrkey), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4506,7 +4506,7 @@ impl ICreateTypeLib {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTypeInfo)(::windows::core::Vtable::as_raw(self), szname.into(), tkind, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeInfo>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTypeInfo)(::windows::core::Vtable::as_raw(self), szname.into(), tkind, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetName<'a, P0>(&self, szname: P0) -> ::windows::core::Result<()>
     where
@@ -4597,7 +4597,7 @@ impl ICreateTypeLib2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTypeInfo)(::windows::core::Vtable::as_raw(self), szname.into(), tkind, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeInfo>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTypeInfo)(::windows::core::Vtable::as_raw(self), szname.into(), tkind, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetName<'a, P0>(&self, szname: P0) -> ::windows::core::Result<()>
     where
@@ -4697,26 +4697,26 @@ pub struct IDispError(::windows::core::IUnknown);
 impl IDispError {
     pub unsafe fn QueryErrorInfo(&self, guiderrortype: ::windows::core::GUID) -> ::windows::core::Result<IDispError> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guiderrortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDispError>(result__)
+        (::windows::core::Vtable::vtable(self).QueryErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guiderrortype), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNext(&self) -> ::windows::core::Result<IDispError> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDispError>(result__)
+        (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetHresult(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHresult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
+        (::windows::core::Vtable::vtable(self).GetHresult)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSource(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetHelpInfo(&self, pbstrfilename: *mut ::windows::core::BSTR, pdwcontext: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetHelpInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrfilename), ::core::mem::transmute(pdwcontext)).ok()
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDispError, ::windows::core::IUnknown);
@@ -4761,7 +4761,7 @@ pub struct IDispatchEx(::windows::core::IUnknown);
 impl IDispatchEx {
     pub unsafe fn GetDispID(&self, bstrname: &::windows::core::BSTR, grfdex: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDispID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), grfdex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).GetDispID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), grfdex, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -4779,19 +4779,19 @@ impl IDispatchEx {
     }
     pub unsafe fn GetMemberProperties(&self, id: i32, grfdexfetch: u32) -> ::windows::core::Result<FDEX_PROP_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMemberProperties)(::windows::core::Vtable::as_raw(self), id, grfdexfetch, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FDEX_PROP_FLAGS>(result__)
+        (::windows::core::Vtable::vtable(self).GetMemberProperties)(::windows::core::Vtable::as_raw(self), id, grfdexfetch, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMemberName(&self, id: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMemberName)(::windows::core::Vtable::as_raw(self), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetMemberName)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNextDispID(&self, grfdex: u32, id: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNextDispID)(::windows::core::Vtable::as_raw(self), grfdex, id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).GetNextDispID)(::windows::core::Vtable::as_raw(self), grfdex, id, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNameSpaceParent(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNameSpaceParent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).GetNameSpaceParent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5023,7 +5023,7 @@ impl IEnterpriseDropTarget {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEvaluatingEdpPolicy(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsEvaluatingEdpPolicy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).IsEvaluatingEdpPolicy)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnterpriseDropTarget, ::windows::core::IUnknown);
@@ -5076,7 +5076,7 @@ impl IEnumOLEVERB {
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOLEVERB> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOLEVERB>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumOLEVERB, ::windows::core::IUnknown);
@@ -5129,7 +5129,7 @@ impl IEnumOleDocumentViews {
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOleDocumentViews> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOleDocumentViews>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumOleDocumentViews, ::windows::core::IUnknown);
@@ -5179,7 +5179,7 @@ impl IEnumOleUndoUnits {
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOleUndoUnits> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOleUndoUnits>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumOleUndoUnits, ::windows::core::IUnknown);
@@ -5231,7 +5231,7 @@ impl IEnumVARIANT {
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumVARIANT, ::windows::core::IUnknown);
@@ -5275,7 +5275,7 @@ pub struct IFont(::windows::core::IUnknown);
 impl IFont {
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name)).ok()
@@ -5284,7 +5284,7 @@ impl IFont {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Size(&self) -> ::windows::core::Result<super::Com::CY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Size)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+        (::windows::core::Vtable::vtable(self).Size)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5295,7 +5295,7 @@ impl IFont {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Bold(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Bold)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).Bold)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5309,7 +5309,7 @@ impl IFont {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Italic(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Italic)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).Italic)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5323,7 +5323,7 @@ impl IFont {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Underline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Underline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).Underline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5337,7 +5337,7 @@ impl IFont {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Strikethrough(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Strikethrough)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).Strikethrough)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5349,14 +5349,14 @@ impl IFont {
     }
     pub unsafe fn Weight(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Weight)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).Weight)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetWeight(&self, weight: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWeight)(::windows::core::Vtable::as_raw(self), weight).ok()
     }
     pub unsafe fn Charset(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Charset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).Charset)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetCharset(&self, charset: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCharset)(::windows::core::Vtable::as_raw(self), charset).ok()
@@ -5365,11 +5365,11 @@ impl IFont {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn hFont(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HFONT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).hFont)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HFONT>(result__)
+        (::windows::core::Vtable::vtable(self).hFont)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFont>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn IsEqual<'a, P0>(&self, pfontother: P0) -> ::windows::core::Result<()>
     where
@@ -5384,7 +5384,7 @@ impl IFont {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn QueryTextMetrics(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::TEXTMETRICW> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryTextMetrics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::TEXTMETRICW>(result__)
+        (::windows::core::Vtable::vtable(self).QueryTextMetrics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5720,8 +5720,8 @@ impl IObjectWithSite {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetSite)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetSite)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IObjectWithSite, ::windows::core::IUnknown);
@@ -5765,7 +5765,7 @@ impl IOleAdviseHolder {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IAdviseSink>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), padvise.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), padvise.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), dwconnection).ok()
@@ -5774,7 +5774,7 @@ impl IOleAdviseHolder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAdvise(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumAdvise)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Vtable::vtable(self).EnumAdvise)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5842,7 +5842,7 @@ impl IOleCache {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Cache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pformatetc), advf, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Cache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pformatetc), advf, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Uncache(&self, dwconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Uncache)(::windows::core::Vtable::as_raw(self), dwconnection).ok()
@@ -5851,7 +5851,7 @@ impl IOleCache {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCache(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Vtable::vtable(self).EnumCache)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5923,7 +5923,7 @@ impl IOleCache2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Cache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pformatetc), advf, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.Cache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pformatetc), advf, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Uncache(&self, dwconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Uncache)(::windows::core::Vtable::as_raw(self), dwconnection).ok()
@@ -5932,7 +5932,7 @@ impl IOleCache2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCache(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumCache)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Vtable::vtable(self).base__.EnumCache)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6055,11 +6055,11 @@ impl IOleClientSite {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMoniker(&self, dwassign: OLEGETMONIKER, dwwhichmoniker: OLEWHICHMK) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMoniker)(::windows::core::Vtable::as_raw(self), dwassign, dwwhichmoniker, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IMoniker>(result__)
+        (::windows::core::Vtable::vtable(self).GetMoniker)(::windows::core::Vtable::as_raw(self), dwassign, dwwhichmoniker, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetContainer(&self) -> ::windows::core::Result<IOleContainer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContainer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleContainer>(result__)
+        (::windows::core::Vtable::vtable(self).GetContainer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ShowObject(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ShowObject)(::windows::core::Vtable::as_raw(self)).ok()
@@ -6179,7 +6179,7 @@ impl IOleContainer {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumObjects(&self, grfflags: OLECONTF) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), grfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), grfflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6312,7 +6312,7 @@ impl IOleControlSite {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExtendedControl(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExtendedControl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Vtable::vtable(self).GetExtendedControl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6398,11 +6398,11 @@ impl IOleDocument {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateView)(::windows::core::Vtable::as_raw(self), pipsite.into().abi(), pstm.into().abi(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleDocumentView>(result__)
+        (::windows::core::Vtable::vtable(self).CreateView)(::windows::core::Vtable::as_raw(self), pipsite.into().abi(), pstm.into().abi(), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDocMiscStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDocMiscStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetDocMiscStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumViews(&self, ppenum: *mut ::core::option::Option<IEnumOleDocumentViews>, ppview: *mut ::core::option::Option<IOleDocumentView>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumViews)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum), ::core::mem::transmute(ppview)).ok()
@@ -6494,11 +6494,11 @@ impl IOleDocumentView {
     }
     pub unsafe fn GetInPlaceSite(&self) -> ::windows::core::Result<IOleInPlaceSite> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInPlaceSite)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleInPlaceSite>(result__)
+        (::windows::core::Vtable::vtable(self).GetInPlaceSite)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDocument(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6509,7 +6509,7 @@ impl IOleDocumentView {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Vtable::vtable(self).GetRect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6559,7 +6559,7 @@ impl IOleDocumentView {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IOleInPlaceSite>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), pipsitenew.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleDocumentView>(result__)
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), pipsitenew.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOleDocumentView, ::windows::core::IUnknown);
@@ -6632,7 +6632,7 @@ impl IOleInPlaceActiveObject {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6737,7 +6737,7 @@ impl IOleInPlaceFrame {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6751,7 +6751,7 @@ impl IOleInPlaceFrame {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorder(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBorder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBorder)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6872,7 +6872,7 @@ impl IOleInPlaceObject {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6940,7 +6940,7 @@ impl IOleInPlaceObjectWindowless {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6972,11 +6972,11 @@ impl IOleInPlaceObjectWindowless {
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OnWindowMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Vtable::vtable(self).OnWindowMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDropTarget(&self) -> ::windows::core::Result<IDropTarget> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDropTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDropTarget>(result__)
+        (::windows::core::Vtable::vtable(self).GetDropTarget)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOleInPlaceObjectWindowless, ::windows::core::IUnknown, IOleWindow, IOleInPlaceObject);
@@ -7020,7 +7020,7 @@ impl IOleInPlaceSite {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7130,7 +7130,7 @@ impl IOleInPlaceSiteEx {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7243,7 +7243,7 @@ impl IOleInPlaceSiteWindowless {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7339,7 +7339,7 @@ impl IOleInPlaceSiteWindowless {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDC(&self, prect: *const super::super::Foundation::RECT, grfflags: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prect), grfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
+        (::windows::core::Vtable::vtable(self).GetDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prect), grfflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7384,7 +7384,7 @@ impl IOleInPlaceSiteWindowless {
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OnDefWindowMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::LRESULT>(result__)
+        (::windows::core::Vtable::vtable(self).OnDefWindowMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOleInPlaceSiteWindowless, ::windows::core::IUnknown, IOleWindow, IOleInPlaceSite, IOleInPlaceSiteEx);
@@ -7462,7 +7462,7 @@ impl IOleInPlaceUIWindow {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7476,7 +7476,7 @@ impl IOleInPlaceUIWindow {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorder(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBorder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Vtable::vtable(self).GetBorder)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7554,7 +7554,7 @@ impl IOleItemContainer {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumObjects(&self, grfflags: OLECONTF) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumObjects)(::windows::core::Vtable::as_raw(self), grfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).base__.EnumObjects)(::windows::core::Vtable::as_raw(self), grfflags, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7572,8 +7572,8 @@ impl IOleItemContainer {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IBindCtx>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetObject)(::windows::core::Vtable::as_raw(self), pszitem.into(), dwspeedneeded, pbc.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetObject)(::windows::core::Vtable::as_raw(self), pszitem.into(), dwspeedneeded, pbc.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7583,8 +7583,8 @@ impl IOleItemContainer {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IBindCtx>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetObjectStorage)(::windows::core::Vtable::as_raw(self), pszitem.into(), pbc.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetObjectStorage)(::windows::core::Vtable::as_raw(self), pszitem.into(), pbc.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn IsRunning<'a, P0>(&self, pszitem: P0) -> ::windows::core::Result<()>
     where
@@ -7639,7 +7639,7 @@ impl IOleLink {
     }
     pub unsafe fn GetUpdateOptions(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUpdateOptions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetUpdateOptions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7653,7 +7653,7 @@ impl IOleLink {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceMoniker(&self) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceMoniker)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IMoniker>(result__)
+        (::windows::core::Vtable::vtable(self).GetSourceMoniker)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetSourceDisplayName<'a, P0>(&self, pszstatustext: P0) -> ::windows::core::Result<()>
     where
@@ -7663,7 +7663,7 @@ impl IOleLink {
     }
     pub unsafe fn GetSourceDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceDisplayName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetSourceDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7678,7 +7678,7 @@ impl IOleLink {
     }
     pub unsafe fn GetBoundSource(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBoundSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).GetBoundSource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn UnbindSource(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnbindSource)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7755,7 +7755,7 @@ impl IOleObject {
     }
     pub unsafe fn GetClientSite(&self) -> ::windows::core::Result<IOleClientSite> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClientSite)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleClientSite>(result__)
+        (::windows::core::Vtable::vtable(self).GetClientSite)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetHostNames<'a, P0, P1>(&self, szcontainerapp: P0, szcontainerobj: P1) -> ::windows::core::Result<()>
     where
@@ -7779,7 +7779,7 @@ impl IOleObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMoniker(&self, dwassign: OLEGETMONIKER, dwwhichmoniker: OLEWHICHMK) -> ::windows::core::Result<super::Com::IMoniker> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMoniker)(::windows::core::Vtable::as_raw(self), dwassign, dwwhichmoniker, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IMoniker>(result__)
+        (::windows::core::Vtable::vtable(self).GetMoniker)(::windows::core::Vtable::as_raw(self), dwassign, dwwhichmoniker, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -7794,7 +7794,7 @@ impl IOleObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, dwreserved: u32) -> ::windows::core::Result<super::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipboardData)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
+        (::windows::core::Vtable::vtable(self).GetClipboardData)(::windows::core::Vtable::as_raw(self), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -7807,7 +7807,7 @@ impl IOleObject {
     }
     pub unsafe fn EnumVerbs(&self) -> ::windows::core::Result<IEnumOLEVERB> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumVerbs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOLEVERB>(result__)
+        (::windows::core::Vtable::vtable(self).EnumVerbs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7817,11 +7817,11 @@ impl IOleObject {
     }
     pub unsafe fn GetUserClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserClassID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetUserClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUserType(&self, dwformoftype: USERCLASSTYPE) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserType)(::windows::core::Vtable::as_raw(self), dwformoftype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetUserType)(::windows::core::Vtable::as_raw(self), dwformoftype, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -7832,7 +7832,7 @@ impl IOleObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetExtent(&self, dwdrawaspect: super::Com::DVASPECT) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExtent)(::windows::core::Vtable::as_raw(self), dwdrawaspect, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Vtable::vtable(self).GetExtent)(::windows::core::Vtable::as_raw(self), dwdrawaspect, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7841,7 +7841,7 @@ impl IOleObject {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IAdviseSink>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), padvsink.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), padvsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), dwconnection).ok()
@@ -7850,13 +7850,13 @@ impl IOleObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAdvise(&self) -> ::windows::core::Result<super::Com::IEnumSTATDATA> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumAdvise)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumSTATDATA>(result__)
+        (::windows::core::Vtable::vtable(self).EnumAdvise)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMiscStatus(&self, dwaspect: super::Com::DVASPECT) -> ::windows::core::Result<OLEMISC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMiscStatus)(::windows::core::Vtable::as_raw(self), dwaspect, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLEMISC>(result__)
+        (::windows::core::Vtable::vtable(self).GetMiscStatus)(::windows::core::Vtable::as_raw(self), dwaspect, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7958,7 +7958,7 @@ impl IOleParentUndoUnit {
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUnitType(&self, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetUnitType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclsid), ::core::mem::transmute(plid)).ok()
@@ -7995,7 +7995,7 @@ impl IOleParentUndoUnit {
     }
     pub unsafe fn GetParentState(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParentState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetParentState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOleParentUndoUnit, ::windows::core::IUnknown, IOleUndoUnit);
@@ -8046,7 +8046,7 @@ impl IOleUILinkContainerA {
     }
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8135,7 +8135,7 @@ impl IOleUILinkContainerW {
     }
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8224,7 +8224,7 @@ impl IOleUILinkInfoA {
     }
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8259,7 +8259,7 @@ impl IOleUILinkInfoA {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastUpdate(&self, dwlink: u32) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastUpdate)(::windows::core::Vtable::as_raw(self), dwlink, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Vtable::vtable(self).GetLastUpdate)(::windows::core::Vtable::as_raw(self), dwlink, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOleUILinkInfoA, ::windows::core::IUnknown, IOleUILinkContainerA);
@@ -8306,7 +8306,7 @@ impl IOleUILinkInfoW {
     }
     pub unsafe fn GetLinkUpdateOptions(&self, dwlink: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetLinkUpdateOptions)(::windows::core::Vtable::as_raw(self), dwlink, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8341,7 +8341,7 @@ impl IOleUILinkInfoW {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastUpdate(&self, dwlink: u32) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastUpdate)(::windows::core::Vtable::as_raw(self), dwlink, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Vtable::vtable(self).GetLastUpdate)(::windows::core::Vtable::as_raw(self), dwlink, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOleUILinkInfoW, ::windows::core::IUnknown, IOleUILinkContainerW);
@@ -8525,7 +8525,7 @@ impl IOleUndoManager {
     }
     pub unsafe fn GetOpenParentState(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOpenParentState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetOpenParentState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DiscardFrom<'a, P0>(&self, puu: P0) -> ::windows::core::Result<()>
     where
@@ -8547,19 +8547,19 @@ impl IOleUndoManager {
     }
     pub unsafe fn EnumUndoable(&self) -> ::windows::core::Result<IEnumOleUndoUnits> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumUndoable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOleUndoUnits>(result__)
+        (::windows::core::Vtable::vtable(self).EnumUndoable)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumRedoable(&self) -> ::windows::core::Result<IEnumOleUndoUnits> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRedoable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOleUndoUnits>(result__)
+        (::windows::core::Vtable::vtable(self).EnumRedoable)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetLastUndoDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastUndoDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetLastUndoDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetLastRedoDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLastRedoDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetLastRedoDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8628,7 +8628,7 @@ impl IOleUndoUnit {
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUnitType(&self, pclsid: *mut ::windows::core::GUID, plid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetUnitType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclsid), ::core::mem::transmute(plid)).ok()
@@ -8677,7 +8677,7 @@ impl IOleWindow {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).GetWindow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8776,11 +8776,11 @@ pub struct IPerPropertyBrowsing(::windows::core::IUnknown);
 impl IPerPropertyBrowsing {
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDisplayString)(::windows::core::Vtable::as_raw(self), dispid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetDisplayString)(::windows::core::Vtable::as_raw(self), dispid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MapPropertyToPage)(::windows::core::Vtable::as_raw(self), dispid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).MapPropertyToPage)(::windows::core::Vtable::as_raw(self), dispid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPredefinedStrings)(::windows::core::Vtable::as_raw(self), dispid, ::core::mem::transmute(pcastringsout), ::core::mem::transmute(pcacookiesout)).ok()
@@ -8789,7 +8789,7 @@ impl IPerPropertyBrowsing {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPredefinedValue)(::windows::core::Vtable::as_raw(self), dispid, dwcookie, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).GetPredefinedValue)(::windows::core::Vtable::as_raw(self), dispid, dwcookie, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPerPropertyBrowsing, ::windows::core::IUnknown);
@@ -8837,7 +8837,7 @@ impl IPersistPropertyBag {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetClassID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitNew)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8917,7 +8917,7 @@ impl IPersistPropertyBag2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetClassID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitNew)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8997,23 +8997,23 @@ pub struct IPicture(::windows::core::IUnknown);
 impl IPicture {
     pub unsafe fn Handle(&self) -> ::windows::core::Result<OLE_HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLE_HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn hPal(&self) -> ::windows::core::Result<OLE_HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).hPal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLE_HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).hPal)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Width)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).Width)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Height(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Height)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).Height)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9033,7 +9033,7 @@ impl IPicture {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CurDC(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CurDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
+        (::windows::core::Vtable::vtable(self).CurDC)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9047,7 +9047,7 @@ impl IPicture {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeepOriginalFormat(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).KeepOriginalFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).KeepOriginalFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9068,11 +9068,11 @@ impl IPicture {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SaveAsFile)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), fsavememcopy.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).SaveAsFile)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), fsavememcopy.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Attributes(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Attributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPicture, ::windows::core::IUnknown);
@@ -9141,23 +9141,23 @@ pub struct IPicture2(::windows::core::IUnknown);
 impl IPicture2 {
     pub unsafe fn Handle(&self) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn hPal(&self) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).hPal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Vtable::vtable(self).hPal)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Width)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).Width)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Height(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Height)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).Height)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -9174,7 +9174,7 @@ impl IPicture2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CurDC(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HDC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CurDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HDC>(result__)
+        (::windows::core::Vtable::vtable(self).CurDC)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9188,7 +9188,7 @@ impl IPicture2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeepOriginalFormat(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).KeepOriginalFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).KeepOriginalFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9209,11 +9209,11 @@ impl IPicture2 {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SaveAsFile)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), fsavememcopy.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).SaveAsFile)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), fsavememcopy.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Attributes(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Attributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPicture2, ::windows::core::IUnknown);
@@ -9324,7 +9324,7 @@ pub struct IPointerInactive(::windows::core::IUnknown);
 impl IPointerInactive {
     pub unsafe fn GetActivationPolicy(&self) -> ::windows::core::Result<POINTERINACTIVE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetActivationPolicy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<POINTERINACTIVE>(result__)
+        (::windows::core::Vtable::vtable(self).GetActivationPolicy)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9497,7 +9497,7 @@ impl IPropertyPage {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPageInfo(&self) -> ::windows::core::Result<PROPPAGEINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPageInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPPAGEINFO>(result__)
+        (::windows::core::Vtable::vtable(self).GetPageInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows::core::IUnknown>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetObjects)(::windows::core::Vtable::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
@@ -9605,7 +9605,7 @@ impl IPropertyPage2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPageInfo(&self) -> ::windows::core::Result<PROPPAGEINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPageInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPPAGEINFO>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetPageInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows::core::IUnknown>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetObjects)(::windows::core::Vtable::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
@@ -9677,11 +9677,11 @@ impl IPropertyPageSite {
     }
     pub unsafe fn GetLocaleID(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLocaleID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetLocaleID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPageContainer(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPageContainer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).GetPageContainer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -9732,7 +9732,7 @@ impl IProtectFocus {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowFocusChange(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AllowFocusChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).AllowFocusChange)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProtectFocus, ::windows::core::IUnknown);
@@ -9775,7 +9775,7 @@ impl IProtectedModeMenuServices {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn CreateMenu(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HMENU> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMenu)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
+        (::windows::core::Vtable::vtable(self).CreateMenu)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -9785,7 +9785,7 @@ impl IProtectedModeMenuServices {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadMenu)(::windows::core::Vtable::as_raw(self), pszmodulename.into(), pszmenuname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
+        (::windows::core::Vtable::vtable(self).LoadMenu)(::windows::core::Vtable::as_raw(self), pszmodulename.into(), pszmenuname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -9794,7 +9794,7 @@ impl IProtectedModeMenuServices {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadMenuID)(::windows::core::Vtable::as_raw(self), pszmodulename.into(), wresourceid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::WindowsAndMessaging::HMENU>(result__)
+        (::windows::core::Vtable::vtable(self).LoadMenuID)(::windows::core::Vtable::as_raw(self), pszmodulename.into(), wresourceid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProtectedModeMenuServices, ::windows::core::IUnknown);
@@ -9845,7 +9845,7 @@ impl IProvideClassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClassInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Vtable::vtable(self).GetClassInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProvideClassInfo, ::windows::core::IUnknown);
@@ -9888,11 +9888,11 @@ impl IProvideClassInfo2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetClassInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetClassInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, dwguidkind: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGUID)(::windows::core::Vtable::as_raw(self), dwguidkind, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetGUID)(::windows::core::Vtable::as_raw(self), dwguidkind, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProvideClassInfo2, ::windows::core::IUnknown, IProvideClassInfo);
@@ -9932,15 +9932,15 @@ impl IProvideMultipleClassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetClassInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetClassInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, dwguidkind: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), dwguidkind, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), dwguidkind, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMultiTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMultiTypeInfoCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetMultiTypeInfoCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10041,7 +10041,7 @@ impl IQuickActivate {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContentExtent(&self) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContentExtent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Vtable::vtable(self).GetContentExtent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IQuickActivate, ::windows::core::IUnknown);
@@ -10099,21 +10099,21 @@ impl IRecordInfo {
     }
     pub unsafe fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGuid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetGuid)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self) -> ::windows::core::Result<super::Com::ITypeInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTypeInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeInfo>(result__)
+        (::windows::core::Vtable::vtable(self).GetTypeInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10122,7 +10122,7 @@ impl IRecordInfo {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetField)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvdata), szfieldname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Vtable::vtable(self).GetField)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvdata), szfieldname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -10298,7 +10298,7 @@ pub struct ISpecifyPropertyPages(::windows::core::IUnknown);
 impl ISpecifyPropertyPages {
     pub unsafe fn GetPages(&self) -> ::windows::core::Result<CAUUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CAUUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetPages)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISpecifyPropertyPages, ::windows::core::IUnknown);
@@ -10342,7 +10342,7 @@ impl ITypeChangeEvents {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestTypeChange)(::windows::core::Vtable::as_raw(self), changekind, ptinfobefore.into().abi(), pstrname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).RequestTypeChange)(::windows::core::Vtable::as_raw(self), changekind, ptinfobefore.into().abi(), pstrname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10401,7 +10401,7 @@ impl ITypeFactory {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromTypeInfo)(::windows::core::Vtable::as_raw(self), ptypeinfo.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).CreateFromTypeInfo)(::windows::core::Vtable::as_raw(self), ptypeinfo.into().abi(), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ITypeFactory, ::windows::core::IUnknown);
@@ -10442,7 +10442,7 @@ pub struct ITypeMarshal(::windows::core::IUnknown);
 impl ITypeMarshal {
     pub unsafe fn Size(&self, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Size)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvtype), dwdestcontext, ::core::mem::transmute(pvdestcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Size)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvtype), dwdestcontext, ::core::mem::transmute(pvdestcontext), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Marshal(&self, pvtype: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, pbuffer: &mut [u8], pcbwritten: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Marshal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvtype), dwdestcontext, ::core::mem::transmute(pvdestcontext), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr()), ::core::mem::transmute(pcbwritten)).ok()
@@ -10536,7 +10536,7 @@ impl IVBGetControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumControls(&self, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumControls)(::windows::core::Vtable::as_raw(self), dwolecontf, dwwhich, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).EnumControls)(::windows::core::Vtable::as_raw(self), dwolecontf, dwwhich, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVBGetControl, ::windows::core::IUnknown);
@@ -10751,7 +10751,7 @@ impl IViewObject2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetExtent(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExtent)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(ptd), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Vtable::vtable(self).GetExtent)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(ptd), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IViewObject2, ::windows::core::IUnknown, IViewObject);
@@ -10832,29 +10832,29 @@ impl IViewObjectEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetExtent(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetExtent)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(ptd), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetExtent)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(ptd), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRect(&self, dwaspect: u32) -> ::windows::core::Result<super::super::Foundation::RECTL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRect)(::windows::core::Vtable::as_raw(self), dwaspect, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECTL>(result__)
+        (::windows::core::Vtable::vtable(self).GetRect)(::windows::core::Vtable::as_raw(self), dwaspect, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetViewStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetViewStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetViewStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHitPoint(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: super::super::Foundation::POINT, lclosehint: i32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryHitPoint)(::windows::core::Vtable::as_raw(self), dwaspect, ::core::mem::transmute(prectbounds), ::core::mem::transmute(ptlloc), lclosehint, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).QueryHitPoint)(::windows::core::Vtable::as_raw(self), dwaspect, ::core::mem::transmute(prectbounds), ::core::mem::transmute(ptlloc), lclosehint, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHitRect(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, prectloc: *const super::super::Foundation::RECT, lclosehint: i32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryHitRect)(::windows::core::Vtable::as_raw(self), dwaspect, ::core::mem::transmute(prectbounds), ::core::mem::transmute(prectloc), lclosehint, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).QueryHitRect)(::windows::core::Vtable::as_raw(self), dwaspect, ::core::mem::transmute(prectbounds), ::core::mem::transmute(prectloc), lclosehint, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -10863,7 +10863,7 @@ impl IViewObjectEx {
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNaturalExtent)(::windows::core::Vtable::as_raw(self), dwaspect, lindex, ::core::mem::transmute(ptd), hictargetdev.into(), ::core::mem::transmute(pextentinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Vtable::vtable(self).GetNaturalExtent)(::windows::core::Vtable::as_raw(self), dwaspect, lindex, ::core::mem::transmute(ptd), hictargetdev.into(), ::core::mem::transmute(pextentinfo), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IViewObjectEx, ::windows::core::IUnknown, IViewObject, IViewObject2);

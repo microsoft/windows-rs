@@ -9,8 +9,8 @@ impl IPrintManagerInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19,8 +19,8 @@ impl IPrintManagerInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
@@ -67,19 +67,19 @@ impl IPrintWorkflowConfigurationNative {
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterQueue> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PrinterQueue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Printing::IPrinterQueue>(result__)
+        (::windows::core::Vtable::vtable(self).PrinterQueue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DriverProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
+        (::windows::core::Vtable::vtable(self).DriverProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Printing::IPrinterPropertyBag>(result__)
+        (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintWorkflowConfigurationNative, ::windows::core::IUnknown);
@@ -136,7 +136,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative {
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn ObjectFactory(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ObjectFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Storage::Xps::IXpsOMObjectFactory1>(result__)
+        (::windows::core::Vtable::vtable(self).ObjectFactory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintWorkflowObjectModelSourceFileContentNative, ::windows::core::IUnknown);
@@ -180,7 +180,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative {
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn DocumentPackageTarget(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DocumentPackageTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>(result__)
+        (::windows::core::Vtable::vtable(self).DocumentPackageTarget)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintWorkflowXpsObjectModelTargetPackageNative, ::windows::core::IUnknown);
@@ -380,8 +380,8 @@ impl IPrinting3DManagerInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -390,8 +390,8 @@ impl IPrinting3DManagerInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).ShowPrintUIForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrinting3DManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);

@@ -842,49 +842,49 @@ impl DisplayAdapter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DisplayAdapterId>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DeviceInterfacePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeviceInterfacePath)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceInterfacePath)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SourceCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).SourceCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn PciVendorId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PciVendorId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).PciVendorId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn PciDeviceId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PciDeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).PciDeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn PciSubSystemId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PciSubSystemId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).PciSubSystemId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn PciRevision(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PciRevision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).PciRevision)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -893,7 +893,7 @@ impl DisplayAdapter {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics\"`*"]
@@ -901,7 +901,7 @@ impl DisplayAdapter {
     pub fn FromId(id: super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::Result<DisplayAdapter> {
         Self::IDisplayAdapterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromId)(::windows::core::Vtable::as_raw(this), id, result__.as_mut_ptr()).from_abi::<DisplayAdapter>(result__)
+            (::windows::core::Vtable::vtable(this).FromId)(::windows::core::Vtable::as_raw(this), id, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -953,21 +953,21 @@ impl DisplayDevice {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateScanoutSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplaySource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateScanoutSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CreatePrimary(&self, target: &DisplayTarget, desc: &DisplayPrimaryDescription) -> ::windows::core::Result<DisplaySurface> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreatePrimary)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(desc), result__.as_mut_ptr()).from_abi::<DisplaySurface>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePrimary)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(desc), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CreateTaskPool(&self) -> ::windows::core::Result<DisplayTaskPool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateTaskPool)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayTaskPool>(result__)
+            (::windows::core::Vtable::vtable(this).CreateTaskPool)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -976,7 +976,7 @@ impl DisplayDevice {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreatePeriodicFence)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), offsetfromvblank, result__.as_mut_ptr()).from_abi::<DisplayFence>(result__)
+            (::windows::core::Vtable::vtable(this).CreatePeriodicFence)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), offsetfromvblank, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn WaitForVBlank(&self, source: &DisplaySource) -> ::windows::core::Result<()> {
@@ -987,14 +987,14 @@ impl DisplayDevice {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSimpleScanout)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(psource), ::core::mem::transmute_copy(psurface), subresourceindex, syncinterval, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSimpleScanout)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(psource), ::core::mem::transmute_copy(psurface), subresourceindex, syncinterval, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsCapabilitySupported)(::windows::core::Vtable::as_raw(this), capability, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsCapabilitySupported)(::windows::core::Vtable::as_raw(this), capability, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics\"`*"]
@@ -1007,7 +1007,7 @@ impl DisplayDevice {
         let this = &::windows::core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source), ::core::mem::transmute_copy(surface), subresourceindex, syncinterval, dirtyrects.try_into().map_err(|e| e.into())?.abi(), options, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source), ::core::mem::transmute_copy(surface), subresourceindex, syncinterval, dirtyrects.try_into().map_err(|e| e.into())?.abi(), options, result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1101,7 +1101,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentTargets)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentTargets)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1110,14 +1110,14 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentAdapters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentAdapters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn TryAcquireTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayManagerResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryAcquireTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayManagerResult>(result__)
+            (::windows::core::Vtable::vtable(this).TryAcquireTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ReleaseTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<()> {
@@ -1128,7 +1128,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryReadCurrentStateForAllTargets)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Vtable::vtable(this).TryReadCurrentStateForAllTargets)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1141,7 +1141,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndReadCurrentState)(::windows::core::Vtable::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndReadCurrentState)(::windows::core::Vtable::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1154,7 +1154,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndCreateEmptyState)(::windows::core::Vtable::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndCreateEmptyState)(::windows::core::Vtable::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1167,14 +1167,14 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndCreateSubstate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(existingstate), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
+            (::windows::core::Vtable::vtable(this).TryAcquireTargetsAndCreateSubstate)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(existingstate), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CreateDisplayDevice(&self, adapter: &DisplayAdapter) -> ::windows::core::Result<DisplayDevice> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateDisplayDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi::<DisplayDevice>(result__)
+            (::windows::core::Vtable::vtable(this).CreateDisplayDevice)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(adapter), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1183,7 +1183,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Enabled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Enabled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1198,7 +1198,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Disabled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Disabled)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1213,7 +1213,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1228,7 +1228,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PathsFailedOrInvalidated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PathsFailedOrInvalidated)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1248,7 +1248,7 @@ impl DisplayManager {
     pub fn Create(options: DisplayManagerOptions) -> ::windows::core::Result<DisplayManager> {
         Self::IDisplayManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayManager>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), options, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1322,7 +1322,7 @@ impl DisplayManagerChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1335,7 +1335,7 @@ impl DisplayManagerChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1382,7 +1382,7 @@ impl DisplayManagerDisabledEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1395,7 +1395,7 @@ impl DisplayManagerDisabledEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1442,7 +1442,7 @@ impl DisplayManagerEnabledEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1455,7 +1455,7 @@ impl DisplayManagerEnabledEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1502,7 +1502,7 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Handled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1515,7 +1515,7 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1562,21 +1562,21 @@ impl DisplayManagerResultWithState {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ErrorCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayManagerResult>(result__)
+            (::windows::core::Vtable::vtable(this).ErrorCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedErrorCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Vtable::vtable(this).ExtendedErrorCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<DisplayState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayState>(result__)
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1625,14 +1625,14 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::SizeInt32>(result__)
+            (::windows::core::Vtable::vtable(this).SourceResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsStereo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsStereo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
@@ -1641,7 +1641,7 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourcePixelFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
+            (::windows::core::Vtable::vtable(this).SourcePixelFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics\"`*"]
@@ -1650,7 +1650,7 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TargetResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::SizeInt32>(result__)
+            (::windows::core::Vtable::vtable(this).TargetResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1659,28 +1659,28 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayPresentationRate>(result__)
+            (::windows::core::Vtable::vtable(this).PresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsInterlaced(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsInterlaced)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsInterlaced)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn GetWireFormatSupportedBitsPerChannel(&self, encoding: DisplayWireFormatPixelEncoding) -> ::windows::core::Result<DisplayBitsPerChannel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetWireFormatSupportedBitsPerChannel)(::windows::core::Vtable::as_raw(this), encoding, result__.as_mut_ptr()).from_abi::<DisplayBitsPerChannel>(result__)
+            (::windows::core::Vtable::vtable(this).GetWireFormatSupportedBitsPerChannel)(::windows::core::Vtable::as_raw(this), encoding, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsWireFormatSupported(&self, wireformat: &DisplayWireFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsWireFormatSupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(wireformat), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsWireFormatSupported)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(wireformat), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1689,7 +1689,7 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1698,7 +1698,7 @@ impl DisplayModeInfo {
         let this = &::windows::core::Interface::cast::<IDisplayModeInfo2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PhysicalPresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayPresentationRate>(result__)
+            (::windows::core::Vtable::vtable(this).PhysicalPresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1745,21 +1745,21 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).View)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayView>(result__)
+            (::windows::core::Vtable::vtable(this).View)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Target(&self) -> ::windows::core::Result<DisplayTarget> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Target)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayTarget>(result__)
+            (::windows::core::Vtable::vtable(this).Target)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<DisplayPathStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayPathStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
@@ -1768,7 +1768,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
+            (::windows::core::Vtable::vtable(this).SourceResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
@@ -1787,7 +1787,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourcePixelFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
+            (::windows::core::Vtable::vtable(this).SourcePixelFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
@@ -1800,7 +1800,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsStereo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsStereo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsStereo(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1813,7 +1813,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TargetResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
+            (::windows::core::Vtable::vtable(this).TargetResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
@@ -1832,7 +1832,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
+            (::windows::core::Vtable::vtable(this).PresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1851,7 +1851,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsInterlaced)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<bool>>(result__)
+            (::windows::core::Vtable::vtable(this).IsInterlaced)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1868,7 +1868,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WireFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
+            (::windows::core::Vtable::vtable(this).WireFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetWireFormat(&self, value: &DisplayWireFormat) -> ::windows::core::Result<()> {
@@ -1879,7 +1879,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Rotation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayRotation>(result__)
+            (::windows::core::Vtable::vtable(this).Rotation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetRotation(&self, value: DisplayRotation) -> ::windows::core::Result<()> {
@@ -1890,7 +1890,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Scaling)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayPathScaling>(result__)
+            (::windows::core::Vtable::vtable(this).Scaling)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetScaling(&self, value: DisplayPathScaling) -> ::windows::core::Result<()> {
@@ -1903,7 +1903,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindModes)(::windows::core::Vtable::as_raw(this), flags, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
+            (::windows::core::Vtable::vtable(this).FindModes)(::windows::core::Vtable::as_raw(this), flags, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ApplyPropertiesFromMode(&self, moderesult: &DisplayModeInfo) -> ::windows::core::Result<()> {
@@ -1916,7 +1916,7 @@ impl DisplayPath {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1925,7 +1925,7 @@ impl DisplayPath {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PhysicalPresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
+            (::windows::core::Vtable::vtable(this).PhysicalPresentationRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1982,14 +1982,14 @@ impl DisplayPrimaryDescription {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Width)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).Width)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Height)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).Height)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
@@ -1998,7 +1998,7 @@ impl DisplayPrimaryDescription {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
+            (::windows::core::Vtable::vtable(this).Format)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
@@ -2007,14 +2007,14 @@ impl DisplayPrimaryDescription {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ColorSpace)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXColorSpace>(result__)
+            (::windows::core::Vtable::vtable(this).ColorSpace)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsStereo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsStereo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -2023,7 +2023,7 @@ impl DisplayPrimaryDescription {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MultisampleDescription)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>(result__)
+            (::windows::core::Vtable::vtable(this).MultisampleDescription)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2032,7 +2032,7 @@ impl DisplayPrimaryDescription {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -2040,7 +2040,7 @@ impl DisplayPrimaryDescription {
     pub fn CreateInstance(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), width, height, pixelformat, colorspace, isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), width, height, pixelformat, colorspace, isstereo, multisampledescription, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -2052,7 +2052,7 @@ impl DisplayPrimaryDescription {
     {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2150,14 +2150,14 @@ impl DisplaySource {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AdapterId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DisplayAdapterId>(result__)
+            (::windows::core::Vtable::vtable(this).AdapterId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SourceId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).SourceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2166,14 +2166,14 @@ impl DisplaySource {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetMetadata)(::windows::core::Vtable::as_raw(this), key, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Vtable::vtable(this).GetMetadata)(::windows::core::Vtable::as_raw(this), key, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<DisplaySourceStatus> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplaySourceStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2182,7 +2182,7 @@ impl DisplaySource {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).StatusChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2235,14 +2235,14 @@ impl DisplayState {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsReadOnly)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsReadOnly)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsStale(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsStale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsStale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2251,7 +2251,7 @@ impl DisplayState {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Targets)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>(result__)
+            (::windows::core::Vtable::vtable(this).Targets)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2260,7 +2260,7 @@ impl DisplayState {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Views)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayView>>(result__)
+            (::windows::core::Vtable::vtable(this).Views)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2269,42 +2269,42 @@ impl DisplayState {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ConnectTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ConnectTargetToView(&self, target: &DisplayTarget, view: &DisplayView) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectTargetToView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Vtable::vtable(this).ConnectTargetToView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CanConnectTargetToView(&self, target: &DisplayTarget, view: &DisplayView) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CanConnectTargetToView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).CanConnectTargetToView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn GetViewForTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayView> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetViewForTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayView>(result__)
+            (::windows::core::Vtable::vtable(this).GetViewForTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn GetPathForTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPathForTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi::<DisplayPath>(result__)
+            (::windows::core::Vtable::vtable(this).GetPathForTarget)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(target), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DisconnectTarget(&self, target: &DisplayTarget) -> ::windows::core::Result<()> {
@@ -2315,21 +2315,21 @@ impl DisplayState {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryFunctionalize)(::windows::core::Vtable::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
+            (::windows::core::Vtable::vtable(this).TryFunctionalize)(::windows::core::Vtable::as_raw(this), options, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn TryApply(&self, options: DisplayStateApplyOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryApply)(::windows::core::Vtable::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
+            (::windows::core::Vtable::vtable(this).TryApply)(::windows::core::Vtable::as_raw(this), options, result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Clone(&self) -> ::windows::core::Result<DisplayState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Clone)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayState>(result__)
+            (::windows::core::Vtable::vtable(this).Clone)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -2376,14 +2376,14 @@ impl DisplayStateOperationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayStateOperationStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedErrorCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Vtable::vtable(this).ExtendedErrorCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -2469,70 +2469,70 @@ impl DisplayTarget {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Adapter)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayAdapter>(result__)
+            (::windows::core::Vtable::vtable(this).Adapter)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DeviceInterfacePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeviceInterfacePath)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DeviceInterfacePath)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn AdapterRelativeId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AdapterRelativeId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).AdapterRelativeId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsConnected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsConnected)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsConnected)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsVirtualModeEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsVirtualModeEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsVirtualModeEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsVirtualTopologyEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsVirtualTopologyEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsVirtualTopologyEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn UsageKind(&self) -> ::windows::core::Result<super::DisplayMonitorUsageKind> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UsageKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DisplayMonitorUsageKind>(result__)
+            (::windows::core::Vtable::vtable(this).UsageKind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn MonitorPersistence(&self) -> ::windows::core::Result<DisplayTargetPersistence> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MonitorPersistence)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayTargetPersistence>(result__)
+            (::windows::core::Vtable::vtable(this).MonitorPersistence)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn StableMonitorId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StableMonitorId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).StableMonitorId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn TryGetMonitor(&self) -> ::windows::core::Result<super::DisplayMonitor> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetMonitor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DisplayMonitor>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetMonitor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2541,28 +2541,28 @@ impl DisplayTarget {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsStale(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsStale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsStale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsSame(&self, othertarget: &DisplayTarget) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsSame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othertarget), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsSame)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othertarget), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsEqual(&self, othertarget: &DisplayTarget) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othertarget), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEqual)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(othertarget), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -2661,7 +2661,7 @@ impl DisplayTaskPool {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateTask)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayTask>(result__)
+            (::windows::core::Vtable::vtable(this).CreateTask)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -2674,7 +2674,7 @@ impl DisplayTaskPool {
         let this = &::windows::core::Interface::cast::<IDisplayTaskPool2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryExecuteTask)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(task), result__.as_mut_ptr()).from_abi::<DisplayTaskResult>(result__)
+            (::windows::core::Vtable::vtable(this).TryExecuteTask)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(task), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -2721,21 +2721,21 @@ impl DisplayTaskResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PresentStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayPresentStatus>(result__)
+            (::windows::core::Vtable::vtable(this).PresentStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn PresentId(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PresentId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
+            (::windows::core::Vtable::vtable(this).PresentId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SourceStatus(&self) -> ::windows::core::Result<DisplaySourceStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplaySourceStatus>(result__)
+            (::windows::core::Vtable::vtable(this).SourceStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -2784,7 +2784,7 @@ impl DisplayView {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Paths)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayPath>>(result__)
+            (::windows::core::Vtable::vtable(this).Paths)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
@@ -2793,7 +2793,7 @@ impl DisplayView {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
+            (::windows::core::Vtable::vtable(this).ContentResolution)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
@@ -2816,7 +2816,7 @@ impl DisplayView {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -2863,35 +2863,35 @@ impl DisplayWireFormat {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PixelEncoding)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayWireFormatPixelEncoding>(result__)
+            (::windows::core::Vtable::vtable(this).PixelEncoding)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn BitsPerChannel(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BitsPerChannel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).BitsPerChannel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ColorSpace(&self) -> ::windows::core::Result<DisplayWireFormatColorSpace> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ColorSpace)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayWireFormatColorSpace>(result__)
+            (::windows::core::Vtable::vtable(this).ColorSpace)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Eotf(&self) -> ::windows::core::Result<DisplayWireFormatEotf> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Eotf)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayWireFormatEotf>(result__)
+            (::windows::core::Vtable::vtable(this).Eotf)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn HdrMetadata(&self) -> ::windows::core::Result<DisplayWireFormatHdrMetadata> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HdrMetadata)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayWireFormatHdrMetadata>(result__)
+            (::windows::core::Vtable::vtable(this).HdrMetadata)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2900,13 +2900,13 @@ impl DisplayWireFormat {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CreateInstance(pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat> {
         Self::IDisplayWireFormatFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2918,7 +2918,7 @@ impl DisplayWireFormat {
     {
         Self::IDisplayWireFormatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

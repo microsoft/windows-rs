@@ -57,7 +57,7 @@ impl IWCNDevice {
     }
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIntegerAttribute)(::windows::core::Vtable::as_raw(self), attributetype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetIntegerAttribute)(::windows::core::Vtable::as_raw(self), attributetype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, wszstring: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStringAttribute)(::windows::core::Vtable::as_raw(self), attributetype, wszstring.len() as _, ::core::mem::transmute(wszstring.as_ptr())).ok()

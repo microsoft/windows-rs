@@ -90,7 +90,7 @@ impl IVisualTreeService_Vtbl {
             let this = (*this).get_impl();
             this.UnadviseVisualTreeChange(::core::mem::transmute(&pcallback)).into()
         }
-        unsafe extern "system" fn GetEnums<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut ::core::mem::ManuallyDrop<EnumType>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnums<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetEnums(::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppenums)).into()
@@ -106,7 +106,7 @@ impl IVisualTreeService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValuesChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut ::core::mem::ManuallyDrop<PropertyChainSource>, ppropertycount: *mut u32, pppropertyvalues: *mut *mut ::core::mem::ManuallyDrop<PropertyChainValue>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyValuesChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPropertyValuesChain(::core::mem::transmute_copy(&instancehandle), ::core::mem::transmute_copy(&psourcecount), ::core::mem::transmute_copy(&pppropertysources), ::core::mem::transmute_copy(&ppropertycount), ::core::mem::transmute_copy(&pppropertyvalues)).into()
@@ -132,7 +132,7 @@ impl IVisualTreeService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCollectionElements<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut ::core::mem::ManuallyDrop<CollectionElementValue>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCollectionElements<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCollectionElements(::core::mem::transmute_copy(&instancehandle), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&pelementcount), ::core::mem::transmute_copy(&ppelementvalues)).into()

@@ -6,7 +6,7 @@ where
 {
     ::windows::core::link ! ( "mdmlocalmanagement.dll""system" fn ApplyLocalManagementSyncML ( syncmlrequest : :: windows::core::PCWSTR , syncmlresult : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ApplyLocalManagementSyncML(syncmlrequest.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    ApplyLocalManagementSyncML(syncmlrequest.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -16,7 +16,7 @@ where
 {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn DiscoverManagementService ( pszupn : :: windows::core::PCWSTR , ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DiscoverManagementService(pszupn.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
+    DiscoverManagementService(pszupn.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -27,7 +27,7 @@ where
 {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn DiscoverManagementServiceEx ( pszupn : :: windows::core::PCWSTR , pszdiscoveryservicecandidate : :: windows::core::PCWSTR , ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DiscoverManagementServiceEx(pszupn.into(), pszdiscoveryservicecandidate.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
+    DiscoverManagementServiceEx(pszupn.into(), pszdiscoveryservicecandidate.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -63,7 +63,7 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
 pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn IsManagementRegistrationAllowed ( pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IsManagementRegistrationAllowed(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    IsManagementRegistrationAllowed(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -71,7 +71,7 @@ pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn IsMdmUxWithoutAadAllowed ( isenrollmentallowed : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IsMdmUxWithoutAadAllowed(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    IsMdmUxWithoutAadAllowed(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -79,7 +79,7 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::core::Result<super::super
 pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "mdmlocalmanagement.dll""system" fn RegisterDeviceWithLocalManagement ( alreadyregistered : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RegisterDeviceWithLocalManagement(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    RegisterDeviceWithLocalManagement(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]

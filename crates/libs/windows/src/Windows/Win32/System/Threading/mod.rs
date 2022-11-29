@@ -965,7 +965,7 @@ where
 pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<MACHINE_ATTRIBUTES> {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetMachineTypeAttributes ( machine : u16 , machinetypeattributes : *mut MACHINE_ATTRIBUTES ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetMachineTypeAttributes(machine, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
+    GetMachineTypeAttributes(machine, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1258,7 +1258,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetThreadDescription ( hthread : super::super::Foundation:: HANDLE , ppszthreaddescription : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetThreadDescription(hthread.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    GetThreadDescription(hthread.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]

@@ -656,7 +656,7 @@ where
 {
     ::windows::core::link ! ( "dxva2.dll""system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9 ( pdirect3ddevice9 : * mut::core::ffi::c_void , pdwnumberofphysicalmonitors : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1060,7 +1060,7 @@ impl IViewHelper {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetConfiguration)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).SetConfiguration)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Vtable::as_raw(self)).ok()

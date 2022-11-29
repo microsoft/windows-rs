@@ -46,7 +46,7 @@ impl RemoteTextConnection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -68,7 +68,7 @@ impl RemoteTextConnection {
     pub fn CreateInstance(connectionid: ::windows::core::GUID, pduforwarder: &RemoteTextConnectionDataHandler) -> ::windows::core::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), connectionid, ::core::mem::transmute_copy(pduforwarder), result__.as_mut_ptr()).from_abi::<RemoteTextConnection>(result__)
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), connectionid, ::core::mem::transmute_copy(pduforwarder), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -146,7 +146,7 @@ impl RemoteTextConnectionDataHandler {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), pdudata.len() as u32, pdudata.as_ptr(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), pdudata.len() as u32, pdudata.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }

@@ -159,7 +159,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), ::core::mem::transmute_copy(draguioverride), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).EnterAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), ::core::mem::transmute_copy(draguioverride), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -168,7 +168,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OverAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), ::core::mem::transmute_copy(draguioverride), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).OverAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), ::core::mem::transmute_copy(draguioverride), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -177,7 +177,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LeaveAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).LeaveAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -186,7 +186,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DropAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).DropAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(draginfo), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -266,7 +266,7 @@ impl CoreDragDropManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TargetRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).TargetRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -279,7 +279,7 @@ impl CoreDragDropManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AreConcurrentOperationsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).AreConcurrentOperationsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetAreConcurrentOperationsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -289,7 +289,7 @@ impl CoreDragDropManager {
     pub fn GetForCurrentView() -> ::windows::core::Result<CoreDragDropManager> {
         Self::ICoreDragDropManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CoreDragDropManager>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -341,14 +341,14 @@ impl CoreDragInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DataPackageView>(result__)
+            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Modifiers(&self) -> ::windows::core::Result<super::DragDropModifiers> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Modifiers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DragDropModifiers>(result__)
+            (::windows::core::Vtable::vtable(this).Modifiers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -357,14 +357,14 @@ impl CoreDragInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation> {
         let this = &::windows::core::Interface::cast::<ICoreDragInfo2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowedOperations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DataPackageOperation>(result__)
+            (::windows::core::Vtable::vtable(this).AllowedOperations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -418,7 +418,7 @@ impl CoreDragOperation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DataPackage>(result__)
+            (::windows::core::Vtable::vtable(this).Data)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetPointerId(&self, pointerid: u32) -> ::windows::core::Result<()> {
@@ -441,7 +441,7 @@ impl CoreDragOperation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DragUIContentMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CoreDragUIContentMode>(result__)
+            (::windows::core::Vtable::vtable(this).DragUIContentMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetDragUIContentMode(&self, value: CoreDragUIContentMode) -> ::windows::core::Result<()> {
@@ -454,14 +454,14 @@ impl CoreDragOperation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StartAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>(result__)
+            (::windows::core::Vtable::vtable(this).StartAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn AllowedOperations(&self) -> ::windows::core::Result<super::super::DataPackageOperation> {
         let this = &::windows::core::Interface::cast::<ICoreDragOperation2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowedOperations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DataPackageOperation>(result__)
+            (::windows::core::Vtable::vtable(this).AllowedOperations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetAllowedOperations(&self, value: super::super::DataPackageOperation) -> ::windows::core::Result<()> {
@@ -524,7 +524,7 @@ impl CoreDragUIOverride {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsContentVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsContentVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsContentVisible(&self, value: bool) -> ::windows::core::Result<()> {
@@ -535,7 +535,7 @@ impl CoreDragUIOverride {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Caption)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Caption)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetCaption(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -546,7 +546,7 @@ impl CoreDragUIOverride {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsCaptionVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsCaptionVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsCaptionVisible(&self, value: bool) -> ::windows::core::Result<()> {
@@ -557,7 +557,7 @@ impl CoreDragUIOverride {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsGlyphVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsGlyphVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsGlyphVisible(&self, value: bool) -> ::windows::core::Result<()> {

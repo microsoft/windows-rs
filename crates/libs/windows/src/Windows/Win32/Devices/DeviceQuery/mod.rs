@@ -10,18 +10,7 @@ pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
 pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<*mut HDEVQUERY__> {
     ::windows::core::link ! ( "api-ms-win-devices-query-l1-1-0.dll""system" fn DevCreateObjectQuery ( objecttype : DEV_OBJECT_TYPE , queryflags : u32 , crequestedproperties : u32 , prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY , cfilterexpressioncount : u32 , pfilter : *const DEVPROP_FILTER_EXPRESSION , pcallback : * mut::core::ffi::c_void , pcontext : *const ::core::ffi::c_void , phdevquery : *mut *mut HDEVQUERY__ ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DevCreateObjectQuery(
-        objecttype,
-        queryflags,
-        prequestedproperties.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(prequestedproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        pfilter.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        ::core::mem::transmute(pcallback),
-        ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(result__.as_mut_ptr()),
-    )
-    .from_abi::<*mut HDEVQUERY__>(result__)
+    DevCreateObjectQuery(objecttype, queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prequestedproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -40,9 +29,9 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
         ::core::mem::transmute(pextendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         ::core::mem::transmute(pcallback),
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(result__.as_mut_ptr()),
+        result__.as_mut_ptr(),
     )
-    .from_abi::<*mut HDEVQUERY__>(result__)
+    .from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -63,9 +52,9 @@ where
         ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         ::core::mem::transmute(pcallback),
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(result__.as_mut_ptr()),
+        result__.as_mut_ptr(),
     )
-    .from_abi::<*mut HDEVQUERY__>(result__)
+    .from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -88,9 +77,9 @@ where
         ::core::mem::transmute(pextendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         ::core::mem::transmute(pcallback),
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(result__.as_mut_ptr()),
+        result__.as_mut_ptr(),
     )
-    .from_abi::<*mut HDEVQUERY__>(result__)
+    .from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -111,9 +100,9 @@ where
         ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         ::core::mem::transmute(pcallback),
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(result__.as_mut_ptr()),
+        result__.as_mut_ptr(),
     )
-    .from_abi::<*mut HDEVQUERY__>(result__)
+    .from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -136,9 +125,9 @@ where
         ::core::mem::transmute(pextendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         ::core::mem::transmute(pcallback),
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(result__.as_mut_ptr()),
+        result__.as_mut_ptr(),
     )
-    .from_abi::<*mut HDEVQUERY__>(result__)
+    .from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]

@@ -1518,17 +1518,17 @@ impl ITsSbGlobalStore_Vtbl {
             let this = (*this).get_impl();
             this.EnumerateFarms(::core::mem::transmute(&providername), ::core::mem::transmute_copy(&pdwcount), ::core::mem::transmute_copy(&pval)).into()
         }
-        unsafe extern "system" fn EnumerateTargets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, farmname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, envname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwcount: *mut u32, pval: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateTargets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, farmname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, envname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwcount: *mut u32, pval: *mut *mut ITsSbTarget) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateTargets(::core::mem::transmute(&providername), ::core::mem::transmute(&farmname), ::core::mem::transmute(&envname), ::core::mem::transmute_copy(&pdwcount), ::core::mem::transmute_copy(&pval)).into()
         }
-        unsafe extern "system" fn EnumerateEnvironmentsByProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwcount: *mut u32, ppval: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateEnvironmentsByProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwcount: *mut u32, ppval: *mut *mut ITsSbEnvironment) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateEnvironmentsByProvider(::core::mem::transmute(&providername), ::core::mem::transmute_copy(&pdwcount), ::core::mem::transmute_copy(&ppval)).into()
         }
-        unsafe extern "system" fn EnumerateSessions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, userdomain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, poolname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, initialprogram: ::core::mem::ManuallyDrop<::windows::core::BSTR>, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateSessions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbGlobalStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, userdomain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, poolname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, initialprogram: ::core::mem::ManuallyDrop<::windows::core::BSTR>, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ITsSbSession) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateSessions(::core::mem::transmute(&providername), ::core::mem::transmute(&targetname), ::core::mem::transmute(&username), ::core::mem::transmute(&userdomain), ::core::mem::transmute(&poolname), ::core::mem::transmute(&initialprogram), ::core::mem::transmute_copy(&psessionstate), ::core::mem::transmute_copy(&pdwcount), ::core::mem::transmute_copy(&ppval)).into()
@@ -2210,7 +2210,7 @@ impl ITsSbResourcePluginStore_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumerateEnvironments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32, pval: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateEnvironments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32, pval: *mut *mut ITsSbEnvironment) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateEnvironments(::core::mem::transmute_copy(&pdwcount), ::core::mem::transmute_copy(&pval)).into()
@@ -2256,12 +2256,12 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             this.SetSessionState(::core::mem::transmute(&sbsession)).into()
         }
-        unsafe extern "system" fn EnumerateTargets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, farmname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, envname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwcount: *mut u32, pval: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateTargets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, farmname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, envname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwcount: *mut u32, pval: *mut *mut ITsSbTarget) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateTargets(::core::mem::transmute(&farmname), ::core::mem::transmute(&envname), ::core::mem::transmute_copy(&sortbyfieldid), ::core::mem::transmute(&sortybypropname), ::core::mem::transmute_copy(&pdwcount), ::core::mem::transmute_copy(&pval)).into()
         }
-        unsafe extern "system" fn EnumerateSessions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, userdomain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, poolname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, initialprogram: ::core::mem::ManuallyDrop<::windows::core::BSTR>, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumerateSessions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, userdomain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, poolname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, initialprogram: ::core::mem::ManuallyDrop<::windows::core::BSTR>, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ITsSbSession) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumerateSessions(::core::mem::transmute(&targetname), ::core::mem::transmute(&username), ::core::mem::transmute(&userdomain), ::core::mem::transmute(&poolname), ::core::mem::transmute(&initialprogram), ::core::mem::transmute_copy(&psessionstate), ::core::mem::transmute_copy(&pdwcount), ::core::mem::transmute_copy(&ppval)).into()

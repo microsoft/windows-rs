@@ -9,7 +9,7 @@ impl IIsolatedEnvironmentInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHostHwndInterop)(::windows::core::Vtable::as_raw(self), containerhwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Vtable::vtable(self).GetHostHwndInterop)(::windows::core::Vtable::as_raw(self), containerhwnd.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IIsolatedEnvironmentInterop, ::windows::core::IUnknown);

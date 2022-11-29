@@ -64,7 +64,7 @@ impl DataProtectionProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProtectAsync)(::windows::core::Vtable::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Vtable::vtable(this).ProtectAsync)(::windows::core::Vtable::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -77,7 +77,7 @@ impl DataProtectionProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UnprotectAsync)(::windows::core::Vtable::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Vtable::vtable(this).UnprotectAsync)(::windows::core::Vtable::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -92,7 +92,7 @@ impl DataProtectionProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProtectStreamAsync)(::windows::core::Vtable::as_raw(this), src.try_into().map_err(|e| e.into())?.abi(), dest.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ProtectStreamAsync)(::windows::core::Vtable::as_raw(this), src.try_into().map_err(|e| e.into())?.abi(), dest.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -107,13 +107,13 @@ impl DataProtectionProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UnprotectStreamAsync)(::windows::core::Vtable::as_raw(this), src.try_into().map_err(|e| e.into())?.abi(), dest.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).UnprotectStreamAsync)(::windows::core::Vtable::as_raw(this), src.try_into().map_err(|e| e.into())?.abi(), dest.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CreateOverloadExplicit(protectiondescriptor: &::windows::core::HSTRING) -> ::windows::core::Result<DataProtectionProvider> {
         Self::IDataProtectionProviderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateOverloadExplicit)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(protectiondescriptor), result__.as_mut_ptr()).from_abi::<DataProtectionProvider>(result__)
+            (::windows::core::Vtable::vtable(this).CreateOverloadExplicit)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(protectiondescriptor), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

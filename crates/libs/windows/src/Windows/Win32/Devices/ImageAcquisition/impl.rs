@@ -580,7 +580,7 @@ impl IWiaDevMgr2_Vtbl {
             let this = (*this).get_impl();
             this.RegisterEventCallbackCLSID(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstrdeviceid), ::core::mem::transmute_copy(&peventguid), ::core::mem::transmute_copy(&pclsid), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrdescription), ::core::mem::transmute(&bstricon)).into()
         }
-        unsafe extern "system" fn GetImageDlg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetImageDlg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaDevMgr2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetImageDlg(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstrdeviceid), ::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&bstrfoldername), ::core::mem::transmute(&bstrfilename), ::core::mem::transmute_copy(&plnumfiles), ::core::mem::transmute_copy(&ppbstrfilepaths), ::core::mem::transmute_copy(&ppitem)).into()
@@ -950,7 +950,7 @@ impl IWiaItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceDlg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceDlg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut IWiaItem) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeviceDlg(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&lintent), ::core::mem::transmute_copy(&plitemcount), ::core::mem::transmute_copy(&ppiwiaitem)).into()
@@ -1127,7 +1127,7 @@ impl IWiaItem2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceDlg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceDlg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows::core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeviceDlg(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&bstrfoldername), ::core::mem::transmute(&bstrfilename), ::core::mem::transmute_copy(&plnumfiles), ::core::mem::transmute_copy(&ppbstrfilepaths), ::core::mem::transmute_copy(&ppitem)).into()

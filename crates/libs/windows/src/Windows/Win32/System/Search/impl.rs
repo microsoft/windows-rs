@@ -139,7 +139,7 @@ impl IAccessor_Vtbl {
             let this = (*this).get_impl();
             this.CreateAccessor(::core::mem::transmute_copy(&dwaccessorflags), ::core::mem::transmute_copy(&cbindings), ::core::mem::transmute_copy(&rgbindings), ::core::mem::transmute_copy(&cbrowsize), ::core::mem::transmute_copy(&phaccessor), ::core::mem::transmute_copy(&rgstatus)).into()
         }
-        unsafe extern "system" fn GetBindings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut ::core::mem::ManuallyDrop<DBBINDING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBindings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBindings(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pdwaccessorflags), ::core::mem::transmute_copy(&pcbindings), ::core::mem::transmute_copy(&prgbindings)).into()
@@ -353,7 +353,7 @@ impl ::windows::core::RuntimeName for IColumnsInfo {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IColumnsInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsInfo_Impl, const OFFSET: isize>() -> IColumnsInfo_Vtbl {
-        unsafe extern "system" fn GetColumnInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prginfo: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNINFO>, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumnInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetColumnInfo(::core::mem::transmute_copy(&pccolumns), ::core::mem::transmute_copy(&prginfo), ::core::mem::transmute_copy(&ppstringsbuffer)).into()
@@ -382,7 +382,7 @@ impl ::windows::core::RuntimeName for IColumnsInfo2 {}
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IColumnsInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsInfo2_Impl, const OFFSET: isize>() -> IColumnsInfo2_Vtbl {
-        unsafe extern "system" fn GetRestrictedColumnInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNINFO>, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRestrictedColumnInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRestrictedColumnInfo(::core::mem::transmute_copy(&ccolumnidmasks), ::core::mem::transmute_copy(&rgcolumnidmasks), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pccolumns), ::core::mem::transmute_copy(&prgcolumnids), ::core::mem::transmute_copy(&prgcolumninfo), ::core::mem::transmute_copy(&ppstringsbuffer)).into()
@@ -711,7 +711,7 @@ impl ::windows::core::RuntimeName for ICommandWithParameters {}
 #[cfg(feature = "Win32_System_Com")]
 impl ICommandWithParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommandWithParameters_Impl, const OFFSET: isize>() -> ICommandWithParameters_Vtbl {
-        unsafe extern "system" fn GetParameterInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut ::core::mem::ManuallyDrop<DBPARAMINFO>, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommandWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterInfo(::core::mem::transmute_copy(&pcparams), ::core::mem::transmute_copy(&prgparaminfo), ::core::mem::transmute_copy(&ppnamesbuffer)).into()
@@ -1490,7 +1490,7 @@ impl ::windows::core::RuntimeName for IDCInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDCInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCInfo_Impl, const OFFSET: isize>() -> IDCInfo_Vtbl {
-        unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut ::core::mem::ManuallyDrop<DCINFO>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetInfo(::core::mem::transmute_copy(&cinfo), ::core::mem::transmute_copy(&rgeinfotype), ::core::mem::transmute_copy(&prginfo)).into()
@@ -4158,7 +4158,7 @@ impl ::windows::core::RuntimeName for IRowsetWithParameters {}
 #[cfg(feature = "Win32_System_Com")]
 impl IRowsetWithParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetWithParameters_Impl, const OFFSET: isize>() -> IRowsetWithParameters_Vtbl {
-        unsafe extern "system" fn GetParameterInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut ::core::mem::ManuallyDrop<DBPARAMINFO>, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetWithParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterInfo(::core::mem::transmute_copy(&pcparams), ::core::mem::transmute_copy(&prgparaminfo), ::core::mem::transmute_copy(&ppnamesbuffer)).into()
@@ -4468,7 +4468,7 @@ impl ISearchCatalogManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppvalue: *mut *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchCatalogManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetParameter(::core::mem::transmute(&pszname)) {
@@ -5040,7 +5040,7 @@ impl ISearchManager_Vtbl {
             let this = (*this).get_impl();
             this.GetIndexerVersion(::core::mem::transmute_copy(&pdwmajor), ::core::mem::transmute_copy(&pdwminor)).into()
         }
-        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppvalue: *mut *mut ::core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetParameter(::core::mem::transmute(&pszname)) {
@@ -5604,7 +5604,7 @@ impl ISearchQueryHits_Vtbl {
             let this = (*this).get_impl();
             this.Init(::core::mem::transmute(&pflt), ::core::mem::transmute_copy(&ulflags))
         }
-        unsafe extern "system" fn NextHitMoniker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchQueryHits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmnk: *mut u32, papmnk: *mut *mut *mut ::core::ffi::c_void) -> i32 {
+        unsafe extern "system" fn NextHitMoniker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchQueryHits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmnk: *mut u32, papmnk: *mut *mut super::Com::IMoniker) -> i32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NextHitMoniker(::core::mem::transmute_copy(&pcmnk), ::core::mem::transmute_copy(&papmnk))
@@ -6389,7 +6389,7 @@ impl ::windows::core::RuntimeName for ITableCreation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITableCreation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableCreation_Impl, const OFFSET: isize>() -> ITableCreation_Vtbl {
-        unsafe extern "system" fn GetTableDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableCreation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut ::core::mem::ManuallyDrop<DBCOLUMNDESC>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTableDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableCreation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetTableDefinition(::core::mem::transmute_copy(&ptableid), ::core::mem::transmute_copy(&pccolumndescs), ::core::mem::transmute_copy(&prgcolumndescs), ::core::mem::transmute_copy(&pcpropertysets), ::core::mem::transmute_copy(&prgpropertysets), ::core::mem::transmute_copy(&pcconstraintdescs), ::core::mem::transmute_copy(&prgconstraintdescs), ::core::mem::transmute_copy(&ppwszstringbuffer)).into()
@@ -7125,7 +7125,7 @@ impl IViewFilter_Vtbl {
             let this = (*this).get_impl();
             this.GetFilter(::core::mem::transmute_copy(&haccessor), ::core::mem::transmute_copy(&pcrows), ::core::mem::transmute_copy(&pcompareops), ::core::mem::transmute_copy(&pcriteriadata)).into()
         }
-        unsafe extern "system" fn GetFilterBindings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IViewFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbindings: *mut usize, prgbindings: *mut *mut ::core::mem::ManuallyDrop<DBBINDING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilterBindings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IViewFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFilterBindings(::core::mem::transmute_copy(&pcbindings), ::core::mem::transmute_copy(&prgbindings)).into()

@@ -23,7 +23,7 @@ impl CoreUserActivityManager {
     pub fn CreateUserActivitySessionInBackground(activity: &super::UserActivity) -> ::windows::core::Result<super::UserActivitySession> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activity), result__.as_mut_ptr()).from_abi::<super::UserActivitySession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activity), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -31,7 +31,7 @@ impl CoreUserActivityManager {
     pub fn DeleteUserActivitySessionsInTimeRangeAsync(channel: &super::UserActivityChannel, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channel), starttime, endtime, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(channel), starttime, endtime, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

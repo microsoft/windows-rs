@@ -2249,7 +2249,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadGuidsForConnectedNetworks(pcnetworks: ::core::option::Option<*mut u32>, pppwsznetworkguids: ::core::option::Option<*mut *mut ::windows::core::PWSTR>, pppbstrnetworknames: ::core::option::Option<*mut *mut ::windows::core::BSTR>, pppwszgwmacs: ::core::option::Option<*mut *mut ::windows::core::PWSTR>, pcgatewaymacs: ::core::option::Option<*mut u32>, pdwflags: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "wininet.dll""system" fn ReadGuidsForConnectedNetworks ( pcnetworks : *mut u32 , pppwsznetworkguids : *mut *mut :: windows::core::PWSTR , pppbstrnetworknames : *mut *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > , pppwszgwmacs : *mut *mut :: windows::core::PWSTR , pcgatewaymacs : *mut u32 , pdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "wininet.dll""system" fn ReadGuidsForConnectedNetworks ( pcnetworks : *mut u32 , pppwsznetworkguids : *mut *mut :: windows::core::PWSTR , pppbstrnetworknames : *mut *mut :: windows::core::BSTR , pppwszgwmacs : *mut *mut :: windows::core::PWSTR , pcgatewaymacs : *mut u32 , pdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     ReadGuidsForConnectedNetworks(::core::mem::transmute(pcnetworks.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pppwsznetworkguids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pppbstrnetworknames.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pppwszgwmacs.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcgatewaymacs.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwflags.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
@@ -2672,7 +2672,7 @@ impl IDialBranding {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+        (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), dwindex, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDialBranding, ::windows::core::IUnknown);
@@ -2741,11 +2741,11 @@ impl IDialEngine {
     }
     pub unsafe fn GetConnectedState(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetConnectedState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetConnectedState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetConnectHandle(&self) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetConnectHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Vtable::vtable(self).GetConnectHandle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDialEngine, ::windows::core::IUnknown);

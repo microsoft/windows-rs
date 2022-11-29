@@ -46,8 +46,8 @@ impl IDMLBindingTable {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BindInputs(&self, bindings: ::core::option::Option<&[DML_BINDING_DESC]>) {
         (::windows::core::Vtable::vtable(self).BindInputs)(::windows::core::Vtable::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
@@ -129,8 +129,8 @@ impl IDMLCommandRecorder {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -201,8 +201,8 @@ impl IDMLCompiledOperator {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
@@ -325,15 +325,15 @@ impl IDMLDevice {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).CreateOperatorInitializer)(::windows::core::Vtable::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).CreateOperatorInitializer)(::windows::core::Vtable::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandRecorder<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).CreateCommandRecorder)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).CreateCommandRecorder)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -341,8 +341,8 @@ impl IDMLDevice {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).CreateBindingTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).CreateBindingTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
@@ -357,8 +357,8 @@ impl IDMLDevice {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetParentDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetParentDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDMLDevice, ::windows::core::IUnknown, IDMLObject);
@@ -444,15 +444,15 @@ impl IDMLDevice1 {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.CreateOperatorInitializer)(::windows::core::Vtable::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.CreateOperatorInitializer)(::windows::core::Vtable::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCommandRecorder<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.CreateCommandRecorder)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.CreateCommandRecorder)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -460,8 +460,8 @@ impl IDMLDevice1 {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.CreateBindingTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.CreateBindingTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
@@ -476,8 +476,8 @@ impl IDMLDevice1 {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.GetParentDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetParentDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CompileGraph<T>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
@@ -541,8 +541,8 @@ impl IDMLDeviceChild {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDMLDeviceChild, ::windows::core::IUnknown, IDMLObject);
@@ -600,8 +600,8 @@ impl IDMLDispatchable {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
@@ -719,8 +719,8 @@ impl IDMLOperator {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDMLOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
@@ -777,8 +777,8 @@ impl IDMLOperatorInitializer {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
@@ -844,8 +844,8 @@ impl IDMLPageable {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDMLPageable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);

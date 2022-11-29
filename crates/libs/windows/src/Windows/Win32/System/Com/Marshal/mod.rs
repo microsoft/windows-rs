@@ -111,7 +111,7 @@ where
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoGetStandardMarshal ( riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 , ppmarshal : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoGetStandardMarshal(::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMarshal>(result__)
+    CoGetStandardMarshal(::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -121,7 +121,7 @@ where
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoGetStdMarshalEx ( punkouter : * mut::core::ffi::c_void , smexflags : u32 , ppunkinner : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoGetStdMarshalEx(punkouter.into().abi(), smexflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    CoGetStdMarshalEx(punkouter.into().abi(), smexflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -140,7 +140,7 @@ where
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoMarshalInterThreadInterfaceInStream ( riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoMarshalInterThreadInterfaceInStream(::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
+    CoMarshalInterThreadInterfaceInStream(::core::mem::transmute(riid), punk.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -169,7 +169,7 @@ where
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoUnmarshalHresult ( pstm : * mut::core::ffi::c_void , phresult : *mut :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoUnmarshalHresult(pstm.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
+    CoUnmarshalHresult(pstm.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -179,8 +179,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoUnmarshalInterface ( pstm : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::option::Option::None;
-    CoUnmarshalInterface(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    CoUnmarshalInterface(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -968,7 +968,7 @@ impl IMarshalingStream {
     }
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), dlibmove, dworigin, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetSize)(::windows::core::Vtable::as_raw(self), libnewsize).ok()
@@ -998,11 +998,11 @@ impl IMarshalingStream {
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
+        (::windows::core::Vtable::vtable(self).base__.Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMarshalingContextAttribute)(::windows::core::Vtable::as_raw(self), attribute, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Vtable::vtable(self).GetMarshalingContextAttribute)(::windows::core::Vtable::as_raw(self), attribute, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMarshalingStream, ::windows::core::IUnknown, super::ISequentialStream, super::IStream);

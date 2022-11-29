@@ -15,7 +15,7 @@ where
 {
     ::windows::core::link ! ( "ondemandconnroutehelper.dll""system" fn GetInterfaceContextTableForHostName ( hostname : :: windows::core::PCWSTR , proxyname : :: windows::core::PCWSTR , flags : u32 , connectionprofilefilterrawdata : *const u8 , connectionprofilefilterrawdatasize : u32 , interfacecontexttable : *mut *mut NET_INTERFACE_CONTEXT_TABLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetInterfaceContextTableForHostName(hostname.into(), proxyname.into(), flags, ::core::mem::transmute(connectionprofilefilterrawdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), connectionprofilefilterrawdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut NET_INTERFACE_CONTEXT_TABLE>(result__)
+    GetInterfaceContextTableForHostName(hostname.into(), proxyname.into(), flags, ::core::mem::transmute(connectionprofilefilterrawdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), connectionprofilefilterrawdata.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
@@ -25,7 +25,7 @@ where
 {
     ::windows::core::link ! ( "ondemandconnroutehelper.dll""system" fn OnDemandGetRoutingHint ( destinationhostname : :: windows::core::PCWSTR , interfaceindex : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OnDemandGetRoutingHint(destinationhostname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    OnDemandGetRoutingHint(destinationhostname.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -33,7 +33,7 @@ where
 pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "ondemandconnroutehelper.dll""system" fn OnDemandRegisterNotification ( callback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void , registrationhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OnDemandRegisterNotification(::core::mem::transmute(callback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    OnDemandRegisterNotification(::core::mem::transmute(callback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

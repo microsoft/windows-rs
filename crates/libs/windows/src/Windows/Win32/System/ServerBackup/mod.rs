@@ -4,7 +4,7 @@ pub struct IWsbApplicationAsync(::windows::core::IUnknown);
 impl IWsbApplicationAsync {
     pub unsafe fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
+        (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
@@ -51,7 +51,7 @@ impl IWsbApplicationBackupSupport {
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), cvolumes, ::core::mem::transmute(rgwszsourcevolumepath), ::core::mem::transmute(rgwszsnapshotvolumepath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWsbApplicationAsync>(result__)
+        (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), cvolumes, ::core::mem::transmute(rgwszsourcevolumepath), ::core::mem::transmute(rgwszsnapshotvolumepath), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows::core::IUnknown);
@@ -114,7 +114,7 @@ impl IWsbApplicationRestoreSupport {
     }
     pub unsafe fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsRollForwardSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Vtable::vtable(self).IsRollForwardSupported)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows::core::IUnknown);

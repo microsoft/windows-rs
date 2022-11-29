@@ -423,7 +423,7 @@ impl AccountsSettingsPane {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AccountCommandsRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AccountCommandsRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -435,7 +435,7 @@ impl AccountsSettingsPane {
     pub fn GetForCurrentView() -> ::windows::core::Result<AccountsSettingsPane> {
         Self::IAccountsSettingsPaneStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AccountsSettingsPane>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn Show() -> ::windows::core::Result<()> {
@@ -446,7 +446,7 @@ impl AccountsSettingsPane {
     pub fn ShowManageAccountsAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowManageAccountsAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowManageAccountsAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -454,7 +454,7 @@ impl AccountsSettingsPane {
     pub fn ShowAddAccountAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowAddAccountAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowAddAccountAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
@@ -462,7 +462,7 @@ impl AccountsSettingsPane {
     pub fn ShowManageAccountsForUserAsync(user: &super::super::System::User) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowManageAccountsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowManageAccountsForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
@@ -470,7 +470,7 @@ impl AccountsSettingsPane {
     pub fn ShowAddAccountForUserAsync(user: &super::super::System::User) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAccountsSettingsPaneStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowAddAccountForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Vtable::vtable(this).ShowAddAccountForUserAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -532,7 +532,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WebAccountProviderCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<WebAccountProviderCommand>>(result__)
+            (::windows::core::Vtable::vtable(this).WebAccountProviderCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -541,7 +541,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WebAccountCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<WebAccountCommand>>(result__)
+            (::windows::core::Vtable::vtable(this).WebAccountCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -550,7 +550,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CredentialCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<CredentialCommand>>(result__)
+            (::windows::core::Vtable::vtable(this).CredentialCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"UI_Popups\"`*"]
@@ -559,14 +559,14 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Commands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<SettingsCommand>>(result__)
+            (::windows::core::Vtable::vtable(this).Commands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn HeaderText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HeaderText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).HeaderText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetHeaderText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -577,7 +577,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AccountsSettingsPaneEventDeferral>(result__)
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -586,7 +586,7 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         let this = &::windows::core::Interface::cast::<IAccountsSettingsPaneCommandsRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Vtable::vtable(this).User)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -675,14 +675,14 @@ impl CredentialCommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PasswordCredential)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            (::windows::core::Vtable::vtable(this).PasswordCredential)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CredentialDeleted(&self) -> ::windows::core::Result<CredentialCommandCredentialDeletedHandler> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CredentialDeleted)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<CredentialCommandCredentialDeletedHandler>(result__)
+            (::windows::core::Vtable::vtable(this).CredentialDeleted)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -690,7 +690,7 @@ impl CredentialCommand {
     pub fn CreateCredentialCommand(passwordcredential: &super::super::Security::Credentials::PasswordCredential) -> ::windows::core::Result<CredentialCommand> {
         Self::ICredentialCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateCredentialCommand)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(passwordcredential), result__.as_mut_ptr()).from_abi::<CredentialCommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateCredentialCommand)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(passwordcredential), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -698,7 +698,7 @@ impl CredentialCommand {
     pub fn CreateCredentialCommandWithHandler(passwordcredential: &super::super::Security::Credentials::PasswordCredential, deleted: &CredentialCommandCredentialDeletedHandler) -> ::windows::core::Result<CredentialCommand> {
         Self::ICredentialCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateCredentialCommandWithHandler)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(passwordcredential), ::core::mem::transmute_copy(deleted), result__.as_mut_ptr()).from_abi::<CredentialCommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateCredentialCommandWithHandler)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(passwordcredential), ::core::mem::transmute_copy(deleted), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -754,7 +754,7 @@ impl SettingsCommand {
     {
         Self::ISettingsCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateSettingsCommand)(::windows::core::Vtable::as_raw(this), settingscommandid.into().abi(), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<SettingsCommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateSettingsCommand)(::windows::core::Vtable::as_raw(this), settingscommandid.into().abi(), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
@@ -762,7 +762,7 @@ impl SettingsCommand {
     pub fn AccountsCommand() -> ::windows::core::Result<SettingsCommand> {
         Self::ISettingsCommandStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AccountsCommand)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SettingsCommand>(result__)
+            (::windows::core::Vtable::vtable(this).AccountsCommand)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
@@ -771,7 +771,7 @@ impl SettingsCommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Label)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
@@ -786,7 +786,7 @@ impl SettingsCommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Popups::UICommandInvokedHandler>(result__)
+            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
@@ -801,7 +801,7 @@ impl SettingsCommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
@@ -900,7 +900,7 @@ impl SettingsPane {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CommandsRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).CommandsRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -914,7 +914,7 @@ impl SettingsPane {
     pub fn GetForCurrentView() -> ::windows::core::Result<SettingsPane> {
         Self::ISettingsPaneStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SettingsPane>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -927,7 +927,7 @@ impl SettingsPane {
     pub fn Edge() -> ::windows::core::Result<SettingsEdgeLocation> {
         Self::ISettingsPaneStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Edge)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SettingsEdgeLocation>(result__)
+            (::windows::core::Vtable::vtable(this).Edge)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -991,7 +991,7 @@ impl SettingsPaneCommandsRequest {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ApplicationCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<SettingsCommand>>(result__)
+            (::windows::core::Vtable::vtable(this).ApplicationCommands)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1049,7 +1049,7 @@ impl SettingsPaneCommandsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SettingsPaneCommandsRequest>(result__)
+            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1105,21 +1105,21 @@ impl WebAccountCommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WebAccount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::WebAccount>(result__)
+            (::windows::core::Vtable::vtable(this).WebAccount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Invoked(&self) -> ::windows::core::Result<WebAccountCommandInvokedHandler> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebAccountCommandInvokedHandler>(result__)
+            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Actions(&self) -> ::windows::core::Result<SupportedWebAccountActions> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Actions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<SupportedWebAccountActions>(result__)
+            (::windows::core::Vtable::vtable(this).Actions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1127,7 +1127,7 @@ impl WebAccountCommand {
     pub fn CreateWebAccountCommand(webaccount: &super::super::Security::Credentials::WebAccount, invoked: &WebAccountCommandInvokedHandler, actions: SupportedWebAccountActions) -> ::windows::core::Result<WebAccountCommand> {
         Self::IWebAccountCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWebAccountCommand)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccount), ::core::mem::transmute_copy(invoked), actions, result__.as_mut_ptr()).from_abi::<WebAccountCommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWebAccountCommand)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccount), ::core::mem::transmute_copy(invoked), actions, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1177,7 +1177,7 @@ impl WebAccountInvokedArgs {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Action)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebAccountAction>(result__)
+            (::windows::core::Vtable::vtable(this).Action)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1224,14 +1224,14 @@ impl WebAccountProviderCommand {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WebAccountProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::WebAccountProvider>(result__)
+            (::windows::core::Vtable::vtable(this).WebAccountProvider)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Invoked(&self) -> ::windows::core::Result<WebAccountProviderCommandInvokedHandler> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebAccountProviderCommandInvokedHandler>(result__)
+            (::windows::core::Vtable::vtable(this).Invoked)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -1239,7 +1239,7 @@ impl WebAccountProviderCommand {
     pub fn CreateWebAccountProviderCommand(webaccountprovider: &super::super::Security::Credentials::WebAccountProvider, invoked: &WebAccountProviderCommandInvokedHandler) -> ::windows::core::Result<WebAccountProviderCommand> {
         Self::IWebAccountProviderCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWebAccountProviderCommand)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountprovider), ::core::mem::transmute_copy(invoked), result__.as_mut_ptr()).from_abi::<WebAccountProviderCommand>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWebAccountProviderCommand)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(webaccountprovider), ::core::mem::transmute_copy(invoked), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

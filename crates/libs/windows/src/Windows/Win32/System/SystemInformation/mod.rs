@@ -40,7 +40,7 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super:
 pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
     ::windows::core::link ! ( "api-ms-win-core-sysinfo-l1-2-3.dll""system" fn GetIntegratedDisplaySize ( sizeininches : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetIntegratedDisplaySize(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    GetIntegratedDisplaySize(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -297,7 +297,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "kernel32.dll""system" fn IsWow64GuestMachineSupported ( wowguestmachine : IMAGE_FILE_MACHINE , machineissupported : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IsWow64GuestMachineSupported(wowguestmachine, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    IsWow64GuestMachineSupported(wowguestmachine, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]

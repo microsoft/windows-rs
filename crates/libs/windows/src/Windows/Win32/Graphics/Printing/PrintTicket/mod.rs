@@ -41,7 +41,7 @@ where
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintCapabilities ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , pcapabilities : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTGetPrintCapabilities(hprovider.into(), pprintticket.into().abi(), pcapabilities.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    PTGetPrintCapabilities(hprovider.into(), pprintticket.into().abi(), pcapabilities.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
@@ -54,7 +54,7 @@ where
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintDeviceCapabilities ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , pdevicecapabilities : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTGetPrintDeviceCapabilities(hprovider.into(), pprintticket.into().abi(), pdevicecapabilities.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    PTGetPrintDeviceCapabilities(hprovider.into(), pprintticket.into().abi(), pdevicecapabilities.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
@@ -68,7 +68,7 @@ where
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintDeviceResources ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pszlocalename : :: windows::core::PCWSTR , pprintticket : * mut::core::ffi::c_void , pdeviceresources : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTGetPrintDeviceResources(hprovider.into(), pszlocalename.into(), pprintticket.into().abi(), pdeviceresources.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    PTGetPrintDeviceResources(hprovider.into(), pszlocalename.into(), pprintticket.into().abi(), pdeviceresources.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
@@ -82,7 +82,7 @@ where
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTMergeAndValidatePrintTicket ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pbaseticket : * mut::core::ffi::c_void , pdeltaticket : * mut::core::ffi::c_void , scope : EPrintTicketScope , presultticket : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTMergeAndValidatePrintTicket(hprovider.into(), pbaseticket.into().abi(), pdeltaticket.into().abi(), scope, presultticket.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+    PTMergeAndValidatePrintTicket(hprovider.into(), pbaseticket.into().abi(), pdeltaticket.into().abi(), scope, presultticket.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
@@ -93,7 +93,7 @@ where
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTOpenProvider ( pszprintername : :: windows::core::PCWSTR , dwversion : u32 , phprovider : *mut super::super::super::Storage::Xps:: HPTPROVIDER ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTOpenProvider(pszprintername.into(), dwversion, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Storage::Xps::HPTPROVIDER>(result__)
+    PTOpenProvider(pszprintername.into(), dwversion, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
@@ -113,7 +113,7 @@ where
 {
     ::windows::core::link ! ( "prntvpt.dll""system" fn PTQuerySchemaVersionSupport ( pszprintername : :: windows::core::PCWSTR , pmaxversion : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PTQuerySchemaVersionSupport(pszprintername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    PTQuerySchemaVersionSupport(pszprintername.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[inline]

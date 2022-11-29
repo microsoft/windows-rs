@@ -42,7 +42,7 @@ impl PowerManager {
     pub fn PowerSavingMode() -> ::windows::core::Result<PowerSavingMode> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PowerSavingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PowerSavingMode>(result__)
+            (::windows::core::Vtable::vtable(this).PowerSavingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -50,7 +50,7 @@ impl PowerManager {
     pub fn PowerSavingModeChanged(changehandler: &super::super::super::Foundation::EventHandler<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PowerSavingModeChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changehandler), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).PowerSavingModeChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(changehandler), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -61,7 +61,7 @@ impl PowerManager {
     pub fn PowerSavingModeEnabled() -> ::windows::core::Result<bool> {
         Self::IPowerManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PowerSavingModeEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).PowerSavingModeEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

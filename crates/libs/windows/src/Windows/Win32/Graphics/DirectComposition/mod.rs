@@ -41,8 +41,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice ( dxgidevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::option::Option::None;
-    DCompositionCreateDevice(dxgidevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DCompositionCreateDevice(dxgidevice.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
@@ -52,8 +52,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice2 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::option::Option::None;
-    DCompositionCreateDevice2(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DCompositionCreateDevice2(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
@@ -63,8 +63,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateDevice3 ( renderingdevice : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::option::Option::None;
-    DCompositionCreateDevice3(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DCompositionCreateDevice3(renderingdevice.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -72,14 +72,14 @@ where
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionCreateSurfaceHandle ( desiredaccess : u32 , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , surfacehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DCompositionCreateSurfaceHandle(desiredaccess, ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    DCompositionCreateSurfaceHandle(desiredaccess, ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionGetFrameId ( frameidtype : COMPOSITION_FRAME_ID_TYPE , frameid : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DCompositionGetFrameId(frameidtype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    DCompositionGetFrameId(frameidtype, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -94,7 +94,7 @@ pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITI
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID) -> ::windows::core::Result<COMPOSITION_TARGET_STATS> {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DCompositionGetTargetStatistics(frameid, ::core::mem::transmute(targetid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<COMPOSITION_TARGET_STATS>(result__)
+    DCompositionGetTargetStatistics(frameid, ::core::mem::transmute(targetid), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -667,11 +667,11 @@ pub struct IDCompositionDelegatedInkTrail(::windows::core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddTrailPoints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).AddTrailPoints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint]) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddTrailPointsWithPrediction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).AddTrailPointsWithPrediction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(inkpoints.as_ptr()), inkpoints.len() as _, ::core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveTrailPoints)(::windows::core::Vtable::as_raw(self), generationid).ok()
@@ -731,86 +731,86 @@ impl IDCompositionDesktopDevice {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFrameStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetFrameStatistics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVisual2>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSurfaceFactory<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurfaceFactory>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateSkewTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSkewTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateSkewTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateEffectGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionEffectGroup>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateEffectGroup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateRectangleClip)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRectangleClip>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateRectangleClip)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateAnimation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionAnimation>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateAnimation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -820,7 +820,7 @@ impl IDCompositionDesktopDevice {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTargetForHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), topmost.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTarget>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTargetForHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), topmost.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -829,7 +829,7 @@ impl IDCompositionDesktopDevice {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHandle)(::windows::core::Vtable::as_raw(self), handle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHandle)(::windows::core::Vtable::as_raw(self), handle.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -838,7 +838,7 @@ impl IDCompositionDesktopDevice {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDCompositionDesktopDevice, ::windows::core::IUnknown, IDCompositionDevice2);
@@ -895,7 +895,7 @@ impl IDCompositionDevice {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
+        (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -905,23 +905,23 @@ impl IDCompositionDevice {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTargetForHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), topmost.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTarget>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTargetForHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), topmost.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVisual)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVisual>(result__)
+        (::windows::core::Vtable::vtable(self).CreateVisual)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -930,7 +930,7 @@ impl IDCompositionDevice {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHandle)(::windows::core::Vtable::as_raw(self), handle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHandle)(::windows::core::Vtable::as_raw(self), handle.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -939,69 +939,69 @@ impl IDCompositionDevice {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateScaleTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateRotateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSkewTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSkewTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSkewTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEffectGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionEffectGroup>(result__)
+        (::windows::core::Vtable::vtable(self).CreateEffectGroup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRectangleClip)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRectangleClip>(result__)
+        (::windows::core::Vtable::vtable(self).CreateRectangleClip)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionAnimation>(result__)
+        (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckDeviceState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).CheckDeviceState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDCompositionDevice, ::windows::core::IUnknown);
@@ -1091,86 +1091,86 @@ impl IDCompositionDevice2 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
+        (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVisual)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVisual2>(result__)
+        (::windows::core::Vtable::vtable(self).CreateVisual)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSurfaceFactory<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurfaceFactory>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateScaleTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateRotateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSkewTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSkewTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSkewTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEffectGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionEffectGroup>(result__)
+        (::windows::core::Vtable::vtable(self).CreateEffectGroup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRectangleClip)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRectangleClip>(result__)
+        (::windows::core::Vtable::vtable(self).CreateRectangleClip)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionAnimation>(result__)
+        (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDCompositionDevice2, ::windows::core::IUnknown);
@@ -1245,138 +1245,138 @@ impl IDCompositionDevice3 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DCOMPOSITION_FRAME_STATISTICS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFrameStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DCOMPOSITION_FRAME_STATISTICS>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetFrameStatistics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateVisual(&self) -> ::windows::core::Result<IDCompositionVisual2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVisual2>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVisual)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSurfaceFactory<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<IDCompositionSurfaceFactory>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurfaceFactory>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateSurfaceFactory)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform(&self) -> ::windows::core::Result<IDCompositionScaleTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform(&self) -> ::windows::core::Result<IDCompositionRotateTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSkewTransform(&self) -> ::windows::core::Result<IDCompositionSkewTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateSkewTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSkewTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateSkewTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform(&self) -> ::windows::core::Result<IDCompositionMatrixTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTranslateTransform3D(&self) -> ::windows::core::Result<IDCompositionTranslateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTranslateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTranslateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateScaleTransform3D(&self) -> ::windows::core::Result<IDCompositionScaleTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionScaleTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateScaleTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRotateTransform3D(&self) -> ::windows::core::Result<IDCompositionRotateTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRotateTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateRotateTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateMatrixTransform3D(&self) -> ::windows::core::Result<IDCompositionMatrixTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionMatrixTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTransform3D>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateEffectGroup(&self) -> ::windows::core::Result<IDCompositionEffectGroup> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateEffectGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionEffectGroup>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateEffectGroup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateRectangleClip(&self) -> ::windows::core::Result<IDCompositionRectangleClip> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateRectangleClip)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionRectangleClip>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateRectangleClip)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateAnimation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionAnimation>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateAnimation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateGaussianBlurEffect(&self) -> ::windows::core::Result<IDCompositionGaussianBlurEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateGaussianBlurEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionGaussianBlurEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateGaussianBlurEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateBrightnessEffect(&self) -> ::windows::core::Result<IDCompositionBrightnessEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBrightnessEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionBrightnessEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateBrightnessEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateColorMatrixEffect(&self) -> ::windows::core::Result<IDCompositionColorMatrixEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateColorMatrixEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionColorMatrixEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateColorMatrixEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateShadowEffect(&self) -> ::windows::core::Result<IDCompositionShadowEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateShadowEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionShadowEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateShadowEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateHueRotationEffect(&self) -> ::windows::core::Result<IDCompositionHueRotationEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateHueRotationEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionHueRotationEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateHueRotationEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateSaturationEffect(&self) -> ::windows::core::Result<IDCompositionSaturationEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSaturationEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSaturationEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSaturationEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTurbulenceEffect(&self) -> ::windows::core::Result<IDCompositionTurbulenceEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTurbulenceEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTurbulenceEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTurbulenceEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateLinearTransferEffect(&self) -> ::windows::core::Result<IDCompositionLinearTransferEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLinearTransferEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionLinearTransferEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateLinearTransferEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateTableTransferEffect(&self) -> ::windows::core::Result<IDCompositionTableTransferEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTableTransferEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionTableTransferEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateTableTransferEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateCompositeEffect(&self) -> ::windows::core::Result<IDCompositionCompositeEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateCompositeEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionCompositeEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateCompositeEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateBlendEffect(&self) -> ::windows::core::Result<IDCompositionBlendEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBlendEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionBlendEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateBlendEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateArithmeticCompositeEffect(&self) -> ::windows::core::Result<IDCompositionArithmeticCompositeEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateArithmeticCompositeEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionArithmeticCompositeEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateArithmeticCompositeEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAffineTransform2DEffect(&self) -> ::windows::core::Result<IDCompositionAffineTransform2DEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateAffineTransform2DEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionAffineTransform2DEffect>(result__)
+        (::windows::core::Vtable::vtable(self).CreateAffineTransform2DEffect)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDCompositionDevice3, ::windows::core::IUnknown, IDCompositionDevice2);
@@ -1699,14 +1699,14 @@ pub struct IDCompositionInkTrailDevice(::windows::core::IUnknown);
 impl IDCompositionInkTrailDevice {
     pub unsafe fn CreateDelegatedInkTrail(&self) -> ::windows::core::Result<IDCompositionDelegatedInkTrail> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrail)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionDelegatedInkTrail>(result__)
+        (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrail)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateDelegatedInkTrailForSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<IDCompositionDelegatedInkTrail>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrailForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionDelegatedInkTrail>(result__)
+        (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrailForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDCompositionInkTrailDevice, ::windows::core::IUnknown);
@@ -2789,8 +2789,8 @@ impl IDCompositionSurface {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr(), ::core::mem::transmute(updateoffset)).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EndDraw)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2854,13 +2854,13 @@ impl IDCompositionSurfaceFactory {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDCompositionSurfaceFactory, ::windows::core::IUnknown);
@@ -3388,8 +3388,8 @@ impl IDCompositionVirtualSurface {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).base__.BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).base__.BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr(), ::core::mem::transmute(updateoffset)).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.EndDraw)(::windows::core::Vtable::as_raw(self)).ok()

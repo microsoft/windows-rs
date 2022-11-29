@@ -74,7 +74,7 @@ impl LanguageFont {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FontFamily)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).FontFamily)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
@@ -83,7 +83,7 @@ impl LanguageFont {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FontWeight)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Text::FontWeight>(result__)
+            (::windows::core::Vtable::vtable(this).FontWeight)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
@@ -92,7 +92,7 @@ impl LanguageFont {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FontStretch)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Text::FontStretch>(result__)
+            (::windows::core::Vtable::vtable(this).FontStretch)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
@@ -101,14 +101,14 @@ impl LanguageFont {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FontStyle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Text::FontStyle>(result__)
+            (::windows::core::Vtable::vtable(this).FontStyle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ScaleFactor(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleFactor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).ScaleFactor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -155,83 +155,83 @@ impl LanguageFontGroup {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UITextFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).UITextFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn UIHeadingFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UIHeadingFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).UIHeadingFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn UITitleFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UITitleFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).UITitleFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn UICaptionFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UICaptionFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).UICaptionFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn UINotificationHeadingFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UINotificationHeadingFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).UINotificationHeadingFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn TraditionalDocumentFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TraditionalDocumentFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).TraditionalDocumentFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ModernDocumentFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ModernDocumentFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).ModernDocumentFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DocumentHeadingFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DocumentHeadingFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).DocumentHeadingFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn FixedWidthTextFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FixedWidthTextFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).FixedWidthTextFont)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DocumentAlternate1Font(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DocumentAlternate1Font)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).DocumentAlternate1Font)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DocumentAlternate2Font(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DocumentAlternate2Font)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<LanguageFont>(result__)
+            (::windows::core::Vtable::vtable(this).DocumentAlternate2Font)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CreateLanguageFontGroup(languagetag: &::windows::core::HSTRING) -> ::windows::core::Result<LanguageFontGroup> {
         Self::ILanguageFontGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateLanguageFontGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<LanguageFontGroup>(result__)
+            (::windows::core::Vtable::vtable(this).CreateLanguageFontGroup)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

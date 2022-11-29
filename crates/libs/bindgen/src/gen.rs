@@ -189,14 +189,14 @@ impl<'a> Gen<'a> {
                 _ => quote! { *mut ::core::ffi::c_void },
             },
             Type::MutPtr((kind, pointers)) => {
-                let pointers = gen_mut_ptrs(*pointers);
-                let kind = self.type_abi_name(kind);
-                quote! { #pointers #kind }
+                let pointers_tokens = gen_mut_ptrs(*pointers);
+                let kind = if *pointers > 1 { self.type_name(kind) } else { self.type_abi_name(kind) };
+                quote! { #pointers_tokens #kind }
             }
             Type::ConstPtr((kind, pointers)) => {
-                let pointers = gen_const_ptrs(*pointers);
-                let kind = self.type_abi_name(kind);
-                quote! { #pointers #kind }
+                let pointers_tokens = gen_const_ptrs(*pointers);
+                let kind = if *pointers > 1 { self.type_name(kind) } else { self.type_abi_name(kind) };
+                quote! { #pointers_tokens #kind }
             }
             Type::WinrtArray(kind) => self.type_abi_name(kind),
             Type::WinrtArrayRef(kind) => self.type_abi_name(kind),
@@ -863,7 +863,10 @@ impl<'a> Gen<'a> {
         for (position, param) in params.iter().enumerate() {
             let new = match kind {
                 SignatureKind::Query(query) if query.object == position => {
-                    quote! { &mut result__ as *mut _ as *mut _, }
+                    quote! { result__.as_mut_ptr(), }
+                }
+                SignatureKind::ResultValue if params.len() - 1 == position => {
+                    quote! { result__.as_mut_ptr(), }
                 }
                 SignatureKind::QueryOptional(query) if query.object == position => {
                     quote! { result__ as *mut _ as *mut _, }
@@ -934,6 +937,9 @@ impl<'a> Gen<'a> {
                     if query.object == position || query.guid == position {
                         continue;
                     }
+                }
+                SignatureKind::ResultValue if params.len() - 1 == position => {
+                    continue;
                 }
                 _ => {}
             }

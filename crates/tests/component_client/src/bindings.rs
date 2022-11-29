@@ -32,7 +32,7 @@ impl Class {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Property)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Vtable::vtable(this).Property)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetProperty(&self, value: i32) -> ::windows::core::Result<()> {
@@ -43,7 +43,7 @@ impl Class {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Flags)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Flags>(result__)
+            (::windows::core::Vtable::vtable(this).Flags)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<::windows::core::Array<i32>> {

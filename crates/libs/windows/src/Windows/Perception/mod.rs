@@ -90,7 +90,7 @@ impl PerceptionTimestamp {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TargetTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::DateTime>(result__)
+            (::windows::core::Vtable::vtable(this).TargetTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -99,7 +99,7 @@ impl PerceptionTimestamp {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PredictionAmount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).PredictionAmount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -108,7 +108,7 @@ impl PerceptionTimestamp {
         let this = &::windows::core::Interface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SystemRelativeTargetTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).SystemRelativeTargetTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -155,7 +155,7 @@ impl PerceptionTimestampHelper {
     pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> ::windows::core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromHistoricalTargetTime)(::windows::core::Vtable::as_raw(this), targettime, result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
+            (::windows::core::Vtable::vtable(this).FromHistoricalTargetTime)(::windows::core::Vtable::as_raw(this), targettime, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -163,7 +163,7 @@ impl PerceptionTimestampHelper {
     pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> ::windows::core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FromSystemRelativeTargetTime)(::windows::core::Vtable::as_raw(this), targettime, result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
+            (::windows::core::Vtable::vtable(this).FromSystemRelativeTargetTime)(::windows::core::Vtable::as_raw(this), targettime, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

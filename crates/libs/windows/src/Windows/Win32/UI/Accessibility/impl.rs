@@ -4104,7 +4104,7 @@ impl IUIAutomationAndCondition_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChildrenAsNativeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut *mut ::core::ffi::c_void, childarraycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildrenAsNativeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut IUIAutomationCondition, childarraycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetChildrenAsNativeArray(::core::mem::transmute_copy(&childarray), ::core::mem::transmute_copy(&childarraycount)).into()
@@ -7244,7 +7244,7 @@ impl IUIAutomationOrCondition_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChildrenAsNativeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut *mut ::core::ffi::c_void, childarraycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildrenAsNativeArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childarray: *mut *mut IUIAutomationCondition, childarraycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetChildrenAsNativeArray(::core::mem::transmute_copy(&childarray), ::core::mem::transmute_copy(&childarraycount)).into()
@@ -8672,7 +8672,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentExtendedPropertiesAsArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ::core::mem::ManuallyDrop<ExtendedProperty>, propertycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentExtendedPropertiesAsArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCurrentExtendedPropertiesAsArray(::core::mem::transmute_copy(&propertyarray), ::core::mem::transmute_copy(&propertycount)).into()
@@ -8754,7 +8754,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCachedExtendedPropertiesAsArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ::core::mem::ManuallyDrop<ExtendedProperty>, propertycount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCachedExtendedPropertiesAsArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCachedExtendedPropertiesAsArray(::core::mem::transmute_copy(&propertyarray), ::core::mem::transmute_copy(&propertycount)).into()

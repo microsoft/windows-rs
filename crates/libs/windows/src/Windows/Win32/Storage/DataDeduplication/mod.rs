@@ -58,7 +58,7 @@ impl IDedupChunkLibrary {
     }
     pub unsafe fn StartChunking(&self, iiditeratorinterfaceid: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).StartChunking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iiditeratorinterfaceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).StartChunking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iiditeratorinterfaceid), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDedupChunkLibrary, ::windows::core::IUnknown);
@@ -105,11 +105,11 @@ impl IDedupDataPort {
     }
     pub unsafe fn LookupChunks(&self, phashes: &[DedupHash]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LookupChunks)(::windows::core::Vtable::as_raw(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).LookupChunks)(::windows::core::Vtable::as_raw(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn InsertChunks(&self, pchunkmetadata: &[DedupChunk], pchunkdata: &[u8]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InsertChunks)(::windows::core::Vtable::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len() as _, ::core::mem::transmute(pchunkdata.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).InsertChunks)(::windows::core::Vtable::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len() as _, ::core::mem::transmute(pchunkdata.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -118,11 +118,11 @@ impl IDedupDataPort {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InsertChunksWithStream)(::windows::core::Vtable::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), databytecount, pchunkdatastream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).InsertChunksWithStream)(::windows::core::Vtable::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), databytecount, pchunkdatastream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CommitStreams(&self, pstreams: &[DedupStream], pentries: &[DedupStreamEntry]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CommitStreams)(::windows::core::Vtable::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), pentries.len() as _, ::core::mem::transmute(pentries.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).CommitStreams)(::windows::core::Vtable::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), pentries.len() as _, ::core::mem::transmute(pentries.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -131,25 +131,25 @@ impl IDedupDataPort {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CommitStreamsWithStream)(::windows::core::Vtable::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), entrycount, pentriesstream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).CommitStreamsWithStream)(::windows::core::Vtable::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), entrycount, pentriesstream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStreams(&self, pstreampaths: &[::windows::core::BSTR]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStreams)(::windows::core::Vtable::as_raw(self), pstreampaths.len() as _, ::core::mem::transmute(pstreampaths.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetStreams)(::windows::core::Vtable::as_raw(self), pstreampaths.len() as _, ::core::mem::transmute(pstreampaths.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStreamsResults(&self, requestid: ::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStreamsResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, streamentryindex, ::core::mem::transmute(pstreamcount), ::core::mem::transmute(ppstreams), ::core::mem::transmute(pentrycount), ::core::mem::transmute(ppentries), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
     }
     pub unsafe fn GetChunks(&self, phashes: &[DedupHash]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetChunks)(::windows::core::Vtable::as_raw(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetChunks)(::windows::core::Vtable::as_raw(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetChunksResults(&self, requestid: ::windows::core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetChunksResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, chunkindex, ::core::mem::transmute(pchunkcount), ::core::mem::transmute(ppchunkmetadata), ::core::mem::transmute(pdatabytecount), ::core::mem::transmute(ppchunkdata), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
     }
     pub unsafe fn GetRequestStatus(&self, requestid: ::windows::core::GUID) -> ::windows::core::Result<DedupDataPortRequestStatus> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRequestStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DedupDataPortRequestStatus>(result__)
+        (::windows::core::Vtable::vtable(self).GetRequestStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRequestResults(&self, requestid: ::windows::core::GUID, maxwaitms: u32, pbatchresult: *mut ::windows::core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetRequestResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, ::core::mem::transmute(pbatchresult), ::core::mem::transmute(pbatchcount), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
@@ -195,7 +195,7 @@ pub struct IDedupDataPort_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitStreamsWithStream: usize,
     pub GetStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreampaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetStreamsResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut ::core::mem::ManuallyDrop<DedupStream>, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub GetStreamsResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub GetChunks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, phashes: *const DedupHash, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetChunksResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub GetRequestStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, pstatus: *mut DedupDataPortRequestStatus) -> ::windows::core::HRESULT,
@@ -210,11 +210,11 @@ impl IDedupDataPortManager {
     }
     pub unsafe fn GetVolumeStatus(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<DedupDataPortVolumeStatus> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVolumeStatus)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute_copy(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DedupDataPortVolumeStatus>(result__)
+        (::windows::core::Vtable::vtable(self).GetVolumeStatus)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute_copy(path), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetVolumeDataPort(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<IDedupDataPort> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVolumeDataPort)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute_copy(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDedupDataPort>(result__)
+        (::windows::core::Vtable::vtable(self).GetVolumeDataPort)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute_copy(path), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDedupDataPortManager, ::windows::core::IUnknown);

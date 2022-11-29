@@ -59,7 +59,7 @@ impl HolographicKeyboard {
     pub fn GetDefault() -> ::windows::core::Result<HolographicKeyboard> {
         Self::IHolographicKeyboardStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HolographicKeyboard>(result__)
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

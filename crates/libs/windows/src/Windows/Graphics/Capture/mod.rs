@@ -264,7 +264,7 @@ impl Direct3D11CaptureFrame {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Surface)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DirectX::Direct3D11::IDirect3DSurface>(result__)
+            (::windows::core::Vtable::vtable(this).Surface)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -273,14 +273,14 @@ impl Direct3D11CaptureFrame {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SystemRelativeTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).SystemRelativeTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ContentSize(&self) -> ::windows::core::Result<super::SizeInt32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ContentSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::SizeInt32>(result__)
+            (::windows::core::Vtable::vtable(this).ContentSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -365,7 +365,7 @@ impl Direct3D11CaptureFramePool {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetNextFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFrame>(result__)
+            (::windows::core::Vtable::vtable(this).TryGetNextFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -374,7 +374,7 @@ impl Direct3D11CaptureFramePool {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FrameArrived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).FrameArrived)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -387,7 +387,7 @@ impl Direct3D11CaptureFramePool {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateCaptureSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi::<GraphicsCaptureSession>(result__)
+            (::windows::core::Vtable::vtable(this).CreateCaptureSession)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -396,7 +396,7 @@ impl Direct3D11CaptureFramePool {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -408,7 +408,7 @@ impl Direct3D11CaptureFramePool {
     {
         Self::IDirect3D11CaptureFramePoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat, numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat, numberofbuffers, size, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -420,7 +420,7 @@ impl Direct3D11CaptureFramePool {
     {
         Self::IDirect3D11CaptureFramePoolStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFreeThreaded)(::windows::core::Vtable::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat, numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFreeThreaded)(::windows::core::Vtable::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat, numberofbuffers, size, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -499,7 +499,7 @@ impl GraphicsCaptureAccess {
     pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), request, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>>(result__)
+            (::windows::core::Vtable::vtable(this).RequestAccessAsync)(::windows::core::Vtable::as_raw(this), request, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -519,14 +519,14 @@ impl GraphicsCaptureItem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<super::SizeInt32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::SizeInt32>(result__)
+            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -535,7 +535,7 @@ impl GraphicsCaptureItem {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -552,7 +552,7 @@ impl GraphicsCaptureItem {
     {
         Self::IGraphicsCaptureItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromVisual)(::windows::core::Vtable::as_raw(this), visual.into().abi(), result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromVisual)(::windows::core::Vtable::as_raw(this), visual.into().abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
@@ -560,13 +560,13 @@ impl GraphicsCaptureItem {
     pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryCreateFromWindowId)(::windows::core::Vtable::as_raw(this), windowid, result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
+            (::windows::core::Vtable::vtable(this).TryCreateFromWindowId)(::windows::core::Vtable::as_raw(this), windowid, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn TryCreateFromDisplayId(displayid: super::DisplayId) -> ::windows::core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryCreateFromDisplayId)(::windows::core::Vtable::as_raw(this), displayid, result__.as_mut_ptr()).from_abi::<GraphicsCaptureItem>(result__)
+            (::windows::core::Vtable::vtable(this).TryCreateFromDisplayId)(::windows::core::Vtable::as_raw(this), displayid, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -632,7 +632,7 @@ impl GraphicsCapturePicker {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PickSingleItemAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<GraphicsCaptureItem>>(result__)
+            (::windows::core::Vtable::vtable(this).PickSingleItemAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -689,7 +689,7 @@ impl GraphicsCaptureSession {
         let this = &::windows::core::Interface::cast::<IGraphicsCaptureSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsCursorCaptureEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsCursorCaptureEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsCursorCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -700,7 +700,7 @@ impl GraphicsCaptureSession {
         let this = &::windows::core::Interface::cast::<IGraphicsCaptureSession3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsBorderRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsBorderRequired)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsBorderRequired(&self, value: bool) -> ::windows::core::Result<()> {
@@ -710,7 +710,7 @@ impl GraphicsCaptureSession {
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IGraphicsCaptureSessionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

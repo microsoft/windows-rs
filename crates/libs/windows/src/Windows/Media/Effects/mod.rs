@@ -47,7 +47,7 @@ impl IAudioEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -56,7 +56,7 @@ impl IAudioEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -213,7 +213,7 @@ impl IBasicAudioEffect {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UseInputFrameForOutput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).UseInputFrameForOutput)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
@@ -222,7 +222,7 @@ impl IBasicAudioEffect {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SupportedEncodingProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>(result__)
+            (::windows::core::Vtable::vtable(this).SupportedEncodingProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -328,21 +328,21 @@ impl IBasicVideoEffect {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsReadOnly)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsReadOnly)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SupportedMemoryTypes(&self) -> ::windows::core::Result<MediaMemoryTypes> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SupportedMemoryTypes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaMemoryTypes>(result__)
+            (::windows::core::Vtable::vtable(this).SupportedMemoryTypes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn TimeIndependent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TimeIndependent)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TimeIndependent)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
@@ -351,7 +351,7 @@ impl IBasicVideoEffect {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SupportedEncodingProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>(result__)
+            (::windows::core::Vtable::vtable(this).SupportedEncodingProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
@@ -535,7 +535,7 @@ impl IVideoCompositor {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TimeIndependent)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TimeIndependent)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
@@ -641,7 +641,7 @@ impl IVideoCompositorDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -650,7 +650,7 @@ impl IVideoCompositorDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -721,7 +721,7 @@ impl IVideoEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -730,7 +730,7 @@ impl IVideoEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -922,7 +922,7 @@ impl AudioCaptureEffectsManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -937,7 +937,7 @@ impl AudioCaptureEffectsManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAudioCaptureEffects)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioEffect>>(result__)
+            (::windows::core::Vtable::vtable(this).GetAudioCaptureEffects)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -984,7 +984,7 @@ impl AudioEffect {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioEffectType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioEffectType>(result__)
+            (::windows::core::Vtable::vtable(this).AudioEffectType)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1031,7 +1031,7 @@ impl AudioEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1040,13 +1040,13 @@ impl AudioEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Create(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioEffectDefinition> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1058,7 +1058,7 @@ impl AudioEffectDefinition {
     {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1129,7 +1129,7 @@ impl AudioEffectsManager {
     pub fn CreateAudioRenderEffectsManager(deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+            (::windows::core::Vtable::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Render\"`*"]
@@ -1137,7 +1137,7 @@ impl AudioEffectsManager {
     pub fn CreateAudioRenderEffectsManagerWithMode(deviceid: &::windows::core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+            (::windows::core::Vtable::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1145,7 +1145,7 @@ impl AudioEffectsManager {
     pub fn CreateAudioCaptureEffectsManager(deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+            (::windows::core::Vtable::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1153,7 +1153,7 @@ impl AudioEffectsManager {
     pub fn CreateAudioCaptureEffectsManagerWithMode(deviceid: &::windows::core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+            (::windows::core::Vtable::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1175,7 +1175,7 @@ impl AudioRenderEffectsManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AudioRenderEffectsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Vtable::vtable(this).AudioRenderEffectsChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1190,7 +1190,7 @@ impl AudioRenderEffectsManager {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAudioRenderEffects)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioEffect>>(result__)
+            (::windows::core::Vtable::vtable(this).GetAudioRenderEffects)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"deprecated\"`*"]
@@ -1199,7 +1199,7 @@ impl AudioRenderEffectsManager {
         let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EffectsProviderThumbnail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>(result__)
+            (::windows::core::Vtable::vtable(this).EffectsProviderThumbnail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1208,7 +1208,7 @@ impl AudioRenderEffectsManager {
         let this = &::windows::core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EffectsProviderSettingsLabel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).EffectsProviderSettingsLabel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -1263,21 +1263,21 @@ impl CompositeVideoFrameContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SurfacesToOverlay)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(result__)
+            (::windows::core::Vtable::vtable(this).SurfacesToOverlay)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn BackgroundFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BackgroundFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
+            (::windows::core::Vtable::vtable(this).BackgroundFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OutputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
+            (::windows::core::Vtable::vtable(this).OutputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_Editing\"`*"]
@@ -1290,7 +1290,7 @@ impl CompositeVideoFrameContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetOverlayForSurface)(::windows::core::Vtable::as_raw(this), surfacetooverlay.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Editing::MediaOverlay>(result__)
+            (::windows::core::Vtable::vtable(this).GetOverlayForSurface)(::windows::core::Vtable::as_raw(this), surfacetooverlay.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1337,14 +1337,14 @@ impl ProcessAudioFrameContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::AudioFrame>(result__)
+            (::windows::core::Vtable::vtable(this).InputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn OutputFrame(&self) -> ::windows::core::Result<super::AudioFrame> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OutputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::AudioFrame>(result__)
+            (::windows::core::Vtable::vtable(this).OutputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1391,14 +1391,14 @@ impl ProcessVideoFrameContext {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
+            (::windows::core::Vtable::vtable(this).InputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn OutputFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OutputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoFrame>(result__)
+            (::windows::core::Vtable::vtable(this).OutputFrame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1452,7 +1452,7 @@ impl SlowMotionEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TimeStretchRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).TimeStretchRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetTimeStretchRate(&self, value: f64) -> ::windows::core::Result<()> {
@@ -1463,7 +1463,7 @@ impl SlowMotionEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1472,7 +1472,7 @@ impl SlowMotionEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1538,7 +1538,7 @@ impl VideoCompositorDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1547,13 +1547,13 @@ impl VideoCompositorDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Create(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoCompositorDefinition> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1565,7 +1565,7 @@ impl VideoCompositorDefinition {
     {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1636,7 +1636,7 @@ impl VideoEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1645,13 +1645,13 @@ impl VideoEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Create(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<VideoEffectDefinition> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1663,7 +1663,7 @@ impl VideoEffectDefinition {
     {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithProperties)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1741,7 +1741,7 @@ impl VideoTransformEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ActivatableClassId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1750,7 +1750,7 @@ impl VideoTransformEffectDefinition {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI\"`*"]
@@ -1759,7 +1759,7 @@ impl VideoTransformEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PaddingColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
+            (::windows::core::Vtable::vtable(this).PaddingColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI\"`*"]
@@ -1774,7 +1774,7 @@ impl VideoTransformEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OutputSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
+            (::windows::core::Vtable::vtable(this).OutputSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1789,7 +1789,7 @@ impl VideoTransformEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CropRectangle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
+            (::windows::core::Vtable::vtable(this).CropRectangle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1804,7 +1804,7 @@ impl VideoTransformEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Rotation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::MediaRotation>(result__)
+            (::windows::core::Vtable::vtable(this).Rotation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -1819,7 +1819,7 @@ impl VideoTransformEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Mirror)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::MediaMirroringOptions>(result__)
+            (::windows::core::Vtable::vtable(this).Mirror)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -1840,14 +1840,14 @@ impl VideoTransformEffectDefinition {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProcessingAlgorithm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Transcoding::MediaVideoProcessingAlgorithm>(result__)
+            (::windows::core::Vtable::vtable(this).ProcessingAlgorithm)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SphericalProjection(&self) -> ::windows::core::Result<VideoTransformSphericalProjection> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SphericalProjection)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<VideoTransformSphericalProjection>(result__)
+            (::windows::core::Vtable::vtable(this).SphericalProjection)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1913,7 +1913,7 @@ impl VideoTransformSphericalProjection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1926,7 +1926,7 @@ impl VideoTransformSphericalProjection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FrameFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::SphericalVideoFrameFormat>(result__)
+            (::windows::core::Vtable::vtable(this).FrameFormat)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -1941,7 +1941,7 @@ impl VideoTransformSphericalProjection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProjectionMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Playback::SphericalVideoProjectionMode>(result__)
+            (::windows::core::Vtable::vtable(this).ProjectionMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
@@ -1954,7 +1954,7 @@ impl VideoTransformSphericalProjection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HorizontalFieldOfViewInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).HorizontalFieldOfViewInDegrees)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetHorizontalFieldOfViewInDegrees(&self, value: f64) -> ::windows::core::Result<()> {
@@ -1967,7 +1967,7 @@ impl VideoTransformSphericalProjection {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ViewOrientation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
+            (::windows::core::Vtable::vtable(this).ViewOrientation)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]

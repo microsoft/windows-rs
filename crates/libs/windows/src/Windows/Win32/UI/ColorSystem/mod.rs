@@ -250,7 +250,7 @@ where
 pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> ::windows::core::Result<::windows::core::PWSTR> {
     ::windows::core::link ! ( "mscms.dll""system" fn ColorProfileGetDisplayDefault ( scope : WCS_PROFILE_MANAGEMENT_SCOPE , targetadapterid : super::super::Foundation:: LUID , sourceid : u32 , profiletype : COLORPROFILETYPE , profilesubtype : COLORPROFILESUBTYPE , profilename : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ColorProfileGetDisplayDefault(scope, ::core::mem::transmute(targetadapterid), sourceid, profiletype, profilesubtype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    ColorProfileGetDisplayDefault(scope, ::core::mem::transmute(targetadapterid), sourceid, profiletype, profilesubtype, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -265,7 +265,7 @@ pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, ta
 pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows::core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
     ::windows::core::link ! ( "mscms.dll""system" fn ColorProfileGetDisplayUserScope ( targetadapterid : super::super::Foundation:: LUID , sourceid : u32 , scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ColorProfileGetDisplayUserScope(::core::mem::transmute(targetadapterid), sourceid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WCS_PROFILE_MANAGEMENT_SCOPE>(result__)
+    ColorProfileGetDisplayUserScope(::core::mem::transmute(targetadapterid), sourceid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1046,20 +1046,20 @@ impl IDeviceModelPlugIn {
     }
     pub unsafe fn GetNumChannels(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNumChannels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetNumChannels)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeviceToColorimetricColors)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, cchannels, ::core::mem::transmute(pdevicevalues), ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
     pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColors)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, cchannels, ::core::mem::transmute(pxyzcolors.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColors)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, cchannels, ::core::mem::transmute(pxyzcolors.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColorsWithBlack)(::windows::core::Vtable::as_raw(self), ccolors, cchannels, ::core::mem::transmute(pxyzcolors), ::core::mem::transmute(pblackinformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColorsWithBlack)(::windows::core::Vtable::as_raw(self), ccolors, cchannels, ::core::mem::transmute(pxyzcolors), ::core::mem::transmute(pblackinformation), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetTransformDeviceModelInfo<'a, P0>(&self, imodelposition: u32, pidevicemodelother: P0) -> ::windows::core::Result<()>
     where
@@ -1069,7 +1069,7 @@ impl IDeviceModelPlugIn {
     }
     pub unsafe fn GetPrimarySamples(&self) -> ::windows::core::Result<PrimaryXYZColors> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrimarySamples)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PrimaryXYZColors>(result__)
+        (::windows::core::Vtable::vtable(self).GetPrimarySamples)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetGamutBoundaryMeshSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnumvertices), ::core::mem::transmute(pnumtriangles)).ok()
@@ -1079,7 +1079,7 @@ impl IDeviceModelPlugIn {
     }
     pub unsafe fn GetNeutralAxisSize(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNeutralAxisSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetNeutralAxisSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetNeutralAxis)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()

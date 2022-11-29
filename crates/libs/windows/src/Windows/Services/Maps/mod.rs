@@ -733,14 +733,14 @@ impl EnhancedWaypoint {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Point)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Vtable::vtable(this).Point)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<WaypointKind> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WaypointKind>(result__)
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -748,7 +748,7 @@ impl EnhancedWaypoint {
     pub fn Create(point: &super::super::Devices::Geolocation::Geopoint, kind: WaypointKind) -> ::windows::core::Result<EnhancedWaypoint> {
         Self::IEnhancedWaypointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(point), kind, result__.as_mut_ptr()).from_abi::<EnhancedWaypoint>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(point), kind, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -800,14 +800,14 @@ impl ManeuverWarning {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ManeuverWarningKind>(result__)
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Severity(&self) -> ::windows::core::Result<ManeuverWarningSeverity> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Severity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<ManeuverWarningSeverity>(result__)
+            (::windows::core::Vtable::vtable(this).Severity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -854,112 +854,112 @@ impl MapAddress {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BuildingName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).BuildingName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn BuildingFloor(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BuildingFloor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).BuildingFloor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn BuildingRoom(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BuildingRoom)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).BuildingRoom)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn BuildingWing(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BuildingWing)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).BuildingWing)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn StreetNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StreetNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).StreetNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Street(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Street)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Street)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Neighborhood(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Neighborhood)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Neighborhood)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn District(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).District)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).District)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Town(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Town)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Town)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Region(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Region)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Region)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn RegionCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RegionCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).RegionCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Country(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Country)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Country)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn CountryCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CountryCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).CountryCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn PostCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PostCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).PostCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Continent(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Continent)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Continent)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn FormattedAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMapAddress2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FormattedAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).FormattedAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1008,28 +1008,28 @@ impl MapLocation {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Point)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Vtable::vtable(this).Point)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Address(&self) -> ::windows::core::Result<MapAddress> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Address)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapAddress>(result__)
+            (::windows::core::Vtable::vtable(this).Address)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1076,7 +1076,7 @@ impl MapLocationFinder {
     pub fn FindLocationsAtAsync(querypoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindLocationsAtAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querypoint), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindLocationsAtAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querypoint), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1084,7 +1084,7 @@ impl MapLocationFinder {
     pub fn FindLocationsAsync(searchtext: &::windows::core::HSTRING, referencepoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindLocationsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(searchtext), ::core::mem::transmute_copy(referencepoint), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindLocationsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(searchtext), ::core::mem::transmute_copy(referencepoint), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1092,7 +1092,7 @@ impl MapLocationFinder {
     pub fn FindLocationsWithMaxCountAsync(searchtext: &::windows::core::HSTRING, referencepoint: &super::super::Devices::Geolocation::Geopoint, maxcount: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindLocationsWithMaxCountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(searchtext), ::core::mem::transmute_copy(referencepoint), maxcount, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindLocationsWithMaxCountAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(searchtext), ::core::mem::transmute_copy(referencepoint), maxcount, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1100,7 +1100,7 @@ impl MapLocationFinder {
     pub fn FindLocationsAtWithAccuracyAsync(querypoint: &super::super::Devices::Geolocation::Geopoint, accuracy: MapLocationDesiredAccuracy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindLocationsAtWithAccuracyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querypoint), accuracy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).FindLocationsAtWithAccuracyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(querypoint), accuracy, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1127,14 +1127,14 @@ impl MapLocationFinderResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Locations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MapLocation>>(result__)
+            (::windows::core::Vtable::vtable(this).Locations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<MapLocationFinderStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapLocationFinderStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1201,14 +1201,14 @@ impl MapRoute {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BoundingBox)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).BoundingBox)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn LengthInMeters(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LengthInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).LengthInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1217,7 +1217,7 @@ impl MapRoute {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EstimatedDuration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).EstimatedDuration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1226,7 +1226,7 @@ impl MapRoute {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::Geopath>(result__)
+            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1235,28 +1235,28 @@ impl MapRoute {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Legs)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MapRouteLeg>>(result__)
+            (::windows::core::Vtable::vtable(this).Legs)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsTrafficBased(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsTrafficBased)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsTrafficBased)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ViolatedRestrictions(&self) -> ::windows::core::Result<MapRouteRestrictions> {
         let this = &::windows::core::Interface::cast::<IMapRoute2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ViolatedRestrictions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapRouteRestrictions>(result__)
+            (::windows::core::Vtable::vtable(this).ViolatedRestrictions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn HasBlockedRoads(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapRoute2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HasBlockedRoads)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).HasBlockedRoads)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1265,21 +1265,21 @@ impl MapRoute {
         let this = &::windows::core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DurationWithoutTraffic)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).DurationWithoutTraffic)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn TrafficCongestion(&self) -> ::windows::core::Result<TrafficCongestion> {
         let this = &::windows::core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TrafficCongestion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TrafficCongestion>(result__)
+            (::windows::core::Vtable::vtable(this).TrafficCongestion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsScenic(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapRoute4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsScenic)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsScenic)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1333,7 +1333,7 @@ impl MapRouteDrivingOptions {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaxAlternateRouteCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).MaxAlternateRouteCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetMaxAlternateRouteCount(&self, value: u32) -> ::windows::core::Result<()> {
@@ -1346,7 +1346,7 @@ impl MapRouteDrivingOptions {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InitialHeading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Vtable::vtable(this).InitialHeading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1363,7 +1363,7 @@ impl MapRouteDrivingOptions {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RouteOptimization)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapRouteOptimization>(result__)
+            (::windows::core::Vtable::vtable(this).RouteOptimization)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetRouteOptimization(&self, value: MapRouteOptimization) -> ::windows::core::Result<()> {
@@ -1374,7 +1374,7 @@ impl MapRouteDrivingOptions {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RouteRestrictions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapRouteRestrictions>(result__)
+            (::windows::core::Vtable::vtable(this).RouteRestrictions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> ::windows::core::Result<()> {
@@ -1387,7 +1387,7 @@ impl MapRouteDrivingOptions {
         let this = &::windows::core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DepartureTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Vtable::vtable(this).DepartureTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1444,7 +1444,7 @@ impl MapRouteFinder {
     pub fn GetDrivingRouteAsync(startpoint: &super::super::Devices::Geolocation::Geopoint, endpoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1452,7 +1452,7 @@ impl MapRouteFinder {
     pub fn GetDrivingRouteWithOptimizationAsync(startpoint: &super::super::Devices::Geolocation::Geopoint, endpoint: &super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptimizationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), optimization, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptimizationAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), optimization, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1460,7 +1460,7 @@ impl MapRouteFinder {
     pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync(startpoint: &super::super::Devices::Geolocation::Geopoint, endpoint: &super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), optimization, restrictions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), optimization, restrictions, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1468,7 +1468,7 @@ impl MapRouteFinder {
     pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync(startpoint: &super::super::Devices::Geolocation::Geopoint, endpoint: &super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -1480,7 +1480,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -1492,7 +1492,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -1504,7 +1504,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, restrictions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, restrictions, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -1516,7 +1516,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1524,7 +1524,7 @@ impl MapRouteFinder {
     pub fn GetWalkingRouteAsync(startpoint: &super::super::Devices::Geolocation::Geopoint, endpoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetWalkingRouteAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetWalkingRouteAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -1536,7 +1536,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetWalkingRouteFromWaypointsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetWalkingRouteFromWaypointsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1544,7 +1544,7 @@ impl MapRouteFinder {
     pub fn GetDrivingRouteWithOptionsAsync(startpoint: &super::super::Devices::Geolocation::Geopoint, endpoint: &super::super::Devices::Geolocation::Geopoint, options: &MapRouteDrivingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(startpoint), ::core::mem::transmute_copy(endpoint), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1556,7 +1556,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1568,7 +1568,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Vtable::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(::windows::core::Vtable::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1598,14 +1598,14 @@ impl MapRouteFinderResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Route)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapRoute>(result__)
+            (::windows::core::Vtable::vtable(this).Route)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<MapRouteFinderStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapRouteFinderStatus>(result__)
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1614,7 +1614,7 @@ impl MapRouteFinderResult {
         let this = &::windows::core::Interface::cast::<IMapRouteFinderResult2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AlternateRoutes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MapRoute>>(result__)
+            (::windows::core::Vtable::vtable(this).AlternateRoutes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1663,7 +1663,7 @@ impl MapRouteLeg {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BoundingBox)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::GeoboundingBox>(result__)
+            (::windows::core::Vtable::vtable(this).BoundingBox)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1672,14 +1672,14 @@ impl MapRouteLeg {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::Geopath>(result__)
+            (::windows::core::Vtable::vtable(this).Path)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn LengthInMeters(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LengthInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).LengthInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1688,7 +1688,7 @@ impl MapRouteLeg {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EstimatedDuration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).EstimatedDuration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1697,7 +1697,7 @@ impl MapRouteLeg {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Maneuvers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MapRouteManeuver>>(result__)
+            (::windows::core::Vtable::vtable(this).Maneuvers)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1706,14 +1706,14 @@ impl MapRouteLeg {
         let this = &::windows::core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DurationWithoutTraffic)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Vtable::vtable(this).DurationWithoutTraffic)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn TrafficCongestion(&self) -> ::windows::core::Result<TrafficCongestion> {
         let this = &::windows::core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TrafficCongestion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<TrafficCongestion>(result__)
+            (::windows::core::Vtable::vtable(this).TrafficCongestion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1762,63 +1762,63 @@ impl MapRouteManeuver {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StartingPoint)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Vtable::vtable(this).StartingPoint)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn LengthInMeters(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LengthInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).LengthInMeters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn InstructionText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InstructionText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).InstructionText)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<MapRouteManeuverKind> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapRouteManeuverKind>(result__)
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ExitNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExitNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ExitNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ManeuverNotices(&self) -> ::windows::core::Result<MapManeuverNotices> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ManeuverNotices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapManeuverNotices>(result__)
+            (::windows::core::Vtable::vtable(this).ManeuverNotices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn StartHeading(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StartHeading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).StartHeading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn EndHeading(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EndHeading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Vtable::vtable(this).EndHeading)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn StreetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StreetName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).StreetName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1827,7 +1827,7 @@ impl MapRouteManeuver {
         let this = &::windows::core::Interface::cast::<IMapRouteManeuver3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Warnings)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ManeuverWarning>>(result__)
+            (::windows::core::Vtable::vtable(this).Warnings)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -1875,19 +1875,19 @@ impl MapService {
     pub fn ServiceToken() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapServiceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ServiceToken)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ServiceToken)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn WorldViewRegionCode() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapServiceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WorldViewRegionCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).WorldViewRegionCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn DataAttributions() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapServiceStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DataAttributions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DataAttributions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn SetDataUsagePreference(value: MapServiceDataUsagePreference) -> ::windows::core::Result<()> {
@@ -1896,7 +1896,7 @@ impl MapService {
     pub fn DataUsagePreference() -> ::windows::core::Result<MapServiceDataUsagePreference> {
         Self::IMapServiceStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DataUsagePreference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<MapServiceDataUsagePreference>(result__)
+            (::windows::core::Vtable::vtable(this).DataUsagePreference)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1943,21 +1943,21 @@ impl PlaceInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Identifier)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).Identifier)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn DisplayAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1966,7 +1966,7 @@ impl PlaceInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Geoshape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::IGeoshape>(result__)
+            (::windows::core::Vtable::vtable(this).Geoshape)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1974,7 +1974,7 @@ impl PlaceInfo {
     pub fn Create(referencepoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(referencepoint), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(referencepoint), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1982,13 +1982,13 @@ impl PlaceInfo {
     pub fn CreateWithGeopointAndOptions(referencepoint: &super::super::Devices::Geolocation::Geopoint, options: &PlaceInfoCreateOptions) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithGeopointAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(referencepoint), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateWithGeopointAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(referencepoint), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateFromIdentifier(identifier: &::windows::core::HSTRING) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIdentifier)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(identifier), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromIdentifier)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(identifier), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -1996,31 +1996,31 @@ impl PlaceInfo {
     pub fn CreateFromIdentifierWithOptions(identifier: &::windows::core::HSTRING, defaultpoint: &super::super::Devices::Geolocation::Geopoint, options: &PlaceInfoCreateOptions) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIdentifierWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(identifier), ::core::mem::transmute_copy(defaultpoint), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromIdentifierWithOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(identifier), ::core::mem::transmute_copy(defaultpoint), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateFromMapLocation(location: &MapLocation) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromMapLocation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(location), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromMapLocation)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(location), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsShowSupported() -> ::windows::core::Result<bool> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsShowSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsShowSupported)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateFromAddress(displayaddress: &::windows::core::HSTRING) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromAddress)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(displayaddress), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromAddress)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(displayaddress), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateFromAddressWithName(displayaddress: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromAddressWithName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(displayaddress), ::core::mem::transmute_copy(displayname), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Vtable::vtable(this).CreateFromAddressWithName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(displayaddress), ::core::mem::transmute_copy(displayname), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2088,7 +2088,7 @@ impl PlaceInfoCreateOptions {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn SetDisplayAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2099,7 +2099,7 @@ impl PlaceInfoCreateOptions {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).DisplayAddress)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }

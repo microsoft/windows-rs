@@ -156,7 +156,7 @@ impl IDedupDataPort_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStreamsResults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut ::core::mem::ManuallyDrop<DedupStream>, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStreamsResults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetStreamsResults(::core::mem::transmute(&requestid), ::core::mem::transmute_copy(&maxwaitms), ::core::mem::transmute_copy(&streamentryindex), ::core::mem::transmute_copy(&pstreamcount), ::core::mem::transmute_copy(&ppstreams), ::core::mem::transmute_copy(&pentrycount), ::core::mem::transmute_copy(&ppentries), ::core::mem::transmute_copy(&pstatus), ::core::mem::transmute_copy(&ppitemresults)).into()

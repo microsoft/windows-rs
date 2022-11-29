@@ -91,8 +91,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<T> #where_clause {
                     #link
-                    let mut result__ = ::core::option::Option::None;
-                    #name(#args).and_some(result__)
+                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    #name(#args).from_abi(result__)
                 }
             }
         }
@@ -113,20 +113,19 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
         SignatureKind::ResultValue => {
-            let leading_params = &signature.params[..signature.params.len() - 1];
-            let args = gen.win32_args(leading_params, kind);
-            let params = gen.win32_params(leading_params, kind);
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let return_type_tokens = gen.type_name(&return_type);
+            let return_type = gen.type_name(&return_type);
 
             quote! {
                 #doc
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
+                pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                     #link
                     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                    #name(#args ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<#return_type_tokens>(result__)
+                    #name(#args).from_abi(result__)
                 }
             }
         }

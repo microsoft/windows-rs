@@ -187,7 +187,7 @@ impl IEmptyVolumeCache {
     }
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EMPTY_VOLUME_CACHE_FLAGS>(result__)
+        (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEmptyVolumeCache, ::windows::core::IUnknown);
@@ -264,7 +264,7 @@ impl IEmptyVolumeCache2 {
     }
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Deactivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EMPTY_VOLUME_CACHE_FLAGS>(result__)
+        (::windows::core::Vtable::vtable(self).base__.Deactivate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -373,7 +373,7 @@ impl IReconcilableObject {
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IReconcilableObject, ::windows::core::IUnknown);

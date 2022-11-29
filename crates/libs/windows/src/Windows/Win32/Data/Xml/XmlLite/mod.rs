@@ -20,7 +20,7 @@ where
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingCodePage ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlReaderInputWithEncodingCodePage(pinputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    CreateXmlReaderInputWithEncodingCodePage(pinputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -35,7 +35,7 @@ where
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingName ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlReaderInputWithEncodingName(pinputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into(), fencodinghint.into(), pwszbaseuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    CreateXmlReaderInputWithEncodingName(pinputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into(), fencodinghint.into(), pwszbaseuri.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -57,7 +57,7 @@ where
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingCodePage ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -70,7 +70,7 @@ where
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingName ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlWriterOutputWithEncodingName(poutputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    CreateXmlWriterOutputWithEncodingName(poutputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
@@ -84,7 +84,7 @@ impl IXmlReader {
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), nproperty, pvalue).ok()
@@ -94,7 +94,7 @@ impl IXmlReader {
     }
     pub unsafe fn GetNodeType(&self) -> ::windows::core::Result<XmlNodeType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNodeType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XmlNodeType>(result__)
+        (::windows::core::Vtable::vtable(self).GetNodeType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn MoveToFirstAttribute(&self) -> ::windows::core::HRESULT {
         (::windows::core::Vtable::vtable(self).MoveToFirstAttribute)(::windows::core::Vtable::as_raw(self))
@@ -145,19 +145,19 @@ impl IXmlReader {
     }
     pub unsafe fn GetLineNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLineNumber)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetLineNumber)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetLinePosition(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLinePosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetLinePosition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAttributeCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributeCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetAttributeCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDepth(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDepth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetDepth)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -236,7 +236,7 @@ impl IXmlResolver {
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveUri)(::windows::core::Vtable::as_raw(self), pwszbaseuri.into(), pwszpublicidentifier.into(), pwszsystemidentifier.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Vtable::vtable(self).ResolveUri)(::windows::core::Vtable::as_raw(self), pwszbaseuri.into(), pwszpublicidentifier.into(), pwszsystemidentifier.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXmlResolver, ::windows::core::IUnknown);
@@ -280,7 +280,7 @@ impl IXmlWriter {
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), nproperty, pvalue).ok()
@@ -515,7 +515,7 @@ impl IXmlWriterLite {
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), nproperty, pvalue).ok()

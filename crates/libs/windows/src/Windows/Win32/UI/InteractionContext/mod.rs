@@ -22,7 +22,7 @@ where
 pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTIONCONTEXT> {
     ::windows::core::link ! ( "ninput.dll""system" fn CreateInteractionContext ( interactioncontext : *mut HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateInteractionContext(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HINTERACTIONCONTEXT>(result__)
+    CreateInteractionContext(result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -41,7 +41,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetCrossSlideParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , threshold : CROSS_SLIDE_THRESHOLD , distance : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetCrossSlideParameterInteractionContext(interactioncontext.into(), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetCrossSlideParameterInteractionContext(interactioncontext.into(), threshold, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -51,7 +51,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetHoldParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetHoldParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -61,7 +61,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -80,7 +80,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -90,7 +90,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetPropertyInteractionContext(interactioncontext.into(), contextproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    GetPropertyInteractionContext(interactioncontext.into(), contextproperty, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -101,7 +101,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetStateInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerinfo : *const super::Input::Pointer:: POINTER_INFO , state : *mut INTERACTION_STATE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTERACTION_STATE>(result__)
+    GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -111,7 +111,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetTapParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetTapParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -121,7 +121,7 @@ where
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetTranslationParameterInteractionContext(interactioncontext.into(), parameter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetTranslationParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]

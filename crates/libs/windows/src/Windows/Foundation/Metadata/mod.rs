@@ -28,61 +28,61 @@ impl ApiInformation {
     pub fn IsTypePresent(typename: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsTypePresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsTypePresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsMethodPresent(typename: &::windows::core::HSTRING, methodname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsMethodPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsMethodPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsMethodPresentWithArity(typename: &::windows::core::HSTRING, methodname: &::windows::core::HSTRING, inputparametercount: u32) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsMethodPresentWithArity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), inputparametercount, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsMethodPresentWithArity)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), inputparametercount, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsEventPresent(typename: &::windows::core::HSTRING, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEventPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(eventname), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEventPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(eventname), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsPropertyPresent(typename: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsPropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsPropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsReadOnlyPropertyPresent(typename: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsReadOnlyPropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsReadOnlyPropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsWriteablePropertyPresent(typename: &::windows::core::HSTRING, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsWriteablePropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsWriteablePropertyPresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsEnumNamedValuePresent(enumtypename: &::windows::core::HSTRING, valuename: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEnumNamedValuePresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(enumtypename), ::core::mem::transmute_copy(valuename), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsEnumNamedValuePresent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(enumtypename), ::core::mem::transmute_copy(valuename), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsApiContractPresentByMajor(contractname: &::windows::core::HSTRING, majorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsApiContractPresentByMajor)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsApiContractPresentByMajor)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsApiContractPresentByMajorAndMinor(contractname: &::windows::core::HSTRING, majorversion: u16, minorversion: u16) -> ::windows::core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsApiContractPresentByMajorAndMinor)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, minorversion, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsApiContractPresentByMajorAndMinor)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, minorversion, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

@@ -20,7 +20,7 @@ impl ITpmVirtualSmartCardManager {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager, ::windows::core::IUnknown);
@@ -81,7 +81,7 @@ impl ITpmVirtualSmartCardManager2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -167,7 +167,7 @@ impl ITpmVirtualSmartCardManager3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITpmVirtualSmartCardManagerStatusCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -224,9 +224,9 @@ impl ITpmVirtualSmartCardManager3 {
             attestationtype,
             fgenerate.into(),
             pstatuscallback.into().abi(),
-            ::core::mem::transmute(result__.as_mut_ptr()),
+            result__.as_mut_ptr(),
         )
-        .from_abi::<::windows::core::PWSTR>(result__)
+        .from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager3, ::windows::core::IUnknown, ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager2);

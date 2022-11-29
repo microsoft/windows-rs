@@ -87,7 +87,7 @@ impl WebAuthenticationBroker {
     pub fn AuthenticateWithCallbackUriAsync(options: WebAuthenticationOptions, requesturi: &super::super::super::Foundation::Uri, callbackuri: &super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateWithCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), ::core::mem::transmute_copy(callbackuri), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticateWithCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), ::core::mem::transmute_copy(callbackuri), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -95,7 +95,7 @@ impl WebAuthenticationBroker {
     pub fn AuthenticateWithoutCallbackUriAsync(options: WebAuthenticationOptions, requesturi: &super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateWithoutCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticateWithoutCallbackUriAsync)(::windows::core::Vtable::as_raw(this), options, ::core::mem::transmute_copy(requesturi), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -103,7 +103,7 @@ impl WebAuthenticationBroker {
     pub fn GetCurrentApplicationCallbackUri() -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentApplicationCallbackUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Vtable::vtable(this).GetCurrentApplicationCallbackUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -126,7 +126,7 @@ impl WebAuthenticationBroker {
     pub fn AuthenticateSilentlyAsync(requesturi: &super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -134,7 +134,7 @@ impl WebAuthenticationBroker {
     pub fn AuthenticateSilentlyWithOptionsAsync(requesturi: &super::super::super::Foundation::Uri, options: WebAuthenticationOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), options, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
+            (::windows::core::Vtable::vtable(this).AuthenticateSilentlyWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(requesturi), options, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -159,21 +159,21 @@ impl WebAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ResponseData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ResponseStatus(&self) -> ::windows::core::Result<WebAuthenticationStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ResponseStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<WebAuthenticationStatus>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ResponseErrorDetail(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ResponseErrorDetail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Vtable::vtable(this).ResponseErrorDetail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }

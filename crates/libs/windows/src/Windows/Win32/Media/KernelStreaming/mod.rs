@@ -17,7 +17,7 @@ where
 {
     ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateAllocator2 ( connectionhandle : super::super::Foundation:: HANDLE , allocatorframing : *const KSALLOCATOR_FRAMING , allocatorhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreateAllocator2(connectionhandle.into(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreateAllocator2(connectionhandle.into(), ::core::mem::transmute(allocatorframing), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -38,7 +38,7 @@ where
 {
     ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateClock2 ( connectionhandle : super::super::Foundation:: HANDLE , clockcreate : *const KSCLOCK_CREATE , clockhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreateClock2(connectionhandle.into(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreateClock2(connectionhandle.into(), ::core::mem::transmute(clockcreate), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -59,7 +59,7 @@ where
 {
     ::windows::core::link ! ( "ksuser.dll""system" fn KsCreatePin2 ( filterhandle : super::super::Foundation:: HANDLE , connect : *const KSPIN_CONNECT , desiredaccess : u32 , connectionhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreatePin2(filterhandle.into(), ::core::mem::transmute(connect), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreatePin2(filterhandle.into(), ::core::mem::transmute(connect), desiredaccess, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -80,7 +80,7 @@ where
 {
     ::windows::core::link ! ( "ksuser.dll""system" fn KsCreateTopologyNode2 ( parenthandle : super::super::Foundation:: HANDLE , nodecreate : *const KSNODE_CREATE , desiredaccess : u32 , nodehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreateTopologyNode2(parenthandle.into(), ::core::mem::transmute(nodecreate), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    KsCreateTopologyNode2(parenthandle.into(), ::core::mem::transmute(nodecreate), desiredaccess, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
@@ -179,7 +179,7 @@ impl IKsFormatSupport {
     }
     pub unsafe fn GetDevicePreferredFormat(&self) -> ::windows::core::Result<*mut KSDATAFORMAT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDevicePreferredFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut KSDATAFORMAT>(result__)
+        (::windows::core::Vtable::vtable(self).GetDevicePreferredFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IKsFormatSupport, ::windows::core::IUnknown);
@@ -221,7 +221,7 @@ pub struct IKsJackContainerId(::windows::core::IUnknown);
 impl IKsJackContainerId {
     pub unsafe fn GetJackContainerId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackContainerId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackContainerId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IKsJackContainerId, ::windows::core::IUnknown);
@@ -259,13 +259,13 @@ pub struct IKsJackDescription(::windows::core::IUnknown);
 impl IKsJackDescription {
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackDescription(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IKsJackDescription, ::windows::core::IUnknown);
@@ -307,11 +307,11 @@ pub struct IKsJackDescription2(::windows::core::IUnknown);
 impl IKsJackDescription2 {
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetJackDescription2(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackDescription2)(::windows::core::Vtable::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION2>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackDescription2)(::windows::core::Vtable::as_raw(self), njack, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IKsJackDescription2, ::windows::core::IUnknown);
@@ -352,7 +352,7 @@ impl IKsJackSinkInformation {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackSinkInformation(&self) -> ::windows::core::Result<KSJACK_SINK_INFORMATION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_SINK_INFORMATION>(result__)
+        (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IKsJackSinkInformation, ::windows::core::IUnknown);
@@ -399,7 +399,7 @@ impl IKsPropertySet {
     }
     pub unsafe fn QuerySupported(&self, propset: *const ::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QuerySupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).QuerySupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propset), id, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IKsPropertySet, ::windows::core::IUnknown);

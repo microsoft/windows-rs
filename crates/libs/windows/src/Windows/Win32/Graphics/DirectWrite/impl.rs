@@ -169,7 +169,7 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrentRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteColorGlyphRunEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colorglyphrun: *mut *mut ::core::mem::ManuallyDrop<DWRITE_COLOR_GLYPH_RUN>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteColorGlyphRunEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colorglyphrun: *mut *mut DWRITE_COLOR_GLYPH_RUN) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCurrentRun() {
@@ -199,7 +199,7 @@ impl ::windows::core::RuntimeName for IDWriteColorGlyphRunEnumerator1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDWriteColorGlyphRunEnumerator1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteColorGlyphRunEnumerator1_Impl, const OFFSET: isize>() -> IDWriteColorGlyphRunEnumerator1_Vtbl {
-        unsafe extern "system" fn GetCurrentRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteColorGlyphRunEnumerator1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colorglyphrun: *mut *mut ::core::mem::ManuallyDrop<DWRITE_COLOR_GLYPH_RUN1>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentRun2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDWriteColorGlyphRunEnumerator1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colorglyphrun: *mut *mut DWRITE_COLOR_GLYPH_RUN1) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCurrentRun2() {

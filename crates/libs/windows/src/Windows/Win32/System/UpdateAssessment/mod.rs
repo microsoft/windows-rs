@@ -6,7 +6,7 @@ impl IWaaSAssessor {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOSUpdateAssessment)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OSUpdateAssessment>(result__)
+        (::windows::core::Vtable::vtable(self).GetOSUpdateAssessment)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWaaSAssessor, ::windows::core::IUnknown);

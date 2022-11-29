@@ -246,7 +246,7 @@ pub trait IAudioProcessingObjectConfiguration_Impl: Sized {
 impl ::windows::core::RuntimeName for IAudioProcessingObjectConfiguration {}
 impl IAudioProcessingObjectConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>() -> IAudioProcessingObjectConfiguration_Vtbl {
-        unsafe extern "system" fn LockForProcess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>, u32numoutputconnections: u32, ppoutputconnections: *const *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LockForProcess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LockForProcess(::core::mem::transmute_copy(&u32numinputconnections), ::core::mem::transmute_copy(&ppinputconnections), ::core::mem::transmute_copy(&u32numoutputconnections), ::core::mem::transmute_copy(&ppoutputconnections)).into()
@@ -293,7 +293,7 @@ impl ::windows::core::RuntimeName for IAudioProcessingObjectNotifications {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IAudioProcessingObjectNotifications_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>() -> IAudioProcessingObjectNotifications_Vtbl {
-        unsafe extern "system" fn GetApoNotificationRegistrationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut ::core::mem::ManuallyDrop<APO_NOTIFICATION_DESCRIPTOR>, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetApoNotificationRegistrationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetApoNotificationRegistrationInfo(::core::mem::transmute_copy(&aponotifications), ::core::mem::transmute_copy(&count)).into()

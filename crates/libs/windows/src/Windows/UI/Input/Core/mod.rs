@@ -61,7 +61,7 @@ impl RadialControllerIndependentInputSource {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Controller)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::RadialController>(result__)
+            (::windows::core::Vtable::vtable(this).Controller)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -70,7 +70,7 @@ impl RadialControllerIndependentInputSource {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CoreDispatcher>(result__)
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -79,7 +79,7 @@ impl RadialControllerIndependentInputSource {
         let this = &::windows::core::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::DispatcherQueue>(result__)
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -87,7 +87,7 @@ impl RadialControllerIndependentInputSource {
     pub fn CreateForView(view: &super::super::super::ApplicationModel::Core::CoreApplicationView) -> ::windows::core::Result<RadialControllerIndependentInputSource> {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateForView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi::<RadialControllerIndependentInputSource>(result__)
+            (::windows::core::Vtable::vtable(this).CreateForView)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(view), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

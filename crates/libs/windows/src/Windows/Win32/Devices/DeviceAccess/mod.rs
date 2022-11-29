@@ -6,7 +6,7 @@ where
 {
     ::windows::core::link ! ( "deviceaccess.dll""system" fn CreateDeviceAccessInstance ( deviceinterfacepath : :: windows::core::PCWSTR , desiredaccess : u32 , createasync : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateDeviceAccessInstance(deviceinterfacepath.into(), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
+    CreateDeviceAccessInstance(deviceinterfacepath.into(), desiredaccess, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[repr(transparent)]
@@ -25,8 +25,8 @@ impl ICreateDeviceAccessAsync {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICreateDeviceAccessAsync, ::windows::core::IUnknown);

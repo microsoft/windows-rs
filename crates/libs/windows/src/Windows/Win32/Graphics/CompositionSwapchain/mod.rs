@@ -229,11 +229,11 @@ impl IPresentationBuffer {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAvailableEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).GetAvailableEvent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn IsAvailable(&self) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+        (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationBuffer, ::windows::core::IUnknown);
@@ -318,7 +318,7 @@ impl IPresentationFactory {
     }
     pub unsafe fn CreatePresentationManager(&self) -> ::windows::core::Result<IPresentationManager> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePresentationManager)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationManager>(result__)
+        (::windows::core::Vtable::vtable(self).CreatePresentationManager)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationFactory, ::windows::core::IUnknown);
@@ -361,7 +361,7 @@ impl IPresentationManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddBufferFromResource)(::windows::core::Vtable::as_raw(self), resource.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationBuffer>(result__)
+        (::windows::core::Vtable::vtable(self).AddBufferFromResource)(::windows::core::Vtable::as_raw(self), resource.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -370,7 +370,7 @@ impl IPresentationManager {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePresentationSurface)(::windows::core::Vtable::as_raw(self), compositionsurfacehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationSurface>(result__)
+        (::windows::core::Vtable::vtable(self).CreatePresentationSurface)(::windows::core::Vtable::as_raw(self), compositionsurfacehandle.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
         (::windows::core::Vtable::vtable(self).GetNextPresentId)(::windows::core::Vtable::as_raw(self))
@@ -389,7 +389,7 @@ impl IPresentationManager {
     }
     pub unsafe fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentRetiringFence)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentRetiringFence)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CancelPresentsFrom)(::windows::core::Vtable::as_raw(self), presentidtocancelfrom).ok()
@@ -398,20 +398,20 @@ impl IPresentationManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLostEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLostEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).GetLostEvent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentStatisticsAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnablePresentStatisticsKind)(::windows::core::Vtable::as_raw(self), presentstatisticskind, enabled).ok()
     }
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNextPresentStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentStatistics>(result__)
+        (::windows::core::Vtable::vtable(self).GetNextPresentStatistics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationManager, ::windows::core::IUnknown);

@@ -71,7 +71,7 @@ impl PlatformDiagnosticActions {
     pub fn IsScenarioEnabled(scenarioid: ::windows::core::GUID) -> ::windows::core::Result<bool> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsScenarioEnabled)(::windows::core::Vtable::as_raw(this), scenarioid, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsScenarioEnabled)(::windows::core::Vtable::as_raw(this), scenarioid, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -83,13 +83,13 @@ impl PlatformDiagnosticActions {
     {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryEscalateScenario)(::windows::core::Vtable::as_raw(this), scenarioid, escalationtype, ::core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, triggers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).TryEscalateScenario)(::windows::core::Vtable::as_raw(this), scenarioid, escalationtype, ::core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, triggers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn DownloadLatestSettingsForNamespace(partner: &::windows::core::HSTRING, feature: &::windows::core::HSTRING, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> ::windows::core::Result<PlatformDiagnosticActionState> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DownloadLatestSettingsForNamespace)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(partner), ::core::mem::transmute_copy(feature), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticActionState>(result__)
+            (::windows::core::Vtable::vtable(this).DownloadLatestSettingsForNamespace)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(partner), ::core::mem::transmute_copy(feature), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -97,25 +97,25 @@ impl PlatformDiagnosticActions {
     pub fn GetActiveScenarioList() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::GUID>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetActiveScenarioList)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>(result__)
+            (::windows::core::Vtable::vtable(this).GetActiveScenarioList)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn ForceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool) -> ::windows::core::Result<PlatformDiagnosticActionState> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ForceUpload)(::windows::core::Vtable::as_raw(this), latency, uploadovercostednetwork, uploadoverbattery, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticActionState>(result__)
+            (::windows::core::Vtable::vtable(this).ForceUpload)(::windows::core::Vtable::as_raw(this), latency, uploadovercostednetwork, uploadoverbattery, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IsTraceRunning(slottype: PlatformDiagnosticTraceSlotType, scenarioid: ::windows::core::GUID, traceprofilehash: u64) -> ::windows::core::Result<PlatformDiagnosticTraceSlotState> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsTraceRunning)(::windows::core::Vtable::as_raw(this), slottype, scenarioid, traceprofilehash, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTraceSlotState>(result__)
+            (::windows::core::Vtable::vtable(this).IsTraceRunning)(::windows::core::Vtable::as_raw(this), slottype, scenarioid, traceprofilehash, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn GetActiveTraceRuntime(slottype: PlatformDiagnosticTraceSlotType) -> ::windows::core::Result<PlatformDiagnosticTraceRuntimeInfo> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetActiveTraceRuntime)(::windows::core::Vtable::as_raw(this), slottype, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTraceRuntimeInfo>(result__)
+            (::windows::core::Vtable::vtable(this).GetActiveTraceRuntime)(::windows::core::Vtable::as_raw(this), slottype, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -123,7 +123,7 @@ impl PlatformDiagnosticActions {
     pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetKnownTraceList)(::windows::core::Vtable::as_raw(this), slottype, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>>(result__)
+            (::windows::core::Vtable::vtable(this).GetKnownTraceList)(::windows::core::Vtable::as_raw(this), slottype, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -143,42 +143,42 @@ impl PlatformDiagnosticTraceInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScenarioId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Vtable::vtable(this).ScenarioId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn ProfileHash(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProfileHash)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
+            (::windows::core::Vtable::vtable(this).ProfileHash)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsExclusive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsExclusive)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsExclusive)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn IsAutoLogger(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsAutoLogger)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsAutoLogger)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn MaxTraceDurationFileTime(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaxTraceDurationFileTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Vtable::vtable(this).MaxTraceDurationFileTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn Priority(&self) -> ::windows::core::Result<PlatformDiagnosticTracePriority> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Priority)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTracePriority>(result__)
+            (::windows::core::Vtable::vtable(this).Priority)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -225,14 +225,14 @@ impl PlatformDiagnosticTraceRuntimeInfo {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RuntimeFileTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Vtable::vtable(this).RuntimeFileTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
     pub fn EtwRuntimeFileTime(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EtwRuntimeFileTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Vtable::vtable(this).EtwRuntimeFileTime)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }

@@ -75,7 +75,7 @@ impl HolographicApplicationPreview {
     pub fn IsCurrentViewPresentedOnHolographicDisplay() -> ::windows::core::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -87,7 +87,7 @@ impl HolographicApplicationPreview {
     {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsHolographicActivation)(::windows::core::Vtable::as_raw(this), activatedeventargs.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Vtable::vtable(this).IsHolographicActivation)(::windows::core::Vtable::as_raw(this), activatedeventargs.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -128,7 +128,7 @@ impl HolographicKeyboardPlacementOverridePreview {
     pub fn GetForCurrentView() -> ::windows::core::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HolographicKeyboardPlacementOverridePreview>(result__)
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     #[doc(hidden)]

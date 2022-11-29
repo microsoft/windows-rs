@@ -30,19 +30,19 @@ impl IBitmapData {
     }
     pub unsafe fn GetStride(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStride)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetStride)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetBitmapDescription(&self) -> ::windows::core::Result<BitmapDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBitmapDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BitmapDescription>(result__)
+        (::windows::core::Vtable::vtable(self).GetBitmapDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetSourceBitmapDescription(&self) -> ::windows::core::Result<BitmapDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceBitmapDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BitmapDescription>(result__)
+        (::windows::core::Vtable::vtable(self).GetSourceBitmapDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IBitmapData, ::windows::core::IUnknown);
@@ -106,7 +106,7 @@ impl IVisualTreeService {
     }
     pub unsafe fn CreateInstance(&self, typename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(value), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -121,7 +121,7 @@ impl IVisualTreeService {
     }
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCollectionCount)(::windows::core::Vtable::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetCollectionCount)(::windows::core::Vtable::as_raw(self), instancehandle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCollectionElements)(::windows::core::Vtable::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
@@ -166,18 +166,18 @@ pub struct IVisualTreeService_Vtbl {
     pub AdviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnadviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetEnums: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut ::core::mem::ManuallyDrop<EnumType>) -> ::windows::core::HRESULT,
+    pub GetEnums: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetEnums: usize,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pinstancehandle: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetPropertyValuesChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut ::core::mem::ManuallyDrop<PropertyChainSource>, ppropertycount: *mut u32, pppropertyvalues: *mut *mut ::core::mem::ManuallyDrop<PropertyChainValue>) -> ::windows::core::HRESULT,
+    pub GetPropertyValuesChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPropertyValuesChain: usize,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::HRESULT,
     pub ClearProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, propertyindex: u32) -> ::windows::core::HRESULT,
     pub GetCollectionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, pcollectionsize: *mut u32) -> ::windows::core::HRESULT,
-    pub GetCollectionElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut ::core::mem::ManuallyDrop<CollectionElementValue>) -> ::windows::core::HRESULT,
+    pub GetCollectionElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::HRESULT,
     pub AddChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64, child: u64, index: u32) -> ::windows::core::HRESULT,
     pub RemoveChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64, index: u32) -> ::windows::core::HRESULT,
     pub ClearChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64) -> ::windows::core::HRESULT,
@@ -205,7 +205,7 @@ impl IVisualTreeService2 {
     }
     pub unsafe fn CreateInstance(&self, typename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(value), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -220,7 +220,7 @@ impl IVisualTreeService2 {
     }
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCollectionCount)(::windows::core::Vtable::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetCollectionCount)(::windows::core::Vtable::as_raw(self), instancehandle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetCollectionElements)(::windows::core::Vtable::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
@@ -239,18 +239,18 @@ impl IVisualTreeService2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyIndex)(::windows::core::Vtable::as_raw(self), object, propertyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetPropertyIndex)(::windows::core::Vtable::as_raw(self), object, propertyname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), object, propertyindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), object, propertyindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ReplaceResource(&self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReplaceResource)(::windows::core::Vtable::as_raw(self), resourcedictionary, key, newvalue).ok()
     }
     pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RenderTargetBitmap)(::windows::core::Vtable::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Vtable::vtable(self).RenderTargetBitmap)(::windows::core::Vtable::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVisualTreeService2, ::windows::core::IUnknown, IVisualTreeService);
@@ -308,7 +308,7 @@ impl IVisualTreeService3 {
     }
     pub unsafe fn CreateInstance(&self, typename: &::windows::core::BSTR, value: &::windows::core::BSTR) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(value), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -323,7 +323,7 @@ impl IVisualTreeService3 {
     }
     pub unsafe fn GetCollectionCount(&self, instancehandle: u64) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCollectionCount)(::windows::core::Vtable::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetCollectionCount)(::windows::core::Vtable::as_raw(self), instancehandle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetCollectionElements)(::windows::core::Vtable::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
@@ -342,18 +342,18 @@ impl IVisualTreeService3 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyIndex)(::windows::core::Vtable::as_raw(self), object, propertyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyIndex)(::windows::core::Vtable::as_raw(self), object, propertyname.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProperty)(::windows::core::Vtable::as_raw(self), object, propertyindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetProperty)(::windows::core::Vtable::as_raw(self), object, propertyindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ReplaceResource(&self, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ReplaceResource)(::windows::core::Vtable::as_raw(self), resourcedictionary, key, newvalue).ok()
     }
     pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.RenderTargetBitmap)(::windows::core::Vtable::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Vtable::vtable(self).base__.RenderTargetBitmap)(::windows::core::Vtable::as_raw(self), handle, options, maxpixelwidth, maxpixelheight, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ResolveResource<'a, P0>(&self, resourcecontext: u64, resourcename: P0, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()>
     where
@@ -369,7 +369,7 @@ impl IVisualTreeService3 {
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDictionaryItem)(::windows::core::Vtable::as_raw(self), dictionaryhandle, resourcename.into(), resourceisimplicitstyle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).GetDictionaryItem)(::windows::core::Vtable::as_raw(self), dictionaryhandle, resourcename.into(), resourceisimplicitstyle.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddDictionaryItem)(::windows::core::Vtable::as_raw(self), dictionaryhandle, resourcekey, resourcehandle).ok()
@@ -505,26 +505,26 @@ pub struct IXamlDiagnostics(::windows::core::IUnknown);
 impl IXamlDiagnostics {
     pub unsafe fn GetDispatcher(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDispatcher)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+        (::windows::core::Vtable::vtable(self).GetDispatcher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUiLayer(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUiLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+        (::windows::core::Vtable::vtable(self).GetUiLayer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetApplication(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetApplication)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+        (::windows::core::Vtable::vtable(self).GetApplication)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetIInspectableFromHandle(&self, instancehandle: u64) -> ::windows::core::Result<::windows::core::IInspectable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIInspectableFromHandle)(::windows::core::Vtable::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
+        (::windows::core::Vtable::vtable(self).GetIInspectableFromHandle)(::windows::core::Vtable::as_raw(self), instancehandle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetHandleFromIInspectable<'a, P0>(&self, pinstance: P0) -> ::windows::core::Result<u64>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHandleFromIInspectable)(::windows::core::Vtable::as_raw(self), pinstance.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).GetHandleFromIInspectable)(::windows::core::Vtable::as_raw(self), pinstance.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -536,11 +536,11 @@ impl IXamlDiagnostics {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterInstance)(::windows::core::Vtable::as_raw(self), pinstance.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Vtable::vtable(self).RegisterInstance)(::windows::core::Vtable::as_raw(self), pinstance.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetInitializationData(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInitializationData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
+        (::windows::core::Vtable::vtable(self).GetInitializationData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXamlDiagnostics, ::windows::core::IUnknown);
