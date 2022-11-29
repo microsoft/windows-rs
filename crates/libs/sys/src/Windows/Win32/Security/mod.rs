@@ -208,17 +208,9 @@ pub mod WinWlx;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountNameA ( lpsystemname : :: windows_sys::core::PCSTR , lpaccountname : :: windows_sys::core::PCSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows_sys::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountNameLocalA ( lpaccountname : :: windows_sys::core::PCSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows_sys::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountNameLocalW ( lpaccountname : :: windows_sys::core::PCWSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows_sys::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-#[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountNameW ( lpsystemname : :: windows_sys::core::PCWSTR , lpaccountname : :: windows_sys::core::PCWSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows_sys::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountSidA ( lpsystemname : :: windows_sys::core::PCSTR , sid : super::Foundation:: PSID , name : :: windows_sys::core::PSTR , cchname : *mut u32 , referenceddomainname : :: windows_sys::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountSidLocalA ( sid : super::Foundation:: PSID , name : :: windows_sys::core::PSTR , cchname : *mut u32 , referenceddomainname : :: windows_sys::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountSidLocalW ( sid : super::Foundation:: PSID , name : :: windows_sys::core::PWSTR , cchname : *mut u32 , referenceddomainname : :: windows_sys::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"] fn LookupAccountSidW ( lpsystemname : :: windows_sys::core::PCWSTR , sid : super::Foundation:: PSID , name : :: windows_sys::core::PWSTR , cchname : *mut u32 , referenceddomainname : :: windows_sys::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -543,6 +535,36 @@ pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = 512u32;
 pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = 256u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub type SECURITY_DESCRIPTOR_CONTROL = u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_OWNER_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 1u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_GROUP_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 2u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 4u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 8u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = 16u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = 32u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 256u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = 512u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 1024u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = 2048u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 4096u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = 8192u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_RM_CONTROL_VALID: SECURITY_DESCRIPTOR_CONTROL = 16384u16;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = 32768u16;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub type SECURITY_IMPERSONATION_LEVEL = i32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1444,7 +1466,7 @@ impl ::core::clone::Clone for SECURITY_CAPABILITIES {
 pub struct SECURITY_DESCRIPTOR {
     pub Revision: u8,
     pub Sbz1: u8,
-    pub Control: u16,
+    pub Control: SECURITY_DESCRIPTOR_CONTROL,
     pub Owner: super::Foundation::PSID,
     pub Group: super::Foundation::PSID,
     pub Sacl: *mut ACL,
@@ -1454,6 +1476,23 @@ pub struct SECURITY_DESCRIPTOR {
 impl ::core::marker::Copy for SECURITY_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SECURITY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SECURITY_DESCRIPTOR_RELATIVE {
+    pub Revision: u8,
+    pub Sbz1: u8,
+    pub Control: SECURITY_DESCRIPTOR_CONTROL,
+    pub Owner: u32,
+    pub Group: u32,
+    pub Sacl: u32,
+    pub Dacl: u32,
+}
+impl ::core::marker::Copy for SECURITY_DESCRIPTOR_RELATIVE {}
+impl ::core::clone::Clone for SECURITY_DESCRIPTOR_RELATIVE {
     fn clone(&self) -> Self {
         *self
     }

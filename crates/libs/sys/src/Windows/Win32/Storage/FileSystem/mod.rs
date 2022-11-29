@@ -288,7 +288,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFileTime ( hfile : super::super::Foundation:: HANDLE , lpcreationtime : *mut super::super::Foundation:: FILETIME , lplastaccesstime : *mut super::super::Foundation:: FILETIME , lplastwritetime : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFileType ( hfile : super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFileType ( hfile : super::super::Foundation:: HANDLE ) -> FILE_TYPE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "version.dll""system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFileVersionInfoA ( lptstrfilename : :: windows_sys::core::PCSTR , dwhandle : u32 , dwlen : u32 , lpdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -1355,6 +1355,20 @@ pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = 4i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = 5i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub type COMPRESSION_FORMAT = u16;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_NONE: COMPRESSION_FORMAT = 0u16;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_DEFAULT: COMPRESSION_FORMAT = 1u16;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_LZNT1: COMPRESSION_FORMAT = 2u16;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XPRESS: COMPRESSION_FORMAT = 3u16;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XPRESS_HUFF: COMPRESSION_FORMAT = 4u16;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XP10: COMPRESSION_FORMAT = 5u16;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type COPYFILE2_COPY_PHASE = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = 0i32;
@@ -1728,6 +1742,18 @@ pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = 4u32;
 pub const FILE_SHARE_READ: FILE_SHARE_MODE = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub type FILE_TYPE = u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_UNKNOWN: FILE_TYPE = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_DISK: FILE_TYPE = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_CHAR: FILE_TYPE = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_PIPE: FILE_TYPE = 3u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_REMOTE: FILE_TYPE = 32768u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type FINDEX_INFO_LEVELS = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -3733,7 +3759,7 @@ impl ::core::clone::Clone for FILE_BASIC_INFO {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
-    pub CompressionFormat: u16,
+    pub CompressionFormat: COMPRESSION_FORMAT,
     pub CompressionUnitShift: u8,
     pub ChunkShift: u8,
     pub ClusterShift: u8,

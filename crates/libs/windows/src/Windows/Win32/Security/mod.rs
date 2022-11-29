@@ -1051,26 +1051,6 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LookupAccountNameLocalA<'a, P0>(lpaccountname: P0, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountNameLocalA ( lpaccountname : :: windows::core::PCSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-    LookupAccountNameLocalA(lpaccountname.into(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
-}
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LookupAccountNameLocalW<'a, P0>(lpaccountname: P0, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountNameLocalW ( lpaccountname : :: windows::core::PCWSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-    LookupAccountNameLocalW(lpaccountname.into(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
-}
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn LookupAccountNameW<'a, P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1089,26 +1069,6 @@ where
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountSidA ( lpsystemname : :: windows::core::PCSTR , sid : super::Foundation:: PSID , name : :: windows::core::PSTR , cchname : *mut u32 , referenceddomainname : :: windows::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
     LookupAccountSidA(lpsystemname.into(), sid.into(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
-}
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LookupAccountSidLocalA<'a, P0>(sid: P0, name: ::windows::core::PSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::Foundation::PSID>,
-{
-    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountSidLocalA ( sid : super::Foundation:: PSID , name : :: windows::core::PSTR , cchname : *mut u32 , referenceddomainname : :: windows::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-    LookupAccountSidLocalA(sid.into(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
-}
-#[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LookupAccountSidLocalW<'a, P0>(sid: P0, name: ::windows::core::PWSTR, cchname: *mut u32, referenceddomainname: ::windows::core::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::Foundation::PSID>,
-{
-    ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountSidLocalW ( sid : super::Foundation:: PSID , name : :: windows::core::PWSTR , cchname : *mut u32 , referenceddomainname : :: windows::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-    LookupAccountSidLocalW(sid.into(), ::core::mem::transmute(name), ::core::mem::transmute(cchname), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2213,6 +2173,85 @@ impl ::core::ops::BitAndAssign for SECURITY_AUTO_INHERIT_FLAGS {
     }
 }
 impl ::core::ops::Not for SECURITY_AUTO_INHERIT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SECURITY_DESCRIPTOR_CONTROL(pub u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_OWNER_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(1u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_GROUP_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(2u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(4u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(8u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(16u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(32u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(256u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(512u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(1024u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(2048u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(4096u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(8192u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_RM_CONTROL_VALID: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(16384u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(32768u16);
+impl ::core::marker::Copy for SECURITY_DESCRIPTOR_CONTROL {}
+impl ::core::clone::Clone for SECURITY_DESCRIPTOR_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SECURITY_DESCRIPTOR_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SECURITY_DESCRIPTOR_CONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECURITY_DESCRIPTOR_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECURITY_DESCRIPTOR_CONTROL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SECURITY_DESCRIPTOR_CONTROL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SECURITY_DESCRIPTOR_CONTROL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SECURITY_DESCRIPTOR_CONTROL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SECURITY_DESCRIPTOR_CONTROL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SECURITY_DESCRIPTOR_CONTROL {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -4260,7 +4299,7 @@ impl ::core::default::Default for SECURITY_CAPABILITIES {
 pub struct SECURITY_DESCRIPTOR {
     pub Revision: u8,
     pub Sbz1: u8,
-    pub Control: u16,
+    pub Control: SECURITY_DESCRIPTOR_CONTROL,
     pub Owner: super::Foundation::PSID,
     pub Group: super::Foundation::PSID,
     pub Sacl: *mut ACL,
@@ -4294,6 +4333,42 @@ impl ::core::cmp::PartialEq for SECURITY_DESCRIPTOR {
 impl ::core::cmp::Eq for SECURITY_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECURITY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub struct SECURITY_DESCRIPTOR_RELATIVE {
+    pub Revision: u8,
+    pub Sbz1: u8,
+    pub Control: SECURITY_DESCRIPTOR_CONTROL,
+    pub Owner: u32,
+    pub Group: u32,
+    pub Sacl: u32,
+    pub Dacl: u32,
+}
+impl ::core::marker::Copy for SECURITY_DESCRIPTOR_RELATIVE {}
+impl ::core::clone::Clone for SECURITY_DESCRIPTOR_RELATIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SECURITY_DESCRIPTOR_RELATIVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SECURITY_DESCRIPTOR_RELATIVE").field("Revision", &self.Revision).field("Sbz1", &self.Sbz1).field("Control", &self.Control).field("Owner", &self.Owner).field("Group", &self.Group).field("Sacl", &self.Sacl).field("Dacl", &self.Dacl).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SECURITY_DESCRIPTOR_RELATIVE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SECURITY_DESCRIPTOR_RELATIVE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Revision == other.Revision && self.Sbz1 == other.Sbz1 && self.Control == other.Control && self.Owner == other.Owner && self.Group == other.Group && self.Sacl == other.Sacl && self.Dacl == other.Dacl
+    }
+}
+impl ::core::cmp::Eq for SECURITY_DESCRIPTOR_RELATIVE {}
+impl ::core::default::Default for SECURITY_DESCRIPTOR_RELATIVE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

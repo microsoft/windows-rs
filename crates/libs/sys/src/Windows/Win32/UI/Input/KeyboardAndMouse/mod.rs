@@ -84,7 +84,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "comctl32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"] fn _TrackMouseEvent ( lpeventtrack : *mut TRACKMOUSEEVENT ) -> super::super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"] fn keybd_event ( bvk : u8 , bscan : u8 , dwflags : KEYBD_EVENT_FLAGS , dwextrainfo : usize ) -> ( ) );
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"] fn mouse_event ( dwflags : MOUSE_EVENT_FLAGS , dx : i32 , dy : i32 , dwdata : u32 , dwextrainfo : usize ) -> ( ) );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"] fn mouse_event ( dwflags : MOUSE_EVENT_FLAGS , dx : i32 , dy : i32 , dwdata : i32 , dwextrainfo : usize ) -> ( ) );
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const ACUTE: u32 = 769u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]

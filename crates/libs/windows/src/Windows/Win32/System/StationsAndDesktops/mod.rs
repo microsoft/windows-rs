@@ -246,11 +246,11 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenInputDesktop<'a, P0>(dwflags: DESKTOP_CONTROL_FLAGS, finherit: P0, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
+pub unsafe fn OpenInputDesktop<'a, P0>(dwflags: DESKTOP_CONTROL_FLAGS, finherit: P0, dwdesiredaccess: DESKTOP_ACCESS_FLAGS) -> ::windows::core::Result<HDESK>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn OpenInputDesktop ( dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HDESK );
+    ::windows::core::link ! ( "user32.dll""system" fn OpenInputDesktop ( dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : DESKTOP_ACCESS_FLAGS ) -> HDESK );
     let result__ = OpenInputDesktop(dwflags, finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -456,6 +456,57 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DESKTOP_ACCESS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_DELETE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_READ_CONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_WRITE_DAC: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_WRITE_OWNER: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_SYNCHRONIZE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_READOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_CREATEWINDOW: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_CREATEMENU: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_HOOKCONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_JOURNALRECORD: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_JOURNALPLAYBACK: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_ENUMERATE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_WRITEOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_SWITCHDESKTOP: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(256u32);
+impl ::core::marker::Copy for DESKTOP_ACCESS_FLAGS {}
+impl ::core::clone::Clone for DESKTOP_ACCESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DESKTOP_ACCESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DESKTOP_ACCESS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DESKTOP_ACCESS_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]

@@ -11,11 +11,11 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DescribePixelFormat<'a, P0>(hdc: P0, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> i32
+pub unsafe fn DescribePixelFormat<'a, P0>(hdc: P0, ipixelformat: i32, nbytes: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn DescribePixelFormat ( hdc : super::Gdi:: HDC , ipixelformat : PFD_PIXEL_TYPE , nbytes : u32 , ppfd : *mut PIXELFORMATDESCRIPTOR ) -> i32 );
+    ::windows::core::link ! ( "gdi32.dll""system" fn DescribePixelFormat ( hdc : super::Gdi:: HDC , ipixelformat : i32 , nbytes : u32 , ppfd : *mut PIXELFORMATDESCRIPTOR ) -> i32 );
     DescribePixelFormat(hdc.into(), ipixelformat, nbytes, ::core::mem::transmute(ppfd.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]

@@ -508,13 +508,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn GetPrivateProfileIntW<'a, P0, P1, P2>(lpappname: P0, lpkeyname: P1, ndefault: i32, lpfilename: P2) -> u32
+pub unsafe fn GetPrivateProfileIntW<'a, P0, P1, P2>(lpappname: P0, lpkeyname: P1, ndefault: i32, lpfilename: P2) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetPrivateProfileIntW ( lpappname : :: windows::core::PCWSTR , lpkeyname : :: windows::core::PCWSTR , ndefault : i32 , lpfilename : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll""system" fn GetPrivateProfileIntW ( lpappname : :: windows::core::PCWSTR , lpkeyname : :: windows::core::PCWSTR , ndefault : i32 , lpfilename : :: windows::core::PCWSTR ) -> i32 );
     GetPrivateProfileIntW(lpappname.into(), lpkeyname.into(), ndefault, lpfilename.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3125,16 +3125,6 @@ pub const FILE_SYSTEM_ATTR: u32 = 2u32;
 pub const FILE_SYSTEM_DIR: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_SYSTEM_NOT_SUPPORT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_CHAR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_DISK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_PIPE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_REMOTE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FILE_UNKNOWN: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]

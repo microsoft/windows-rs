@@ -211,18 +211,6 @@ pub const COMPRESSION_ENGINE_MAXIMUM: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const COMPRESSION_ENGINE_STANDARD: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMPRESSION_FORMAT_DEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMPRESSION_FORMAT_LZNT1: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMPRESSION_FORMAT_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMPRESSION_FORMAT_XP10: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMPRESSION_FORMAT_XPRESS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMPRESSION_FORMAT_XPRESS_HUFF: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CONTEXT_AMD64: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CONTEXT_ARM: i32 = 2097152i32;
@@ -4859,16 +4847,6 @@ pub const SE_CREATE_SYMBOLIC_LINK_NAME: ::windows::core::PCWSTR = ::windows::w!(
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_CREATE_TOKEN_NAME: ::windows::core::PCWSTR = ::windows::w!("SeCreateTokenPrivilege");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DACL_AUTO_INHERITED: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DACL_AUTO_INHERIT_REQ: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DACL_DEFAULTED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DACL_PRESENT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DACL_PROTECTED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_DEBUG_NAME: ::windows::core::PCWSTR = ::windows::w!("SeDebugPrivilege");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: ::windows::core::PCWSTR = ::windows::w!("SeDelegateSessionUserImpersonatePrivilege");
@@ -4876,8 +4854,6 @@ pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: ::windows::core::PCWSTR = :
 pub const SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: ::windows::core::PCWSTR = ::windows::w!("developmentModeNetwork");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_ENABLE_DELEGATION_NAME: ::windows::core::PCWSTR = ::windows::w!("SeEnableDelegationPrivilege");
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_GROUP_DEFAULTED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_GROUP_ENABLED: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4917,8 +4893,6 @@ pub const SE_MANAGE_VOLUME_NAME: ::windows::core::PCWSTR = ::windows::w!("SeMana
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_MUMA_CAPABILITY: ::windows::core::PCWSTR = ::windows::w!("muma");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_OWNER_DEFAULTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: ::windows::core::PCWSTR = ::windows::w!("permissiveLearningMode");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_PROF_SINGLE_PROCESS_NAME: ::windows::core::PCWSTR = ::windows::w!("SeProfileSingleProcessPrivilege");
@@ -4929,18 +4903,6 @@ pub const SE_REMOTE_SHUTDOWN_NAME: ::windows::core::PCWSTR = ::windows::w!("SeRe
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_RESTORE_NAME: ::windows::core::PCWSTR = ::windows::w!("SeRestorePrivilege");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_RM_CONTROL_VALID: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SACL_AUTO_INHERITED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SACL_AUTO_INHERIT_REQ: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SACL_DEFAULTED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SACL_PRESENT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SACL_PROTECTED: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_ACCESS_FILTER_ACE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_LABEL_ACE: u32 = 2u32;
@@ -4950,8 +4912,6 @@ pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: u32 = 1u32;
 pub const SE_SECURITY_DESCRIPTOR_VALID_FLAGS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SECURITY_NAME: ::windows::core::PCWSTR = ::windows::w!("SeSecurityPrivilege");
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SELF_RELATIVE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SESSION_IMPERSONATION_CAPABILITY: ::windows::core::PCWSTR = ::windows::w!("sessionImpersonation");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -6691,47 +6651,6 @@ impl ::core::ops::Not for CFE_UNDERLINE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DESKTOP_ACCESS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_READOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_CREATEWINDOW: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_CREATEMENU: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_HOOKCONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_JOURNALRECORD: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_JOURNALPLAYBACK: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_ENUMERATE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_WRITEOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DESKTOP_SWITCHDESKTOP: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(256u32);
-impl ::core::marker::Copy for DESKTOP_ACCESS_FLAGS {}
-impl ::core::clone::Clone for DESKTOP_ACCESS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DESKTOP_ACCESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DESKTOP_ACCESS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DESKTOP_ACCESS_FLAGS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -15705,42 +15624,6 @@ impl ::core::cmp::PartialEq for SCRUB_PARITY_EXTENT_DATA {
 }
 impl ::core::cmp::Eq for SCRUB_PARITY_EXTENT_DATA {}
 impl ::core::default::Default for SCRUB_PARITY_EXTENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub struct SECURITY_DESCRIPTOR_RELATIVE {
-    pub Revision: u8,
-    pub Sbz1: u8,
-    pub Control: u16,
-    pub Owner: u32,
-    pub Group: u32,
-    pub Sacl: u32,
-    pub Dacl: u32,
-}
-impl ::core::marker::Copy for SECURITY_DESCRIPTOR_RELATIVE {}
-impl ::core::clone::Clone for SECURITY_DESCRIPTOR_RELATIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SECURITY_DESCRIPTOR_RELATIVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SECURITY_DESCRIPTOR_RELATIVE").field("Revision", &self.Revision).field("Sbz1", &self.Sbz1).field("Control", &self.Control).field("Owner", &self.Owner).field("Group", &self.Group).field("Sacl", &self.Sacl).field("Dacl", &self.Dacl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SECURITY_DESCRIPTOR_RELATIVE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SECURITY_DESCRIPTOR_RELATIVE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.Sbz1 == other.Sbz1 && self.Control == other.Control && self.Owner == other.Owner && self.Group == other.Group && self.Sacl == other.Sacl && self.Dacl == other.Dacl
-    }
-}
-impl ::core::cmp::Eq for SECURITY_DESCRIPTOR_RELATIVE {}
-impl ::core::default::Default for SECURITY_DESCRIPTOR_RELATIVE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

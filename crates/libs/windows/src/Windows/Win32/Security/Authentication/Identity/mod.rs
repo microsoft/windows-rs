@@ -1443,6 +1443,16 @@ pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentia
     ::windows::core::link ! ( "secur32.dll""system" fn SaslSetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *const ::core::ffi::c_void , size : u32 ) -> :: windows::core::HRESULT );
     SaslSetContextOption(::core::mem::transmute(contexthandle), option, ::core::mem::transmute(value), size).ok()
 }
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SendSAS<'a, P0>(asuser: P0)
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
+    ::windows::core::link ! ( "sas.dll""system" fn SendSAS ( asuser : super::super::super::Foundation:: BOOL ) -> ( ) );
+    SendSAS(asuser.into())
+}
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
