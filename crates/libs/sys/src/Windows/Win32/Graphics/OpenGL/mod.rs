@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"] fn ChoosePixelFormat ( hdc : super::Gdi:: HDC , ppfd : *const PIXELFORMATDESCRIPTOR ) -> i32 );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"] fn DescribePixelFormat ( hdc : super::Gdi:: HDC , ipixelformat : PFD_PIXEL_TYPE , nbytes : u32 , ppfd : *mut PIXELFORMATDESCRIPTOR ) -> i32 );
+::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"] fn DescribePixelFormat ( hdc : super::Gdi:: HDC , ipixelformat : i32 , nbytes : u32 , ppfd : *mut PIXELFORMATDESCRIPTOR ) -> i32 );
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_sys::core::link ! ( "gdi32.dll""system" #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"] fn GetEnhMetaFilePixelFormat ( hemf : super::Gdi:: HENHMETAFILE , cbbuffer : u32 , ppfd : *mut PIXELFORMATDESCRIPTOR ) -> u32 );
 #[cfg(feature = "Win32_Graphics_Gdi")]

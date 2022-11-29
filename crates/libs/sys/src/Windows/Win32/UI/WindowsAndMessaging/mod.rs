@@ -3368,6 +3368,10 @@ pub const WVR_VALIDRECTS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WVR_VREDRAW: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const XBUTTON1: u16 = 1u16;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const XBUTTON2: u16 = 2u16;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;
@@ -3903,12 +3907,6 @@ pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = 1i32;
 pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = 2i32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = 3i32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub type MOUSEHOOKSTRUCTEX_MOUSE_DATA = u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub type MSGFLTINFO_STATUS = u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -6023,7 +6021,7 @@ impl ::core::clone::Clone for MOUSEHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOUSEHOOKSTRUCTEX {
     pub Base: MOUSEHOOKSTRUCT,
-    pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
+    pub mouseData: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX {}
@@ -6103,7 +6101,7 @@ impl ::core::clone::Clone for MSGBOXPARAMSW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSLLHOOKSTRUCT {
     pub pt: super::super::Foundation::POINT,
-    pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
+    pub mouseData: u32,
     pub flags: u32,
     pub time: u32,
     pub dwExtraInfo: usize,
