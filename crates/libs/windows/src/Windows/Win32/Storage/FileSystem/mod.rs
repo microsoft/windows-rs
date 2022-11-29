@@ -1571,11 +1571,11 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileType<'a, P0>(hfile: P0) -> u32
+pub unsafe fn GetFileType<'a, P0>(hfile: P0) -> FILE_TYPE
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileType ( hfile : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll""system" fn GetFileType ( hfile : super::super::Foundation:: HANDLE ) -> FILE_TYPE );
     GetFileType(hfile.into())
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -5278,6 +5278,41 @@ impl ::core::fmt::Debug for CLS_LOG_INFORMATION_CLASS {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMPRESSION_FORMAT(pub u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_NONE: COMPRESSION_FORMAT = COMPRESSION_FORMAT(0u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_DEFAULT: COMPRESSION_FORMAT = COMPRESSION_FORMAT(1u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_LZNT1: COMPRESSION_FORMAT = COMPRESSION_FORMAT(2u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XPRESS: COMPRESSION_FORMAT = COMPRESSION_FORMAT(3u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XPRESS_HUFF: COMPRESSION_FORMAT = COMPRESSION_FORMAT(4u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XP10: COMPRESSION_FORMAT = COMPRESSION_FORMAT(5u16);
+impl ::core::marker::Copy for COMPRESSION_FORMAT {}
+impl ::core::clone::Clone for COMPRESSION_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMPRESSION_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESSION_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPRESSION_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPRESSION_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_COPY_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
@@ -6193,6 +6228,39 @@ impl ::core::ops::Not for FILE_SHARE_MODE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILE_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_UNKNOWN: FILE_TYPE = FILE_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_DISK: FILE_TYPE = FILE_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_CHAR: FILE_TYPE = FILE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_PIPE: FILE_TYPE = FILE_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_REMOTE: FILE_TYPE = FILE_TYPE(32768u32);
+impl ::core::marker::Copy for FILE_TYPE {}
+impl ::core::clone::Clone for FILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILE_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -11648,7 +11716,7 @@ impl ::core::default::Default for FILE_BASIC_INFO {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
-    pub CompressionFormat: u16,
+    pub CompressionFormat: COMPRESSION_FORMAT,
     pub CompressionUnitShift: u8,
     pub ChunkShift: u8,
     pub ClusterShift: u8,

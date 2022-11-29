@@ -6627,6 +6627,10 @@ pub const WVR_VALIDRECTS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const WVR_VREDRAW: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const XBUTTON1: u16 = 1u16;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub const XBUTTON2: u16 = 2u16;
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_BANNED_API_USAGE: u32 = 28719u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const __WARNING_CYCLOMATIC_COMPLEXITY: u32 = 28734u32;
@@ -8294,61 +8298,6 @@ unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS_ARRANGE {
 impl ::core::fmt::Debug for MINIMIZEDMETRICS_ARRANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MINIMIZEDMETRICS_ARRANGE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(pub u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(1u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(2u32);
-impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX_MOUSE_DATA {}
-impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MOUSEHOOKSTRUCTEX_MOUSE_DATA").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -12776,7 +12725,7 @@ impl ::core::default::Default for MOUSEHOOKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOUSEHOOKSTRUCTEX {
     pub Base: MOUSEHOOKSTRUCT,
-    pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
+    pub mouseData: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX {}
@@ -12936,7 +12885,7 @@ impl ::core::default::Default for MSGBOXPARAMSW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSLLHOOKSTRUCT {
     pub pt: super::super::Foundation::POINT,
-    pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
+    pub mouseData: u32,
     pub flags: u32,
     pub time: u32,
     pub dwExtraInfo: usize,

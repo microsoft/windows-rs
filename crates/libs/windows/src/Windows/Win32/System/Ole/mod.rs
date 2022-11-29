@@ -472,12 +472,14 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn OleCreatePictureIndirect<'a, P0>(lppictdesc: *const PICTDESC, riid: *const ::windows::core::GUID, fown: P0, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn OleCreatePictureIndirect<'a, P0, T>(lppictdesc: *const PICTDESC, fown: P0) -> ::windows::core::Result<T>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "oleaut32.dll""system" fn OleCreatePictureIndirect ( lppictdesc : *const PICTDESC , riid : *const :: windows::core::GUID , fown : super::super::Foundation:: BOOL , lplpvobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    OleCreatePictureIndirect(::core::mem::transmute(lppictdesc), ::core::mem::transmute(riid), fown.into(), ::core::mem::transmute(lplpvobj)).ok()
+    let mut result__ = ::core::option::Option::None;
+    OleCreatePictureIndirect(::core::mem::transmute(lppictdesc), &<T as ::windows::core::Interface>::IID, fown.into(), &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
