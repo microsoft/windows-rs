@@ -13452,8 +13452,7 @@ impl ::core::fmt::Debug for VARIANT_BOOL {
 impl VARIANT_BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
-        debug_assert!(self == VARIANT_TRUE || self == VARIANT_FALSE, "{:?} is in an invalid state", self);
-        self == VARIANT_TRUE
+        self.0 != 0
     }
     #[inline]
     pub fn ok(self) -> ::windows::core::Result<()> {
