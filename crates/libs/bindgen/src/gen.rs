@@ -276,16 +276,13 @@ impl<'a> Gen<'a> {
             quote!()
         }
     }
-    pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
+    fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
         let mut tokens = TokenStream::new();
         let gen_name = |position| {
             let name: TokenStream = format!("P{position}").into();
             name
         };
         for (position, param) in self.generic_params(params) {
-            if !self.reader.signature_param_input_value(param) {
-                continue;
-            }
             if self.reader.signature_param_is_failible_param(param) {
                 let name: TokenStream = gen_name(position);
                 let error_name: TokenStream = format!("E{position}").into();
@@ -896,27 +893,24 @@ impl<'a> Gen<'a> {
                             }
                         }
                         _ => {
-                            if self.reader.signature_param_input_value(param) {
-                                if self.reader.signature_param_is_borrowed(param) {
-                                    quote! { #name.into().abi(), }
-                                } else if self.reader.signature_param_is_trivially_convertible(param) {
-                                    quote! { #name.into(), }
-                                } else if self.reader.type_is_primitive(&param.ty) {
-                                    quote! { #name, }
-                                } else if self.reader.type_is_blittable(&param.ty) {
-                                    quote! { ::core::mem::transmute(#name), }
-                                } else {
-                                    quote! { ::core::mem::transmute_copy(#name), }
-                                }
-                            } else if param.ty.is_pointer() && (self.reader.param_flags(param.def).optional() || self.reader.param_is_reserved(param.def)) {
+                            let optional = self.reader.param_flags(param.def).optional() || self.reader.param_is_reserved(param.def);
+                            if param.ty.is_pointer() && optional {
                                 let flags = self.reader.param_flags(param.def);
                                 if flags.output() {
                                     quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
                                 } else {
                                     quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
                                 }
-                            } else {
+                            } else if self.reader.signature_param_is_borrowed(param) {
+                                quote! { #name.into().abi(), }
+                            } else if self.reader.signature_param_is_trivially_convertible(param) {
+                                quote! { #name.into(), }
+                            } else if self.reader.type_is_primitive(&param.ty) && !param.ty.is_pointer() {
+                                quote! { #name, }
+                            } else if self.reader.type_is_blittable(&param.ty) {
                                 quote! { ::core::mem::transmute(#name), }
+                            } else {
+                                quote! { ::core::mem::transmute_copy(#name), }
                             }
                         }
                     }
