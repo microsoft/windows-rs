@@ -23,4 +23,6 @@ jobs:
         run: cargo run -p tool_${{ matrix.tool }}
       - name: Check
         shell: bash
-        run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool_${{ matrix.tool }}`'; exit 1)
+        run: |
+          git add -N .
+          git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool_${{ matrix.tool }}`'; exit 1)
