@@ -108,34 +108,6 @@ jobs:
     }
 
     yml.truncate(yml.len() - 3);
-
-    yml.push_str(
-        r#"
-
-      - name: Check import libs
-        shell: pwsh
-        run: |
-          $VisualStudioRoot = & vswhere -latest -property installationPath -format value
-          $DumpbinPath = Resolve-Path "$VisualStudioRoot\VC\Tools\MSVC\*\bin\*\x86\dumpbin.exe" |
-            Select -ExpandProperty Path -First 1
-          $Tests = @(
-            [Tuple]::Create("aarch64_msvc","AA64"),
-            [Tuple]::Create("x86_64_msvc","8664"),
-            [Tuple]::Create("i686_msvc","14C")
-          )
-          foreach($Test in $Tests) {
-            $Target = $Test.Item1
-            $Magic = $Test.Item2
-            $Output = [string](& $DumpbinPath /headers crates/targets/$Target/lib/windows.lib)
-            if($Output -match "Machine\s*: $Magic" -ne $True) {
-              Write-Error "Import lib check failed for $Target ($Magic)."
-              Exit 1
-            }
-          }
-        if: matrix.version == 'stable' && matrix.target == 'x86_64-pc-windows-msvc'
-"#,
-    );
-
     std::fs::write(".github/workflows/test.yml", yml.as_bytes()).unwrap();
 }
 

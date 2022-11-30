@@ -21,8 +21,28 @@ jobs:
         run: |
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
           cargo run -p tool_msvc
-      - name: Check
+      - name: Check baseline
         shell: bash
         run: |
           git add -N .
           git diff --exit-code crates/targets/baseline || (echo '::error::Generated target libs are out-of-date.'; exit 1)
+      - name: Check dumpbin
+        shell: pwsh
+        run: |
+          $VisualStudioRoot = & vswhere -latest -property installationPath -format value
+          $DumpbinPath = Resolve-Path "$VisualStudioRoot\VC\Tools\MSVC\*\bin\*\x86\dumpbin.exe" |
+            Select -ExpandProperty Path -First 1
+          $Tests = @(
+            [Tuple]::Create("aarch64_msvc","AA64"),
+            [Tuple]::Create("x86_64_msvc","8664"),
+            [Tuple]::Create("i686_msvc","14C")
+          )
+          foreach($Test in $Tests) {
+            $Target = $Test.Item1
+            $Magic = $Test.Item2
+            $Output = [string](& $DumpbinPath /headers crates/targets/$Target/lib/windows.lib)
+            if($Output -match "Machine\s*: $Magic" -ne $True) {
+              Write-Error "Import lib check failed for $Target ($Magic)."
+              Exit 1
+            }
+          }
