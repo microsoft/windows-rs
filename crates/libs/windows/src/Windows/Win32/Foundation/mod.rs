@@ -13438,12 +13438,15 @@ impl ::core::clone::Clone for VARIANT_BOOL {
 }
 impl ::core::default::Default for VARIANT_BOOL {
     fn default() -> Self {
-        VARIANT_FALSE
+        Self(0)
     }
 }
-impl ::core::convert::From<::core::option::Option<VARIANT_BOOL>> for VARIANT_BOOL {
-    fn from(optional: ::core::option::Option<VARIANT_BOOL>) -> VARIANT_BOOL {
-        optional.unwrap_or_default()
+unsafe impl ::windows::core::Abi for VARIANT_BOOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VARIANT_BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
     }
 }
 impl VARIANT_BOOL {
@@ -13469,14 +13472,6 @@ impl VARIANT_BOOL {
     #[track_caller]
     pub fn expect(self, msg: &str) {
         self.ok().expect(msg);
-    }
-}
-unsafe impl ::windows::core::Abi for VARIANT_BOOL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VARIANT_BOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
     }
 }
 impl ::core::convert::From<VARIANT_BOOL> for bool {
