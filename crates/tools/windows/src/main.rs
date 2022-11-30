@@ -85,9 +85,6 @@ interface = ["windows-interface"]
             file.write_all(format!("{feature} = []\n").as_bytes()).unwrap();
         }
     }
-
-    std::fs::copy("license-mit", "crates/libs/windows/license-mit").unwrap();
-    std::fs::copy("license-apache-2.0", "crates/libs/windows/license-apache-2.0").unwrap();
 }
 
 fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree, rustfmt: bool) {

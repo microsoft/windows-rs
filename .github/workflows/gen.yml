@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        tool: [windows, sys, yml]
+        tool: [windows, sys, yml, license]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
