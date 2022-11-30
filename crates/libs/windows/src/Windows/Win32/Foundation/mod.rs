@@ -13473,11 +13473,6 @@ impl VARIANT_BOOL {
         self.ok().expect(msg);
     }
 }
-impl ::core::convert::From<::core::option::Option<VARIANT_BOOL>> for VARIANT_BOOL {
-    fn from(optional: ::core::option::Option<Self>) -> Self {
-        optional.unwrap_or_default()
-    }
-}
 impl ::core::convert::From<VARIANT_BOOL> for bool {
     fn from(value: VARIANT_BOOL) -> Self {
         value.as_bool()
