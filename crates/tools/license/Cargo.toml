@@ -1,0 +1,5 @@
+[package]
+name = "tool_license"
+version = "0.0.0"
+edition = "2018"
+publish = false
