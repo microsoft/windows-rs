@@ -2194,7 +2194,7 @@ pub struct ICameraUIControl_Vtbl {
     Suspend: usize,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentViewType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtype: *mut CameraUIControlViewType) -> ::windows::core::HRESULT,
-    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSelectedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppselecteditempaths: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2295,7 +2295,7 @@ unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
 #[doc(hidden)]
 pub struct IClipServiceNotificationHelper_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bodytext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, packagename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, appid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, launchcommand: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: *mut ::core::ffi::c_void, bodytext: *mut ::core::ffi::c_void, packagename: *mut ::core::ffi::c_void, appid: *mut ::core::ffi::c_void, launchcommand: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
@@ -2472,7 +2472,7 @@ pub struct IEditionUpgradeBroker_Vtbl {
     pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: super::Ole::OLE_HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     InitializeParentWindow: usize,
-    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

@@ -49,7 +49,7 @@ impl IRendezvousSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoteUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoteUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RemoteUser() {
@@ -71,12 +71,12 @@ impl IRendezvousSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendContextData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendContextData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SendContextData(::core::mem::transmute(&bstrdata)).into()
         }
-        unsafe extern "system" fn Terminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, bstrappdata: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Terminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, bstrappdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Terminate(::core::mem::transmute_copy(&hr), ::core::mem::transmute(&bstrappdata)).into()

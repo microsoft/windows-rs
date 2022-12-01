@@ -1031,15 +1031,15 @@ pub struct IWdsTransportClient_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Session: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MacAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszmacaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszipaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MacAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszmacaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszipaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PercentCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpercentcompletion: *mut u32) -> ::windows::core::HRESULT,
     pub JoinDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puljoinduration: *mut u32) -> ::windows::core::HRESULT,
     pub CpuUtilization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcpuutilization: *mut u32) -> ::windows::core::HRESULT,
     pub MemoryUtilization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulmemoryutilization: *mut u32) -> ::windows::core::HRESULT,
     pub NetworkUtilization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulnetworkutilization: *mut u32) -> ::windows::core::HRESULT,
-    pub UserIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszuseridentity: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub UserIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszuseridentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
@@ -1361,7 +1361,7 @@ pub struct IWdsTransportContent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Namespace: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub RetrieveSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportsessions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1426,10 +1426,10 @@ unsafe impl ::windows::core::Interface for IWdsTransportContentProvider {
 #[doc(hidden)]
 pub struct IWdsTransportContentProvider_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszfilepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub InitializationRoutine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszinitializationroutine: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszfilepath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InitializationRoutine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszinitializationroutine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1566,7 +1566,7 @@ unsafe impl ::windows::core::Interface for IWdsTransportManager {
 pub struct IWdsTransportManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWdsTransportServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppwdstransportserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetWdsTransportServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszservername: *mut ::core::ffi::c_void, ppwdstransportserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWdsTransportServer: usize,
 }
@@ -1806,16 +1806,16 @@ pub struct IWdsTransportNamespace_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut WDSTRANSPORT_NAMESPACE_TYPE) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszfriendlyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszfriendlyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszdescription: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszcontentprovider: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszcontentprovider: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszconfiguration: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszconfiguration: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszfriendlyname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszfriendlyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszdescription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszcontentprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszcontentprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszconfiguration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszconfiguration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Registered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbregistered: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2036,15 +2036,15 @@ unsafe impl ::windows::core::Interface for IWdsTransportNamespaceManager {
 pub struct IWdsTransportNamespaceManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszcontentprovider: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszconfiguration: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppwdstransportnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: *mut ::core::ffi::c_void, bszcontentprovider: *mut ::core::ffi::c_void, bszconfiguration: *mut ::core::ffi::c_void, ppwdstransportnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateNamespace: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub RetrieveNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bsznamespacename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppwdstransportnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RetrieveNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bsznamespacename: *mut ::core::ffi::c_void, ppwdstransportnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RetrieveNamespace: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub RetrieveNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszcontentprovider: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bsznamespacename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bincludetombstones: super::super::Foundation::VARIANT_BOOL, ppwdstransportnamespaces: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RetrieveNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszcontentprovider: *mut ::core::ffi::c_void, bsznamespacename: *mut ::core::ffi::c_void, bincludetombstones: super::super::Foundation::VARIANT_BOOL, ppwdstransportnamespaces: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     RetrieveNamespaces: usize,
 }
@@ -2536,7 +2536,7 @@ unsafe impl ::windows::core::Interface for IWdsTransportServer {
 #[doc(hidden)]
 pub struct IWdsTransportServer_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub SetupManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwdstransportsetupmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2730,10 +2730,10 @@ pub struct IWdsTransportServicePolicy_Vtbl {
     pub base__: IWdsTransportCacheable_Vtbl,
     pub get_IpAddressSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, psourcetype: *mut WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::HRESULT,
     pub put_IpAddressSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::HRESULT,
-    pub get_StartIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszstartipaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub put_StartIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_EndIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszendipaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub put_EndIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_StartIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszstartipaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub put_StartIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_EndIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszendipaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub put_EndIpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulstartport: *mut u32) -> ::windows::core::HRESULT,
     pub SetStartPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstartport: u32) -> ::windows::core::HRESULT,
     pub EndPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulendport: *mut u32) -> ::windows::core::HRESULT,
@@ -2960,8 +2960,8 @@ pub struct IWdsTransportSession_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Content: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
-    pub NetworkInterfaceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsznetworkinterfacename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub NetworkInterfaceAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsznetworkinterfaceaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub NetworkInterfaceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsznetworkinterfacename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NetworkInterfaceAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsznetworkinterfaceaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TransferRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pultransferrate: *mut u32) -> ::windows::core::HRESULT,
     pub MasterClientId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulmasterclientid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3033,8 +3033,8 @@ pub struct IWdsTransportSetupManager_Vtbl {
     pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pullversion: *mut u64) -> ::windows::core::HRESULT,
     pub InstalledFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulinstalledfeatures: *mut u32) -> ::windows::core::HRESULT,
     pub Protocols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulprotocols: *mut u32) -> ::windows::core::HRESULT,
-    pub RegisterContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszdescription: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszfilepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszinitializationroutine: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DeregisterContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RegisterContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: *mut ::core::ffi::c_void, bszdescription: *mut ::core::ffi::c_void, bszfilepath: *mut ::core::ffi::c_void, bszinitializationroutine: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeregisterContentProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3182,8 +3182,8 @@ unsafe impl ::windows::core::Interface for IWdsTransportTftpClient {
 #[doc(hidden)]
 pub struct IWdsTransportTftpClient_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszfilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszipaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszfilename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IpAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbszipaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Timeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pultimeout: *mut u32) -> ::windows::core::HRESULT,
     pub CurrentFileOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pul64currentoffset: *mut u64) -> ::windows::core::HRESULT,
     pub FileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pul64filesize: *mut u64) -> ::windows::core::HRESULT,

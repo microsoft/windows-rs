@@ -123,7 +123,7 @@ unsafe impl ::windows::core::Interface for Column {
 #[doc(hidden)]
 pub struct Column_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: *mut i32) -> ::windows::core::HRESULT,
     pub SetWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: i32) -> ::windows::core::HRESULT,
     pub DisplayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayposition: *mut i32) -> ::windows::core::HRESULT,
@@ -394,7 +394,7 @@ unsafe impl ::windows::core::Interface for Document {
 pub struct Document_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SaveAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SaveAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, savechanges: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -412,7 +412,7 @@ pub struct Document_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ActiveView: usize,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Location: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSaved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issaved: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -2778,7 +2778,7 @@ unsafe impl ::windows::core::Interface for INodeProperties {
 pub struct INodeProperties_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, szpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, szpropertyname: *mut ::core::ffi::c_void, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetProperty: usize,
 }
@@ -3937,7 +3937,7 @@ unsafe impl ::windows::core::Interface for Node {
 pub struct Node_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT,
     pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bookmark: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsScopeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isscopenode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -4069,11 +4069,11 @@ pub struct Properties_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, property: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, property: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4425,7 +4425,7 @@ pub struct SnapIns_Vtbl {
     Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapinnameorclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, parentsnapin: ::core::mem::ManuallyDrop<super::Com::VARIANT>, properties: ::core::mem::ManuallyDrop<super::Com::VARIANT>, snapin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapinnameorclsid: *mut ::core::ffi::c_void, parentsnapin: ::core::mem::ManuallyDrop<super::Com::VARIANT>, properties: ::core::mem::ManuallyDrop<super::Com::VARIANT>, snapin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Add: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -4774,10 +4774,10 @@ pub struct View_Vtbl {
     DeleteScopeNode: usize,
     pub DeleteSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RenameScopeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub RenameScopeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newname: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RenameScopeNode: usize,
-    pub RenameSelectedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RenameSelectedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub get_ScopeNodeContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>, contextmenu: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -4791,12 +4791,12 @@ pub struct View_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RefreshScopeNode: usize,
     pub RefreshSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ExecuteSelectionMenuItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ExecuteSelectionMenuItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, menuitempath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ExecuteScopeNodeMenuItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, menuitempath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub ExecuteScopeNodeMenuItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, menuitempath: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ExecuteScopeNodeMenuItem: usize,
-    pub ExecuteShellCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: ::core::mem::ManuallyDrop<::windows::core::BSTR>, directory: ::core::mem::ManuallyDrop<::windows::core::BSTR>, parameters: ::core::mem::ManuallyDrop<::windows::core::BSTR>, windowstate: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ExecuteShellCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void, directory: *mut ::core::ffi::c_void, parameters: *mut ::core::ffi::c_void, windowstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frame: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4812,9 +4812,9 @@ pub struct View_Vtbl {
     SetScopeTreeVisible: usize,
     pub Back: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Forward: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetStatusBarText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statusbartext: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetStatusBarText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statusbartext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Memento: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memento: *mut *mut u16) -> ::windows::core::HRESULT,
-    pub ViewMemento: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memento: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ViewMemento: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memento: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Columns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columns: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4823,7 +4823,7 @@ pub struct View_Vtbl {
     pub get_CellContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: *mut ::core::ffi::c_void, column: i32, cellcontents: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_CellContents: usize,
-    pub ExportList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::core::mem::ManuallyDrop<::windows::core::BSTR>, exportoptions: _ExportListOptions) -> ::windows::core::HRESULT,
+    pub ExportList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, exportoptions: _ExportListOptions) -> ::windows::core::HRESULT,
     pub ListViewMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut _ListViewMode) -> ::windows::core::HRESULT,
     pub SetListViewMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: _ListViewMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -5193,7 +5193,7 @@ pub struct _Application_Vtbl {
     pub Document: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Document: usize,
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frame: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]

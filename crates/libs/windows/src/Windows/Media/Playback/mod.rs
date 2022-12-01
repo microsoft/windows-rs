@@ -1756,7 +1756,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerEffects {
 pub struct IMediaPlayerEffects_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub AddAudioEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, configuration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddAudioEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: *mut ::core::ffi::c_void, effectoptional: bool, configuration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AddAudioEffect: usize,
     pub RemoveAllEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1775,7 +1775,7 @@ unsafe impl ::windows::core::Interface for IMediaPlayerEffects2 {
 pub struct IMediaPlayerEffects2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub AddVideoEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, effectoptional: bool, effectconfiguration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddVideoEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: *mut ::core::ffi::c_void, effectoptional: bool, effectconfiguration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AddVideoEffect: usize,
 }
@@ -1794,7 +1794,7 @@ pub struct IMediaPlayerFailedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlayerError) -> ::windows::core::HRESULT,
     pub ExtendedErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    pub ErrorMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ErrorMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1901,8 +1901,8 @@ pub struct IPlaybackMediaMarker_Vtbl {
     pub Time: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Time: usize,
-    pub MediaMarkerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub MediaMarkerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1922,7 +1922,7 @@ pub struct IPlaybackMediaMarkerFactory_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     CreateFromTime: usize,
     #[cfg(feature = "Foundation")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan, mediamarkettype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan, mediamarkettype: *mut ::core::ffi::c_void, text: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Create: usize,
 }

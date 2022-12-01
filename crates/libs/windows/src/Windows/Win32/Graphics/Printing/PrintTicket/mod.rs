@@ -27,7 +27,7 @@ where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "prntvpt.dll""system" fn PTConvertPrintTicketToDevMode ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , basedevmodetype : EDefaultDevmodeType , scope : EPrintTicketScope , pcbdevmode : *mut u32 , ppdevmode : *mut *mut super::super::Gdi:: DEVMODEA , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "prntvpt.dll""system" fn PTConvertPrintTicketToDevMode ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , basedevmodetype : EDefaultDevmodeType , scope : EPrintTicketScope , pcbdevmode : *mut u32 , ppdevmode : *mut *mut super::super::Gdi:: DEVMODEA , pbstrerrormessage : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     PTConvertPrintTicketToDevMode(hprovider.into(), pprintticket.into().abi(), basedevmodetype, scope, ::core::mem::transmute(pcbdevmode), ::core::mem::transmute(ppdevmode), ::core::mem::transmute(pbstrerrormessage.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
@@ -39,7 +39,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintCapabilities ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , pcapabilities : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintCapabilities ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , pcapabilities : * mut::core::ffi::c_void , pbstrerrormessage : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PTGetPrintCapabilities(hprovider.into(), pprintticket.into().abi(), pcapabilities.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
@@ -52,7 +52,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintDeviceCapabilities ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , pdevicecapabilities : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintDeviceCapabilities ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pprintticket : * mut::core::ffi::c_void , pdevicecapabilities : * mut::core::ffi::c_void , pbstrerrormessage : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PTGetPrintDeviceCapabilities(hprovider.into(), pprintticket.into().abi(), pdevicecapabilities.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
@@ -66,7 +66,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintDeviceResources ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pszlocalename : :: windows::core::PCWSTR , pprintticket : * mut::core::ffi::c_void , pdeviceresources : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "prntvpt.dll""system" fn PTGetPrintDeviceResources ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pszlocalename : :: windows::core::PCWSTR , pprintticket : * mut::core::ffi::c_void , pdeviceresources : * mut::core::ffi::c_void , pbstrerrormessage : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PTGetPrintDeviceResources(hprovider.into(), pszlocalename.into(), pprintticket.into().abi(), pdeviceresources.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
@@ -80,7 +80,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
 {
-    ::windows::core::link ! ( "prntvpt.dll""system" fn PTMergeAndValidatePrintTicket ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pbaseticket : * mut::core::ffi::c_void , pdeltaticket : * mut::core::ffi::c_void , scope : EPrintTicketScope , presultticket : * mut::core::ffi::c_void , pbstrerrormessage : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "prntvpt.dll""system" fn PTMergeAndValidatePrintTicket ( hprovider : super::super::super::Storage::Xps:: HPTPROVIDER , pbaseticket : * mut::core::ffi::c_void , pdeltaticket : * mut::core::ffi::c_void , scope : EPrintTicketScope , presultticket : * mut::core::ffi::c_void , pbstrerrormessage : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PTMergeAndValidatePrintTicket(hprovider.into(), pbaseticket.into().abi(), pdeltaticket.into().abi(), scope, presultticket.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }

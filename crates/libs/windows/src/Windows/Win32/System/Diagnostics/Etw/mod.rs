@@ -855,13 +855,13 @@ unsafe impl ::windows::core::Interface for ITraceRelogger {
 #[doc(hidden)]
 pub struct ITraceRelogger_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddLogfileTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
-    pub AddRealtimeTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loggername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
+    pub AddLogfileTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
+    pub AddRealtimeTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loggername: *mut ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows::core::HRESULT,
     pub RegisterCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Inject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateEventInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetOutputFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetOutputFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetCompressionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

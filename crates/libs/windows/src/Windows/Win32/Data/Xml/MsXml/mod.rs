@@ -83,23 +83,23 @@ unsafe impl ::windows::core::Interface for IMXAttributes {
 #[doc(hidden)]
 pub struct IMXAttributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub addAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocalname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strqname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub addAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: *mut ::core::ffi::c_void, strlocalname: *mut ::core::ffi::c_void, strqname: *mut ::core::ffi::c_void, strtype: *mut ::core::ffi::c_void, strvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub addAttributeFromIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varatts: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, nindex: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     addAttributeFromIndex: usize,
     pub clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32) -> ::windows::core::HRESULT,
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocalname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strqname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut ::core::ffi::c_void, strlocalname: *mut ::core::ffi::c_void, strqname: *mut ::core::ffi::c_void, strtype: *mut ::core::ffi::c_void, strvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub setAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varatts: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setAttributes: usize,
-    pub setLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub setQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strqname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub setType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub setURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub setValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub setLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub setQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strqname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub setType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strtype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub setURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub setValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
@@ -263,7 +263,7 @@ unsafe impl ::windows::core::Interface for IMXNamespacePrefixes {
 #[doc(hidden)]
 pub struct IMXNamespacePrefixes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub get_item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, prefix: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, prefix: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -513,8 +513,8 @@ pub struct IMXWriter_Vtbl {
     pub output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestination: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     output: usize,
-    pub Setencoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoding: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub encoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoding: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Setencoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoding: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub encoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoding: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetbyteOrderMark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fwritebyteordermark: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -547,8 +547,8 @@ pub struct IMXWriter_Vtbl {
     pub omitXMLDeclaration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     omitXMLDeclaration: usize,
-    pub Setversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strversion: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strversion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Setversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strversion: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strversion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetdisableOutputEscaping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -667,19 +667,19 @@ unsafe impl ::windows::core::Interface for IMXXMLFilter {
 pub struct IMXXMLFilter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     getFeature: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     putFeature: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putProperty: usize,
     pub entityResolver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1722,8 +1722,8 @@ unsafe impl ::windows::core::Interface for ISchema {
 #[doc(hidden)]
 pub struct ISchema_Vtbl {
     pub base__: ISchemaItem_Vtbl,
-    pub targetNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetnamespace: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub targetNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub types: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, types: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -1977,8 +1977,8 @@ pub struct ISchemaAttribute_Vtbl {
     pub scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     scope: usize,
-    pub defaultValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub fixedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fixedvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub defaultValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub fixedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fixedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub r#use: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#use: *mut SCHEMAUSE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub isReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
@@ -2458,8 +2458,8 @@ pub struct ISchemaElement_Vtbl {
     pub scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     scope: usize,
-    pub defaultValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub fixedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fixedvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub defaultValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub fixedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fixedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub isNillable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nillable: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2578,7 +2578,7 @@ unsafe impl ::windows::core::Interface for ISchemaIdentityConstraint {
 #[doc(hidden)]
 pub struct ISchemaIdentityConstraint_Vtbl {
     pub base__: ISchemaItem_Vtbl,
-    pub selector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selector: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub selector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub fields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fields: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2667,13 +2667,13 @@ unsafe impl ::windows::core::Interface for ISchemaItem {
 #[doc(hidden)]
 pub struct ISchemaItem_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub namespaceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub namespaceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub schema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, schema: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     schema: usize,
-    pub id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub itemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemtype: *mut SOMITEMTYPE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub unhandledAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2757,11 +2757,11 @@ pub struct ISchemaItemCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub itemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub itemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     itemByName: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub itemByQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub itemByQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     itemByQName: usize,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
@@ -2956,8 +2956,8 @@ unsafe impl ::windows::core::Interface for ISchemaNotation {
 #[doc(hidden)]
 pub struct ISchemaNotation_Vtbl {
     pub base__: ISchemaItem_Vtbl,
-    pub systemIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub publicIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub systemIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub publicIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3113,7 +3113,7 @@ unsafe impl ::windows::core::Interface for ISchemaStringCollection {
 #[doc(hidden)]
 pub struct ISchemaStringCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub get_item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, bstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, bstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3290,13 +3290,13 @@ pub struct ISchemaType_Vtbl {
     pub variety: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variety: *mut SCHEMATYPEVARIETY) -> ::windows::core::HRESULT,
     pub derivedBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, derivedby: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub isValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>, valid: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub isValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, valid: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     isValid: usize,
-    pub minExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minexclusive: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub minInclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mininclusive: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub maxExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxexclusive: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub maxInclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxinclusive: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub minExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minexclusive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub minInclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mininclusive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub maxExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxexclusive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub maxInclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxinclusive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub totalDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, totaldigits: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3641,7 +3641,7 @@ pub struct IServerXMLHTTPRequest2_Vtbl {
     pub setProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, varbypasslist: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setProxy: usize,
-    pub setProxyCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub setProxyCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3758,21 +3758,21 @@ pub struct IVBMXNamespaceManager_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     pushNodeContext: usize,
     pub popContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub declarePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub declarePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub getDeclaredPrefixes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefixes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getDeclaredPrefixes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub getPrefixes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, prefixes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getPrefixes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, prefixes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getPrefixes: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: ::core::mem::ManuallyDrop<::windows::core::BSTR>, uri: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getURI: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getURIFromNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: ::core::mem::ManuallyDrop<::windows::core::BSTR>, contextnode: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getURIFromNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: *mut ::core::ffi::c_void, contextnode: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getURIFromNode: usize,
 }
@@ -3867,17 +3867,17 @@ unsafe impl ::windows::core::Interface for IVBSAXAttributes {
 pub struct IVBSAXAttributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nlength: *mut i32) -> ::windows::core::HRESULT,
-    pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strqname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getIndexFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocalname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, nindex: *mut i32) -> ::windows::core::HRESULT,
-    pub getIndexFromQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, nindex: *mut i32) -> ::windows::core::HRESULT,
-    pub getType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getTypeFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocalname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getTypeFromQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getValueFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocalname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getValueFromQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strqname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getIndexFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: *mut ::core::ffi::c_void, strlocalname: *mut ::core::ffi::c_void, nindex: *mut i32) -> ::windows::core::HRESULT,
+    pub getIndexFromQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strqname: *mut ::core::ffi::c_void, nindex: *mut i32) -> ::windows::core::HRESULT,
+    pub getType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strtype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getTypeFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: *mut ::core::ffi::c_void, strlocalname: *mut ::core::ffi::c_void, strtype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getTypeFromQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strqname: *mut ::core::ffi::c_void, strtype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getValueFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: *mut ::core::ffi::c_void, strlocalname: *mut ::core::ffi::c_void, strvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getValueFromQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strqname: *mut ::core::ffi::c_void, strvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3970,17 +3970,17 @@ pub struct IVBSAXContentHandler_Vtbl {
     putref_documentLocator: usize,
     pub startDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub endDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub startPrefixMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, struri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub endPrefixMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub startPrefixMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: *mut *mut ::core::ffi::c_void, struri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub endPrefixMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub startElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocalname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strqname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, oattributes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub startElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut *mut ::core::ffi::c_void, strlocalname: *mut *mut ::core::ffi::c_void, strqname: *mut *mut ::core::ffi::c_void, oattributes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     startElement: usize,
-    pub endElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strlocalname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strqname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub characters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strchars: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ignorableWhitespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strchars: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub processingInstruction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtarget: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strdata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub skippedEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub endElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnamespaceuri: *mut *mut ::core::ffi::c_void, strlocalname: *mut *mut ::core::ffi::c_void, strqname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub characters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strchars: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ignorableWhitespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strchars: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub processingInstruction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtarget: *mut *mut ::core::ffi::c_void, strdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub skippedEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4030,8 +4030,8 @@ unsafe impl ::windows::core::Interface for IVBSAXDTDHandler {
 #[doc(hidden)]
 pub struct IVBSAXDTDHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub notationDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpublicid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strsystemid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub unparsedEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpublicid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strsystemid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strnotationname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub notationDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unparsedEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void, strnotationname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4087,10 +4087,10 @@ unsafe impl ::windows::core::Interface for IVBSAXDeclHandler {
 #[doc(hidden)]
 pub struct IVBSAXDeclHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub elementDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strmodel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub attributeDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strelementname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strattributename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strvaluedefault: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub internalEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub externalEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpublicid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strsystemid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub elementDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void, strmodel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub attributeDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strelementname: *mut *mut ::core::ffi::c_void, strattributename: *mut *mut ::core::ffi::c_void, strtype: *mut *mut ::core::ffi::c_void, strvaluedefault: *mut *mut ::core::ffi::c_void, strvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub internalEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void, strvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub externalEntityDecl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4140,7 +4140,7 @@ unsafe impl ::windows::core::Interface for IVBSAXEntityResolver {
 pub struct IVBSAXEntityResolver_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strsystemid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, varinput: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void, varinput: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     resolveEntity: usize,
 }
@@ -4211,15 +4211,15 @@ unsafe impl ::windows::core::Interface for IVBSAXErrorHandler {
 pub struct IVBSAXErrorHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: *mut ::core::ffi::c_void, strerrormessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, nerrorcode: i32) -> ::windows::core::HRESULT,
+    pub error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: *mut ::core::ffi::c_void, strerrormessage: *mut *mut ::core::ffi::c_void, nerrorcode: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     error: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub fatalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: *mut ::core::ffi::c_void, strerrormessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, nerrorcode: i32) -> ::windows::core::HRESULT,
+    pub fatalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: *mut ::core::ffi::c_void, strerrormessage: *mut *mut ::core::ffi::c_void, nerrorcode: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     fatalError: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ignorableWarning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: *mut ::core::ffi::c_void, strerrormessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, nerrorcode: i32) -> ::windows::core::HRESULT,
+    pub ignorableWarning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: *mut ::core::ffi::c_void, strerrormessage: *mut *mut ::core::ffi::c_void, nerrorcode: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ignorableWarning: usize,
 }
@@ -4286,13 +4286,13 @@ unsafe impl ::windows::core::Interface for IVBSAXLexicalHandler {
 #[doc(hidden)]
 pub struct IVBSAXLexicalHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub startDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpublicid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, strsystemid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub startDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub endDTD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub startEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub endEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub startEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub endEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub startCDATA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub endCDATA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strchars: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strchars: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4354,8 +4354,8 @@ pub struct IVBSAXLocator_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub columnNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncolumn: *mut i32) -> ::windows::core::HRESULT,
     pub lineNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nline: *mut i32) -> ::windows::core::HRESULT,
-    pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub systemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsystemid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub systemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4571,19 +4571,19 @@ unsafe impl ::windows::core::Interface for IVBSAXXMLReader {
 pub struct IVBSAXXMLReader_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub getFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     getFeature: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     putFeature: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putProperty: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -4618,15 +4618,15 @@ pub struct IVBSAXXMLReader_Vtbl {
     pub putref_errorHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_errorHandler: usize,
-    pub baseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strbaseurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetbaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strbaseurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub secureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsecurebaseurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetsecureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsecurebaseurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub baseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strbaseurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetbaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strbaseurl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub secureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsecurebaseurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetsecureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsecurebaseurl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinput: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     parse: usize,
-    pub parseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub parseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strurl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4678,8 +4678,8 @@ unsafe impl ::windows::core::Interface for IXMLAttribute {
 #[doc(hidden)]
 pub struct IXMLAttribute_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, n: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, n: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4942,7 +4942,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMAttribute {
 #[doc(hidden)]
 pub struct IXMLDOMAttribute_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributevalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5497,14 +5497,14 @@ unsafe impl ::windows::core::Interface for IXMLDOMCharacterData {
 #[doc(hidden)]
 pub struct IXMLDOMCharacterData_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    pub data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Setdata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Setdata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datalength: *mut i32) -> ::windows::core::HRESULT,
-    pub substringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub appendData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub insertData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub substringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub appendData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub insertData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub deleteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, count: i32) -> ::windows::core::HRESULT,
-    pub replaceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub replaceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6233,7 +6233,7 @@ pub struct IXMLDOMDocument_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_documentElement: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, element: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut ::core::ffi::c_void, element: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     createElement: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -6241,39 +6241,39 @@ pub struct IXMLDOMDocument_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     createDocumentFragment: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub createTextNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>, text: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createTextNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, text: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     createTextNode: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub createComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>, comment: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, comment: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     createComment: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub createCDATASection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>, cdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createCDATASection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, cdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     createCDATASection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub createProcessingInstruction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::core::mem::ManuallyDrop<::windows::core::BSTR>, data: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pi: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createProcessingInstruction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, pi: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     createProcessingInstruction: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub createAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, attribute: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, attribute: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     createAttribute: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub createEntityReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, entityref: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createEntityReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, entityref: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     createEntityReference: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub getElementsByTagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, resultlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getElementsByTagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut ::core::ffi::c_void, resultlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getElementsByTagName: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub createNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, node: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub createNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, name: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, node: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     createNode: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub nodeFromID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, node: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub nodeFromID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idstring: *mut ::core::ffi::c_void, node: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     nodeFromID: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6285,7 +6285,7 @@ pub struct IXMLDOMDocument_Vtbl {
     pub parseError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     parseError: usize,
-    pub url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urlstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urlstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub r#async: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isasync: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6296,7 +6296,7 @@ pub struct IXMLDOMDocument_Vtbl {
     Setasync: usize,
     pub abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub loadXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<::windows::core::BSTR>, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub loadXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     loadXML: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6837,11 +6837,11 @@ pub struct IXMLDOMDocument2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     validate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getProperty: usize,
 }
@@ -7858,7 +7858,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMDocumentType {
 #[doc(hidden)]
 pub struct IXMLDOMDocumentType_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rootname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rootname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub entities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entitymap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8165,18 +8165,18 @@ unsafe impl ::windows::core::Interface for IXMLDOMElement {
 #[doc(hidden)]
 pub struct IXMLDOMElement_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getAttribute: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setAttribute: usize,
-    pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub getAttributeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, attributenode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getAttributeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, attributenode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getAttributeNode: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -8188,7 +8188,7 @@ pub struct IXMLDOMElement_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     removeAttributeNode: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub getElementsByTagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, resultlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getElementsByTagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut ::core::ffi::c_void, resultlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getElementsByTagName: usize,
     pub normalize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8459,7 +8459,7 @@ pub struct IXMLDOMEntity_Vtbl {
     pub systemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemid: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     systemId: usize,
-    pub notationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub notationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -8755,7 +8755,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMImplementation {
 pub struct IXMLDOMImplementation_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub hasFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<::windows::core::BSTR>, version: ::core::mem::ManuallyDrop<::windows::core::BSTR>, hasfeature: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub hasFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: *mut ::core::ffi::c_void, version: *mut ::core::ffi::c_void, hasfeature: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     hasFeature: usize,
 }
@@ -8857,7 +8857,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMNamedNodeMap {
 pub struct IXMLDOMNamedNodeMap_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub getNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, nameditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, nameditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getNamedItem: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -8865,7 +8865,7 @@ pub struct IXMLDOMNamedNodeMap_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     setNamedItem: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub removeNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, nameditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub removeNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, nameditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     removeNamedItem: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -8874,11 +8874,11 @@ pub struct IXMLDOMNamedNodeMap_Vtbl {
     get_item: usize,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, listlength: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub getQualifiedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, qualifieditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getQualifiedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, qualifieditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getQualifiedItem: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub removeQualifiedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, qualifieditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub removeQualifiedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, qualifieditem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     removeQualifiedItem: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -9133,7 +9133,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMNode {
 #[doc(hidden)]
 pub struct IXMLDOMNode_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub nodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub nodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub nodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9199,9 +9199,9 @@ pub struct IXMLDOMNode_Vtbl {
     pub cloneNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deep: super::super::super::Foundation::VARIANT_BOOL, cloneroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     cloneNode: usize,
-    pub nodeTypeString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodetype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Settext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub nodeTypeString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodetype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Settext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub specified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isspecified: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9222,27 +9222,27 @@ pub struct IXMLDOMNode_Vtbl {
     pub dataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatypename: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     dataType: usize,
-    pub SetdataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatypename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub xml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetdataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatypename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub xml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub transformNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: *mut ::core::ffi::c_void, xmlstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub transformNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: *mut ::core::ffi::c_void, xmlstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     transformNode: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub selectNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querystring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, resultlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub selectNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querystring: *mut ::core::ffi::c_void, resultlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     selectNodes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub selectSingleNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querystring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, resultnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub selectSingleNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querystring: *mut ::core::ffi::c_void, resultnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     selectSingleNode: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub parsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isparsed: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     parsed: usize,
-    pub namespaceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub prefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefixstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub baseName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namestring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub namespaceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub prefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefixstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub baseName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namestring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub transformNodeToObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: *mut ::core::ffi::c_void, outputobject: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -9652,9 +9652,9 @@ unsafe impl ::windows::core::Interface for IXMLDOMParseError {
 pub struct IXMLDOMParseError_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub errorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorcode: *mut i32) -> ::windows::core::HRESULT,
-    pub url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urlstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reasonstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub srcText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub url: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urlstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reasonstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub srcText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub line: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linenumber: *mut i32) -> ::windows::core::HRESULT,
     pub linepos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineposition: *mut i32) -> ::windows::core::HRESULT,
     pub filepos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileposition: *mut i32) -> ::windows::core::HRESULT,
@@ -9740,12 +9740,12 @@ unsafe impl ::windows::core::Interface for IXMLDOMParseError2 {
 #[doc(hidden)]
 pub struct IXMLDOMParseError2_Vtbl {
     pub base__: IXMLDOMParseError_Vtbl,
-    pub errorXPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpathexpr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub errorXPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpathexpr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub allErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allerrors: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     allErrors: usize,
-    pub errorParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, param1: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub errorParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub errorParametersCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -10079,9 +10079,9 @@ unsafe impl ::windows::core::Interface for IXMLDOMProcessingInstruction {
 #[doc(hidden)]
 pub struct IXMLDOMProcessingInstruction_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    pub target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Setdata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Setdata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -10163,16 +10163,16 @@ unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection {
 pub struct IXMLDOMSchemaCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, var: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     add: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, schemanode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, schemanode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get: usize,
-    pub remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
-    pub get_namespaceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, length: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_namespaceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, length: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub addCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, othercollection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10297,7 +10297,7 @@ pub struct IXMLDOMSchemaCollection2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     validateOnLoad: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub getSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, schema: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, schema: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getSchema: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -10434,8 +10434,8 @@ unsafe impl ::windows::core::Interface for IXMLDOMSelection {
 #[doc(hidden)]
 pub struct IXMLDOMSelection_Vtbl {
     pub base__: IXMLDOMNodeList_Vtbl,
-    pub expr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Setexpr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub expr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Setexpr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10462,11 +10462,11 @@ pub struct IXMLDOMSelection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     clone: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setProperty: usize,
 }
@@ -10948,18 +10948,18 @@ pub struct IXMLDocument_Vtbl {
     pub root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     root: usize,
-    pub fileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub fileModifiedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub fileUpdatedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub mimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub fileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub fileModifiedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub fileUpdatedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub mimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub readyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pl: *mut i32) -> ::windows::core::HRESULT,
-    pub charset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Setcharset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub dtdURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub charset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Setcharset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub dtdURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtype: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -11084,18 +11084,18 @@ pub struct IXMLDocument2_Vtbl {
     pub root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     root: usize,
-    pub fileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub fileModifiedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub fileUpdatedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub mimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub fileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub fileModifiedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub fileUpdatedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub mimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub readyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pl: *mut i32) -> ::windows::core::HRESULT,
-    pub charset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Setcharset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub dtdURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub charset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Setcharset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub dtdURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtype: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -11214,28 +11214,28 @@ unsafe impl ::windows::core::Interface for IXMLElement {
 #[doc(hidden)]
 pub struct IXMLElement_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SettagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SettagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     parent: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setAttribute: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getAttribute: usize,
-    pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     children: usize,
     pub r#type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltype: *mut i32) -> ::windows::core::HRESULT,
-    pub text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Settext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Settext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub addChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildelem: *mut ::core::ffi::c_void, lindex: i32, lreserved: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11356,28 +11356,28 @@ unsafe impl ::windows::core::Interface for IXMLElement2 {
 #[doc(hidden)]
 pub struct IXMLElement2_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SettagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SettagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     parent: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     setAttribute: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     getAttribute: usize,
-    pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     children: usize,
     pub r#type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltype: *mut i32) -> ::windows::core::HRESULT,
-    pub text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Settext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Settext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub addChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildelem: *mut ::core::ffi::c_void, lindex: i32, lreserved: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -11616,24 +11616,24 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest {
 pub struct IXMLHTTPRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     open: usize,
-    pub setRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrheaders: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub setRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrheaders: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     send: usize,
     pub abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT,
-    pub statusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub statusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub responseXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbody: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     responseXML: usize,
-    pub responseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbody: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub responseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbody: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub responseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12161,24 +12161,24 @@ unsafe impl ::windows::core::Interface for IXMLHttpRequest {
 pub struct IXMLHttpRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, varasync: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstruser: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     open: usize,
-    pub setRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub getAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrheaders: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub setRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub getAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrheaders: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     send: usize,
     pub abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT,
-    pub statusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub statusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub responseXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbody: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     responseXML: usize,
-    pub responseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbody: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub responseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbody: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub responseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12327,9 +12327,9 @@ pub struct IXSLProcessor_Vtbl {
     pub ownerTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ownerTemplate: usize,
-    pub setStartMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub startMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub startModeURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub setStartMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub startMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub startModeURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Setoutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, output: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -12345,11 +12345,11 @@ pub struct IXSLProcessor_Vtbl {
     pub reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub readyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preadystate: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub addParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, parameter: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub addParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     addParameter: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub addObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, obj: *mut ::core::ffi::c_void, namespaceuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub addObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, obj: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     addObject: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -12754,21 +12754,21 @@ pub struct IXTLRuntime_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     childNumber: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ancestorChildNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnodename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pnode: *mut ::core::ffi::c_void, pnumber: *mut i32) -> ::windows::core::HRESULT,
+    pub ancestorChildNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnodename: *mut ::core::ffi::c_void, pnode: *mut ::core::ffi::c_void, pnumber: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ancestorChildNumber: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub absoluteChildNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnode: *mut ::core::ffi::c_void, pnumber: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     absoluteChildNumber: usize,
-    pub formatIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, bstrformat: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrformattedstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub formatNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dblnumber: f64, bstrformat: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrformattedstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub formatIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, bstrformat: *mut ::core::ffi::c_void, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub formatNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dblnumber: f64, bstrformat: *mut ::core::ffi::c_void, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub formatDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardate: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub formatDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardate: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: *mut ::core::ffi::c_void, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     formatDate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub formatTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vartime: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub formatTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vartime: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, bstrformat: *mut ::core::ffi::c_void, vardestlocale: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     formatTime: usize,
 }

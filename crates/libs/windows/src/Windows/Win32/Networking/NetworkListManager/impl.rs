@@ -145,7 +145,7 @@ impl ::windows::core::RuntimeName for INetwork {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetwork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>() -> INetwork_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psznetworkname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psznetworkname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetName() {
@@ -156,12 +156,12 @@ impl INetwork_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sznetworknewname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sznetworknewname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&sznetworknewname)).into()
         }
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDescription() {
@@ -172,7 +172,7 @@ impl INetwork_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szdescription: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szdescription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&szdescription)).into()

@@ -337,8 +337,8 @@ unsafe impl ::windows::core::Interface for IProvideWinSATAssessmentInfo {
 pub struct IProvideWinSATAssessmentInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Score: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, score: *mut f32) -> ::windows::core::HRESULT,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -416,7 +416,7 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AssessmentDateTime: usize,
     pub SystemRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: *mut f32) -> ::windows::core::HRESULT,
-    pub RatingStateDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RatingStateDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
@@ -510,7 +510,7 @@ unsafe impl ::windows::core::Interface for IQueryAllWinSATAssessments {
 pub struct IQueryAllWinSATAssessments_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub get_AllXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaces: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppdomnodelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_AllXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: *mut ::core::ffi::c_void, namespaces: *mut ::core::ffi::c_void, ppdomnodelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     get_AllXML: usize,
 }
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::Interface for IQueryRecentWinSATAssessment {
 pub struct IQueryRecentWinSATAssessment_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub get_XML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, namespaces: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppdomnodelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_XML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: *mut ::core::ffi::c_void, namespaces: *mut ::core::ffi::c_void, ppdomnodelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     get_XML: usize,
     #[cfg(feature = "Win32_System_Com")]

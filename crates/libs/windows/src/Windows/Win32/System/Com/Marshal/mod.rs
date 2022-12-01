@@ -1,49 +1,49 @@
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const ::windows::core::BSTR) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree ( param0 : *const u32 , param1 : *const ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> ( ) );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree ( param0 : *const u32 , param1 : *const * mut::core::ffi::c_void ) -> ( ) );
     BSTR_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserFree64(param0: *const u32, param1: *const ::windows::core::BSTR) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree64 ( param0 : *const u32 , param1 : *const ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> ( ) );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree64 ( param0 : *const u32 , param1 : *const * mut::core::ffi::c_void ) -> ( ) );
     BSTR_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const * mut::core::ffi::c_void ) -> *mut u8 );
     BSTR_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const * mut::core::ffi::c_void ) -> *mut u8 );
     BSTR_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const ::windows::core::BSTR) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> u32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const * mut::core::ffi::c_void ) -> u32 );
     BSTR_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const ::windows::core::BSTR) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> u32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const * mut::core::ffi::c_void ) -> u32 );
     BSTR_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut * mut::core::ffi::c_void ) -> *mut u8 );
     BSTR_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut * mut::core::ffi::c_void ) -> *mut u8 );
     BSTR_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]

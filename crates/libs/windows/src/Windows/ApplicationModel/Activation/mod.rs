@@ -329,7 +329,7 @@ unsafe impl ::windows::core::Interface for IAppointmentsProviderActivatedEventAr
 #[doc(hidden)]
 pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -820,8 +820,8 @@ pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub InstanceStartDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     InstanceStartDate: usize,
-    pub LocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub RoamingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub LocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RoamingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -1094,7 +1094,7 @@ unsafe impl ::windows::core::Interface for IBarcodeScannerPreviewActivatedEventA
 #[doc(hidden)]
 pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ConnectionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ConnectionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -1386,8 +1386,8 @@ unsafe impl ::windows::core::Interface for ICommandLineActivationOperation {
 #[doc(hidden)]
 pub struct ICommandLineActivationOperation_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub CurrentDirectoryPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CurrentDirectoryPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetExitCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub ExitCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
@@ -1481,7 +1481,7 @@ unsafe impl ::windows::core::Interface for IContactActivatedEventArgs {
 #[doc(hidden)]
 pub struct IContactActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -1611,8 +1611,8 @@ unsafe impl ::windows::core::Interface for IContactCallActivatedEventArgs {
 #[doc(hidden)]
 pub struct IContactCallActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -1878,8 +1878,8 @@ unsafe impl ::windows::core::Interface for IContactMessageActivatedEventArgs {
 #[doc(hidden)]
 pub struct IContactMessageActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -2172,8 +2172,8 @@ unsafe impl ::windows::core::Interface for IContactPostActivatedEventArgs {
 #[doc(hidden)]
 pub struct IContactPostActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -2307,8 +2307,8 @@ unsafe impl ::windows::core::Interface for IContactVideoCallActivatedEventArgs {
 #[doc(hidden)]
 pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ServiceUserId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
@@ -2400,7 +2400,7 @@ unsafe impl ::windows::core::Interface for IContactsProviderActivatedEventArgs {
 #[doc(hidden)]
 pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -2588,8 +2588,8 @@ unsafe impl ::windows::core::Interface for IDeviceActivatedEventArgs {
 #[doc(hidden)]
 pub struct IDeviceActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub DeviceInformationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DeviceInformationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -2803,7 +2803,7 @@ unsafe impl ::windows::core::Interface for IDialReceiverActivatedEventArgs {
 #[doc(hidden)]
 pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub AppName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AppName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -2904,7 +2904,7 @@ pub struct IFileActivatedEventArgs_Vtbl {
     pub Files: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     Files: usize,
-    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -2992,7 +2992,7 @@ unsafe impl ::windows::core::Interface for IFileActivatedEventArgsWithCallerPack
 #[doc(hidden)]
 pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -3261,7 +3261,7 @@ unsafe impl ::windows::core::Interface for IFileOpenPickerActivatedEventArgs2 {
 #[doc(hidden)]
 pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -3547,8 +3547,8 @@ unsafe impl ::windows::core::Interface for IFileSavePickerActivatedEventArgs2 {
 #[doc(hidden)]
 pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub EnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
@@ -3919,8 +3919,8 @@ unsafe impl ::windows::core::Interface for ILaunchActivatedEventArgs {
 #[doc(hidden)]
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub TileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -4431,7 +4431,7 @@ unsafe impl ::windows::core::Interface for IPickerReturnedActivatedEventArgs {
 #[doc(hidden)]
 pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub PickerOperationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub PickerOperationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -4895,7 +4895,7 @@ unsafe impl ::windows::core::Interface for IProtocolActivatedEventArgsWithCaller
 #[doc(hidden)]
 pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5175,8 +5175,8 @@ unsafe impl ::windows::core::Interface for ISearchActivatedEventArgs {
 #[doc(hidden)]
 pub struct ISearchActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
@@ -5436,7 +5436,7 @@ unsafe impl ::windows::core::Interface for IStartupTaskActivatedEventArgs {
 #[doc(hidden)]
 pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5551,7 +5551,7 @@ unsafe impl ::windows::core::Interface for IToastNotificationActivatedEventArgs 
 #[doc(hidden)]
 pub struct IToastNotificationActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Argument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Argument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub UserInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -5957,7 +5957,7 @@ unsafe impl ::windows::core::Interface for IWalletActionActivatedEventArgs {
 pub struct IWalletActionActivatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub ItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ItemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ItemId: usize,
     #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
@@ -5965,7 +5965,7 @@ pub struct IWalletActionActivatedEventArgs_Vtbl {
     #[cfg(not(all(feature = "ApplicationModel_Wallet", feature = "deprecated")))]
     ActionKind: usize,
     #[cfg(feature = "deprecated")]
-    pub ActionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ActionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ActionId: usize,
 }

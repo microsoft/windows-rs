@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for ICivicAddressReport {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ICivicAddressReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>() -> ICivicAddressReport_Vtbl {
-        unsafe extern "system" fn GetAddressLine1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraddress1: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAddressLine1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraddress1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAddressLine1() {
@@ -24,7 +24,7 @@ impl ICivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAddressLine2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraddress2: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAddressLine2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraddress2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAddressLine2() {
@@ -35,7 +35,7 @@ impl ICivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcity: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCity() {
@@ -46,7 +46,7 @@ impl ICivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStateProvince<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstateprovince: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStateProvince<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstateprovince: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStateProvince() {
@@ -57,7 +57,7 @@ impl ICivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPostalCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpostalcode: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPostalCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpostalcode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPostalCode() {
@@ -68,7 +68,7 @@ impl ICivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCountryRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcountryregion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCountryRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcountryregion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCountryRegion() {
@@ -180,7 +180,7 @@ impl ::windows::core::RuntimeName for IDispCivicAddressReport {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDispCivicAddressReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>() -> IDispCivicAddressReport_Vtbl {
-        unsafe extern "system" fn AddressLine1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress1: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddressLine1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddressLine1() {
@@ -191,7 +191,7 @@ impl IDispCivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddressLine2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress2: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddressLine2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddressLine2() {
@@ -202,7 +202,7 @@ impl IDispCivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn City<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcity: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn City<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.City() {
@@ -213,7 +213,7 @@ impl IDispCivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StateProvince<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateprovince: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StateProvince<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateprovince: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StateProvince() {
@@ -224,7 +224,7 @@ impl IDispCivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PostalCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppostalcode: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppostalcode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PostalCode() {
@@ -235,7 +235,7 @@ impl IDispCivicAddressReport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CountryRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcountryregion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CountryRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcountryregion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CountryRegion() {

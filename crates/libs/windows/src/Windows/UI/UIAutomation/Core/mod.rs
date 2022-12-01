@@ -235,8 +235,8 @@ unsafe impl ::windows::core::Interface for IRemoteAutomationClientSessionFactory
 #[doc(hidden)]
 pub struct IRemoteAutomationClientSessionFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateInstance2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, sessionid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -251,7 +251,7 @@ unsafe impl ::windows::core::Interface for IRemoteAutomationConnectionRequestedE
 #[doc(hidden)]
 pub struct IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoteProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::Interface for IRemoteAutomationDisconnectedEventArg
 #[doc(hidden)]
 pub struct IRemoteAutomationDisconnectedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]

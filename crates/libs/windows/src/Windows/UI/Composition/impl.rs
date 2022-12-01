@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IAnimationObject {
 }
 impl IAnimationObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAnimationObject_Impl, const OFFSET: isize>() -> IAnimationObject_Vtbl {
-        unsafe extern "system" fn PopulatePropertyInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAnimationObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PopulatePropertyInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAnimationObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, propertyinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PopulatePropertyInfo(::core::mem::transmute(&propertyname), ::core::mem::transmute(&propertyinfo)).into()

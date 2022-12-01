@@ -3706,7 +3706,7 @@ pub struct IActiveScriptAuthor_Vtbl {
     pub RemoveNamedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub AddTypeLib: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidtypelib: *const ::windows::core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> ::windows::core::HRESULT,
     pub RemoveTypeLib: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidtypelib: *const ::windows::core::GUID, dwmajor: u32, dwminor: u32) -> ::windows::core::HRESULT,
-    pub GetChars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frequestedlist: u32, pbstrchars: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetChars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frequestedlist: u32, pbstrchars: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetInfoFromContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: ::windows::core::PCWSTR, cchcode: u32, ichcurrentposition: u32, dwlisttypesrequested: u32, pdwlisttypesprovided: *mut u32, pichlistanchorposition: *mut u32, pichfuncanchorposition: *mut u32, pmemid: *mut i32, picurrentparameter: *mut i32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCommitChar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ch: u16, pfcommit: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -3920,7 +3920,7 @@ pub struct IActiveScriptEncode_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub EncodeSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchin: ::windows::core::PCWSTR, cchin: u32, pchout: ::windows::core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows::core::HRESULT,
     pub DecodeScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchin: ::windows::core::PCWSTR, cchin: u32, pchout: ::windows::core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows::core::HRESULT,
-    pub GetEncodeProgId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetEncodeProgId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -3972,7 +3972,7 @@ pub struct IActiveScriptError_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetExceptionInfo: usize,
     pub GetSourcePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
-    pub GetSourceLineText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetSourceLineText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -4190,7 +4190,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptHostEncode {
 #[doc(hidden)]
 pub struct IActiveScriptHostEncode_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub EncodeScriptHostFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstroutfile: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, cflags: u32, bstrdefaultlang: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub EncodeScriptHostFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfile: *mut ::core::ffi::c_void, pbstroutfile: *mut *mut ::core::ffi::c_void, cflags: u32, bstrdefaultlang: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -4253,7 +4253,7 @@ pub struct IActiveScriptParse32_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut *mut ::core::ffi::c_void, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4322,7 +4322,7 @@ pub struct IActiveScriptParse64_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
+    pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows::core::PCWSTR, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, pstrsubitemname: ::windows::core::PCWSTR, pstreventname: ::windows::core::PCWSTR, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut *mut ::core::ffi::c_void, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5315,7 +5315,7 @@ pub struct IActiveScriptSite_Vtbl {
     pub GetItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrname: ::windows::core::PCWSTR, dwreturnmask: u32, ppiunkitem: *mut *mut ::core::ffi::c_void, ppti: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetItemInfo: usize,
-    pub GetDocVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDocVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub OnScriptTerminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarresult: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, pexcepinfo: *const ::core::mem::ManuallyDrop<super::super::Com::EXCEPINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5739,7 +5739,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptStringCompare {
 #[doc(hidden)]
 pub struct IActiveScriptStringCompare_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub StrComp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszstr1: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bszstr2: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iret: *mut i32) -> ::windows::core::HRESULT,
+    pub StrComp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszstr1: *mut ::core::ffi::c_void, bszstr2: *mut ::core::ffi::c_void, iret: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -5842,9 +5842,9 @@ unsafe impl ::windows::core::Interface for IActiveScriptWinRTErrorDebug {
 #[doc(hidden)]
 pub struct IActiveScriptWinRTErrorDebug_Vtbl {
     pub base__: IActiveScriptError_Vtbl,
-    pub GetRestrictedErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetRestrictedErrorReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referencestring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCapabilitySid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitysid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRestrictedErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetRestrictedErrorReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referencestring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCapabilitySid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitysid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -6138,7 +6138,7 @@ unsafe impl ::windows::core::Interface for IDataModelConcept {
 pub struct IDataModelConcept_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitializeObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelobject: *mut ::core::ffi::c_void, matchingtypesignature: *mut ::core::ffi::c_void, wildcardmatches: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -6653,7 +6653,7 @@ unsafe impl ::windows::core::Interface for IDataModelScript {
 #[doc(hidden)]
 pub struct IDataModelScript_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Rename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Populate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6778,7 +6778,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebug {
 pub struct IDataModelScriptDebug_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetDebugState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ScriptDebugState,
-    pub GetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentposition: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetStack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stack: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBreakpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineposition: u32, columnposition: u32, breakpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FindBreakpointById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breakpointid: u64, breakpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6925,7 +6925,7 @@ pub struct IDataModelScriptDebugBreakpoint_Vtbl {
     pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -7113,8 +7113,8 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugStackFrame {
 #[doc(hidden)]
 pub struct IDataModelScriptDebugStackFrame_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsTransitionPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransitionpoint: *mut bool) -> ::windows::core::HRESULT,
     pub GetTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transitionscript: *mut *mut ::core::ffi::c_void, istransitioncontiguous: *mut bool) -> ::windows::core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszexpression: ::windows::core::PCWSTR, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7160,7 +7160,7 @@ unsafe impl ::windows::core::Interface for IDataModelScriptDebugVariableSetEnume
 pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, variablevalue: *mut *mut ::core::ffi::c_void, variablemetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablename: *mut *mut ::core::ffi::c_void, variablevalue: *mut *mut ::core::ffi::c_void, variablemetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -7332,8 +7332,8 @@ unsafe impl ::windows::core::Interface for IDataModelScriptProvider {
 #[doc(hidden)]
 pub struct IDataModelScriptProvider_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDefaultTemplateContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatecontent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateTemplates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7426,8 +7426,8 @@ unsafe impl ::windows::core::Interface for IDataModelScriptTemplate {
 #[doc(hidden)]
 pub struct IDataModelScriptTemplate_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatedescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatedescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -20799,10 +20799,10 @@ pub struct IDebugDocumentHost_Vtbl {
     pub GetScriptTextAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT,
     pub OnCreateDocumentContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkouter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut *mut ::core::ffi::c_void, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPathName: usize,
-    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -20845,7 +20845,7 @@ unsafe impl ::windows::core::Interface for IDebugDocumentInfo {
 #[doc(hidden)]
 pub struct IDebugDocumentInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnt: DOCUMENTNAMETYPE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnt: DOCUMENTNAMETYPE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDocumentClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddocument: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -21151,10 +21151,10 @@ unsafe impl ::windows::core::Interface for IDebugDocumentTextExternalAuthor {
 pub struct IDebugDocumentTextExternalAuthor_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlongname: *mut *mut ::core::ffi::c_void, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPathName: usize,
-    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrshortname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -21537,7 +21537,7 @@ pub struct IDebugExpression_Vtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QueryIsComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetResultAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pbstrresult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetResultAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pbstrresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetResultAsDebugProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, ppdp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -21621,7 +21621,7 @@ unsafe impl ::windows::core::Interface for IDebugExpressionContext {
 pub struct IDebugExpressionContext_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub ParseLanguageText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, nradix: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, ppe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetLanguageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlanguagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, planguageid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetLanguageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlanguagename: *mut *mut ::core::ffi::c_void, planguageid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -21748,7 +21748,7 @@ unsafe impl ::windows::core::Interface for IDebugFormatter {
 pub struct IDebugFormatter_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, nradix: u32, pbstrvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::core::mem::ManuallyDrop<super::super::Com::VARIANT>, nradix: u32, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetStringForVariant: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -21756,7 +21756,7 @@ pub struct IDebugFormatter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetVariantForString: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetStringForVarType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetStringForVarType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetStringForVarType: usize,
 }
@@ -22516,7 +22516,7 @@ pub struct IDebugHostMemory_Vtbl {
     pub WriteBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, buffer: *const ::core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> ::windows::core::HRESULT,
     pub ReadPointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, count: u64, pointers: *mut u64) -> ::windows::core::HRESULT,
     pub WritePointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, count: u64, pointers: *const u64) -> ::windows::core::HRESULT,
-    pub GetDisplayStringForLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, verbose: u8, locationname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDisplayStringForLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, verbose: u8, locationname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -22686,7 +22686,7 @@ unsafe impl ::windows::core::Interface for IDebugHostModule {
 #[doc(hidden)]
 pub struct IDebugHostModule_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
-    pub GetImageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowpath: u8, imagename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetImageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowpath: u8, imagename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetBaseLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modulebaselocation: *mut Location) -> ::windows::core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileversion: *mut u64, productversion: *mut u64) -> ::windows::core::HRESULT,
     pub FindTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::windows::core::PCWSTR, r#type: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -23059,7 +23059,7 @@ pub struct IDebugHostSymbol_Vtbl {
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SymbolKind, name: ::windows::core::PCWSTR, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSymbolKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut SymbolKind) -> ::windows::core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContainingModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingmodule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompareAgainst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomparisonsymbol: *mut ::core::ffi::c_void, comparisonflags: u32, pmatches: *mut bool) -> ::windows::core::HRESULT,
@@ -24173,7 +24173,7 @@ unsafe impl ::windows::core::Interface for IDebugPropertyEnumType_All {
 #[doc(hidden)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -24735,11 +24735,11 @@ pub struct IDebugStackFrame_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCodeContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetDescriptionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDescriptionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetDescriptionString: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetLanguageString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrlanguage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLanguageString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flong: super::super::super::Foundation::BOOL, pbstrlanguage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetLanguageString: usize,
     pub GetThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -30112,8 +30112,8 @@ pub struct IJsDebugDataTarget_Vtbl {
     pub AllocateVirtualMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, size: u32, allocationtype: u32, pageprotection: u32, pallocatedaddress: *mut u64) -> ::windows::core::HRESULT,
     pub FreeVirtualMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, size: u32, freetype: u32) -> ::windows::core::HRESULT,
     pub GetTlsValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, tlsindex: u32, pvalue: *mut u64) -> ::windows::core::HRESULT,
-    pub ReadBSTR: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, pstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ReadNullTerminatedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, charactersize: u16, maxcharacters: u32, pstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ReadBSTR: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, pstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReadNullTerminatedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, address: u64, charactersize: u16, maxcharacters: u32, pstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateStackFrameEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, contextflags: u32, contextsize: u32, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -30177,12 +30177,12 @@ unsafe impl ::windows::core::Interface for IJsDebugFrame {
 pub struct IJsDebugFrame_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetStackRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstart: *mut u64, pend: *mut u64) -> ::windows::core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDocumentPositionWithId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentid: *mut u64, pcharacteroffset: *mut u32, pstatementcharcount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetDocumentPositionWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pline: *mut u32, pcolumn: *mut u32) -> ::windows::core::HRESULT,
+    pub GetDocumentPositionWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentname: *mut *mut ::core::ffi::c_void, pline: *mut u32, pcolumn: *mut u32) -> ::windows::core::HRESULT,
     pub GetDebugProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdebugproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetReturnAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preturnaddress: *mut u64) -> ::windows::core::HRESULT,
-    pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexpressiontext: ::windows::core::PCWSTR, ppdebugproperty: *mut *mut ::core::ffi::c_void, perror: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexpressiontext: ::windows::core::PCWSTR, ppdebugproperty: *mut *mut ::core::ffi::c_void, perror: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -30406,7 +30406,7 @@ unsafe impl ::windows::core::Interface for IKeyEnumerator {
 pub struct IKeyEnumerator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -30727,7 +30727,7 @@ unsafe impl ::windows::core::Interface for IModelKeyReference {
 #[doc(hidden)]
 pub struct IModelKeyReference_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keyname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keyname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetOriginalObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, originalobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContextObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -31228,7 +31228,7 @@ unsafe impl ::windows::core::Interface for IPerPropertyBrowsing2 {
 #[doc(hidden)]
 pub struct IPerPropertyBrowsing2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsidproppage: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> ::windows::core::HRESULT,
@@ -31480,7 +31480,7 @@ unsafe impl ::windows::core::Interface for IRawEnumerator {
 pub struct IRawEnumerator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, kind: *mut SymbolKind, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void, kind: *mut SymbolKind, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -31570,7 +31570,7 @@ pub struct IRemoteDebugApplication_Vtbl {
     pub CreateInstanceAtApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub QueryAlive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperdat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRootNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdanroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumGlobalExpressionContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedec: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -31791,7 +31791,7 @@ pub struct IRemoteDebugApplicationThread_Vtbl {
     pub GetSystemThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthreadid: *mut u32) -> ::windows::core::HRESULT,
     pub GetApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprda: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumStackFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrstate: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void, pbstrstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetNextStatement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstackframe: *mut ::core::ffi::c_void, pcodecontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut u32) -> ::windows::core::HRESULT,
     pub Suspend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
@@ -31833,7 +31833,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugCriticalErrorEvent110 {
 #[doc(hidden)]
 pub struct IRemoteDebugCriticalErrorEvent110_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pmessageid: *mut i32, pbstrmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut *mut ::core::ffi::c_void, pmessageid: *mut i32, pbstrmessage: *mut *mut ::core::ffi::c_void, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -31870,7 +31870,7 @@ unsafe impl ::windows::core::Interface for IRemoteDebugInfoEvent110 {
 #[doc(hidden)]
 pub struct IRemoteDebugInfoEvent110_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut *mut ::core::ffi::c_void, pbstrurl: *mut *mut ::core::ffi::c_void, pplocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
@@ -32009,13 +32009,13 @@ unsafe impl ::windows::core::Interface for IScriptEntry {
 #[doc(hidden)]
 pub struct IScriptEntry_Vtbl {
     pub base__: IScriptNode_Vtbl,
-    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppti: *mut *mut ::core::ffi::c_void, pimethod: *mut u32) -> ::windows::core::HRESULT,
@@ -32072,7 +32072,7 @@ unsafe impl ::windows::core::Interface for IScriptInvocationContext {
 pub struct IScriptInvocationContext_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetContextType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinvocationcontexttype: *mut SCRIPT_INVOCATION_CONTEXT_TYPE) -> ::windows::core::HRESULT,
-    pub GetContextDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetContextDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContextObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontextobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -32163,7 +32163,7 @@ pub struct IScriptNode_Vtbl {
     pub GetCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub GetNumberOfChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcsn: *mut u32) -> ::windows::core::HRESULT,
     pub GetChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isn: u32, ppsn: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateChildEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isn: u32, dwcookie: u32, pszdelimiter: ::windows::core::PCWSTR, ppse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateChildHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultname: ::windows::core::PCWSTR, prgpsznames: *const ::windows::core::PWSTR, cpsznames: u32, pszevent: ::windows::core::PCWSTR, pszdelimiter: ::windows::core::PCWSTR, ptisignature: *mut ::core::ffi::c_void, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -32337,11 +32337,11 @@ unsafe impl ::windows::core::Interface for IScriptScriptlet {
 #[doc(hidden)]
 pub struct IScriptScriptlet_Vtbl {
     pub base__: IScriptEntry_Vtbl,
-    pub GetSubItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetSubItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSubItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetSimpleEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetSimpleEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSimpleEventName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -32396,7 +32396,7 @@ unsafe impl ::windows::core::Interface for ISimpleConnectionPoint {
 pub struct ISimpleConnectionPoint_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEventCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT,
-    pub DescribeEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pceventsfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub DescribeEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut *mut ::core::ffi::c_void, pceventsfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisp: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -32443,7 +32443,7 @@ unsafe impl ::windows::core::Interface for IStringDisplayableConcept {
 #[doc(hidden)]
 pub struct IStringDisplayableConcept_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ToDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void, displaystring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ToDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void, displaystring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]

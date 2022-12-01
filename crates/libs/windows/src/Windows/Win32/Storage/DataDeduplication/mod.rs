@@ -36,7 +36,7 @@ unsafe impl ::windows::core::Interface for IDedupBackupSupport {
 #[doc(hidden)]
 pub struct IDedupBackupSupport_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub RestoreFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub RestoreFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const *mut ::core::ffi::c_void, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
@@ -194,7 +194,7 @@ pub struct IDedupDataPort_Vtbl {
     pub CommitStreamsWithStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<DedupStream>, entrycount: u32, pentriesstream: *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitStreamsWithStream: usize,
-    pub GetStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreampaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreampaths: *const *mut ::core::ffi::c_void, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetStreamsResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub GetChunks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, phashes: *const DedupHash, prequestid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetChunksResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows::core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -245,8 +245,8 @@ unsafe impl ::windows::core::Interface for IDedupDataPortManager {
 pub struct IDedupDataPortManager_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::HRESULT,
-    pub GetVolumeStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pstatus: *mut DedupDataPortVolumeStatus) -> ::windows::core::HRESULT,
-    pub GetVolumeDataPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppdataport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetVolumeStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: *mut ::core::ffi::c_void, pstatus: *mut DedupDataPortVolumeStatus) -> ::windows::core::HRESULT,
+    pub GetVolumeDataPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: *mut ::core::ffi::c_void, ppdataport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
@@ -338,9 +338,9 @@ unsafe impl ::windows::core::Interface for IDedupReadFileCallback {
 #[doc(hidden)]
 pub struct IDedupReadFileCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ReadBackupFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::HRESULT,
-    pub OrderContainersRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofcontainers: u32, containerpaths: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::HRESULT,
-    pub PreviewContainerRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::HRESULT,
+    pub ReadBackupFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: *mut ::core::ffi::c_void, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows::core::HRESULT,
+    pub OrderContainersRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofcontainers: u32, containerpaths: *const *mut ::core::ffi::c_void, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::HRESULT,
+    pub PreviewContainerRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: *mut ::core::ffi::c_void, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;

@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IPhoneCallBlockedTriggerDetails {
 #[doc(hidden)]
 pub struct IPhoneCallBlockedTriggerDetails_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub CallBlockedReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallBlockedReason) -> ::windows::core::HRESULT,
 }
@@ -37,7 +37,7 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RequestId: usize,
     #[cfg(feature = "deprecated")]
-    pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     PhoneNumber: usize,
 }
@@ -63,11 +63,11 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     LineId: usize,
     #[cfg(feature = "deprecated")]
-    pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub PhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     PhoneNumber: usize,
     #[cfg(feature = "deprecated")]
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DisplayName: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -75,7 +75,7 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     DismissalTime: usize,
     #[cfg(feature = "deprecated")]
-    pub TextReplyMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TextReplyMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     TextReplyMessage: usize,
     #[cfg(feature = "deprecated")]
@@ -97,7 +97,7 @@ unsafe impl ::windows::core::Interface for IPhoneIncomingCallNotificationTrigger
 pub struct IPhoneIncomingCallNotificationTriggerDetails_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub CallId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub CallId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -131,7 +131,7 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub VoicemailCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub OperatorMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub OperatorMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]

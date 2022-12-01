@@ -2808,7 +2808,7 @@ unsafe impl ::windows::core::Interface for IGetClusterDataInfo {
 #[doc(hidden)]
 pub struct IGetClusterDataInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetClusterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchname: *mut i32) -> ::windows::core::HRESULT,
+    pub GetClusterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: *mut ::core::ffi::c_void, pcchname: *mut i32) -> ::windows::core::HRESULT,
     pub GetClusterHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut _HCLUSTER,
     pub GetObjectCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
 }
@@ -2998,7 +2998,7 @@ unsafe impl ::windows::core::Interface for IGetClusterObjectInfo {
 #[doc(hidden)]
 pub struct IGetClusterObjectInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchname: *mut i32) -> ::windows::core::HRESULT,
+    pub GetObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpszname: *mut ::core::ffi::c_void, pcchname: *mut i32) -> ::windows::core::HRESULT,
     pub GetObjectType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -3045,9 +3045,9 @@ unsafe impl ::windows::core::Interface for IGetClusterResourceInfo {
 pub struct IGetClusterResourceInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetResourceHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32) -> *mut _HRESOURCE,
-    pub GetResourceTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpszrestypename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchrestypename: *mut i32) -> ::windows::core::HRESULT,
+    pub GetResourceTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpszrestypename: *mut ::core::ffi::c_void, pcchrestypename: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetResourceNetworkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpsznetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchnetname: *mut u32) -> super::super::Foundation::BOOL,
+    pub GetResourceNetworkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lobjindex: i32, lpsznetname: *mut ::core::ffi::c_void, pcchnetname: *mut u32) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetResourceNetworkName: usize,
 }
@@ -3099,7 +3099,7 @@ unsafe impl ::windows::core::Interface for IGetClusterUIInfo {
 #[doc(hidden)]
 pub struct IGetClusterUIInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetClusterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcchname: *mut i32) -> ::windows::core::HRESULT,
+    pub GetClusterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: *mut ::core::ffi::c_void, pcchname: *mut i32) -> ::windows::core::HRESULT,
     pub GetLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub GetFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Gdi::HFONT,
@@ -3175,11 +3175,11 @@ pub struct ISClusApplication_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     DomainNames: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_ClusterNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdomainname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppclusters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_ClusterNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdomainname: *mut ::core::ffi::c_void, ppclusters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ClusterNames: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub OpenCluster: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclustername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcluster: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub OpenCluster: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclustername: *mut ::core::ffi::c_void, pcluster: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenCluster: usize,
 }
@@ -3260,10 +3260,10 @@ pub struct ISClusCryptoKeys_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrcyrptokey: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrcyrptokey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
-    pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcryptokey: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcryptokey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub RemoveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3508,7 +3508,7 @@ pub struct ISClusNetInterface_Vtbl {
     pub PrivateROProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateROProperties: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstate: *mut CLUSTER_NETINTERFACE_STATE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3700,9 +3700,9 @@ pub struct ISClusNetwork_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnetworkname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub NetworkID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnetworkid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnetworkname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NetworkID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnetworkid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstate: *mut CLUSTER_NETWORK_STATE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub NetInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclusnetinterfaces: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3978,9 +3978,9 @@ pub struct ISClusNode_Vtbl {
     pub PrivateROProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateROProperties: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
-    pub NodeID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnodeid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub NodeID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnodeid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstate: *mut CLUSTER_NODE_STATE) -> ::windows::core::HRESULT,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4209,12 +4209,12 @@ unsafe impl ::windows::core::Interface for ISClusPartition {
 pub struct ISClusPartition_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows::core::HRESULT,
-    pub DeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub VolumeLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrvolumelabel: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub VolumeLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrvolumelabel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plserialnumber: *mut i32) -> ::windows::core::HRESULT,
     pub MaximumComponentLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaximumcomponentlength: *mut i32) -> ::windows::core::HRESULT,
     pub FileSystemFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plfilesystemflags: *mut i32) -> ::windows::core::HRESULT,
-    pub FileSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilesystem: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub FileSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilesystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4310,7 +4310,7 @@ pub struct ISClusPartitionEx_Vtbl {
     pub FreeSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plfreespace: *mut i32) -> ::windows::core::HRESULT,
     pub DeviceNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldevicenumber: *mut i32) -> ::windows::core::HRESULT,
     pub PartitionNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpartitionnumber: *mut i32) -> ::windows::core::HRESULT,
-    pub VolumeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrvolumeguid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub VolumeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrvolumeguid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4495,7 +4495,7 @@ pub struct ISClusProperties_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4638,7 +4638,7 @@ unsafe impl ::windows::core::Interface for ISClusProperty {
 #[doc(hidden)]
 pub struct ISClusProperty_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plength: *mut i32) -> ::windows::core::HRESULT,
     pub ValueCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -4952,7 +4952,7 @@ pub struct ISClusPropertyValues_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pppropertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pppropertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5085,10 +5085,10 @@ pub struct ISClusRegistryKeys_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrregistrykey: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrregistrykey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
-    pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrregistrykey: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AddItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrregistrykey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub RemoveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -5194,7 +5194,7 @@ pub struct ISClusResDependencies_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrresourcetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: *mut ::core::ffi::c_void, bstrresourcetype: *mut ::core::ffi::c_void, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5310,7 +5310,7 @@ pub struct ISClusResDependents_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrresourcetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: *mut ::core::ffi::c_void, bstrresourcetype: *mut ::core::ffi::c_void, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5480,8 +5480,8 @@ pub struct ISClusResGroup_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstate: *mut CLUSTER_GROUP_STATE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub OwnerNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppownernode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5717,7 +5717,7 @@ pub struct ISClusResGroupResources_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrresourcetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: *mut ::core::ffi::c_void, bstrresourcetype: *mut ::core::ffi::c_void, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5809,7 +5809,7 @@ pub struct ISClusResGroups_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcegroupname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppresourcegroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcegroupname: *mut ::core::ffi::c_void, ppresourcegroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6034,7 +6034,7 @@ pub struct ISClusResType_Vtbl {
     pub PrivateROProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateROProperties: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Cluster: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcluster: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6207,7 +6207,7 @@ pub struct ISClusResTypeResources_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrgroupname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: *mut ::core::ffi::c_void, bstrgroupname: *mut ::core::ffi::c_void, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6299,7 +6299,7 @@ pub struct ISClusResTypes_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcetypename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrdisplayname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrresourcetypedll: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32, ppresourcetype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcetypename: *mut ::core::ffi::c_void, bstrdisplayname: *mut ::core::ffi::c_void, bstrresourcetypedll: *mut ::core::ffi::c_void, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32, ppresourcetype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6545,11 +6545,11 @@ pub struct ISClusResource_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstate: *mut CLUSTER_RESOURCE_STATE) -> ::windows::core::HRESULT,
     pub CoreFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcoreflag: *mut CLUS_FLAGS) -> ::windows::core::HRESULT,
-    pub BecomeQuorumResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdevicepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lmaxlogsize: i32) -> ::windows::core::HRESULT,
+    pub BecomeQuorumResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdevicepath: *mut ::core::ffi::c_void, lmaxlogsize: i32) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Fail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6613,7 +6613,7 @@ pub struct ISClusResource_Vtbl {
     pub CryptoKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcryptokeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CryptoKeys: usize,
-    pub TypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtypename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtypename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresourcetype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -6711,7 +6711,7 @@ pub struct ISClusResources_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrresourcetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrgroupname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresourcename: *mut ::core::ffi::c_void, bstrresourcetype: *mut ::core::ffi::c_void, bstrgroupname: *mut ::core::ffi::c_void, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS, ppclusterresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6886,12 +6886,12 @@ unsafe impl ::windows::core::Interface for ISClusVersion {
 #[doc(hidden)]
 pub struct ISClusVersion_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrclustername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrclustername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub MajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnmajorversion: *mut i32) -> ::windows::core::HRESULT,
     pub MinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnminorversion: *mut i32) -> ::windows::core::HRESULT,
     pub BuildNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnbuildnumber: *mut i16) -> ::windows::core::HRESULT,
-    pub VendorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrvendorid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub CSDVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcsdversion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub VendorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrvendorid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CSDVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcsdversion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ClusterHighestVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnclusterhighestversion: *mut i32) -> ::windows::core::HRESULT,
     pub ClusterLowestVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnclusterlowestversion: *mut i32) -> ::windows::core::HRESULT,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnflags: *mut i32) -> ::windows::core::HRESULT,
@@ -7067,9 +7067,9 @@ pub struct ISCluster_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclustername: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclustername: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclustername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclustername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclusversion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7084,8 +7084,8 @@ pub struct ISCluster_Vtbl {
     QuorumResource: usize,
     pub QuorumLogSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnlogsize: *mut i32) -> ::windows::core::HRESULT,
     pub SetQuorumLogSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nlogsize: i32) -> ::windows::core::HRESULT,
-    pub QuorumPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetQuorumPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub QuorumPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetQuorumPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Nodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnodes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7181,10 +7181,10 @@ pub struct ISClusterNames_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrclustername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrclustername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
-    pub DomainName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdomainname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DomainName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdomainname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -7252,7 +7252,7 @@ pub struct ISDomainNames_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrdomainname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrdomainname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
 }
@@ -7291,7 +7291,7 @@ unsafe impl ::windows::core::Interface for IWCContextMenuCallback {
 #[doc(hidden)]
 pub struct IWCContextMenuCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddExtensionMenuItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lpszstatusbartext: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows::core::HRESULT,
+    pub AddExtensionMenuItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: *mut ::core::ffi::c_void, lpszstatusbartext: *mut ::core::ffi::c_void, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]

@@ -74,12 +74,12 @@ unsafe impl ::windows::core::Interface for ICivicAddressReport {
 #[doc(hidden)]
 pub struct ICivicAddressReport_Vtbl {
     pub base__: ILocationReport_Vtbl,
-    pub GetAddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraddress1: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetAddressLine2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraddress2: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcity: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetStateProvince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstateprovince: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetPostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpostalcode: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCountryRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcountryregion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetAddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraddress1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetAddressLine2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraddress2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetStateProvince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstateprovince: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpostalcode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCountryRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcountryregion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDetailLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`*"]
@@ -281,12 +281,12 @@ unsafe impl ::windows::core::Interface for IDispCivicAddressReport {
 #[doc(hidden)]
 pub struct IDispCivicAddressReport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub AddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress1: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AddressLine2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress2: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub City: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcity: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub StateProvince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstateprovince: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppostalcode: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub CountryRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcountryregion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddressLine2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub City: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StateProvince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstateprovince: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppostalcode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CountryRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcountryregion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DetailLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows::core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
 }

@@ -1179,7 +1179,7 @@ pub trait IProvisioningProfileWireless_Impl: Sized {
 impl ::windows::core::RuntimeName for IProvisioningProfileWireless {}
 impl IProvisioningProfileWireless_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvisioningProfileWireless_Impl, const OFFSET: isize>() -> IProvisioningProfileWireless_Vtbl {
-        unsafe extern "system" fn CreateProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvisioningProfileWireless_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvisioningProfileWireless_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: *mut ::core::ffi::c_void, bstrxmlconnectionconfigprofile: *mut ::core::ffi::c_void, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateProfile(::core::mem::transmute(&bstrxmlwirelessconfigprofile), ::core::mem::transmute(&bstrxmlconnectionconfigprofile), ::core::mem::transmute_copy(&padapterinstanceguid)) {

@@ -11649,7 +11649,7 @@ unsafe impl ::windows::core::Interface for IMFDRMNetHelper {
 #[doc(hidden)]
 pub struct IMFDRMNetHelper_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ProcessLicenseRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plicenserequest: *const u8, cblicenserequest: u32, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32, pbstrkid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ProcessLicenseRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plicenserequest: *const u8, cblicenserequest: u32, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32, pbstrkid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetChainedLicenseResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -12401,7 +12401,7 @@ unsafe impl ::windows::core::Interface for IMFExtendedDRMTypeSupport {
 #[doc(hidden)]
 pub struct IMFExtendedDRMTypeSupport_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub IsTypeSupportedEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::BSTR>, keysystem: ::core::mem::ManuallyDrop<::windows::core::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
+    pub IsTypeSupportedEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, keysystem: *mut ::core::ffi::c_void, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -12945,7 +12945,7 @@ unsafe impl ::windows::core::Interface for IMFImageSharingEngineClassFactory {
 #[doc(hidden)]
 pub struct IMFImageSharingEngineClassFactory_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateInstanceFromUDN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puniquedevicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateInstanceFromUDN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puniquedevicename: *mut ::core::ffi::c_void, ppengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -13305,14 +13305,14 @@ pub struct IMFMediaEngine_Vtbl {
     pub GetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperror: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: MF_MEDIA_ENGINE_ERR) -> ::windows::core::HRESULT,
     pub SetSourceElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrcelements: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCurrentSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCurrentSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNetworkState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u16,
     pub GetPreload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> MF_MEDIA_ENGINE_PRELOAD,
     pub SetPreload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preload: MF_MEDIA_ENGINE_PRELOAD) -> ::windows::core::HRESULT,
     pub GetBuffered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuffered: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CanPlayType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
+    pub CanPlayType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
     pub GetReadyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u16,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSeeking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
@@ -13513,7 +13513,7 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactory2 {
 #[doc(hidden)]
 pub struct IMFMediaEngineClassFactory2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateMediaKeys2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<::windows::core::BSTR>, defaultcdmstorepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, inprivatecdmstorepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateMediaKeys2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut ::core::ffi::c_void, defaultcdmstorepath: *mut ::core::ffi::c_void, inprivatecdmstorepath: *mut ::core::ffi::c_void, ppkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -13554,7 +13554,7 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactory3 {
 pub struct IMFMediaEngineClassFactory3_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub CreateMediaKeySystemAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppsupportedconfigurationsarray: *const *mut ::core::ffi::c_void, usize: u32, ppkeyaccess: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateMediaKeySystemAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut ::core::ffi::c_void, ppsupportedconfigurationsarray: *const *mut ::core::ffi::c_void, usize: u32, ppkeyaccess: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     CreateMediaKeySystemAccess: usize,
 }
@@ -13663,9 +13663,9 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineClassFactoryEx {
 pub struct IMFMediaEngineClassFactoryEx_Vtbl {
     pub base__: IMFMediaEngineClassFactory_Vtbl,
     pub CreateMediaSourceExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: *mut ::core::ffi::c_void, ppmse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateMediaKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<::windows::core::BSTR>, cdmstorepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateMediaKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut ::core::ffi::c_void, cdmstorepath: *mut ::core::ffi::c_void, ppkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::BSTR>, keysystem: ::core::mem::ManuallyDrop<::windows::core::BSTR>, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub IsTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, keysystem: *mut ::core::ffi::c_void, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTypeSupported: usize,
 }
@@ -13752,7 +13752,7 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineEMENotify {
 #[doc(hidden)]
 pub struct IMFMediaEngineEMENotify_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Encrypted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbinitdata: *const u8, cb: u32, bstrinitdatatype: ::core::mem::ManuallyDrop<::windows::core::BSTR>),
+    pub Encrypted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbinitdata: *const u8, cb: u32, bstrinitdatatype: *mut ::core::ffi::c_void),
     pub WaitingForKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -14149,7 +14149,7 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineEx {
 #[doc(hidden)]
 pub struct IMFMediaEngineEx_Vtbl {
     pub base__: IMFMediaEngine_Vtbl,
-    pub SetSourceFromByteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetSourceFromByteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: *mut ::core::ffi::c_void, purl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statisticid: MF_MEDIA_ENGINE_STATISTIC, pstatistic: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -14304,10 +14304,10 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineExtension {
 pub struct IMFMediaEngineExtension_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub CanPlayType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audioonly: super::super::Foundation::BOOL, mimetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
+    pub CanPlayType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audioonly: super::super::Foundation::BOOL, mimetype: *mut ::core::ffi::c_void, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CanPlayType: usize,
-    pub BeginCreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbytestream: *mut ::core::ffi::c_void, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginCreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, pbytestream: *mut ::core::ffi::c_void, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CancelObjectCreation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndCreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -14562,10 +14562,10 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineSrcElements {
 pub struct IMFMediaEngineSrcElements_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, purl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ptype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pmedia: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AddElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ptype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pmedia: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, purl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ptype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pmedia: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void, pmedia: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAllElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -14628,8 +14628,8 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineSrcElementsEx {
 #[doc(hidden)]
 pub struct IMFMediaEngineSrcElementsEx_Vtbl {
     pub base__: IMFMediaEngineSrcElements_Vtbl,
-    pub AddElementEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ptype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pmedia: ::core::mem::ManuallyDrop<::windows::core::BSTR>, keysystem: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetKeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ptype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AddElementEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void, pmedia: *mut ::core::ffi::c_void, keysystem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetKeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ptype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -15205,8 +15205,8 @@ unsafe impl ::windows::core::Interface for IMFMediaKeySession {
 pub struct IMFMediaKeySession_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, code: *mut u16, systemcode: *mut u32) -> ::windows::core::HRESULT,
-    pub KeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub KeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const u8, cb: u32) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -15283,10 +15283,10 @@ pub struct IMFMediaKeySession2_Vtbl {
     pub base__: IMFMediaKeySession_Vtbl,
     pub get_KeyStatuses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsessionid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfloaded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsessionid: *mut ::core::ffi::c_void, pfloaded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Load: usize,
-    pub GenerateRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initdatatype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbinitdata: *const u8, cb: u32) -> ::windows::core::HRESULT,
+    pub GenerateRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initdatatype: *mut ::core::ffi::c_void, pbinitdata: *const u8, cb: u32) -> ::windows::core::HRESULT,
     pub Expiration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dblexpiration: *mut f64) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -15332,7 +15332,7 @@ unsafe impl ::windows::core::Interface for IMFMediaKeySessionNotify {
 #[doc(hidden)]
 pub struct IMFMediaKeySessionNotify_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub KeyMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, message: *const u8, cb: u32),
+    pub KeyMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationurl: *mut ::core::ffi::c_void, message: *const u8, cb: u32),
     pub KeyAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub KeyError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, code: u16, systemcode: u32),
 }
@@ -15383,7 +15383,7 @@ unsafe impl ::windows::core::Interface for IMFMediaKeySessionNotify2 {
 #[doc(hidden)]
 pub struct IMFMediaKeySessionNotify2_Vtbl {
     pub base__: IMFMediaKeySessionNotify_Vtbl,
-    pub KeyMessage2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbmessage: *const u8, cbmessage: u32),
+    pub KeyMessage2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: *mut ::core::ffi::c_void, pbmessage: *const u8, cbmessage: u32),
     pub KeyStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -15445,7 +15445,7 @@ pub struct IMFMediaKeySystemAccess_Vtbl {
     pub SupportedConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsupportedconfiguration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     SupportedConfiguration: usize,
-    pub KeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeysystem: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub KeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeysystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -15497,8 +15497,8 @@ unsafe impl ::windows::core::Interface for IMFMediaKeys {
 #[doc(hidden)]
 pub struct IMFMediaKeys_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mimetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, initdata: *const u8, cb: u32, customdata: *const u8, cbcustomdata: u32, notify: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub KeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mimetype: *mut ::core::ffi::c_void, initdata: *const u8, cb: u32, customdata: *const u8, cbcustomdata: u32, notify: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub KeySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSuspendNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notify: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -16412,11 +16412,11 @@ pub struct IMFMediaSourceExtension_Vtbl {
     pub GetReadyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> MF_MSE_READY,
     pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f64,
     pub SetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64) -> ::windows::core::HRESULT,
-    pub AddSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pnotify: *mut ::core::ffi::c_void, ppsourcebuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void, ppsourcebuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourcebuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetEndOfStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: MF_MSE_ERROR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> super::super::Foundation::BOOL,
+    pub IsTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTypeSupported: usize,
     pub GetSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::core::option::Option<IMFSourceBuffer>,

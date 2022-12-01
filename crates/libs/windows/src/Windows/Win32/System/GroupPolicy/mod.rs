@@ -510,23 +510,23 @@ unsafe impl ::windows::core::Interface for IGPM {
 pub struct IGPM_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdomain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ldcflags: i32, pigpmdomain: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdomain: *mut ::core::ffi::c_void, bstrdomaincontroller: *mut ::core::ffi::c_void, ldcflags: i32, pigpmdomain: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDomain: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pigpmbackupdir: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetBackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: *mut ::core::ffi::c_void, pigpmbackupdir: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBackupDir: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSitesContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrforest: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrdomain: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ldcflags: i32, ppigpmsitescontainer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSitesContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrforest: *mut ::core::ffi::c_void, bstrdomain: *mut ::core::ffi::c_void, bstrdomaincontroller: *mut ::core::ffi::c_void, ldcflags: i32, ppigpmsitescontainer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSitesContainer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetRSOP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lflags: i32, ppigpmrsop: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetRSOP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: *mut ::core::ffi::c_void, lflags: i32, ppigpmrsop: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetRSOP: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub CreatePermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<::windows::core::BSTR>, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL, ppperm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: *mut ::core::ffi::c_void, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL, ppperm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     CreatePermission: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -534,7 +534,7 @@ pub struct IGPM_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateSearchCriteria: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppigpmtrustee: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: *mut ::core::ffi::c_void, ppigpmtrustee: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateTrustee: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -546,14 +546,14 @@ pub struct IGPM_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetConstants: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetMigrationTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppmigrationtable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetMigrationTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: *mut ::core::ffi::c_void, ppmigrationtable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetMigrationTable: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateMigrationTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmigrationtable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateMigrationTable: usize,
-    pub InitializeReporting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InitializeReporting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -676,10 +676,10 @@ unsafe impl ::windows::core::Interface for IGPM2 {
 pub struct IGPM2_Vtbl {
     pub base__: IGPM_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBackupDirEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<::windows::core::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetBackupDirEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: *mut ::core::ffi::c_void, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBackupDirEx: usize,
-    pub InitializeReportingEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, reportingoptions: i32) -> ::windows::core::HRESULT,
+    pub InitializeReportingEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: *mut ::core::ffi::c_void, reportingoptions: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -867,20 +867,20 @@ unsafe impl ::windows::core::Interface for IGPMBackup {
 #[doc(hidden)]
 pub struct IGPMBackup_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GPODomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GPODisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GPODomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GPODisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
-    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GenerateReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GenerateReport: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: *mut ::core::ffi::c_void, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
 }
@@ -1013,9 +1013,9 @@ unsafe impl ::windows::core::Interface for IGPMBackupDir {
 #[doc(hidden)]
 pub struct IGPMBackupDir_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub BackupDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BackupDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppbackup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrid: *mut ::core::ffi::c_void, ppbackup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBackup: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -1088,10 +1088,10 @@ unsafe impl ::windows::core::Interface for IGPMBackupDirEx {
 #[doc(hidden)]
 pub struct IGPMBackupDirEx_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BackupType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgpmbackuptype: *mut GPMBackupType) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarbackup: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrid: *mut ::core::ffi::c_void, pvarbackup: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetBackup: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1229,8 +1229,8 @@ unsafe impl ::windows::core::Interface for IGPMClientSideExtension {
 #[doc(hidden)]
 pub struct IGPMClientSideExtension_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsUserEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2064,14 +2064,14 @@ unsafe impl ::windows::core::Interface for IGPMDomain {
 #[doc(hidden)]
 pub struct IGPMDomain_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub DomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewgpo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateGPO: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppgpo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, ppgpo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetGPO: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -2083,7 +2083,7 @@ pub struct IGPMDomain_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RestoreGPO: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppsom: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpath: *mut ::core::ffi::c_void, ppsom: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSOM: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -2091,7 +2091,7 @@ pub struct IGPMDomain_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SearchSOMs: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWMIFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppwmifilter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetWMIFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpath: *mut ::core::ffi::c_void, ppwmifilter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWMIFilter: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -2260,7 +2260,7 @@ pub struct IGPMDomain2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateGPOFromStarterGPO: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetStarterGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetStarterGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStarterGPO: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -2268,7 +2268,7 @@ pub struct IGPMDomain2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SearchStarterGPOs: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LoadStarterGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrloadfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoadStarterGPO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrloadfile: *mut ::core::ffi::c_void, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LoadStarterGPO: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2447,8 +2447,8 @@ pub struct IGPMDomain3_Vtbl {
     pub GenerateReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GenerateReport: usize,
-    pub InfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetInfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetInfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInfrastructureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
@@ -2644,11 +2644,11 @@ unsafe impl ::windows::core::Interface for IGPMGPO {
 #[doc(hidden)]
 pub struct IGPMGPO_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DomainName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DomainName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT,
     pub ModificationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT,
     pub UserDSVersionNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
@@ -2689,7 +2689,7 @@ pub struct IGPMGPO_Vtbl {
     SetSecurityInfo: usize,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Backup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Backup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: *mut ::core::ffi::c_void, bstrcomment: *mut ::core::ffi::c_void, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Backup: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2701,7 +2701,7 @@ pub struct IGPMGPO_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GenerateReport: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: *mut ::core::ffi::c_void, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2922,8 +2922,8 @@ unsafe impl ::windows::core::Interface for IGPMGPO2 {
 #[doc(hidden)]
 pub struct IGPMGPO2_Vtbl {
     pub base__: IGPMGPO_Vtbl,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3135,8 +3135,8 @@ unsafe impl ::windows::core::Interface for IGPMGPO3 {
 #[doc(hidden)]
 pub struct IGPMGPO3_Vtbl {
     pub base__: IGPMGPO2_Vtbl,
-    pub InfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetInfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetInfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInfrastructureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
@@ -3292,8 +3292,8 @@ unsafe impl ::windows::core::Interface for IGPMGPOLink {
 #[doc(hidden)]
 pub struct IGPMGPOLink_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub GPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GPODomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GPODomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3443,8 +3443,8 @@ unsafe impl ::windows::core::Interface for IGPMMapEntry {
 #[doc(hidden)]
 pub struct IGPMMapEntry_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Destination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdestination: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Destination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdestination: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DestinationOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgpmdestoption: *mut GPMDestinationOption) -> ::windows::core::HRESULT,
     pub EntryType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgpmentrytype: *mut GPMEntryType) -> ::windows::core::HRESULT,
 }
@@ -3602,22 +3602,22 @@ unsafe impl ::windows::core::Interface for IGPMMigrationTable {
 #[doc(hidden)]
 pub struct IGPMMigrationTable_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, var: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Add: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<::windows::core::BSTR>, gpmentrytype: GPMEntryType, pvardestination: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppentry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: *mut ::core::ffi::c_void, gpmentrytype: GPMEntryType, pvardestination: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppentry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AddEntry: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppentry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: *mut ::core::ffi::c_void, ppentry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetEntry: usize,
-    pub DeleteEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DeleteEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub UpdateDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvardestination: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppentry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UpdateDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsource: *mut ::core::ffi::c_void, pvardestination: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppentry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     UpdateDestination: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -3917,23 +3917,23 @@ unsafe impl ::windows::core::Interface for IGPMRSOP {
 pub struct IGPMRSOP_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMRSOPMode) -> ::windows::core::HRESULT,
-    pub Namespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLoggingComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub LoggingComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLoggingUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub LoggingUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Namespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetLoggingComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoggingComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetLoggingUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoggingUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetLoggingFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT,
     pub LoggingFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT,
     pub SetPlanningFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT,
     pub PlanningFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPlanningDomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlanningDomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPlanningSiteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlanningSiteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPlanningUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlanningUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPlanningUserSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlanningUserSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetPlanningDomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlanningDomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPlanningSiteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlanningSiteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPlanningUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlanningUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPlanningUserSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlanningUserSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub SetPlanningUserWMIFilters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3950,10 +3950,10 @@ pub struct IGPMRSOP_Vtbl {
     pub PlanningUserSecurityGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varval: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PlanningUserSecurityGroups: usize,
-    pub SetPlanningComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlanningComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPlanningComputerSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlanningComputerSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetPlanningComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlanningComputer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPlanningComputerSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlanningComputerSOM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub SetPlanningComputerWMIFilters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3981,7 +3981,7 @@ pub struct IGPMRSOP_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GenerateReport: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: *mut ::core::ffi::c_void, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
 }
@@ -4160,8 +4160,8 @@ pub struct IGPMSOM_Vtbl {
     pub SetGPOInheritanceBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetGPOInheritanceBlocked: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateGPOLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llinkpos: i32, pgpo: *mut ::core::ffi::c_void, ppnewgpolink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4401,7 +4401,7 @@ pub struct IGPMSecurityInfo_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Remove: usize,
-    pub RemoveTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RemoveTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4472,11 +4472,11 @@ unsafe impl ::windows::core::Interface for IGPMSitesContainer {
 #[doc(hidden)]
 pub struct IGPMSitesContainer_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub DomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Forest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DomainController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Forest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsitename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppsom: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsitename: *mut ::core::ffi::c_void, ppsom: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSite: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -4621,26 +4621,26 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPO {
 #[doc(hidden)]
 pub struct IGPMStarterGPO_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Product: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Product: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
-    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ModifiedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMStarterGPOType) -> ::windows::core::HRESULT,
     pub ComputerVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u16) -> ::windows::core::HRESULT,
     pub UserVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u16) -> ::windows::core::HRESULT,
-    pub StarterGPOVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub StarterGPOVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsavefile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, boverwrite: super::super::Foundation::VARIANT_BOOL, bsaveassystem: super::super::Foundation::VARIANT_BOOL, bstrlanguage: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrauthor: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrproduct: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstruniqueid: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrversion: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsavefile: *mut ::core::ffi::c_void, boverwrite: super::super::Foundation::VARIANT_BOOL, bsaveassystem: super::super::Foundation::VARIANT_BOOL, bstrlanguage: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrauthor: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrproduct: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstruniqueid: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrversion: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Save: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Backup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Backup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupdir: *mut ::core::ffi::c_void, bstrcomment: *mut ::core::ffi::c_void, pvargpmprogress: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargpmcancel: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Backup: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4652,7 +4652,7 @@ pub struct IGPMStarterGPO_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GenerateReport: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: *mut ::core::ffi::c_void, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -4752,12 +4752,12 @@ unsafe impl ::windows::core::Interface for IGPMStarterGPOBackup {
 #[doc(hidden)]
 pub struct IGPMStarterGPOBackup_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcomment: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdisplayname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtemplatedomain: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub StarterGPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtemplateid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BackupDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcomment: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdisplayname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtemplatedomain: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StarterGPOID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtemplateid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimestamp: *mut f64) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut GPMStarterGPOType) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4766,7 +4766,7 @@ pub struct IGPMStarterGPOBackup_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GenerateReport: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GenerateReportToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: *mut ::core::ffi::c_void, ppigpmresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
 }
@@ -4970,12 +4970,12 @@ unsafe impl ::windows::core::Interface for IGPMStatusMessage {
 #[doc(hidden)]
 pub struct IGPMStatusMessage_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ObjectPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ObjectPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SettingsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ExtensionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SettingsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OperationCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5107,10 +5107,10 @@ unsafe impl ::windows::core::Interface for IGPMTrustee {
 #[doc(hidden)]
 pub struct IGPMTrustee_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub TrusteeSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub TrusteeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub TrusteeDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub TrusteeDSPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TrusteeSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TrusteeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TrusteeDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TrusteeDSPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TrusteeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
@@ -5193,11 +5193,11 @@ unsafe impl ::windows::core::Interface for IGPMWMIFilter {
 #[doc(hidden)]
 pub struct IGPMWMIFilter_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetQueryList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqrylist: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]

@@ -552,7 +552,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "propsys.dll""system" fn PSPropertyBag_ReadBSTR ( propbag : * mut::core::ffi::c_void , propname : :: windows::core::PCWSTR , value : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "propsys.dll""system" fn PSPropertyBag_ReadBSTR ( propbag : * mut::core::ffi::c_void , propname : :: windows::core::PCWSTR , value : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadBSTR(propbag.into().abi(), propname.into(), result__.as_mut_ptr()).from_abi(result__)
 }
@@ -753,7 +753,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "propsys.dll""system" fn PSPropertyBag_WriteBSTR ( propbag : * mut::core::ffi::c_void , propname : :: windows::core::PCWSTR , value : ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "propsys.dll""system" fn PSPropertyBag_WriteBSTR ( propbag : * mut::core::ffi::c_void , propname : :: windows::core::PCWSTR , value : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     PSPropertyBag_WriteBSTR(propbag.into().abi(), propname.into(), ::core::mem::transmute_copy(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1101,7 +1101,7 @@ pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::super::super::Syst
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
-    ::windows::core::link ! ( "propsys.dll""system" fn PropVariantToBSTR ( propvar : *const ::core::mem::ManuallyDrop < super::super::super::System::Com::StructuredStorage:: PROPVARIANT > , pbstrout : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "propsys.dll""system" fn PropVariantToBSTR ( propvar : *const ::core::mem::ManuallyDrop < super::super::super::System::Com::StructuredStorage:: PROPVARIANT > , pbstrout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToBSTR(::core::mem::transmute(propvar), result__.as_mut_ptr()).from_abi(result__)
 }
@@ -2178,7 +2178,7 @@ pub struct INamedPropertyStore_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     SetNamedValue: usize,
     pub GetNameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetNameAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprop: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetNameAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprop: u32, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]

@@ -353,51 +353,51 @@ unsafe impl ::windows::core::Interface for IVssComponent {
 #[doc(hidden)]
 pub struct IVssComponent_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetLogicalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLogicalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetComponentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pct: *mut VSS_COMPONENT_TYPE) -> ::windows::core::HRESULT,
-    pub GetComponentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetComponentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetBackupSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsucceeded: *mut bool) -> ::windows::core::HRESULT,
     pub GetAlternateLocationMappingCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmappings: *mut u32) -> ::windows::core::HRESULT,
     pub GetAlternateLocationMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imapping: u32, ppfiledesc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBackupMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetBackupMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetBackupMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddPartialFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilename: ::windows::core::PCWSTR, wszranges: ::windows::core::PCWSTR, wszmetadata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetPartialFileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcpartialfiles: *mut u32) -> ::windows::core::HRESULT,
-    pub GetPartialFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipartialfile: u32, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrfilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrrange: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrmetadata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPartialFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipartialfile: u32, pbstrpath: *mut *mut ::core::ffi::c_void, pbstrfilename: *mut *mut ::core::ffi::c_void, pbstrrange: *mut *mut ::core::ffi::c_void, pbstrmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsSelectedForRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbselectedforrestore: *mut bool) -> ::windows::core::HRESULT,
     pub GetAdditionalRestores: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbadditionalrestores: *mut bool) -> ::windows::core::HRESULT,
     pub GetNewTargetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnewtarget: *mut u32) -> ::windows::core::HRESULT,
     pub GetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inewtarget: u32, ppfiledesc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddDirectedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszsourcepath: ::windows::core::PCWSTR, wszsourcefilename: ::windows::core::PCWSTR, wszsourcerangelist: ::windows::core::PCWSTR, wszdestinationpath: ::windows::core::PCWSTR, wszdestinationfilename: ::windows::core::PCWSTR, wszdestinationrangelist: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetDirectedTargetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdirectedtarget: *mut u32) -> ::windows::core::HRESULT,
-    pub GetDirectedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idirectedtarget: u32, pbstrsourcepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDirectedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idirectedtarget: u32, pbstrsourcepath: *mut *mut ::core::ffi::c_void, pbstrsourcefilename: *mut *mut ::core::ffi::c_void, pbstrsourcerangelist: *mut *mut ::core::ffi::c_void, pbstrdestinationpath: *mut *mut ::core::ffi::c_void, pbstrdestinationfilename: *mut *mut ::core::ffi::c_void, pbstrdestinationrangelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetRestoreMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszrestoremetadata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetRestoreMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrestoremetadata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRestoreMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrestoremetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetRestoreTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: VSS_RESTORE_TARGET) -> ::windows::core::HRESULT,
     pub GetRestoreTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows::core::HRESULT,
     pub SetPreRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszprerestorefailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetPreRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprerestorefailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPreRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprerestorefailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPostRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpostrestorefailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetPostRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpostrestorefailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPostRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpostrestorefailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszbackupstamp: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetPreviousBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetBackupOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupoptions: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetRestoreOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrestoreoptions: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPreviousBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetBackupOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupoptions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetRestoreOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrestoreoptions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRestoreSubcomponentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcrestoresubcomponent: *mut u32) -> ::windows::core::HRESULT,
-    pub GetRestoreSubcomponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icomponent: u32, pbstrlogicalpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrcomponentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbrepair: *mut bool) -> ::windows::core::HRESULT,
+    pub GetRestoreSubcomponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icomponent: u32, pbstrlogicalpath: *mut *mut ::core::ffi::c_void, pbstrcomponentname: *mut *mut ::core::ffi::c_void, pbrepair: *mut bool) -> ::windows::core::HRESULT,
     pub GetFileRestoreStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddDifferencedFilesByLastModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddDifferencedFilesByLastModifyTime: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddDifferencedFilesByLastModifyLSN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AddDifferencedFilesByLastModifyLSN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddDifferencedFilesByLastModifyLSN: usize,
     pub GetDifferencedFilesCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdifferencedfiles: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetDifferencedFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idifferencedfile: u32, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrfilespec: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
+    pub GetDifferencedFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idifferencedfile: u32, pbstrpath: *mut *mut ::core::ffi::c_void, pbstrfilespec: *mut *mut ::core::ffi::c_void, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut *mut ::core::ffi::c_void, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetDifferencedFile: usize,
 }
@@ -627,11 +627,11 @@ pub struct IVssComponentEx_Vtbl {
     pub base__: IVssComponent_Vtbl,
     pub SetPrepareForBackupFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszfailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetPostSnapshotFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszfailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub GetPrepareForBackupFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetPostSnapshotFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPrepareForBackupFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPostSnapshotFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAuthoritativeRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbauth: *mut bool) -> ::windows::core::HRESULT,
-    pub GetRollForward: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetRestoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRollForward: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetRestoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
@@ -867,7 +867,7 @@ unsafe impl ::windows::core::Interface for IVssComponentEx2 {
 pub struct IVssComponentEx2_Vtbl {
     pub base__: IVssComponentEx_Vtbl,
     pub SetFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
-    pub GetFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
+    pub GetFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut *mut ::core::ffi::c_void, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
@@ -955,7 +955,7 @@ pub struct IVssCreateExpressWriterMetadata_Vtbl {
     pub SetRestoreMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: ::windows::core::PCWSTR, wszuserprocedure: ::windows::core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::HRESULT,
     pub AddComponentDependency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszforlogicalpath: ::windows::core::PCWSTR, wszforcomponentname: ::windows::core::PCWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: ::windows::core::PCWSTR, wszoncomponentname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetBackupSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT,
-    pub SaveAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SaveAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
@@ -1085,7 +1085,7 @@ pub struct IVssCreateWriterMetadata_Vtbl {
     pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdoc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     GetDocument: usize,
-    pub SaveAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SaveAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
@@ -2102,8 +2102,8 @@ unsafe impl ::windows::core::Interface for IVssWMDependency {
 pub struct IVssWMDependency_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetWriterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwriterid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetLogicalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlogicalpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetComponentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcomponentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLogicalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlogicalpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetComponentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcomponentname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
@@ -2157,10 +2157,10 @@ unsafe impl ::windows::core::Interface for IVssWMFiledesc {
 #[doc(hidden)]
 pub struct IVssWMFiledesc_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetFilespec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilespec: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFilespec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilespec: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRecursive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbrecursive: *mut bool) -> ::windows::core::HRESULT,
-    pub GetAlternateLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstralternatelocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetAlternateLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstralternatelocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetBackupTypeMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtypemask: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]

@@ -177,7 +177,7 @@ pub struct IFhConfigMgr_Vtbl {
     CreateDefaultConfiguration: usize,
     pub SaveConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddRemoveExcludeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AddRemoveExcludeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddRemoveExcludeRule: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -189,13 +189,13 @@ pub struct IFhConfigMgr_Vtbl {
     pub GetBackupStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backupstatus: *mut FH_BACKUP_STATUS) -> ::windows::core::HRESULT,
     pub SetBackupStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::HRESULT,
     pub GetDefaultTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaulttarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
-    pub ProvisionAndSetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, targetname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
+    pub ProvisionAndSetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void, targetname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recommend: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ChangeDefaultTargetRecommendation: usize,
-    pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
@@ -252,10 +252,10 @@ unsafe impl ::windows::core::Interface for IFhReassociation {
 #[doc(hidden)]
 pub struct IFhReassociation_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
-    pub ScanTargetForConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
+    pub ScanTargetForConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetConfigurationDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, username: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
+    pub GetConfigurationDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, username: *mut *mut ::core::ffi::c_void, pcname: *mut *mut ::core::ffi::c_void, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetConfigurationDetails: usize,
     pub SelectConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
@@ -304,7 +304,7 @@ unsafe impl ::windows::core::Interface for IFhScopeIterator {
 pub struct IFhScopeIterator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub MoveToNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
@@ -346,7 +346,7 @@ unsafe impl ::windows::core::Interface for IFhTarget {
 #[doc(hidden)]
 pub struct IFhTarget_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetStringProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetStringProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNumericalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut u64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]

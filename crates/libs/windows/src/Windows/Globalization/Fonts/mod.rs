@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for ILanguageFont {
 #[doc(hidden)]
 pub struct ILanguageFont_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub FontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub FontFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Text")]
     pub FontWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Text::FontWeight) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Text"))]
@@ -64,7 +64,7 @@ unsafe impl ::windows::core::Interface for ILanguageFontGroupFactory {
 #[doc(hidden)]
 pub struct ILanguageFontGroupFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CreateLanguageFontGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateLanguageFontGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Globalization_Fonts\"`*"]
 #[repr(transparent)]

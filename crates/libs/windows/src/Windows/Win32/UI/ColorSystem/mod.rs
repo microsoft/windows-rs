@@ -1112,7 +1112,7 @@ unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
 #[doc(hidden)]
 pub struct IDeviceModelPlugIn_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<::windows::core::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
     pub GetNumChannels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumchannels: *mut u32) -> ::windows::core::HRESULT,
     pub DeviceToColorimetricColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
     pub ColorimetricToDeviceColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
@@ -1169,7 +1169,7 @@ unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
 #[doc(hidden)]
 pub struct IGamutMapModelPlugIn_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<::windows::core::BSTR>, psrcplugin: *mut ::core::ffi::c_void, pdestplugin: *mut ::core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, psrcplugin: *mut ::core::ffi::c_void, pdestplugin: *mut ::core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,
     pub SourceToDestinationAppearanceColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]

@@ -11,16 +11,16 @@ unsafe impl ::windows::core::Interface for IApiInformationStatics {
 #[doc(hidden)]
 pub struct IApiInformationStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub IsTypePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsMethodPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, methodname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsMethodPresentWithArity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, methodname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, inputparametercount: u32, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsEventPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsPropertyPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsReadOnlyPropertyPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsWriteablePropertyPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsEnumNamedValuePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumtypename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, valuename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsApiContractPresentByMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsTypePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsMethodPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: *mut ::core::ffi::c_void, methodname: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsMethodPresentWithArity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: *mut ::core::ffi::c_void, methodname: *mut ::core::ffi::c_void, inputparametercount: u32, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsEventPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: *mut ::core::ffi::c_void, eventname: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsPropertyPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsReadOnlyPropertyPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsWriteablePropertyPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsEnumNamedValuePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumtypename: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsApiContractPresentByMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: *mut ::core::ffi::c_void, majorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: *mut ::core::ffi::c_void, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 pub struct ApiInformation;

@@ -146,12 +146,12 @@ unsafe impl ::windows::core::Interface for IAccDictionary {
 #[doc(hidden)]
 pub struct IAccDictionary_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetLocalizedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, plcid: *mut u32) -> ::windows::core::HRESULT,
+    pub GetLocalizedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, presult: *mut *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT,
     pub GetParentTerm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, pparentterm: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetMnemonicString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, presult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub LookupMnemonicTerm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmnemonic: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pterm: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetMnemonicString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LookupMnemonicTerm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmnemonic: *mut ::core::ffi::c_void, pterm: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ConvertValueToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrresult: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, plcid: *mut u32) -> ::windows::core::HRESULT,
+    pub ConvertValueToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, varvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrresult: *mut *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ConvertValueToString: usize,
 }
@@ -2785,7 +2785,7 @@ pub struct ITfCandidateListUIElement_Vtbl {
     pub GetDocumentMgr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdim: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
     pub GetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puindex: *mut u32) -> ::windows::core::HRESULT,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, pstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, pstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPageIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindex: *mut u32, usize: u32, pupagecnt: *mut u32) -> ::windows::core::HRESULT,
     pub SetPageIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindex: *const u32, upagecnt: u32) -> ::windows::core::HRESULT,
     pub GetCurrentPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupage: *mut u32) -> ::windows::core::HRESULT,
@@ -2927,7 +2927,7 @@ unsafe impl ::windows::core::Interface for ITfCandidateString {
 #[doc(hidden)]
 pub struct ITfCandidateString_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnindex: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -3030,7 +3030,7 @@ pub struct ITfCategoryMgr_Vtbl {
     pub FindClosestCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pcatid: *mut ::windows::core::GUID, ppcatidlist: *const *const ::windows::core::GUID, ulcount: u32) -> ::windows::core::HRESULT,
     pub RegisterGUIDDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID, pchdesc: ::windows::core::PCWSTR, cch: u32) -> ::windows::core::HRESULT,
     pub UnregisterGUIDDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetGUIDDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetGUIDDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RegisterGUIDDWORD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID, dw: u32) -> ::windows::core::HRESULT,
     pub UnregisterGUIDDWORD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetGUIDDWORD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pdw: *mut u32) -> ::windows::core::HRESULT,
@@ -4252,7 +4252,7 @@ unsafe impl ::windows::core::Interface for ITfDisplayAttributeInfo {
 pub struct ITfDisplayAttributeInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdesc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: *mut TF_DISPLAYATTRIBUTE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4770,7 +4770,7 @@ unsafe impl ::windows::core::Interface for ITfFnConfigureRegisterEudc {
 pub struct ITfFnConfigureRegisterEudc_Vtbl {
     pub base__: ITfFunction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
@@ -4819,7 +4819,7 @@ unsafe impl ::windows::core::Interface for ITfFnConfigureRegisterWord {
 pub struct ITfFnConfigureRegisterWord_Vtbl {
     pub base__: ITfFunction_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
@@ -5463,8 +5463,8 @@ unsafe impl ::windows::core::Interface for ITfFnSearchCandidateProvider {
 #[doc(hidden)]
 pub struct ITfFnSearchCandidateProvider_Vtbl {
     pub base__: ITfFunction_Vtbl,
-    pub GetSearchCandidates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrquery: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrapplicationid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pplist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrquery: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrapplicationid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrresult: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetSearchCandidates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrquery: *mut ::core::ffi::c_void, bstrapplicationid: *mut ::core::ffi::c_void, pplist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrquery: *mut ::core::ffi::c_void, bstrapplicationid: *mut ::core::ffi::c_void, bstrresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -5551,7 +5551,7 @@ unsafe impl ::windows::core::Interface for ITfFunction {
 #[doc(hidden)]
 pub struct ITfFunction_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -5598,7 +5598,7 @@ unsafe impl ::windows::core::Interface for ITfFunctionProvider {
 pub struct ITfFunctionProvider_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdesc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -5885,7 +5885,7 @@ pub struct ITfInputProcessorProfiles_Vtbl {
     pub SetDefaultLanguageProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16, rclsid: *const ::windows::core::GUID, guidprofiles: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ActivateLanguageProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofiles: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetActiveLanguageProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, plangid: *mut u16, pguidprofile: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetLanguageProfileDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pbstrprofile: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLanguageProfileDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pbstrprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plangid: *mut u16) -> ::windows::core::HRESULT,
     pub ChangeCurrentLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16) -> ::windows::core::HRESULT,
     pub GetLanguageList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplangid: *mut *mut u16, pulcount: *mut u32) -> ::windows::core::HRESULT,
@@ -6069,9 +6069,9 @@ pub struct ITfInputScope_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetInputScopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprginputscopes: *mut *mut InputScope, pccount: *mut u32) -> ::windows::core::HRESULT,
     pub GetPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbstrphrases: *mut *mut ::windows::core::BSTR, pccount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetRegularExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrregexp: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetSRGS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsrgs: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRegularExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrregexp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSRGS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsrgs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -6585,7 +6585,7 @@ pub struct ITfKeystrokeMgr_Vtbl {
     pub PreserveKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tid: u32, rguid: *const ::windows::core::GUID, prekey: *const TF_PRESERVEDKEY, pchdesc: ::windows::core::PCWSTR, cchdesc: u32) -> ::windows::core::HRESULT,
     pub UnpreserveKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::HRESULT,
     pub SetPreservedKeyDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pchdesc: ::windows::core::PCWSTR, cchdesc: u32) -> ::windows::core::HRESULT,
-    pub GetPreservedKeyDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPreservedKeyDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pbstrdesc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SimulatePreservedKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, pfeaten: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6769,7 +6769,7 @@ pub struct ITfLangBarItem_Vtbl {
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
-    pub GetTooltipString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtooltip: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTooltipString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtooltip: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -7024,7 +7024,7 @@ pub struct ITfLangBarItemBitmapButton_Vtbl {
     pub DrawBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     DrawBitmap: usize,
-    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -7112,7 +7112,7 @@ pub struct ITfLangBarItemButton_Vtbl {
     pub GetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phicon: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetIcon: usize,
-    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -8550,7 +8550,7 @@ pub struct ITfReadingInformationUIElement_Vtbl {
     pub base__: ITfUIElement_Vtbl,
     pub GetUpdatedFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppic: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetMaxReadingStringLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcchmax: *mut u32) -> ::windows::core::HRESULT,
     pub GetErrorIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorindex: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -8640,7 +8640,7 @@ unsafe impl ::windows::core::Interface for ITfReverseConversionList {
 pub struct ITfReverseConversionList_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puindex: *mut u32) -> ::windows::core::HRESULT,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -9037,7 +9037,7 @@ unsafe impl ::windows::core::Interface for ITfSystemLangBarItemText {
 pub struct ITfSystemLangBarItemText_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetItemText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pch: ::windows::core::PCWSTR, cch: u32) -> ::windows::core::HRESULT,
-    pub GetItemText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetItemText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -9686,7 +9686,7 @@ unsafe impl ::windows::core::Interface for ITfToolTipUIElement {
 #[doc(hidden)]
 pub struct ITfToolTipUIElement_Vtbl {
     pub base__: ITfUIElement_Vtbl,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -9850,7 +9850,7 @@ unsafe impl ::windows::core::Interface for ITfUIElement {
 #[doc(hidden)]
 pub struct ITfUIElement_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -10105,8 +10105,8 @@ pub struct IVersionInfo_Vtbl {
     pub GetSubcomponentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsub: u32, ulcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetImplementationID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsub: u32, implid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetBuildVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsub: u32, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::HRESULT,
-    pub GetComponentDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetInstanceDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetComponentDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetInstanceDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsub: u32, pimplstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 pub const AccClientDocMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
 pub const AccDictionary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);

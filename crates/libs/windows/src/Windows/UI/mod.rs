@@ -68,7 +68,7 @@ unsafe impl ::windows::core::Interface for IColorHelperStatics2 {
 #[doc(hidden)]
 pub struct IColorHelperStatics2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ToDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ToDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: Color, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]

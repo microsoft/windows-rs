@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IWSMan {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSMan_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>() -> IWSMan_Vtbl {
-        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, connectionoptions: *mut ::core::ffi::c_void, session: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: *mut ::core::ffi::c_void, flags: i32, connectionoptions: *mut ::core::ffi::c_void, session: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSession(::core::mem::transmute(&connection), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&connectionoptions)) {
@@ -32,7 +32,7 @@ impl IWSMan_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CommandLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CommandLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CommandLine() {
@@ -43,7 +43,7 @@ impl IWSMan_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Error() {
@@ -77,7 +77,7 @@ impl ::windows::core::RuntimeName for IWSManConnectionOptions {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>() -> IWSManConnectionOptions_Vtbl {
-        unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UserName() {
@@ -88,12 +88,12 @@ impl IWSManConnectionOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetUserName(::core::mem::transmute(&name)).into()
         }
-        unsafe extern "system" fn SetPassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, password: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, password: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPassword(::core::mem::transmute(&password)).into()
@@ -119,7 +119,7 @@ impl ::windows::core::RuntimeName for IWSManConnectionOptionsEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>() -> IWSManConnectionOptionsEx_Vtbl {
-        unsafe extern "system" fn CertificateThumbprint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CertificateThumbprint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CertificateThumbprint() {
@@ -130,7 +130,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCertificateThumbprint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCertificateThumbprint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCertificateThumbprint(::core::mem::transmute(&thumbprint)).into()
@@ -161,7 +161,7 @@ impl ::windows::core::RuntimeName for IWSManConnectionOptionsEx2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsEx2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>() -> IWSManConnectionOptionsEx2_Vtbl {
-        unsafe extern "system" fn SetProxy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: ::core::mem::ManuallyDrop<::windows::core::BSTR>, password: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: *mut ::core::ffi::c_void, password: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProxy(::core::mem::transmute_copy(&accesstype), ::core::mem::transmute_copy(&authenticationmechanism), ::core::mem::transmute(&username), ::core::mem::transmute(&password)).into()
@@ -270,7 +270,7 @@ impl ::windows::core::RuntimeName for IWSManEnumerator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>() -> IWSManEnumerator_Vtbl {
-        unsafe extern "system" fn ReadItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReadItem() {
@@ -292,7 +292,7 @@ impl IWSManEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Error() {
@@ -342,7 +342,7 @@ impl ::windows::core::RuntimeName for IWSManEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>() -> IWSManEx_Vtbl {
-        unsafe extern "system" fn CreateResourceLocator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strresourcelocator: ::core::mem::ManuallyDrop<::windows::core::BSTR>, newresourcelocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateResourceLocator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strresourcelocator: *mut ::core::ffi::c_void, newresourcelocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateResourceLocator(::core::mem::transmute(&strresourcelocator)) {
@@ -507,7 +507,7 @@ impl IWSManEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetErrorMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errornumber: u32, errormessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errornumber: u32, errormessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetErrorMessage(::core::mem::transmute_copy(&errornumber)) {
@@ -735,7 +735,7 @@ impl ::windows::core::RuntimeName for IWSManInternal {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManInternal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>() -> IWSManInternal_Vtbl {
-        unsafe extern "system" fn ConfigSDDL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigSDDL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConfigSDDL(::core::mem::transmute(&session), ::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
@@ -773,12 +773,12 @@ impl ::windows::core::RuntimeName for IWSManResourceLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManResourceLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>() -> IWSManResourceLocator_Vtbl {
-        unsafe extern "system" fn SetResourceURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResourceURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetResourceURI(::core::mem::transmute(&uri)).into()
         }
-        unsafe extern "system" fn ResourceURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResourceURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResourceURI() {
@@ -789,7 +789,7 @@ impl IWSManResourceLocator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddSelector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceselname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, selvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSelector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceselname: *mut ::core::ffi::c_void, selvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddSelector(::core::mem::transmute(&resourceselname), ::core::mem::transmute(&selvalue)).into()
@@ -799,7 +799,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             this.ClearSelectors().into()
         }
-        unsafe extern "system" fn FragmentPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FragmentPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FragmentPath() {
@@ -810,12 +810,12 @@ impl IWSManResourceLocator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFragmentPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFragmentPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFragmentPath(::core::mem::transmute(&text)).into()
         }
-        unsafe extern "system" fn FragmentDialect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FragmentDialect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FragmentDialect() {
@@ -826,12 +826,12 @@ impl IWSManResourceLocator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFragmentDialect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFragmentDialect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFragmentDialect(::core::mem::transmute(&text)).into()
         }
-        unsafe extern "system" fn AddOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, optionvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionname: *mut ::core::ffi::c_void, optionvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddOption(::core::mem::transmute(&optionname), ::core::mem::transmute(&optionvalue), ::core::mem::transmute_copy(&mustcomply)).into()
@@ -857,7 +857,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             this.ClearOptions().into()
         }
-        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Error() {
@@ -919,7 +919,7 @@ impl ::windows::core::RuntimeName for IWSManSession {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>() -> IWSManSession_Vtbl {
-        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Get(::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
@@ -930,7 +930,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, resultresource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: *mut ::core::ffi::c_void, flags: i32, resultresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Put(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
@@ -941,7 +941,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, newuri: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: *mut ::core::ffi::c_void, flags: i32, newuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
@@ -957,7 +957,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             this.Delete(::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn Invoke2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, parameters: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, result: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Invoke2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, parameters: *mut ::core::ffi::c_void, flags: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Invoke2(::core::mem::transmute(&actionuri), ::core::mem::transmute(&resourceuri), ::core::mem::transmute(&parameters), ::core::mem::transmute_copy(&flags)) {
@@ -968,7 +968,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enumerate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, filter: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dialect: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, resultset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enumerate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, filter: *mut ::core::ffi::c_void, dialect: *mut ::core::ffi::c_void, flags: i32, resultset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Enumerate(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&filter), ::core::mem::transmute(&dialect), ::core::mem::transmute_copy(&flags)) {
@@ -979,7 +979,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Identify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, result: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Identify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Identify(::core::mem::transmute_copy(&flags)) {
@@ -990,7 +990,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Error() {

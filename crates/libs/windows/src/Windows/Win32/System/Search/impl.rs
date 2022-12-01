@@ -2017,12 +2017,12 @@ impl ::windows::core::RuntimeName for IErrorLookup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IErrorLookup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorLookup_Impl, const OFFSET: isize>() -> IErrorLookup_Vtbl {
-        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorLookup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorLookup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetErrorDescription(::core::mem::transmute_copy(&hrerror), ::core::mem::transmute_copy(&dwlookupid), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&pbstrsource), ::core::mem::transmute_copy(&pbstrdescription)).into()
         }
-        unsafe extern "system" fn GetHelpInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorLookup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHelpInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorLookup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut *mut ::core::ffi::c_void, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetHelpInfo(::core::mem::transmute_copy(&hrerror), ::core::mem::transmute_copy(&dwlookupid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&pbstrhelpfile), ::core::mem::transmute_copy(&pdwhelpcontext)).into()
@@ -4184,7 +4184,7 @@ pub trait ISQLErrorInfo_Impl: Sized {
 impl ::windows::core::RuntimeName for ISQLErrorInfo {}
 impl ISQLErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLErrorInfo_Impl, const OFFSET: isize>() -> ISQLErrorInfo_Vtbl {
-        unsafe extern "system" fn GetSQLInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsqlstate: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, plnativeerror: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSQLInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsqlstate: *mut *mut ::core::ffi::c_void, plnativeerror: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetSQLInfo(::core::mem::transmute_copy(&pbstrsqlstate), ::core::mem::transmute_copy(&plnativeerror)).into()
@@ -7405,7 +7405,7 @@ impl OLEDBSimpleProvider_Vtbl {
             let this = (*this).get_impl();
             this.setVariant(::core::mem::transmute_copy(&irow), ::core::mem::transmute_copy(&icolumn), ::core::mem::transmute_copy(&format), ::core::mem::transmute(&var)).into()
         }
-        unsafe extern "system" fn getLocale<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlocale: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getLocale<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlocale: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.getLocale() {

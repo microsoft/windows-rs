@@ -12,9 +12,9 @@ unsafe impl ::windows::core::Interface for ISystemUpdateItem {
 pub struct ISystemUpdateItem_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemUpdateItemState) -> ::windows::core::HRESULT,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Revision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub DownloadProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub InstallProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -89,11 +89,11 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAutomaticRebootBlockIds: usize,
     #[cfg(feature = "Foundation")]
-    pub BlockAutomaticRebootAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BlockAutomaticRebootAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     BlockAutomaticRebootAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub UnblockAutomaticRebootAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UnblockAutomaticRebootAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     UnblockAutomaticRebootAsync: usize,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -102,8 +102,8 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetUpdateItems: usize,
     pub AttentionRequiredReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemUpdateAttentionRequiredReason) -> ::windows::core::HRESULT,
-    pub SetFlightRing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flightring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub GetFlightRing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetFlightRing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flightring: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub GetFlightRing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: SystemUpdateStartInstallAction) -> ::windows::core::HRESULT,
     pub RebootToCompleteInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartCancelUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

@@ -123,7 +123,7 @@ unsafe impl ::windows::core::Interface for IAnimationObject {
 #[doc(hidden)]
 pub struct IAnimationObject_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub PopulatePropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PopulatePropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, propertyinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -155,7 +155,7 @@ unsafe impl ::windows::core::Interface for IAnimationPropertyInfo2 {
 pub struct IAnimationPropertyInfo2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetResolvedCompositionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetResolvedCompositionObjectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub GetResolvedCompositionObjectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -306,32 +306,32 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation {
 pub struct ICompositionAnimation_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub ClearAllParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ClearParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetColorParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT,
+    pub ClearParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetColorParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix3x2Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
+    pub SetMatrix3x2Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix3x2Parameter: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix4x4Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT,
+    pub SetMatrix4x4Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix4x4Parameter: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetQuaternionParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
+    pub SetQuaternionParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetQuaternionParameter: usize,
-    pub SetReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, compositionobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetScalarParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT,
+    pub SetReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, compositionobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetScalarParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetVector2Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
+    pub SetVector2Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetVector2Parameter: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetVector3Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
+    pub SetVector3Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetVector3Parameter: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetVector4Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT,
+    pub SetVector4Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetVector4Parameter: usize,
 }
@@ -348,9 +348,9 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation2 {
 #[doc(hidden)]
 pub struct ICompositionAnimation2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub SetBooleanParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT,
-    pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetBooleanParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -383,7 +383,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation4 {
 #[doc(hidden)]
 pub struct ICompositionAnimation4_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub SetExpressionReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetExpressionReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parametername: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -874,8 +874,8 @@ unsafe impl ::windows::core::Interface for ICompositionEffectBrush {
 #[doc(hidden)]
 pub struct ICompositionEffectBrush_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -907,7 +907,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectSourceParameter {
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameter_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -922,7 +922,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectSourceParameterFact
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameterFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1407,8 +1407,8 @@ pub struct ICompositionObject_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     Dispatcher: usize,
     pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StartAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StopAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub StartAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StopAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1423,8 +1423,8 @@ unsafe impl ::windows::core::Interface for ICompositionObject2 {
 #[doc(hidden)]
 pub struct ICompositionObject2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ImplicitAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetImplicitAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1461,7 +1461,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject4 {
 #[doc(hidden)]
 pub struct ICompositionObject4_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub TryGetAnimationController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TryGetAnimationController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1476,7 +1476,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject5 {
 #[doc(hidden)]
 pub struct ICompositionObject5_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub StartAnimationWithController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: *mut ::core::ffi::c_void, animationcontroller: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartAnimationWithController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void, animationcontroller: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1505,7 +1505,7 @@ unsafe impl ::windows::core::Interface for ICompositionObjectStatics {
 #[doc(hidden)]
 pub struct ICompositionObjectStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub StartAnimationWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartAnimationWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartAnimationGroupWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1681,56 +1681,56 @@ unsafe impl ::windows::core::Interface for ICompositionPropertySet {
 #[doc(hidden)]
 pub struct ICompositionPropertySet_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub InsertColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::Color) -> ::windows::core::HRESULT,
+    pub InsertColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertMatrix3x2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
+    pub InsertMatrix3x2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertMatrix3x2: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertMatrix4x4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT,
+    pub InsertMatrix4x4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertMatrix4x4: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertQuaternion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
+    pub InsertQuaternion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertQuaternion: usize,
-    pub InsertScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT,
+    pub InsertScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertVector2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
+    pub InsertVector2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertVector2: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertVector3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
+    pub InsertVector3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertVector3: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertVector4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT,
+    pub InsertVector4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertVector4: usize,
-    pub TryGetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::Color, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut super::Color, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetMatrix3x2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Matrix3x2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetMatrix3x2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::Numerics::Matrix3x2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetMatrix3x2: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetMatrix4x4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Matrix4x4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetMatrix4x4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::Numerics::Matrix4x4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetMatrix4x4: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetQuaternion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Quaternion, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetQuaternion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::Numerics::Quaternion, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetQuaternion: usize,
-    pub TryGetScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut f32, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut f32, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetVector2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetVector2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::Numerics::Vector2, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetVector2: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetVector3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector3, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetVector3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::Numerics::Vector3, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetVector3: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetVector4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut super::super::Foundation::Numerics::Vector4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub TryGetVector4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::Numerics::Vector4, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetVector4: usize,
 }
@@ -1747,8 +1747,8 @@ unsafe impl ::windows::core::Interface for ICompositionPropertySet2 {
 #[doc(hidden)]
 pub struct ICompositionPropertySet2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub InsertBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: bool) -> ::windows::core::HRESULT,
-    pub TryGetBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: *mut bool, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
+    pub InsertBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub TryGetBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, value: *mut bool, result__: *mut CompositionGetValueStatus) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2444,7 +2444,7 @@ pub struct ICompositor_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Effects")))]
     CreateEffectFactoryWithProperties: usize,
     pub CreateExpressionAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateExpressionAnimationWithExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateExpressionAnimationWithExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateInsetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateInsetClipWithInsets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateLinearEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2536,8 +2536,8 @@ unsafe impl ::windows::core::Interface for ICompositor5 {
 #[doc(hidden)]
 pub struct ICompositor5_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GlobalPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetGlobalPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub CreateBounceScalarAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2922,8 +2922,8 @@ unsafe impl ::windows::core::Interface for IExpressionAnimation {
 #[doc(hidden)]
 pub struct IExpressionAnimation_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Expression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Expression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2997,8 +2997,8 @@ pub struct IKeyFrameAnimation_Vtbl {
     pub KeyFrameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub StopBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnimationStopBehavior) -> ::windows::core::HRESULT,
     pub SetStopBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnimationStopBehavior) -> ::windows::core::HRESULT,
-    pub InsertExpressionKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub InsertExpressionKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertExpressionKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertExpressionKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: *mut ::core::ffi::c_void, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]

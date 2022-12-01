@@ -586,12 +586,12 @@ unsafe impl ::windows::core::Interface for IAMChannelInfo {
 #[doc(hidden)]
 pub struct IAMChannelInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ChannelName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchannelname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ChannelDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchanneldescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ChannelURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchannelurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ContactAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactaddress: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ContactPhone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactphone: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ContactEmail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactemail: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ChannelName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchannelname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ChannelDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchanneldescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ChannelURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchannelurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContactAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContactPhone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactphone: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContactEmail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontactemail: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -1473,7 +1473,7 @@ pub struct IAMExtendedErrorInfo_Vtbl {
     pub HasError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phaserror: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     HasError: usize,
-    pub ErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrerrordescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrerrordescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorcode: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
@@ -1543,7 +1543,7 @@ pub struct IAMExtendedSeeking_Vtbl {
     pub MarkerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmarkercount: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcurrentmarker: *mut i32) -> ::windows::core::HRESULT,
     pub GetMarkerTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, markernum: i32, pmarkertime: *mut f64) -> ::windows::core::HRESULT,
-    pub GetMarkerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, markernum: i32, pbstrmarkername: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetMarkerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, markernum: i32, pbstrmarkername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPlaybackSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speed: f64) -> ::windows::core::HRESULT,
     pub PlaybackSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pspeed: *mut f64) -> ::windows::core::HRESULT,
 }
@@ -1959,19 +1959,19 @@ unsafe impl ::windows::core::Interface for IAMMediaContent {
 #[doc(hidden)]
 pub struct IAMMediaContent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub AuthorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthorname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtitle: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Rating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrating: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Copyright: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcopyright: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbaseurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub LogoURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlogourl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub LogoIconURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlogourl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub WatermarkURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrwatermarkurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MoreInfoURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfourl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MoreInfoBannerImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfobannerimage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MoreInfoBannerURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfobannerurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MoreInfoText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfotext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AuthorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthorname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtitle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Rating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrating: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Copyright: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcopyright: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbaseurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LogoURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlogourl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LogoIconURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlogourl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub WatermarkURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrwatermarkurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MoreInfoURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfourl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MoreInfoBannerImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfobannerimage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MoreInfoBannerURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfobannerurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MoreInfoText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmoreinfotext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2024,8 +2024,8 @@ unsafe impl ::windows::core::Interface for IAMMediaContent2 {
 #[doc(hidden)]
 pub struct IAMMediaContent2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub get_MediaParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entrynum: i32, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_MediaParameterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entrynum: i32, index: i32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_MediaParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entrynum: i32, bstrname: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_MediaParameterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entrynum: i32, index: i32, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PlaylistCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumberentries: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -2663,8 +2663,8 @@ pub struct IAMNetShowConfig_Vtbl {
     pub SetEnableAutoProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enableautoproxy: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetEnableAutoProxy: usize,
-    pub HTTPProxyHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrhttpproxyhost: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetHTTPProxyHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrhttpproxyhost: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub HTTPProxyHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrhttpproxyhost: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetHTTPProxyHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrhttpproxyhost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub HTTPProxyPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phttpproxyport: *mut i32) -> ::windows::core::HRESULT,
     pub SetHTTPProxyPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, httpproxyport: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2773,16 +2773,16 @@ pub struct IAMNetShowExProps_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SourceProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourceprotocol: *mut i32) -> ::windows::core::HRESULT,
     pub Bandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbandwidth: *mut i32) -> ::windows::core::HRESULT,
-    pub ErrorCorrection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrerrorcorrection: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ErrorCorrection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrerrorcorrection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CodecCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcodeccount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetCodecInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codecnum: i32, pcodecinstalled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetCodecInstalled: usize,
-    pub GetCodecDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codecnum: i32, pbstrcodecdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCodecURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codecnum: i32, pbstrcodecurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetCodecDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codecnum: i32, pbstrcodecdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCodecURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, codecnum: i32, pbstrcodecurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcreationdate: *mut f64) -> ::windows::core::HRESULT,
-    pub SourceLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourcelink: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SourceLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourcelink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3229,14 +3229,14 @@ pub struct IAMPlayListItem_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
     pub GetSourceCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsources: *mut u32) -> ::windows::core::HRESULT,
-    pub GetSourceURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetSourceURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pbstrurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSourceStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, prtstart: *mut i64) -> ::windows::core::HRESULT,
     pub GetSourceDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, prtduration: *mut i64) -> ::windows::core::HRESULT,
     pub GetSourceStartMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pdwmarker: *mut u32) -> ::windows::core::HRESULT,
     pub GetSourceEndMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pdwmarker: *mut u32) -> ::windows::core::HRESULT,
-    pub GetSourceStartMarkerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pbstrstartmarker: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetSourceEndMarkerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pbstrendmarker: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetLinkURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetSourceStartMarkerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pbstrstartmarker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSourceEndMarkerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, pbstrendmarker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetLinkURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetScanDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourceindex: u32, prtscanduration: *mut i64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -3515,9 +3515,9 @@ pub struct IAMStats_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
-    pub GetValueByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, szname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> ::windows::core::HRESULT,
-    pub GetValueByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> ::windows::core::HRESULT,
-    pub GetIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lcreate: i32, plindex: *mut i32) -> ::windows::core::HRESULT,
+    pub GetValueByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, szname: *mut *mut ::core::ffi::c_void, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> ::windows::core::HRESULT,
+    pub GetValueByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: *mut ::core::ffi::c_void, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> ::windows::core::HRESULT,
+    pub GetIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: *mut ::core::ffi::c_void, lcreate: i32, plindex: *mut i32) -> ::windows::core::HRESULT,
     pub AddValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, dvalue: f64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -8109,11 +8109,11 @@ unsafe impl ::windows::core::Interface for IBDA_ConditionalAccess {
 pub struct IBDA_ConditionalAccess_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub get_SmartCardStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfooblocked: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub get_SmartCardStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut *mut ::core::ffi::c_void, pfooblocked: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     get_SmartCardStatus: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub get_SmartCardInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcardname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrcardmanufacturer: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfdaylightsavings: *mut super::super::Foundation::VARIANT_BOOL, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pealocationcode: *mut EALocationCodeType) -> ::windows::core::HRESULT,
+    pub get_SmartCardInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcardname: *mut *mut ::core::ffi::c_void, pbstrcardmanufacturer: *mut *mut ::core::ffi::c_void, pfdaylightsavings: *mut super::super::Foundation::VARIANT_BOOL, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut *mut ::core::ffi::c_void, pealocationcode: *mut EALocationCodeType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     get_SmartCardInfo: usize,
     pub get_SmartCardApplications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcapplications: *mut u32, ulcapplicationsmax: u32, rgapplications: *mut ::core::mem::ManuallyDrop<SmartCardApplication>) -> ::windows::core::HRESULT,
@@ -8122,7 +8122,7 @@ pub struct IBDA_ConditionalAccess_Vtbl {
     pub SetProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usprogramnumber: u16) -> ::windows::core::HRESULT,
     pub AddProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usprogramnumber: u16) -> ::windows::core::HRESULT,
     pub RemoveProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usprogramnumber: u16) -> ::windows::core::HRESULT,
-    pub GetModuleUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bydialognumber: u8, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetModuleUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bydialognumber: u8, pbstrurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InformUIClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bydialognumber: u8, closereason: UICloseReasonType) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -8175,10 +8175,10 @@ unsafe impl ::windows::core::Interface for IBDA_ConditionalAccessEx {
 #[doc(hidden)]
 pub struct IBDA_ConditionalAccessEx_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CheckEntitlementToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requesttype: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8, puldescramblestatus: *mut u32) -> ::windows::core::HRESULT,
+    pub CheckEntitlementToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: *mut ::core::ffi::c_void, requesttype: BDA_CONDITIONALACCESS_REQUESTTYPE, ulcbentitlementtokenlen: u32, pbentitlementtoken: *const u8, puldescramblestatus: *mut u32) -> ::windows::core::HRESULT,
     pub SetCaptureToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcbcapturetokenlen: u32, pbcapturetoken: *const u8) -> ::windows::core::HRESULT,
-    pub OpenBroadcastMmi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, eventid: u32) -> ::windows::core::HRESULT,
-    pub CloseMmiDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, uldialognumber: u32, reasoncode: BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut u32) -> ::windows::core::HRESULT,
+    pub OpenBroadcastMmi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: *mut ::core::ffi::c_void, eventid: u32) -> ::windows::core::HRESULT,
+    pub CloseMmiDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: *mut ::core::ffi::c_void, uldialognumber: u32, reasoncode: BDA_CONDITIONALACCESS_MMICLOSEREASON, pulsessionresult: *mut u32) -> ::windows::core::HRESULT,
     pub CreateDialogRequestNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puldialogrequestnumber: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -8222,8 +8222,8 @@ unsafe impl ::windows::core::Interface for IBDA_DRIDRMService {
 #[doc(hidden)]
 pub struct IBDA_DRIDRMService_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub SetDRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnewdrm: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetDRMStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrmuuidlist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, drmuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub SetDRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnewdrm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDRMStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrmuuidlist: *mut *mut ::core::ffi::c_void, drmuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetPairingStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumpairingstatus: *mut BDA_DrmPairingError) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -8375,7 +8375,7 @@ unsafe impl ::windows::core::Interface for IBDA_DRMService {
 pub struct IBDA_DRMService_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetDRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puuidnewdrm: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetDRMStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrmuuidlist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, drmuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetDRMStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdrmuuidlist: *mut *mut ::core::ffi::c_void, drmuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -9136,14 +9136,14 @@ unsafe impl ::windows::core::Interface for IBDA_FDC {
 pub struct IBDA_FDC_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentbitrate: *mut u32, carrierlock: *mut super::super::Foundation::BOOL, currentfrequency: *mut u32, currentspectruminversion: *mut super::super::Foundation::BOOL, currentpidlist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, currenttidlist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, overflow: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentbitrate: *mut u32, carrierlock: *mut super::super::Foundation::BOOL, currentfrequency: *mut u32, currentspectruminversion: *mut super::super::Foundation::BOOL, currentpidlist: *mut *mut ::core::ffi::c_void, currenttidlist: *mut *mut ::core::ffi::c_void, overflow: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetStatus: usize,
-    pub RequestTables: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tableids: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AddPid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstoadd: ::core::mem::ManuallyDrop<::windows::core::BSTR>, remainingfilterentries: *mut u32) -> ::windows::core::HRESULT,
-    pub RemovePid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstoremove: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AddTid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tidstoadd: ::core::mem::ManuallyDrop<::windows::core::BSTR>, currenttidlist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub RemoveTid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tidstoremove: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RequestTables: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tableids: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddPid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstoadd: *mut ::core::ffi::c_void, remainingfilterentries: *mut u32) -> ::windows::core::HRESULT,
+    pub RemovePid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstoremove: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddTid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tidstoadd: *mut ::core::ffi::c_void, currenttidlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RemoveTid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tidstoremove: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetTableSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut u32, maxbuffersize: u32, actualsize: *mut u32, secbuffer: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -9283,9 +9283,9 @@ pub struct IBDA_GuideDataDeliveryService_Vtbl {
     pub GetGuideDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguiddatatype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetGuideData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcbbufferlen: *mut u32, pbbuffer: *mut u8, pulguidedatapercentageprogress: *mut u32) -> ::windows::core::HRESULT,
     pub RequestGuideDataUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetTuneXmlFromServiceIdx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ul64serviceidx: u64, pbstrtunexml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTuneXmlFromServiceIdx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ul64serviceidx: u64, pbstrtunexml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcbbufferlen: *mut u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
-    pub GetServiceInfoFromTuneXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtunexml: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrservicedescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetServiceInfoFromTuneXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtunexml: *mut ::core::ffi::c_void, pbstrservicedescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -9372,8 +9372,8 @@ unsafe impl ::windows::core::Interface for IBDA_IPSinkInfo {
 pub struct IBDA_IPSinkInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub get_MulticastList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcbaddresses: *mut u32, ppbaddresslist: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub AdapterIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbuffer: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AdapterDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbuffer: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AdapterIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdapterDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -9661,9 +9661,9 @@ unsafe impl ::windows::core::Interface for IBDA_NameValueService {
 #[doc(hidden)]
 pub struct IBDA_NameValueService_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetValueNameByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ulreserved: u32) -> ::windows::core::HRESULT,
+    pub GetValueNameByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrlanguage: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void, ulreserved: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -10369,7 +10369,7 @@ unsafe impl ::windows::core::Interface for IBDA_WMDRMTuner {
 #[doc(hidden)]
 pub struct IBDA_WMDRMTuner_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub PurchaseEntitlement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ulpurchasetokenlen: u32, pbpurchasetoken: *const u8, puldescramblestatus: *mut u32, pulcapturetokenlen: *mut u32, pbcapturetoken: *mut u8) -> ::windows::core::HRESULT,
+    pub PurchaseEntitlement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uldialogrequest: u32, bstrlanguage: *mut ::core::ffi::c_void, ulpurchasetokenlen: u32, pbpurchasetoken: *const u8, puldescramblestatus: *mut u32, pulcapturetokenlen: *mut u32, pbcapturetoken: *mut u8) -> ::windows::core::HRESULT,
     pub CancelCaptureToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcapturetokenlen: u32, pbcapturetoken: *const u8) -> ::windows::core::HRESULT,
     pub SetPidProtection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulpid: u32, uuidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetPidProtection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpid: u32, uuidkey: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -11920,8 +11920,8 @@ unsafe impl ::windows::core::Interface for IChannelIDTuneRequest {
 #[doc(hidden)]
 pub struct IChannelIDTuneRequest_Vtbl {
     pub base__: ITuneRequest_Vtbl,
-    pub ChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -12102,8 +12102,8 @@ pub struct IComponent_Vtbl {
     pub SetDescLangID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: i32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut ComponentStatus) -> ::windows::core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: ComponentStatus) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcomponent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12219,16 +12219,16 @@ pub struct IComponentType_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: *mut ComponentCategory) -> ::windows::core::HRESULT,
     pub SetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: ComponentCategory) -> ::windows::core::HRESULT,
-    pub MediaMajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediamajortype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetMediaMajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediamajortype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub MediaMajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediamajortype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMediaMajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediamajortype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub _MediaMajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediamajortypeguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Set_MediaMajorType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediamajortypeguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub MediaSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasubtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetMediaSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasubtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub MediaSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasubtype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMediaSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasubtype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub _MediaSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasubtypeguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Set_MediaSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasubtypeguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub MediaFormatType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediaformattype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetMediaFormatType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediaformattype: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub MediaFormatType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediaformattype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMediaFormatType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediaformattype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub _MediaFormatType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediaformattypeguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Set_MediaFormatType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediaformattypeguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -13225,8 +13225,8 @@ unsafe impl ::windows::core::Interface for IDShowPlugin {
 #[doc(hidden)]
 pub struct IDShowPlugin_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub UserAgent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseragent: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub URL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, purl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UserAgent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseragent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -13388,7 +13388,7 @@ unsafe impl ::windows::core::Interface for IDTFilter2 {
 #[doc(hidden)]
 pub struct IDTFilter2_Vtbl {
     pub base__: IDTFilter_Vtbl,
-    pub ChallengeUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchallengeurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ChallengeUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrchallengeurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prottype: *const ProtType, lpdatetime: *mut i32) -> ::windows::core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -13488,7 +13488,7 @@ pub struct IDTFilter3_Vtbl {
     pub LicenseHasExpirationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflicensehasexpirationdate: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     LicenseHasExpirationDate: usize,
-    pub SetRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrights: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrights: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -14246,8 +14246,8 @@ pub struct IDVBSTuningSpace_Vtbl {
     pub SetHighOscillator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, highoscillator: i32) -> ::windows::core::HRESULT,
     pub LNBSwitch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnbswitch: *mut i32) -> ::windows::core::HRESULT,
     pub SetLNBSwitch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnbswitch: i32) -> ::windows::core::HRESULT,
-    pub InputRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputrange: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetInputRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputrange: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InputRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputrange: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetInputRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spectralinversionval: *mut SpectralInversion) -> ::windows::core::HRESULT,
     pub SetSpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spectralinversionval: SpectralInversion) -> ::windows::core::HRESULT,
 }
@@ -17500,7 +17500,7 @@ pub struct IDvbComponentDescriptor_Vtbl {
     pub GetComponentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetComponentTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows::core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -17869,10 +17869,10 @@ pub struct IDvbExtendedEventDescriptor_Vtbl {
     pub GetLastDescriptorNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows::core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
-    pub GetRecordItemW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstritem: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetConcatenatedItemW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfollowingdescriptor: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstritem: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetConcatenatedTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, followingdescriptor: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRecordItemW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut *mut ::core::ffi::c_void, pbstritem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetConcatenatedItemW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfollowingdescriptor: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut *mut ::core::ffi::c_void, pbstritem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetConcatenatedTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, followingdescriptor: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRecordItemRawBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, ppbrawitem: *mut *mut u8, pbitemlength: *mut u8) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -18151,7 +18151,7 @@ pub struct IDvbLogicalChannel2Descriptor_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor2_Vtbl,
     pub GetCountOfLists: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blistindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
-    pub GetListNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blistindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetListNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blistindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetListCountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blistindex: u8, pszcode: *mut u8) -> ::windows::core::HRESULT,
     pub GetListCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bchannellistindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetListRecordServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blistindex: u8, brecordindex: u8, pwval: *mut u16) -> ::windows::core::HRESULT,
@@ -18334,8 +18334,8 @@ pub struct IDvbMultilingualServiceNameDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRecordLangId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, ulval: *mut u32) -> ::windows::core::HRESULT,
-    pub GetRecordServiceProviderNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetRecordServiceNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRecordServiceProviderNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetRecordServiceNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -18388,7 +18388,7 @@ pub struct IDvbNetworkNameDescriptor_Vtbl {
     pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetNetworkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub GetNetworkNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetNetworkNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -18709,10 +18709,10 @@ pub struct IDvbServiceDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetServiceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetServiceProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub GetServiceProviderNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetServiceProviderNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub GetProcessedServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetServiceNameEmphasized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetProcessedServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetServiceNameEmphasized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -18786,8 +18786,8 @@ unsafe impl ::windows::core::Interface for IDvbServiceDescriptor2 {
 #[doc(hidden)]
 pub struct IDvbServiceDescriptor2_Vtbl {
     pub base__: IDvbServiceDescriptor_Vtbl,
-    pub GetServiceProviderNameW2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetServiceNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetServiceProviderNameW2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetServiceNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -18901,8 +18901,8 @@ pub struct IDvbShortEventDescriptor_Vtbl {
     pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows::core::HRESULT,
-    pub GetEventNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetEventNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -20557,7 +20557,7 @@ pub struct IESEvent_Vtbl {
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetData: usize,
-    pub GetStringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetStringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -20599,7 +20599,7 @@ unsafe impl ::windows::core::Interface for IESEventFactory {
 #[doc(hidden)]
 pub struct IESEventFactory_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateESEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserviceprovider: *mut ::core::ffi::c_void, dweventid: u32, guideventtype: ::windows::core::GUID, dweventdatalength: u32, peventdata: *const u8, bstrbaseurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pinitcontext: *mut ::core::ffi::c_void, ppesevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateESEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserviceprovider: *mut ::core::ffi::c_void, dweventid: u32, guideventtype: ::windows::core::GUID, dweventdatalength: u32, peventdata: *const u8, bstrbaseurl: *mut ::core::ffi::c_void, pinitcontext: *mut ::core::ffi::c_void, ppesevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -21027,7 +21027,7 @@ unsafe impl ::windows::core::Interface for IESLicenseRenewalResultEvent {
 pub struct IESLicenseRenewalResultEvent_Vtbl {
     pub base__: IESEvent_Vtbl,
     pub GetCallersId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcallersid: *mut u32) -> ::windows::core::HRESULT,
-    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsRenewalSuccessful: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrenewalsuccessful: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -21122,7 +21122,7 @@ pub struct IESOpenMmiEvent_Vtbl {
     pub GetDialogData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDialogData: usize,
-    pub GetDialogStringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbaseurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetDialogStringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbaseurl: *mut *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -23022,19 +23022,19 @@ unsafe impl ::windows::core::Interface for IFilterInfo {
 pub struct IFilterInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub FindPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpinid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpinid: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindPin: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub VendorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strvendorinfo: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub VendorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strvendorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Pins: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Pins: usize,
     pub IsFileSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbissource: *mut i32) -> ::windows::core::HRESULT,
-    pub Filename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrfilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Filename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrfilename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -23492,8 +23492,8 @@ pub struct IFullScreenVideo_Vtbl {
     pub GetMonitor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, monitor: *mut i32) -> ::windows::core::HRESULT,
     pub HideOnDeactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hide: i32) -> ::windows::core::HRESULT,
     pub IsHideOnDeactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strcaption: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcaption: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strcaption: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcaption: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -23812,7 +23812,7 @@ unsafe impl ::windows::core::Interface for IGpnvsCommonBase {
 #[doc(hidden)]
 pub struct IGpnvsCommonBase_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetValueUpdateName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetValueUpdateName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -24465,7 +24465,7 @@ unsafe impl ::windows::core::Interface for IGuideDataProperty {
 #[doc(hidden)]
 pub struct IGuideDataProperty_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idlang: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
@@ -25485,7 +25485,7 @@ pub struct IIsdbAudioComponentDescriptor_Vtbl {
     pub GetSamplingRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows::core::HRESULT,
     pub GetLanguageCode2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows::core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -25563,7 +25563,7 @@ pub struct IIsdbCAContractInformationDescriptor_Vtbl {
     pub GetRecordComponentTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetContractVerificationInfoLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetContractVerificationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bbuflength: u8, pbbuf: *mut u8) -> ::windows::core::HRESULT,
-    pub GetFeeNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetFeeNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -25775,7 +25775,7 @@ pub struct IIsdbComponentGroupDescriptor_Vtbl {
     pub GetRecordCAUnitNumberOfComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, bcaunitindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRecordCAUnitComponentTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, bcaunitindex: u8, bcomponentindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRecordTotalBitRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
-    pub GetRecordTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetRecordTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -25857,7 +25857,7 @@ pub struct IIsdbDataContentDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRecordComponentRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows::core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -26034,7 +26034,7 @@ pub struct IIsdbDownloadContentDescriptor_Vtbl {
     pub GetRecordModuleInfoLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordindex: u16, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRecordModuleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordindex: u16, ppbdata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub GetTextLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcode: *mut u8) -> ::windows::core::HRESULT,
-    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -26298,7 +26298,7 @@ pub struct IIsdbLogoTransmissionDescriptor_Vtbl {
     pub GetLogoId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
     pub GetLogoVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
     pub GetDownloadDataId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
-    pub GetLogoCharW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrchar: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetLogoCharW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrchar: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -26452,7 +26452,7 @@ pub struct IIsdbSeriesDescriptor_Vtbl {
     GetExpireDate: usize,
     pub GetEpisodeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
     pub GetLastEpisodeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
-    pub GetSeriesNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetSeriesNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -26655,7 +26655,7 @@ pub struct IIsdbTSInformationDescriptor_Vtbl {
     pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRemoteControlKeyId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
-    pub GetTSNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetTSNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRecordTransmissionTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRecordNumberOfServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows::core::HRESULT,
@@ -27705,7 +27705,7 @@ unsafe impl ::windows::core::Interface for IMSEventBinder {
 pub struct IMSEventBinder_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Bind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventobject: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, eventhandler: ::core::mem::ManuallyDrop<::windows::core::BSTR>, cancelid: *mut i32) -> ::windows::core::HRESULT,
+    pub Bind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventobject: *mut ::core::ffi::c_void, eventname: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, cancelid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Bind: usize,
     pub Unbind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cancelcookie: u32) -> ::windows::core::HRESULT,
@@ -29224,11 +29224,11 @@ pub struct IMSVidCtl_Vtbl {
     pub ColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentvalue: *mut u32) -> ::windows::core::HRESULT,
     pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newvalue: u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_InputsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_InputsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryguid: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_InputsAvailable: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_OutputsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_OutputsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryguid: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_OutputsAvailable: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -29532,7 +29532,7 @@ unsafe impl ::windows::core::Interface for IMSVidDevice {
 #[doc(hidden)]
 pub struct IMSVidDevice_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetPower: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, power: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
@@ -29542,8 +29542,8 @@ pub struct IMSVidDevice_Vtbl {
     pub Power: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, power: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Power: usize,
-    pub Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub _Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub _ClassID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -29587,7 +29587,7 @@ unsafe impl ::windows::core::Interface for IMSVidDevice2 {
 #[doc(hidden)]
 pub struct IMSVidDevice2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub DevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -30470,8 +30470,8 @@ unsafe impl ::windows::core::Interface for IMSVidFilePlayback {
 #[doc(hidden)]
 pub struct IMSVidFilePlayback_Vtbl {
     pub base__: IMSVidPlayback_Vtbl,
-    pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -30637,7 +30637,7 @@ unsafe impl ::windows::core::Interface for IMSVidFilePlayback2 {
 #[doc(hidden)]
 pub struct IMSVidFilePlayback2_Vtbl {
     pub base__: IMSVidFilePlayback_Vtbl,
-    pub Set_SourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Set_SourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Set__SourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
@@ -30787,7 +30787,7 @@ unsafe impl ::windows::core::Interface for IMSVidGenericSink {
 #[doc(hidden)]
 pub struct IMSVidGenericSink_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
-    pub SetSinkFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetSinkFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SinkStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstreams: *mut MSVidSinkStreams) -> ::windows::core::HRESULT,
     pub SetSinkStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streams: MSVidSinkStreams) -> ::windows::core::HRESULT,
 }
@@ -30893,7 +30893,7 @@ unsafe impl ::windows::core::Interface for IMSVidGenericSink2 {
 #[doc(hidden)]
 pub struct IMSVidGenericSink2_Vtbl {
     pub base__: IMSVidGenericSink_Vtbl,
-    pub AddFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AddFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ResetFilterList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
@@ -32212,15 +32212,15 @@ unsafe impl ::windows::core::Interface for IMSVidStreamBufferSink {
 pub struct IMSVidStreamBufferSink_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_ContentRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, precordingiunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_ContentRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: *mut ::core::ffi::c_void, precordingiunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ContentRecorder: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_ReferenceRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, precordingiunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_ReferenceRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: *mut ::core::ffi::c_void, precordingiunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_ReferenceRecorder: usize,
-    pub SinkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetSinkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SinkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSinkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NameSetLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SBESink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sbeconfig: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -32527,16 +32527,16 @@ pub struct IMSVidStreamBufferSink3_Vtbl {
     pub VideoCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CCCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WSTCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetAudioAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AudioAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszclsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetAudioAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szclsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AudioAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszclsid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Set_AudioAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub _AudioAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub SetVideoAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub VideoAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszclsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetVideoAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szclsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub VideoAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszclsid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Set_VideoAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub _VideoAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub SetDataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszclsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetDataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szclsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszclsid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Set_DataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub _DataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub LicenseErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hres: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
@@ -33483,8 +33483,8 @@ unsafe impl ::windows::core::Interface for IMSVidStreamBufferSourceEvent3 {
 #[doc(hidden)]
 pub struct IMSVidStreamBufferSourceEvent3_Vtbl {
     pub base__: IMSVidStreamBufferSourceEvent2_Vtbl,
-    pub BroadcastEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BroadcastEventEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::HRESULT,
+    pub BroadcastEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BroadcastEventEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::HRESULT,
     pub COPPBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub COPPUnblocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -33572,8 +33572,8 @@ pub struct IMSVidStreamBufferV2SourceEvent_Vtbl {
     pub ContentBecomingStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StaleFileDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwnewrate: f64, qwoldrate: f64) -> ::windows::core::HRESULT,
-    pub BroadcastEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BroadcastEventEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::HRESULT,
+    pub BroadcastEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BroadcastEventEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
@@ -34663,8 +34663,8 @@ unsafe impl ::windows::core::Interface for IMSVidVideoRenderer {
 #[doc(hidden)]
 pub struct IMSVidVideoRenderer_Vtbl {
     pub base__: IMSVidOutputDevice_Vtbl,
-    pub CustomCompositorClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositorclsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetCustomCompositorClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositorclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub CustomCompositorClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositorclsid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCustomCompositorClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositorclsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub _CustomCompositorClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositorclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Set_CustomCompositorClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositorclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub _CustomCompositor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35756,15 +35756,15 @@ pub struct IMSVidWebDVD_Vtbl {
     pub PlayChapterInTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, lchapter: i32) -> ::windows::core::HRESULT,
     pub PlayChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lchapter: i32) -> ::windows::core::HRESULT,
     pub PlayChaptersAutoStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, lstrchapter: i32, lchaptercount: i32) -> ::windows::core::HRESULT,
-    pub PlayAtTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtime: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlayAtTimeInTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, strtime: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PlayPeriodInTitleAutoStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, strstarttime: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strendtime: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub PlayAtTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtime: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlayAtTimeInTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, strtime: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlayPeriodInTitleAutoStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, strstarttime: *mut ::core::ffi::c_void, strendtime: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReplayChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PlayPrevChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PlayNextChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StillOff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub get_AudioLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstream: i32, fformat: super::super::Foundation::VARIANT_BOOL, straudiolang: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_AudioLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstream: i32, fformat: super::super::Foundation::VARIANT_BOOL, straudiolang: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     get_AudioLanguage: usize,
     pub ShowMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, menuid: DVDMenuIDConstants) -> ::windows::core::HRESULT,
@@ -35782,7 +35782,7 @@ pub struct IMSVidWebDVD_Vtbl {
     pub SelectAtPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpos: i32, ypos: i32) -> ::windows::core::HRESULT,
     pub get_ButtonAtPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpos: i32, ypos: i32, plbutton: *mut i32) -> ::windows::core::HRESULT,
     pub get_NumberOfChapters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, pval: *mut i32) -> ::windows::core::HRESULT,
-    pub TotalTitleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TotalTitleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TitlesAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub VolumesAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
@@ -35790,10 +35790,10 @@ pub struct IMSVidWebDVD_Vtbl {
     pub CurrentDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentChapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
-    pub CurrentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DVDTimeCode2bstr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timecode: i32, ptimestr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DVDDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetDVDDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub CurrentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DVDTimeCode2bstr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timecode: i32, ptimestr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DVDDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDVDDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSubpictureStreamEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstream: i32, fenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -35804,7 +35804,7 @@ pub struct IMSVidWebDVD_Vtbl {
     IsAudioStreamEnabled: usize,
     pub CurrentSubpictureStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub SetCurrentSubpictureStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows::core::HRESULT,
-    pub get_SubpictureLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstream: i32, strlanguage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_SubpictureLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstream: i32, strlanguage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentAudioStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub SetCurrentAudioStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows::core::HRESULT,
     pub AudioStreamsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
@@ -35820,17 +35820,17 @@ pub struct IMSVidWebDVD_Vtbl {
     pub SetSubpictureOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSubpictureOn: usize,
-    pub DVDUniqueID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DVDUniqueID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AcceptParentalLevelChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, faccept: super::super::Foundation::VARIANT_BOOL, strusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AcceptParentalLevelChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, faccept: super::super::Foundation::VARIANT_BOOL, strusername: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AcceptParentalLevelChange: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub NotifyParentalLevelChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     NotifyParentalLevelChange: usize,
-    pub SelectParentalCountry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcountry: i32, strusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SelectParentalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lparentallevel: i32, strusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SelectParentalCountry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcountry: i32, strusername: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectParentalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lparentallevel: i32, strusername: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_TitleParentalLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltitle: i32, plparentallevels: *mut i32) -> ::windows::core::HRESULT,
     pub PlayerParentalCountry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcountrycode: *mut i32) -> ::windows::core::HRESULT,
     pub PlayerParentalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plparentallevel: *mut i32) -> ::windows::core::HRESULT,
@@ -35843,7 +35843,7 @@ pub struct IMSVidWebDVD_Vtbl {
     pub get_GPRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pssprm: *mut i16) -> ::windows::core::HRESULT,
     pub put_GPRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, svalue: i16) -> ::windows::core::HRESULT,
     pub get_DVDTextStringType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llangindex: i32, lstringindex: i32, ptype: *mut DVDTextStringType) -> ::windows::core::HRESULT,
-    pub get_DVDTextString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llangindex: i32, lstringindex: i32, pstrtext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_DVDTextString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llangindex: i32, lstringindex: i32, pstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_DVDTextNumberOfStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llangindex: i32, plnumofstrings: *mut i32) -> ::windows::core::HRESULT,
     pub DVDTextNumberOfLanguages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plnumoflangs: *mut i32) -> ::windows::core::HRESULT,
     pub get_DVDTextLanguageLCID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llangindex: i32, lcid: *mut i32) -> ::windows::core::HRESULT,
@@ -35864,7 +35864,7 @@ pub struct IMSVidWebDVD_Vtbl {
     pub DefaultAudioLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lang: *mut i32) -> ::windows::core::HRESULT,
     pub DefaultSubpictureLanguageExt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ext: *mut DVDSPExt) -> ::windows::core::HRESULT,
     pub DefaultAudioLanguageExt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ext: *mut i32) -> ::windows::core::HRESULT,
-    pub get_LanguageFromLCID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: i32, lang: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_LanguageFromLCID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: i32, lang: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub KaraokeAudioPresentationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub SetKaraokeAudioPresentationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows::core::HRESULT,
     pub get_KaraokeChannelContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstream: i32, lchan: i32, lcontent: *mut i32) -> ::windows::core::HRESULT,
@@ -36503,11 +36503,11 @@ unsafe impl ::windows::core::Interface for IMSVidWebDVDAdm {
 #[doc(hidden)]
 pub struct IMSVidWebDVDAdm_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ChangePassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strold: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strnew: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SaveParentalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: i32, strusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SaveParentalCountry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, country: i32, strusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ChangePassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strusername: *mut ::core::ffi::c_void, strold: *mut ::core::ffi::c_void, strnew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SaveParentalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: i32, strusername: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SaveParentalCountry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, country: i32, strusername: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub ConfirmPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strusername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub ConfirmPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strusername: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ConfirmPassword: usize,
     pub GetParentalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llevel: *mut i32) -> ::windows::core::HRESULT,
@@ -37056,9 +37056,9 @@ pub struct IMediaControl_Vtbl {
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mstimeout: i32, pfs: *mut i32) -> ::windows::core::HRESULT,
-    pub RenderFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub RenderFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddSourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddSourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilename: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddSourceFilter: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -38273,8 +38273,8 @@ unsafe impl ::windows::core::Interface for IMediaTypeInfo {
 #[doc(hidden)]
 pub struct IMediaTypeInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Subtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Subtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strtype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -40422,7 +40422,7 @@ unsafe impl ::windows::core::Interface for IPersistTuneXmlUtility2 {
 pub struct IPersistTuneXmlUtility2_Vtbl {
     pub base__: IPersistTuneXmlUtility_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitunerequest: *mut ::core::ffi::c_void, pstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitunerequest: *mut ::core::ffi::c_void, pstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Serialize: usize,
 }
@@ -40785,9 +40785,9 @@ pub struct IPinInfo_Vtbl {
     pub FilterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FilterInfo: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdirection: *mut i32) -> ::windows::core::HRESULT,
-    pub PinID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpinid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub PinID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpinid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub MediaTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -41019,7 +41019,7 @@ unsafe impl ::windows::core::Interface for IRegFilterInfo {
 #[doc(hidden)]
 pub struct IRegFilterInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Filter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -41784,7 +41784,7 @@ pub struct ISCTE_EAS_Vtbl {
     pub GetEASEventCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRawNatureOfActivationTextLen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetRawNatureOfActivationText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
-    pub GetNatureOfActivationText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstris0639code: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetNatureOfActivationText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstris0639code: *mut ::core::ffi::c_void, pbstrstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetTimeRemaining: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows::core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
@@ -41793,7 +41793,7 @@ pub struct ISCTE_EAS_Vtbl {
     pub GetDetailsMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
     pub GetDetailsMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
     pub GetDetailsAudioOOBSourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
-    pub GetAlertText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstris0639code: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetAlertText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstris0639code: *mut ::core::ffi::c_void, pbstrstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRawAlertTextLen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows::core::HRESULT,
     pub GetRawAlertText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
     pub GetLocationCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows::core::HRESULT,
@@ -44198,13 +44198,13 @@ unsafe impl ::windows::core::Interface for ITuningSpace {
 #[doc(hidden)]
 pub struct ITuningSpace_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub UniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetUniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub CLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spaceclsid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub NetworkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networktypeguid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetNetworkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networktypeguid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub UniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetUniqueName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spaceclsid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NetworkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networktypeguid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetNetworkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networktypeguid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub _NetworkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networktypeguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Set_NetworkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networktypeguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -44227,8 +44227,8 @@ pub struct ITuningSpace_Vtbl {
     pub SetDefaultPreferredComponentTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcomponenttypes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetDefaultPreferredComponentTypes: usize,
-    pub FrequencyMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmapping: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFrequencyMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mapping: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub FrequencyMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmapping: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetFrequencyMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mapping: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub DefaultLocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locatorval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -44381,7 +44381,7 @@ pub struct ITuningSpaceContainer_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     put_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub TuningSpacesForCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spaceclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, newcoll: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TuningSpacesForCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spaceclsid: *mut ::core::ffi::c_void, newcoll: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TuningSpacesForCLSID: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -44389,7 +44389,7 @@ pub struct ITuningSpaceContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     _TuningSpacesForCLSID2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub TuningSpacesForName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, newcoll: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TuningSpacesForName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, newcoll: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TuningSpacesForName: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -47515,8 +47515,8 @@ unsafe impl ::windows::core::Interface for IVideoWindow {
 #[doc(hidden)]
 pub struct IVideoWindow_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub SetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strcaption: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Caption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strcaption: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strcaption: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Caption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strcaption: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetWindowStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowstyle: i32) -> ::windows::core::HRESULT,
     pub WindowStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowstyle: *mut i32) -> ::windows::core::HRESULT,
     pub SetWindowStyleEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowstyleex: i32) -> ::windows::core::HRESULT,
@@ -47733,7 +47733,7 @@ pub struct IXDSCodec_Vtbl {
     pub SetCCSubstreamService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, substreammask: i32) -> ::windows::core::HRESULT,
     pub CCSubstreamService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubstreammask: *mut i32) -> ::windows::core::HRESULT,
     pub GetContentAdvisoryRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prat: *mut i32, ppktseqid: *mut i32, pcallseqid: *mut i32, ptimestart: *mut i64, ptimeend: *mut i64) -> ::windows::core::HRESULT,
-    pub GetXDSPacket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxdsclasspkt: *mut i32, pxdstypepkt: *mut i32, pbstrxdspkt: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppktseqid: *mut i32, pcallseqid: *mut i32, ptimestart: *mut i64, ptimeend: *mut i64) -> ::windows::core::HRESULT,
+    pub GetXDSPacket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxdsclasspkt: *mut i32, pxdstypepkt: *mut i32, pbstrxdspkt: *mut *mut ::core::ffi::c_void, ppktseqid: *mut i32, pcallseqid: *mut i32, ptimestart: *mut i64, ptimeend: *mut i64) -> ::windows::core::HRESULT,
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prottype: *const ProtType, lpdatetime: *mut i32) -> ::windows::core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

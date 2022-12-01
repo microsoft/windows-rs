@@ -3583,7 +3583,7 @@ unsafe impl ::windows::core::Interface for IEnumMsmString {
 #[doc(hidden)]
 pub struct IEnumMsmString_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfetch: u32, rgbstrstrings: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfetch: u32, rgbstrstrings: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cskip: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pemsmstrings: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3701,9 +3701,9 @@ unsafe impl ::windows::core::Interface for IMsmDependency {
 #[doc(hidden)]
 pub struct IMsmDependency_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Module: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Module: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, module: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: *mut i16) -> ::windows::core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3775,14 +3775,14 @@ unsafe impl ::windows::core::Interface for IMsmError {
 pub struct IMsmError_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortype: *mut msmErrorType) -> ::windows::core::HRESULT,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorlanguage: *mut i16) -> ::windows::core::HRESULT,
-    pub DatabaseTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortable: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DatabaseTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub DatabaseKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DatabaseKeys: usize,
-    pub ModuleTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortable: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ModuleTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub ModuleKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorkeys: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3992,16 +3992,16 @@ unsafe impl ::windows::core::Interface for IMsmMerge {
 #[doc(hidden)]
 pub struct IMsmMerge_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub OpenDatabase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub OpenModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, language: i16) -> ::windows::core::HRESULT,
+    pub OpenDatabase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub OpenModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, language: i16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CloseDatabase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commit: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CloseDatabase: usize,
     pub CloseModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub OpenLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub OpenLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CloseLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Errors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errors: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4010,10 +4010,10 @@ pub struct IMsmMerge_Vtbl {
     pub Dependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dependencies: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Dependencies: usize,
-    pub Merge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<::windows::core::BSTR>, redirectdir: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ExtractCAB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ExtractFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Merge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: *mut ::core::ffi::c_void, redirectdir: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ExtractCAB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ExtractFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4067,7 +4067,7 @@ unsafe impl ::windows::core::Interface for IMsmStrings {
 #[doc(hidden)]
 pub struct IMsmStrings_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4382,9 +4382,9 @@ pub struct IPMApplicationInfo_Vtbl {
     pub ProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproductid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub InstanceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OfferID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pofferid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub DefaultTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdefaulttask: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub AppTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, papptitle: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IconPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappiconpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DefaultTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdefaulttask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AppTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, papptitle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IconPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappiconpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub NotificationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisnotified: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4415,14 +4415,14 @@ pub struct IPMApplicationInfo_Vtbl {
     pub IsTrial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistrial: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTrial: usize,
-    pub InstallPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DataRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataroot: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub InstallPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DataRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataroot: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Genre: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgenre: *mut PM_APP_GENRE) -> ::windows::core::HRESULT,
-    pub Publisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppublisher: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauthor: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversion: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Publisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppublisher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauthor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut *mut ::core::ffi::c_void, pparameters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AppPlatMajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmajorver: *mut u8) -> ::windows::core::HRESULT,
     pub AppPlatMinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pminorver: *mut u8) -> ::windows::core::HRESULT,
     pub PublisherID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppublisherid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -4430,7 +4430,7 @@ pub struct IPMApplicationInfo_Vtbl {
     pub IsMultiCore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pismulticore: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsMultiCore: usize,
-    pub SID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AppPlatMajorVersionLightUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmajorver: *mut u8) -> ::windows::core::HRESULT,
     pub AppPlatMinorVersionLightUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pminorver: *mut u8) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -4441,7 +4441,7 @@ pub struct IPMApplicationInfo_Vtbl {
     pub set_NotificationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isnotified: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     set_NotificationState: usize,
-    pub set_IconPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appiconpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub set_IconPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appiconpath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub set_UninstallableState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isuninstallable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4520,7 +4520,7 @@ pub struct IPMApplicationInfo_Vtbl {
     pub set_IsMdilMaintenanceNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fismdilmaintenanceneeded: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     set_IsMdilMaintenanceNeeded: usize,
-    pub set_Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, apptitle: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub set_Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, apptitle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -4659,12 +4659,12 @@ unsafe impl ::windows::core::Interface for IPMBackgroundServiceAgentInfo {
 pub struct IPMBackgroundServiceAgentInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproductid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BSAID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsaid: *mut u32) -> ::windows::core::HRESULT,
-    pub BGSpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgspecifier: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BGName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BGSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgsource: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BGType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgtype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BGSpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgspecifier: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BGName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BGSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BGType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgtype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsPeriodic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisperiodic: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4677,7 +4677,7 @@ pub struct IPMBackgroundServiceAgentInfo_Vtbl {
     pub IsScheduleAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisscheduleallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsScheduleAllowed: usize,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsLaunchOnBoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plaunchonboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4786,8 +4786,8 @@ unsafe impl ::windows::core::Interface for IPMBackgroundWorkerInfo {
 pub struct IPMBackgroundWorkerInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproductid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BGName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BGName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbgname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub MaxStartupLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmaxstartuplatency: *mut u32) -> ::windows::core::HRESULT,
     pub ExpectedRuntime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexpectedruntime: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5038,7 +5038,7 @@ pub struct IPMDeploymentManager_Vtbl {
     BeginEnterpriseAppInstall: usize,
     pub BeginEnterpriseAppUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT,
     pub BeginUpdateLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, offerid: ::windows::core::GUID, pblicense: *const u8, cblicense: u32) -> ::windows::core::HRESULT,
-    pub GetLicenseChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::HRESULT,
+    pub GetLicenseChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagepath: *mut ::core::ffi::c_void, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::HRESULT,
     pub GetLicenseChallengeByProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::HRESULT,
     pub GetLicenseChallengeByProductID2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::HRESULT,
     pub RevokeLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -5052,7 +5052,7 @@ pub struct IPMDeploymentManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RegenerateXbf: usize,
     pub GenerateXbfForCurrentLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub BeginProvision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, xmlpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BeginProvision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, xmlpath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BeginDeprovision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub ReindexSQLCEDatabases: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetApplicationsNeedMaintenance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requiredmaintenanceoperations: u32, pcapplications: *mut u32) -> ::windows::core::HRESULT,
@@ -5063,12 +5063,12 @@ pub struct IPMDeploymentManager_Vtbl {
     EnterprisePolicyIsApplicationAllowed: usize,
     pub BeginUpdateDeployedPackage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT,
     pub ReportRestoreCancelled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub ResolveResourceString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcestring: ::windows::core::PCWSTR, presolvedresourcestring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ResolveResourceString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcestring: ::windows::core::PCWSTR, presolvedresourcestring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UpdateCapabilitiesForModernApps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReportDownloadStatusUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub BeginUninstallWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, removaloptions: u32) -> ::windows::core::HRESULT,
     pub BindDeferredMdilBinaries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GenerateXamlLightupXbfForCurrentLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GenerateXamlLightupXbfForCurrentLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefamilyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddLicenseForAppx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> ::windows::core::HRESULT,
     pub FixJunctionsForAppsOnSDCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -5205,15 +5205,15 @@ pub struct IPMEnumerationManager_Vtbl {
     pub get_AllBackgroundServiceAgents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbsaenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
     pub get_AllBackgroundWorkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbswenum: *mut *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT,
     pub get_ApplicationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub get_TileInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptileinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub get_TaskInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pptaskinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_TileInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: *mut ::core::ffi::c_void, pptileinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_TaskInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: *mut ::core::ffi::c_void, pptaskinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_TaskInfoEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, taskid: ::windows::core::PCWSTR, pptaskinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_BackgroundServiceAgentInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bsaid: u32, pptaskinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllLiveTileJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplivetilejobenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub get_LiveTileJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE, pplivetilejobinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_LiveTileJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, tileid: *mut ::core::ffi::c_void, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE, pplivetilejobinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_ApplicationInfoExternal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::windows::core::GUID, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub get_FileHandlerGenericLogo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, logosize: PM_LOGO_SIZE, plogo: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_ApplicationInfoFromAccessClaims: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sysappid0: ::core::mem::ManuallyDrop<::windows::core::BSTR>, sysappid1: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_FileHandlerGenericLogo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetype: *mut ::core::ffi::c_void, logosize: PM_LOGO_SIZE, plogo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_ApplicationInfoFromAccessClaims: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sysappid0: *mut ::core::ffi::c_void, sysappid1: *mut ::core::ffi::c_void, ppappinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub get_StartTileEnumeratorBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5301,7 +5301,7 @@ unsafe impl ::windows::core::Interface for IPMExtensionContractInfo {
 #[doc(hidden)]
 pub struct IPMExtensionContractInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paumid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pargs: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paumid: *mut *mut ::core::ffi::c_void, pargs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -5356,12 +5356,12 @@ unsafe impl ::windows::core::Interface for IPMExtensionFileExtensionInfo {
 #[doc(hidden)]
 pub struct IPMExtensionFileExtensionInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisplayname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logosize: PM_LOGO_SIZE, plogo: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontenttype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_FileType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenttype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pfiletype: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisplayname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logosize: PM_LOGO_SIZE, plogo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetype: *mut ::core::ffi::c_void, pcontenttype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_FileType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenttype: *mut ::core::ffi::c_void, pfiletype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut *mut ::core::ffi::c_void, pparameters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_AllFileTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbtypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -5510,11 +5510,11 @@ unsafe impl ::windows::core::Interface for IPMExtensionInfo {
 pub struct IPMExtensionInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub SupplierPID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psupplierpid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub SupplierTaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psuppliertid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptitle: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IconPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piconpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ExtraFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SupplierTaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psuppliertid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptitle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IconPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piconpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ExtraFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilepath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut *mut ::core::ffi::c_void, pparameters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -5592,8 +5592,8 @@ unsafe impl ::windows::core::Interface for IPMExtensionProtocolInfo {
 #[doc(hidden)]
 pub struct IPMExtensionProtocolInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotocol: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotocol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut *mut ::core::ffi::c_void, pparameters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
@@ -5776,7 +5776,7 @@ unsafe impl ::windows::core::Interface for IPMLiveTileJobInfo {
 pub struct IPMLiveTileJobInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproductid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub TileID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptileid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TileID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptileid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub NextSchedule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnextschedule: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5972,17 +5972,17 @@ unsafe impl ::windows::core::Interface for IPMTaskInfo {
 pub struct IPMTaskInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproductid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub NavigationPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnavigationpage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NavigationPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnavigationpage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TaskTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptasktransition: *mut PM_TASK_TRANSITION) -> ::windows::core::HRESULT,
     pub RuntimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pruntimetype: *mut PACKMAN_RUNTIME) -> ::windows::core::HRESULT,
     pub ActivationPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pactivationpolicy: *mut PM_ACTIVATION_POLICY) -> ::windows::core::HRESULT,
     pub TaskType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptasktype: *mut PM_TASK_TYPE) -> ::windows::core::HRESULT,
-    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ImagePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimagepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ImageParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageparams: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub InstallRootFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallrootfolder: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub DataRootFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatarootfolder: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut *mut ::core::ffi::c_void, pparameters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ImagePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimagepath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ImageParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageparams: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InstallRootFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstallrootfolder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DataRootFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatarootfolder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsSingleInstanceHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pissingleinstancehost: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5999,7 +5999,7 @@ pub struct IPMTaskInfo_Vtbl {
     pub SuppressesDehydration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psuppressesdehydration: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SuppressesDehydration: usize,
-    pub BackgroundExecutionAbilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbackgroundexecutionabilities: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub BackgroundExecutionAbilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbackgroundexecutionabilities: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsOptedForExtendedMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisoptedin: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6195,7 +6195,7 @@ unsafe impl ::windows::core::Interface for IPMTileInfo {
 pub struct IPMTileInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub ProductID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproductid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub TileID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptileid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TileID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptileid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TemplateType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptemplatetype: *mut TILE_TEMPLATE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub get_HubPinnedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hubtype: PM_TILE_HUBTYPE, ppinned: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -6210,14 +6210,14 @@ pub struct IPMTileInfo_Vtbl {
     pub IsDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisdefault: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsDefault: usize,
-    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub TaskID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TileType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstarttiletype: *mut PM_STARTTILE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsThemable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisthemable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsThemable: usize,
     pub get_PropertyById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: u32, pppropinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pparameters: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub get_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimageurn: *mut *mut ::core::ffi::c_void, pparameters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PropertyEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptilepropenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub get_HubTileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hubtype: PM_TILE_HUBTYPE, psize: *mut PM_TILE_SIZE) -> ::windows::core::HRESULT,
     pub set_HubPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hubtype: PM_TILE_HUBTYPE, position: u32) -> ::windows::core::HRESULT,
@@ -6230,7 +6230,7 @@ pub struct IPMTileInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     set_HubPinnedState: usize,
     pub set_HubTileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::HRESULT,
-    pub set_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, taskparameters: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub set_InvocationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskname: *mut ::core::ffi::c_void, taskparameters: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub StartTileBlob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: *mut ::core::mem::ManuallyDrop<PM_STARTTILEBLOB>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6371,8 +6371,8 @@ unsafe impl ::windows::core::Interface for IPMTilePropertyInfo {
 pub struct IPMTilePropertyInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub PropertyID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropid: *mut u32) -> ::windows::core::HRESULT,
-    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub set_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvalue: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub set_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[repr(transparent)]
