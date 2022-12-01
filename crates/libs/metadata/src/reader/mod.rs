@@ -41,15 +41,6 @@ tables! {
     TypeSpec,
 }
 
-#[derive(Copy, Clone, Eq, PartialEq)]
-pub enum ArrayInfo {
-    Fixed(usize),
-    RelativeLen(usize),
-    RelativeByteLen(usize),
-    RelativePtr(usize),
-    None,
-}
-
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Interface {
     pub ty: Type,
@@ -80,6 +71,25 @@ pub enum SignatureKind {
     ReturnStruct,
     ReturnVoid,
     PreserveSig,
+}
+
+#[derive(Copy, Clone, Eq, PartialEq)]
+pub enum SignatureParamKind {
+    ArrayFixed(usize),
+    ArrayRelativeLen(usize),
+    ArrayRelativeByteLen(usize),
+    ArrayRelativePtr(usize),
+    TryInto,
+    IntoParam,
+    Into,
+    OptionalPointer,
+    Unknown,
+}
+
+impl SignatureParamKind {
+    fn is_array(&self) -> bool {
+        matches!(self, Self::ArrayFixed(_) | Self::ArrayRelativeLen(_) | Self::ArrayRelativeByteLen(_) | Self::ArrayRelativePtr(_))
+    }
 }
 
 #[derive(PartialEq, Eq)]
@@ -125,7 +135,7 @@ pub struct Signature {
 pub struct SignatureParam {
     pub def: Param,
     pub ty: Type,
-    pub array_info: ArrayInfo,
+    pub kind: SignatureParamKind,
 }
 
 #[derive(Default, Clone)]
@@ -549,26 +559,26 @@ impl<'a> Reader<'a> {
                 } else {
                     let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
                     let ty = if !self.param_flags(param).output() { ty.to_const() } else { ty };
-                    let array_info = self.param_array_info(param);
-                    Some(SignatureParam { def: param, ty, array_info })
+                    let kind = self.param_kind(param);
+                    Some(SignatureParam { def: param, ty, kind })
                 }
             })
             .collect();
 
         for position in 0..params.len() {
             // Point len params back to the corresponding ptr params.
-            match params[position].array_info {
-                ArrayInfo::RelativeLen(relative) | ArrayInfo::RelativeByteLen(relative) => {
+            match params[position].kind {
+                SignatureParamKind::ArrayRelativeLen(relative) | SignatureParamKind::ArrayRelativeByteLen(relative) => {
                     // The len params must be input only.
                     if !self.param_flags(params[relative].def).output() && position != relative && !params[relative].ty.is_pointer() {
-                        params[relative].array_info = ArrayInfo::RelativePtr(position);
+                        params[relative].kind = SignatureParamKind::ArrayRelativePtr(position);
                     } else {
-                        params[position].array_info = ArrayInfo::None;
+                        params[position].kind = SignatureParamKind::Unknown;
                     }
                 }
-                ArrayInfo::Fixed(_) => {
+                SignatureParamKind::ArrayFixed(_) => {
                     if self.param_free_with(params[position].def).is_some() {
-                        params[position].array_info = ArrayInfo::None;
+                        params[position].kind = SignatureParamKind::Unknown;
                     }
                 }
                 _ => {}
@@ -579,8 +589,8 @@ impl<'a> Reader<'a> {
 
         // Finds sets of ptr params pointing at the same len param.
         for (position, param) in params.iter().enumerate() {
-            match param.array_info {
-                ArrayInfo::RelativeLen(relative) | ArrayInfo::RelativeByteLen(relative) => {
+            match param.kind {
+                SignatureParamKind::ArrayRelativeLen(relative) | SignatureParamKind::ArrayRelativeByteLen(relative) => {
                     sets.entry(relative).or_default().push(position);
                 }
                 _ => {}
@@ -590,19 +600,38 @@ impl<'a> Reader<'a> {
         // Remove all sets.
         for (len, ptrs) in sets {
             if ptrs.len() > 1 {
-                params[len].array_info = ArrayInfo::None;
+                params[len].kind = SignatureParamKind::Unknown;
                 for ptr in ptrs {
-                    params[ptr].array_info = ArrayInfo::None;
+                    params[ptr].kind = SignatureParamKind::Unknown;
                 }
             }
         }
 
         // Remove any byte arrays that aren't byte-sized types.
         for position in 0..params.len() {
-            if let ArrayInfo::RelativeByteLen(relative) = params[position].array_info {
+            if let SignatureParamKind::ArrayRelativeByteLen(relative) = params[position].kind {
                 if !params[position].ty.is_byte_size() {
-                    params[position].array_info = ArrayInfo::None;
-                    params[relative].array_info = ArrayInfo::None;
+                    params[position].kind = SignatureParamKind::Unknown;
+                    params[relative].kind = SignatureParamKind::Unknown;
+                }
+            }
+        }
+
+        for position in 0..params.len() {
+            if params[position].kind == SignatureParamKind::Unknown {
+                if self.signature_param_is_convertible(&params[position]) {
+                    if self.signature_param_is_failible_param(&params[position]) {
+                        params[position].kind = SignatureParamKind::TryInto;
+                    } else if self.signature_param_is_borrowed(&params[position]) {
+                        params[position].kind = SignatureParamKind::IntoParam;
+                    } else {
+                        params[position].kind = SignatureParamKind::Into;
+                    }
+                } else {
+                    let flags = self.param_flags(params[position].def);
+                    if params[position].ty.is_pointer() && (flags.optional() || self.param_is_reserved(params[position].def)) {
+                        params[position].kind = SignatureParamKind::OptionalPointer;
+                    }
                 }
             }
         }
@@ -702,14 +731,14 @@ impl<'a> Reader<'a> {
     pub fn param_is_com_out_ptr(&self, row: Param) -> bool {
         self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComOutPtrAttribute")
     }
-    pub fn param_array_info(&self, row: Param) -> ArrayInfo {
+    fn param_kind(&self, row: Param) -> SignatureParamKind {
         for attribute in self.param_attributes(row) {
             match self.attribute_name(attribute) {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in self.attribute_args(attribute) {
                         match value {
-                            Value::I16(value) => return ArrayInfo::RelativeLen(value as _),
-                            Value::I32(value) => return ArrayInfo::Fixed(value as _),
+                            Value::I16(value) => return SignatureParamKind::ArrayRelativeLen(value as _),
+                            Value::I32(value) => return SignatureParamKind::ArrayFixed(value as _),
                             _ => {}
                         }
                     }
@@ -717,14 +746,14 @@ impl<'a> Reader<'a> {
                 "MemorySizeAttribute" => {
                     for (_, value) in self.attribute_args(attribute) {
                         if let Value::I16(value) = value {
-                            return ArrayInfo::RelativeByteLen(value as _);
+                            return SignatureParamKind::ArrayRelativeByteLen(value as _);
                         }
                     }
                 }
                 _ => {}
             }
         }
-        ArrayInfo::None
+        SignatureParamKind::Unknown
     }
     pub fn param_is_retval(&self, row: Param) -> bool {
         self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "RetValAttribute")
@@ -1265,7 +1294,7 @@ impl<'a> Reader<'a> {
         self.type_is_trivially_convertible(&param.ty)
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        !self.param_flags(param.def).output() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && param.array_info == ArrayInfo::None && (self.type_is_borrowed(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
+        !self.param_flags(param.def).output() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && !param.kind.is_array() && (self.type_is_borrowed(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
@@ -1280,10 +1309,10 @@ impl<'a> Reader<'a> {
             return false;
         }
         let flags = self.param_flags(param.def);
-        if flags.input() || !flags.output() || param.array_info != ArrayInfo::None {
+        if flags.input() || !flags.output() || param.kind.is_array() {
             return false;
         }
-        if self.param_array_info(param.def) != ArrayInfo::None {
+        if self.param_kind(param.def).is_array() {
             return false;
         }
         // TODO: find a way to treat this like COM interface result values.

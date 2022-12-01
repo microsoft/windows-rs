@@ -848,6 +848,7 @@ impl<'a> Gen<'a> {
             quote! { -> () }
         }
     }
+    // TODO: consolidate both WinRT and Win32 generation once SignatureParamKind is rich enough
     pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
         let mut tokens = quote! {};
 
@@ -867,9 +868,9 @@ impl<'a> Gen<'a> {
                 }
                 _ => {
                     let name = self.param_name(param.def);
-                    match param.array_info {
-                        ArrayInfo::Fixed(_) | ArrayInfo::RelativeLen(_) | ArrayInfo::RelativeByteLen(_) => {
-                            let flags = self.reader.param_flags(param.def);
+                    let flags = self.reader.param_flags(param.def);
+                    match param.kind {
+                        SignatureParamKind::ArrayFixed(_) | SignatureParamKind::ArrayRelativeLen(_) | SignatureParamKind::ArrayRelativeByteLen(_) => {
                             let map = if flags.optional() {
                                 quote! { #name.as_deref().map_or(::core::ptr::null(), |slice|slice.as_ptr()) }
                             } else {
@@ -877,7 +878,7 @@ impl<'a> Gen<'a> {
                             };
                             quote! { ::core::mem::transmute(#map), }
                         }
-                        ArrayInfo::RelativePtr(relative) => {
+                        SignatureParamKind::ArrayRelativePtr(relative) => {
                             let name = self.param_name(params[relative].def);
                             let flags = self.reader.param_flags(params[relative].def);
                             if flags.optional() {
@@ -886,21 +887,25 @@ impl<'a> Gen<'a> {
                                 quote! { #name.len() as _, }
                             }
                         }
-                        _ => {
-                            let flags = self.reader.param_flags(param.def);
-                            if self.reader.signature_param_is_convertible(param) {
-                                if self.reader.signature_param_is_borrowed(param) {
-                                    quote! { #name.into().abi(), }
-                                } else {
-                                    quote! { #name.into(), }
-                                }
-                            } else if param.ty.is_pointer() && (flags.optional() || self.reader.param_is_reserved(param.def)) {
-                                if flags.output() {
-                                    quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
-                                } else {
-                                    quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
-                                }
-                            } else if self.reader.type_is_primitive(&param.ty) && !param.ty.is_pointer() {
+                        SignatureParamKind::TryInto => {
+                            quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
+                        }
+                        SignatureParamKind::IntoParam => {
+                            quote! { #name.into().abi(), }
+                        }
+                        SignatureParamKind::Into => {
+                            quote! { #name.into(), }
+                        }
+                        SignatureParamKind::OptionalPointer => {
+                            if flags.output() {
+                                quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
+                            } else {
+                                quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
+                            }
+                        }
+                        // TODO: remove catch all once all kinds are covered
+                        SignatureParamKind::Unknown => {
+                            if self.reader.type_is_primitive(&param.ty) && !param.ty.is_pointer() {
                                 quote! { #name, }
                             } else if self.reader.type_is_blittable(&param.ty) {
                                 quote! { ::core::mem::transmute(#name), }
@@ -935,72 +940,67 @@ impl<'a> Gen<'a> {
 
             let name = self.param_name(param.def);
 
-            if let ArrayInfo::Fixed(fixed) = param.array_info {
-                let ty = param.ty.deref();
-                let ty = self.type_default_name(&ty);
-                let len = Literal::u32_unsuffixed(fixed as _);
-                let ty = if self.reader.param_flags(param.def).output() {
-                    quote! { &mut [#ty; #len] }
-                } else {
-                    quote! { &[#ty; #len] }
-                };
-                if self.reader.param_flags(param.def).optional() {
-                    tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
-                } else {
-                    tokens.combine(&quote! { #name: #ty, });
+            match param.kind {
+                SignatureParamKind::ArrayFixed(fixed) => {
+                    let ty = param.ty.deref();
+                    let ty = self.type_default_name(&ty);
+                    let len = Literal::u32_unsuffixed(fixed as _);
+                    let ty = if self.reader.param_flags(param.def).output() {
+                        quote! { &mut [#ty; #len] }
+                    } else {
+                        quote! { &[#ty; #len] }
+                    };
+                    if self.reader.param_flags(param.def).optional() {
+                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                    } else {
+                        tokens.combine(&quote! { #name: #ty, });
+                    }
                 }
-                continue;
-            }
-
-            if let ArrayInfo::RelativeLen(_) = param.array_info {
-                let ty = param.ty.deref();
-                let ty = self.type_default_name(&ty);
-                let ty = if self.reader.param_flags(param.def).output() {
-                    quote! { &mut [#ty] }
-                } else {
-                    quote! { &[#ty] }
-                };
-                if self.reader.param_flags(param.def).optional() {
-                    tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
-                } else {
-                    tokens.combine(&quote! { #name: #ty, });
+                SignatureParamKind::ArrayRelativeLen(_) => {
+                    let ty = param.ty.deref();
+                    let ty = self.type_default_name(&ty);
+                    let ty = if self.reader.param_flags(param.def).output() {
+                        quote! { &mut [#ty] }
+                    } else {
+                        quote! { &[#ty] }
+                    };
+                    if self.reader.param_flags(param.def).optional() {
+                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                    } else {
+                        tokens.combine(&quote! { #name: #ty, });
+                    }
                 }
-                continue;
-            }
-
-            if let ArrayInfo::RelativeByteLen(_) = param.array_info {
-                let ty = if self.reader.param_flags(param.def).output() {
-                    quote! { &mut [u8] }
-                } else {
-                    quote! { &[u8] }
-                };
-                if self.reader.param_flags(param.def).optional() {
-                    tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
-                } else {
-                    tokens.combine(&quote! { #name: #ty, });
+                SignatureParamKind::ArrayRelativeByteLen(_) => {
+                    let ty = if self.reader.param_flags(param.def).output() {
+                        quote! { &mut [u8] }
+                    } else {
+                        quote! { &[u8] }
+                    };
+                    if self.reader.param_flags(param.def).optional() {
+                        tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
+                    } else {
+                        tokens.combine(&quote! { #name: #ty, });
+                    }
                 }
-                continue;
-            }
+                SignatureParamKind::ArrayRelativePtr(_) => {}
+                SignatureParamKind::TryInto | SignatureParamKind::IntoParam | SignatureParamKind::Into => {
+                    let (position, _) = generic_params.next().unwrap();
+                    let kind: TokenStream = format!("P{position}").into();
+                    tokens.combine(&quote! { #name: #kind, });
+                }
+                SignatureParamKind::OptionalPointer => {
+                    let kind = self.type_default_name(&param.ty);
+                    tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
+                }
+                SignatureParamKind::Unknown => {
+                    let kind = self.type_default_name(&param.ty);
 
-            if let ArrayInfo::RelativePtr(_) = param.array_info {
-                continue;
-            }
-
-            if self.reader.signature_param_is_convertible(param) {
-                let (position, _) = generic_params.next().unwrap();
-                let kind: TokenStream = format!("P{position}").into();
-                tokens.combine(&quote! { #name: #kind, });
-                continue;
-            }
-
-            let kind = self.type_default_name(&param.ty);
-
-            if param.ty.is_pointer() && (self.reader.param_flags(param.def).optional() || self.reader.param_is_reserved(param.def)) {
-                tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
-            } else if self.reader.type_is_blittable(&param.ty) {
-                tokens.combine(&quote! { #name: #kind, });
-            } else {
-                tokens.combine(&quote! { #name: &#kind, });
+                    if self.reader.type_is_blittable(&param.ty) {
+                        tokens.combine(&quote! { #name: #kind, });
+                    } else {
+                        tokens.combine(&quote! { #name: &#kind, });
+                    }
+                }
             }
         }
 
