@@ -711,12 +711,9 @@ pub unsafe fn DeleteFiber(lpfiber: *const ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn DeleteProcThreadAttributeList<'a, P0>(lpattributelist: P0)
-where
-    P0: ::std::convert::Into<LPPROC_THREAD_ATTRIBUTE_LIST>,
-{
+pub unsafe fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST) {
     ::windows::core::link ! ( "kernel32.dll""system" fn DeleteProcThreadAttributeList ( lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST ) -> ( ) );
-    DeleteProcThreadAttributeList(lpattributelist.into())
+    DeleteProcThreadAttributeList(lpattributelist)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1436,7 +1433,7 @@ pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_S
 #[inline]
 pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn InitializeProcThreadAttributeList ( lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST , dwattributecount : u32 , dwflags : u32 , lpsize : *mut usize ) -> super::super::Foundation:: BOOL );
-    InitializeProcThreadAttributeList(::core::mem::transmute(lpattributelist), dwattributecount, dwflags, ::core::mem::transmute(lpsize))
+    InitializeProcThreadAttributeList(lpattributelist, dwattributecount, dwflags, ::core::mem::transmute(lpsize))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -2449,12 +2446,9 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateProcThreadAttribute<'a, P0>(lpattributelist: P0, dwflags: u32, attribute: usize, lpvalue: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: usize, lppreviousvalue: ::core::option::Option<*mut ::core::ffi::c_void>, lpreturnsize: ::core::option::Option<*const usize>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<LPPROC_THREAD_ATTRIBUTE_LIST>,
-{
+pub unsafe fn UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: u32, attribute: usize, lpvalue: ::core::option::Option<*const ::core::ffi::c_void>, cbsize: usize, lppreviousvalue: ::core::option::Option<*mut ::core::ffi::c_void>, lpreturnsize: ::core::option::Option<*const usize>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn UpdateProcThreadAttribute ( lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST , dwflags : u32 , attribute : usize , lpvalue : *const ::core::ffi::c_void , cbsize : usize , lppreviousvalue : *mut ::core::ffi::c_void , lpreturnsize : *const usize ) -> super::super::Foundation:: BOOL );
-    UpdateProcThreadAttribute(lpattributelist.into(), dwflags, attribute, ::core::mem::transmute(lpvalue.unwrap_or(::std::ptr::null())), cbsize, ::core::mem::transmute(lppreviousvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreturnsize.unwrap_or(::std::ptr::null())))
+    UpdateProcThreadAttribute(lpattributelist, dwflags, attribute, ::core::mem::transmute(lpvalue.unwrap_or(::std::ptr::null())), cbsize, ::core::mem::transmute(lppreviousvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreturnsize.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

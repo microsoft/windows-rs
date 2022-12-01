@@ -408,7 +408,7 @@ where
     P0: ::std::convert::Into<HKEY>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn RegGetKeySecurity ( hkey : HKEY , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
-    RegGetKeySecurity(hkey.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor))
+    RegGetKeySecurity(hkey.into(), securityinformation, psecuritydescriptor, ::core::mem::transmute(lpcbsecuritydescriptor))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

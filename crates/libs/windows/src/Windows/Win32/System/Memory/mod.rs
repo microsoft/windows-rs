@@ -205,7 +205,7 @@ pub unsafe fn GlobalFlags(hmem: isize) -> u32 {
 #[inline]
 pub unsafe fn GlobalFree(hmem: isize) -> isize {
     ::windows::core::link ! ( "kernel32.dll""system" fn GlobalFree ( hmem : isize ) -> isize );
-    GlobalFree(::core::mem::transmute(hmem))
+    GlobalFree(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -428,7 +428,7 @@ pub unsafe fn LocalFlags(hmem: isize) -> u32 {
 #[inline]
 pub unsafe fn LocalFree(hmem: isize) -> isize {
     ::windows::core::link ! ( "kernel32.dll""system" fn LocalFree ( hmem : isize ) -> isize );
-    LocalFree(::core::mem::transmute(hmem))
+    LocalFree(hmem)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -446,7 +446,7 @@ pub unsafe fn LocalLock(hmem: isize) -> *mut ::core::ffi::c_void {
 #[inline]
 pub unsafe fn LocalReAlloc(hmem: isize, ubytes: usize, uflags: u32) -> isize {
     ::windows::core::link ! ( "kernel32.dll""system" fn LocalReAlloc ( hmem : isize , ubytes : usize , uflags : u32 ) -> isize );
-    LocalReAlloc(::core::mem::transmute(hmem), ubytes, uflags)
+    LocalReAlloc(hmem, ubytes, uflags)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]

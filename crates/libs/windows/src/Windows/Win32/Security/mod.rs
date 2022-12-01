@@ -514,7 +514,7 @@ where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn CopySid ( ndestinationsidlength : u32 , pdestinationsid : super::Foundation:: PSID , psourcesid : super::Foundation:: PSID ) -> super::Foundation:: BOOL );
-    CopySid(ndestinationsidlength, ::core::mem::transmute(pdestinationsid), psourcesid.into())
+    CopySid(ndestinationsidlength, pdestinationsid, psourcesid.into())
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -583,7 +583,7 @@ where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn CreateWellKnownSid ( wellknownsidtype : WELL_KNOWN_SID_TYPE , domainsid : super::Foundation:: PSID , psid : super::Foundation:: PSID , cbsid : *mut u32 ) -> super::Foundation:: BOOL );
-    CreateWellKnownSid(wellknownsidtype, domainsid.into(), ::core::mem::transmute(psid), ::core::mem::transmute(cbsid))
+    CreateWellKnownSid(wellknownsidtype, domainsid.into(), psid, ::core::mem::transmute(cbsid))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -718,7 +718,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetFileSecurityA ( lpfilename : :: windows::core::PCSTR , requestedinformation : u32 , psecuritydescriptor : PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::Foundation:: BOOL );
-    GetFileSecurityA(lpfilename.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
+    GetFileSecurityA(lpfilename.into(), requestedinformation, psecuritydescriptor, nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -728,7 +728,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetFileSecurityW ( lpfilename : :: windows::core::PCWSTR , requestedinformation : u32 , psecuritydescriptor : PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::Foundation:: BOOL );
-    GetFileSecurityW(lpfilename.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
+    GetFileSecurityW(lpfilename.into(), requestedinformation, psecuritydescriptor, nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -738,17 +738,14 @@ where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetKernelObjectSecurity ( handle : super::Foundation:: HANDLE , requestedinformation : u32 , psecuritydescriptor : PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::Foundation:: BOOL );
-    GetKernelObjectSecurity(handle.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
+    GetKernelObjectSecurity(handle.into(), requestedinformation, psecuritydescriptor, nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLengthSid<'a, P0>(psid: P0) -> u32
-where
-    P0: ::std::convert::Into<super::Foundation::PSID>,
-{
+pub unsafe fn GetLengthSid(psid: super::Foundation::PSID) -> u32 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetLengthSid ( psid : super::Foundation:: PSID ) -> u32 );
-    GetLengthSid(psid.into())
+    GetLengthSid(psid)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -758,7 +755,7 @@ where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetPrivateObjectSecurity ( objectdescriptor : PSECURITY_DESCRIPTOR , securityinformation : u32 , resultantdescriptor : PSECURITY_DESCRIPTOR , descriptorlength : u32 , returnlength : *mut u32 ) -> super::Foundation:: BOOL );
-    GetPrivateObjectSecurity(objectdescriptor.into(), securityinformation, ::core::mem::transmute(resultantdescriptor), descriptorlength, ::core::mem::transmute(returnlength))
+    GetPrivateObjectSecurity(objectdescriptor.into(), securityinformation, resultantdescriptor, descriptorlength, ::core::mem::transmute(returnlength))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -882,7 +879,7 @@ where
     P0: ::std::convert::Into<super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn GetUserObjectSecurity ( hobj : super::Foundation:: HANDLE , psirequested : *const u32 , psid : PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::Foundation:: BOOL );
-    GetUserObjectSecurity(hobj.into(), ::core::mem::transmute(psirequested), ::core::mem::transmute(psid), nlength, ::core::mem::transmute(lpnlengthneeded))
+    GetUserObjectSecurity(hobj.into(), ::core::mem::transmute(psirequested), psid, nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -892,7 +889,7 @@ where
     P0: ::std::convert::Into<super::Foundation::PSID>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetWindowsAccountDomainSid ( psid : super::Foundation:: PSID , pdomainsid : super::Foundation:: PSID , cbdomainsid : *mut u32 ) -> super::Foundation:: BOOL );
-    GetWindowsAccountDomainSid(psid.into(), ::core::mem::transmute(pdomainsid), ::core::mem::transmute(cbdomainsid))
+    GetWindowsAccountDomainSid(psid.into(), pdomainsid, ::core::mem::transmute(cbdomainsid))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -933,14 +930,14 @@ pub unsafe fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: ACE_
 #[inline]
 pub unsafe fn InitializeSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, dwrevision: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "advapi32.dll""system" fn InitializeSecurityDescriptor ( psecuritydescriptor : PSECURITY_DESCRIPTOR , dwrevision : u32 ) -> super::Foundation:: BOOL );
-    InitializeSecurityDescriptor(::core::mem::transmute(psecuritydescriptor), dwrevision)
+    InitializeSecurityDescriptor(psecuritydescriptor, dwrevision)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "advapi32.dll""system" fn InitializeSid ( sid : super::Foundation:: PSID , pidentifierauthority : *const SID_IDENTIFIER_AUTHORITY , nsubauthoritycount : u8 ) -> super::Foundation:: BOOL );
-    InitializeSid(::core::mem::transmute(sid), ::core::mem::transmute(pidentifierauthority), nsubauthoritycount)
+    InitializeSid(sid, ::core::mem::transmute(pidentifierauthority), nsubauthoritycount)
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1046,7 +1043,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountNameA ( lpsystemname : :: windows::core::PCSTR , lpaccountname : :: windows::core::PCSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows::core::PSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-    LookupAccountNameA(lpsystemname.into(), lpaccountname.into(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
+    LookupAccountNameA(lpsystemname.into(), lpaccountname.into(), sid, ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1057,7 +1054,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn LookupAccountNameW ( lpsystemname : :: windows::core::PCWSTR , lpaccountname : :: windows::core::PCWSTR , sid : super::Foundation:: PSID , cbsid : *mut u32 , referenceddomainname : :: windows::core::PWSTR , cchreferenceddomainname : *mut u32 , peuse : *mut SID_NAME_USE ) -> super::Foundation:: BOOL );
-    LookupAccountNameW(lpsystemname.into(), lpaccountname.into(), ::core::mem::transmute(sid), ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
+    LookupAccountNameW(lpsystemname.into(), lpaccountname.into(), sid, ::core::mem::transmute(cbsid), ::core::mem::transmute(referenceddomainname), ::core::mem::transmute(cchreferenceddomainname), ::core::mem::transmute(peuse))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1153,19 +1150,7 @@ where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn MakeAbsoluteSD ( pselfrelativesecuritydescriptor : PSECURITY_DESCRIPTOR , pabsolutesecuritydescriptor : PSECURITY_DESCRIPTOR , lpdwabsolutesecuritydescriptorsize : *mut u32 , pdacl : *mut ACL , lpdwdaclsize : *mut u32 , psacl : *mut ACL , lpdwsaclsize : *mut u32 , powner : super::Foundation:: PSID , lpdwownersize : *mut u32 , pprimarygroup : super::Foundation:: PSID , lpdwprimarygroupsize : *mut u32 ) -> super::Foundation:: BOOL );
-    MakeAbsoluteSD(
-        pselfrelativesecuritydescriptor.into(),
-        ::core::mem::transmute(pabsolutesecuritydescriptor),
-        ::core::mem::transmute(lpdwabsolutesecuritydescriptorsize),
-        ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null_mut())),
-        ::core::mem::transmute(lpdwdaclsize),
-        ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null_mut())),
-        ::core::mem::transmute(lpdwsaclsize),
-        ::core::mem::transmute(powner),
-        ::core::mem::transmute(lpdwownersize),
-        ::core::mem::transmute(pprimarygroup),
-        ::core::mem::transmute(lpdwprimarygroupsize),
-    )
+    MakeAbsoluteSD(pselfrelativesecuritydescriptor.into(), pabsolutesecuritydescriptor, ::core::mem::transmute(lpdwabsolutesecuritydescriptorsize), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwdaclsize), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwsaclsize), powner, ::core::mem::transmute(lpdwownersize), pprimarygroup, ::core::mem::transmute(lpdwprimarygroupsize))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1175,7 +1160,7 @@ where
     P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn MakeSelfRelativeSD ( pabsolutesecuritydescriptor : PSECURITY_DESCRIPTOR , pselfrelativesecuritydescriptor : PSECURITY_DESCRIPTOR , lpdwbufferlength : *mut u32 ) -> super::Foundation:: BOOL );
-    MakeSelfRelativeSD(pabsolutesecuritydescriptor.into(), ::core::mem::transmute(pselfrelativesecuritydescriptor), ::core::mem::transmute(lpdwbufferlength))
+    MakeSelfRelativeSD(pabsolutesecuritydescriptor.into(), pselfrelativesecuritydescriptor, ::core::mem::transmute(lpdwbufferlength))
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
@@ -1444,59 +1429,52 @@ where
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorDacl<'a, P0, P1, P2>(psecuritydescriptor: P0, bdaclpresent: P1, pdacl: ::core::option::Option<*const ACL>, bdacldefaulted: P2) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorDacl<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, bdaclpresent: P0, pdacl: ::core::option::Option<*const ACL>, bdacldefaulted: P1) -> super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
+    P0: ::std::convert::Into<super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
-    P2: ::std::convert::Into<super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityDescriptorDacl ( psecuritydescriptor : PSECURITY_DESCRIPTOR , bdaclpresent : super::Foundation:: BOOL , pdacl : *const ACL , bdacldefaulted : super::Foundation:: BOOL ) -> super::Foundation:: BOOL );
-    SetSecurityDescriptorDacl(psecuritydescriptor.into(), bdaclpresent.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), bdacldefaulted.into())
+    SetSecurityDescriptorDacl(psecuritydescriptor, bdaclpresent.into(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), bdacldefaulted.into())
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorGroup<'a, P0, P1, P2>(psecuritydescriptor: P0, pgroup: P1, bgroupdefaulted: P2) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorGroup<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, pgroup: P0, bgroupdefaulted: P1) -> super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
-    P1: ::std::convert::Into<super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::Foundation::BOOL>,
+    P0: ::std::convert::Into<super::Foundation::PSID>,
+    P1: ::std::convert::Into<super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityDescriptorGroup ( psecuritydescriptor : PSECURITY_DESCRIPTOR , pgroup : super::Foundation:: PSID , bgroupdefaulted : super::Foundation:: BOOL ) -> super::Foundation:: BOOL );
-    SetSecurityDescriptorGroup(psecuritydescriptor.into(), pgroup.into(), bgroupdefaulted.into())
+    SetSecurityDescriptorGroup(psecuritydescriptor, pgroup.into(), bgroupdefaulted.into())
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorOwner<'a, P0, P1, P2>(psecuritydescriptor: P0, powner: P1, bownerdefaulted: P2) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorOwner<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, powner: P0, bownerdefaulted: P1) -> super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
-    P1: ::std::convert::Into<super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::Foundation::BOOL>,
+    P0: ::std::convert::Into<super::Foundation::PSID>,
+    P1: ::std::convert::Into<super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityDescriptorOwner ( psecuritydescriptor : PSECURITY_DESCRIPTOR , powner : super::Foundation:: PSID , bownerdefaulted : super::Foundation:: BOOL ) -> super::Foundation:: BOOL );
-    SetSecurityDescriptorOwner(psecuritydescriptor.into(), powner.into(), bownerdefaulted.into())
+    SetSecurityDescriptorOwner(psecuritydescriptor, powner.into(), bownerdefaulted.into())
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[inline]
-pub unsafe fn SetSecurityDescriptorRMControl<'a, P0>(securitydescriptor: P0, rmcontrol: ::core::option::Option<*const u8>) -> u32
-where
-    P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
-{
+pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: PSECURITY_DESCRIPTOR, rmcontrol: ::core::option::Option<*const u8>) -> u32 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityDescriptorRMControl ( securitydescriptor : PSECURITY_DESCRIPTOR , rmcontrol : *const u8 ) -> u32 );
-    SetSecurityDescriptorRMControl(securitydescriptor.into(), ::core::mem::transmute(rmcontrol.unwrap_or(::std::ptr::null())))
+    SetSecurityDescriptorRMControl(securitydescriptor, ::core::mem::transmute(rmcontrol.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityDescriptorSacl<'a, P0, P1, P2>(psecuritydescriptor: P0, bsaclpresent: P1, psacl: ::core::option::Option<*const ACL>, bsacldefaulted: P2) -> super::Foundation::BOOL
+pub unsafe fn SetSecurityDescriptorSacl<'a, P0, P1>(psecuritydescriptor: PSECURITY_DESCRIPTOR, bsaclpresent: P0, psacl: ::core::option::Option<*const ACL>, bsacldefaulted: P1) -> super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<PSECURITY_DESCRIPTOR>,
+    P0: ::std::convert::Into<super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::Foundation::BOOL>,
-    P2: ::std::convert::Into<super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SetSecurityDescriptorSacl ( psecuritydescriptor : PSECURITY_DESCRIPTOR , bsaclpresent : super::Foundation:: BOOL , psacl : *const ACL , bsacldefaulted : super::Foundation:: BOOL ) -> super::Foundation:: BOOL );
-    SetSecurityDescriptorSacl(psecuritydescriptor.into(), bsaclpresent.into(), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), bsacldefaulted.into())
+    SetSecurityDescriptorSacl(psecuritydescriptor, bsaclpresent.into(), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), bsacldefaulted.into())
 }
 #[doc = "*Required features: `\"Win32_Security\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
