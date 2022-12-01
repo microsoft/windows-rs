@@ -148,7 +148,7 @@ impl std::fmt::Display for Error {
 
 impl std::error::Error for Error {}
 
-type RoOriginateError = extern "system" fn(code: HRESULT, message: std::mem::ManuallyDrop<HSTRING>) -> i32;
+type RoOriginateError = extern "system" fn(code: HRESULT, message: *mut std::ffi::c_void) -> i32;
 
 fn GetErrorInfo() -> Result<IErrorInfo> {
     let mut result = std::mem::MaybeUninit::zeroed();

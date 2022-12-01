@@ -6,7 +6,7 @@ link!("kernel32.dll" "system" fn EncodePointer(ptr: *const c_void) -> *mut c_voi
 link!("kernel32.dll" "system" fn FormatMessageW(flags: u32, source: *const c_void, code: u32, lang: u32, buffer: PWSTR, len: u32, args: *const *const i8) -> u32);
 link!("kernel32.dll" "system" fn FreeLibrary(library: isize) -> i32);
 link!("kernel32.dll" "system" fn GetLastError() -> u32);
-link!("kernel32.dll" "system" fn GetProcAddress(library: isize, name: PCSTR) -> *const std::ffi::c_void);
+link!("kernel32.dll" "system" fn GetProcAddress(library: isize, name: PCSTR) -> *const c_void);
 link!("kernel32.dll" "system" fn GetProcessHeap() -> isize);
 link!("kernel32.dll" "system" fn HeapAlloc(heap: isize, flags: u32, len: usize) -> *mut c_void);
 link!("kernel32.dll" "system" fn HeapFree(heap: isize, flags: u32, ptr: *const c_void) -> i32);
@@ -63,7 +63,7 @@ pub struct IPropertyValueStatics_Vtbl {
     pub CreateDouble: unsafe extern "system" fn(this: *mut c_void, value: f64, result__: *mut *mut c_void) -> HRESULT,
     pub CreateChar16: unsafe extern "system" fn(this: *mut c_void, value: u16, result__: *mut *mut c_void) -> HRESULT,
     pub CreateBoolean: unsafe extern "system" fn(this: *mut c_void, value: bool, result__: *mut *mut c_void) -> HRESULT,
-    pub CreateString: unsafe extern "system" fn(this: *mut c_void, value: std::mem::ManuallyDrop<HSTRING>, result__: *mut *mut c_void) -> HRESULT,
+    pub CreateString: unsafe extern "system" fn(this: *mut c_void, value: *mut c_void, result__: *mut *mut c_void) -> HRESULT,
 }
 
 #[repr(transparent)]
@@ -75,7 +75,7 @@ impl<T: RuntimeType + 'static> IReference<T> {
         let this = self;
         unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).Value)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<T>(result__)
+            (Vtable::vtable(this).Value)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -121,7 +121,7 @@ impl IStringable {
         let this = self;
         unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).ToString)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi::<HSTRING>(result__)
+            (Vtable::vtable(this).ToString)(Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
         }
     }
 }
@@ -153,7 +153,7 @@ unsafe impl Interface for IStringable {
 #[doc(hidden)]
 pub struct IStringable_Vtbl {
     pub base__: IInspectable_Vtbl,
-    pub ToString: unsafe extern "system" fn(this: *mut c_void, result__: *mut std::mem::ManuallyDrop<HSTRING>) -> HRESULT,
+    pub ToString: unsafe extern "system" fn(this: *mut c_void, result__: *mut *mut c_void) -> HRESULT,
 }
 
 pub struct PropertyValue;
@@ -161,67 +161,67 @@ impl PropertyValue {
     pub fn CreateUInt8(value: u8) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateUInt8)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt8)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateInt16(value: i16) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateInt16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateInt16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateUInt16(value: u16) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateUInt16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt16)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateInt32(value: i32) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateInt32)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateInt32)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateUInt32(value: u32) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateUInt32)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt32)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateInt64(value: i64) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateInt64)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateInt64)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateUInt64(value: u64) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateUInt64)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateUInt64)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateSingle(value: f32) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateSingle)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateSingle)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateDouble(value: f64) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateDouble)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateDouble)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateBoolean(value: bool) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateBoolean)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateBoolean)(Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn CreateString(value: &HSTRING) -> Result<IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = std::mem::MaybeUninit::zeroed();
-            (Vtable::vtable(this).CreateString)(Vtable::as_raw(this), std::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IInspectable>(result__)
+            (Vtable::vtable(this).CreateString)(Vtable::as_raw(this), std::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi(result__)
         })
     }
     pub fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> Result<R>>(callback: F) -> Result<R> {
@@ -263,7 +263,7 @@ pub struct IErrorInfo(IUnknown);
 impl IErrorInfo {
     pub unsafe fn GetDescription(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetDescription)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
+        (Vtable::vtable(self).GetDescription)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi(result__)
     }
 }
 
@@ -302,8 +302,8 @@ impl IAgileReference {
     where
         T: Interface,
     {
-        let mut result__ = std::option::Option::None;
-        (Vtable::vtable(self).Resolve)(Vtable::as_raw(self), &<T as Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = std::mem::MaybeUninit::zeroed();
+        (Vtable::vtable(self).Resolve)(Vtable::as_raw(self), &<T as Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 
@@ -401,7 +401,7 @@ impl IRestrictedErrorInfo {
     }
     pub unsafe fn GetReference(&self) -> Result<BSTR> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetReference)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
+        (Vtable::vtable(self).GetReference)(Vtable::as_raw(self), std::mem::transmute(result__.as_mut_ptr())).from_abi(result__)
     }
 }
 impl std::clone::Clone for IRestrictedErrorInfo {
@@ -438,8 +438,8 @@ impl IWeakReference {
     where
         T: Interface,
     {
-        let mut result__ = std::option::Option::None;
-        (Vtable::vtable(self).Resolve)(Vtable::as_raw(self), &<T as Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        let mut result__ = std::mem::MaybeUninit::zeroed();
+        (Vtable::vtable(self).Resolve)(Vtable::as_raw(self), &<T as Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 impl std::clone::Clone for IWeakReference {
@@ -471,7 +471,7 @@ pub struct IWeakReferenceSource(IUnknown);
 impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> Result<IWeakReference> {
         let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetWeakReference)(Vtable::as_raw(self), result__.as_mut_ptr()).from_abi::<IWeakReference>(result__)
+        (Vtable::vtable(self).GetWeakReference)(Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 impl std::clone::Clone for IWeakReferenceSource {

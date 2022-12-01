@@ -125,8 +125,8 @@ unsafe fn get_activation_factory(library: PCSTR, name: &HSTRING) -> Result<IGene
 }
 
 type CoIncrementMTAUsage = extern "system" fn(cookie: *mut *mut std::ffi::c_void) -> HRESULT;
-type RoGetActivationFactory = extern "system" fn(hstring: std::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut *mut std::ffi::c_void) -> HRESULT;
-type DllGetActivationFactory = extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut *mut std::ffi::c_void) -> HRESULT;
+type RoGetActivationFactory = extern "system" fn(hstring: *mut std::ffi::c_void, interface: &GUID, result: *mut *mut std::ffi::c_void) -> HRESULT;
+type DllGetActivationFactory = extern "system" fn(name: *mut std::ffi::c_void, factory: *mut *mut std::ffi::c_void) -> HRESULT;
 
 #[cfg(test)]
 mod tests {
