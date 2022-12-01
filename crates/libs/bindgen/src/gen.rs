@@ -893,18 +893,19 @@ impl<'a> Gen<'a> {
                             }
                         }
                         _ => {
-                            let optional = self.reader.param_flags(param.def).optional() || self.reader.param_is_reserved(param.def);
-                            if param.ty.is_pointer() && optional {
-                                let flags = self.reader.param_flags(param.def);
+                            let flags = self.reader.param_flags(param.def);
+                            if self.reader.signature_param_is_convertible(param) {
+                                if self.reader.signature_param_is_borrowed(param) {
+                                    quote! { #name.into().abi(), }
+                                } else {
+                                    quote! { #name.into(), }
+                                }
+                            } else if param.ty.is_pointer() && (flags.optional() || self.reader.param_is_reserved(param.def)) {
                                 if flags.output() {
                                     quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
                                 } else {
                                     quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
                                 }
-                            } else if self.reader.signature_param_is_borrowed(param) {
-                                quote! { #name.into().abi(), }
-                            } else if self.reader.signature_param_is_trivially_convertible(param) {
-                                quote! { #name.into(), }
                             } else if self.reader.type_is_primitive(&param.ty) && !param.ty.is_pointer() {
                                 quote! { #name, }
                             } else if self.reader.type_is_blittable(&param.ty) {
