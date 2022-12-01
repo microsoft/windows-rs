@@ -64,6 +64,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 ::windows::core::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
             }
         } else {
+            let link = link.trim_end_matches(".dll");
             quote! {
                 #[link(name = #link)]
                 extern #extern_abi {
