@@ -10,6 +10,7 @@ mod sockaddr_in;
 mod sockaddr_in6;
 mod sockaddr_inet;
 mod timespan;
+mod variant_bool;
 mod vector2;
 mod vector3;
 mod vector4;
@@ -28,6 +29,7 @@ pub fn gen(type_name: TypeName) -> TokenStream {
         TypeName::SOCKADDR_IN6 => sockaddr_in6::gen(),
         TypeName::SOCKADDR_INET => sockaddr_inet::gen(),
         TypeName::TimeSpan => timespan::gen(),
+        TypeName::VARIANT_BOOL => variant_bool::gen(),
         TypeName::Vector2 => vector2::gen(),
         TypeName::Vector3 => vector3::gen(),
         TypeName::Vector4 => vector4::gen(),

@@ -38,6 +38,7 @@ impl<'a> TypeName<'a> {
     pub const NTSTATUS: Self = Self::from_const("Windows.Win32.Foundation", "NTSTATUS");
     pub const BOOL: Self = Self::from_const("Windows.Win32.Foundation", "BOOL");
     pub const BOOLEAN: Self = Self::from_const("Windows.Win32.Foundation", "BOOLEAN");
+    pub const VARIANT_BOOL: Self = Self::from_const("Windows.Win32.Foundation", "VARIANT_BOOL");
     pub const PWSTR: Self = Self::from_const("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self::from_const("Windows.Win32.Foundation", "PSTR");
     pub const BSTR: Self = Self::from_const("Windows.Win32.Foundation", "BSTR");
