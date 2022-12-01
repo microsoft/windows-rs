@@ -284,18 +284,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "httpapi.dll""system" fn HttpSendResponseEntityBody ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : u32 , entitychunkcount : u16 , entitychunks : *const HTTP_DATA_CHUNK , bytessent : *mut u32 , reserved1 : *const ::core::ffi::c_void , reserved2 : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , logdata : *const HTTP_LOG_DATA ) -> u32 );
-    HttpSendResponseEntityBody(
-        requestqueuehandle.into(),
-        requestid,
-        flags,
-        entitychunks.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(entitychunks.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        ::core::mem::transmute(bytessent.unwrap_or(::std::ptr::null_mut())),
-        ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(reserved2),
-        ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(logdata.unwrap_or(::std::ptr::null())),
-    )
+    HttpSendResponseEntityBody(requestqueuehandle.into(), requestid, flags, entitychunks.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(entitychunks.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(bytessent.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), reserved2, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), ::core::mem::transmute(logdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]

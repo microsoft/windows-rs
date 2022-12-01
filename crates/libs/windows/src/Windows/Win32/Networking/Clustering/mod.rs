@@ -765,7 +765,7 @@ where
     P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
 {
     ::windows::core::link ! ( "clusapi.dll""system" fn ClusterRegGetKeySecurity ( hkey : super::super::System::Registry:: HKEY , requestedinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> i32 );
-    ClusterRegGetKeySecurity(hkey.into(), requestedinformation, ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor))
+    ClusterRegGetKeySecurity(hkey.into(), requestedinformation, psecuritydescriptor, ::core::mem::transmute(lpcbsecuritydescriptor))
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2772,7 +2772,7 @@ where
 pub struct IGetClusterDataInfo(::windows::core::IUnknown);
 impl IGetClusterDataInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &::windows::core::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClusterName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszname), ::core::mem::transmute(pcchname)).ok()
+        (::windows::core::Vtable::vtable(self).GetClusterName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(lpszname), ::core::mem::transmute(pcchname)).ok()
     }
     pub unsafe fn GetClusterHandle(&self) -> *mut _HCLUSTER {
         (::windows::core::Vtable::vtable(self).GetClusterHandle)(::windows::core::Vtable::as_raw(self))
@@ -2965,7 +2965,7 @@ pub struct IGetClusterNodeInfo_Vtbl {
 pub struct IGetClusterObjectInfo(::windows::core::IUnknown);
 impl IGetClusterObjectInfo {
     pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &::windows::core::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetObjectName)(::windows::core::Vtable::as_raw(self), lobjindex, ::core::mem::transmute(lpszname), ::core::mem::transmute(pcchname)).ok()
+        (::windows::core::Vtable::vtable(self).GetObjectName)(::windows::core::Vtable::as_raw(self), lobjindex, ::core::mem::transmute_copy(lpszname), ::core::mem::transmute(pcchname)).ok()
     }
     pub unsafe fn GetObjectType(&self, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE {
         (::windows::core::Vtable::vtable(self).GetObjectType)(::windows::core::Vtable::as_raw(self), lobjindex)
@@ -3009,12 +3009,12 @@ impl IGetClusterResourceInfo {
         (::windows::core::Vtable::vtable(self).GetResourceHandle)(::windows::core::Vtable::as_raw(self), lobjindex)
     }
     pub unsafe fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: &::windows::core::BSTR, pcchrestypename: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetResourceTypeName)(::windows::core::Vtable::as_raw(self), lobjindex, ::core::mem::transmute(lpszrestypename), ::core::mem::transmute(pcchrestypename)).ok()
+        (::windows::core::Vtable::vtable(self).GetResourceTypeName)(::windows::core::Vtable::as_raw(self), lobjindex, ::core::mem::transmute_copy(lpszrestypename), ::core::mem::transmute(pcchrestypename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: &::windows::core::BSTR, pcchnetname: *mut u32) -> super::super::Foundation::BOOL {
-        (::windows::core::Vtable::vtable(self).GetResourceNetworkName)(::windows::core::Vtable::as_raw(self), lobjindex, ::core::mem::transmute(lpsznetname), ::core::mem::transmute(pcchnetname))
+        (::windows::core::Vtable::vtable(self).GetResourceNetworkName)(::windows::core::Vtable::as_raw(self), lobjindex, ::core::mem::transmute_copy(lpsznetname), ::core::mem::transmute(pcchnetname))
     }
 }
 ::windows::core::interface_hierarchy!(IGetClusterResourceInfo, ::windows::core::IUnknown);
@@ -3056,7 +3056,7 @@ pub struct IGetClusterResourceInfo_Vtbl {
 pub struct IGetClusterUIInfo(::windows::core::IUnknown);
 impl IGetClusterUIInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &::windows::core::BSTR, pcchname: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClusterName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszname), ::core::mem::transmute(pcchname)).ok()
+        (::windows::core::Vtable::vtable(self).GetClusterName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(lpszname), ::core::mem::transmute(pcchname)).ok()
     }
     pub unsafe fn GetLocale(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetLocale)(::windows::core::Vtable::as_raw(self))

@@ -110,7 +110,7 @@ where
 #[inline]
 pub unsafe fn EventAccessQuery(guid: *const ::windows::core::GUID, buffer: super::super::super::Security::PSECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32 {
     ::windows::core::link ! ( "advapi32.dll""system" fn EventAccessQuery ( guid : *const :: windows::core::GUID , buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR , buffersize : *mut u32 ) -> u32 );
-    EventAccessQuery(::core::mem::transmute(guid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize))
+    EventAccessQuery(::core::mem::transmute(guid), buffer, ::core::mem::transmute(buffersize))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[inline]

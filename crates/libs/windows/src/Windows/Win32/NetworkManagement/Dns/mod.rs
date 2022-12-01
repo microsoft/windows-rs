@@ -141,9 +141,12 @@ pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsFreeProxyName(proxyname: ::windows::core::PCWSTR) {
+pub unsafe fn DnsFreeProxyName<'a, P0>(proxyname: P0)
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     ::windows::core::link ! ( "dnsapi.dll""system" fn DnsFreeProxyName ( proxyname : :: windows::core::PCWSTR ) -> ( ) );
-    DnsFreeProxyName(::core::mem::transmute(proxyname))
+    DnsFreeProxyName(proxyname.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

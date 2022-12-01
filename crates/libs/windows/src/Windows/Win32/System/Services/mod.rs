@@ -447,7 +447,7 @@ where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn QueryServiceObjectSecurity ( hservice : super::super::Security:: SC_HANDLE , dwsecurityinformation : u32 , lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , cbbufsize : u32 , pcbbytesneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
-    QueryServiceObjectSecurity(hservice.into(), dwsecurityinformation, ::core::mem::transmute(lpsecuritydescriptor), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
+    QueryServiceObjectSecurity(hservice.into(), dwsecurityinformation, lpsecuritydescriptor, cbbufsize, ::core::mem::transmute(pcbbytesneeded))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
