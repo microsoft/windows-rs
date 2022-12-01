@@ -245,7 +245,7 @@ impl<'a> Gen<'a> {
             .generic_params(params)
             .map(|(position, param)| -> TokenStream {
                 let mut p = format!("P{position}");
-                if self.reader.signature_param_is_failible_param(param) {
+                if param.kind == SignatureParamKind::TryInto {
                     p.push_str(", E");
                     p.push_str(&position.to_string());
                 }
@@ -277,19 +277,24 @@ impl<'a> Gen<'a> {
             name
         };
         for (position, param) in self.generic_params(params) {
-            if self.reader.signature_param_is_failible_param(param) {
-                let name: TokenStream = gen_name(position);
-                let error_name: TokenStream = format!("E{position}").into();
-                let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<'a, #into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
-            } else if self.reader.signature_param_is_borrowed(param) {
-                let name: TokenStream = gen_name(position);
-                let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
-            } else if self.reader.signature_param_is_trivially_convertible(param) {
-                let name: TokenStream = gen_name(position);
-                let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
+            match param.kind {
+                SignatureParamKind::TryInto => {
+                    let name: TokenStream = gen_name(position);
+                    let error_name: TokenStream = format!("E{position}").into();
+                    let into = self.type_name(&param.ty);
+                    tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<'a, #into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
+                }
+                SignatureParamKind::IntoParam => {
+                    let name: TokenStream = gen_name(position);
+                    let into = self.type_name(&param.ty);
+                    tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
+                }
+                SignatureParamKind::Into => {
+                    let name: TokenStream = gen_name(position);
+                    let into = self.type_name(&param.ty);
+                    tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
+                }
+                _ => {}
             }
         }
         tokens
@@ -903,15 +908,14 @@ impl<'a> Gen<'a> {
                                 quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
                             }
                         }
-                        // TODO: remove catch all once all kinds are covered
-                        SignatureParamKind::Unknown => {
-                            if self.reader.type_is_primitive(&param.ty) && !param.ty.is_pointer() {
-                                quote! { #name, }
-                            } else if self.reader.type_is_blittable(&param.ty) {
-                                quote! { ::core::mem::transmute(#name), }
-                            } else {
-                                quote! { ::core::mem::transmute_copy(#name), }
-                            }
+                        SignatureParamKind::ValueType => {
+                            quote! { #name, }
+                        }
+                        SignatureParamKind::Blittable => {
+                            quote! { ::core::mem::transmute(#name), }
+                        }
+                        SignatureParamKind::Other => {
+                            quote! { ::core::mem::transmute_copy(#name), }
                         }
                     }
                 }
@@ -992,14 +996,13 @@ impl<'a> Gen<'a> {
                     let kind = self.type_default_name(&param.ty);
                     tokens.combine(&quote! { #name: ::core::option::Option<#kind>, });
                 }
-                SignatureParamKind::Unknown => {
+                SignatureParamKind::ValueType | SignatureParamKind::Blittable => {
                     let kind = self.type_default_name(&param.ty);
-
-                    if self.reader.type_is_blittable(&param.ty) {
-                        tokens.combine(&quote! { #name: #kind, });
-                    } else {
-                        tokens.combine(&quote! { #name: &#kind, });
-                    }
+                    tokens.combine(&quote! { #name: #kind, });
+                }
+                SignatureParamKind::Other => {
+                    let kind = self.type_default_name(&param.ty);
+                    tokens.combine(&quote! { #name: &#kind, });
                 }
             }
         }

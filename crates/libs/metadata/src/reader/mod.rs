@@ -83,7 +83,9 @@ pub enum SignatureParamKind {
     IntoParam,
     Into,
     OptionalPointer,
-    Unknown,
+    ValueType,
+    Blittable,
+    Other,
 }
 
 impl SignatureParamKind {
@@ -573,12 +575,12 @@ impl<'a> Reader<'a> {
                     if !self.param_flags(params[relative].def).output() && position != relative && !params[relative].ty.is_pointer() {
                         params[relative].kind = SignatureParamKind::ArrayRelativePtr(position);
                     } else {
-                        params[position].kind = SignatureParamKind::Unknown;
+                        params[position].kind = SignatureParamKind::Other;
                     }
                 }
                 SignatureParamKind::ArrayFixed(_) => {
                     if self.param_free_with(params[position].def).is_some() {
-                        params[position].kind = SignatureParamKind::Unknown;
+                        params[position].kind = SignatureParamKind::Other;
                     }
                 }
                 _ => {}
@@ -600,9 +602,9 @@ impl<'a> Reader<'a> {
         // Remove all sets.
         for (len, ptrs) in sets {
             if ptrs.len() > 1 {
-                params[len].kind = SignatureParamKind::Unknown;
+                params[len].kind = SignatureParamKind::Other;
                 for ptr in ptrs {
-                    params[ptr].kind = SignatureParamKind::Unknown;
+                    params[ptr].kind = SignatureParamKind::Other;
                 }
             }
         }
@@ -611,26 +613,30 @@ impl<'a> Reader<'a> {
         for position in 0..params.len() {
             if let SignatureParamKind::ArrayRelativeByteLen(relative) = params[position].kind {
                 if !params[position].ty.is_byte_size() {
-                    params[position].kind = SignatureParamKind::Unknown;
-                    params[relative].kind = SignatureParamKind::Unknown;
+                    params[position].kind = SignatureParamKind::Other;
+                    params[relative].kind = SignatureParamKind::Other;
                 }
             }
         }
 
-        for position in 0..params.len() {
-            if params[position].kind == SignatureParamKind::Unknown {
-                if self.signature_param_is_convertible(&params[position]) {
-                    if self.signature_param_is_failible_param(&params[position]) {
-                        params[position].kind = SignatureParamKind::TryInto;
-                    } else if self.signature_param_is_borrowed(&params[position]) {
-                        params[position].kind = SignatureParamKind::IntoParam;
+        for param in &mut params {
+            if param.kind == SignatureParamKind::Other {
+                if self.signature_param_is_convertible(param) {
+                    if self.signature_param_is_failible_param(param) {
+                        param.kind = SignatureParamKind::TryInto;
+                    } else if self.signature_param_is_borrowed(param) {
+                        param.kind = SignatureParamKind::IntoParam;
                     } else {
-                        params[position].kind = SignatureParamKind::Into;
+                        param.kind = SignatureParamKind::Into;
                     }
                 } else {
-                    let flags = self.param_flags(params[position].def);
-                    if params[position].ty.is_pointer() && (flags.optional() || self.param_is_reserved(params[position].def)) {
-                        params[position].kind = SignatureParamKind::OptionalPointer;
+                    let flags = self.param_flags(param.def);
+                    if param.ty.is_pointer() && (flags.optional() || self.param_is_reserved(param.def)) {
+                        param.kind = SignatureParamKind::OptionalPointer;
+                    } else if self.type_is_primitive(&param.ty) && !param.ty.is_pointer() {
+                        param.kind = SignatureParamKind::ValueType;
+                    } else if self.type_is_blittable(&param.ty) {
+                        param.kind = SignatureParamKind::Blittable;
                     }
                 }
             }
@@ -753,7 +759,7 @@ impl<'a> Reader<'a> {
                 _ => {}
             }
         }
-        SignatureParamKind::Unknown
+        SignatureParamKind::Other
     }
     pub fn param_is_retval(&self, row: Param) -> bool {
         self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "RetValAttribute")
