@@ -110,7 +110,7 @@ unsafe impl ::windows::core::Interface for IGattServiceProviderConnection {
 #[doc(hidden)]
 pub struct IGattServiceProviderConnection_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub TriggerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TriggerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]

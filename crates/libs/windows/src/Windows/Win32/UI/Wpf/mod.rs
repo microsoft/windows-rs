@@ -318,7 +318,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectEvents {
 #[doc(hidden)]
 pub struct IMILBitmapEffectEvents_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub PropertyChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub PropertyChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DirtyRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]

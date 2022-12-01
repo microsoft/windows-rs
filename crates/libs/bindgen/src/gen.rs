@@ -158,13 +158,7 @@ impl<'a> Gen<'a> {
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
         match ty {
-            Type::String => {
-                quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
-            }
-            Type::BSTR => {
-                quote! { ::core::mem::ManuallyDrop<::windows::core::BSTR> }
-            }
-            Type::IUnknown | Type::IInspectable => {
+            Type::String | Type::BSTR | Type::IUnknown | Type::IInspectable => {
                 quote! { *mut ::core::ffi::c_void }
             }
             Type::Win32Array((kind, len)) => {

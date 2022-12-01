@@ -171,7 +171,7 @@ impl ::windows::core::RuntimeName for IVssComponent {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVssComponent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>() -> IVssComponent_Vtbl {
-        unsafe extern "system" fn GetLogicalPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLogicalPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLogicalPath(::core::mem::transmute_copy(&pbstrpath)).into()
@@ -181,7 +181,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.GetComponentType(::core::mem::transmute_copy(&pct)).into()
         }
-        unsafe extern "system" fn GetComponentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComponentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetComponentName(::core::mem::transmute_copy(&pbstrname)).into()
@@ -212,7 +212,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.SetBackupMetadata(::core::mem::transmute(&wszdata)).into()
         }
-        unsafe extern "system" fn GetBackupMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackupMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBackupMetadata(::core::mem::transmute_copy(&pbstrdata)).into()
@@ -227,7 +227,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.GetPartialFileCount(::core::mem::transmute_copy(&pcpartialfiles)).into()
         }
-        unsafe extern "system" fn GetPartialFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipartialfile: u32, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrfilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrrange: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrmetadata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPartialFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipartialfile: u32, pbstrpath: *mut *mut ::core::ffi::c_void, pbstrfilename: *mut *mut ::core::ffi::c_void, pbstrrange: *mut *mut ::core::ffi::c_void, pbstrmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPartialFile(::core::mem::transmute_copy(&ipartialfile), ::core::mem::transmute_copy(&pbstrpath), ::core::mem::transmute_copy(&pbstrfilename), ::core::mem::transmute_copy(&pbstrrange), ::core::mem::transmute_copy(&pbstrmetadata)).into()
@@ -268,7 +268,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.GetDirectedTargetCount(::core::mem::transmute_copy(&pcdirectedtarget)).into()
         }
-        unsafe extern "system" fn GetDirectedTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idirectedtarget: u32, pbstrsourcepath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrsourcefilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrsourcerangelist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdestinationpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdestinationfilename: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrdestinationrangelist: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDirectedTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idirectedtarget: u32, pbstrsourcepath: *mut *mut ::core::ffi::c_void, pbstrsourcefilename: *mut *mut ::core::ffi::c_void, pbstrsourcerangelist: *mut *mut ::core::ffi::c_void, pbstrdestinationpath: *mut *mut ::core::ffi::c_void, pbstrdestinationfilename: *mut *mut ::core::ffi::c_void, pbstrdestinationrangelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDirectedTarget(::core::mem::transmute_copy(&idirectedtarget), ::core::mem::transmute_copy(&pbstrsourcepath), ::core::mem::transmute_copy(&pbstrsourcefilename), ::core::mem::transmute_copy(&pbstrsourcerangelist), ::core::mem::transmute_copy(&pbstrdestinationpath), ::core::mem::transmute_copy(&pbstrdestinationfilename), ::core::mem::transmute_copy(&pbstrdestinationrangelist)).into()
@@ -278,7 +278,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.SetRestoreMetadata(::core::mem::transmute(&wszrestoremetadata)).into()
         }
-        unsafe extern "system" fn GetRestoreMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrestoremetadata: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRestoreMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrestoremetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRestoreMetadata(::core::mem::transmute_copy(&pbstrrestoremetadata)).into()
@@ -298,7 +298,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.SetPreRestoreFailureMsg(::core::mem::transmute(&wszprerestorefailuremsg)).into()
         }
-        unsafe extern "system" fn GetPreRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprerestorefailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprerestorefailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPreRestoreFailureMsg(::core::mem::transmute_copy(&pbstrprerestorefailuremsg)).into()
@@ -308,7 +308,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.SetPostRestoreFailureMsg(::core::mem::transmute(&wszpostrestorefailuremsg)).into()
         }
-        unsafe extern "system" fn GetPostRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpostrestorefailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPostRestoreFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpostrestorefailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPostRestoreFailureMsg(::core::mem::transmute_copy(&pbstrpostrestorefailuremsg)).into()
@@ -318,22 +318,22 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.SetBackupStamp(::core::mem::transmute(&wszbackupstamp)).into()
         }
-        unsafe extern "system" fn GetBackupStamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackupStamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBackupStamp(::core::mem::transmute_copy(&pbstrbackupstamp)).into()
         }
-        unsafe extern "system" fn GetPreviousBackupStamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviousBackupStamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPreviousBackupStamp(::core::mem::transmute_copy(&pbstrbackupstamp)).into()
         }
-        unsafe extern "system" fn GetBackupOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupoptions: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackupOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupoptions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBackupOptions(::core::mem::transmute_copy(&pbstrbackupoptions)).into()
         }
-        unsafe extern "system" fn GetRestoreOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrestoreoptions: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRestoreOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrestoreoptions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRestoreOptions(::core::mem::transmute_copy(&pbstrrestoreoptions)).into()
@@ -343,7 +343,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.GetRestoreSubcomponentCount(::core::mem::transmute_copy(&pcrestoresubcomponent)).into()
         }
-        unsafe extern "system" fn GetRestoreSubcomponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icomponent: u32, pbstrlogicalpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrcomponentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbrepair: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRestoreSubcomponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icomponent: u32, pbstrlogicalpath: *mut *mut ::core::ffi::c_void, pbstrcomponentname: *mut *mut ::core::ffi::c_void, pbrepair: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRestoreSubcomponent(::core::mem::transmute_copy(&icomponent), ::core::mem::transmute_copy(&pbstrlogicalpath), ::core::mem::transmute_copy(&pbstrcomponentname), ::core::mem::transmute_copy(&pbrepair)).into()
@@ -358,7 +358,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.AddDifferencedFilesByLastModifyTime(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&ftlastmodifytime)).into()
         }
-        unsafe extern "system" fn AddDifferencedFilesByLastModifyLSN<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddDifferencedFilesByLastModifyLSN<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows::core::PCWSTR, wszfilespec: ::windows::core::PCWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddDifferencedFilesByLastModifyLSN(::core::mem::transmute(&wszpath), ::core::mem::transmute(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&bstrlsnstring)).into()
@@ -368,7 +368,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             this.GetDifferencedFilesCount(::core::mem::transmute_copy(&pcdifferencedfiles)).into()
         }
-        unsafe extern "system" fn GetDifferencedFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idifferencedfile: u32, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrfilespec: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDifferencedFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idifferencedfile: u32, pbstrpath: *mut *mut ::core::ffi::c_void, pbstrfilespec: *mut *mut ::core::ffi::c_void, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut *mut ::core::ffi::c_void, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDifferencedFile(::core::mem::transmute_copy(&idifferencedfile), ::core::mem::transmute_copy(&pbstrpath), ::core::mem::transmute_copy(&pbstrfilespec), ::core::mem::transmute_copy(&pbrecursive), ::core::mem::transmute_copy(&pbstrlsnstring), ::core::mem::transmute_copy(&pftlastmodifytime)).into()
@@ -444,7 +444,7 @@ impl IVssComponentEx_Vtbl {
             let this = (*this).get_impl();
             this.SetPostSnapshotFailureMsg(::core::mem::transmute(&wszfailuremsg)).into()
         }
-        unsafe extern "system" fn GetPrepareForBackupFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPrepareForBackupFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPrepareForBackupFailureMsg() {
@@ -455,7 +455,7 @@ impl IVssComponentEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPostSnapshotFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPostSnapshotFailureMsg<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPostSnapshotFailureMsg() {
@@ -477,12 +477,12 @@ impl IVssComponentEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRollForward<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRollForward<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRollForward(::core::mem::transmute_copy(&prolltype), ::core::mem::transmute_copy(&pbstrpoint)).into()
         }
-        unsafe extern "system" fn GetRestoreName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRestoreName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRestoreName() {
@@ -523,7 +523,7 @@ impl IVssComponentEx2_Vtbl {
             let this = (*this).get_impl();
             this.SetFailure(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&hrapplication), ::core::mem::transmute(&wszapplicationmessage), ::core::mem::transmute_copy(&dwreserved)).into()
         }
-        unsafe extern "system" fn GetFailure<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwreserved: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFailure<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssComponentEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut *mut ::core::ffi::c_void, pdwreserved: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFailure(::core::mem::transmute_copy(&phr), ::core::mem::transmute_copy(&phrapplication), ::core::mem::transmute_copy(&pbstrapplicationmessage), ::core::mem::transmute_copy(&pdwreserved)).into()
@@ -581,7 +581,7 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
             let this = (*this).get_impl();
             this.SetBackupSchema(::core::mem::transmute_copy(&dwschemamask)).into()
         }
-        unsafe extern "system" fn SaveAsXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SaveAsXML() {
@@ -687,7 +687,7 @@ impl IVssCreateWriterMetadata_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsXML<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveAsXML<Impl: IVssCreateWriterMetadata_Impl>(this: *mut ::core::ffi::c_void, pbstrxml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.SaveAsXML(::core::mem::transmute_copy(&pbstrxml)).into()
@@ -1532,12 +1532,12 @@ impl IVssWMDependency_Vtbl {
             let this = (*this).get_impl();
             this.GetWriterId(::core::mem::transmute_copy(&pwriterid)).into()
         }
-        unsafe extern "system" fn GetLogicalPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlogicalpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLogicalPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlogicalpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLogicalPath(::core::mem::transmute_copy(&pbstrlogicalpath)).into()
         }
-        unsafe extern "system" fn GetComponentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcomponentname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetComponentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcomponentname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetComponentName(::core::mem::transmute_copy(&pbstrcomponentname)).into()
@@ -1563,7 +1563,7 @@ pub trait IVssWMFiledesc_Impl: Sized {
 impl ::windows::core::RuntimeName for IVssWMFiledesc {}
 impl IVssWMFiledesc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>() -> IVssWMFiledesc_Vtbl {
-        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpath: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPath() {
@@ -1574,7 +1574,7 @@ impl IVssWMFiledesc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFilespec<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfilespec: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFilespec<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfilespec: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFilespec() {
@@ -1596,7 +1596,7 @@ impl IVssWMFiledesc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAlternateLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstralternatelocation: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAlternateLocation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstralternatelocation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAlternateLocation() {

@@ -160,8 +160,8 @@ unsafe impl ::windows::core::Interface for IWindowsDevicesAllJoynBusObjectIntero
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub AddPropertyGetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,
-    pub AddPropertySetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT,
+    pub AddPropertyGetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: *mut ::core::ffi::c_void, callback: isize) -> ::windows::core::HRESULT,
+    pub AddPropertySetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: *mut ::core::ffi::c_void, callback: isize) -> ::windows::core::HRESULT,
     pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]

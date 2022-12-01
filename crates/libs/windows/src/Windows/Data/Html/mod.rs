@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for IHtmlUtilities {
 #[doc(hidden)]
 pub struct IHtmlUtilities_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ConvertToText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, html: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ConvertToText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, html: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Data_Html\"`*"]
 pub struct HtmlUtilities;

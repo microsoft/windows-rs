@@ -104,13 +104,13 @@ unsafe impl ::windows::core::Interface for IWPCProviderConfig {
 #[doc(hidden)]
 pub struct IWPCProviderConfig_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrusersummary: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: *mut ::core::ffi::c_void, pbstrusersummary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Configure: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
+    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: *mut ::core::ffi::c_void, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestOverride: usize,
 }

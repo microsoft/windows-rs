@@ -11,7 +11,7 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEvent
 #[doc(hidden)]
 pub struct ISysStorageProviderEventReceivedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Json: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Json: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderEventReceivedEvent
 #[doc(hidden)]
 pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
 #[repr(transparent)]
@@ -144,8 +144,8 @@ unsafe impl ::windows::core::Interface for ISysStorageProviderHandlerFactory {
 #[doc(hidden)]
 pub struct ISysStorageProviderHandlerFactory_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetHttpRequestProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetEventSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetHttpRequestProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetEventSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: *mut ::core::ffi::c_void, eventname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
 #[repr(transparent)]

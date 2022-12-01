@@ -93,7 +93,7 @@ impl HSTRING {
 }
 
 unsafe impl Abi for HSTRING {
-    type Abi = std::mem::ManuallyDrop<Self>;
+    type Abi = *mut std::ffi::c_void;
 }
 
 unsafe impl RuntimeType for HSTRING {

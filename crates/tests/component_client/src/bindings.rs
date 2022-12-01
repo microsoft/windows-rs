@@ -16,7 +16,7 @@ pub struct IClass_Vtbl {
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Flags) -> ::windows::core::HRESULT,
     pub Int32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const i32, b_array_size: u32, b: *mut i32, c_array_size: *mut u32, c: *mut *mut i32, result_size__: *mut u32, result__: *mut *mut i32) -> ::windows::core::HRESULT,
-    pub StringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, b_array_size: u32, b: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, c_array_size: *mut u32, c: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub StringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const *mut ::core::ffi::c_void, b_array_size: u32, b: *mut *mut ::core::ffi::c_void, c_array_size: *mut u32, c: *mut *mut *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
 pub struct Class(::windows::core::IUnknown);
@@ -210,7 +210,7 @@ impl IClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StringArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, b_array_size: u32, b: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, c_array_size: *mut u32, c: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result_size__: *mut u32, result__: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StringArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a_array_size: u32, a: *const *mut ::core::ffi::c_void, b_array_size: u32, b: *mut *mut ::core::ffi::c_void, c_array_size: *mut u32, c: *mut *mut *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StringArray(::core::slice::from_raw_parts(::core::mem::transmute_copy(&a), a_array_size as _), ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&b), b_array_size as _), ::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&c), c_array_size).as_array()) {

@@ -3114,7 +3114,7 @@ unsafe impl ::windows::core::Interface for IProvisioningProfileWireless {
 #[doc(hidden)]
 pub struct IProvisioningProfileWireless_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrxmlconnectionconfigprofile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT,
+    pub CreateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: *mut ::core::ffi::c_void, bstrxmlconnectionconfigprofile: *mut ::core::ffi::c_void, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AA_AUDIT_ALL: u32 = 1u32;

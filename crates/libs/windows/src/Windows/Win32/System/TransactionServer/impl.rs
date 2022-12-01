@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for ICatalog {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICatalog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICatalog_Impl, const OFFSET: isize>() -> ICatalog_Vtbl {
-        unsafe extern "system" fn GetCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollname: *mut ::core::ffi::c_void, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCollection(::core::mem::transmute(&bstrcollname)) {
@@ -21,7 +21,7 @@ impl ICatalog_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectstring: *mut ::core::ffi::c_void, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Connect(::core::mem::transmute(&bstrconnectstring)) {
@@ -66,22 +66,22 @@ impl ::windows::core::RuntimeName for IComponentUtil {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComponentUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>() -> IComponentUtil_Vtbl {
-        unsafe extern "system" fn InstallComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrtypelibfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrproxystubdllfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllfile: *mut ::core::ffi::c_void, bstrtypelibfile: *mut ::core::ffi::c_void, bstrproxystubdllfile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InstallComponent(::core::mem::transmute(&bstrdllfile), ::core::mem::transmute(&bstrtypelibfile), ::core::mem::transmute(&bstrproxystubdllfile)).into()
         }
-        unsafe extern "system" fn ImportComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ImportComponent(::core::mem::transmute(&bstrclsid)).into()
         }
-        unsafe extern "system" fn ImportComponentByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprogid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportComponentByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprogid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ImportComponentByName(::core::mem::transmute(&bstrprogid)).into()
         }
-        unsafe extern "system" fn GetCLSIDs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrtypelibfile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCLSIDs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllfile: *mut ::core::ffi::c_void, bstrtypelibfile: *mut ::core::ffi::c_void, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCLSIDs(::core::mem::transmute(&bstrdllfile), ::core::mem::transmute(&bstrtypelibfile), ::core::mem::transmute_copy(&aclsids)).into()
@@ -109,17 +109,17 @@ impl ::windows::core::RuntimeName for IPackageUtil {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPackageUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>() -> IPackageUtil_Vtbl {
-        unsafe extern "system" fn InstallPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackagefile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrinstallpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, loptions: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackagefile: *mut ::core::ffi::c_void, bstrinstallpath: *mut ::core::ffi::c_void, loptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InstallPackage(::core::mem::transmute(&bstrpackagefile), ::core::mem::transmute(&bstrinstallpath), ::core::mem::transmute_copy(&loptions)).into()
         }
-        unsafe extern "system" fn ExportPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrpackagefile: ::core::mem::ManuallyDrop<::windows::core::BSTR>, loptions: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackageid: *mut ::core::ffi::c_void, bstrpackagefile: *mut ::core::ffi::c_void, loptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExportPackage(::core::mem::transmute(&bstrpackageid), ::core::mem::transmute(&bstrpackagefile), ::core::mem::transmute_copy(&loptions)).into()
         }
-        unsafe extern "system" fn ShutdownPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShutdownPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackageid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ShutdownPackage(::core::mem::transmute(&bstrpackageid)).into()
@@ -145,12 +145,12 @@ impl ::windows::core::RuntimeName for IRemoteComponentUtil {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteComponentUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteComponentUtil_Impl, const OFFSET: isize>() -> IRemoteComponentUtil_Vtbl {
-        unsafe extern "system" fn InstallRemoteComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserver: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrpackageid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallRemoteComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserver: *mut ::core::ffi::c_void, bstrpackageid: *mut ::core::ffi::c_void, bstrclsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InstallRemoteComponent(::core::mem::transmute(&bstrserver), ::core::mem::transmute(&bstrpackageid), ::core::mem::transmute(&bstrclsid)).into()
         }
-        unsafe extern "system" fn InstallRemoteComponentByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserver: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrpackagename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrprogid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InstallRemoteComponentByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserver: *mut ::core::ffi::c_void, bstrpackagename: *mut ::core::ffi::c_void, bstrprogid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InstallRemoteComponentByName(::core::mem::transmute(&bstrserver), ::core::mem::transmute(&bstrpackagename), ::core::mem::transmute(&bstrprogid)).into()
@@ -175,12 +175,12 @@ impl ::windows::core::RuntimeName for IRoleAssociationUtil {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRoleAssociationUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRoleAssociationUtil_Impl, const OFFSET: isize>() -> IRoleAssociationUtil_Vtbl {
-        unsafe extern "system" fn AssociateRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRoleAssociationUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AssociateRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRoleAssociationUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AssociateRole(::core::mem::transmute(&bstrroleid)).into()
         }
-        unsafe extern "system" fn AssociateRoleByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRoleAssociationUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AssociateRoleByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRoleAssociationUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AssociateRoleByName(::core::mem::transmute(&bstrrolename)).into()
