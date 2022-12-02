@@ -180,6 +180,13 @@ impl<'a> Gen<'a> {
                         quote! { ::core::mem::ManuallyDrop<#tokens> }
                     }
                 }
+                TypeKind::Delegate => {
+                    if self.reader.type_def_flags(*def).winrt() {
+                        quote! { *mut ::core::ffi::c_void }
+                    } else {
+                        self.type_def_name(*def, &[])
+                    }
+                }
                 _ => quote! { *mut ::core::ffi::c_void },
             },
             Type::MutPtr((kind, pointers)) => {
@@ -831,8 +838,16 @@ impl<'a> Gen<'a> {
                     quote! { #name: *mut #abi, }
                 }
             } else {
-                let abi = self.type_abi_name(&p.ty);
-                quote! { #name: #abi, }
+                match p.kind {
+                    SignatureParamKind::ValueType => {
+                        let abi = self.type_default_name(&p.ty);
+                        quote! { #name: #abi, }
+                    }
+                    _ => {
+                        let abi = self.type_abi_name(&p.ty);
+                        quote! { #name: #abi, }
+                    }
+                }
             }
         });
 
@@ -853,7 +868,6 @@ impl<'a> Gen<'a> {
             quote! { -> () }
         }
     }
-    // TODO: consolidate both WinRT and Win32 generation once SignatureParamKind is rich enough
     pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
         let mut tokens = quote! {};
 

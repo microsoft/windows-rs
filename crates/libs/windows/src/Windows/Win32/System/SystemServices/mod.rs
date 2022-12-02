@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "user32.dll""system" fn UnregisterDeviceNotification ( handle : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    UnregisterDeviceNotification(::core::mem::transmute(handle))
+    UnregisterDeviceNotification(handle)
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ACCESS_ALLOWED_ACE_TYPE: u32 = 0u32;

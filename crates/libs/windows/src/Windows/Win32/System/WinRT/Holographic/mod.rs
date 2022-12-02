@@ -9,7 +9,7 @@ impl IHolographicCameraInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12BackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12BackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -19,7 +19,7 @@ impl IHolographicCameraInterop {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, pprotectedresourcesession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -168,7 +168,7 @@ impl IHolographicQuadLayerInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12ContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12ContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -178,7 +178,7 @@ impl IHolographicQuadLayerInterop {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(ptexture2ddesc), pprotectedresourcesession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ptexture2ddesc, pprotectedresourcesession.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

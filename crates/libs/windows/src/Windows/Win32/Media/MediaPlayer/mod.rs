@@ -1610,7 +1610,7 @@ impl IWMPCdromBurn {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isAvailable(&self, bstritem: &::windows::core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Vtable::vtable(self).isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), pisavailable).ok()
     }
     pub unsafe fn getItemInfo(&self, bstritem: &::windows::core::BSTR, pbstrval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pbstrval)).ok()
@@ -1622,7 +1622,7 @@ impl IWMPCdromBurn {
         (::windows::core::Vtable::vtable(self).Setlabel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrlabel)).ok()
     }
     pub unsafe fn burnFormat(&self, pwmpbf: *mut WMPBurnFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).burnFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpbf)).ok()
+        (::windows::core::Vtable::vtable(self).burnFormat)(::windows::core::Vtable::as_raw(self), pwmpbf).ok()
     }
     pub unsafe fn SetburnFormat(&self, wmpbf: WMPBurnFormat) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetburnFormat)(::windows::core::Vtable::as_raw(self), wmpbf).ok()
@@ -1645,10 +1645,10 @@ impl IWMPCdromBurn {
         (::windows::core::Vtable::vtable(self).refreshStatus)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn burnState(&self, pwmpbs: *mut WMPBurnState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).burnState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpbs)).ok()
+        (::windows::core::Vtable::vtable(self).burnState)(::windows::core::Vtable::as_raw(self), pwmpbs).ok()
     }
     pub unsafe fn burnProgress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).burnProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).burnProgress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn startBurn(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).startBurn)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1718,7 +1718,7 @@ pub struct IWMPCdromCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPCdromCollection {
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1783,10 +1783,10 @@ pub struct IWMPCdromCollection_Vtbl {
 pub struct IWMPCdromRip(::windows::core::IUnknown);
 impl IWMPCdromRip {
     pub unsafe fn ripState(&self, pwmprs: *mut WMPRipState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ripState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmprs)).ok()
+        (::windows::core::Vtable::vtable(self).ripState)(::windows::core::Vtable::as_raw(self), pwmprs).ok()
     }
     pub unsafe fn ripProgress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ripProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).ripProgress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn startRip(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).startRip)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1933,16 +1933,16 @@ impl IWMPClosedCaption2 {
         (::windows::core::Vtable::vtable(self).base__.SetcaptioningId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcaptioningid)).ok()
     }
     pub unsafe fn SAMILangCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SAMILangCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).SAMILangCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn getSAMILangName(&self, nindex: i32, pbstrname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getSAMILangName)(::windows::core::Vtable::as_raw(self), nindex, ::core::mem::transmute(pbstrname)).ok()
     }
     pub unsafe fn getSAMILangID(&self, nindex: i32, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getSAMILangID)(::windows::core::Vtable::as_raw(self), nindex, ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Vtable::vtable(self).getSAMILangID)(::windows::core::Vtable::as_raw(self), nindex, pllangid).ok()
     }
     pub unsafe fn SAMIStyleCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SAMIStyleCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).SAMIStyleCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn getSAMIStyleName(&self, nindex: i32, pbstrname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getSAMIStyleName)(::windows::core::Vtable::as_raw(self), nindex, ::core::mem::transmute(pbstrname)).ok()
@@ -2130,7 +2130,7 @@ impl IWMPContentPartner {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCommands(&self, location: &::windows::core::BSTR, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: &::windows::core::BSTR, prgitemids: &[u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCommands)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(location), ::core::mem::transmute(plocationcontext), ::core::mem::transmute_copy(itemlocation), prgitemids.len() as _, ::core::mem::transmute(prgitemids.as_ptr()), ::core::mem::transmute(pcitemids), ::core::mem::transmute(pprgitems)).ok()
+        (::windows::core::Vtable::vtable(self).GetCommands)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(location), ::core::mem::transmute(plocationcontext), ::core::mem::transmute_copy(itemlocation), prgitemids.len() as _, ::core::mem::transmute(prgitemids.as_ptr()), pcitemids, pprgitems).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2143,7 +2143,7 @@ impl IWMPContentPartner {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>,
     {
-        (::windows::core::Vtable::vtable(self).CanBuySilent)(::windows::core::Vtable::as_raw(self), pinfo.into().abi(), ::core::mem::transmute(pbstrtotalprice), ::core::mem::transmute(psilentok)).ok()
+        (::windows::core::Vtable::vtable(self).CanBuySilent)(::windows::core::Vtable::as_raw(self), pinfo.into().abi(), ::core::mem::transmute(pbstrtotalprice), psilentok).ok()
     }
     pub unsafe fn Buy<'a, P0>(&self, pinfo: P0, cookie: u32) -> ::windows::core::Result<()>
     where
@@ -2174,12 +2174,12 @@ impl IWMPContentPartner {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut ::windows::core::BSTR, pexpirationdate: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCatalogURL)(::windows::core::Vtable::as_raw(self), dwcatalogversion, dwcatalogschemaversion, cataloglcid, ::core::mem::transmute(pdwnewcatalogversion), ::core::mem::transmute(pbstrcatalogurl), ::core::mem::transmute(pexpirationdate)).ok()
+        (::windows::core::Vtable::vtable(self).GetCatalogURL)(::windows::core::Vtable::as_raw(self), dwcatalogversion, dwcatalogschemaversion, cataloglcid, pdwnewcatalogversion, ::core::mem::transmute(pbstrcatalogurl), ::core::mem::transmute(pexpirationdate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetTemplate(&self, task: WMPTaskType, location: &::windows::core::BSTR, pcontext: *const super::super::System::Com::VARIANT, clicklocation: &::windows::core::BSTR, pclickcontext: *const super::super::System::Com::VARIANT, bstrfilter: &::windows::core::BSTR, bstrviewparams: &::windows::core::BSTR, pbstrtemplateurl: *mut ::windows::core::BSTR, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTemplate)(::windows::core::Vtable::as_raw(self), task, ::core::mem::transmute_copy(location), ::core::mem::transmute(pcontext), ::core::mem::transmute_copy(clicklocation), ::core::mem::transmute(pclickcontext), ::core::mem::transmute_copy(bstrfilter), ::core::mem::transmute_copy(bstrviewparams), ::core::mem::transmute(pbstrtemplateurl), ::core::mem::transmute(ptemplatesize)).ok()
+        (::windows::core::Vtable::vtable(self).GetTemplate)(::windows::core::Vtable::as_raw(self), task, ::core::mem::transmute_copy(location), ::core::mem::transmute(pcontext), ::core::mem::transmute_copy(clicklocation), ::core::mem::transmute(pclickcontext), ::core::mem::transmute_copy(bstrfilter), ::core::mem::transmute_copy(bstrviewparams), ::core::mem::transmute(pbstrtemplateurl), ptemplatesize).ok()
     }
     pub unsafe fn UpdateDevice(&self, bstrdevicename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdevicename)).ok()
@@ -2331,7 +2331,7 @@ impl IWMPContentPartnerCallback {
         (::windows::core::Vtable::vtable(self).DownloadTrack)(::windows::core::Vtable::as_raw(self), cookie, ::core::mem::transmute_copy(bstrtrackurl), dwservicetrackid, ::core::mem::transmute_copy(bstrdownloadparams), hrdownload).ok()
     }
     pub unsafe fn GetCatalogVersion(&self, pdwversion: *mut u32, pdwschemaversion: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCatalogVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwversion), ::core::mem::transmute(pdwschemaversion), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Vtable::vtable(self).GetCatalogVersion)(::windows::core::Vtable::as_raw(self), pdwversion, pdwschemaversion, plcid).ok()
     }
     pub unsafe fn UpdateDeviceComplete(&self, bstrdevicename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateDeviceComplete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdevicename)).ok()
@@ -2349,7 +2349,7 @@ impl IWMPContentPartnerCallback {
         (::windows::core::Vtable::vtable(self).SendMessageComplete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmsg), ::core::mem::transmute_copy(bstrparam), ::core::mem::transmute_copy(bstrresult)).ok()
     }
     pub unsafe fn GetContentIDsInLibrary(&self, pccontentids: *mut u32, pprgids: *mut *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetContentIDsInLibrary)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pccontentids), ::core::mem::transmute(pprgids)).ok()
+        (::windows::core::Vtable::vtable(self).GetContentIDsInLibrary)(::windows::core::Vtable::as_raw(self), pccontentids, pprgids).ok()
     }
     pub unsafe fn RefreshLicenseComplete(&self, dwcookie: u32, contentid: u32, hrrefresh: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RefreshLicenseComplete)(::windows::core::Vtable::as_raw(self), dwcookie, contentid, hrrefresh).ok()
@@ -2419,7 +2419,7 @@ impl IWMPControls {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable(&self, bstritem: &::windows::core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Vtable::vtable(self).get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), pisavailable).ok()
     }
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).play)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2437,7 +2437,7 @@ impl IWMPControls {
         (::windows::core::Vtable::vtable(self).fastReverse)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).currentPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdcurrentposition)).ok()
+        (::windows::core::Vtable::vtable(self).currentPosition)(::windows::core::Vtable::as_raw(self), pdcurrentposition).ok()
     }
     pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetcurrentPosition)(::windows::core::Vtable::as_raw(self), dcurrentposition).ok()
@@ -2466,7 +2466,7 @@ impl IWMPControls {
         (::windows::core::Vtable::vtable(self).SetcurrentItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).currentMarker)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmarker)).ok()
+        (::windows::core::Vtable::vtable(self).currentMarker)(::windows::core::Vtable::as_raw(self), plmarker).ok()
     }
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetcurrentMarker)(::windows::core::Vtable::as_raw(self), lmarker).ok()
@@ -2553,7 +2553,7 @@ impl IWMPControls2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable(&self, bstritem: &::windows::core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), pisavailable).ok()
     }
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.play)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2571,7 +2571,7 @@ impl IWMPControls2 {
         (::windows::core::Vtable::vtable(self).base__.fastReverse)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.currentPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdcurrentposition)).ok()
+        (::windows::core::Vtable::vtable(self).base__.currentPosition)(::windows::core::Vtable::as_raw(self), pdcurrentposition).ok()
     }
     pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentPosition)(::windows::core::Vtable::as_raw(self), dcurrentposition).ok()
@@ -2600,7 +2600,7 @@ impl IWMPControls2 {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.currentMarker)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmarker)).ok()
+        (::windows::core::Vtable::vtable(self).base__.currentMarker)(::windows::core::Vtable::as_raw(self), plmarker).ok()
     }
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetcurrentMarker)(::windows::core::Vtable::as_raw(self), lmarker).ok()
@@ -2663,7 +2663,7 @@ impl IWMPControls3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable(&self, bstritem: &::windows::core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), pisavailable).ok()
     }
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.play)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2681,7 +2681,7 @@ impl IWMPControls3 {
         (::windows::core::Vtable::vtable(self).base__.base__.fastReverse)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.currentPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdcurrentposition)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.currentPosition)(::windows::core::Vtable::as_raw(self), pdcurrentposition).ok()
     }
     pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentPosition)(::windows::core::Vtable::as_raw(self), dcurrentposition).ok()
@@ -2710,7 +2710,7 @@ impl IWMPControls3 {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentItem)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.currentMarker)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmarker)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.currentMarker)(::windows::core::Vtable::as_raw(self), plmarker).ok()
     }
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetcurrentMarker)(::windows::core::Vtable::as_raw(self), lmarker).ok()
@@ -2727,22 +2727,22 @@ impl IWMPControls3 {
         (::windows::core::Vtable::vtable(self).base__.step)(::windows::core::Vtable::as_raw(self), lstep).ok()
     }
     pub unsafe fn audioLanguageCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).audioLanguageCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).audioLanguageCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn getAudioLanguageID(&self, lindex: i32, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getAudioLanguageID)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Vtable::vtable(self).getAudioLanguageID)(::windows::core::Vtable::as_raw(self), lindex, pllangid).ok()
     }
     pub unsafe fn getAudioLanguageDescription(&self, lindex: i32, pbstrlangdesc: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getAudioLanguageDescription)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstrlangdesc)).ok()
     }
     pub unsafe fn currentAudioLanguage(&self, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).currentAudioLanguage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Vtable::vtable(self).currentAudioLanguage)(::windows::core::Vtable::as_raw(self), pllangid).ok()
     }
     pub unsafe fn SetcurrentAudioLanguage(&self, llangid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetcurrentAudioLanguage)(::windows::core::Vtable::as_raw(self), llangid).ok()
     }
     pub unsafe fn currentAudioLanguageIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).currentAudioLanguageIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Vtable::vtable(self).currentAudioLanguageIndex)(::windows::core::Vtable::as_raw(self), plindex).ok()
     }
     pub unsafe fn SetcurrentAudioLanguageIndex(&self, lindex: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetcurrentAudioLanguageIndex)(::windows::core::Vtable::as_raw(self), lindex).ok()
@@ -2860,10 +2860,10 @@ impl IWMPCore {
         (::windows::core::Vtable::vtable(self).SetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
     }
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).openState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Vtable::vtable(self).openState)(::windows::core::Vtable::as_raw(self), pwmpos).ok()
     }
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).playState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Vtable::vtable(self).playState)(::windows::core::Vtable::as_raw(self), pwmpps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2944,7 +2944,7 @@ impl IWMPCore {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).isOnline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Vtable::vtable(self).isOnline)(::windows::core::Vtable::as_raw(self), pfonline).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3068,10 +3068,10 @@ impl IWMPCore2 {
         (::windows::core::Vtable::vtable(self).base__.SetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
     }
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.openState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Vtable::vtable(self).base__.openState)(::windows::core::Vtable::as_raw(self), pwmpos).ok()
     }
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.playState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Vtable::vtable(self).base__.playState)(::windows::core::Vtable::as_raw(self), pwmpps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3152,7 +3152,7 @@ impl IWMPCore2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.isOnline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isOnline)(::windows::core::Vtable::as_raw(self), pfonline).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3226,10 +3226,10 @@ impl IWMPCore3 {
         (::windows::core::Vtable::vtable(self).base__.base__.SetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
     }
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.openState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.openState)(::windows::core::Vtable::as_raw(self), pwmpos).ok()
     }
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.playState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.playState)(::windows::core::Vtable::as_raw(self), pwmpps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3310,7 +3310,7 @@ impl IWMPCore3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.isOnline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.isOnline)(::windows::core::Vtable::as_raw(self), pfonline).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3393,7 +3393,7 @@ impl IWMPDVD {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable(&self, bstritem: &::windows::core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Vtable::vtable(self).get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), pisavailable).ok()
     }
     pub unsafe fn domain(&self, strdomain: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).domain)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(strdomain)).ok()
@@ -3463,10 +3463,10 @@ pub struct IWMPDownloadCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPDownloadCollection {
     pub unsafe fn id(&self, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plid)).ok()
+        (::windows::core::Vtable::vtable(self).id)(::windows::core::Vtable::as_raw(self), plid).ok()
     }
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3545,16 +3545,16 @@ impl IWMPDownloadItem {
         (::windows::core::Vtable::vtable(self).sourceURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     pub unsafe fn size(&self, plsize: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).size)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plsize)).ok()
+        (::windows::core::Vtable::vtable(self).size)(::windows::core::Vtable::as_raw(self), plsize).ok()
     }
     pub unsafe fn r#type(&self, pbstrtype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).r#type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrtype)).ok()
     }
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).progress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).progress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn downloadState(&self, pwmpsdls: *mut WMPSubscriptionDownloadState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).downloadState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpsdls)).ok()
+        (::windows::core::Vtable::vtable(self).downloadState)(::windows::core::Vtable::as_raw(self), pwmpsdls).ok()
     }
     pub unsafe fn pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).pause)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3620,16 +3620,16 @@ impl IWMPDownloadItem2 {
         (::windows::core::Vtable::vtable(self).base__.sourceURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     pub unsafe fn size(&self, plsize: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.size)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.size)(::windows::core::Vtable::as_raw(self), plsize).ok()
     }
     pub unsafe fn r#type(&self, pbstrtype: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.r#type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrtype)).ok()
     }
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.progress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).base__.progress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn downloadState(&self, pwmpsdls: *mut WMPSubscriptionDownloadState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.downloadState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpsdls)).ok()
+        (::windows::core::Vtable::vtable(self).base__.downloadState)(::windows::core::Vtable::as_raw(self), pwmpsdls).ok()
     }
     pub unsafe fn pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.pause)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3754,13 +3754,13 @@ impl IWMPEffects {
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).Render)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plevels), hdc.into(), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Vtable::vtable(self).Render)(::windows::core::Vtable::as_raw(self), plevels, hdc.into(), prc).ok()
     }
     pub unsafe fn MediaInfo(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MediaInfo)(::windows::core::Vtable::as_raw(self), lchannelcount, lsamplerate, ::core::mem::transmute_copy(bstrtitle)).ok()
     }
     pub unsafe fn GetCapabilities(&self, pdwcapabilities: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwcapabilities)).ok()
+        (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), pdwcapabilities).ok()
     }
     pub unsafe fn GetTitle(&self, bstrtitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetTitle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(bstrtitle)).ok()
@@ -3769,13 +3769,13 @@ impl IWMPEffects {
         (::windows::core::Vtable::vtable(self).GetPresetTitle)(::windows::core::Vtable::as_raw(self), npreset, ::core::mem::transmute(bstrpresettitle)).ok()
     }
     pub unsafe fn GetPresetCount(&self, pnpresetcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPresetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnpresetcount)).ok()
+        (::windows::core::Vtable::vtable(self).GetPresetCount)(::windows::core::Vtable::as_raw(self), pnpresetcount).ok()
     }
     pub unsafe fn SetCurrentPreset(&self, npreset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCurrentPreset)(::windows::core::Vtable::as_raw(self), npreset).ok()
     }
     pub unsafe fn GetCurrentPreset(&self, pnpreset: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentPreset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnpreset)).ok()
+        (::windows::core::Vtable::vtable(self).GetCurrentPreset)(::windows::core::Vtable::as_raw(self), pnpreset).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3794,7 +3794,7 @@ impl IWMPEffects {
         (::windows::core::Vtable::vtable(self).GoFullscreen)(::windows::core::Vtable::as_raw(self), ffullscreen.into()).ok()
     }
     pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RenderFullScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plevels)).ok()
+        (::windows::core::Vtable::vtable(self).RenderFullScreen)(::windows::core::Vtable::as_raw(self), plevels).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPEffects, ::windows::core::IUnknown);
@@ -3855,13 +3855,13 @@ impl IWMPEffects2 {
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Render)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plevels), hdc.into(), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Render)(::windows::core::Vtable::as_raw(self), plevels, hdc.into(), prc).ok()
     }
     pub unsafe fn MediaInfo(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.MediaInfo)(::windows::core::Vtable::as_raw(self), lchannelcount, lsamplerate, ::core::mem::transmute_copy(bstrtitle)).ok()
     }
     pub unsafe fn GetCapabilities(&self, pdwcapabilities: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwcapabilities)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), pdwcapabilities).ok()
     }
     pub unsafe fn GetTitle(&self, bstrtitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetTitle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(bstrtitle)).ok()
@@ -3870,13 +3870,13 @@ impl IWMPEffects2 {
         (::windows::core::Vtable::vtable(self).base__.GetPresetTitle)(::windows::core::Vtable::as_raw(self), npreset, ::core::mem::transmute(bstrpresettitle)).ok()
     }
     pub unsafe fn GetPresetCount(&self, pnpresetcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPresetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnpresetcount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPresetCount)(::windows::core::Vtable::as_raw(self), pnpresetcount).ok()
     }
     pub unsafe fn SetCurrentPreset(&self, npreset: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetCurrentPreset)(::windows::core::Vtable::as_raw(self), npreset).ok()
     }
     pub unsafe fn GetCurrentPreset(&self, pnpreset: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetCurrentPreset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnpreset)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetCurrentPreset)(::windows::core::Vtable::as_raw(self), pnpreset).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3895,7 +3895,7 @@ impl IWMPEffects2 {
         (::windows::core::Vtable::vtable(self).base__.GoFullscreen)(::windows::core::Vtable::as_raw(self), ffullscreen.into()).ok()
     }
     pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RenderFullScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plevels)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RenderFullScreen)(::windows::core::Vtable::as_raw(self), plevels).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3931,7 +3931,7 @@ impl IWMPEffects2 {
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).OnWindowMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), ::core::mem::transmute(plresultparam)).ok()
+        (::windows::core::Vtable::vtable(self).OnWindowMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), plresultparam).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3939,7 +3939,7 @@ impl IWMPEffects2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).RenderWindowed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata), frequiredrender.into()).ok()
+        (::windows::core::Vtable::vtable(self).RenderWindowed)(::windows::core::Vtable::as_raw(self), pdata, frequiredrender.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPEffects2, ::windows::core::IUnknown, IWMPEffects);
@@ -4001,7 +4001,7 @@ impl IWMPError {
         (::windows::core::Vtable::vtable(self).clearErrorQueue)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn errorCount(&self, plnumerrors: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).errorCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plnumerrors)).ok()
+        (::windows::core::Vtable::vtable(self).errorCount)(::windows::core::Vtable::as_raw(self), plnumerrors).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4063,7 +4063,7 @@ pub struct IWMPErrorItem(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPErrorItem {
     pub unsafe fn errorCode(&self, phr: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).errorCode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phr)).ok()
+        (::windows::core::Vtable::vtable(self).errorCode)(::windows::core::Vtable::as_raw(self), phr).ok()
     }
     pub unsafe fn errorDescription(&self, pbstrdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).errorDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
@@ -4074,7 +4074,7 @@ impl IWMPErrorItem {
         (::windows::core::Vtable::vtable(self).errorContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarcontext)).ok()
     }
     pub unsafe fn remedy(&self, plremedy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).remedy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plremedy)).ok()
+        (::windows::core::Vtable::vtable(self).remedy)(::windows::core::Vtable::as_raw(self), plremedy).ok()
     }
     pub unsafe fn customUrl(&self, pbstrcustomurl: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).customUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrcustomurl)).ok()
@@ -4131,7 +4131,7 @@ pub struct IWMPErrorItem2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPErrorItem2 {
     pub unsafe fn errorCode(&self, phr: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.errorCode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phr)).ok()
+        (::windows::core::Vtable::vtable(self).base__.errorCode)(::windows::core::Vtable::as_raw(self), phr).ok()
     }
     pub unsafe fn errorDescription(&self, pbstrdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.errorDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
@@ -4142,13 +4142,13 @@ impl IWMPErrorItem2 {
         (::windows::core::Vtable::vtable(self).base__.errorContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarcontext)).ok()
     }
     pub unsafe fn remedy(&self, plremedy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.remedy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plremedy)).ok()
+        (::windows::core::Vtable::vtable(self).base__.remedy)(::windows::core::Vtable::as_raw(self), plremedy).ok()
     }
     pub unsafe fn customUrl(&self, pbstrcustomurl: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.customUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrcustomurl)).ok()
     }
     pub unsafe fn condition(&self, plcondition: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).condition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcondition)).ok()
+        (::windows::core::Vtable::vtable(self).condition)(::windows::core::Vtable::as_raw(self), plcondition).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5367,7 +5367,7 @@ pub struct IWMPEvents4_Vtbl {
 pub struct IWMPFolderMonitorServices(::windows::core::IUnknown);
 impl IWMPFolderMonitorServices {
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn item(&self, lindex: i32, pbstrfolder: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).item)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstrfolder)).ok()
@@ -5379,19 +5379,19 @@ impl IWMPFolderMonitorServices {
         (::windows::core::Vtable::vtable(self).remove)(::windows::core::Vtable::as_raw(self), lindex).ok()
     }
     pub unsafe fn scanState(&self, pwmpfss: *mut WMPFolderScanState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).scanState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpfss)).ok()
+        (::windows::core::Vtable::vtable(self).scanState)(::windows::core::Vtable::as_raw(self), pwmpfss).ok()
     }
     pub unsafe fn currentFolder(&self, pbstrfolder: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).currentFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrfolder)).ok()
     }
     pub unsafe fn scannedFilesCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).scannedFilesCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).scannedFilesCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn addedFilesCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).addedFilesCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).addedFilesCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn updateProgress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).updateProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).updateProgress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn startScan(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).startScan)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5457,7 +5457,7 @@ impl IWMPGraphCreation {
         (::windows::core::Vtable::vtable(self).GraphCreationPostRender)(::windows::core::Vtable::as_raw(self), pfiltergraph.into().abi()).ok()
     }
     pub unsafe fn GetGraphCreationFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetGraphCreationFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).GetGraphCreationFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPGraphCreation, ::windows::core::IUnknown);
@@ -5499,7 +5499,7 @@ impl IWMPLibrary {
         (::windows::core::Vtable::vtable(self).name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     pub unsafe fn r#type(&self, pwmplt: *mut WMPLibraryType) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).r#type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmplt)).ok()
+        (::windows::core::Vtable::vtable(self).r#type)(::windows::core::Vtable::as_raw(self), pwmplt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5513,7 +5513,7 @@ impl IWMPLibrary {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
     {
-        (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), piwmplibrary.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), piwmplibrary.into().abi(), pvbool).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPLibrary, ::windows::core::IUnknown);
@@ -5562,7 +5562,7 @@ impl IWMPLibrary2 {
         (::windows::core::Vtable::vtable(self).base__.name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     pub unsafe fn r#type(&self, pwmplt: *mut WMPLibraryType) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.r#type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmplt)).ok()
+        (::windows::core::Vtable::vtable(self).base__.r#type)(::windows::core::Vtable::as_raw(self), pwmplt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5576,7 +5576,7 @@ impl IWMPLibrary2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.isIdentical)(::windows::core::Vtable::as_raw(self), piwmplibrary.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isIdentical)(::windows::core::Vtable::as_raw(self), piwmplibrary.into().abi(), pvbool).ok()
     }
     pub unsafe fn getItemInfo(&self, bstritemname: &::windows::core::BSTR, pbstrval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pbstrval)).ok()
@@ -5616,7 +5616,7 @@ pub struct IWMPLibrary2_Vtbl {
 pub struct IWMPLibraryServices(::windows::core::IUnknown);
 impl IWMPLibraryServices {
     pub unsafe fn getCountByType(&self, wmplt: WMPLibraryType, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getCountByType)(::windows::core::Vtable::as_raw(self), wmplt, ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).getCountByType)(::windows::core::Vtable::as_raw(self), wmplt, plcount).ok()
     }
     pub unsafe fn getLibraryByType(&self, wmplt: WMPLibraryType, lindex: i32) -> ::windows::core::Result<IWMPLibrary> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5660,12 +5660,12 @@ impl IWMPLibrarySharingServices {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isLibraryShared(&self, pvbshared: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).isLibraryShared)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvbshared)).ok()
+        (::windows::core::Vtable::vtable(self).isLibraryShared)(::windows::core::Vtable::as_raw(self), pvbshared).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isLibrarySharingEnabled(&self, pvbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).isLibrarySharingEnabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).isLibrarySharingEnabled)(::windows::core::Vtable::as_raw(self), pvbenabled).ok()
     }
     pub unsafe fn showLibrarySharing(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).showLibrarySharing)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5720,7 +5720,7 @@ impl IWMPMedia {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
     {
-        (::windows::core::Vtable::vtable(self).get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), pvbool).ok()
     }
     pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).sourceURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrsourceurl)).ok()
@@ -5732,28 +5732,28 @@ impl IWMPMedia {
         (::windows::core::Vtable::vtable(self).Setname)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname)).ok()
     }
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).imageSourceWidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidth)).ok()
+        (::windows::core::Vtable::vtable(self).imageSourceWidth)(::windows::core::Vtable::as_raw(self), pwidth).ok()
     }
     pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).imageSourceHeight)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Vtable::vtable(self).imageSourceHeight)(::windows::core::Vtable::as_raw(self), pheight).ok()
     }
     pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).markerCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmarkercount)).ok()
+        (::windows::core::Vtable::vtable(self).markerCount)(::windows::core::Vtable::as_raw(self), pmarkercount).ok()
     }
     pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getMarkerTime)(::windows::core::Vtable::as_raw(self), markernum, ::core::mem::transmute(pmarkertime)).ok()
+        (::windows::core::Vtable::vtable(self).getMarkerTime)(::windows::core::Vtable::as_raw(self), markernum, pmarkertime).ok()
     }
     pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getMarkerName)(::windows::core::Vtable::as_raw(self), markernum, ::core::mem::transmute(pbstrmarkername)).ok()
     }
     pub unsafe fn duration(&self, pduration: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).duration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pduration)).ok()
+        (::windows::core::Vtable::vtable(self).duration)(::windows::core::Vtable::as_raw(self), pduration).ok()
     }
     pub unsafe fn durationString(&self, pbstrduration: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).durationString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrduration)).ok()
     }
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).attributeCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).attributeCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getAttributeName)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstritemname)).ok()
@@ -5773,12 +5773,12 @@ impl IWMPMedia {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+        (::windows::core::Vtable::vtable(self).isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), pvarfismemberof).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReadOnlyItem(&self, bstritemname: &::windows::core::BSTR, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).isReadOnlyItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pvarfisreadonly)).ok()
+        (::windows::core::Vtable::vtable(self).isReadOnlyItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), pvarfisreadonly).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5856,7 +5856,7 @@ impl IWMPMedia2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).base__.get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), pvbool).ok()
     }
     pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.sourceURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrsourceurl)).ok()
@@ -5868,28 +5868,28 @@ impl IWMPMedia2 {
         (::windows::core::Vtable::vtable(self).base__.Setname)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname)).ok()
     }
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.imageSourceWidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidth)).ok()
+        (::windows::core::Vtable::vtable(self).base__.imageSourceWidth)(::windows::core::Vtable::as_raw(self), pwidth).ok()
     }
     pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.imageSourceHeight)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Vtable::vtable(self).base__.imageSourceHeight)(::windows::core::Vtable::as_raw(self), pheight).ok()
     }
     pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.markerCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmarkercount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.markerCount)(::windows::core::Vtable::as_raw(self), pmarkercount).ok()
     }
     pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.getMarkerTime)(::windows::core::Vtable::as_raw(self), markernum, ::core::mem::transmute(pmarkertime)).ok()
+        (::windows::core::Vtable::vtable(self).base__.getMarkerTime)(::windows::core::Vtable::as_raw(self), markernum, pmarkertime).ok()
     }
     pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.getMarkerName)(::windows::core::Vtable::as_raw(self), markernum, ::core::mem::transmute(pbstrmarkername)).ok()
     }
     pub unsafe fn duration(&self, pduration: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.duration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pduration)).ok()
+        (::windows::core::Vtable::vtable(self).base__.duration)(::windows::core::Vtable::as_raw(self), pduration).ok()
     }
     pub unsafe fn durationString(&self, pbstrduration: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.durationString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrduration)).ok()
     }
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.attributeCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.attributeCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.getAttributeName)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstritemname)).ok()
@@ -5909,12 +5909,12 @@ impl IWMPMedia2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), pvarfismemberof).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReadOnlyItem(&self, bstritemname: &::windows::core::BSTR, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.isReadOnlyItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pvarfisreadonly)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isReadOnlyItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), pvarfisreadonly).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5975,7 +5975,7 @@ impl IWMPMedia3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpmedia.into().abi(), pvbool).ok()
     }
     pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.sourceURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrsourceurl)).ok()
@@ -5987,28 +5987,28 @@ impl IWMPMedia3 {
         (::windows::core::Vtable::vtable(self).base__.base__.Setname)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname)).ok()
     }
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.imageSourceWidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidth)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.imageSourceWidth)(::windows::core::Vtable::as_raw(self), pwidth).ok()
     }
     pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.imageSourceHeight)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.imageSourceHeight)(::windows::core::Vtable::as_raw(self), pheight).ok()
     }
     pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.markerCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmarkercount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.markerCount)(::windows::core::Vtable::as_raw(self), pmarkercount).ok()
     }
     pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.getMarkerTime)(::windows::core::Vtable::as_raw(self), markernum, ::core::mem::transmute(pmarkertime)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.getMarkerTime)(::windows::core::Vtable::as_raw(self), markernum, pmarkertime).ok()
     }
     pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.getMarkerName)(::windows::core::Vtable::as_raw(self), markernum, ::core::mem::transmute(pbstrmarkername)).ok()
     }
     pub unsafe fn duration(&self, pduration: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.duration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pduration)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.duration)(::windows::core::Vtable::as_raw(self), pduration).ok()
     }
     pub unsafe fn durationString(&self, pbstrduration: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.durationString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrduration)).ok()
     }
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.attributeCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.attributeCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.getAttributeName)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstritemname)).ok()
@@ -6028,12 +6028,12 @@ impl IWMPMedia3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.isMemberOf)(::windows::core::Vtable::as_raw(self), pplaylist.into().abi(), pvarfismemberof).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReadOnlyItem(&self, bstritemname: &::windows::core::BSTR, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.isReadOnlyItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pvarfisreadonly)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.isReadOnlyItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), pvarfisreadonly).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6042,7 +6042,7 @@ impl IWMPMedia3 {
         (::windows::core::Vtable::vtable(self).base__.error)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn getAttributeCountByType(&self, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getAttributeCountByType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).getAttributeCountByType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), plcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6154,7 +6154,7 @@ impl IWMPMediaCollection {
         (::windows::core::Vtable::vtable(self).getAttributeStringCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrattribute), ::core::mem::transmute_copy(bstrmediatype), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn getMediaAtom(&self, bstritemname: &::windows::core::BSTR, platom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getMediaAtom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(platom)).ok()
+        (::windows::core::Vtable::vtable(self).getMediaAtom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), platom).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6170,7 +6170,7 @@ impl IWMPMediaCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
     {
-        (::windows::core::Vtable::vtable(self).isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+        (::windows::core::Vtable::vtable(self).isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), pvarfisdeleted).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6317,7 +6317,7 @@ impl IWMPMediaCollection2 {
         (::windows::core::Vtable::vtable(self).base__.getAttributeStringCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrattribute), ::core::mem::transmute_copy(bstrmediatype), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn getMediaAtom(&self, bstritemname: &::windows::core::BSTR, platom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.getMediaAtom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(platom)).ok()
+        (::windows::core::Vtable::vtable(self).base__.getMediaAtom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), platom).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6333,7 +6333,7 @@ impl IWMPMediaCollection2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), pvarfisdeleted).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6428,7 +6428,7 @@ impl IWMPMediaPluginRegistrar {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).WMPRegisterPlayerPlugin)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into(), pwszdescription.into(), pwszuninstallstring.into(), dwpriority, ::core::mem::transmute(guidplugintype), ::core::mem::transmute(clsid), cmediatypes, ::core::mem::transmute(pmediatypes)).ok()
+        (::windows::core::Vtable::vtable(self).WMPRegisterPlayerPlugin)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into(), pwszdescription.into(), pwszuninstallstring.into(), dwpriority, ::core::mem::transmute(guidplugintype), ::core::mem::transmute(clsid), cmediatypes, pmediatypes).ok()
     }
     pub unsafe fn WMPUnRegisterPlayerPlugin(&self, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).WMPUnRegisterPlayerPlugin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidplugintype), ::core::mem::transmute(clsid)).ok()
@@ -6581,46 +6581,46 @@ pub struct IWMPNetwork(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPNetwork {
     pub unsafe fn bandWidth(&self, plbandwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).bandWidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbandwidth)).ok()
+        (::windows::core::Vtable::vtable(self).bandWidth)(::windows::core::Vtable::as_raw(self), plbandwidth).ok()
     }
     pub unsafe fn recoveredPackets(&self, plrecoveredpackets: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).recoveredPackets)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plrecoveredpackets)).ok()
+        (::windows::core::Vtable::vtable(self).recoveredPackets)(::windows::core::Vtable::as_raw(self), plrecoveredpackets).ok()
     }
     pub unsafe fn sourceProtocol(&self, pbstrsourceprotocol: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).sourceProtocol)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrsourceprotocol)).ok()
     }
     pub unsafe fn receivedPackets(&self, plreceivedpackets: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).receivedPackets)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plreceivedpackets)).ok()
+        (::windows::core::Vtable::vtable(self).receivedPackets)(::windows::core::Vtable::as_raw(self), plreceivedpackets).ok()
     }
     pub unsafe fn lostPackets(&self, pllostpackets: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).lostPackets)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pllostpackets)).ok()
+        (::windows::core::Vtable::vtable(self).lostPackets)(::windows::core::Vtable::as_raw(self), pllostpackets).ok()
     }
     pub unsafe fn receptionQuality(&self, plreceptionquality: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).receptionQuality)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plreceptionquality)).ok()
+        (::windows::core::Vtable::vtable(self).receptionQuality)(::windows::core::Vtable::as_raw(self), plreceptionquality).ok()
     }
     pub unsafe fn bufferingCount(&self, plbufferingcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).bufferingCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbufferingcount)).ok()
+        (::windows::core::Vtable::vtable(self).bufferingCount)(::windows::core::Vtable::as_raw(self), plbufferingcount).ok()
     }
     pub unsafe fn bufferingProgress(&self, plbufferingprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).bufferingProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbufferingprogress)).ok()
+        (::windows::core::Vtable::vtable(self).bufferingProgress)(::windows::core::Vtable::as_raw(self), plbufferingprogress).ok()
     }
     pub unsafe fn bufferingTime(&self, plbufferingtime: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).bufferingTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbufferingtime)).ok()
+        (::windows::core::Vtable::vtable(self).bufferingTime)(::windows::core::Vtable::as_raw(self), plbufferingtime).ok()
     }
     pub unsafe fn SetbufferingTime(&self, lbufferingtime: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetbufferingTime)(::windows::core::Vtable::as_raw(self), lbufferingtime).ok()
     }
     pub unsafe fn frameRate(&self, plframerate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).frameRate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plframerate)).ok()
+        (::windows::core::Vtable::vtable(self).frameRate)(::windows::core::Vtable::as_raw(self), plframerate).ok()
     }
     pub unsafe fn maxBitRate(&self, plbitrate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).maxBitRate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbitrate)).ok()
+        (::windows::core::Vtable::vtable(self).maxBitRate)(::windows::core::Vtable::as_raw(self), plbitrate).ok()
     }
     pub unsafe fn bitRate(&self, plbitrate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).bitRate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbitrate)).ok()
+        (::windows::core::Vtable::vtable(self).bitRate)(::windows::core::Vtable::as_raw(self), plbitrate).ok()
     }
     pub unsafe fn getProxySettings(&self, bstrprotocol: &::windows::core::BSTR, plproxysetting: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute(plproxysetting)).ok()
+        (::windows::core::Vtable::vtable(self).getProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), plproxysetting).ok()
     }
     pub unsafe fn setProxySettings(&self, bstrprotocol: &::windows::core::BSTR, lproxysetting: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), lproxysetting).ok()
@@ -6632,7 +6632,7 @@ impl IWMPNetwork {
         (::windows::core::Vtable::vtable(self).setProxyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute_copy(bstrproxyname)).ok()
     }
     pub unsafe fn getProxyPort(&self, bstrprotocol: &::windows::core::BSTR, lproxyport: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getProxyPort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute(lproxyport)).ok()
+        (::windows::core::Vtable::vtable(self).getProxyPort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), lproxyport).ok()
     }
     pub unsafe fn setProxyPort(&self, bstrprotocol: &::windows::core::BSTR, lproxyport: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setProxyPort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), lproxyport).ok()
@@ -6646,7 +6646,7 @@ impl IWMPNetwork {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getProxyBypassForLocal(&self, bstrprotocol: &::windows::core::BSTR, pfbypassforlocal: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute(pfbypassforlocal)).ok()
+        (::windows::core::Vtable::vtable(self).getProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), pfbypassforlocal).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6654,19 +6654,19 @@ impl IWMPNetwork {
         (::windows::core::Vtable::vtable(self).setProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), fbypassforlocal).ok()
     }
     pub unsafe fn maxBandwidth(&self, lmaxbandwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).maxBandwidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lmaxbandwidth)).ok()
+        (::windows::core::Vtable::vtable(self).maxBandwidth)(::windows::core::Vtable::as_raw(self), lmaxbandwidth).ok()
     }
     pub unsafe fn SetmaxBandwidth(&self, lmaxbandwidth: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetmaxBandwidth)(::windows::core::Vtable::as_raw(self), lmaxbandwidth).ok()
     }
     pub unsafe fn downloadProgress(&self, pldownloadprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).downloadProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pldownloadprogress)).ok()
+        (::windows::core::Vtable::vtable(self).downloadProgress)(::windows::core::Vtable::as_raw(self), pldownloadprogress).ok()
     }
     pub unsafe fn encodedFrameRate(&self, plframerate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).encodedFrameRate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plframerate)).ok()
+        (::windows::core::Vtable::vtable(self).encodedFrameRate)(::windows::core::Vtable::as_raw(self), plframerate).ok()
     }
     pub unsafe fn framesSkipped(&self, plframes: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).framesSkipped)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plframes)).ok()
+        (::windows::core::Vtable::vtable(self).framesSkipped)(::windows::core::Vtable::as_raw(self), plframes).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6746,17 +6746,17 @@ impl IWMPNodeRealEstate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesiredSize(&self, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDesiredSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psize)).ok()
+        (::windows::core::Vtable::vtable(self).GetDesiredSize)(::windows::core::Vtable::as_raw(self), psize).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRects(&self, psrc: *const super::super::Foundation::RECT, pdest: *const super::super::Foundation::RECT, pclip: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdest), ::core::mem::transmute(pclip)).ok()
+        (::windows::core::Vtable::vtable(self).SetRects)(::windows::core::Vtable::as_raw(self), psrc, pdest, pclip).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdest), ::core::mem::transmute(pclip)).ok()
+        (::windows::core::Vtable::vtable(self).GetRects)(::windows::core::Vtable::as_raw(self), psrc, pdest, pclip).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6769,7 +6769,7 @@ impl IWMPNodeRealEstate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindowless(&self, pfwindowless: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetWindowless)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfwindowless)).ok()
+        (::windows::core::Vtable::vtable(self).GetWindowless)(::windows::core::Vtable::as_raw(self), pfwindowless).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6782,7 +6782,7 @@ impl IWMPNodeRealEstate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFullScreen(&self, pffullscreen: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFullScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pffullscreen)).ok()
+        (::windows::core::Vtable::vtable(self).GetFullScreen)(::windows::core::Vtable::as_raw(self), pffullscreen).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPNodeRealEstate, ::windows::core::IUnknown);
@@ -6848,7 +6848,7 @@ impl IWMPNodeRealEstateHost {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDesiredSizeChange(&self, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnDesiredSizeChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psize)).ok()
+        (::windows::core::Vtable::vtable(self).OnDesiredSizeChange)(::windows::core::Vtable::as_raw(self), psize).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6903,7 +6903,7 @@ impl IWMPNodeWindowed {
         (::windows::core::Vtable::vtable(self).SetOwnerWindow)(::windows::core::Vtable::as_raw(self), hwnd).ok()
     }
     pub unsafe fn GetOwnerWindow(&self, phwnd: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOwnerWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phwnd)).ok()
+        (::windows::core::Vtable::vtable(self).GetOwnerWindow)(::windows::core::Vtable::as_raw(self), phwnd).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPNodeWindowed, ::windows::core::IUnknown);
@@ -6947,7 +6947,7 @@ impl IWMPNodeWindowedHost {
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).OnWindowMessageFromRenderer)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+        (::windows::core::Vtable::vtable(self).OnWindowMessageFromRenderer)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into(), plret, pfhandled).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPNodeWindowedHost, ::windows::core::IUnknown);
@@ -6993,12 +6993,12 @@ impl IWMPNodeWindowless {
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).base__.OnWindowMessage)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnWindowMessage)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into(), plret, pfhandled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDraw(&self, hdc: isize, prcdraw: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnDraw)(::windows::core::Vtable::as_raw(self), hdc, ::core::mem::transmute(prcdraw)).ok()
+        (::windows::core::Vtable::vtable(self).OnDraw)(::windows::core::Vtable::as_raw(self), hdc, prcdraw).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPNodeWindowless, ::windows::core::IUnknown, IWMPWindowMessageSink);
@@ -7043,7 +7043,7 @@ impl IWMPNodeWindowlessHost {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).InvalidateRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc), ferase.into()).ok()
+        (::windows::core::Vtable::vtable(self).InvalidateRect)(::windows::core::Vtable::as_raw(self), prc, ferase.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPNodeWindowlessHost, ::windows::core::IUnknown);
@@ -7094,10 +7094,10 @@ impl IWMPPlayer {
         (::windows::core::Vtable::vtable(self).base__.SetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
     }
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.openState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Vtable::vtable(self).base__.openState)(::windows::core::Vtable::as_raw(self), pwmpos).ok()
     }
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.playState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Vtable::vtable(self).base__.playState)(::windows::core::Vtable::as_raw(self), pwmpps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7178,7 +7178,7 @@ impl IWMPPlayer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.isOnline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isOnline)(::windows::core::Vtable::as_raw(self), pfonline).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7192,7 +7192,7 @@ impl IWMPPlayer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7202,7 +7202,7 @@ impl IWMPPlayer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), pbfullscreen).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7212,7 +7212,7 @@ impl IWMPPlayer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), pbenablecontextmenu).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7304,10 +7304,10 @@ impl IWMPPlayer2 {
         (::windows::core::Vtable::vtable(self).base__.SetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
     }
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.openState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Vtable::vtable(self).base__.openState)(::windows::core::Vtable::as_raw(self), pwmpos).ok()
     }
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.playState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Vtable::vtable(self).base__.playState)(::windows::core::Vtable::as_raw(self), pwmpps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7388,7 +7388,7 @@ impl IWMPPlayer2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.isOnline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isOnline)(::windows::core::Vtable::as_raw(self), pfonline).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7402,7 +7402,7 @@ impl IWMPPlayer2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7412,7 +7412,7 @@ impl IWMPPlayer2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), pbfullscreen).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7422,7 +7422,7 @@ impl IWMPPlayer2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), pbenablecontextmenu).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7438,7 +7438,7 @@ impl IWMPPlayer2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn stretchToFit(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).stretchToFit)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).stretchToFit)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7448,7 +7448,7 @@ impl IWMPPlayer2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn windowlessVideo(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).windowlessVideo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).windowlessVideo)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7550,10 +7550,10 @@ impl IWMPPlayer3 {
         (::windows::core::Vtable::vtable(self).base__.base__.SetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
     }
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.openState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.openState)(::windows::core::Vtable::as_raw(self), pwmpos).ok()
     }
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.playState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.playState)(::windows::core::Vtable::as_raw(self), pwmpps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7634,7 +7634,7 @@ impl IWMPPlayer3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.isOnline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.isOnline)(::windows::core::Vtable::as_raw(self), pfonline).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7654,7 +7654,7 @@ impl IWMPPlayer3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7664,7 +7664,7 @@ impl IWMPPlayer3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), pbfullscreen).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7674,7 +7674,7 @@ impl IWMPPlayer3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), pbenablecontextmenu).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7690,7 +7690,7 @@ impl IWMPPlayer3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn stretchToFit(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).stretchToFit)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).stretchToFit)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7700,7 +7700,7 @@ impl IWMPPlayer3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn windowlessVideo(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).windowlessVideo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).windowlessVideo)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7802,10 +7802,10 @@ impl IWMPPlayer4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrurl)).ok()
     }
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.openState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.openState)(::windows::core::Vtable::as_raw(self), pwmpos).ok()
     }
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.playState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.playState)(::windows::core::Vtable::as_raw(self), pwmpps).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7886,7 +7886,7 @@ impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.isOnline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.isOnline)(::windows::core::Vtable::as_raw(self), pfonline).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7918,7 +7918,7 @@ impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).enabled)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7928,7 +7928,7 @@ impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Vtable::vtable(self).fullScreen)(::windows::core::Vtable::as_raw(self), pbfullscreen).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7938,7 +7938,7 @@ impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Vtable::vtable(self).enableContextMenu)(::windows::core::Vtable::as_raw(self), pbenablecontextmenu).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7954,7 +7954,7 @@ impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn stretchToFit(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).stretchToFit)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).stretchToFit)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7964,7 +7964,7 @@ impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn windowlessVideo(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).windowlessVideo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Vtable::vtable(self).windowlessVideo)(::windows::core::Vtable::as_raw(self), pbenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7974,7 +7974,7 @@ impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isRemote(&self, pvarfisremote: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).isRemote)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarfisremote)).ok()
+        (::windows::core::Vtable::vtable(self).isRemote)(::windows::core::Vtable::as_raw(self), pvarfisremote).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8088,12 +8088,12 @@ impl IWMPPlayerApplication {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn playerDocked(&self, pbplayerdocked: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).playerDocked)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbplayerdocked)).ok()
+        (::windows::core::Vtable::vtable(self).playerDocked)(::windows::core::Vtable::as_raw(self), pbplayerdocked).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn hasDisplay(&self, pbhasdisplay: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).hasDisplay)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbhasdisplay)).ok()
+        (::windows::core::Vtable::vtable(self).hasDisplay)(::windows::core::Vtable::as_raw(self), pbhasdisplay).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8240,7 +8240,7 @@ pub struct IWMPPlaylist(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlaylist {
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn name(&self, pbstrname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
@@ -8249,7 +8249,7 @@ impl IWMPPlaylist {
         (::windows::core::Vtable::vtable(self).Setname)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname)).ok()
     }
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).attributeCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).attributeCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn get_attributeName(&self, lindex: i32, pbstrattributename: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).get_attributeName)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstrattributename)).ok()
@@ -8272,7 +8272,7 @@ impl IWMPPlaylist {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpplaylist.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).get_isIdentical)(::windows::core::Vtable::as_raw(self), piwmpplaylist.into().abi(), pvbool).ok()
     }
     pub unsafe fn clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8377,7 +8377,7 @@ pub struct IWMPPlaylistArray(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlaylistArray {
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8473,7 +8473,7 @@ impl IWMPPlaylistCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+        (::windows::core::Vtable::vtable(self).isDeleted)(::windows::core::Vtable::as_raw(self), pitem.into().abi(), pvarfisdeleted).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8560,10 +8560,10 @@ impl IWMPPlugin {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetID(&self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguid)).ok()
+        (::windows::core::Vtable::vtable(self).GetID)(::windows::core::Vtable::as_raw(self), pguid).ok()
     }
     pub unsafe fn GetCaps(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
     }
     pub unsafe fn AdviseWMPServices<'a, P0>(&self, pwmpservices: P0) -> ::windows::core::Result<()>
     where
@@ -8624,7 +8624,7 @@ impl IWMPPluginEnable {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnable(&self, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEnable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfenable)).ok()
+        (::windows::core::Vtable::vtable(self).GetEnable)(::windows::core::Vtable::as_raw(self), pfenable).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPPluginEnable, ::windows::core::IUnknown);
@@ -8681,7 +8681,7 @@ impl IWMPPluginUI {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), hwndparent.into(), ::core::mem::transmute(phwndwindow)).ok()
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), hwndparent.into(), phwndwindow).ok()
     }
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Destroy)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8713,7 +8713,7 @@ impl IWMPPluginUI {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TranslateAccelerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpmsg)).ok()
+        (::windows::core::Vtable::vtable(self).TranslateAccelerator)(::windows::core::Vtable::as_raw(self), lpmsg).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPPluginUI, ::windows::core::IUnknown);
@@ -8889,7 +8889,7 @@ impl IWMPRenderConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn inProcOnly(&self, pfinproc: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).inProcOnly)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfinproc)).ok()
+        (::windows::core::Vtable::vtable(self).inProcOnly)(::windows::core::Vtable::as_raw(self), pfinproc).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPRenderConfig, ::windows::core::IUnknown);
@@ -8933,10 +8933,10 @@ pub struct IWMPRenderConfig_Vtbl {
 pub struct IWMPServices(::windows::core::IUnknown);
 impl IWMPServices {
     pub unsafe fn GetStreamTime(&self, prt: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prt)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamTime)(::windows::core::Vtable::as_raw(self), prt).ok()
     }
     pub unsafe fn GetStreamState(&self, pstate: *mut WMPServices_StreamState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstate)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamState)(::windows::core::Vtable::as_raw(self), pstate).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPServices, ::windows::core::IUnknown);
@@ -8978,12 +8978,12 @@ impl IWMPSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable(&self, bstritem: &::windows::core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Vtable::vtable(self).get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), pisavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn autoStart(&self, pfautostart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).autoStart)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfautostart)).ok()
+        (::windows::core::Vtable::vtable(self).autoStart)(::windows::core::Vtable::as_raw(self), pfautostart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9005,7 +9005,7 @@ impl IWMPSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn invokeURLs(&self, pfinvokeurls: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).invokeURLs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfinvokeurls)).ok()
+        (::windows::core::Vtable::vtable(self).invokeURLs)(::windows::core::Vtable::as_raw(self), pfinvokeurls).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9015,7 +9015,7 @@ impl IWMPSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn mute(&self, pfmute: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).mute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfmute)).ok()
+        (::windows::core::Vtable::vtable(self).mute)(::windows::core::Vtable::as_raw(self), pfmute).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9023,25 +9023,25 @@ impl IWMPSettings {
         (::windows::core::Vtable::vtable(self).Setmute)(::windows::core::Vtable::as_raw(self), fmute).ok()
     }
     pub unsafe fn playCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).playCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).playCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn SetplayCount(&self, lcount: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetplayCount)(::windows::core::Vtable::as_raw(self), lcount).ok()
     }
     pub unsafe fn rate(&self, pdrate: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).rate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdrate)).ok()
+        (::windows::core::Vtable::vtable(self).rate)(::windows::core::Vtable::as_raw(self), pdrate).ok()
     }
     pub unsafe fn Setrate(&self, drate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Setrate)(::windows::core::Vtable::as_raw(self), drate).ok()
     }
     pub unsafe fn balance(&self, plbalance: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).balance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbalance)).ok()
+        (::windows::core::Vtable::vtable(self).balance)(::windows::core::Vtable::as_raw(self), plbalance).ok()
     }
     pub unsafe fn Setbalance(&self, lbalance: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Setbalance)(::windows::core::Vtable::as_raw(self), lbalance).ok()
     }
     pub unsafe fn volume(&self, plvolume: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).volume)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plvolume)).ok()
+        (::windows::core::Vtable::vtable(self).volume)(::windows::core::Vtable::as_raw(self), plvolume).ok()
     }
     pub unsafe fn Setvolume(&self, lvolume: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Setvolume)(::windows::core::Vtable::as_raw(self), lvolume).ok()
@@ -9049,7 +9049,7 @@ impl IWMPSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMode(&self, bstrmode: &::windows::core::BSTR, pvarfmode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmode), ::core::mem::transmute(pvarfmode)).ok()
+        (::windows::core::Vtable::vtable(self).getMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmode), pvarfmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9059,7 +9059,7 @@ impl IWMPSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enableErrorDialogs(&self, pfenableerrordialogs: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).enableErrorDialogs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfenableerrordialogs)).ok()
+        (::windows::core::Vtable::vtable(self).enableErrorDialogs)(::windows::core::Vtable::as_raw(self), pfenableerrordialogs).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9168,12 +9168,12 @@ impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable(&self, bstritem: &::windows::core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.get_isAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritem), pisavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn autoStart(&self, pfautostart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.autoStart)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfautostart)).ok()
+        (::windows::core::Vtable::vtable(self).base__.autoStart)(::windows::core::Vtable::as_raw(self), pfautostart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9195,7 +9195,7 @@ impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn invokeURLs(&self, pfinvokeurls: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.invokeURLs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfinvokeurls)).ok()
+        (::windows::core::Vtable::vtable(self).base__.invokeURLs)(::windows::core::Vtable::as_raw(self), pfinvokeurls).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9205,7 +9205,7 @@ impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn mute(&self, pfmute: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.mute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfmute)).ok()
+        (::windows::core::Vtable::vtable(self).base__.mute)(::windows::core::Vtable::as_raw(self), pfmute).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9213,25 +9213,25 @@ impl IWMPSettings2 {
         (::windows::core::Vtable::vtable(self).base__.Setmute)(::windows::core::Vtable::as_raw(self), fmute).ok()
     }
     pub unsafe fn playCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.playCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.playCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn SetplayCount(&self, lcount: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetplayCount)(::windows::core::Vtable::as_raw(self), lcount).ok()
     }
     pub unsafe fn rate(&self, pdrate: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.rate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdrate)).ok()
+        (::windows::core::Vtable::vtable(self).base__.rate)(::windows::core::Vtable::as_raw(self), pdrate).ok()
     }
     pub unsafe fn Setrate(&self, drate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Setrate)(::windows::core::Vtable::as_raw(self), drate).ok()
     }
     pub unsafe fn balance(&self, plbalance: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.balance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plbalance)).ok()
+        (::windows::core::Vtable::vtable(self).base__.balance)(::windows::core::Vtable::as_raw(self), plbalance).ok()
     }
     pub unsafe fn Setbalance(&self, lbalance: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Setbalance)(::windows::core::Vtable::as_raw(self), lbalance).ok()
     }
     pub unsafe fn volume(&self, plvolume: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.volume)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plvolume)).ok()
+        (::windows::core::Vtable::vtable(self).base__.volume)(::windows::core::Vtable::as_raw(self), plvolume).ok()
     }
     pub unsafe fn Setvolume(&self, lvolume: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Setvolume)(::windows::core::Vtable::as_raw(self), lvolume).ok()
@@ -9239,7 +9239,7 @@ impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMode(&self, bstrmode: &::windows::core::BSTR, pvarfmode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.getMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmode), ::core::mem::transmute(pvarfmode)).ok()
+        (::windows::core::Vtable::vtable(self).base__.getMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmode), pvarfmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9249,7 +9249,7 @@ impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enableErrorDialogs(&self, pfenableerrordialogs: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.enableErrorDialogs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfenableerrordialogs)).ok()
+        (::windows::core::Vtable::vtable(self).base__.enableErrorDialogs)(::windows::core::Vtable::as_raw(self), pfenableerrordialogs).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9257,7 +9257,7 @@ impl IWMPSettings2 {
         (::windows::core::Vtable::vtable(self).base__.SetenableErrorDialogs)(::windows::core::Vtable::as_raw(self), fenableerrordialogs).ok()
     }
     pub unsafe fn defaultAudioLanguage(&self, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).defaultAudioLanguage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Vtable::vtable(self).defaultAudioLanguage)(::windows::core::Vtable::as_raw(self), pllangid).ok()
     }
     pub unsafe fn mediaAccessRights(&self, pbstrrights: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).mediaAccessRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrrights)).ok()
@@ -9265,7 +9265,7 @@ impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn requestMediaAccessRights(&self, bstrdesiredaccess: &::windows::core::BSTR, pvbaccepted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).requestMediaAccessRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdesiredaccess), ::core::mem::transmute(pvbaccepted)).ok()
+        (::windows::core::Vtable::vtable(self).requestMediaAccessRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdesiredaccess), pvbaccepted).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9354,7 +9354,7 @@ pub struct IWMPStringCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPStringCollection {
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).count)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn item(&self, lindex: i32, pbstrstring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).item)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstrstring)).ok()
@@ -9405,7 +9405,7 @@ pub struct IWMPStringCollection2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPStringCollection2 {
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.count)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn item(&self, lindex: i32, pbstrstring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.item)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute(pbstrstring)).ok()
@@ -9416,13 +9416,13 @@ impl IWMPStringCollection2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPStringCollection2>>,
     {
-        (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), piwmpstringcollection2.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), piwmpstringcollection2.into().abi(), pvbool).ok()
     }
     pub unsafe fn getItemInfo(&self, lcollectionindex: i32, bstritemname: &::windows::core::BSTR, pbstrvalue: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getItemInfo)(::windows::core::Vtable::as_raw(self), lcollectionindex, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pbstrvalue)).ok()
     }
     pub unsafe fn getAttributeCountByType(&self, lcollectionindex: i32, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getAttributeCountByType)(::windows::core::Vtable::as_raw(self), lcollectionindex, ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).getAttributeCountByType)(::windows::core::Vtable::as_raw(self), lcollectionindex, ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), plcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9487,7 +9487,7 @@ impl IWMPSubscriptionService {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
     {
-        (::windows::core::Vtable::vtable(self).allowPlay)(::windows::core::Vtable::as_raw(self), hwnd.into(), pmedia.into().abi(), ::core::mem::transmute(pfallowplay)).ok()
+        (::windows::core::Vtable::vtable(self).allowPlay)(::windows::core::Vtable::as_raw(self), hwnd.into(), pmedia.into().abi(), pfallowplay).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9496,7 +9496,7 @@ impl IWMPSubscriptionService {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).allowCDBurn)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowburn)).ok()
+        (::windows::core::Vtable::vtable(self).allowCDBurn)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowburn).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9505,7 +9505,7 @@ impl IWMPSubscriptionService {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).allowPDATransfer)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
+        (::windows::core::Vtable::vtable(self).allowPDATransfer)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowtransfer).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9571,7 +9571,7 @@ impl IWMPSubscriptionService2 {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.allowPlay)(::windows::core::Vtable::as_raw(self), hwnd.into(), pmedia.into().abi(), ::core::mem::transmute(pfallowplay)).ok()
+        (::windows::core::Vtable::vtable(self).base__.allowPlay)(::windows::core::Vtable::as_raw(self), hwnd.into(), pmedia.into().abi(), pfallowplay).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9580,7 +9580,7 @@ impl IWMPSubscriptionService2 {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.allowCDBurn)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowburn)).ok()
+        (::windows::core::Vtable::vtable(self).base__.allowCDBurn)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowburn).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9589,7 +9589,7 @@ impl IWMPSubscriptionService2 {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.allowPDATransfer)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
+        (::windows::core::Vtable::vtable(self).base__.allowPDATransfer)(::windows::core::Vtable::as_raw(self), hwnd.into(), pplaylist.into().abi(), pfallowtransfer).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9704,21 +9704,21 @@ impl IWMPSyncDevice {
         (::windows::core::Vtable::vtable(self).deviceId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).partnershipIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Vtable::vtable(self).partnershipIndex)(::windows::core::Vtable::as_raw(self), plindex).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn connected(&self, pvbconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).connected)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvbconnected)).ok()
+        (::windows::core::Vtable::vtable(self).connected)(::windows::core::Vtable::as_raw(self), pvbconnected).ok()
     }
     pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).status)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpds)).ok()
+        (::windows::core::Vtable::vtable(self).status)(::windows::core::Vtable::as_raw(self), pwmpds).ok()
     }
     pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).syncState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpss)).ok()
+        (::windows::core::Vtable::vtable(self).syncState)(::windows::core::Vtable::as_raw(self), pwmpss).ok()
     }
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).progress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).progress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn getItemInfo(&self, bstritemname: &::windows::core::BSTR, pbstrval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pbstrval)).ok()
@@ -9746,7 +9746,7 @@ impl IWMPSyncDevice {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
     {
-        (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pvbool).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPSyncDevice, ::windows::core::IUnknown);
@@ -9819,21 +9819,21 @@ impl IWMPSyncDevice2 {
         (::windows::core::Vtable::vtable(self).base__.deviceId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.partnershipIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Vtable::vtable(self).base__.partnershipIndex)(::windows::core::Vtable::as_raw(self), plindex).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn connected(&self, pvbconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.connected)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvbconnected)).ok()
+        (::windows::core::Vtable::vtable(self).base__.connected)(::windows::core::Vtable::as_raw(self), pvbconnected).ok()
     }
     pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.status)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpds)).ok()
+        (::windows::core::Vtable::vtable(self).base__.status)(::windows::core::Vtable::as_raw(self), pwmpds).ok()
     }
     pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.syncState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpss)).ok()
+        (::windows::core::Vtable::vtable(self).base__.syncState)(::windows::core::Vtable::as_raw(self), pwmpss).ok()
     }
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.progress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).base__.progress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn getItemInfo(&self, bstritemname: &::windows::core::BSTR, pbstrval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.getItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pbstrval)).ok()
@@ -9861,7 +9861,7 @@ impl IWMPSyncDevice2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).base__.isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pvbool).ok()
     }
     pub unsafe fn setItemInfo(&self, bstritemname: &::windows::core::BSTR, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrval)).ok()
@@ -9913,21 +9913,21 @@ impl IWMPSyncDevice3 {
         (::windows::core::Vtable::vtable(self).base__.base__.deviceId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.partnershipIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.partnershipIndex)(::windows::core::Vtable::as_raw(self), plindex).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn connected(&self, pvbconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.connected)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvbconnected)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.connected)(::windows::core::Vtable::as_raw(self), pvbconnected).ok()
     }
     pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.status)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpds)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.status)(::windows::core::Vtable::as_raw(self), pwmpds).ok()
     }
     pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.syncState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwmpss)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.syncState)(::windows::core::Vtable::as_raw(self), pwmpss).ok()
     }
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.progress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.progress)(::windows::core::Vtable::as_raw(self), plprogress).ok()
     }
     pub unsafe fn getItemInfo(&self, bstritemname: &::windows::core::BSTR, pbstrval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.getItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute(pbstrval)).ok()
@@ -9955,7 +9955,7 @@ impl IWMPSyncDevice3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.isIdentical)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), pvbool).ok()
     }
     pub unsafe fn setItemInfo(&self, bstritemname: &::windows::core::BSTR, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.setItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrval)).ok()
@@ -10011,7 +10011,7 @@ pub struct IWMPSyncDevice3_Vtbl {
 pub struct IWMPSyncServices(::windows::core::IUnknown);
 impl IWMPSyncServices {
     pub unsafe fn deviceCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).deviceCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Vtable::vtable(self).deviceCount)(::windows::core::Vtable::as_raw(self), plcount).ok()
     }
     pub unsafe fn getDevice(&self, lindex: i32) -> ::windows::core::Result<IWMPSyncDevice> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10055,7 +10055,7 @@ impl IWMPTranscodePolicy {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn allowTranscode(&self, pvballow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).allowTranscode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvballow)).ok()
+        (::windows::core::Vtable::vtable(self).allowTranscode)(::windows::core::Vtable::as_raw(self), pvballow).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPTranscodePolicy, ::windows::core::IUnknown);
@@ -10183,7 +10183,7 @@ impl IWMPWindowMessageSink {
         P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).OnWindowMessage)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+        (::windows::core::Vtable::vtable(self).OnWindowMessage)(::windows::core::Vtable::as_raw(self), umsg, wparam.into(), lparam.into(), plret, pfhandled).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPWindowMessageSink, ::windows::core::IUnknown);
@@ -11033,7 +11033,7 @@ impl IXFeedFolder {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ExistsFeed)(::windows::core::Vtable::as_raw(self), pszname.into(), ::core::mem::transmute(pbfeedexists)).ok()
+        (::windows::core::Vtable::vtable(self).ExistsFeed)(::windows::core::Vtable::as_raw(self), pszname.into(), pbfeedexists).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11041,7 +11041,7 @@ impl IXFeedFolder {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ExistsSubfolder)(::windows::core::Vtable::as_raw(self), pszname.into(), ::core::mem::transmute(pbsubfolderexists)).ok()
+        (::windows::core::Vtable::vtable(self).ExistsSubfolder)(::windows::core::Vtable::as_raw(self), pszname.into(), pbsubfolderexists).ok()
     }
     pub unsafe fn GetFeed<'a, P0, T>(&self, pszname: P0) -> ::windows::core::Result<T>
     where

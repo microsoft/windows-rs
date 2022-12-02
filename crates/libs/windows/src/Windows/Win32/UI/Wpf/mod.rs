@@ -288,7 +288,7 @@ impl IMILBitmapEffectEvents {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffect>>,
     {
-        (::windows::core::Vtable::vtable(self).DirtyRegion)(::windows::core::Vtable::as_raw(self), peffect.into().abi(), ::core::mem::transmute(prect)).ok()
+        (::windows::core::Vtable::vtable(self).DirtyRegion)(::windows::core::Vtable::as_raw(self), peffect.into().abi(), prect).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMILBitmapEffectEvents, ::windows::core::IUnknown);
@@ -327,7 +327,7 @@ pub struct IMILBitmapEffectFactory(::windows::core::IUnknown);
 impl IMILBitmapEffectFactory {
     pub unsafe fn CreateEffect(&self, pguideffect: *const ::windows::core::GUID) -> ::windows::core::Result<IMILBitmapEffect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguideffect), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateEffect)(::windows::core::Vtable::as_raw(self), pguideffect, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<IMILBitmapEffectRenderContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -504,7 +504,7 @@ impl IMILBitmapEffectImpl {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>,
     {
-        (::windows::core::Vtable::vtable(self).GetInputBitmapSource)(::windows::core::Vtable::as_raw(self), uiindex, prendercontext.into().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
+        (::windows::core::Vtable::vtable(self).GetInputBitmapSource)(::windows::core::Vtable::as_raw(self), uiindex, prendercontext.into().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
@@ -512,7 +512,7 @@ impl IMILBitmapEffectImpl {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>,
     {
-        (::windows::core::Vtable::vtable(self).GetOutputBitmapSource)(::windows::core::Vtable::as_raw(self), uiindex, prendercontext.into().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
+        (::windows::core::Vtable::vtable(self).GetOutputBitmapSource)(::windows::core::Vtable::as_raw(self), uiindex, prendercontext.into().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
     }
     pub unsafe fn Initialize<'a, P0>(&self, pinner: P0) -> ::windows::core::Result<()>
     where
@@ -841,7 +841,7 @@ impl IMILBitmapEffectPrimitive {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>,
     {
-        (::windows::core::Vtable::vtable(self).GetOutput)(::windows::core::Vtable::as_raw(self), uiindex, pcontext.into().abi(), ::core::mem::transmute(pfmodifyinplace), ::core::mem::transmute(ppbitmapsource)).ok()
+        (::windows::core::Vtable::vtable(self).GetOutput)(::windows::core::Vtable::as_raw(self), uiindex, pcontext.into().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -849,7 +849,7 @@ impl IMILBitmapEffectPrimitive {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>,
     {
-        (::windows::core::Vtable::vtable(self).TransformPoint)(::windows::core::Vtable::as_raw(self), uiindex, ::core::mem::transmute(p), fforwardtransform, pcontext.into().abi(), ::core::mem::transmute(pfpointtransformed)).ok()
+        (::windows::core::Vtable::vtable(self).TransformPoint)(::windows::core::Vtable::as_raw(self), uiindex, p, fforwardtransform, pcontext.into().abi(), pfpointtransformed).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -857,7 +857,7 @@ impl IMILBitmapEffectPrimitive {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMILBitmapEffectRenderContext>>,
     {
-        (::windows::core::Vtable::vtable(self).TransformRect)(::windows::core::Vtable::as_raw(self), uiindex, ::core::mem::transmute(p), fforwardtransform, pcontext.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).TransformRect)(::windows::core::Vtable::as_raw(self), uiindex, p, fforwardtransform, pcontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -874,7 +874,7 @@ impl IMILBitmapEffectPrimitive {
     #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
     #[cfg(feature = "Win32_Graphics_Dwm")]
     pub unsafe fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAffineMatrix)(::windows::core::Vtable::as_raw(self), uiindex, ::core::mem::transmute(pmatrix)).ok()
+        (::windows::core::Vtable::vtable(self).GetAffineMatrix)(::windows::core::Vtable::as_raw(self), uiindex, pmatrix).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMILBitmapEffectPrimitive, ::windows::core::IUnknown);
@@ -936,7 +936,7 @@ impl IMILBitmapEffectPrimitiveImpl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDirty(&self, uioutputindex: u32, pfdirty: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
-        (::windows::core::Vtable::vtable(self).IsDirty)(::windows::core::Vtable::as_raw(self), uioutputindex, ::core::mem::transmute(pfdirty))
+        (::windows::core::Vtable::vtable(self).IsDirty)(::windows::core::Vtable::as_raw(self), uioutputindex, pfdirty)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -986,7 +986,7 @@ pub struct IMILBitmapEffectPrimitiveImpl_Vtbl {
 pub struct IMILBitmapEffectRenderContext(::windows::core::IUnknown);
 impl IMILBitmapEffectRenderContext {
     pub unsafe fn SetOutputPixelFormat(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOutputPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputPixelFormat)(::windows::core::Vtable::as_raw(self), format).ok()
     }
     pub unsafe fn GetOutputPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -998,7 +998,7 @@ impl IMILBitmapEffectRenderContext {
         (::windows::core::Vtable::vtable(self).SetUseSoftwareRenderer)(::windows::core::Vtable::as_raw(self), fsoftware).ok()
     }
     pub unsafe fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInitialTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmatrix)).ok()
+        (::windows::core::Vtable::vtable(self).SetInitialTransform)(::windows::core::Vtable::as_raw(self), pmatrix).ok()
     }
     pub unsafe fn GetFinalTransform(&self) -> ::windows::core::Result<MILMatrixF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1008,10 +1008,10 @@ impl IMILBitmapEffectRenderContext {
         (::windows::core::Vtable::vtable(self).SetOutputDPI)(::windows::core::Vtable::as_raw(self), dbldpix, dbldpiy).ok()
     }
     pub unsafe fn GetOutputDPI(&self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOutputDPI)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdbldpix), ::core::mem::transmute(pdbldpiy)).ok()
+        (::windows::core::Vtable::vtable(self).GetOutputDPI)(::windows::core::Vtable::as_raw(self), pdbldpix, pdbldpiy).ok()
     }
     pub unsafe fn SetRegionOfInterest(&self, prect: *const MilRectD) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRegionOfInterest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prect)).ok()
+        (::windows::core::Vtable::vtable(self).SetRegionOfInterest)(::windows::core::Vtable::as_raw(self), prect).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMILBitmapEffectRenderContext, ::windows::core::IUnknown);
@@ -1064,16 +1064,16 @@ impl IMILBitmapEffectRenderContextImpl {
         (::windows::core::Vtable::vtable(self).GetUseSoftwareRenderer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmatrix)).ok()
+        (::windows::core::Vtable::vtable(self).GetTransform)(::windows::core::Vtable::as_raw(self), pmatrix).ok()
     }
     pub unsafe fn UpdateTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UpdateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmatrix)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateTransform)(::windows::core::Vtable::as_raw(self), pmatrix).ok()
     }
     pub unsafe fn GetOutputBounds(&self, prect: *mut MilRectD) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOutputBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prect)).ok()
+        (::windows::core::Vtable::vtable(self).GetOutputBounds)(::windows::core::Vtable::as_raw(self), prect).ok()
     }
     pub unsafe fn UpdateOutputBounds(&self, prect: *const MilRectD) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UpdateOutputBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prect)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateOutputBounds)(::windows::core::Vtable::as_raw(self), prect).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMILBitmapEffectRenderContextImpl, ::windows::core::IUnknown);

@@ -23,7 +23,7 @@ where
 #[inline]
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
     ::windows::core::link ! ( "faultrep.dll""system" fn ReportFault ( pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS , dwopt : u32 ) -> EFaultRepRetVal );
-    ReportFault(::core::mem::transmute(pep), dwopt)
+    ReportFault(pep, dwopt)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -85,7 +85,7 @@ where
 #[inline]
 pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void, size: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "kernel32.dll""system" fn WerRegisterExcludedMemoryBlock ( address : *const ::core::ffi::c_void , size : u32 ) -> :: windows::core::HRESULT );
-    WerRegisterExcludedMemoryBlock(::core::mem::transmute(address), size).ok()
+    WerRegisterExcludedMemoryBlock(address, size).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -100,7 +100,7 @@ where
 #[inline]
 pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsize: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "kernel32.dll""system" fn WerRegisterMemoryBlock ( pvaddress : *const ::core::ffi::c_void , dwsize : u32 ) -> :: windows::core::HRESULT );
-    WerRegisterMemoryBlock(::core::mem::transmute(pvaddress), dwsize).ok()
+    WerRegisterMemoryBlock(pvaddress, dwsize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -109,7 +109,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn WerRegisterRuntimeExceptionModule ( pwszoutofprocesscallbackdll : :: windows::core::PCWSTR , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into(), ::core::mem::transmute(pcontext)).ok()
+    WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into(), pcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -346,7 +346,7 @@ where
 #[inline]
 pub unsafe fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "kernel32.dll""system" fn WerUnregisterExcludedMemoryBlock ( address : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WerUnregisterExcludedMemoryBlock(::core::mem::transmute(address)).ok()
+    WerUnregisterExcludedMemoryBlock(address).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -361,7 +361,7 @@ where
 #[inline]
 pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "kernel32.dll""system" fn WerUnregisterMemoryBlock ( pvaddress : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WerUnregisterMemoryBlock(::core::mem::transmute(pvaddress)).ok()
+    WerUnregisterMemoryBlock(pvaddress).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -370,7 +370,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn WerUnregisterRuntimeExceptionModule ( pwszoutofprocesscallbackdll : :: windows::core::PCWSTR , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into(), ::core::mem::transmute(pcontext)).ok()
+    WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into(), pcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const APPCRASH_EVENT: ::windows::core::PCWSTR = ::windows::w!("APPCRASH");

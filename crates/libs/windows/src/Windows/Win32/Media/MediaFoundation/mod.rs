@@ -18,7 +18,7 @@ pub unsafe fn CreatePropertyStore() -> ::windows::core::Result<super::super::UI:
 #[inline]
 pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IDirect3DDeviceManager9>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "dxva2.dll""system" fn DXVA2CreateDirect3DDeviceManager9 ( presettoken : *mut u32 , ppdevicemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DXVA2CreateDirect3DDeviceManager9(::core::mem::transmute(presettoken), ::core::mem::transmute(ppdevicemanager)).ok()
+    DXVA2CreateDirect3DDeviceManager9(presettoken, ::core::mem::transmute(ppdevicemanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -28,7 +28,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
 {
     ::windows::core::link ! ( "dxva2.dll""system" fn DXVA2CreateVideoService ( pdd : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppservice : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DXVA2CreateVideoService(pdd.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
+    DXVA2CreateVideoService(pdd.into().abi(), riid, ppservice).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -37,9 +37,9 @@ pub unsafe fn DXVAHD_CreateDevice<'a, P0>(pd3ddevice: P0, pcontentdesc: *const D
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn DXVAHD_CreateDevice ( pd3ddevice : * mut::core::ffi::c_void , pcontentdesc : *const DXVAHD_CONTENT_DESC , usage : DXVAHD_DEVICE_USAGE , pplugin : * mut::core::ffi::c_void , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dxva2.dll""system" fn DXVAHD_CreateDevice ( pd3ddevice : * mut::core::ffi::c_void , pcontentdesc : *const DXVAHD_CONTENT_DESC , usage : DXVAHD_DEVICE_USAGE , pplugin : PDXVAHDSW_Plugin , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DXVAHD_CreateDevice(pd3ddevice.into().abi(), ::core::mem::transmute(pcontentdesc), usage, ::core::mem::transmute(pplugin), result__.as_mut_ptr()).from_abi(result__)
+    DXVAHD_CreateDevice(pd3ddevice.into().abi(), pcontentdesc, usage, pplugin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -47,9 +47,9 @@ pub unsafe fn MFAddPeriodicCallback<'a, P0>(callback: MFPERIODICCALLBACK, pconte
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFAddPeriodicCallback ( callback : * mut::core::ffi::c_void , pcontext : * mut::core::ffi::c_void , pdwkey : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mfplat.dll""system" fn MFAddPeriodicCallback ( callback : MFPERIODICCALLBACK , pcontext : * mut::core::ffi::c_void , pdwkey : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFAddPeriodicCallback(::core::mem::transmute(callback), pcontext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    MFAddPeriodicCallback(callback, pcontext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -76,7 +76,7 @@ pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> ::
 #[inline]
 pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFAverageTimePerFrameToFrameRate ( unaveragetimeperframe : u64 , punnumerator : *mut u32 , pundenominator : *mut u32 ) -> :: windows::core::HRESULT );
-    MFAverageTimePerFrameToFrameRate(unaveragetimeperframe, ::core::mem::transmute(punnumerator), ::core::mem::transmute(pundenominator)).ok()
+    MFAverageTimePerFrameToFrameRate(unaveragetimeperframe, punnumerator, pundenominator).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -127,14 +127,14 @@ where
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCalculateBitmapImageSize ( pbmih : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , cbbufsize : u32 , pcbimagesize : *mut u32 , pbknown : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    MFCalculateBitmapImageSize(::core::mem::transmute(pbmih), cbbufsize, ::core::mem::transmute(pcbimagesize), ::core::mem::transmute(pbknown.unwrap_or(::std::ptr::null_mut()))).ok()
+    MFCalculateBitmapImageSize(pbmih, cbbufsize, pcbimagesize, ::core::mem::transmute(pbknown.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32) -> ::windows::core::Result<u32> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCalculateImageSize ( guidsubtype : *const :: windows::core::GUID , unwidth : u32 , unheight : u32 , pcbimagesize : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCalculateImageSize(::core::mem::transmute(guidsubtype), unwidth, unheight, result__.as_mut_ptr()).from_abi(result__)
+    MFCalculateImageSize(guidsubtype, unwidth, unheight, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -179,32 +179,32 @@ where
 #[inline]
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertColorInfoFromDXVA ( ptoformat : *mut MFVIDEOFORMAT , dwfromdxva : u32 ) -> :: windows::core::HRESULT );
-    MFConvertColorInfoFromDXVA(::core::mem::transmute(ptoformat), dwfromdxva).ok()
+    MFConvertColorInfoFromDXVA(ptoformat, dwfromdxva).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertColorInfoToDXVA ( pdwtodxva : *mut u32 , pfromformat : *const MFVIDEOFORMAT ) -> :: windows::core::HRESULT );
-    MFConvertColorInfoToDXVA(::core::mem::transmute(pdwtodxva), ::core::mem::transmute(pfromformat)).ok()
+    MFConvertColorInfoToDXVA(pdwtodxva, pfromformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertFromFP16Array ( pdest : *mut f32 , psrc : *const u16 , dwcount : u32 ) -> :: windows::core::HRESULT );
-    MFConvertFromFP16Array(::core::mem::transmute(pdest), ::core::mem::transmute(psrc), dwcount).ok()
+    MFConvertFromFP16Array(pdest, psrc, dwcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFConvertToFP16Array ( pdest : *mut u16 , psrc : *const f32 , dwcount : u32 ) -> :: windows::core::HRESULT );
-    MFConvertToFP16Array(::core::mem::transmute(pdest), ::core::mem::transmute(psrc), dwcount).ok()
+    MFConvertToFP16Array(pdest, psrc, dwcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCopyImage ( pdest : *mut u8 , ldeststride : i32 , psrc : *const u8 , lsrcstride : i32 , dwwidthinbytes : u32 , dwlines : u32 ) -> :: windows::core::HRESULT );
-    MFCopyImage(::core::mem::transmute(pdest), ldeststride, ::core::mem::transmute(psrc), lsrcstride, dwwidthinbytes, dwlines).ok()
+    MFCopyImage(pdest, ldeststride, psrc, lsrcstride, dwwidthinbytes, dwlines).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -259,7 +259,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateAMMediaTypeFromMFMediaType ( pmftype : * mut::core::ffi::c_void , guidformatblocktype : :: windows::core::GUID , ppamtype : *mut *mut AM_MEDIA_TYPE ) -> :: windows::core::HRESULT );
-    MFCreateAMMediaTypeFromMFMediaType(pmftype.into().abi(), ::core::mem::transmute(guidformatblocktype), ::core::mem::transmute(ppamtype)).ok()
+    MFCreateAMMediaTypeFromMFMediaType(pmftype.into().abi(), ::core::mem::transmute(guidformatblocktype), ppamtype).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -421,7 +421,7 @@ pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMF
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<IMFAudioMediaType> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateAudioMediaType ( paudioformat : *const super::Audio:: WAVEFORMATEX , ppiaudiomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateAudioMediaType(::core::mem::transmute(paudioformat), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateAudioMediaType(paudioformat, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -467,14 +467,14 @@ where
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateContentDecryptorContext ( guidmediaprotectionsystemid : *const :: windows::core::GUID , pd3dmanager : * mut::core::ffi::c_void , pcontentprotectiondevice : * mut::core::ffi::c_void , ppcontentdecryptorcontext : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateContentDecryptorContext(::core::mem::transmute(guidmediaprotectionsystemid), pd3dmanager.into().abi(), pcontentprotectiondevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateContentDecryptorContext(guidmediaprotectionsystemid, pd3dmanager.into().abi(), pcontentprotectiondevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<IMFContentProtectionDevice> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateContentProtectionDevice ( protectionsystemid : *const :: windows::core::GUID , contentprotectiondevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateContentProtectionDevice(::core::mem::transmute(protectionsystemid), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateContentProtectionDevice(protectionsystemid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -491,13 +491,13 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateD3D12SynchronizationObject ( pdevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvsyncobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateD3D12SynchronizationObject(pdevice.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
+    MFCreateD3D12SynchronizationObject(pdevice.into().abi(), riid, ppvsyncobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateDXGIDeviceManager ( resettoken : *mut u32 , ppdevicemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateDXGIDeviceManager(::core::mem::transmute(resettoken), ::core::mem::transmute(ppdevicemanager)).ok()
+    MFCreateDXGIDeviceManager(resettoken, ::core::mem::transmute(ppdevicemanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -509,7 +509,7 @@ where
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateDXGISurfaceBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , usubresourceindex : u32 , fbottomupwhenlinear : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateDXGISurfaceBuffer(::core::mem::transmute(riid), punksurface.into().abi(), usubresourceindex, fbottomupwhenlinear.into(), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateDXGISurfaceBuffer(riid, punksurface.into().abi(), usubresourceindex, fbottomupwhenlinear.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -521,7 +521,7 @@ where
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateDXSurfaceBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , fbottomupwhenlinear : super::super::Foundation:: BOOL , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateDXSurfaceBuffer(::core::mem::transmute(riid), punksurface.into().abi(), fbottomupwhenlinear.into(), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateDXSurfaceBuffer(riid, punksurface.into().abi(), fbottomupwhenlinear.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -650,7 +650,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMFVideoFormatFromMFMediaType ( pmftype : * mut::core::ffi::c_void , ppmfvf : *mut *mut MFVIDEOFORMAT , pcbsize : *mut u32 ) -> :: windows::core::HRESULT );
-    MFCreateMFVideoFormatFromMFMediaType(pmftype.into().abi(), ::core::mem::transmute(ppmfvf), ::core::mem::transmute(pcbsize.unwrap_or(::std::ptr::null_mut()))).ok()
+    MFCreateMFVideoFormatFromMFMediaType(pmftype.into().abi(), ppmfvf, ::core::mem::transmute(pcbsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -700,7 +700,7 @@ where
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<IMFMediaEvent> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaEvent ( met : u32 , guidextendedtype : *const :: windows::core::GUID , hrstatus : :: windows::core::HRESULT , pvvalue : *const ::core::mem::ManuallyDrop < super::super::System::Com::StructuredStorage:: PROPVARIANT > , ppevent : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateMediaEvent(met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateMediaEvent(met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -710,7 +710,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaExtensionActivate ( szactivatableclassid : :: windows::core::PCWSTR , pconfiguration : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateMediaExtensionActivate(szactivatableclassid.into(), pconfiguration.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    MFCreateMediaExtensionActivate(szactivatableclassid.into(), pconfiguration.into().abi(), riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -744,7 +744,7 @@ where
 pub unsafe fn MFCreateMediaTypeFromRepresentation(guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<IMFMediaType> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateMediaTypeFromRepresentation ( guidrepresentation : :: windows::core::GUID , pvrepresentation : *const ::core::ffi::c_void , ppimediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateMediaTypeFromRepresentation(::core::mem::transmute(guidrepresentation), ::core::mem::transmute(pvrepresentation), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateMediaTypeFromRepresentation(::core::mem::transmute(guidrepresentation), pvrepresentation, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -798,7 +798,7 @@ where
 #[inline]
 pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mf.dll""system" fn MFCreateNetSchemePlugin ( riid : *const :: windows::core::GUID , ppvhandler : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateNetSchemePlugin(::core::mem::transmute(riid), ::core::mem::transmute(ppvhandler)).ok()
+    MFCreateNetSchemePlugin(riid, ppvhandler).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -847,7 +847,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreatePropertiesFromMediaType ( pmediatype : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreatePropertiesFromMediaType(pmediatype.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    MFCreatePropertiesFromMediaType(pmediatype.into().abi(), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -939,7 +939,7 @@ where
 {
     ::windows::core::link ! ( "mfsensorgroup.dll""system" fn MFCreateSensorProfile ( profiletype : *const :: windows::core::GUID , profileindex : u32 , constraints : :: windows::core::PCWSTR , ppprofile : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateSensorProfile(::core::mem::transmute(profiletype), profileindex, constraints.into(), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateSensorProfile(profiletype, profileindex, constraints.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1079,7 +1079,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFByteStream>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateStreamOnMFByteStreamEx ( pbytestream : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateStreamOnMFByteStreamEx(pbytestream.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    MFCreateStreamOnMFByteStreamEx(pbytestream.into().abi(), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1174,7 +1174,7 @@ pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<IMFVideoMediaType> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaType ( pvideoformat : *const MFVIDEOFORMAT , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateVideoMediaType(::core::mem::transmute(pvideoformat), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateVideoMediaType(pvideoformat, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1182,7 +1182,7 @@ pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::wi
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromBitMapInfoHeader ( pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , dwpixelaspectratiox : u32 , dwpixelaspectratioy : u32 , interlacemode : MFVideoInterlaceMode , videoflags : u64 , qwframespersecondnumerator : u64 , qwframesperseconddenominator : u64 , dwmaxbitrate : u32 , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateVideoMediaTypeFromBitMapInfoHeader(::core::mem::transmute(pbmihbitmapinfoheader), dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, qwframespersecondnumerator, qwframesperseconddenominator, dwmaxbitrate, result__.as_mut_ptr()).from_abi(result__)
+    MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, qwframespersecondnumerator, qwframesperseconddenominator, dwmaxbitrate, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1190,14 +1190,14 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx ( pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER , cbbitmapinfoheader : u32 , dwpixelaspectratiox : u32 , dwpixelaspectratioy : u32 , interlacemode : MFVideoInterlaceMode , videoflags : u64 , dwframespersecondnumerator : u32 , dwframesperseconddenominator : u32 , dwmaxbitrate : u32 , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(::core::mem::transmute(pbmihbitmapinfoheader), cbbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, dwframespersecondnumerator, dwframesperseconddenominator, dwmaxbitrate, result__.as_mut_ptr()).from_abi(result__)
+    MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader, cbbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, dwframespersecondnumerator, dwframesperseconddenominator, dwmaxbitrate, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFVideoMediaType> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoMediaTypeFromSubtype ( pamsubtype : *const :: windows::core::GUID , ppivideomediatype : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateVideoMediaTypeFromSubtype(::core::mem::transmute(pamsubtype), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateVideoMediaTypeFromSubtype(pamsubtype, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1206,7 +1206,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoMixer ( powner : * mut::core::ffi::c_void , riiddevice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateVideoMixer(powner.into().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    MFCreateVideoMixer(powner.into().abi(), riiddevice, riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1216,7 +1216,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoMixerAndPresenter ( pmixerowner : * mut::core::ffi::c_void , ppresenterowner : * mut::core::ffi::c_void , riidmixer : *const :: windows::core::GUID , ppvvideomixer : *mut *mut ::core::ffi::c_void , riidpresenter : *const :: windows::core::GUID , ppvvideopresenter : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateVideoMixerAndPresenter(pmixerowner.into().abi(), ppresenterowner.into().abi(), ::core::mem::transmute(riidmixer), ::core::mem::transmute(ppvvideomixer), ::core::mem::transmute(riidpresenter), ::core::mem::transmute(ppvvideopresenter)).ok()
+    MFCreateVideoMixerAndPresenter(pmixerowner.into().abi(), ppresenterowner.into().abi(), riidmixer, ppvvideomixer, riidpresenter, ppvvideopresenter).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1225,13 +1225,13 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoPresenter ( powner : * mut::core::ffi::c_void , riiddevice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvideopresenter : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateVideoPresenter(powner.into().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvideopresenter.unwrap_or(::std::ptr::null_mut()))).ok()
+    MFCreateVideoPresenter(powner.into().abi(), riiddevice, riid, ::core::mem::transmute(ppvideopresenter.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mf.dll""system" fn MFCreateVideoRenderer ( riidrenderer : *const :: windows::core::GUID , ppvideorenderer : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateVideoRenderer(::core::mem::transmute(riidrenderer), ::core::mem::transmute(ppvideorenderer.unwrap_or(::std::ptr::null_mut()))).ok()
+    MFCreateVideoRenderer(riidrenderer, ::core::mem::transmute(ppvideorenderer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1248,13 +1248,13 @@ where
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "evr.dll""system" fn MFCreateVideoSampleAllocator ( riid : *const :: windows::core::GUID , ppsampleallocator : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateVideoSampleAllocator(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
+    MFCreateVideoSampleAllocator(riid, ppsampleallocator).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateVideoSampleAllocatorEx ( riid : *const :: windows::core::GUID , ppsampleallocator : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFCreateVideoSampleAllocatorEx(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
+    MFCreateVideoSampleAllocatorEx(riid, ppsampleallocator).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1296,7 +1296,7 @@ where
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateWICBitmapBuffer ( riid : *const :: windows::core::GUID , punksurface : * mut::core::ffi::c_void , ppbuffer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFCreateWICBitmapBuffer(::core::mem::transmute(riid), punksurface.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    MFCreateWICBitmapBuffer(riid, punksurface.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1330,7 +1330,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateWaveFormatExFromMFMediaType ( pmftype : * mut::core::ffi::c_void , ppwf : *mut *mut super::Audio:: WAVEFORMATEX , pcbsize : *mut u32 , flags : u32 ) -> :: windows::core::HRESULT );
-    MFCreateWaveFormatExFromMFMediaType(pmftype.into().abi(), ::core::mem::transmute(ppwf), ::core::mem::transmute(pcbsize.unwrap_or(::std::ptr::null_mut())), flags).ok()
+    MFCreateWaveFormatExFromMFMediaType(pmftype.into().abi(), ppwf, ::core::mem::transmute(pcbsize.unwrap_or(::std::ptr::null_mut())), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1385,8 +1385,8 @@ pub unsafe fn MFEnumDeviceSources<'a, P0>(pattributes: P0, pppsourceactivate: *m
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mf.dll""system" fn MFEnumDeviceSources ( pattributes : * mut::core::ffi::c_void , pppsourceactivate : *mut *mut IMFActivate , pcsourceactivate : *mut u32 ) -> :: windows::core::HRESULT );
-    MFEnumDeviceSources(pattributes.into().abi(), ::core::mem::transmute(pppsourceactivate), ::core::mem::transmute(pcsourceactivate)).ok()
+    ::windows::core::link ! ( "mf.dll""system" fn MFEnumDeviceSources ( pattributes : * mut::core::ffi::c_void , pppsourceactivate : *mut *mut ::core::option::Option < IMFActivate > , pcsourceactivate : *mut u32 ) -> :: windows::core::HRESULT );
+    MFEnumDeviceSources(pattributes.into().abi(), pppsourceactivate, pcsourceactivate).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1419,7 +1419,7 @@ where
 pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFGetContentProtectionSystemCLSID ( guidprotectionsystemid : *const :: windows::core::GUID , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFGetContentProtectionSystemCLSID(::core::mem::transmute(guidprotectionsystemid), result__.as_mut_ptr()).from_abi(result__)
+    MFGetContentProtectionSystemCLSID(guidprotectionsystemid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1459,7 +1459,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "mf.dll""system" fn MFGetService ( punkobject : * mut::core::ffi::c_void , guidservice : *const :: windows::core::GUID , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    MFGetService(punkobject.into().abi(), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    MFGetService(punkobject.into().abi(), guidservice, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1521,13 +1521,13 @@ where
 #[inline]
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFGetUncompressedVideoFormat ( pvideoformat : *const MFVIDEOFORMAT ) -> u32 );
-    MFGetUncompressedVideoFormat(::core::mem::transmute(pvideoformat))
+    MFGetUncompressedVideoFormat(pvideoformat)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFGetWorkQueueMMCSSClass ( dwworkqueueid : u32 , pwszclass : :: windows::core::PWSTR , pcchclass : *mut u32 ) -> :: windows::core::HRESULT );
-    MFGetWorkQueueMMCSSClass(dwworkqueueid, ::core::mem::transmute(pwszclass), ::core::mem::transmute(pcchclass)).ok()
+    MFGetWorkQueueMMCSSClass(dwworkqueueid, ::core::mem::transmute(pwszclass), pcchclass).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1556,7 +1556,7 @@ where
 #[inline]
 pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFHeapFree ( pv : *mut ::core::ffi::c_void ) -> ( ) );
-    MFHeapFree(::core::mem::transmute(pv))
+    MFHeapFree(pv)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1595,7 +1595,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMFVideoFormat ( pmftype : * mut::core::ffi::c_void , pmfvf : *const MFVIDEOFORMAT , cbbufsize : u32 ) -> :: windows::core::HRESULT );
-    MFInitMediaTypeFromMFVideoFormat(pmftype.into().abi(), ::core::mem::transmute(pmfvf), cbbufsize).ok()
+    MFInitMediaTypeFromMFVideoFormat(pmftype.into().abi(), pmfvf, cbbufsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1605,7 +1605,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMPEG1VideoInfo ( pmftype : * mut::core::ffi::c_void , pmp1vi : *const MPEG1VIDEOINFO , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into().abi(), ::core::mem::transmute(pmp1vi), cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
+    MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into().abi(), pmp1vi, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1615,7 +1615,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromMPEG2VideoInfo ( pmftype : * mut::core::ffi::c_void , pmp2vi : *const MPEG2VIDEOINFO , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into().abi(), ::core::mem::transmute(pmp2vi), cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
+    MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into().abi(), pmp2vi, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1625,7 +1625,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromVideoInfoHeader ( pmftype : * mut::core::ffi::c_void , pvih : *const VIDEOINFOHEADER , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    MFInitMediaTypeFromVideoInfoHeader(pmftype.into().abi(), ::core::mem::transmute(pvih), cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
+    MFInitMediaTypeFromVideoInfoHeader(pmftype.into().abi(), pvih, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1635,7 +1635,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromVideoInfoHeader2 ( pmftype : * mut::core::ffi::c_void , pvih2 : *const VIDEOINFOHEADER2 , cbbufsize : u32 , psubtype : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    MFInitMediaTypeFromVideoInfoHeader2(pmftype.into().abi(), ::core::mem::transmute(pvih2), cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
+    MFInitMediaTypeFromVideoInfoHeader2(pmftype.into().abi(), pvih2, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`*"]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1645,21 +1645,21 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFMediaType>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitMediaTypeFromWaveFormatEx ( pmftype : * mut::core::ffi::c_void , pwaveformat : *const super::Audio:: WAVEFORMATEX , cbbufsize : u32 ) -> :: windows::core::HRESULT );
-    MFInitMediaTypeFromWaveFormatEx(pmftype.into().abi(), ::core::mem::transmute(pwaveformat), cbbufsize).ok()
+    MFInitMediaTypeFromWaveFormatEx(pmftype.into().abi(), pwaveformat, cbbufsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitVideoFormat ( pvideoformat : *const MFVIDEOFORMAT , r#type : MFStandardVideoFormat ) -> :: windows::core::HRESULT );
-    MFInitVideoFormat(::core::mem::transmute(pvideoformat), r#type).ok()
+    MFInitVideoFormat(pvideoformat, r#type).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFInitVideoFormat_RGB ( pvideoformat : *const MFVIDEOFORMAT , dwwidth : u32 , dwheight : u32 , d3dfmt : u32 ) -> :: windows::core::HRESULT );
-    MFInitVideoFormat_RGB(::core::mem::transmute(pvideoformat), dwwidth, dwheight, d3dfmt).ok()
+    MFInitVideoFormat_RGB(pvideoformat, dwwidth, dwheight, d3dfmt).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1676,7 +1676,7 @@ where
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFIsContentProtectionDeviceSupported ( protectionsystemid : *const :: windows::core::GUID , issupported : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFIsContentProtectionDeviceSupported(::core::mem::transmute(protectionsystemid), result__.as_mut_ptr()).from_abi(result__)
+    MFIsContentProtectionDeviceSupported(protectionsystemid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1722,7 +1722,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFLockSharedWorkQueue ( wszclass : :: windows::core::PCWSTR , basepriority : i32 , pdwtaskid : *mut u32 , pid : *mut u32 ) -> :: windows::core::HRESULT );
-    MFLockSharedWorkQueue(wszclass.into(), basepriority, ::core::mem::transmute(pdwtaskid), ::core::mem::transmute(pid)).ok()
+    MFLockSharedWorkQueue(wszclass.into(), basepriority, pdwtaskid, pid).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1836,7 +1836,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFRegisterPlatformWithMMCSS ( wszclass : :: windows::core::PCWSTR , pdwtaskid : *mut u32 , lpriority : i32 ) -> :: windows::core::HRESULT );
-    MFRegisterPlatformWithMMCSS(wszclass.into(), ::core::mem::transmute(pdwtaskid), lpriority).ok()
+    MFRegisterPlatformWithMMCSS(wszclass.into(), pdwtaskid, lpriority).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1892,7 +1892,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFPresentationDescriptor>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFSerializePresentationDescriptor ( ppd : * mut::core::ffi::c_void , pcbdata : *mut u32 , ppbdata : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    MFSerializePresentationDescriptor(ppd.into().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ppbdata)).ok()
+    MFSerializePresentationDescriptor(ppd.into().abi(), pcbdata, ppbdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1916,7 +1916,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFSample>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFSplitSample ( psample : * mut::core::ffi::c_void , poutputsamples : *mut * mut::core::ffi::c_void , dwoutputsamplemaxcount : u32 , pdwoutputsamplecount : *mut u32 ) -> :: windows::core::HRESULT );
-    MFSplitSample(psample.into().abi(), ::core::mem::transmute(poutputsamples.as_ptr()), poutputsamples.len() as _, ::core::mem::transmute(pdwoutputsamplecount)).ok()
+    MFSplitSample(psample.into().abi(), ::core::mem::transmute(poutputsamples.as_ptr()), poutputsamples.len() as _, pdwoutputsamplecount).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1931,7 +1931,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAttributes>>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnum ( guidcategory : :: windows::core::GUID , flags : u32 , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void , ppclsidmft : *mut *mut :: windows::core::GUID , pcmfts : *mut u32 ) -> :: windows::core::HRESULT );
-    MFTEnum(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pattributes.into().abi(), ::core::mem::transmute(ppclsidmft), ::core::mem::transmute(pcmfts)).ok()
+    MFTEnum(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pattributes.into().abi(), ppclsidmft, pcmfts).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1939,14 +1939,14 @@ pub unsafe fn MFTEnum2<'a, P0>(guidcategory: ::windows::core::GUID, flags: MFT_E
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAttributes>>,
 {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnum2 ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void , pppmftactivate : *mut *mut IMFActivate , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
-    MFTEnum2(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pattributes.into().abi(), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
+    ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnum2 ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pattributes : * mut::core::ffi::c_void , pppmftactivate : *mut *mut ::core::option::Option < IMFActivate > , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
+    MFTEnum2(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pattributes.into().abi(), pppmftactivate, pnummftactivate).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTEnumEx(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: ::core::option::Option<*const MFT_REGISTER_TYPE_INFO>, poutputtype: ::core::option::Option<*const MFT_REGISTER_TYPE_INFO>, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnumEx ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pppmftactivate : *mut *mut IMFActivate , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
-    MFTEnumEx(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
+    ::windows::core::link ! ( "mfplat.dll""system" fn MFTEnumEx ( guidcategory : :: windows::core::GUID , flags : MFT_ENUM_FLAG , pinputtype : *const MFT_REGISTER_TYPE_INFO , poutputtype : *const MFT_REGISTER_TYPE_INFO , pppmftactivate : *mut *mut ::core::option::Option < IMFActivate > , pnummftactivate : *mut u32 ) -> :: windows::core::HRESULT );
+    MFTEnumEx(::core::mem::transmute(guidcategory), flags, ::core::mem::transmute(pinputtype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(poutputtype.unwrap_or(::std::ptr::null())), pppmftactivate, pnummftactivate).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1973,7 +1973,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFTRegisterLocal ( pclassfactory : * mut::core::ffi::c_void , guidcategory : *const :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO ) -> :: windows::core::HRESULT );
-    MFTRegisterLocal(pclassfactory.into().abi(), ::core::mem::transmute(guidcategory), pszname.into(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    MFTRegisterLocal(pclassfactory.into().abi(), guidcategory, pszname.into(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -1982,7 +1982,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFTRegisterLocalByCLSID ( clisdmft : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID , pszname : :: windows::core::PCWSTR , flags : u32 , cinputtypes : u32 , pinputtypes : *const MFT_REGISTER_TYPE_INFO , coutputtypes : u32 , poutputtypes : *const MFT_REGISTER_TYPE_INFO ) -> :: windows::core::HRESULT );
-    MFTRegisterLocalByCLSID(::core::mem::transmute(clisdmft), ::core::mem::transmute(guidcategory), pszname.into(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.into(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -2014,7 +2014,7 @@ where
 {
     ::windows::core::link ! ( "mf.dll""system" fn MFTranscodeGetAudioOutputAvailableTypes ( guidsubtype : *const :: windows::core::GUID , dwmftflags : u32 , pcodecconfig : * mut::core::ffi::c_void , ppavailabletypes : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFTranscodeGetAudioOutputAvailableTypes(::core::mem::transmute(guidsubtype), dwmftflags, pcodecconfig.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    MFTranscodeGetAudioOutputAvailableTypes(guidsubtype, dwmftflags, pcodecconfig.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -2064,7 +2064,7 @@ where
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFWrapMediaType ( porig : * mut::core::ffi::c_void , majortype : *const :: windows::core::GUID , subtype : *const :: windows::core::GUID , ppwrap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFWrapMediaType(porig.into().abi(), ::core::mem::transmute(majortype), ::core::mem::transmute(subtype), result__.as_mut_ptr()).from_abi(result__)
+    MFWrapMediaType(porig.into().abi(), majortype, subtype, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -2078,7 +2078,7 @@ pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> ::windows::core::Result<IOPMVideoOutput> {
     ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputForTarget ( padapterluid : *const super::super::Foundation:: LUID , vidpntarget : u32 , vos : OPM_VIDEO_OUTPUT_SEMANTICS , ppopmvideooutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OPMGetVideoOutputForTarget(::core::mem::transmute(padapterluid), vidpntarget, vos, result__.as_mut_ptr()).from_abi(result__)
+    OPMGetVideoOutputForTarget(padapterluid, vidpntarget, vos, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2087,8 +2087,8 @@ pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, P0>(hmonitor: P0, vos: OPM_VIDE
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut IOPMVideoOutput ) -> :: windows::core::HRESULT );
-    OPMGetVideoOutputsFromHMONITOR(hmonitor.into(), vos, ::core::mem::transmute(pulnumvideooutputs), ::core::mem::transmute(pppopmvideooutputarray)).ok()
+    ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromHMONITOR ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut ::core::option::Option < IOPMVideoOutput > ) -> :: windows::core::HRESULT );
+    OPMGetVideoOutputsFromHMONITOR(hmonitor.into(), vos, pulnumvideooutputs, pppopmvideooutputarray).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2097,8 +2097,8 @@ pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<'a, P0>(pdirect3ddevi
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>,
 {
-    ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromIDirect3DDevice9Object ( pdirect3ddevice9 : * mut::core::ffi::c_void , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut IOPMVideoOutput ) -> :: windows::core::HRESULT );
-    OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9.into().abi(), vos, ::core::mem::transmute(pulnumvideooutputs), ::core::mem::transmute(pppopmvideooutputarray)).ok()
+    ::windows::core::link ! ( "dxva2.dll""system" fn OPMGetVideoOutputsFromIDirect3DDevice9Object ( pdirect3ddevice9 : * mut::core::ffi::c_void , vos : OPM_VIDEO_OUTPUT_SEMANTICS , pulnumvideooutputs : *mut u32 , pppopmvideooutputarray : *mut *mut ::core::option::Option < IOPMVideoOutput > ) -> :: windows::core::HRESULT );
+    OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9.into().abi(), vos, pulnumvideooutputs, pppopmvideooutputarray).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -2110,13 +2110,13 @@ pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Res
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "opmxbox.dll""system" fn OPMXboxGetHDCPStatus ( phdcpstatus : *mut OPM_HDCP_STATUS ) -> :: windows::core::HRESULT );
-    OPMXboxGetHDCPStatus(::core::mem::transmute(phdcpstatus)).ok()
+    OPMXboxGetHDCPStatus(phdcpstatus).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "opmxbox.dll""system" fn OPMXboxGetHDCPStatusAndType ( phdcpstatus : *mut OPM_HDCP_STATUS , phdcptype : *mut OPM_HDCP_TYPE ) -> :: windows::core::HRESULT );
-    OPMXboxGetHDCPStatusAndType(::core::mem::transmute(phdcpstatus), ::core::mem::transmute(phdcptype)).ok()
+    OPMXboxGetHDCPStatusAndType(phdcpstatus, phdcptype).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -2239,7 +2239,7 @@ pub struct IAdvancedMediaCaptureSettings_Vtbl {
 pub struct IAudioSourceProvider(::windows::core::IUnknown);
 impl IAudioSourceProvider {
     pub unsafe fn ProvideInput(&self, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: ::core::option::Option<*mut f32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ProvideInput)(::windows::core::Vtable::as_raw(self), dwsamplecount, ::core::mem::transmute(pdwchannelcount), ::core::mem::transmute(pinterleavedaudiodata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).ProvideInput)(::windows::core::Vtable::as_raw(self), dwsamplecount, pdwchannelcount, ::core::mem::transmute(pinterleavedaudiodata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAudioSourceProvider, ::windows::core::IUnknown);
@@ -2321,43 +2321,43 @@ pub struct IClusterDetector_Vtbl {
 pub struct ICodecAPI(::windows::core::IUnknown);
 impl ICodecAPI {
     pub unsafe fn IsSupported(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IsSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api)).ok()
+        (::windows::core::Vtable::vtable(self).IsSupported)(::windows::core::Vtable::as_raw(self), api).ok()
     }
     pub unsafe fn IsModifiable(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IsModifiable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api)).ok()
+        (::windows::core::Vtable::vtable(self).IsModifiable)(::windows::core::Vtable::as_raw(self), api).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetParameterRange(&self, api: *const ::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetParameterRange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api), ::core::mem::transmute(valuemin), ::core::mem::transmute(valuemax), ::core::mem::transmute(steppingdelta)).ok()
+        (::windows::core::Vtable::vtable(self).GetParameterRange)(::windows::core::Vtable::as_raw(self), api, ::core::mem::transmute(valuemin), ::core::mem::transmute(valuemax), ::core::mem::transmute(steppingdelta)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetParameterValues(&self, api: *const ::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetParameterValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api), ::core::mem::transmute(values), ::core::mem::transmute(valuescount)).ok()
+        (::windows::core::Vtable::vtable(self).GetParameterValues)(::windows::core::Vtable::as_raw(self), api, values, valuescount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDefaultValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDefaultValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDefaultValue)(::windows::core::Vtable::as_raw(self), api, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), api, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue(&self, api: *const ::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), api, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn RegisterForEvent(&self, api: *const ::windows::core::GUID, userdata: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterForEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api), userdata).ok()
+        (::windows::core::Vtable::vtable(self).RegisterForEvent)(::windows::core::Vtable::as_raw(self), api, userdata).ok()
     }
     pub unsafe fn UnregisterForEvent(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UnregisterForEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api)).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterForEvent)(::windows::core::Vtable::as_raw(self), api).ok()
     }
     pub unsafe fn SetAllDefaults(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAllDefaults)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2365,10 +2365,10 @@ impl ICodecAPI {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValueWithNotify(&self, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValueWithNotify)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(api), ::core::mem::transmute(value), ::core::mem::transmute(changedparam), ::core::mem::transmute(changedparamcount)).ok()
+        (::windows::core::Vtable::vtable(self).SetValueWithNotify)(::windows::core::Vtable::as_raw(self), api, ::core::mem::transmute(value), changedparam, changedparamcount).ok()
     }
     pub unsafe fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAllDefaultsWithNotify)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(changedparam), ::core::mem::transmute(changedparamcount)).ok()
+        (::windows::core::Vtable::vtable(self).SetAllDefaultsWithNotify)(::windows::core::Vtable::as_raw(self), changedparam, changedparamcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2392,7 +2392,7 @@ impl ICodecAPI {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAllSettingsWithNotify)(::windows::core::Vtable::as_raw(self), __midl__icodecapi0002.into().abi(), ::core::mem::transmute(changedparam), ::core::mem::transmute(changedparamcount)).ok()
+        (::windows::core::Vtable::vtable(self).SetAllSettingsWithNotify)(::windows::core::Vtable::as_raw(self), __midl__icodecapi0002.into().abi(), changedparam, changedparamcount).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICodecAPI, ::windows::core::IUnknown);
@@ -2474,12 +2474,12 @@ impl ID3D12VideoDecodeCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2487,7 +2487,7 @@ impl ID3D12VideoDecodeCommandList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2590,7 +2590,7 @@ impl ID3D12VideoDecodeCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2683,12 +2683,12 @@ impl ID3D12VideoDecodeCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2696,7 +2696,7 @@ impl ID3D12VideoDecodeCommandList1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2799,7 +2799,7 @@ impl ID3D12VideoDecodeCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2863,12 +2863,12 @@ impl ID3D12VideoDecodeCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2876,7 +2876,7 @@ impl ID3D12VideoDecodeCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2979,7 +2979,7 @@ impl ID3D12VideoDecodeCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3003,7 +3003,7 @@ impl ID3D12VideoDecodeCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3011,7 +3011,7 @@ impl ID3D12VideoDecodeCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3075,12 +3075,12 @@ impl ID3D12VideoDecoder {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3088,7 +3088,7 @@ impl ID3D12VideoDecoder {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3162,12 +3162,12 @@ impl ID3D12VideoDecoder1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3175,7 +3175,7 @@ impl ID3D12VideoDecoder1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3255,12 +3255,12 @@ impl ID3D12VideoDecoderHeap {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3268,7 +3268,7 @@ impl ID3D12VideoDecoderHeap {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3347,12 +3347,12 @@ impl ID3D12VideoDecoderHeap1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3360,7 +3360,7 @@ impl ID3D12VideoDecoderHeap1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3438,14 +3438,14 @@ pub struct ID3D12VideoDecoderHeap1_Vtbl {
 pub struct ID3D12VideoDevice(::windows::core::IUnknown);
 impl ID3D12VideoDevice {
     pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
+        (::windows::core::Vtable::vtable(self).CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, pfeaturesupportdata, featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3454,7 +3454,7 @@ impl ID3D12VideoDevice {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvideodecoderheapdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), pvideodecoderheapdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3463,7 +3463,7 @@ impl ID3D12VideoDevice {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, ::core::mem::transmute(poutputstreamdesc), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D12VideoDevice, ::windows::core::IUnknown);
@@ -3511,14 +3511,14 @@ pub struct ID3D12VideoDevice_Vtbl {
 pub struct ID3D12VideoDevice1(::windows::core::IUnknown);
 impl ID3D12VideoDevice1 {
     pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
+        (::windows::core::Vtable::vtable(self).base__.CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, pfeaturesupportdata, featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3527,7 +3527,7 @@ impl ID3D12VideoDevice1 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvideodecoderheapdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), pvideodecoderheapdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3536,7 +3536,7 @@ impl ID3D12VideoDevice1 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, ::core::mem::transmute(poutputstreamdesc), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3546,7 +3546,7 @@ impl ID3D12VideoDevice1 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoMotionEstimator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoMotionEstimator)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3556,7 +3556,7 @@ impl ID3D12VideoDevice1 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D12VideoDevice1, ::windows::core::IUnknown, ID3D12VideoDevice);
@@ -3602,14 +3602,14 @@ pub struct ID3D12VideoDevice1_Vtbl {
 pub struct ID3D12VideoDevice2(::windows::core::IUnknown);
 impl ID3D12VideoDevice2 {
     pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, pfeaturesupportdata, featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3618,7 +3618,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvideodecoderheapdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), pvideodecoderheapdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3627,7 +3627,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, ::core::mem::transmute(poutputstreamdesc), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3637,7 +3637,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoMotionEstimator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoMotionEstimator)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3647,7 +3647,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3657,7 +3657,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoDecoder1)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoDecoder1)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3667,7 +3667,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoDecoderHeap1)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvideodecoderheapdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoDecoderHeap1)(::windows::core::Vtable::as_raw(self), pvideodecoderheapdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3677,7 +3677,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoProcessor1)(::windows::core::Vtable::as_raw(self), nodemask, ::core::mem::transmute(poutputstreamdesc), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoProcessor1)(::windows::core::Vtable::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3687,7 +3687,7 @@ impl ID3D12VideoDevice2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoExtensionCommand)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters), creationparametersdatasizeinbytes, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoExtensionCommand)(::windows::core::Vtable::as_raw(self), pdesc, pcreationparameters, creationparametersdatasizeinbytes, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3695,7 +3695,7 @@ impl ID3D12VideoDevice2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes, ::core::mem::transmute(poutputdata), outputdatasizeinbytes).ok()
+        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes, poutputdata, outputdatasizeinbytes).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ID3D12VideoDevice2, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1);
@@ -3753,14 +3753,14 @@ pub struct ID3D12VideoDevice2_Vtbl {
 pub struct ID3D12VideoDevice3(::windows::core::IUnknown);
 impl ID3D12VideoDevice3 {
     pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), featurevideo, pfeaturesupportdata, featuresupportdatasize).ok()
     }
     pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3769,7 +3769,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvideodecoderheapdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateVideoDecoderHeap)(::windows::core::Vtable::as_raw(self), pvideodecoderheapdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3778,7 +3778,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, ::core::mem::transmute(poutputstreamdesc), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3788,7 +3788,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoMotionEstimator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoMotionEstimator)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3798,7 +3798,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateVideoMotionVectorHeap)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3808,7 +3808,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoder1)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoder1)(::windows::core::Vtable::as_raw(self), pdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3818,7 +3818,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoderHeap1)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvideodecoderheapdesc), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoDecoderHeap1)(::windows::core::Vtable::as_raw(self), pvideodecoderheapdesc, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3828,7 +3828,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessor1)(::windows::core::Vtable::as_raw(self), nodemask, ::core::mem::transmute(poutputstreamdesc), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoProcessor1)(::windows::core::Vtable::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3838,7 +3838,7 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateVideoExtensionCommand)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pcreationparameters), creationparametersdatasizeinbytes, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateVideoExtensionCommand)(::windows::core::Vtable::as_raw(self), pdesc, pcreationparameters, creationparametersdatasizeinbytes, pprotectedresourcesession.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3846,7 +3846,7 @@ impl ID3D12VideoDevice3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes, ::core::mem::transmute(poutputdata), outputdatasizeinbytes).ok()
+        (::windows::core::Vtable::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes, poutputdata, outputdatasizeinbytes).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3855,14 +3855,14 @@ impl ID3D12VideoDevice3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoEncoder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoEncoder)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateVideoEncoderHeap<T>(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoEncoderHeap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoEncoderHeap)(::windows::core::Vtable::as_raw(self), pdesc, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D12VideoDevice3, ::windows::core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1, ID3D12VideoDevice2);
@@ -3909,12 +3909,12 @@ impl ID3D12VideoEncodeCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3922,7 +3922,7 @@ impl ID3D12VideoEncodeCommandList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4030,7 +4030,7 @@ impl ID3D12VideoEncodeCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4139,12 +4139,12 @@ impl ID3D12VideoEncodeCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4152,7 +4152,7 @@ impl ID3D12VideoEncodeCommandList1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4260,7 +4260,7 @@ impl ID3D12VideoEncodeCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4276,7 +4276,7 @@ impl ID3D12VideoEncodeCommandList1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4284,7 +4284,7 @@ impl ID3D12VideoEncodeCommandList1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4344,12 +4344,12 @@ impl ID3D12VideoEncodeCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4357,7 +4357,7 @@ impl ID3D12VideoEncodeCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4465,7 +4465,7 @@ impl ID3D12VideoEncodeCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4481,7 +4481,7 @@ impl ID3D12VideoEncodeCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).base__.InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4489,7 +4489,7 @@ impl ID3D12VideoEncodeCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4563,12 +4563,12 @@ impl ID3D12VideoEncoder {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4576,7 +4576,7 @@ impl ID3D12VideoEncoder {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4677,12 +4677,12 @@ impl ID3D12VideoEncoderHeap {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4690,7 +4690,7 @@ impl ID3D12VideoEncoderHeap {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4786,12 +4786,12 @@ impl ID3D12VideoExtensionCommand {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4799,7 +4799,7 @@ impl ID3D12VideoExtensionCommand {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4880,12 +4880,12 @@ impl ID3D12VideoMotionEstimator {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4893,7 +4893,7 @@ impl ID3D12VideoMotionEstimator {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4979,12 +4979,12 @@ impl ID3D12VideoMotionVectorHeap {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4992,7 +4992,7 @@ impl ID3D12VideoMotionVectorHeap {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5078,12 +5078,12 @@ impl ID3D12VideoProcessCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5091,7 +5091,7 @@ impl ID3D12VideoProcessCommandList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5194,7 +5194,7 @@ impl ID3D12VideoProcessCommandList {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5287,12 +5287,12 @@ impl ID3D12VideoProcessCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5300,7 +5300,7 @@ impl ID3D12VideoProcessCommandList1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5403,7 +5403,7 @@ impl ID3D12VideoProcessCommandList1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -5467,12 +5467,12 @@ impl ID3D12VideoProcessCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5480,7 +5480,7 @@ impl ID3D12VideoProcessCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5583,7 +5583,7 @@ impl ID3D12VideoProcessCommandList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        (::windows::core::Vtable::vtable(self).base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, ::core::mem::transmute(pparams), ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+        (::windows::core::Vtable::vtable(self).base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
@@ -5607,7 +5607,7 @@ impl ID3D12VideoProcessCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pinitializationparameters), initializationparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5615,7 +5615,7 @@ impl ID3D12VideoProcessCommandList2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12VideoExtensionCommand>>,
     {
-        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), ::core::mem::transmute(pexecutionparameters), executionparameterssizeinbytes)
+        (::windows::core::Vtable::vtable(self).ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5679,12 +5679,12 @@ impl ID3D12VideoProcessor {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5692,7 +5692,7 @@ impl ID3D12VideoProcessor {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5788,12 +5788,12 @@ impl ID3D12VideoProcessor1 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5801,7 +5801,7 @@ impl ID3D12VideoProcessor1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5916,7 +5916,7 @@ impl IDXVAHD_Device {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoProcessorCustomRates(&self, pvpguid: *const ::windows::core::GUID, prates: &mut [DXVAHD_CUSTOM_RATE_DATA]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorCustomRates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvpguid), prates.len() as _, ::core::mem::transmute(prates.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorCustomRates)(::windows::core::Vtable::as_raw(self), pvpguid, prates.len() as _, ::core::mem::transmute(prates.as_ptr())).ok()
     }
     pub unsafe fn GetVideoProcessorFilterRange(&self, filter: DXVAHD_FILTER) -> ::windows::core::Result<DXVAHD_FILTER_RANGE_DATA> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5924,7 +5924,7 @@ impl IDXVAHD_Device {
     }
     pub unsafe fn CreateVideoProcessor(&self, pvpguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDXVAHD_VideoProcessor> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvpguid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), pvpguid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDXVAHD_Device, ::windows::core::IUnknown);
@@ -5983,16 +5983,16 @@ pub struct IDXVAHD_Device_Vtbl {
 pub struct IDXVAHD_VideoProcessor(::windows::core::IUnknown);
 impl IDXVAHD_VideoProcessor {
     pub unsafe fn SetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVideoProcessBltState)(::windows::core::Vtable::as_raw(self), state, datasize, ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Vtable::vtable(self).SetVideoProcessBltState)(::windows::core::Vtable::as_raw(self), state, datasize, pdata).ok()
     }
     pub unsafe fn GetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoProcessBltState)(::windows::core::Vtable::as_raw(self), state, datasize, ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoProcessBltState)(::windows::core::Vtable::as_raw(self), state, datasize, pdata).ok()
     }
     pub unsafe fn SetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVideoProcessStreamState)(::windows::core::Vtable::as_raw(self), streamnumber, state, datasize, ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Vtable::vtable(self).SetVideoProcessStreamState)(::windows::core::Vtable::as_raw(self), streamnumber, state, datasize, pdata).ok()
     }
     pub unsafe fn GetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoProcessStreamState)(::windows::core::Vtable::as_raw(self), streamnumber, state, datasize, ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoProcessStreamState)(::windows::core::Vtable::as_raw(self), streamnumber, state, datasize, pdata).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -6046,7 +6046,7 @@ impl IDirect3D9ExOverlayExtension {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CheckDeviceOverlayType(&self, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CheckDeviceOverlayType)(::windows::core::Vtable::as_raw(self), adapter, devtype, overlaywidth, overlayheight, overlayformat, ::core::mem::transmute(pdisplaymode), displayrotation, ::core::mem::transmute(poverlaycaps)).ok()
+        (::windows::core::Vtable::vtable(self).CheckDeviceOverlayType)(::windows::core::Vtable::as_raw(self), adapter, devtype, overlaywidth, overlayheight, overlayformat, pdisplaymode, displayrotation, poverlaycaps).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3D9ExOverlayExtension, ::windows::core::IUnknown);
@@ -6086,21 +6086,21 @@ pub struct IDirect3D9ExOverlayExtension_Vtbl {
 pub struct IDirect3DAuthenticatedChannel9(::windows::core::IUnknown);
 impl IDirect3DAuthenticatedChannel9 {
     pub unsafe fn GetCertificateSize(&self, pcertificatesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcertificatesize)).ok()
+        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), pcertificatesize).ok()
     }
     pub unsafe fn GetCertificate(&self, certifactesize: u32, ppcertificate: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), certifactesize, ::core::mem::transmute(ppcertificate)).ok()
+        (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), certifactesize, ppcertificate).ok()
     }
     pub unsafe fn NegotiateKeyExchange(&self, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).NegotiateKeyExchange)(::windows::core::Vtable::as_raw(self), datasize, ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Vtable::vtable(self).NegotiateKeyExchange)(::windows::core::Vtable::as_raw(self), datasize, pdata).ok()
     }
     pub unsafe fn Query(&self, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), inputsize, ::core::mem::transmute(pinput), outputsize, ::core::mem::transmute(poutput)).ok()
+        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), inputsize, pinput, outputsize, poutput).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn Configure(&self, inputsize: u32, pinput: *const ::core::ffi::c_void, poutput: *mut super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), inputsize, ::core::mem::transmute(pinput), ::core::mem::transmute(poutput)).ok()
+        (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), inputsize, pinput, poutput).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3DAuthenticatedChannel9, ::windows::core::IUnknown);
@@ -6144,13 +6144,13 @@ pub struct IDirect3DAuthenticatedChannel9_Vtbl {
 pub struct IDirect3DCryptoSession9(::windows::core::IUnknown);
 impl IDirect3DCryptoSession9 {
     pub unsafe fn GetCertificateSize(&self, pcertificatesize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcertificatesize)).ok()
+        (::windows::core::Vtable::vtable(self).GetCertificateSize)(::windows::core::Vtable::as_raw(self), pcertificatesize).ok()
     }
     pub unsafe fn GetCertificate(&self, certifactesize: u32, ppcertificate: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), certifactesize, ::core::mem::transmute(ppcertificate)).ok()
+        (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), certifactesize, ppcertificate).ok()
     }
     pub unsafe fn NegotiateKeyExchange(&self, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).NegotiateKeyExchange)(::windows::core::Vtable::as_raw(self), datasize, ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Vtable::vtable(self).NegotiateKeyExchange)(::windows::core::Vtable::as_raw(self), datasize, pdata).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6159,7 +6159,7 @@ impl IDirect3DCryptoSession9 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     {
-        (::windows::core::Vtable::vtable(self).EncryptionBlt)(::windows::core::Vtable::as_raw(self), psrcsurface.into().abi(), pdstsurface.into().abi(), dstsurfacesize, ::core::mem::transmute(piv)).ok()
+        (::windows::core::Vtable::vtable(self).EncryptionBlt)(::windows::core::Vtable::as_raw(self), psrcsurface.into().abi(), pdstsurface.into().abi(), dstsurfacesize, piv).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6168,7 +6168,7 @@ impl IDirect3DCryptoSession9 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     {
-        (::windows::core::Vtable::vtable(self).DecryptionBlt)(::windows::core::Vtable::as_raw(self), psrcsurface.into().abi(), pdstsurface.into().abi(), srcsurfacesize, ::core::mem::transmute(pencryptedblockinfo), ::core::mem::transmute(pcontentkey), ::core::mem::transmute(piv)).ok()
+        (::windows::core::Vtable::vtable(self).DecryptionBlt)(::windows::core::Vtable::as_raw(self), psrcsurface.into().abi(), pdstsurface.into().abi(), srcsurfacesize, pencryptedblockinfo, pcontentkey, piv).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6176,16 +6176,16 @@ impl IDirect3DCryptoSession9 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     {
-        (::windows::core::Vtable::vtable(self).GetSurfacePitch)(::windows::core::Vtable::as_raw(self), psrcsurface.into().abi(), ::core::mem::transmute(psurfacepitch)).ok()
+        (::windows::core::Vtable::vtable(self).GetSurfacePitch)(::windows::core::Vtable::as_raw(self), psrcsurface.into().abi(), psurfacepitch).ok()
     }
     pub unsafe fn StartSessionKeyRefresh(&self, prandomnumber: *mut ::core::ffi::c_void, randomnumbersize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartSessionKeyRefresh)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prandomnumber), randomnumbersize).ok()
+        (::windows::core::Vtable::vtable(self).StartSessionKeyRefresh)(::windows::core::Vtable::as_raw(self), prandomnumber, randomnumbersize).ok()
     }
     pub unsafe fn FinishSessionKeyRefresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FinishSessionKeyRefresh)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetEncryptionBltKey(&self, preadbackkey: *mut ::core::ffi::c_void, keysize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEncryptionBltKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(preadbackkey), keysize).ok()
+        (::windows::core::Vtable::vtable(self).GetEncryptionBltKey)(::windows::core::Vtable::as_raw(self), preadbackkey, keysize).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3DCryptoSession9, ::windows::core::IUnknown);
@@ -6239,17 +6239,17 @@ pub struct IDirect3DCryptoSession9_Vtbl {
 pub struct IDirect3DDevice9Video(::windows::core::IUnknown);
 impl IDirect3DDevice9Video {
     pub unsafe fn GetContentProtectionCaps(&self, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetContentProtectionCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecodeprofile), ::core::mem::transmute(pcaps)).ok()
+        (::windows::core::Vtable::vtable(self).GetContentProtectionCaps)(::windows::core::Vtable::as_raw(self), pcryptotype, pdecodeprofile, pcaps).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut ::core::option::Option<IDirect3DAuthenticatedChannel9>, pchannelhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, ::core::mem::transmute(ppauthenticatedchannel), ::core::mem::transmute(pchannelhandle)).ok()
+        (::windows::core::Vtable::vtable(self).CreateAuthenticatedChannel)(::windows::core::Vtable::as_raw(self), channeltype, ::core::mem::transmute(ppauthenticatedchannel), pchannelhandle).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, ppcryptosession: *mut ::core::option::Option<IDirect3DCryptoSession9>, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateCryptoSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecodeprofile), ::core::mem::transmute(ppcryptosession), ::core::mem::transmute(pcryptohandle)).ok()
+        (::windows::core::Vtable::vtable(self).CreateCryptoSession)(::windows::core::Vtable::as_raw(self), pcryptotype, pdecodeprofile, ::core::mem::transmute(ppcryptosession), pcryptohandle).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3DDevice9Video, ::windows::core::IUnknown);
@@ -6347,7 +6347,7 @@ impl IDirect3DDeviceManager9 {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).GetVideoService)(::windows::core::Vtable::as_raw(self), hdevice.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoService)(::windows::core::Vtable::as_raw(self), hdevice.into(), riid, ppservice).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirect3DDeviceManager9, ::windows::core::IUnknown);
@@ -6459,10 +6459,10 @@ impl IDirectXVideoDecoder {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetCreationParameters(&self, pdeviceguid: ::core::option::Option<*mut ::windows::core::GUID>, pvideodesc: ::core::option::Option<*mut DXVA2_VideoDesc>, pconfig: ::core::option::Option<*mut DXVA2_ConfigPictureDecode>, pdecoderrendertargets: *mut *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pnumsurfaces: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCreationParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdeviceguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideodesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pconfig.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdecoderrendertargets), ::core::mem::transmute(pnumsurfaces.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetCreationParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdeviceguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideodesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pconfig.unwrap_or(::std::ptr::null_mut())), pdecoderrendertargets, ::core::mem::transmute(pnumsurfaces.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetBuffer(&self, buffertype: DXVA2_BufferfType, ppbuffer: *mut *mut ::core::ffi::c_void, pbuffersize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), buffertype, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbuffersize)).ok()
+        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), buffertype, ppbuffer, pbuffersize).ok()
     }
     pub unsafe fn ReleaseBuffer(&self, buffertype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReleaseBuffer)(::windows::core::Vtable::as_raw(self), buffertype).ok()
@@ -6481,7 +6481,7 @@ impl IDirectXVideoDecoder {
         (::windows::core::Vtable::vtable(self).EndFrame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phandlecomplete.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Execute(&self, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pexecuteparams)).ok()
+        (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), pexecuteparams).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectXVideoDecoder, ::windows::core::IUnknown);
@@ -6513,7 +6513,7 @@ pub struct IDirectXVideoDecoder_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetVideoDecoderService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub GetCreationParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceguid: *mut ::windows::core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut super::super::Graphics::Direct3D9::IDirect3DSurface9, pnumsurfaces: *mut u32) -> ::windows::core::HRESULT,
+    pub GetCreationParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceguid: *mut ::windows::core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pnumsurfaces: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))]
     GetCreationParameters: usize,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffertype: DXVA2_BufferfType, ppbuffer: *mut *mut ::core::ffi::c_void, pbuffersize: *mut u32) -> ::windows::core::HRESULT,
@@ -6538,23 +6538,23 @@ impl IDirectXVideoDecoderService {
         (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype, ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetDecoderDeviceGuids(&self, pcount: *mut u32, pguids: ::core::option::Option<*mut *mut ::windows::core::GUID>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDecoderDeviceGuids)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcount), ::core::mem::transmute(pguids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetDecoderDeviceGuids)(::windows::core::Vtable::as_raw(self), pcount, ::core::mem::transmute(pguids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetDecoderRenderTargets(&self, guid: *const ::windows::core::GUID, pcount: *mut u32, pformats: ::core::option::Option<*mut *mut super::super::Graphics::Direct3D9::D3DFORMAT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDecoderRenderTargets)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pcount), ::core::mem::transmute(pformats.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetDecoderRenderTargets)(::windows::core::Vtable::as_raw(self), guid, pcount, ::core::mem::transmute(pformats.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pcount: *mut u32, ppconfigs: ::core::option::Option<*mut *mut DXVA2_ConfigPictureDecode>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDecoderConfigurations)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcount), ::core::mem::transmute(ppconfigs.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetDecoderConfigurations)(::windows::core::Vtable::as_raw(self), guid, pvideodesc, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), pcount, ::core::mem::transmute(ppconfigs.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CreateVideoDecoder(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: &[::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>]) -> ::windows::core::Result<IDirectXVideoDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pconfig), ::core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len() as _, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), guid, pvideodesc, pconfig, ::core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDirectXVideoDecoderService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
@@ -6673,7 +6673,7 @@ impl IDirectXVideoProcessor {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     {
-        (::windows::core::Vtable::vtable(self).VideoProcessBlt)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), ::core::mem::transmute(pbltparams), ::core::mem::transmute(psamples.as_ptr()), psamples.len() as _, ::core::mem::transmute(phandlecomplete.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).VideoProcessBlt)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), pbltparams, ::core::mem::transmute(psamples.as_ptr()), psamples.len() as _, ::core::mem::transmute(phandlecomplete.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectXVideoProcessor, ::windows::core::IUnknown);
@@ -6729,46 +6729,46 @@ impl IDirectXVideoProcessorService {
         (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype, ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn RegisterVideoProcessorSoftwareDevice(&self, pcallbacks: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterVideoProcessorSoftwareDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcallbacks)).ok()
+        (::windows::core::Vtable::vtable(self).RegisterVideoProcessorSoftwareDevice)(::windows::core::Vtable::as_raw(self), pcallbacks).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorDeviceGuids(&self, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pguids: ::core::option::Option<*mut *mut ::windows::core::GUID>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorDeviceGuids)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pcount), ::core::mem::transmute(pguids.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorDeviceGuids)(::windows::core::Vtable::as_raw(self), pvideodesc, pcount, ::core::mem::transmute(pguids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorRenderTargets(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pformats: ::core::option::Option<*mut *mut super::super::Graphics::Direct3D9::D3DFORMAT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorRenderTargets)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pcount), ::core::mem::transmute(pformats.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorRenderTargets)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, pcount, ::core::mem::transmute(pformats.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorSubStreamFormats(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcount: *mut u32, pformats: ::core::option::Option<*mut *mut super::super::Graphics::Direct3D9::D3DFORMAT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorSubStreamFormats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), rendertargetformat, ::core::mem::transmute(pcount), ::core::mem::transmute(pformats.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorSubStreamFormats)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, pcount, ::core::mem::transmute(pformats.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorCaps(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), rendertargetformat, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetProcAmpRange(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, procampcap: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProcAmpRange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), rendertargetformat, procampcap, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetProcAmpRange)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, procampcap, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetFilterPropertyRange(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFilterPropertyRange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), rendertargetformat, filtersetting, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetFilterPropertyRange)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, filtersetting, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CreateVideoProcessor(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32) -> ::windows::core::Result<IDirectXVideoProcessor> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(videoprocdeviceguid), ::core::mem::transmute(pvideodesc), rendertargetformat, maxnumsubstreams, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVideoProcessor)(::windows::core::Vtable::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, maxnumsubstreams, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDirectXVideoProcessorService, ::windows::core::IUnknown, IDirectXVideoAccelerationService);
@@ -7048,7 +7048,7 @@ pub struct IEVRVideoStreamControl_Vtbl {
 pub struct IFileClient(::windows::core::IUnknown);
 impl IFileClient {
     pub unsafe fn GetObjectDiskSize(&self, pqwsize: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetObjectDiskSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pqwsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetObjectDiskSize)(::windows::core::Vtable::as_raw(self), pqwsize).ok()
     }
     pub unsafe fn Write<'a, P0>(&self, pfio: P0) -> ::windows::core::Result<()>
     where
@@ -7105,13 +7105,13 @@ impl IFileIo {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), eaccessmode, eopenmode, pwszfilename.into()).ok()
     }
     pub unsafe fn GetLength(&self, pqwlength: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pqwlength)).ok()
+        (::windows::core::Vtable::vtable(self).GetLength)(::windows::core::Vtable::as_raw(self), pqwlength).ok()
     }
     pub unsafe fn SetLength(&self, qwlength: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLength)(::windows::core::Vtable::as_raw(self), qwlength).ok()
     }
     pub unsafe fn GetCurrentPosition(&self, pqwposition: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pqwposition)).ok()
+        (::windows::core::Vtable::vtable(self).GetCurrentPosition)(::windows::core::Vtable::as_raw(self), pqwposition).ok()
     }
     pub unsafe fn SetCurrentPosition(&self, qwposition: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCurrentPosition)(::windows::core::Vtable::as_raw(self), qwposition).ok()
@@ -7119,16 +7119,16 @@ impl IFileIo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEndOfStream(&self, pbendofstream: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IsEndOfStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbendofstream)).ok()
+        (::windows::core::Vtable::vtable(self).IsEndOfStream)(::windows::core::Vtable::as_raw(self), pbendofstream).ok()
     }
     pub unsafe fn Read(&self, pbt: *mut u8, ul: u32, pulread: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbt), ul, ::core::mem::transmute(pulread)).ok()
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), pbt, ul, pulread).ok()
     }
     pub unsafe fn Write(&self, pbt: *mut u8, ul: u32, pulwritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbt), ul, ::core::mem::transmute(pulwritten)).ok()
+        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), pbt, ul, pulwritten).ok()
     }
     pub unsafe fn Seek(&self, eseekorigin: SEEK_ORIGIN, qwseekoffset: u64, dwseekflags: u32, pqwcurrentposition: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), eseekorigin, qwseekoffset, dwseekflags, ::core::mem::transmute(pqwcurrentposition)).ok()
+        (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), eseekorigin, qwseekoffset, dwseekflags, pqwcurrentposition).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7180,13 +7180,13 @@ pub struct IFileIo_Vtbl {
 pub struct IMF2DBuffer(::windows::core::IUnknown);
 impl IMF2DBuffer {
     pub unsafe fn Lock2D(&self, ppbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Lock2D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbscanline0), ::core::mem::transmute(plpitch)).ok()
+        (::windows::core::Vtable::vtable(self).Lock2D)(::windows::core::Vtable::as_raw(self), ppbscanline0, plpitch).ok()
     }
     pub unsafe fn Unlock2D(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unlock2D)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetScanline0AndPitch(&self, pbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetScanline0AndPitch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbscanline0), ::core::mem::transmute(plpitch)).ok()
+        (::windows::core::Vtable::vtable(self).GetScanline0AndPitch)(::windows::core::Vtable::as_raw(self), pbscanline0, plpitch).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7248,13 +7248,13 @@ pub struct IMF2DBuffer_Vtbl {
 pub struct IMF2DBuffer2(::windows::core::IUnknown);
 impl IMF2DBuffer2 {
     pub unsafe fn Lock2D(&self, ppbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Lock2D)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbscanline0), ::core::mem::transmute(plpitch)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Lock2D)(::windows::core::Vtable::as_raw(self), ppbscanline0, plpitch).ok()
     }
     pub unsafe fn Unlock2D(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Unlock2D)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetScanline0AndPitch(&self, pbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetScanline0AndPitch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbscanline0), ::core::mem::transmute(plpitch)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetScanline0AndPitch)(::windows::core::Vtable::as_raw(self), pbscanline0, plpitch).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7273,7 +7273,7 @@ impl IMF2DBuffer2 {
         (::windows::core::Vtable::vtable(self).base__.ContiguousCopyFrom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbsrcbuffer.as_ptr()), pbsrcbuffer.len() as _).ok()
     }
     pub unsafe fn Lock2DSize(&self, lockflags: MF2DBuffer_LockFlags, ppbscanline0: *mut *mut u8, plpitch: *mut i32, ppbbufferstart: *mut *mut u8, pcbbufferlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Lock2DSize)(::windows::core::Vtable::as_raw(self), lockflags, ::core::mem::transmute(ppbscanline0), ::core::mem::transmute(plpitch), ::core::mem::transmute(ppbbufferstart), ::core::mem::transmute(pcbbufferlength)).ok()
+        (::windows::core::Vtable::vtable(self).Lock2DSize)(::windows::core::Vtable::as_raw(self), lockflags, ppbscanline0, plpitch, ppbbufferstart, pcbbufferlength).ok()
     }
     pub unsafe fn Copy2DTo<'a, P0>(&self, pdestbuffer: P0) -> ::windows::core::Result<()>
     where
@@ -7429,7 +7429,7 @@ impl IMFASFIndexer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIndexStatus(&self, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pfisindexed: *mut super::super::Foundation::BOOL, pbindexdescriptor: *mut u8, pcbindexdescriptor: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIndexStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pindexidentifier), ::core::mem::transmute(pfisindexed), ::core::mem::transmute(pbindexdescriptor), ::core::mem::transmute(pcbindexdescriptor)).ok()
+        (::windows::core::Vtable::vtable(self).GetIndexStatus)(::windows::core::Vtable::as_raw(self), pindexidentifier, pfisindexed, pbindexdescriptor, pcbindexdescriptor).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7437,12 +7437,12 @@ impl IMFASFIndexer {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetIndexStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbindexdescriptor), cbindexdescriptor, fgenerateindex.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetIndexStatus)(::windows::core::Vtable::as_raw(self), pbindexdescriptor, cbindexdescriptor, fgenerateindex.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetSeekPositionForValue(&self, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSeekPositionForValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarvalue), ::core::mem::transmute(pindexidentifier), ::core::mem::transmute(pcboffsetwithindata), ::core::mem::transmute(phnsapproxtime), ::core::mem::transmute(pdwpayloadnumberofstreamwithinpacket)).ok()
+        (::windows::core::Vtable::vtable(self).GetSeekPositionForValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarvalue), pindexidentifier, pcboffsetwithindata, phnsapproxtime, pdwpayloadnumberofstreamwithinpacket).ok()
     }
     pub unsafe fn GenerateIndexEntries<'a, P0>(&self, piasfpacketsample: P0) -> ::windows::core::Result<()>
     where
@@ -7541,7 +7541,7 @@ impl IMFASFMultiplexer {
         (::windows::core::Vtable::vtable(self).ProcessSample)(::windows::core::Vtable::as_raw(self), wstreamnumber, pisample.into().abi(), hnstimestampadjust).ok()
     }
     pub unsafe fn GetNextPacket(&self, pdwstatusflags: *mut u32, ppipacket: *mut ::core::option::Option<IMFSample>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextPacket)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwstatusflags), ::core::mem::transmute(ppipacket)).ok()
+        (::windows::core::Vtable::vtable(self).GetNextPacket)(::windows::core::Vtable::as_raw(self), pdwstatusflags, ::core::mem::transmute(ppipacket)).ok()
     }
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7606,14 +7606,14 @@ impl IMFASFMutualExclusion {
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetType(&self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtype)).ok()
+        (::windows::core::Vtable::vtable(self).SetType)(::windows::core::Vtable::as_raw(self), guidtype).ok()
     }
     pub unsafe fn GetRecordCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRecordCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStreamsForRecord(&self, dwrecordnumber: u32, pwstreamnumarray: *mut u16, pcstreams: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamsForRecord)(::windows::core::Vtable::as_raw(self), dwrecordnumber, ::core::mem::transmute(pwstreamnumarray), ::core::mem::transmute(pcstreams)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamsForRecord)(::windows::core::Vtable::as_raw(self), dwrecordnumber, pwstreamnumarray, pcstreams).ok()
     }
     pub unsafe fn AddStreamForRecord(&self, dwrecordnumber: u32, wstreamnumber: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddStreamForRecord)(::windows::core::Vtable::as_raw(self), dwrecordnumber, wstreamnumber).ok()
@@ -7677,17 +7677,17 @@ impl IMFASFProfile {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7700,84 +7700,84 @@ impl IMFASFProfile {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7792,7 +7792,7 @@ impl IMFASFProfile {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -7805,7 +7805,7 @@ impl IMFASFProfile {
         (::windows::core::Vtable::vtable(self).GetStreamCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStream(&self, dwstreamindex: u32, pwstreamnumber: *mut u16, ppistream: *mut ::core::option::Option<IMFASFStreamConfig>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pwstreamnumber), ::core::mem::transmute(ppistream)).ok()
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, pwstreamnumber, ::core::mem::transmute(ppistream)).ok()
     }
     pub unsafe fn GetStreamByNumber(&self, wstreamnumber: u16) -> ::windows::core::Result<IMFASFStreamConfig> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7932,10 +7932,10 @@ impl IMFASFSplitter {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SelectStreams(&self, pwstreamnumbers: *const u16, wnumstreams: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SelectStreams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwstreamnumbers), wnumstreams).ok()
+        (::windows::core::Vtable::vtable(self).SelectStreams)(::windows::core::Vtable::as_raw(self), pwstreamnumbers, wnumstreams).ok()
     }
     pub unsafe fn GetSelectedStreams(&self, pwstreamnumbers: *mut u16, pwnumstreams: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSelectedStreams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwstreamnumbers), ::core::mem::transmute(pwnumstreams)).ok()
+        (::windows::core::Vtable::vtable(self).GetSelectedStreams)(::windows::core::Vtable::as_raw(self), pwstreamnumbers, pwnumstreams).ok()
     }
     pub unsafe fn ParseData<'a, P0>(&self, pibuffer: P0, cbbufferoffset: u32, cblength: u32) -> ::windows::core::Result<()>
     where
@@ -7944,7 +7944,7 @@ impl IMFASFSplitter {
         (::windows::core::Vtable::vtable(self).ParseData)(::windows::core::Vtable::as_raw(self), pibuffer.into().abi(), cbbufferoffset, cblength).ok()
     }
     pub unsafe fn GetNextSample(&self, pdwstatusflags: *mut ASF_STATUSFLAGS, pwstreamnumber: *mut u16, ppisample: *mut ::core::option::Option<IMFSample>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextSample)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwstatusflags), ::core::mem::transmute(pwstreamnumber), ::core::mem::transmute(ppisample)).ok()
+        (::windows::core::Vtable::vtable(self).GetNextSample)(::windows::core::Vtable::as_raw(self), pdwstatusflags, pwstreamnumber, ::core::mem::transmute(ppisample)).ok()
     }
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7998,17 +7998,17 @@ impl IMFASFStreamConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8021,84 +8021,84 @@ impl IMFASFStreamConfig {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8113,7 +8113,7 @@ impl IMFASFStreamConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -8146,7 +8146,7 @@ impl IMFASFStreamConfig {
         (::windows::core::Vtable::vtable(self).GetPayloadExtensionCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPayloadExtension(&self, wpayloadextensionnumber: u16, pguidextensionsystemid: *mut ::windows::core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPayloadExtension)(::windows::core::Vtable::as_raw(self), wpayloadextensionnumber, ::core::mem::transmute(pguidextensionsystemid), ::core::mem::transmute(pcbextensiondatasize), ::core::mem::transmute(pbextensionsysteminfo), ::core::mem::transmute(pcbextensionsysteminfo)).ok()
+        (::windows::core::Vtable::vtable(self).GetPayloadExtension)(::windows::core::Vtable::as_raw(self), wpayloadextensionnumber, pguidextensionsystemid, pcbextensiondatasize, pbextensionsysteminfo, pcbextensionsysteminfo).ok()
     }
     pub unsafe fn AddPayloadExtension(&self, guidextensionsystemid: ::windows::core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddPayloadExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidextensionsystemid), cbextensiondatasize, ::core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len() as _).ok()
@@ -8206,7 +8206,7 @@ impl IMFASFStreamPrioritization {
         (::windows::core::Vtable::vtable(self).GetStreamCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStream(&self, dwstreamindex: u32, pwstreamnumber: *mut u16, pwstreamflags: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pwstreamnumber), ::core::mem::transmute(pwstreamflags)).ok()
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, pwstreamnumber, pwstreamflags).ok()
     }
     pub unsafe fn AddStream(&self, wstreamnumber: u16, wstreamflags: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddStream)(::windows::core::Vtable::as_raw(self), wstreamnumber, wstreamflags).ok()
@@ -8299,7 +8299,7 @@ impl IMFASFStreamSelector {
         (::windows::core::Vtable::vtable(self).GetBandwidthStepCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBandwidthStep(&self, dwstepnum: u32, pdwbitrate: *mut u32, rgwstreamnumbers: *mut u16, rgselections: *mut ASF_SELECTION_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBandwidthStep)(::windows::core::Vtable::as_raw(self), dwstepnum, ::core::mem::transmute(pdwbitrate), ::core::mem::transmute(rgwstreamnumbers), ::core::mem::transmute(rgselections)).ok()
+        (::windows::core::Vtable::vtable(self).GetBandwidthStep)(::windows::core::Vtable::as_raw(self), dwstepnum, pdwbitrate, rgwstreamnumbers, rgselections).ok()
     }
     pub unsafe fn BitrateToStepNumber(&self, dwbitrate: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8358,17 +8358,17 @@ impl IMFActivate {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8381,84 +8381,84 @@ impl IMFActivate {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8473,7 +8473,7 @@ impl IMFActivate {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -8531,7 +8531,7 @@ pub struct IMFActivate_Vtbl {
 pub struct IMFAsyncCallback(::windows::core::IUnknown);
 impl IMFAsyncCallback {
     pub unsafe fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwqueue)).ok()
+        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), pdwflags, pdwqueue).ok()
     }
     pub unsafe fn Invoke<'a, P0>(&self, pasyncresult: P0) -> ::windows::core::Result<()>
     where
@@ -8575,7 +8575,7 @@ pub struct IMFAsyncCallback_Vtbl {
 pub struct IMFAsyncCallbackLogging(::windows::core::IUnknown);
 impl IMFAsyncCallbackLogging {
     pub unsafe fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwqueue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetParameters)(::windows::core::Vtable::as_raw(self), pdwflags, pdwqueue).ok()
     }
     pub unsafe fn Invoke<'a, P0>(&self, pasyncresult: P0) -> ::windows::core::Result<()>
     where
@@ -8682,17 +8682,17 @@ impl IMFAttributes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8705,84 +8705,84 @@ impl IMFAttributes {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8797,7 +8797,7 @@ impl IMFAttributes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -8886,17 +8886,17 @@ impl IMFAudioMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8909,84 +8909,84 @@ impl IMFAudioMediaType {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -9001,7 +9001,7 @@ impl IMFAudioMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -9027,10 +9027,10 @@ impl IMFAudioMediaType {
         (::windows::core::Vtable::vtable(self).base__.IsEqual)(::windows::core::Vtable::as_raw(self), pimediatype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRepresentation(&self, guidrepresentation: ::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(ppvrepresentation)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ppvrepresentation).ok()
     }
     pub unsafe fn FreeRepresentation(&self, guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(pvrepresentation)).ok()
+        (::windows::core::Vtable::vtable(self).base__.FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), pvrepresentation).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
@@ -9075,7 +9075,7 @@ pub struct IMFAudioMediaType_Vtbl {
 pub struct IMFAudioPolicy(::windows::core::IUnknown);
 impl IMFAudioPolicy {
     pub unsafe fn SetGroupingParam(&self, rguidclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGroupingParam)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rguidclass)).ok()
+        (::windows::core::Vtable::vtable(self).SetGroupingParam)(::windows::core::Vtable::as_raw(self), rguidclass).ok()
     }
     pub unsafe fn GetGroupingParam(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9261,7 +9261,7 @@ impl IMFByteStream {
         (::windows::core::Vtable::vtable(self).IsEndOfStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Read(&self, pb: &mut [u8], pcbread: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pb.as_ptr()), pb.len() as _, ::core::mem::transmute(pcbread)).ok()
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pb.as_ptr()), pb.len() as _, pcbread).ok()
     }
     pub unsafe fn BeginRead<'a, P0, P1>(&self, pb: &mut [u8], pcallback: P0, punkstate: P1) -> ::windows::core::Result<()>
     where
@@ -9357,7 +9357,7 @@ pub struct IMFByteStream_Vtbl {
 pub struct IMFByteStreamBuffering(::windows::core::IUnknown);
 impl IMFByteStreamBuffering {
     pub unsafe fn SetBufferingParams(&self, pparams: *const MFBYTESTREAM_BUFFERING_PARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBufferingParams)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparams)).ok()
+        (::windows::core::Vtable::vtable(self).SetBufferingParams)(::windows::core::Vtable::as_raw(self), pparams).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9450,7 +9450,7 @@ impl IMFByteStreamCacheControl2 {
         (::windows::core::Vtable::vtable(self).base__.StopBackgroundTransfer)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetByteRanges(&self, pcranges: *mut u32, ppranges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetByteRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcranges), ::core::mem::transmute(ppranges)).ok()
+        (::windows::core::Vtable::vtable(self).GetByteRanges)(::windows::core::Vtable::as_raw(self), pcranges, ppranges).ok()
     }
     pub unsafe fn SetCacheLimit(&self, qwbytes: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCacheLimit)(::windows::core::Vtable::as_raw(self), qwbytes).ok()
@@ -9516,7 +9516,7 @@ impl IMFByteStreamHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAsyncResult>>,
     {
-        (::windows::core::Vtable::vtable(self).EndCreateObject)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Vtable::vtable(self).EndCreateObject)(::windows::core::Vtable::as_raw(self), presult.into().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
     pub unsafe fn CancelObjectCreation<'a, P0>(&self, piunknowncancelcookie: P0) -> ::windows::core::Result<()>
     where
@@ -9621,7 +9621,7 @@ impl IMFByteStreamTimeSeek {
         (::windows::core::Vtable::vtable(self).TimeSeek)(::windows::core::Vtable::as_raw(self), qwtimeposition).ok()
     }
     pub unsafe fn GetTimeSeekResult(&self, pqwstarttime: *mut u64, pqwstoptime: *mut u64, pqwduration: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTimeSeekResult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pqwstarttime), ::core::mem::transmute(pqwstoptime), ::core::mem::transmute(pqwduration)).ok()
+        (::windows::core::Vtable::vtable(self).GetTimeSeekResult)(::windows::core::Vtable::as_raw(self), pqwstarttime, pqwstoptime, pqwduration).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFByteStreamTimeSeek, ::windows::core::IUnknown);
@@ -9913,7 +9913,7 @@ impl IMFCaptureEngineClassFactory {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFCaptureEngineClassFactory, ::windows::core::IUnknown);
@@ -10130,7 +10130,7 @@ impl IMFCapturePhotoSink {
     }
     pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, rguidservice, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddStream<'a, P0, P1>(&self, dwsourcestreamindex: u32, pmediatype: P0, pattributes: P1) -> ::windows::core::Result<u32>
     where
@@ -10206,7 +10206,7 @@ impl IMFCapturePreviewSink {
     }
     pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, rguidservice, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddStream<'a, P0, P1>(&self, dwsourcestreamindex: u32, pmediatype: P0, pattributes: P1) -> ::windows::core::Result<u32>
     where
@@ -10334,7 +10334,7 @@ impl IMFCaptureRecordSink {
     }
     pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, rguidservice, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddStream<'a, P0, P1>(&self, dwsourcestreamindex: u32, pmediatype: P0, pattributes: P1) -> ::windows::core::Result<u32>
     where
@@ -10354,7 +10354,7 @@ impl IMFCaptureRecordSink {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFByteStream>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputByteStream)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), ::core::mem::transmute(guidcontainertype)).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputByteStream)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), guidcontainertype).ok()
     }
     pub unsafe fn SetOutputFileName<'a, P0>(&self, filename: P0) -> ::windows::core::Result<()>
     where
@@ -10426,7 +10426,7 @@ impl IMFCaptureSink {
     }
     pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, rguidservice, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddStream<'a, P0, P1>(&self, dwsourcestreamindex: u32, pmediatype: P0, pattributes: P1) -> ::windows::core::Result<u32>
     where
@@ -10486,7 +10486,7 @@ impl IMFCaptureSink2 {
     }
     pub unsafe fn GetService(&self, dwsinkstreamindex: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetService)(::windows::core::Vtable::as_raw(self), dwsinkstreamindex, rguidservice, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddStream<'a, P0, P1>(&self, dwsourcestreamindex: u32, pmediatype: P0, pattributes: P1) -> ::windows::core::Result<u32>
     where
@@ -10553,7 +10553,7 @@ impl IMFCaptureSource {
     }
     pub unsafe fn GetService(&self, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), rguidservice, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddEffect<'a, P0>(&self, dwsourcestreamindex: u32, punknown: P0) -> ::windows::core::Result<()>
     where
@@ -10709,7 +10709,7 @@ impl IMFClock {
         (::windows::core::Vtable::vtable(self).GetClockCharacteristics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCorrelatedTime(&self, dwreserved: u32, pllclocktime: *mut i64, phnssystemtime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCorrelatedTime)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(pllclocktime), ::core::mem::transmute(phnssystemtime)).ok()
+        (::windows::core::Vtable::vtable(self).GetCorrelatedTime)(::windows::core::Vtable::as_raw(self), dwreserved, pllclocktime, phnssystemtime).ok()
     }
     pub unsafe fn GetContinuityKey(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10957,7 +10957,7 @@ impl IMFContentDecryptionModule {
         (::windows::core::Vtable::vtable(self).CreateTrustedInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(contentinitdata.as_ptr()), contentinitdata.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetProtectionSystemIds(&self, systemids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProtectionSystemIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(systemids), ::core::mem::transmute(count)).ok()
+        (::windows::core::Vtable::vtable(self).GetProtectionSystemIds)(::windows::core::Vtable::as_raw(self), systemids, count).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFContentDecryptionModule, ::windows::core::IUnknown);
@@ -11128,7 +11128,7 @@ impl IMFContentDecryptionModuleSession {
         (::windows::core::Vtable::vtable(self).GetExpiration)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetKeyStatuses(&self, keystatuses: *mut *mut MFMediaKeyStatus, numkeystatuses: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetKeyStatuses)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(keystatuses), ::core::mem::transmute(numkeystatuses)).ok()
+        (::windows::core::Vtable::vtable(self).GetKeyStatuses)(::windows::core::Vtable::as_raw(self), keystatuses, numkeystatuses).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11285,10 +11285,10 @@ impl IMFContentEnabler {
         (::windows::core::Vtable::vtable(self).GetEnableType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetEnableURL(&self, ppwszurl: *mut ::windows::core::PWSTR, pcchurl: *mut u32, ptruststatus: *mut MF_URL_TRUST_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEnableURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszurl), ::core::mem::transmute(pcchurl), ::core::mem::transmute(ptruststatus)).ok()
+        (::windows::core::Vtable::vtable(self).GetEnableURL)(::windows::core::Vtable::as_raw(self), ppwszurl, pcchurl, ptruststatus).ok()
     }
     pub unsafe fn GetEnableData(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEnableData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata)).ok()
+        (::windows::core::Vtable::vtable(self).GetEnableData)(::windows::core::Vtable::as_raw(self), ppbdata, pcbdata).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11349,10 +11349,10 @@ pub struct IMFContentEnabler_Vtbl {
 pub struct IMFContentProtectionDevice(::windows::core::IUnknown);
 impl IMFContentProtectionDevice {
     pub unsafe fn InvokeFunction(&self, functionid: u32, inputbuffer: &[u8], outputbufferbytecount: *mut u32, outputbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InvokeFunction)(::windows::core::Vtable::as_raw(self), functionid, inputbuffer.len() as _, ::core::mem::transmute(inputbuffer.as_ptr()), ::core::mem::transmute(outputbufferbytecount), ::core::mem::transmute(outputbuffer)).ok()
+        (::windows::core::Vtable::vtable(self).InvokeFunction)(::windows::core::Vtable::as_raw(self), functionid, inputbuffer.len() as _, ::core::mem::transmute(inputbuffer.as_ptr()), outputbufferbytecount, outputbuffer).ok()
     }
     pub unsafe fn GetPrivateDataByteCount(&self, privateinputbytecount: *mut u32, privateoutputbytecount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPrivateDataByteCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(privateinputbytecount), ::core::mem::transmute(privateoutputbytecount)).ok()
+        (::windows::core::Vtable::vtable(self).GetPrivateDataByteCount)(::windows::core::Vtable::as_raw(self), privateinputbytecount, privateoutputbytecount).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFContentProtectionDevice, ::windows::core::IUnknown);
@@ -11616,10 +11616,10 @@ pub struct IMFDLNASinkInit_Vtbl {
 pub struct IMFDRMNetHelper(::windows::core::IUnknown);
 impl IMFDRMNetHelper {
     pub unsafe fn ProcessLicenseRequest(&self, plicenserequest: &[u8], pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32, pbstrkid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ProcessLicenseRequest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plicenserequest.as_ptr()), plicenserequest.len() as _, ::core::mem::transmute(pplicenseresponse), ::core::mem::transmute(pcblicenseresponse), ::core::mem::transmute(pbstrkid)).ok()
+        (::windows::core::Vtable::vtable(self).ProcessLicenseRequest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plicenserequest.as_ptr()), plicenserequest.len() as _, pplicenseresponse, pcblicenseresponse, ::core::mem::transmute(pbstrkid)).ok()
     }
     pub unsafe fn GetChainedLicenseResponse(&self, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChainedLicenseResponse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pplicenseresponse), ::core::mem::transmute(pcblicenseresponse)).ok()
+        (::windows::core::Vtable::vtable(self).GetChainedLicenseResponse)(::windows::core::Vtable::as_raw(self), pplicenseresponse, pcblicenseresponse).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFDRMNetHelper, ::windows::core::IUnknown);
@@ -11657,20 +11657,20 @@ pub struct IMFDRMNetHelper_Vtbl {
 pub struct IMFDXGIBuffer(::windows::core::IUnknown);
 impl IMFDXGIBuffer {
     pub unsafe fn GetResource(&self, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), riid, ppvobject).ok()
     }
     pub unsafe fn GetSubresourceIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSubresourceIndex)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUnknown(&self, guid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Vtable::vtable(self).GetUnknown)(::windows::core::Vtable::as_raw(self), guid, riid, ppvobject).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guid: *const ::windows::core::GUID, punkdata: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), punkdata.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetUnknown)(::windows::core::Vtable::as_raw(self), guid, punkdata.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFDXGIBuffer, ::windows::core::IUnknown);
@@ -11723,7 +11723,7 @@ impl IMFDXGIDeviceManager {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).GetVideoService)(::windows::core::Vtable::as_raw(self), hdevice.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoService)(::windows::core::Vtable::as_raw(self), hdevice.into(), riid, ppservice).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11732,7 +11732,7 @@ impl IMFDXGIDeviceManager {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).LockDevice)(::windows::core::Vtable::as_raw(self), hdevice.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppunkdevice), fblock.into()).ok()
+        (::windows::core::Vtable::vtable(self).LockDevice)(::windows::core::Vtable::as_raw(self), hdevice.into(), riid, ppunkdevice, fblock.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11860,7 +11860,7 @@ pub struct IMFDXGIDeviceManagerSource_Vtbl {
 pub struct IMFDesiredSample(::windows::core::IUnknown);
 impl IMFDesiredSample {
     pub unsafe fn GetDesiredSampleTimeAndDuration(&self, phnssampletime: *mut i64, phnssampleduration: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDesiredSampleTimeAndDuration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phnssampletime), ::core::mem::transmute(phnssampleduration)).ok()
+        (::windows::core::Vtable::vtable(self).GetDesiredSampleTimeAndDuration)(::windows::core::Vtable::as_raw(self), phnssampletime, phnssampleduration).ok()
     }
     pub unsafe fn SetDesiredSampleTimeAndDuration(&self, hnssampletime: i64, hnssampleduration: i64) {
         (::windows::core::Vtable::vtable(self).SetDesiredSampleTimeAndDuration)(::windows::core::Vtable::as_raw(self), hnssampletime, hnssampleduration)
@@ -11935,10 +11935,10 @@ impl IMFDeviceTransform {
         (::windows::core::Vtable::vtable(self).GetOutputStreamAttributes)(::windows::core::Vtable::as_raw(self), dwoutputstreamid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcinputstreams), ::core::mem::transmute(pcoutputstreams)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamCount)(::windows::core::Vtable::as_raw(self), pcinputstreams, pcoutputstreams).ok()
     }
     pub unsafe fn GetStreamIDs(&self, dwinputidarraysize: u32, pdwinputstreamids: *mut u32, dwoutputidarraysize: u32, pdwoutputstreamids: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamIDs)(::windows::core::Vtable::as_raw(self), dwinputidarraysize, ::core::mem::transmute(pdwinputstreamids), dwoutputidarraysize, ::core::mem::transmute(pdwoutputstreamids)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamIDs)(::windows::core::Vtable::as_raw(self), dwinputidarraysize, pdwinputstreamids, dwoutputidarraysize, pdwoutputstreamids).ok()
     }
     pub unsafe fn ProcessEvent<'a, P0>(&self, dwinputstreamid: u32, pevent: P0) -> ::windows::core::Result<()>
     where
@@ -11956,7 +11956,7 @@ impl IMFDeviceTransform {
         (::windows::core::Vtable::vtable(self).ProcessMessage)(::windows::core::Vtable::as_raw(self), emessage, ulparam).ok()
     }
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ProcessOutput)(::windows::core::Vtable::as_raw(self), dwflags, coutputbuffercount, ::core::mem::transmute(poutputsample), ::core::mem::transmute(pdwstatus)).ok()
+        (::windows::core::Vtable::vtable(self).ProcessOutput)(::windows::core::Vtable::as_raw(self), dwflags, coutputbuffercount, ::core::mem::transmute(poutputsample), pdwstatus).ok()
     }
     pub unsafe fn SetInputStreamState<'a, P0>(&self, dwstreamid: u32, pmediatype: P0, value: DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()>
     where
@@ -11979,7 +11979,7 @@ impl IMFDeviceTransform {
         (::windows::core::Vtable::vtable(self).GetOutputStreamState)(::windows::core::Vtable::as_raw(self), dwstreamid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetInputStreamPreferredState(&self, dwstreamid: u32, value: *mut DeviceStreamState, ppmediatype: *mut ::core::option::Option<IMFMediaType>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInputStreamPreferredState)(::windows::core::Vtable::as_raw(self), dwstreamid, ::core::mem::transmute(value), ::core::mem::transmute(ppmediatype)).ok()
+        (::windows::core::Vtable::vtable(self).GetInputStreamPreferredState)(::windows::core::Vtable::as_raw(self), dwstreamid, value, ::core::mem::transmute(ppmediatype)).ok()
     }
     pub unsafe fn FlushInputStream(&self, dwstreamindex: u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FlushInputStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwflags).ok()
@@ -12090,7 +12090,7 @@ impl IMFExtendedCameraControl {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn LockPayload(&self, pppayload: *mut *mut u8, pulpayload: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LockPayload)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppayload), ::core::mem::transmute(pulpayload)).ok()
+        (::windows::core::Vtable::vtable(self).LockPayload)(::windows::core::Vtable::as_raw(self), pppayload, pulpayload).ok()
     }
     pub unsafe fn UnlockPayload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnlockPayload)(::windows::core::Vtable::as_raw(self)).ok()
@@ -12180,7 +12180,7 @@ impl IMFExtendedCameraIntrinsicModel {
         (::windows::core::Vtable::vtable(self).GetModel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetModel(&self, pintrinsicmodel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetModel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pintrinsicmodel)).ok()
+        (::windows::core::Vtable::vtable(self).SetModel)(::windows::core::Vtable::as_raw(self), pintrinsicmodel).ok()
     }
     pub unsafe fn GetDistortionModelType(&self) -> ::windows::core::Result<MFCameraIntrinsic_DistortionModelType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12230,7 +12230,7 @@ impl IMFExtendedCameraIntrinsics {
         (::windows::core::Vtable::vtable(self).GetBufferSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SerializeToBuffer(&self, pbbuffer: *mut u8, pdwbuffersize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SerializeToBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbuffersize)).ok()
+        (::windows::core::Vtable::vtable(self).SerializeToBuffer)(::windows::core::Vtable::as_raw(self), pbbuffer, pdwbuffersize).ok()
     }
     pub unsafe fn GetIntrinsicModelCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12290,7 +12290,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
         (::windows::core::Vtable::vtable(self).GetDistortionModel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetDistortionModel(&self, pdistortionmodel: *const MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdistortionmodel)).ok()
+        (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModel6KT, ::windows::core::IUnknown);
@@ -12332,7 +12332,7 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
         (::windows::core::Vtable::vtable(self).GetDistortionModel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetDistortionModel(&self, pdistortionmodel: *const MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdistortionmodel)).ok()
+        (::windows::core::Vtable::vtable(self).SetDistortionModel)(::windows::core::Vtable::as_raw(self), pdistortionmodel).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFExtendedCameraIntrinsicsDistortionModelArcTan, ::windows::core::IUnknown);
@@ -12539,7 +12539,7 @@ impl IMFGetService {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidservice), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), guidservice, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFGetService, ::windows::core::IUnknown);
@@ -12578,7 +12578,7 @@ impl IMFHDCPStatus {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Query(&self, pstatus: *mut MF_HDCP_STATUS, pfstatus: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatus), ::core::mem::transmute(pfstatus)).ok()
+        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pstatus, pfstatus).ok()
     }
     pub unsafe fn Set(&self, status: MF_HDCP_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), status).ok()
@@ -12664,7 +12664,7 @@ impl IMFHttpDownloadRequest {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAsyncResult>>,
     {
-        (::windows::core::Vtable::vtable(self).EndReadPayload)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(pqwoffset), ::core::mem::transmute(pcbread)).ok()
+        (::windows::core::Vtable::vtable(self).EndReadPayload)(::windows::core::Vtable::as_raw(self), presult.into().abi(), pqwoffset, pcbread).ok()
     }
     pub unsafe fn QueryHeader<'a, P0>(&self, szheadername: P0, dwindex: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -12684,7 +12684,7 @@ impl IMFHttpDownloadRequest {
         (::windows::core::Vtable::vtable(self).HasNullSourceOrigin)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetTimeSeekResult(&self, pqwstarttime: *mut u64, pqwstoptime: *mut u64, pqwduration: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTimeSeekResult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pqwstarttime), ::core::mem::transmute(pqwstoptime), ::core::mem::transmute(pqwduration)).ok()
+        (::windows::core::Vtable::vtable(self).GetTimeSeekResult)(::windows::core::Vtable::as_raw(self), pqwstarttime, pqwstoptime, pqwduration).ok()
     }
     pub unsafe fn GetHttpStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12952,7 +12952,7 @@ pub struct IMFImageSharingEngineClassFactory_Vtbl {
 pub struct IMFInputTrustAuthority(::windows::core::IUnknown);
 impl IMFInputTrustAuthority {
     pub unsafe fn GetDecrypter(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDecrypter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).GetDecrypter)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
     pub unsafe fn RequestAccess(&self, action: MFPOLICYMANAGER_ACTION) -> ::windows::core::Result<IMFActivate> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12963,10 +12963,10 @@ impl IMFInputTrustAuthority {
         (::windows::core::Vtable::vtable(self).GetPolicy)(::windows::core::Vtable::as_raw(self), action, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BindAccess(&self, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BindAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam)).ok()
+        (::windows::core::Vtable::vtable(self).BindAccess)(::windows::core::Vtable::as_raw(self), pparam).ok()
     }
     pub unsafe fn UpdateAccess(&self, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UpdateAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateAccess)(::windows::core::Vtable::as_raw(self), pparam).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
@@ -13048,7 +13048,7 @@ pub struct IMFLocalMFTRegistration_Vtbl {
 pub struct IMFMediaBuffer(::windows::core::IUnknown);
 impl IMFMediaBuffer {
     pub unsafe fn Lock(&self, ppbbuffer: *mut *mut u8, pcbmaxlength: ::core::option::Option<*mut u32>, pcbcurrentlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Lock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbbuffer), ::core::mem::transmute(pcbmaxlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbcurrentlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).Lock)(::windows::core::Vtable::as_raw(self), ppbbuffer, ::core::mem::transmute(pcbmaxlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbcurrentlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Unlock(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unlock)(::windows::core::Vtable::as_raw(self)).ok()
@@ -13268,7 +13268,7 @@ impl IMFMediaEngine {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdst), ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), pdst, ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn OnVideoStreamTick(&self) -> ::windows::core::Result<i64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13566,7 +13566,7 @@ impl IMFMediaEngineClassFactory4 {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).CreateContentDecryptionModuleFactory)(::windows::core::Vtable::as_raw(self), keysystem.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Vtable::vtable(self).CreateContentDecryptionModuleFactory)(::windows::core::Vtable::as_raw(self), keysystem.into(), riid, ppvobject).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFMediaEngineClassFactory4, ::windows::core::IUnknown);
@@ -13925,7 +13925,7 @@ impl IMFMediaEngineEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdst), ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), pdst, ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn OnVideoStreamTick(&self) -> ::windows::core::Result<i64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13975,7 +13975,7 @@ impl IMFMediaEngineEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidmfattribute), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), guidmfattribute, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNumberOfStreams(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13985,7 +13985,7 @@ impl IMFMediaEngineEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStreamAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidmfattribute), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetStreamAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidmfattribute, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14392,7 +14392,7 @@ impl IMFMediaEngineOPMInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOPMInfo(&self, pstatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, pconstricted: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOPMInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatus), ::core::mem::transmute(pconstricted)).ok()
+        (::windows::core::Vtable::vtable(self).GetOPMInfo)(::windows::core::Vtable::as_raw(self), pstatus, pconstricted).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFMediaEngineOPMInfo, ::windows::core::IUnknown);
@@ -14456,7 +14456,7 @@ impl IMFMediaEngineProtectedContent {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdst), ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), pdst, ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetContentProtectionManager<'a, P0>(&self, pcpm: P0) -> ::windows::core::Result<()>
     where
@@ -14834,17 +14834,17 @@ impl IMFMediaEvent {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14857,84 +14857,84 @@ impl IMFMediaEvent {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -14949,7 +14949,7 @@ impl IMFMediaEvent {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -15036,7 +15036,7 @@ impl IMFMediaEventGenerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFMediaEventGenerator, ::windows::core::IUnknown);
@@ -15105,13 +15105,13 @@ impl IMFMediaEventQueue {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEventParamVar(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueueEventParamVar)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).QueueEventParamVar)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn QueueEventParamUnk<'a, P0>(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).QueueEventParamUnk)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, punk.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).QueueEventParamUnk)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, punk.into().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
@@ -15160,7 +15160,7 @@ pub struct IMFMediaEventQueue_Vtbl {
 pub struct IMFMediaKeySession(::windows::core::IUnknown);
 impl IMFMediaKeySession {
     pub unsafe fn GetError(&self, code: *mut u16, systemcode: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetError)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(code), ::core::mem::transmute(systemcode)).ok()
+        (::windows::core::Vtable::vtable(self).GetError)(::windows::core::Vtable::as_raw(self), code, systemcode).ok()
     }
     pub unsafe fn KeySystem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15215,7 +15215,7 @@ pub struct IMFMediaKeySession_Vtbl {
 pub struct IMFMediaKeySession2(::windows::core::IUnknown);
 impl IMFMediaKeySession2 {
     pub unsafe fn GetError(&self, code: *mut u16, systemcode: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetError)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(code), ::core::mem::transmute(systemcode)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetError)(::windows::core::Vtable::as_raw(self), code, systemcode).ok()
     }
     pub unsafe fn KeySystem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15232,7 +15232,7 @@ impl IMFMediaKeySession2 {
         (::windows::core::Vtable::vtable(self).base__.Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn get_KeyStatuses(&self, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_KeyStatuses)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pkeystatusesarray), ::core::mem::transmute(pusize)).ok()
+        (::windows::core::Vtable::vtable(self).get_KeyStatuses)(::windows::core::Vtable::as_raw(self), pkeystatusesarray, pusize).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15595,7 +15595,7 @@ impl IMFMediaSession {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn SetTopology<'a, P0>(&self, dwsettopologyflags: u32, ptopology: P0) -> ::windows::core::Result<()>
     where
@@ -15609,7 +15609,7 @@ impl IMFMediaSession {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Start(&self, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
+        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), pguidtimeformat, ::core::mem::transmute(pvarstartposition)).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self)).ok()
@@ -15847,7 +15847,7 @@ impl IMFMediaSharingEngine {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdst), ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.TransferVideoFrame)(::windows::core::Vtable::as_raw(self), pdstsurf.into().abi(), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), pdst, ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn OnVideoStreamTick(&self) -> ::windows::core::Result<i64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16071,7 +16071,7 @@ impl IMFMediaSource {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16087,7 +16087,7 @@ impl IMFMediaSource {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFPresentationDescriptor>>,
     {
-        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
+        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), pguidtimeformat, ::core::mem::transmute(pvarstartposition)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
@@ -16161,7 +16161,7 @@ impl IMFMediaSource2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16177,7 +16177,7 @@ impl IMFMediaSource2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFPresentationDescriptor>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Start)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Start)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), pguidtimeformat, ::core::mem::transmute(pvarstartposition)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.Stop)(::windows::core::Vtable::as_raw(self)).ok()
@@ -16263,7 +16263,7 @@ impl IMFMediaSourceEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16279,7 +16279,7 @@ impl IMFMediaSourceEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFPresentationDescriptor>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Start)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Start)(::windows::core::Vtable::as_raw(self), ppresentationdescriptor.into().abi(), pguidtimeformat, ::core::mem::transmute(pvarstartposition)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Stop)(::windows::core::Vtable::as_raw(self)).ok()
@@ -16613,7 +16613,7 @@ impl IMFMediaStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn GetMediaSource(&self) -> ::windows::core::Result<IMFMediaSource> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16686,7 +16686,7 @@ impl IMFMediaStream2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn GetMediaSource(&self) -> ::windows::core::Result<IMFMediaSource> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -16851,17 +16851,17 @@ impl IMFMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16874,84 +16874,84 @@ impl IMFMediaType {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -16966,7 +16966,7 @@ impl IMFMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -16992,10 +16992,10 @@ impl IMFMediaType {
         (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), pimediatype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRepresentation(&self, guidrepresentation: ::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(ppvrepresentation)).ok()
+        (::windows::core::Vtable::vtable(self).GetRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ppvrepresentation).ok()
     }
     pub unsafe fn FreeRepresentation(&self, guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(pvrepresentation)).ok()
+        (::windows::core::Vtable::vtable(self).FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), pvrepresentation).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFMediaType, ::windows::core::IUnknown, IMFAttributes);
@@ -17417,7 +17417,7 @@ impl IMFNetCredential {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetUser)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata), fencryptdata.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetUser)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata.unwrap_or(::std::ptr::null_mut())), pcbdata, fencryptdata.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17425,7 +17425,7 @@ impl IMFNetCredential {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetPassword)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata), fencryptdata.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetPassword)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata.unwrap_or(::std::ptr::null_mut())), pcbdata, fencryptdata.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17491,7 +17491,7 @@ impl IMFNetCredentialCache {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetCredential)(::windows::core::Vtable::as_raw(self), pszurl.into(), pszrealm.into(), dwauthenticationflags, ::core::mem::transmute(ppcred), ::core::mem::transmute(pdwrequirementsflags)).ok()
+        (::windows::core::Vtable::vtable(self).GetCredential)(::windows::core::Vtable::as_raw(self), pszurl.into(), pszrealm.into(), dwauthenticationflags, ::core::mem::transmute(ppcred), pdwrequirementsflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17554,7 +17554,7 @@ impl IMFNetCredentialManager {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAsyncCallback>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).BeginGetCredentials)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam), pcallback.into().abi(), pstate.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).BeginGetCredentials)(::windows::core::Vtable::as_raw(self), pparam, pcallback.into().abi(), pstate.into().abi()).ok()
     }
     pub unsafe fn EndGetCredentials<'a, P0>(&self, presult: P0) -> ::windows::core::Result<IMFNetCredential>
     where
@@ -17687,7 +17687,7 @@ impl IMFNetProxyLocator {
         (::windows::core::Vtable::vtable(self).RegisterProxyResult)(::windows::core::Vtable::as_raw(self), hrop).ok()
     }
     pub unsafe fn GetCurrentProxy(&self, pszstr: ::windows::core::PWSTR, pcchstr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentProxy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszstr), ::core::mem::transmute(pcchstr)).ok()
+        (::windows::core::Vtable::vtable(self).GetCurrentProxy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszstr), pcchstr).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IMFNetProxyLocator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -17879,10 +17879,10 @@ impl IMFObjectReferenceStream {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).SaveReference)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), punk.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SaveReference)(::windows::core::Vtable::as_raw(self), riid, punk.into().abi()).ok()
     }
     pub unsafe fn LoadReference(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LoadReference)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).LoadReference)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFObjectReferenceStream, ::windows::core::IUnknown);
@@ -17922,17 +17922,17 @@ impl IMFOutputPolicy {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17945,84 +17945,84 @@ impl IMFOutputPolicy {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -18037,7 +18037,7 @@ impl IMFOutputPolicy {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -18047,7 +18047,7 @@ impl IMFOutputPolicy {
     }
     pub unsafe fn GenerateRequiredSchemas(&self, dwattributes: u32, guidoutputsubtype: ::windows::core::GUID, rgguidprotectionschemassupported: *const ::windows::core::GUID, cprotectionschemassupported: u32) -> ::windows::core::Result<IMFCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GenerateRequiredSchemas)(::windows::core::Vtable::as_raw(self), dwattributes, ::core::mem::transmute(guidoutputsubtype), ::core::mem::transmute(rgguidprotectionschemassupported), cprotectionschemassupported, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GenerateRequiredSchemas)(::windows::core::Vtable::as_raw(self), dwattributes, ::core::mem::transmute(guidoutputsubtype), rgguidprotectionschemassupported, cprotectionschemassupported, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetOriginatorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -18096,17 +18096,17 @@ impl IMFOutputSchema {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18119,84 +18119,84 @@ impl IMFOutputSchema {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -18211,7 +18211,7 @@ impl IMFOutputSchema {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -18403,7 +18403,7 @@ impl IMFPMPHost {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), pstream.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), clsid, pstream.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFPMPHost, ::windows::core::IUnknown);
@@ -18511,7 +18511,7 @@ impl IMFPMPServer {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateObjectByCLSID)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFPMPServer, ::windows::core::IUnknown);
@@ -18598,7 +18598,7 @@ impl IMFPMediaItem {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetDuration(&self, guidpositiontype: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidpositiontype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), guidpositiontype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNumberOfStreams(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -18622,13 +18622,13 @@ impl IMFPMediaItem {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStreamAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidmfattribute), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetStreamAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidmfattribute, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidmfattribute), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), guidmfattribute, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -18746,19 +18746,19 @@ impl IMFPMediaPlayer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetPosition(&self, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidpositiontype), ::core::mem::transmute(pvpositionvalue)).ok()
+        (::windows::core::Vtable::vtable(self).SetPosition)(::windows::core::Vtable::as_raw(self), guidpositiontype, ::core::mem::transmute(pvpositionvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetPosition(&self, guidpositiontype: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidpositiontype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPosition)(::windows::core::Vtable::as_raw(self), guidpositiontype, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetDuration(&self, guidpositiontype: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidpositiontype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), guidpositiontype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetRate(&self, flrate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRate)(::windows::core::Vtable::as_raw(self), flrate).ok()
@@ -18773,7 +18773,7 @@ impl IMFPMediaPlayer {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetSupportedRates)(::windows::core::Vtable::as_raw(self), fforwarddirection.into(), ::core::mem::transmute(pflslowestrate), ::core::mem::transmute(pflfastestrate)).ok()
+        (::windows::core::Vtable::vtable(self).GetSupportedRates)(::windows::core::Vtable::as_raw(self), fforwarddirection.into(), pflslowestrate, pflfastestrate).ok()
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<MFP_MEDIAPLAYER_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -18851,7 +18851,7 @@ impl IMFPMediaPlayer {
         (::windows::core::Vtable::vtable(self).GetIdealVideoSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszmin.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszmax.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetVideoSourceRect(&self, pnrcsource: *const MFVideoNormalizedRect) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVideoSourceRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnrcsource)).ok()
+        (::windows::core::Vtable::vtable(self).SetVideoSourceRect)(::windows::core::Vtable::as_raw(self), pnrcsource).ok()
     }
     pub unsafe fn GetVideoSourceRect(&self) -> ::windows::core::Result<MFVideoNormalizedRect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19069,7 +19069,7 @@ impl IMFPluginControl {
         (::windows::core::Vtable::vtable(self).GetPreferredClsid)(::windows::core::Vtable::as_raw(self), plugintype, selector.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPreferredClsidByIndex(&self, plugintype: u32, index: u32, selector: *mut ::windows::core::PWSTR, clsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPreferredClsidByIndex)(::windows::core::Vtable::as_raw(self), plugintype, index, ::core::mem::transmute(selector), ::core::mem::transmute(clsid)).ok()
+        (::windows::core::Vtable::vtable(self).GetPreferredClsidByIndex)(::windows::core::Vtable::as_raw(self), plugintype, index, selector, clsid).ok()
     }
     pub unsafe fn SetPreferredClsid<'a, P0>(&self, plugintype: u32, selector: P0, clsid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
     where
@@ -19078,7 +19078,7 @@ impl IMFPluginControl {
         (::windows::core::Vtable::vtable(self).SetPreferredClsid)(::windows::core::Vtable::as_raw(self), plugintype, selector.into(), ::core::mem::transmute(clsid.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn IsDisabled(&self, plugintype: u32, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IsDisabled)(::windows::core::Vtable::as_raw(self), plugintype, ::core::mem::transmute(clsid)).ok()
+        (::windows::core::Vtable::vtable(self).IsDisabled)(::windows::core::Vtable::as_raw(self), plugintype, clsid).ok()
     }
     pub unsafe fn GetDisabledByIndex(&self, plugintype: u32, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19090,7 +19090,7 @@ impl IMFPluginControl {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetDisabled)(::windows::core::Vtable::as_raw(self), plugintype, ::core::mem::transmute(clsid), disabled.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetDisabled)(::windows::core::Vtable::as_raw(self), plugintype, clsid, disabled.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFPluginControl, ::windows::core::IUnknown);
@@ -19142,7 +19142,7 @@ impl IMFPluginControl2 {
         (::windows::core::Vtable::vtable(self).base__.GetPreferredClsid)(::windows::core::Vtable::as_raw(self), plugintype, selector.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPreferredClsidByIndex(&self, plugintype: u32, index: u32, selector: *mut ::windows::core::PWSTR, clsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPreferredClsidByIndex)(::windows::core::Vtable::as_raw(self), plugintype, index, ::core::mem::transmute(selector), ::core::mem::transmute(clsid)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPreferredClsidByIndex)(::windows::core::Vtable::as_raw(self), plugintype, index, selector, clsid).ok()
     }
     pub unsafe fn SetPreferredClsid<'a, P0>(&self, plugintype: u32, selector: P0, clsid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
     where
@@ -19151,7 +19151,7 @@ impl IMFPluginControl2 {
         (::windows::core::Vtable::vtable(self).base__.SetPreferredClsid)(::windows::core::Vtable::as_raw(self), plugintype, selector.into(), ::core::mem::transmute(clsid.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn IsDisabled(&self, plugintype: u32, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.IsDisabled)(::windows::core::Vtable::as_raw(self), plugintype, ::core::mem::transmute(clsid)).ok()
+        (::windows::core::Vtable::vtable(self).base__.IsDisabled)(::windows::core::Vtable::as_raw(self), plugintype, clsid).ok()
     }
     pub unsafe fn GetDisabledByIndex(&self, plugintype: u32, index: u32) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19163,7 +19163,7 @@ impl IMFPluginControl2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetDisabled)(::windows::core::Vtable::as_raw(self), plugintype, ::core::mem::transmute(clsid), disabled.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDisabled)(::windows::core::Vtable::as_raw(self), plugintype, clsid, disabled.into()).ok()
     }
     pub unsafe fn SetPolicy(&self, policy: MF_PLUGIN_CONTROL_POLICY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPolicy)(::windows::core::Vtable::as_raw(self), policy).ok()
@@ -19207,7 +19207,7 @@ impl IMFPresentationClock {
         (::windows::core::Vtable::vtable(self).base__.GetClockCharacteristics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCorrelatedTime(&self, dwreserved: u32, pllclocktime: *mut i64, phnssystemtime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetCorrelatedTime)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(pllclocktime), ::core::mem::transmute(phnssystemtime)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetCorrelatedTime)(::windows::core::Vtable::as_raw(self), dwreserved, pllclocktime, phnssystemtime).ok()
     }
     pub unsafe fn GetContinuityKey(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19300,17 +19300,17 @@ impl IMFPresentationDescriptor {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19323,84 +19323,84 @@ impl IMFPresentationDescriptor {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -19415,7 +19415,7 @@ impl IMFPresentationDescriptor {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -19430,7 +19430,7 @@ impl IMFPresentationDescriptor {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamDescriptorByIndex(&self, dwindex: u32, pfselected: *mut super::super::Foundation::BOOL, ppdescriptor: *mut ::core::option::Option<IMFStreamDescriptor>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamDescriptorByIndex)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(pfselected), ::core::mem::transmute(ppdescriptor)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamDescriptorByIndex)(::windows::core::Vtable::as_raw(self), dwindex, pfselected, ::core::mem::transmute(ppdescriptor)).ok()
     }
     pub unsafe fn SelectStream(&self, dwdescriptorindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SelectStream)(::windows::core::Vtable::as_raw(self), dwdescriptorindex).ok()
@@ -19488,7 +19488,7 @@ impl IMFPresentationTimeSource {
         (::windows::core::Vtable::vtable(self).base__.GetClockCharacteristics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCorrelatedTime(&self, dwreserved: u32, pllclocktime: *mut i64, phnssystemtime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetCorrelatedTime)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(pllclocktime), ::core::mem::transmute(phnssystemtime)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetCorrelatedTime)(::windows::core::Vtable::as_raw(self), dwreserved, pllclocktime, phnssystemtime).ok()
     }
     pub unsafe fn GetContinuityKey(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -19544,7 +19544,7 @@ impl IMFProtectedEnvironmentAccess {
         (::windows::core::Vtable::vtable(self).Call)(::windows::core::Vtable::as_raw(self), input.len() as _, ::core::mem::transmute(input.as_ptr()), output.len() as _, ::core::mem::transmute(output.as_ptr())).ok()
     }
     pub unsafe fn ReadGRL(&self, outputlength: *mut u32, output: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReadGRL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(outputlength), ::core::mem::transmute(output)).ok()
+        (::windows::core::Vtable::vtable(self).ReadGRL)(::windows::core::Vtable::as_raw(self), outputlength, output).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFProtectedEnvironmentAccess, ::windows::core::IUnknown);
@@ -19823,7 +19823,7 @@ impl IMFRateControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRate(&self, pfthin: *mut super::super::Foundation::BOOL, pflrate: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfthin), ::core::mem::transmute(pflrate)).ok()
+        (::windows::core::Vtable::vtable(self).GetRate)(::windows::core::Vtable::as_raw(self), pfthin, pflrate).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFRateControl, ::windows::core::IUnknown);
@@ -19890,7 +19890,7 @@ impl IMFRateSupport {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).IsRateSupported)(::windows::core::Vtable::as_raw(self), fthin.into(), flrate, ::core::mem::transmute(pflnearestsupportedrate)).ok()
+        (::windows::core::Vtable::vtable(self).IsRateSupported)(::windows::core::Vtable::as_raw(self), fthin.into(), flrate, pflnearestsupportedrate).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFRateSupport, ::windows::core::IUnknown);
@@ -19944,7 +19944,7 @@ impl IMFReadWriteClassFactory {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstanceFromURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), pwszurl.into(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateInstanceFromURL)(::windows::core::Vtable::as_raw(self), clsid, pwszurl.into(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateInstanceFromObject<'a, P0, P1, T>(&self, clsid: *const ::windows::core::GUID, punkobject: P0, pattributes: P1) -> ::windows::core::Result<T>
     where
@@ -19953,7 +19953,7 @@ impl IMFReadWriteClassFactory {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstanceFromObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), punkobject.into().abi(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateInstanceFromObject)(::windows::core::Vtable::as_raw(self), clsid, punkobject.into().abi(), pattributes.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFReadWriteClassFactory, ::windows::core::IUnknown);
@@ -20042,7 +20042,7 @@ impl IMFRealTimeClientEx {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterThreadsEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwtaskindex), wszclassname.into(), lbasepriority).ok()
+        (::windows::core::Vtable::vtable(self).RegisterThreadsEx)(::windows::core::Vtable::as_raw(self), pdwtaskindex, wszclassname.into(), lbasepriority).ok()
     }
     pub unsafe fn UnregisterThreads(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterThreads)(::windows::core::Vtable::as_raw(self)).ok()
@@ -20266,10 +20266,10 @@ pub struct IMFRemoteDesktopPlugin_Vtbl {
 pub struct IMFRemoteProxy(::windows::core::IUnknown);
 impl IMFRemoteProxy {
     pub unsafe fn GetRemoteObject(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRemoteObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).GetRemoteObject)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
     pub unsafe fn GetRemoteHost(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRemoteHost)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).GetRemoteHost)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFRemoteProxy, ::windows::core::IUnknown);
@@ -20370,7 +20370,7 @@ impl IMFSSLCertificateManager {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetClientCertificate)(::windows::core::Vtable::as_raw(self), pszurl.into(), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata)).ok()
+        (::windows::core::Vtable::vtable(self).GetClientCertificate)(::windows::core::Vtable::as_raw(self), pszurl.into(), ppbdata, pcbdata).ok()
     }
     pub unsafe fn BeginGetClientCertificate<'a, P0, P1, P2>(&self, pszurl: P0, pcallback: P1, pstate: P2) -> ::windows::core::Result<()>
     where
@@ -20384,7 +20384,7 @@ impl IMFSSLCertificateManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAsyncResult>>,
     {
-        (::windows::core::Vtable::vtable(self).EndGetClientCertificate)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata)).ok()
+        (::windows::core::Vtable::vtable(self).EndGetClientCertificate)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ppbdata, pcbdata).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20392,7 +20392,7 @@ impl IMFSSLCertificateManager {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetCertificatePolicy)(::windows::core::Vtable::as_raw(self), pszurl.into(), ::core::mem::transmute(pfoverrideautomaticcheck), ::core::mem::transmute(pfclientcertificateavailable)).ok()
+        (::windows::core::Vtable::vtable(self).GetCertificatePolicy)(::windows::core::Vtable::as_raw(self), pszurl.into(), pfoverrideautomaticcheck, pfclientcertificateavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20450,17 +20450,17 @@ impl IMFSample {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20473,84 +20473,84 @@ impl IMFSample {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -20565,7 +20565,7 @@ impl IMFSample {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -20682,7 +20682,7 @@ impl IMFSampleAllocatorControl {
         (::windows::core::Vtable::vtable(self).SetDefaultAllocator)(::windows::core::Vtable::as_raw(self), dwoutputstreamid, pallocator.into().abi()).ok()
     }
     pub unsafe fn GetAllocatorUsage(&self, dwoutputstreamid: u32, pdwinputstreamid: *mut u32, peusage: *mut MFSampleAllocatorUsage) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAllocatorUsage)(::windows::core::Vtable::as_raw(self), dwoutputstreamid, ::core::mem::transmute(pdwinputstreamid), ::core::mem::transmute(peusage)).ok()
+        (::windows::core::Vtable::vtable(self).GetAllocatorUsage)(::windows::core::Vtable::as_raw(self), dwoutputstreamid, pdwinputstreamid, peusage).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSampleAllocatorControl, ::windows::core::IUnknown);
@@ -20741,7 +20741,7 @@ impl IMFSampleGrabberSinkCallback {
         (::windows::core::Vtable::vtable(self).OnSetPresentationClock)(::windows::core::Vtable::as_raw(self), ppresentationclock.into().abi()).ok()
     }
     pub unsafe fn OnProcessSample(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnProcessSample)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidmajormediatype), dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).OnProcessSample)(::windows::core::Vtable::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _).ok()
     }
     pub unsafe fn OnShutdown(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OnShutdown)(::windows::core::Vtable::as_raw(self)).ok()
@@ -20804,7 +20804,7 @@ impl IMFSampleGrabberSinkCallback2 {
         (::windows::core::Vtable::vtable(self).base__.OnSetPresentationClock)(::windows::core::Vtable::as_raw(self), ppresentationclock.into().abi()).ok()
     }
     pub unsafe fn OnProcessSample(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnProcessSample)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidmajormediatype), dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnProcessSample)(::windows::core::Vtable::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _).ok()
     }
     pub unsafe fn OnShutdown(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OnShutdown)(::windows::core::Vtable::as_raw(self)).ok()
@@ -20813,7 +20813,7 @@ impl IMFSampleGrabberSinkCallback2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAttributes>>,
     {
-        (::windows::core::Vtable::vtable(self).OnProcessSampleEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidmajormediatype), dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _, pattributes.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnProcessSampleEx)(::windows::core::Vtable::as_raw(self), guidmajormediatype, dwsampleflags, llsampletime, llsampleduration, ::core::mem::transmute(psamplebuffer.as_ptr()), psamplebuffer.len() as _, pattributes.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSampleGrabberSinkCallback2, ::windows::core::IUnknown, IMFClockStateSink, IMFSampleGrabberSinkCallback);
@@ -20911,13 +20911,13 @@ impl IMFSampleProtection {
         (::windows::core::Vtable::vtable(self).GetOutputProtectionVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetProtectionCertificate(&self, dwversion: u32, ppcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProtectionCertificate)(::windows::core::Vtable::as_raw(self), dwversion, ::core::mem::transmute(ppcert), ::core::mem::transmute(pcbcert)).ok()
+        (::windows::core::Vtable::vtable(self).GetProtectionCertificate)(::windows::core::Vtable::as_raw(self), dwversion, ppcert, pcbcert).ok()
     }
     pub unsafe fn InitOutputProtection(&self, dwversion: u32, dwoutputid: u32, pbcert: *const u8, cbcert: u32, ppbseed: *mut *mut u8, pcbseed: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitOutputProtection)(::windows::core::Vtable::as_raw(self), dwversion, dwoutputid, ::core::mem::transmute(pbcert), cbcert, ::core::mem::transmute(ppbseed), ::core::mem::transmute(pcbseed)).ok()
+        (::windows::core::Vtable::vtable(self).InitOutputProtection)(::windows::core::Vtable::as_raw(self), dwversion, dwoutputid, pbcert, cbcert, ppbseed, pcbseed).ok()
     }
     pub unsafe fn InitInputProtection(&self, dwversion: u32, dwinputid: u32, pbseed: *const u8, cbseed: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitInputProtection)(::windows::core::Vtable::as_raw(self), dwversion, dwinputid, ::core::mem::transmute(pbseed), cbseed).ok()
+        (::windows::core::Vtable::vtable(self).InitInputProtection)(::windows::core::Vtable::as_raw(self), dwversion, dwinputid, pbseed, cbseed).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSampleProtection, ::windows::core::IUnknown);
@@ -21030,7 +21030,7 @@ impl IMFSchemeHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAsyncResult>>,
     {
-        (::windows::core::Vtable::vtable(self).EndCreateObject)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Vtable::vtable(self).EndCreateObject)(::windows::core::Vtable::as_raw(self), presult.into().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
     pub unsafe fn CancelObjectCreation<'a, P0>(&self, piunknowncancelcookie: P0) -> ::windows::core::Result<()>
     where
@@ -21116,7 +21116,7 @@ pub struct IMFSecureBuffer_Vtbl {
 pub struct IMFSecureChannel(::windows::core::IUnknown);
 impl IMFSecureChannel {
     pub unsafe fn GetCertificate(&self, ppcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppcert), ::core::mem::transmute(pcbcert)).ok()
+        (::windows::core::Vtable::vtable(self).GetCertificate)(::windows::core::Vtable::as_raw(self), ppcert, pcbcert).ok()
     }
     pub unsafe fn SetupSession(&self, pbencryptedsessionkey: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetupSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbencryptedsessionkey.as_ptr()), pbencryptedsessionkey.len() as _).ok()
@@ -21159,7 +21159,7 @@ impl IMFSeekInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetNearestKeyFrames(&self, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNearestKeyFrames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidtimeformat), ::core::mem::transmute(pvarstartposition), ::core::mem::transmute(pvarpreviouskeyframe), ::core::mem::transmute(pvarnextkeyframe)).ok()
+        (::windows::core::Vtable::vtable(self).GetNearestKeyFrames)(::windows::core::Vtable::as_raw(self), pguidtimeformat, ::core::mem::transmute(pvarstartposition), ::core::mem::transmute(pvarpreviouskeyframe), ::core::mem::transmute(pvarnextkeyframe)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSeekInfo, ::windows::core::IUnknown);
@@ -21331,10 +21331,10 @@ pub struct IMFSensorActivityMonitor_Vtbl {
 pub struct IMFSensorActivityReport(::windows::core::IUnknown);
 impl IMFSensorActivityReport {
     pub unsafe fn GetFriendlyName(&self, friendlyname: &mut [u16], pcchwritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(friendlyname.as_ptr()), friendlyname.len() as _, ::core::mem::transmute(pcchwritten)).ok()
+        (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(friendlyname.as_ptr()), friendlyname.len() as _, pcchwritten).ok()
     }
     pub unsafe fn GetSymbolicLink(&self, symboliclink: &mut [u16], pcchwritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSymbolicLink)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(symboliclink.as_ptr()), symboliclink.len() as _, ::core::mem::transmute(pcchwritten)).ok()
+        (::windows::core::Vtable::vtable(self).GetSymbolicLink)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(symboliclink.as_ptr()), symboliclink.len() as _, pcchwritten).ok()
     }
     pub unsafe fn GetProcessCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -21394,7 +21394,7 @@ impl IMFSensorDevice {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSymbolicLink(&self, symboliclink: &mut [u16], pcchwritten: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSymbolicLink)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(symboliclink.as_ptr()), symboliclink.len() as _, ::core::mem::transmute(pcchwritten)).ok()
+        (::windows::core::Vtable::vtable(self).GetSymbolicLink)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(symboliclink.as_ptr()), symboliclink.len() as _, pcchwritten).ok()
     }
     pub unsafe fn GetDeviceAttributes(&self) -> ::windows::core::Result<IMFAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -21458,7 +21458,7 @@ pub struct IMFSensorDevice_Vtbl {
 pub struct IMFSensorGroup(::windows::core::IUnknown);
 impl IMFSensorGroup {
     pub unsafe fn GetSymbolicLink(&self, symboliclink: &mut [u16], pcchwritten: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSymbolicLink)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(symboliclink.as_ptr()), symboliclink.len() as _, ::core::mem::transmute(pcchwritten)).ok()
+        (::windows::core::Vtable::vtable(self).GetSymbolicLink)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(symboliclink.as_ptr()), symboliclink.len() as _, pcchwritten).ok()
     }
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -21671,13 +21671,13 @@ impl IMFSensorProfileCollection {
     }
     pub unsafe fn FindProfile(&self, profileid: *const SENSORPROFILEID) -> ::windows::core::Result<IMFSensorProfile> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(profileid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindProfile)(::windows::core::Vtable::as_raw(self), profileid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveProfileByIndex(&self, index: u32) {
         (::windows::core::Vtable::vtable(self).RemoveProfileByIndex)(::windows::core::Vtable::as_raw(self), index)
     }
     pub unsafe fn RemoveProfile(&self, profileid: *const SENSORPROFILEID) {
-        (::windows::core::Vtable::vtable(self).RemoveProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(profileid))
+        (::windows::core::Vtable::vtable(self).RemoveProfile)(::windows::core::Vtable::as_raw(self), profileid)
     }
 }
 ::windows::core::interface_hierarchy!(IMFSensorProfileCollection, ::windows::core::IUnknown);
@@ -21721,17 +21721,17 @@ impl IMFSensorStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21744,84 +21744,84 @@ impl IMFSensorStream {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -21836,7 +21836,7 @@ impl IMFSensorStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -21908,14 +21908,14 @@ impl IMFSensorTransformFactory {
         (::windows::core::Vtable::vtable(self).GetTransformCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetTransformInformation(&self, transformindex: u32, pguidtransformid: *mut ::windows::core::GUID, ppattributes: ::core::option::Option<*mut ::core::option::Option<IMFAttributes>>, ppstreaminformation: *mut ::core::option::Option<IMFCollection>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTransformInformation)(::windows::core::Vtable::as_raw(self), transformindex, ::core::mem::transmute(pguidtransformid), ::core::mem::transmute(ppattributes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppstreaminformation)).ok()
+        (::windows::core::Vtable::vtable(self).GetTransformInformation)(::windows::core::Vtable::as_raw(self), transformindex, pguidtransformid, ::core::mem::transmute(ppattributes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppstreaminformation)).ok()
     }
     pub unsafe fn CreateTransform<'a, P0>(&self, guidsensortransformid: *const ::windows::core::GUID, pattributes: P0) -> ::windows::core::Result<IMFDeviceTransform>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAttributes>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidsensortransformid), pattributes.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateTransform)(::windows::core::Vtable::as_raw(self), guidsensortransformid, pattributes.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFSensorTransformFactory, ::windows::core::IUnknown);
@@ -22105,7 +22105,7 @@ impl IMFSignedLibrary {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetProcedureAddress)(::windows::core::Vtable::as_raw(self), name.into(), ::core::mem::transmute(address)).ok()
+        (::windows::core::Vtable::vtable(self).GetProcedureAddress)(::windows::core::Vtable::as_raw(self), name.into(), address).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSignedLibrary, ::windows::core::IUnknown);
@@ -22232,7 +22232,7 @@ impl IMFSinkWriter {
         (::windows::core::Vtable::vtable(self).SendStreamTick)(::windows::core::Vtable::as_raw(self), dwstreamindex, lltimestamp).ok()
     }
     pub unsafe fn PlaceMarker(&self, dwstreamindex: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PlaceMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pvcontext)).ok()
+        (::windows::core::Vtable::vtable(self).PlaceMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, pvcontext).ok()
     }
     pub unsafe fn NotifyEndOfSegment(&self, dwstreamindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NotifyEndOfSegment)(::windows::core::Vtable::as_raw(self), dwstreamindex).ok()
@@ -22244,7 +22244,7 @@ impl IMFSinkWriter {
         (::windows::core::Vtable::vtable(self).Finalize)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Vtable::vtable(self).GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
     pub unsafe fn GetStatistics(&self, dwstreamindex: u32) -> ::windows::core::Result<MF_SINK_WRITER_STATISTICS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -22298,7 +22298,7 @@ impl IMFSinkWriterCallback {
         (::windows::core::Vtable::vtable(self).OnFinalize)(::windows::core::Vtable::as_raw(self), hrstatus).ok()
     }
     pub unsafe fn OnMarker(&self, dwstreamindex: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pvcontext)).ok()
+        (::windows::core::Vtable::vtable(self).OnMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, pvcontext).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSinkWriterCallback, ::windows::core::IUnknown);
@@ -22339,7 +22339,7 @@ impl IMFSinkWriterCallback2 {
         (::windows::core::Vtable::vtable(self).base__.OnFinalize)(::windows::core::Vtable::as_raw(self), hrstatus).ok()
     }
     pub unsafe fn OnMarker(&self, dwstreamindex: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pvcontext)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, pvcontext).ok()
     }
     pub unsafe fn OnTransformChange(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OnTransformChange)(::windows::core::Vtable::as_raw(self)).ok()
@@ -22457,7 +22457,7 @@ impl IMFSinkWriterEx {
         (::windows::core::Vtable::vtable(self).base__.SendStreamTick)(::windows::core::Vtable::as_raw(self), dwstreamindex, lltimestamp).ok()
     }
     pub unsafe fn PlaceMarker(&self, dwstreamindex: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.PlaceMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pvcontext)).ok()
+        (::windows::core::Vtable::vtable(self).base__.PlaceMarker)(::windows::core::Vtable::as_raw(self), dwstreamindex, pvcontext).ok()
     }
     pub unsafe fn NotifyEndOfSegment(&self, dwstreamindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.NotifyEndOfSegment)(::windows::core::Vtable::as_raw(self), dwstreamindex).ok()
@@ -22469,7 +22469,7 @@ impl IMFSinkWriterEx {
         (::windows::core::Vtable::vtable(self).base__.Finalize)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
     pub unsafe fn GetStatistics(&self, dwstreamindex: u32) -> ::windows::core::Result<MF_SINK_WRITER_STATISTICS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -22808,7 +22808,7 @@ impl IMFSourceReader {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCurrentPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtimeformat), ::core::mem::transmute(varposition)).ok()
+        (::windows::core::Vtable::vtable(self).SetCurrentPosition)(::windows::core::Vtable::as_raw(self), guidtimeformat, ::core::mem::transmute(varposition)).ok()
     }
     pub unsafe fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: ::core::option::Option<*mut u32>, pdwstreamflags: ::core::option::Option<*mut u32>, plltimestamp: ::core::option::Option<*mut i64>, ppsample: ::core::option::Option<*mut ::core::option::Option<IMFSample>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ReadSample)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwcontrolflags, ::core::mem::transmute(pdwactualstreamindex.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwstreamflags.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plltimestamp.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsample.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -22817,13 +22817,13 @@ impl IMFSourceReader {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self), dwstreamindex).ok()
     }
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Vtable::vtable(self).GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidattribute), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidattribute, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFSourceReader, ::windows::core::IUnknown);
@@ -23018,7 +23018,7 @@ impl IMFSourceReaderEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetCurrentPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtimeformat), ::core::mem::transmute(varposition)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetCurrentPosition)(::windows::core::Vtable::as_raw(self), guidtimeformat, ::core::mem::transmute(varposition)).ok()
     }
     pub unsafe fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: ::core::option::Option<*mut u32>, pdwstreamflags: ::core::option::Option<*mut u32>, plltimestamp: ::core::option::Option<*mut i64>, ppsample: ::core::option::Option<*mut ::core::option::Option<IMFSample>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ReadSample)(::windows::core::Vtable::as_raw(self), dwstreamindex, dwcontrolflags, ::core::mem::transmute(pdwactualstreamindex.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwstreamflags.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plltimestamp.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsample.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -23027,13 +23027,13 @@ impl IMFSourceReaderEx {
         (::windows::core::Vtable::vtable(self).base__.Flush)(::windows::core::Vtable::as_raw(self), dwstreamindex).ok()
     }
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetServiceForStream)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(guidattribute), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetPresentationAttribute)(::windows::core::Vtable::as_raw(self), dwstreamindex, guidattribute, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetNativeMediaType<'a, P0>(&self, dwstreamindex: u32, pmediatype: P0) -> ::windows::core::Result<u32>
     where
@@ -23098,7 +23098,7 @@ impl IMFSourceResolver {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateObjectFromURL)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwflags, pprops.into().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Vtable::vtable(self).CreateObjectFromURL)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwflags, pprops.into().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -23108,7 +23108,7 @@ impl IMFSourceResolver {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateObjectFromByteStream)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), pwszurl.into(), dwflags, pprops.into().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Vtable::vtable(self).CreateObjectFromByteStream)(::windows::core::Vtable::as_raw(self), pbytestream.into().abi(), pwszurl.into(), dwflags, pprops.into().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -23125,7 +23125,7 @@ impl IMFSourceResolver {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAsyncResult>>,
     {
-        (::windows::core::Vtable::vtable(self).EndCreateObjectFromURL)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Vtable::vtable(self).EndCreateObjectFromURL)(::windows::core::Vtable::as_raw(self), presult.into().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -23143,7 +23143,7 @@ impl IMFSourceResolver {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMFAsyncResult>>,
     {
-        (::windows::core::Vtable::vtable(self).EndCreateObjectFromByteStream)(::windows::core::Vtable::as_raw(self), presult.into().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
+        (::windows::core::Vtable::vtable(self).EndCreateObjectFromByteStream)(::windows::core::Vtable::as_raw(self), presult.into().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
     pub unsafe fn CancelObjectCreation<'a, P0>(&self, piunknowncancelcookie: P0) -> ::windows::core::Result<()>
     where
@@ -23204,7 +23204,7 @@ pub struct IMFSourceResolver_Vtbl {
 pub struct IMFSpatialAudioObjectBuffer(::windows::core::IUnknown);
 impl IMFSpatialAudioObjectBuffer {
     pub unsafe fn Lock(&self, ppbbuffer: *mut *mut u8, pcbmaxlength: ::core::option::Option<*mut u32>, pcbcurrentlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Lock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbbuffer), ::core::mem::transmute(pcbmaxlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbcurrentlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.Lock)(::windows::core::Vtable::as_raw(self), ppbbuffer, ::core::mem::transmute(pcbmaxlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbcurrentlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Unlock(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Unlock)(::windows::core::Vtable::as_raw(self)).ok()
@@ -23294,17 +23294,17 @@ impl IMFSpatialAudioSample {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23317,84 +23317,84 @@ impl IMFSpatialAudioSample {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -23409,7 +23409,7 @@ impl IMFSpatialAudioSample {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -23525,17 +23525,17 @@ impl IMFStreamDescriptor {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23548,84 +23548,84 @@ impl IMFStreamDescriptor {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -23640,7 +23640,7 @@ impl IMFStreamDescriptor {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -23712,7 +23712,7 @@ impl IMFStreamSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, ::core::mem::transmute(guidextendedtype), hrstatus, ::core::mem::transmute(pvvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.QueueEvent)(::windows::core::Vtable::as_raw(self), met, guidextendedtype, hrstatus, ::core::mem::transmute(pvvalue)).ok()
     }
     pub unsafe fn GetMediaSink(&self) -> ::windows::core::Result<IMFMediaSink> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -23828,10 +23828,10 @@ pub struct IMFStreamingSinkConfig_Vtbl {
 pub struct IMFSystemId(::windows::core::IUnknown);
 impl IMFSystemId {
     pub unsafe fn GetData(&self, size: *mut u32, data: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(data)).ok()
+        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), size, data).ok()
     }
     pub unsafe fn Setup(&self, stage: u32, pbin: &[u8], pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setup)(::windows::core::Vtable::as_raw(self), stage, pbin.len() as _, ::core::mem::transmute(pbin.as_ptr()), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
+        (::windows::core::Vtable::vtable(self).Setup)(::windows::core::Vtable::as_raw(self), stage, pbin.len() as _, ::core::mem::transmute(pbin.as_ptr()), pcbout, ppbout).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFSystemId, ::windows::core::IUnknown);
@@ -24094,7 +24094,7 @@ pub struct IMFTimedText_Vtbl {
 pub struct IMFTimedTextBinary(::windows::core::IUnknown);
 impl IMFTimedTextBinary {
     pub unsafe fn GetData(&self, data: *mut *mut u8, length: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data), ::core::mem::transmute(length)).ok()
+        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), data, length).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFTimedTextBinary, ::windows::core::IUnknown);
@@ -24343,7 +24343,7 @@ impl IMFTimedTextFormattedText {
         (::windows::core::Vtable::vtable(self).GetSubformattingCount)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetSubformatting(&self, index: u32, firstchar: *mut u32, charlength: *mut u32, style: ::core::option::Option<*mut ::core::option::Option<IMFTimedTextStyle>>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSubformatting)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(firstchar), ::core::mem::transmute(charlength), ::core::mem::transmute(style.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetSubformatting)(::windows::core::Vtable::as_raw(self), index, firstchar, charlength, ::core::mem::transmute(style.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFTimedTextFormattedText, ::windows::core::IUnknown);
@@ -24458,10 +24458,10 @@ impl IMFTimedTextRegion {
         (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPosition(&self, px: *mut f64, py: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(px), ::core::mem::transmute(py), ::core::mem::transmute(unittype)).ok()
+        (::windows::core::Vtable::vtable(self).GetPosition)(::windows::core::Vtable::as_raw(self), px, py, unittype).ok()
     }
     pub unsafe fn GetExtent(&self, pwidth: *mut f64, pheight: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetExtent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight), ::core::mem::transmute(unittype)).ok()
+        (::windows::core::Vtable::vtable(self).GetExtent)(::windows::core::Vtable::as_raw(self), pwidth, pheight, unittype).ok()
     }
     pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<MFARGB> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -24476,7 +24476,7 @@ impl IMFTimedTextRegion {
         (::windows::core::Vtable::vtable(self).GetDisplayAlignment)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetLineHeight(&self, plineheight: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLineHeight)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plineheight), ::core::mem::transmute(unittype)).ok()
+        (::windows::core::Vtable::vtable(self).GetLineHeight)(::windows::core::Vtable::as_raw(self), plineheight, unittype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24485,7 +24485,7 @@ impl IMFTimedTextRegion {
         (::windows::core::Vtable::vtable(self).GetClipOverflow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPadding(&self, before: *mut f64, start: *mut f64, after: *mut f64, end: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPadding)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(before), ::core::mem::transmute(start), ::core::mem::transmute(after), ::core::mem::transmute(end), ::core::mem::transmute(unittype)).ok()
+        (::windows::core::Vtable::vtable(self).GetPadding)(::windows::core::Vtable::as_raw(self), before, start, after, end, unittype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -24619,7 +24619,7 @@ impl IMFTimedTextStyle {
         (::windows::core::Vtable::vtable(self).GetFontFamily)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFontSize(&self, fontsize: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFontSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(fontsize), ::core::mem::transmute(unittype)).ok()
+        (::windows::core::Vtable::vtable(self).GetFontSize)(::windows::core::Vtable::as_raw(self), fontsize, unittype).ok()
     }
     pub unsafe fn GetColor(&self) -> ::windows::core::Result<MFARGB> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -24660,7 +24660,7 @@ impl IMFTimedTextStyle {
         (::windows::core::Vtable::vtable(self).GetTextDecoration)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetTextOutline(&self, color: *mut MFARGB, thickness: *mut f64, blurradius: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTextOutline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(color), ::core::mem::transmute(thickness), ::core::mem::transmute(blurradius), ::core::mem::transmute(unittype)).ok()
+        (::windows::core::Vtable::vtable(self).GetTextOutline)(::windows::core::Vtable::as_raw(self), color, thickness, blurradius, unittype).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFTimedTextStyle, ::windows::core::IUnknown);
@@ -25021,17 +25021,17 @@ impl IMFTopology {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25044,84 +25044,84 @@ impl IMFTopology {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -25136,7 +25136,7 @@ impl IMFTopology {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -25235,17 +25235,17 @@ impl IMFTopologyNode {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -25258,84 +25258,84 @@ impl IMFTopologyNode {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -25350,7 +25350,7 @@ impl IMFTopologyNode {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -25397,10 +25397,10 @@ impl IMFTopologyNode {
         (::windows::core::Vtable::vtable(self).DisconnectOutput)(::windows::core::Vtable::as_raw(self), dwoutputindex).ok()
     }
     pub unsafe fn GetInput(&self, dwinputindex: u32, ppupstreamnode: *mut ::core::option::Option<IMFTopologyNode>, pdwoutputindexonupstreamnode: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInput)(::windows::core::Vtable::as_raw(self), dwinputindex, ::core::mem::transmute(ppupstreamnode), ::core::mem::transmute(pdwoutputindexonupstreamnode)).ok()
+        (::windows::core::Vtable::vtable(self).GetInput)(::windows::core::Vtable::as_raw(self), dwinputindex, ::core::mem::transmute(ppupstreamnode), pdwoutputindexonupstreamnode).ok()
     }
     pub unsafe fn GetOutput(&self, dwoutputindex: u32, ppdownstreamnode: *mut ::core::option::Option<IMFTopologyNode>, pdwinputindexondownstreamnode: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOutput)(::windows::core::Vtable::as_raw(self), dwoutputindex, ::core::mem::transmute(ppdownstreamnode), ::core::mem::transmute(pdwinputindexondownstreamnode)).ok()
+        (::windows::core::Vtable::vtable(self).GetOutput)(::windows::core::Vtable::as_raw(self), dwoutputindex, ::core::mem::transmute(ppdownstreamnode), pdwinputindexondownstreamnode).ok()
     }
     pub unsafe fn SetOutputPrefType<'a, P0>(&self, dwoutputindex: u32, ptype: P0) -> ::windows::core::Result<()>
     where
@@ -25515,7 +25515,7 @@ pub struct IMFTopologyNodeAttributeEditor_Vtbl {
 pub struct IMFTopologyServiceLookup(::windows::core::IUnknown);
 impl IMFTopologyServiceLookup {
     pub unsafe fn LookupService(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LookupService)(::windows::core::Vtable::as_raw(self), r#type, dwindex, ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobjects), ::core::mem::transmute(pnobjects)).ok()
+        (::windows::core::Vtable::vtable(self).LookupService)(::windows::core::Vtable::as_raw(self), r#type, dwindex, guidservice, riid, ppvobjects, pnobjects).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFTopologyServiceLookup, ::windows::core::IUnknown);
@@ -25765,10 +25765,10 @@ pub struct IMFTranscodeSinkInfoProvider_Vtbl {
 pub struct IMFTransform(::windows::core::IUnknown);
 impl IMFTransform {
     pub unsafe fn GetStreamLimits(&self, pdwinputminimum: *mut u32, pdwinputmaximum: *mut u32, pdwoutputminimum: *mut u32, pdwoutputmaximum: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamLimits)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwinputminimum), ::core::mem::transmute(pdwinputmaximum), ::core::mem::transmute(pdwoutputminimum), ::core::mem::transmute(pdwoutputmaximum)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamLimits)(::windows::core::Vtable::as_raw(self), pdwinputminimum, pdwinputmaximum, pdwoutputminimum, pdwoutputmaximum).ok()
     }
     pub unsafe fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcinputstreams), ::core::mem::transmute(pcoutputstreams)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamCount)(::windows::core::Vtable::as_raw(self), pcinputstreams, pcoutputstreams).ok()
     }
     pub unsafe fn GetStreamIDs(&self, pdwinputids: &mut [u32], pdwoutputids: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStreamIDs)(::windows::core::Vtable::as_raw(self), pdwinputids.len() as _, ::core::mem::transmute(pdwinputids.as_ptr()), pdwoutputids.len() as _, ::core::mem::transmute(pdwoutputids.as_ptr())).ok()
@@ -25797,7 +25797,7 @@ impl IMFTransform {
         (::windows::core::Vtable::vtable(self).DeleteInputStream)(::windows::core::Vtable::as_raw(self), dwstreamid).ok()
     }
     pub unsafe fn AddInputStreams(&self, cstreams: u32, adwstreamids: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddInputStreams)(::windows::core::Vtable::as_raw(self), cstreams, ::core::mem::transmute(adwstreamids)).ok()
+        (::windows::core::Vtable::vtable(self).AddInputStreams)(::windows::core::Vtable::as_raw(self), cstreams, adwstreamids).ok()
     }
     pub unsafe fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> ::windows::core::Result<IMFMediaType> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -25854,7 +25854,7 @@ impl IMFTransform {
         (::windows::core::Vtable::vtable(self).ProcessInput)(::windows::core::Vtable::as_raw(self), dwinputstreamid, psample.into().abi(), dwflags).ok()
     }
     pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputsamples: &mut [MFT_OUTPUT_DATA_BUFFER], pdwstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ProcessOutput)(::windows::core::Vtable::as_raw(self), dwflags, poutputsamples.len() as _, ::core::mem::transmute(poutputsamples.as_ptr()), ::core::mem::transmute(pdwstatus)).ok()
+        (::windows::core::Vtable::vtable(self).ProcessOutput)(::windows::core::Vtable::as_raw(self), dwflags, poutputsamples.len() as _, ::core::mem::transmute(poutputsamples.as_ptr()), pdwstatus).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFTransform, ::windows::core::IUnknown);
@@ -25914,7 +25914,7 @@ pub struct IMFTrustedInput(::windows::core::IUnknown);
 impl IMFTrustedInput {
     pub unsafe fn GetInputTrustAuthority(&self, dwstreamid: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputTrustAuthority)(::windows::core::Vtable::as_raw(self), dwstreamid, ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetInputTrustAuthority)(::windows::core::Vtable::as_raw(self), dwstreamid, riid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMFTrustedInput, ::windows::core::IUnknown);
@@ -26104,22 +26104,22 @@ impl IMFVideoDisplayControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNativeVideoSize(&self, pszvideo: *mut super::super::Foundation::SIZE, pszarvideo: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNativeVideoSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszvideo), ::core::mem::transmute(pszarvideo)).ok()
+        (::windows::core::Vtable::vtable(self).GetNativeVideoSize)(::windows::core::Vtable::as_raw(self), pszvideo, pszarvideo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdealVideoSize(&self, pszmin: *mut super::super::Foundation::SIZE, pszmax: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIdealVideoSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszmin), ::core::mem::transmute(pszmax)).ok()
+        (::windows::core::Vtable::vtable(self).GetIdealVideoSize)(::windows::core::Vtable::as_raw(self), pszmin, pszmax).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVideoPosition(&self, pnrcsource: *const MFVideoNormalizedRect, prcdest: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVideoPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnrcsource), ::core::mem::transmute(prcdest)).ok()
+        (::windows::core::Vtable::vtable(self).SetVideoPosition)(::windows::core::Vtable::as_raw(self), pnrcsource, prcdest).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoPosition(&self, pnrcsource: *mut MFVideoNormalizedRect, prcdest: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnrcsource), ::core::mem::transmute(prcdest)).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoPosition)(::windows::core::Vtable::as_raw(self), pnrcsource, prcdest).ok()
     }
     pub unsafe fn SetAspectRatioMode(&self, dwaspectratiomode: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAspectRatioMode)(::windows::core::Vtable::as_raw(self), dwaspectratiomode).ok()
@@ -26148,7 +26148,7 @@ impl IMFVideoDisplayControl {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetCurrentImage(&self, pbih: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, pdib: *mut *mut u8, pcbdib: *mut u32, ptimestamp: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentImage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbih), ::core::mem::transmute(pdib), ::core::mem::transmute(pcbdib), ::core::mem::transmute(ptimestamp)).ok()
+        (::windows::core::Vtable::vtable(self).GetCurrentImage)(::windows::core::Vtable::as_raw(self), pbih, pdib, pcbdib, ptimestamp).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26270,17 +26270,17 @@ impl IMFVideoMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26293,84 +26293,84 @@ impl IMFVideoMediaType {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -26385,7 +26385,7 @@ impl IMFVideoMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -26411,10 +26411,10 @@ impl IMFVideoMediaType {
         (::windows::core::Vtable::vtable(self).base__.IsEqual)(::windows::core::Vtable::as_raw(self), pimediatype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRepresentation(&self, guidrepresentation: ::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(ppvrepresentation)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ppvrepresentation).ok()
     }
     pub unsafe fn FreeRepresentation(&self, guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(pvrepresentation)).ok()
+        (::windows::core::Vtable::vtable(self).base__.FreeRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), pvrepresentation).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26422,7 +26422,7 @@ impl IMFVideoMediaType {
         (::windows::core::Vtable::vtable(self).GetVideoFormat)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetVideoRepresentation(&self, guidrepresentation: ::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void, lstride: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVideoRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ::core::mem::transmute(ppvrepresentation), lstride).ok()
+        (::windows::core::Vtable::vtable(self).GetVideoRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidrepresentation), ppvrepresentation, lstride).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFVideoMediaType, ::windows::core::IUnknown, IMFAttributes, IMFMediaType);
@@ -26473,7 +26473,7 @@ impl IMFVideoMixerBitmap {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateAlphaBitmapParameters(&self, pbmpparms: *const MFVideoAlphaBitmapParams) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UpdateAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbmpparms)).ok()
+        (::windows::core::Vtable::vtable(self).UpdateAlphaBitmapParameters)(::windows::core::Vtable::as_raw(self), pbmpparms).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -26535,7 +26535,7 @@ impl IMFVideoMixerControl {
         (::windows::core::Vtable::vtable(self).GetStreamZOrder)(::windows::core::Vtable::as_raw(self), dwstreamid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetStreamOutputRect(&self, dwstreamid: u32, pnrcoutput: *const MFVideoNormalizedRect) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStreamOutputRect)(::windows::core::Vtable::as_raw(self), dwstreamid, ::core::mem::transmute(pnrcoutput)).ok()
+        (::windows::core::Vtable::vtable(self).SetStreamOutputRect)(::windows::core::Vtable::as_raw(self), dwstreamid, pnrcoutput).ok()
     }
     pub unsafe fn GetStreamOutputRect(&self, dwstreamid: u32) -> ::windows::core::Result<MFVideoNormalizedRect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26586,7 +26586,7 @@ impl IMFVideoMixerControl2 {
         (::windows::core::Vtable::vtable(self).base__.GetStreamZOrder)(::windows::core::Vtable::as_raw(self), dwstreamid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetStreamOutputRect(&self, dwstreamid: u32, pnrcoutput: *const MFVideoNormalizedRect) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetStreamOutputRect)(::windows::core::Vtable::as_raw(self), dwstreamid, ::core::mem::transmute(pnrcoutput)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetStreamOutputRect)(::windows::core::Vtable::as_raw(self), dwstreamid, pnrcoutput).ok()
     }
     pub unsafe fn GetStreamOutputRect(&self, dwstreamid: u32) -> ::windows::core::Result<MFVideoNormalizedRect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26635,7 +26635,7 @@ pub struct IMFVideoMixerControl2_Vtbl {
 pub struct IMFVideoPositionMapper(::windows::core::IUnknown);
 impl IMFVideoPositionMapper {
     pub unsafe fn MapOutputCoordinateToInputStream(&self, xout: f32, yout: f32, dwoutputstreamindex: u32, dwinputstreamindex: u32, pxin: *mut f32, pyin: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MapOutputCoordinateToInputStream)(::windows::core::Vtable::as_raw(self), xout, yout, dwoutputstreamindex, dwinputstreamindex, ::core::mem::transmute(pxin), ::core::mem::transmute(pyin)).ok()
+        (::windows::core::Vtable::vtable(self).MapOutputCoordinateToInputStream)(::windows::core::Vtable::as_raw(self), xout, yout, dwoutputstreamindex, dwinputstreamindex, pxin, pyin).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMFVideoPositionMapper, ::windows::core::IUnknown);
@@ -26729,20 +26729,20 @@ pub struct IMFVideoPresenter_Vtbl {
 pub struct IMFVideoProcessor(::windows::core::IUnknown);
 impl IMFVideoProcessor {
     pub unsafe fn GetAvailableVideoProcessorModes(&self, lpdwnumprocessingmodes: *mut u32, ppvideoprocessingmodes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAvailableVideoProcessorModes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpdwnumprocessingmodes), ::core::mem::transmute(ppvideoprocessingmodes)).ok()
+        (::windows::core::Vtable::vtable(self).GetAvailableVideoProcessorModes)(::windows::core::Vtable::as_raw(self), lpdwnumprocessingmodes, ppvideoprocessingmodes).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorCaps(&self, lpvideoprocessormode: *const ::windows::core::GUID) -> ::windows::core::Result<DXVA2_VideoProcessorCaps> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvideoprocessormode), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetVideoProcessorCaps)(::windows::core::Vtable::as_raw(self), lpvideoprocessormode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetVideoProcessorMode(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetVideoProcessorMode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetVideoProcessorMode(&self, lpmode: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetVideoProcessorMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpmode)).ok()
+        (::windows::core::Vtable::vtable(self).SetVideoProcessorMode)(::windows::core::Vtable::as_raw(self), lpmode).ok()
     }
     pub unsafe fn GetProcAmpRange(&self, dwproperty: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26753,7 +26753,7 @@ impl IMFVideoProcessor {
         (::windows::core::Vtable::vtable(self).GetProcAmpValues)(::windows::core::Vtable::as_raw(self), dwflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProcAmpValues(&self, dwflags: u32, pvalues: *const DXVA2_ProcAmpValues) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProcAmpValues)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(pvalues)).ok()
+        (::windows::core::Vtable::vtable(self).SetProcAmpValues)(::windows::core::Vtable::as_raw(self), dwflags, pvalues).ok()
     }
     pub unsafe fn GetFilteringRange(&self, dwproperty: u32) -> ::windows::core::Result<DXVA2_ValueRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -26764,7 +26764,7 @@ impl IMFVideoProcessor {
         (::windows::core::Vtable::vtable(self).GetFilteringValue)(::windows::core::Vtable::as_raw(self), dwproperty, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetFilteringValue(&self, dwproperty: u32, pvalue: *const DXVA2_Fixed32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFilteringValue)(::windows::core::Vtable::as_raw(self), dwproperty, ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Vtable::vtable(self).SetFilteringValue)(::windows::core::Vtable::as_raw(self), dwproperty, pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27409,17 +27409,17 @@ impl IMFVirtualCamera {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetItemType(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<MF_ATTRIBUTE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27432,84 +27432,84 @@ impl IMFVirtualCamera {
     }
     pub unsafe fn GetUINT32(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUINT64(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDouble(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetDouble)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetGUID(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringLength(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringLength)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, guidkey: *const ::windows::core::GUID, pwszvalue: &mut [u16], pcchlength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pwszvalue.as_ptr()), pwszvalue.len() as _, ::core::mem::transmute(pcchlength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const ::windows::core::GUID, ppwszvalue: *mut ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedString)(::windows::core::Vtable::as_raw(self), guidkey, ppwszvalue, pcchlength).ok()
     }
     pub unsafe fn GetBlobSize(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetBlobSize)(::windows::core::Vtable::as_raw(self), guidkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &mut [u8], pcbblobsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _, ::core::mem::transmute(pcbblobsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAllocatedBlob(&self, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppbuf), ::core::mem::transmute(pcbsize)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAllocatedBlob)(::windows::core::Vtable::as_raw(self), guidkey, ppbuf, pcbsize).ok()
     }
     pub unsafe fn GetUnknown<T>(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetItem)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteItem)(::windows::core::Vtable::as_raw(self), guidkey).ok()
     }
     pub unsafe fn DeleteAllItems(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteAllItems)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SetUINT32(&self, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT32)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetUINT64(&self, guidkey: *const ::windows::core::GUID, unvalue: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), unvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUINT64)(::windows::core::Vtable::as_raw(self), guidkey, unvalue).ok()
     }
     pub unsafe fn SetDouble(&self, guidkey: *const ::windows::core::GUID, fvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), fvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDouble)(::windows::core::Vtable::as_raw(self), guidkey, fvalue).ok()
     }
     pub unsafe fn SetGUID(&self, guidkey: *const ::windows::core::GUID, guidvalue: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(guidvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetGUID)(::windows::core::Vtable::as_raw(self), guidkey, guidvalue).ok()
     }
     pub unsafe fn SetString<'a, P0>(&self, guidkey: *const ::windows::core::GUID, wszvalue: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), guidkey, wszvalue.into()).ok()
     }
     pub unsafe fn SetBlob(&self, guidkey: *const ::windows::core::GUID, pbuf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetBlob)(::windows::core::Vtable::as_raw(self), guidkey, ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
     }
     pub unsafe fn SetUnknown<'a, P0>(&self, guidkey: *const ::windows::core::GUID, punknown: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidkey), punknown.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUnknown)(::windows::core::Vtable::as_raw(self), guidkey, punknown.into().abi()).ok()
     }
     pub unsafe fn LockStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.LockStore)(::windows::core::Vtable::as_raw(self)).ok()
@@ -27524,7 +27524,7 @@ impl IMFVirtualCamera {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, ::core::mem::transmute(pguidkey), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetItemByIndex)(::windows::core::Vtable::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CopyAllItems<'a, P0>(&self, pdest: P0) -> ::windows::core::Result<()>
     where
@@ -27541,7 +27541,7 @@ impl IMFVirtualCamera {
     #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
     #[cfg(feature = "Win32_Devices_Properties")]
     pub unsafe fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: u32, pbdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pkey), r#type, ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).AddProperty)(::windows::core::Vtable::as_raw(self), pkey, r#type, ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _).ok()
     }
     pub unsafe fn AddRegistryEntry<'a, P0, P1>(&self, entryname: P0, subkeypath: P1, dwregtype: u32, pbdata: &[u8]) -> ::windows::core::Result<()>
     where
@@ -27567,7 +27567,7 @@ impl IMFVirtualCamera {
         (::windows::core::Vtable::vtable(self).GetMediaSource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SendCameraProperty(&self, propertyset: *const ::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: ::core::option::Option<*mut ::core::ffi::c_void>, propertypayloadlength: u32, data: ::core::option::Option<*mut ::core::ffi::c_void>, datalength: u32, datawritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SendCameraProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyset), propertyid, propertyflags, ::core::mem::transmute(propertypayload.unwrap_or(::std::ptr::null_mut())), propertypayloadlength, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), datalength, ::core::mem::transmute(datawritten)).ok()
+        (::windows::core::Vtable::vtable(self).SendCameraProperty)(::windows::core::Vtable::as_raw(self), propertyset, propertyid, propertyflags, ::core::mem::transmute(propertypayload.unwrap_or(::std::ptr::null_mut())), propertypayloadlength, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), datalength, datawritten).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27576,7 +27576,7 @@ impl IMFVirtualCamera {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSyncEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(kseventset), kseventid, kseventflags, eventhandle.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateSyncEvent)(::windows::core::Vtable::as_raw(self), kseventset, kseventid, kseventflags, eventhandle.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -27585,7 +27585,7 @@ impl IMFVirtualCamera {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSyncSemaphore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(kseventset), kseventid, kseventflags, semaphorehandle.into(), semaphoreadjustment, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateSyncSemaphore)(::windows::core::Vtable::as_raw(self), kseventset, kseventid, kseventflags, semaphorehandle.into(), semaphoreadjustment, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Shutdown(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
@@ -27670,7 +27670,7 @@ impl IMFWorkQueueServices {
         (::windows::core::Vtable::vtable(self).EndUnregisterTopologyWorkQueuesWithMMCSS)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
     pub unsafe fn GetTopologyWorkQueueMMCSSClass(&self, dwtopologyworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTopologyWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwtopologyworkqueueid, ::core::mem::transmute(pwszclass), ::core::mem::transmute(pcchclass)).ok()
+        (::windows::core::Vtable::vtable(self).GetTopologyWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwtopologyworkqueueid, ::core::mem::transmute(pwszclass), pcchclass).ok()
     }
     pub unsafe fn GetTopologyWorkQueueMMCSSTaskId(&self, dwtopologyworkqueueid: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -27705,7 +27705,7 @@ impl IMFWorkQueueServices {
         (::windows::core::Vtable::vtable(self).EndUnregisterPlatformWorkQueueWithMMCSS)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
     pub unsafe fn GetPlaftormWorkQueueMMCSSClass(&self, dwplatformworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPlaftormWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, ::core::mem::transmute(pwszclass), ::core::mem::transmute(pcchclass)).ok()
+        (::windows::core::Vtable::vtable(self).GetPlaftormWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, ::core::mem::transmute(pwszclass), pcchclass).ok()
     }
     pub unsafe fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -27783,7 +27783,7 @@ impl IMFWorkQueueServicesEx {
         (::windows::core::Vtable::vtable(self).base__.EndUnregisterTopologyWorkQueuesWithMMCSS)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
     pub unsafe fn GetTopologyWorkQueueMMCSSClass(&self, dwtopologyworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetTopologyWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwtopologyworkqueueid, ::core::mem::transmute(pwszclass), ::core::mem::transmute(pcchclass)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetTopologyWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwtopologyworkqueueid, ::core::mem::transmute(pwszclass), pcchclass).ok()
     }
     pub unsafe fn GetTopologyWorkQueueMMCSSTaskId(&self, dwtopologyworkqueueid: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -27818,7 +27818,7 @@ impl IMFWorkQueueServicesEx {
         (::windows::core::Vtable::vtable(self).base__.EndUnregisterPlatformWorkQueueWithMMCSS)(::windows::core::Vtable::as_raw(self), presult.into().abi()).ok()
     }
     pub unsafe fn GetPlaftormWorkQueueMMCSSClass(&self, dwplatformworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPlaftormWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, ::core::mem::transmute(pwszclass), ::core::mem::transmute(pcchclass)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPlaftormWorkQueueMMCSSClass)(::windows::core::Vtable::as_raw(self), dwplatformworkqueueid, ::core::mem::transmute(pwszclass), pcchclass).ok()
     }
     pub unsafe fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -27877,21 +27877,21 @@ pub struct IMFWorkQueueServicesEx_Vtbl {
 pub struct IOPMVideoOutput(::windows::core::IUnknown);
 impl IOPMVideoOutput {
     pub unsafe fn StartInitialization(&self, prnrandomnumber: *mut OPM_RANDOM_NUMBER, ppbcertificate: *mut *mut u8, pulcertificatelength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartInitialization)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prnrandomnumber), ::core::mem::transmute(ppbcertificate), ::core::mem::transmute(pulcertificatelength)).ok()
+        (::windows::core::Vtable::vtable(self).StartInitialization)(::windows::core::Vtable::as_raw(self), prnrandomnumber, ppbcertificate, pulcertificatelength).ok()
     }
     pub unsafe fn FinishInitialization(&self, pparameters: *const OPM_ENCRYPTED_INITIALIZATION_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).FinishInitialization)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Vtable::vtable(self).FinishInitialization)(::windows::core::Vtable::as_raw(self), pparameters).ok()
     }
     pub unsafe fn GetInformation(&self, pparameters: *const OPM_GET_INFO_PARAMETERS) -> ::windows::core::Result<OPM_REQUESTED_INFORMATION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparameters), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetInformation)(::windows::core::Vtable::as_raw(self), pparameters, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn COPPCompatibleGetInformation(&self, pparameters: *const OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS) -> ::windows::core::Result<OPM_REQUESTED_INFORMATION> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).COPPCompatibleGetInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparameters), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).COPPCompatibleGetInformation)(::windows::core::Vtable::as_raw(self), pparameters, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Configure(&self, pparameters: *const OPM_CONFIGURE_PARAMETERS, pbadditionalparameters: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparameters), pbadditionalparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbadditionalparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), pparameters, pbadditionalparameters.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbadditionalparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOPMVideoOutput, ::windows::core::IUnknown);
@@ -28064,10 +28064,10 @@ pub struct IPlayToSourceClassFactory_Vtbl {
 pub struct IToc(::windows::core::IUnknown);
 impl IToc {
     pub unsafe fn SetDescriptor(&self, pdescriptor: *mut TOC_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdescriptor)).ok()
+        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), pdescriptor).ok()
     }
     pub unsafe fn GetDescriptor(&self, pdescriptor: *mut TOC_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdescriptor)).ok()
+        (::windows::core::Vtable::vtable(self).GetDescriptor)(::windows::core::Vtable::as_raw(self), pdescriptor).ok()
     }
     pub unsafe fn SetDescription<'a, P0>(&self, pwszdescription: P0) -> ::windows::core::Result<()>
     where
@@ -28076,16 +28076,16 @@ impl IToc {
         (::windows::core::Vtable::vtable(self).SetDescription)(::windows::core::Vtable::as_raw(self), pwszdescription.into()).ok()
     }
     pub unsafe fn GetDescription(&self, pwdescriptionsize: *mut u16, pwszdescription: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwdescriptionsize), ::core::mem::transmute(pwszdescription)).ok()
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), pwdescriptionsize, ::core::mem::transmute(pwszdescription)).ok()
     }
     pub unsafe fn SetContext(&self, dwcontextsize: u32, pbtcontext: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), dwcontextsize, ::core::mem::transmute(pbtcontext)).ok()
+        (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), dwcontextsize, pbtcontext).ok()
     }
     pub unsafe fn GetContext(&self, pdwcontextsize: *mut u32, pbtcontext: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwcontextsize), ::core::mem::transmute(pbtcontext)).ok()
+        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), pdwcontextsize, pbtcontext).ok()
     }
     pub unsafe fn GetEntryListCount(&self, pwcount: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEntryListCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwcount)).ok()
+        (::windows::core::Vtable::vtable(self).GetEntryListCount)(::windows::core::Vtable::as_raw(self), pwcount).ok()
     }
     pub unsafe fn GetEntryListByIndex(&self, wentrylistindex: u16) -> ::windows::core::Result<ITocEntryList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -28095,7 +28095,7 @@ impl IToc {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITocEntryList>>,
     {
-        (::windows::core::Vtable::vtable(self).AddEntryList)(::windows::core::Vtable::as_raw(self), pentrylist.into().abi(), ::core::mem::transmute(pwentrylistindex)).ok()
+        (::windows::core::Vtable::vtable(self).AddEntryList)(::windows::core::Vtable::as_raw(self), pentrylist.into().abi(), pwentrylistindex).ok()
     }
     pub unsafe fn AddEntryListByIndex<'a, P0>(&self, wentrylistindex: u16, pentrylist: P0) -> ::windows::core::Result<()>
     where
@@ -28151,7 +28151,7 @@ pub struct IToc_Vtbl {
 pub struct ITocCollection(::windows::core::IUnknown);
 impl ITocCollection {
     pub unsafe fn GetEntryCount(&self, pdwentrycount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEntryCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwentrycount)).ok()
+        (::windows::core::Vtable::vtable(self).GetEntryCount)(::windows::core::Vtable::as_raw(self), pdwentrycount).ok()
     }
     pub unsafe fn GetEntryByIndex(&self, dwentryindex: u32) -> ::windows::core::Result<IToc> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -28161,7 +28161,7 @@ impl ITocCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IToc>>,
     {
-        (::windows::core::Vtable::vtable(self).AddEntry)(::windows::core::Vtable::as_raw(self), ptoc.into().abi(), ::core::mem::transmute(pdwentryindex)).ok()
+        (::windows::core::Vtable::vtable(self).AddEntry)(::windows::core::Vtable::as_raw(self), ptoc.into().abi(), pdwentryindex).ok()
     }
     pub unsafe fn AddEntryByIndex<'a, P0>(&self, dwentryindex: u32, ptoc: P0) -> ::windows::core::Result<()>
     where
@@ -28217,25 +28217,25 @@ impl ITocEntry {
         (::windows::core::Vtable::vtable(self).SetTitle)(::windows::core::Vtable::as_raw(self), pwsztitle.into()).ok()
     }
     pub unsafe fn GetTitle(&self, pwtitlesize: *mut u16, pwsztitle: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTitle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwtitlesize), ::core::mem::transmute(pwsztitle)).ok()
+        (::windows::core::Vtable::vtable(self).GetTitle)(::windows::core::Vtable::as_raw(self), pwtitlesize, ::core::mem::transmute(pwsztitle)).ok()
     }
     pub unsafe fn SetDescriptor(&self, pdescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdescriptor)).ok()
+        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), pdescriptor).ok()
     }
     pub unsafe fn GetDescriptor(&self, pdescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdescriptor)).ok()
+        (::windows::core::Vtable::vtable(self).GetDescriptor)(::windows::core::Vtable::as_raw(self), pdescriptor).ok()
     }
     pub unsafe fn SetSubEntries(&self, dwnumsubentries: u32, pwsubentryindices: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSubEntries)(::windows::core::Vtable::as_raw(self), dwnumsubentries, ::core::mem::transmute(pwsubentryindices)).ok()
+        (::windows::core::Vtable::vtable(self).SetSubEntries)(::windows::core::Vtable::as_raw(self), dwnumsubentries, pwsubentryindices).ok()
     }
     pub unsafe fn GetSubEntries(&self, pdwnumsubentries: *mut u32, pwsubentryindices: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSubEntries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwnumsubentries), ::core::mem::transmute(pwsubentryindices)).ok()
+        (::windows::core::Vtable::vtable(self).GetSubEntries)(::windows::core::Vtable::as_raw(self), pdwnumsubentries, pwsubentryindices).ok()
     }
     pub unsafe fn SetDescriptionData(&self, dwdescriptiondatasize: u32, pbtdescriptiondata: *mut u8, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescriptionData)(::windows::core::Vtable::as_raw(self), dwdescriptiondatasize, ::core::mem::transmute(pbtdescriptiondata), ::core::mem::transmute(pguidtype)).ok()
+        (::windows::core::Vtable::vtable(self).SetDescriptionData)(::windows::core::Vtable::as_raw(self), dwdescriptiondatasize, pbtdescriptiondata, pguidtype).ok()
     }
     pub unsafe fn GetDescriptionData(&self, pdwdescriptiondatasize: *mut u32, pbtdescriptiondata: *mut u8, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDescriptionData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwdescriptiondatasize), ::core::mem::transmute(pbtdescriptiondata), ::core::mem::transmute(pguidtype)).ok()
+        (::windows::core::Vtable::vtable(self).GetDescriptionData)(::windows::core::Vtable::as_raw(self), pdwdescriptiondatasize, pbtdescriptiondata, pguidtype).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITocEntry, ::windows::core::IUnknown);
@@ -28279,7 +28279,7 @@ pub struct ITocEntry_Vtbl {
 pub struct ITocEntryList(::windows::core::IUnknown);
 impl ITocEntryList {
     pub unsafe fn GetEntryCount(&self, pdwentrycount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEntryCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwentrycount)).ok()
+        (::windows::core::Vtable::vtable(self).GetEntryCount)(::windows::core::Vtable::as_raw(self), pdwentrycount).ok()
     }
     pub unsafe fn GetEntryByIndex(&self, dwentryindex: u32) -> ::windows::core::Result<ITocEntry> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -28289,7 +28289,7 @@ impl ITocEntryList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITocEntry>>,
     {
-        (::windows::core::Vtable::vtable(self).AddEntry)(::windows::core::Vtable::as_raw(self), pentry.into().abi(), ::core::mem::transmute(pdwentryindex)).ok()
+        (::windows::core::Vtable::vtable(self).AddEntry)(::windows::core::Vtable::as_raw(self), pentry.into().abi(), pdwentryindex).ok()
     }
     pub unsafe fn AddEntryByIndex<'a, P0>(&self, dwentryindex: u32, pentry: P0) -> ::windows::core::Result<()>
     where
@@ -28345,7 +28345,7 @@ impl ITocParser {
         (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
     }
     pub unsafe fn GetTocCount(&self, enumtocpostype: TOC_POS_TYPE, pdwtoccount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTocCount)(::windows::core::Vtable::as_raw(self), enumtocpostype, ::core::mem::transmute(pdwtoccount)).ok()
+        (::windows::core::Vtable::vtable(self).GetTocCount)(::windows::core::Vtable::as_raw(self), enumtocpostype, pdwtoccount).ok()
     }
     pub unsafe fn GetTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> ::windows::core::Result<IToc> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -28359,7 +28359,7 @@ impl ITocParser {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IToc>>,
     {
-        (::windows::core::Vtable::vtable(self).AddToc)(::windows::core::Vtable::as_raw(self), enumtocpostype, ptoc.into().abi(), ::core::mem::transmute(pdwtocindex)).ok()
+        (::windows::core::Vtable::vtable(self).AddToc)(::windows::core::Vtable::as_raw(self), enumtocpostype, ptoc.into().abi(), pdwtocindex).ok()
     }
     pub unsafe fn RemoveTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveTocByIndex)(::windows::core::Vtable::as_raw(self), enumtocpostype, dwtocindex).ok()
@@ -28412,7 +28412,7 @@ pub struct ITocParser_Vtbl {
 pub struct IValidateBinding(::windows::core::IUnknown);
 impl IValidateBinding {
     pub unsafe fn GetIdentifier(&self, guidlicensorid: ::windows::core::GUID, pbephemeron: &[u8], ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidlicensorid), ::core::mem::transmute(pbephemeron.as_ptr()), pbephemeron.len() as _, ::core::mem::transmute(ppbblobvalidationid), ::core::mem::transmute(pcbblobsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidlicensorid), ::core::mem::transmute(pbephemeron.as_ptr()), pbephemeron.len() as _, ppbblobvalidationid, pcbblobsize).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IValidateBinding, ::windows::core::IUnknown);
@@ -28452,13 +28452,13 @@ impl IWMCodecLeakyBucket {
         (::windows::core::Vtable::vtable(self).SetBufferSizeBits)(::windows::core::Vtable::as_raw(self), ulbuffersize).ok()
     }
     pub unsafe fn GetBufferSizeBits(&self, pulbuffersize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBufferSizeBits)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pulbuffersize)).ok()
+        (::windows::core::Vtable::vtable(self).GetBufferSizeBits)(::windows::core::Vtable::as_raw(self), pulbuffersize).ok()
     }
     pub unsafe fn SetBufferFullnessBits(&self, ulbufferfullness: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBufferFullnessBits)(::windows::core::Vtable::as_raw(self), ulbufferfullness).ok()
     }
     pub unsafe fn GetBufferFullnessBits(&self, pulbufferfullness: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBufferFullnessBits)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pulbufferfullness)).ok()
+        (::windows::core::Vtable::vtable(self).GetBufferFullnessBits)(::windows::core::Vtable::as_raw(self), pulbufferfullness).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMCodecLeakyBucket, ::windows::core::IUnknown);
@@ -28498,7 +28498,7 @@ pub struct IWMCodecLeakyBucket_Vtbl {
 pub struct IWMCodecOutputTimestamp(::windows::core::IUnknown);
 impl IWMCodecOutputTimestamp {
     pub unsafe fn GetNextOutputTime(&self, prttime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextOutputTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prttime)).ok()
+        (::windows::core::Vtable::vtable(self).GetNextOutputTime)(::windows::core::Vtable::as_raw(self), prttime).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMCodecOutputTimestamp, ::windows::core::IUnknown);
@@ -28540,7 +28540,7 @@ impl IWMCodecPrivateData {
         (::windows::core::Vtable::vtable(self).SetPartialOutputType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt)).ok()
     }
     pub unsafe fn GetPrivateData(&self, pbdata: *mut u8, pcbdata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPrivateData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata), ::core::mem::transmute(pcbdata)).ok()
+        (::windows::core::Vtable::vtable(self).GetPrivateData)(::windows::core::Vtable::as_raw(self), pbdata, pcbdata).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMCodecPrivateData, ::windows::core::IUnknown);
@@ -28586,13 +28586,13 @@ impl IWMCodecProps {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetFormatProp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt), pszname.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pdwsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetFormatProp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt), pszname.into(), ptype, pvalue, pdwsize).ok()
     }
     pub unsafe fn GetCodecProp<'a, P0>(&self, dwformat: u32, pszname: P0, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetCodecProp)(::windows::core::Vtable::as_raw(self), dwformat, pszname.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pdwsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetCodecProp)(::windows::core::Vtable::as_raw(self), dwformat, pszname.into(), ptype, pvalue, pdwsize).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMCodecProps, ::windows::core::IUnknown);
@@ -28635,12 +28635,12 @@ impl IWMCodecStrings {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub unsafe fn GetName(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, szname: ::core::option::Option<&mut [u16]>, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt), szname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt), szname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchlength).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub unsafe fn GetDescription(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, szdescription: ::core::option::Option<&mut [u16]>, pcchlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt), szdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchlength)).ok()
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmt), szdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchlength).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMCodecStrings, ::windows::core::IUnknown);
@@ -28867,7 +28867,7 @@ impl IWMResamplerProps {
         (::windows::core::Vtable::vtable(self).SetHalfFilterLength)(::windows::core::Vtable::as_raw(self), lhalffilterlen).ok()
     }
     pub unsafe fn SetUserChannelMtx(&self, userchannelmtx: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUserChannelMtx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(userchannelmtx)).ok()
+        (::windows::core::Vtable::vtable(self).SetUserChannelMtx)(::windows::core::Vtable::as_raw(self), userchannelmtx).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMResamplerProps, ::windows::core::IUnknown);
@@ -28917,7 +28917,7 @@ impl IWMResizerProps {
         (::windows::core::Vtable::vtable(self).SetFullCropRegion)(::windows::core::Vtable::as_raw(self), lcliporixsrc, lcliporiysrc, lclipwidthsrc, lclipheightsrc, lcliporixdst, lcliporiydst, lclipwidthdst, lclipheightdst).ok()
     }
     pub unsafe fn GetFullCropRegion(&self, lcliporixsrc: *mut i32, lcliporiysrc: *mut i32, lclipwidthsrc: *mut i32, lclipheightsrc: *mut i32, lcliporixdst: *mut i32, lcliporiydst: *mut i32, lclipwidthdst: *mut i32, lclipheightdst: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFullCropRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lcliporixsrc), ::core::mem::transmute(lcliporiysrc), ::core::mem::transmute(lclipwidthsrc), ::core::mem::transmute(lclipheightsrc), ::core::mem::transmute(lcliporixdst), ::core::mem::transmute(lcliporiydst), ::core::mem::transmute(lclipwidthdst), ::core::mem::transmute(lclipheightdst)).ok()
+        (::windows::core::Vtable::vtable(self).GetFullCropRegion)(::windows::core::Vtable::as_raw(self), lcliporixsrc, lcliporiysrc, lclipwidthsrc, lclipheightsrc, lcliporixdst, lcliporiydst, lclipwidthdst, lclipheightdst).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMResizerProps, ::windows::core::IUnknown);
@@ -29043,7 +29043,7 @@ impl IWMVideoDecoderHurryup {
         (::windows::core::Vtable::vtable(self).SetHurryup)(::windows::core::Vtable::as_raw(self), lhurryup).ok()
     }
     pub unsafe fn GetHurryup(&self, plhurryup: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetHurryup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plhurryup)).ok()
+        (::windows::core::Vtable::vtable(self).GetHurryup)(::windows::core::Vtable::as_raw(self), plhurryup).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMVideoDecoderHurryup, ::windows::core::IUnknown);
@@ -29081,7 +29081,7 @@ pub struct IWMVideoDecoderHurryup_Vtbl {
 pub struct IWMVideoDecoderReconBuffer(::windows::core::IUnknown);
 impl IWMVideoDecoderReconBuffer {
     pub unsafe fn GetReconstructedVideoFrameSize(&self, pdwsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetReconstructedVideoFrameSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetReconstructedVideoFrameSize)(::windows::core::Vtable::as_raw(self), pdwsize).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
     #[cfg(feature = "Win32_Media_DxMediaObjects")]

@@ -6,7 +6,7 @@ impl IDedupBackupSupport {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDedupReadFileCallback>>,
     {
-        (::windows::core::Vtable::vtable(self).RestoreFiles)(::windows::core::Vtable::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into().abi(), flags, ::core::mem::transmute(fileresults)).ok()
+        (::windows::core::Vtable::vtable(self).RestoreFiles)(::windows::core::Vtable::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into().abi(), flags, fileresults).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDedupBackupSupport, ::windows::core::IUnknown);
@@ -101,7 +101,7 @@ pub struct IDedupChunkLibrary_Vtbl {
 pub struct IDedupDataPort(::windows::core::IUnknown);
 impl IDedupDataPort {
     pub unsafe fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatus), ::core::mem::transmute(pdataheadroommb)).ok()
+        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), pstatus, pdataheadroommb).ok()
     }
     pub unsafe fn LookupChunks(&self, phashes: &[DedupHash]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -138,21 +138,21 @@ impl IDedupDataPort {
         (::windows::core::Vtable::vtable(self).GetStreams)(::windows::core::Vtable::as_raw(self), pstreampaths.len() as _, ::core::mem::transmute(pstreampaths.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStreamsResults(&self, requestid: ::windows::core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamsResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, streamentryindex, ::core::mem::transmute(pstreamcount), ::core::mem::transmute(ppstreams), ::core::mem::transmute(pentrycount), ::core::mem::transmute(ppentries), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
+        (::windows::core::Vtable::vtable(self).GetStreamsResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, streamentryindex, pstreamcount, ppstreams, pentrycount, ppentries, pstatus, ppitemresults).ok()
     }
     pub unsafe fn GetChunks(&self, phashes: &[DedupHash]) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetChunks)(::windows::core::Vtable::as_raw(self), phashes.len() as _, ::core::mem::transmute(phashes.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetChunksResults(&self, requestid: ::windows::core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChunksResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, chunkindex, ::core::mem::transmute(pchunkcount), ::core::mem::transmute(ppchunkmetadata), ::core::mem::transmute(pdatabytecount), ::core::mem::transmute(ppchunkdata), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
+        (::windows::core::Vtable::vtable(self).GetChunksResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, chunkindex, pchunkcount, ppchunkmetadata, pdatabytecount, ppchunkdata, pstatus, ppitemresults).ok()
     }
     pub unsafe fn GetRequestStatus(&self, requestid: ::windows::core::GUID) -> ::windows::core::Result<DedupDataPortRequestStatus> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRequestStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRequestResults(&self, requestid: ::windows::core::GUID, maxwaitms: u32, pbatchresult: *mut ::windows::core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRequestResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, ::core::mem::transmute(pbatchresult), ::core::mem::transmute(pbatchcount), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
+        (::windows::core::Vtable::vtable(self).GetRequestResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, pbatchresult, pbatchcount, pstatus, ppitemresults).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDedupDataPort, ::windows::core::IUnknown);
@@ -206,7 +206,7 @@ pub struct IDedupDataPort_Vtbl {
 pub struct IDedupDataPortManager(::windows::core::IUnknown);
 impl IDedupDataPortManager {
     pub unsafe fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pminchunksize), ::core::mem::transmute(pmaxchunksize), ::core::mem::transmute(pchunkingalgorithm), ::core::mem::transmute(phashingalgorithm), ::core::mem::transmute(pcompressionalgorithm)).ok()
+        (::windows::core::Vtable::vtable(self).GetConfiguration)(::windows::core::Vtable::as_raw(self), pminchunksize, pmaxchunksize, pchunkingalgorithm, phashingalgorithm, pcompressionalgorithm).ok()
     }
     pub unsafe fn GetVolumeStatus(&self, options: u32, path: &::windows::core::BSTR) -> ::windows::core::Result<DedupDataPortVolumeStatus> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -256,7 +256,7 @@ impl IDedupIterateChunksHash32 {
         (::windows::core::Vtable::vtable(self).PushBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _).ok()
     }
     pub unsafe fn Next(&self, parrchunks: &mut [DEDUP_CHUNK_INFO_HASH32], pulfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), parrchunks.len() as _, ::core::mem::transmute(parrchunks.as_ptr()), ::core::mem::transmute(pulfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), parrchunks.len() as _, ::core::mem::transmute(parrchunks.as_ptr()), pulfetched).ok()
     }
     pub unsafe fn Drain(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Drain)(::windows::core::Vtable::as_raw(self)).ok()
@@ -302,10 +302,10 @@ pub struct IDedupIterateChunksHash32_Vtbl {
 pub struct IDedupReadFileCallback(::windows::core::IUnknown);
 impl IDedupReadFileCallback {
     pub unsafe fn ReadBackupFile(&self, filefullpath: &::windows::core::BSTR, fileoffset: i64, filebuffer: &mut [u8], returnedsize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReadBackupFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filefullpath), fileoffset, filebuffer.len() as _, ::core::mem::transmute(filebuffer.as_ptr()), ::core::mem::transmute(returnedsize), flags).ok()
+        (::windows::core::Vtable::vtable(self).ReadBackupFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filefullpath), fileoffset, filebuffer.len() as _, ::core::mem::transmute(filebuffer.as_ptr()), returnedsize, flags).ok()
     }
     pub unsafe fn OrderContainersRestore(&self, containerpaths: &[::windows::core::BSTR], readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OrderContainersRestore)(::windows::core::Vtable::as_raw(self), containerpaths.len() as _, ::core::mem::transmute(containerpaths.as_ptr()), ::core::mem::transmute(readplanentries), ::core::mem::transmute(readplan)).ok()
+        (::windows::core::Vtable::vtable(self).OrderContainersRestore)(::windows::core::Vtable::as_raw(self), containerpaths.len() as _, ::core::mem::transmute(containerpaths.as_ptr()), readplanentries, readplan).ok()
     }
     pub unsafe fn PreviewContainerRead(&self, filefullpath: &::windows::core::BSTR, readoffsets: &[DDP_FILE_EXTENT]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PreviewContainerRead)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filefullpath), readoffsets.len() as _, ::core::mem::transmute(readoffsets.as_ptr())).ok()

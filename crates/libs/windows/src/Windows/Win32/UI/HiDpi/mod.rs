@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn AdjustWindowRectExForDpi ( lprect : *mut super::super::Foundation:: RECT , dwstyle : super::WindowsAndMessaging:: WINDOW_STYLE , bmenu : super::super::Foundation:: BOOL , dwexstyle : super::WindowsAndMessaging:: WINDOW_EX_STYLE , dpi : u32 ) -> super::super::Foundation:: BOOL );
-    AdjustWindowRectExForDpi(::core::mem::transmute(lprect), dwstyle, bmenu.into(), dwexstyle, dpi)
+    AdjustWindowRectExForDpi(lprect, dwstyle, bmenu.into(), dwexstyle, dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -76,7 +76,7 @@ where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
 {
     ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetDpiForMonitor ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dpitype : MONITOR_DPI_TYPE , dpix : *mut u32 , dpiy : *mut u32 ) -> :: windows::core::HRESULT );
-    GetDpiForMonitor(hmonitor.into(), dpitype, ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy)).ok()
+    GetDpiForMonitor(hmonitor.into(), dpitype, dpix, dpiy).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
@@ -181,7 +181,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn LogicalToPhysicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
-    LogicalToPhysicalPointForPerMonitorDPI(hwnd.into(), ::core::mem::transmute(lppoint))
+    LogicalToPhysicalPointForPerMonitorDPI(hwnd.into(), lppoint)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -202,7 +202,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn PhysicalToLogicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
-    PhysicalToLogicalPointForPerMonitorDPI(hwnd.into(), ::core::mem::transmute(lppoint))
+    PhysicalToLogicalPointForPerMonitorDPI(hwnd.into(), lppoint)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

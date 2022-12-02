@@ -20,28 +20,28 @@ where
 #[inline]
 pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebuffer: ::core::option::Option<&mut [u16]>, subscriptionnamebufferused: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wecapi.dll""system" fn EcEnumNextSubscription ( subscriptionenum : isize , subscriptionnamebuffersize : u32 , subscriptionnamebuffer : :: windows::core::PWSTR , subscriptionnamebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(subscriptionnamebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(subscriptionnamebufferused))
+    EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(subscriptionnamebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), subscriptionnamebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wecapi.dll""system" fn EcGetObjectArrayProperty ( objectarray : isize , propertyid : EC_SUBSCRIPTION_PROPERTY_ID , arrayindex : u32 , flags : u32 , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EC_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EcGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused))
+    EcGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wecapi.dll""system" fn EcGetObjectArraySize ( objectarray : isize , objectarraysize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EcGetObjectArraySize(objectarray, ::core::mem::transmute(objectarraysize))
+    EcGetObjectArraySize(objectarray, objectarraysize)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wecapi.dll""system" fn EcGetSubscriptionProperty ( subscription : isize , propertyid : EC_SUBSCRIPTION_PROPERTY_ID , flags : u32 , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EC_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EcGetSubscriptionProperty(subscription, propertyid, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused))
+    EcGetSubscriptionProperty(subscription, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -52,7 +52,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "wecapi.dll""system" fn EcGetSubscriptionRunTimeStatus ( subscriptionname : :: windows::core::PCWSTR , statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID , eventsourcename : :: windows::core::PCWSTR , flags : u32 , statusvaluebuffersize : u32 , statusvaluebuffer : *mut EC_VARIANT , statusvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EcGetSubscriptionRunTimeStatus(subscriptionname.into(), statusinfoid, eventsourcename.into(), flags, statusvaluebuffersize, ::core::mem::transmute(statusvaluebuffer), ::core::mem::transmute(statusvaluebufferused))
+    EcGetSubscriptionRunTimeStatus(subscriptionname.into(), statusinfoid, eventsourcename.into(), flags, statusvaluebuffersize, statusvaluebuffer, statusvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -106,14 +106,14 @@ pub unsafe fn EcSaveSubscription(subscription: isize, flags: u32) -> super::supe
 #[inline]
 pub unsafe fn EcSetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wecapi.dll""system" fn EcSetObjectArrayProperty ( objectarray : isize , propertyid : EC_SUBSCRIPTION_PROPERTY_ID , arrayindex : u32 , flags : u32 , propertyvalue : *mut EC_VARIANT ) -> super::super::Foundation:: BOOL );
-    EcSetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, ::core::mem::transmute(propertyvalue))
+    EcSetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvalue)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EcSetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wecapi.dll""system" fn EcSetSubscriptionProperty ( subscription : isize , propertyid : EC_SUBSCRIPTION_PROPERTY_ID , flags : u32 , propertyvalue : *mut EC_VARIANT ) -> super::super::Foundation:: BOOL );
-    EcSetSubscriptionProperty(subscription, propertyid, flags, ::core::mem::transmute(propertyvalue))
+    EcSetSubscriptionProperty(subscription, propertyid, flags, propertyvalue)
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EC_CREATE_NEW: u32 = 1u32;

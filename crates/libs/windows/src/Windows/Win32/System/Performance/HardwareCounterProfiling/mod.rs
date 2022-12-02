@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnableThreadProfiling ( threadhandle : super::super::super::Foundation:: HANDLE , flags : u32 , hardwarecounters : u64 , performancedatahandle : *mut super::super::super::Foundation:: HANDLE ) -> u32 );
-    EnableThreadProfiling(threadhandle.into(), flags, hardwarecounters, ::core::mem::transmute(performancedatahandle))
+    EnableThreadProfiling(threadhandle.into(), flags, hardwarecounters, performancedatahandle)
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -26,7 +26,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn QueryThreadProfiling ( threadhandle : super::super::super::Foundation:: HANDLE , enabled : *mut super::super::super::Foundation:: BOOLEAN ) -> u32 );
-    QueryThreadProfiling(threadhandle.into(), ::core::mem::transmute(enabled))
+    QueryThreadProfiling(threadhandle.into(), enabled)
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -36,7 +36,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn ReadThreadProfilingData ( performancedatahandle : super::super::super::Foundation:: HANDLE , flags : u32 , performancedata : *mut PERFORMANCE_DATA ) -> u32 );
-    ReadThreadProfilingData(performancedatahandle.into(), flags, ::core::mem::transmute(performancedata))
+    ReadThreadProfilingData(performancedatahandle.into(), flags, performancedata)
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 #[repr(transparent)]

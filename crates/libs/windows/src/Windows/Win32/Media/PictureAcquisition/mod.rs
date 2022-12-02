@@ -142,12 +142,12 @@ impl IPhotoAcquireItem {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), key, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(pv)).ok()
+        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), key, ::core::mem::transmute(pv)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -476,7 +476,7 @@ impl IPhotoAcquireProgressCB {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riidtype), punknown.into().abi(), ::core::mem::transmute(ppropvarresult), ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), riidtype, punknown.into().abi(), ::core::mem::transmute(ppropvarresult), ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPhotoAcquireProgressCB, ::windows::core::IUnknown);
@@ -577,7 +577,7 @@ impl IPhotoAcquireSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAcquisitionTime(&self, pftacquisitiontime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAcquisitionTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pftacquisitiontime)).ok()
+        (::windows::core::Vtable::vtable(self).SetAcquisitionTime)(::windows::core::Vtable::as_raw(self), pftacquisitiontime).ok()
     }
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -700,7 +700,7 @@ impl IPhotoAcquireSource {
         (::windows::core::Vtable::vtable(self).GetDeviceId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BindToObject(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BindToObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Vtable::vtable(self).BindToObject)(::windows::core::Vtable::as_raw(self), riid, ppv).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPhotoAcquireSource, ::windows::core::IUnknown);
@@ -907,7 +907,7 @@ impl IPhotoProgressDialog {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riidtype), punknown.into().abi(), ::core::mem::transmute(ppropvarresult), ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).GetUserInput)(::windows::core::Vtable::as_raw(self), riidtype, punknown.into().abi(), ::core::mem::transmute(ppropvarresult), ::core::mem::transmute(ppropvardefault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPhotoProgressDialog, ::windows::core::IUnknown);

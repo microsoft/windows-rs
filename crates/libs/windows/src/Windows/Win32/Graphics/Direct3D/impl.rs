@@ -26,16 +26,16 @@ impl ID3DBlob_Vtbl {
     }
 }
 pub trait ID3DDestructionNotifier_Impl: Sized {
-    fn RegisterDestructionCallback(&self, callbackfn: &PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
+    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
     fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ID3DDestructionNotifier {}
 impl ID3DDestructionNotifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> ID3DDestructionNotifier_Vtbl {
-        unsafe extern "system" fn RegisterDestructionCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfn: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterDestructionCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RegisterDestructionCallback(::core::mem::transmute(&callbackfn), ::core::mem::transmute_copy(&pdata)) {
+            match this.RegisterDestructionCallback(::core::mem::transmute_copy(&callbackfn), ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pcallbackid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

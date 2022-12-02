@@ -6,7 +6,7 @@ impl IADesktopP2 {
         (::windows::core::Vtable::vtable(self).ReReadWallpaper)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetADObjectFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwflags), dwmask).ok()
+        (::windows::core::Vtable::vtable(self).GetADObjectFlags)(::windows::core::Vtable::as_raw(self), pdwflags, dwmask).ok()
     }
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateAllDesktopSubscriptions)(::windows::core::Vtable::as_raw(self)).ok()
@@ -72,7 +72,7 @@ impl IActiveDesktopP {
         (::windows::core::Vtable::vtable(self).SetScheme)(::windows::core::Vtable::as_raw(self), pwszschemename.into(), dwflags).ok()
     }
     pub unsafe fn GetScheme(&self, pwszschemename: ::windows::core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetScheme)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(pdwcchbuffer), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).GetScheme)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszschemename), pdwcchbuffer, dwflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IActiveDesktopP, ::windows::core::IUnknown);
@@ -163,13 +163,13 @@ impl IEmptyVolumeCache {
         P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), ppwszdisplayname, ppwszdescription, pdwflags).ok()
     }
     pub unsafe fn GetSpaceUsed<'a, P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Vtable::vtable(self).GetSpaceUsed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).GetSpaceUsed)(::windows::core::Vtable::as_raw(self), pdwlspaceused, picb.into().abi()).ok()
     }
     pub unsafe fn Purge<'a, P0>(&self, dwlspacetofree: u64, picb: P0) -> ::windows::core::Result<()>
     where
@@ -240,13 +240,13 @@ impl IEmptyVolumeCache2 {
         P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Initialize)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), ppwszdisplayname, ppwszdescription, pdwflags).ok()
     }
     pub unsafe fn GetSpaceUsed<'a, P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetSpaceUsed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetSpaceUsed)(::windows::core::Vtable::as_raw(self), pdwlspaceused, picb.into().abi()).ok()
     }
     pub unsafe fn Purge<'a, P0>(&self, dwlspacetofree: u64, picb: P0) -> ::windows::core::Result<()>
     where
@@ -274,7 +274,7 @@ impl IEmptyVolumeCache2 {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeEx)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), pcwszkeyname.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Vtable::vtable(self).InitializeEx)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), pcwszkeyname.into(), ppwszdisplayname, ppwszdescription, ppwszbtntext, pdwflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEmptyVolumeCache2, ::windows::core::IUnknown, IEmptyVolumeCache);
@@ -369,7 +369,7 @@ impl IReconcilableObject {
         P2: ::std::convert::Into<super::super::Foundation::HWND>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>,
     {
-        (::windows::core::Vtable::vtable(self).Reconcile)(::windows::core::Vtable::as_raw(self), pinitiator.into().abi(), dwflags, hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(rgpmkotherinput.as_ptr()), ::core::mem::transmute(ploutindex), pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).Reconcile)(::windows::core::Vtable::as_raw(self), pinitiator.into().abi(), dwflags, hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

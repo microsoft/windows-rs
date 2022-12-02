@@ -17,10 +17,10 @@ impl ICatalog {
         (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnectstring), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MajorVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(retval)).ok()
+        (::windows::core::Vtable::vtable(self).MajorVersion)(::windows::core::Vtable::as_raw(self), retval).ok()
     }
     pub unsafe fn MinorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MinorVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(retval)).ok()
+        (::windows::core::Vtable::vtable(self).MinorVersion)(::windows::core::Vtable::as_raw(self), retval).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -87,7 +87,7 @@ impl IComponentUtil {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCLSIDs(&self, bstrdllfile: &::windows::core::BSTR, bstrtypelibfile: &::windows::core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCLSIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdllfile), ::core::mem::transmute_copy(bstrtypelibfile), ::core::mem::transmute(aclsids)).ok()
+        (::windows::core::Vtable::vtable(self).GetCLSIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdllfile), ::core::mem::transmute_copy(bstrtypelibfile), aclsids).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

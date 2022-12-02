@@ -27,7 +27,7 @@ where
     P3: ::std::convert::Into<BOOL>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn DuplicateHandle ( hsourceprocesshandle : HANDLE , hsourcehandle : HANDLE , htargetprocesshandle : HANDLE , lptargethandle : *mut HANDLE , dwdesiredaccess : u32 , binherithandle : BOOL , dwoptions : DUPLICATE_HANDLE_OPTIONS ) -> BOOL );
-    DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions)
+    DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), lptargethandle, dwdesiredaccess, binherithandle.into(), dwoptions)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -36,7 +36,7 @@ where
     P0: ::std::convert::Into<HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetHandleInformation ( hobject : HANDLE , lpdwflags : *mut u32 ) -> BOOL );
-    GetHandleInformation(hobject.into(), ::core::mem::transmute(lpdwflags))
+    GetHandleInformation(hobject.into(), lpdwflags)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]

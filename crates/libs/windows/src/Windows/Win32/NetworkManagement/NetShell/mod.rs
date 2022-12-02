@@ -7,7 +7,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netsh.dll""system" fn MatchEnumTag ( hmodule : super::super::Foundation:: HANDLE , pwcarg : :: windows::core::PCWSTR , dwnumarg : u32 , penumtable : *const TOKEN_VALUE , pdwvalue : *mut u32 ) -> u32 );
-    MatchEnumTag(hmodule.into(), pwcarg.into(), dwnumarg, ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue))
+    MatchEnumTag(hmodule.into(), pwcarg.into(), dwnumarg, penumtable, pdwvalue)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -64,13 +64,13 @@ where
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
     ::windows::core::link ! ( "netsh.dll""system" fn RegisterContext ( pchildcontext : *const NS_CONTEXT_ATTRIBUTES ) -> u32 );
-    RegisterContext(::core::mem::transmute(pchildcontext))
+    RegisterContext(pchildcontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
     ::windows::core::link ! ( "netsh.dll""system" fn RegisterHelper ( pguidparentcontext : *const :: windows::core::GUID , pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES ) -> u32 );
-    RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext))
+    RegisterHelper(pguidparentcontext, pfnregistersubcontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;

@@ -1891,7 +1891,7 @@ pub trait IFEDictionary_Impl: Sized {
     fn RegisterDependency(&self, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
     fn GetDependencies(&self, pwchkakarireading: &::windows::core::PCWSTR, pwchkakaridisplay: &::windows::core::PCWSTR, ulkakaripos: u32, pwchukereading: &::windows::core::PCWSTR, pwchukedisplay: &::windows::core::PCWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
     fn NextDependencies(&self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
-    fn ConvertFromOldMSIME(&self, pchdic: &::windows::core::PCSTR, pfnlog: &PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
+    fn ConvertFromOldMSIME(&self, pchdic: &::windows::core::PCSTR, pfnlog: PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
     fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1974,10 +1974,10 @@ impl IFEDictionary_Vtbl {
             let this = (*this).get_impl();
             this.NextDependencies(::core::mem::transmute_copy(&pchbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&pcdp)).into()
         }
-        unsafe extern "system" fn ConvertFromOldMSIME<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdic: ::windows::core::PCSTR, pfnlog: *mut ::core::ffi::c_void, reg: IMEREG) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertFromOldMSIME<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdic: ::windows::core::PCSTR, pfnlog: PFNLOG, reg: IMEREG) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConvertFromOldMSIME(::core::mem::transmute(&pchdic), ::core::mem::transmute(&pfnlog), ::core::mem::transmute_copy(&reg)).into()
+            this.ConvertFromOldMSIME(::core::mem::transmute(&pchdic), ::core::mem::transmute_copy(&pfnlog), ::core::mem::transmute_copy(&reg)).into()
         }
         unsafe extern "system" fn ConvertFromUserToSys<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -149,7 +149,7 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn ProcessPointerFramesInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , entriescount : u32 , pointercount : u32 , pointerinfo : *const super::Input::Pointer:: POINTER_INFO ) -> :: windows::core::HRESULT );
-    ProcessPointerFramesInteractionContext(interactioncontext.into(), entriescount, pointercount, ::core::mem::transmute(pointerinfo)).ok()
+    ProcessPointerFramesInteractionContext(interactioncontext.into(), entriescount, pointercount, pointerinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -158,8 +158,8 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<'a, P0>(interactioncontex
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : * mut::core::ffi::c_void , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    RegisterOutputCallbackInteractionContext(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
+    ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    RegisterOutputCallbackInteractionContext(interactioncontext.into(), outputcallback, ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -168,8 +168,8 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, P0>(interactionconte
 where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
-    ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext2 ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : * mut::core::ffi::c_void , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    RegisterOutputCallbackInteractionContext2(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
+    ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext2 ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2 , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    RegisterOutputCallbackInteractionContext2(interactioncontext.into(), outputcallback, ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]

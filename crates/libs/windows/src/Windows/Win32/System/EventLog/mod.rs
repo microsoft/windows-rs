@@ -144,7 +144,7 @@ where
     P1: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtFormatMessage ( publishermetadata : EVT_HANDLE , event : EVT_HANDLE , messageid : u32 , valuecount : u32 , values : *const EVT_VARIANT , flags : u32 , buffersize : u32 , buffer : :: windows::core::PWSTR , bufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtFormatMessage(publishermetadata.into(), event.into(), messageid, values.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(values.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags, buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(bufferused))
+    EvtFormatMessage(publishermetadata.into(), event.into(), messageid, values.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(values.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags, buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -154,7 +154,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetChannelConfigProperty ( channelconfig : EVT_HANDLE , propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID , flags : u32 , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetChannelConfigProperty(channelconfig.into(), propertyid, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertyvaluebufferused))
+    EvtGetChannelConfigProperty(channelconfig.into(), propertyid, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -164,7 +164,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetEventInfo ( event : EVT_HANDLE , propertyid : EVT_EVENT_PROPERTY_ID , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetEventInfo(event.into(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertyvaluebufferused))
+    EvtGetEventInfo(event.into(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -174,13 +174,13 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetEventMetadataProperty ( eventmetadata : EVT_HANDLE , propertyid : EVT_EVENT_METADATA_PROPERTY_ID , flags : u32 , eventmetadatapropertybuffersize : u32 , eventmetadatapropertybuffer : *mut EVT_VARIANT , eventmetadatapropertybufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetEventMetadataProperty(eventmetadata.into(), propertyid, flags, eventmetadatapropertybuffersize, ::core::mem::transmute(eventmetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(eventmetadatapropertybufferused))
+    EvtGetEventMetadataProperty(eventmetadata.into(), propertyid, flags, eventmetadatapropertybuffersize, ::core::mem::transmute(eventmetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), eventmetadatapropertybufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtGetExtendedStatus(buffer: ::core::option::Option<&mut [u16]>, bufferused: *mut u32) -> u32 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetExtendedStatus ( buffersize : u32 , buffer : :: windows::core::PWSTR , bufferused : *mut u32 ) -> u32 );
-    EvtGetExtendedStatus(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(bufferused))
+    EvtGetExtendedStatus(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -190,21 +190,21 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetLogInfo ( log : EVT_HANDLE , propertyid : EVT_LOG_PROPERTY_ID , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetLogInfo(log.into(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertyvaluebufferused))
+    EvtGetLogInfo(log.into(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetObjectArrayProperty ( objectarray : isize , propertyid : u32 , arrayindex : u32 , flags : u32 , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertyvaluebufferused))
+    EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetObjectArraySize ( objectarray : isize , objectarraysize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetObjectArraySize(objectarray, ::core::mem::transmute(objectarraysize))
+    EvtGetObjectArraySize(objectarray, objectarraysize)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -214,7 +214,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetPublisherMetadataProperty ( publishermetadata : EVT_HANDLE , propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID , flags : u32 , publishermetadatapropertybuffersize : u32 , publishermetadatapropertybuffer : *mut EVT_VARIANT , publishermetadatapropertybufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetPublisherMetadataProperty(publishermetadata.into(), propertyid, flags, publishermetadatapropertybuffersize, ::core::mem::transmute(publishermetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(publishermetadatapropertybufferused))
+    EvtGetPublisherMetadataProperty(publishermetadata.into(), propertyid, flags, publishermetadatapropertybuffersize, ::core::mem::transmute(publishermetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), publishermetadatapropertybufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -224,7 +224,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtGetQueryInfo ( queryorsubscription : EVT_HANDLE , propertyid : EVT_QUERY_PROPERTY_ID , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtGetQueryInfo(queryorsubscription.into(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propertyvaluebufferused))
+    EvtGetQueryInfo(queryorsubscription.into(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -234,7 +234,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtNext ( resultset : EVT_HANDLE , eventssize : u32 , events : *mut isize , timeout : u32 , flags : u32 , returned : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtNext(resultset.into(), events.len() as _, ::core::mem::transmute(events.as_ptr()), timeout, flags, ::core::mem::transmute(returned))
+    EvtNext(resultset.into(), events.len() as _, ::core::mem::transmute(events.as_ptr()), timeout, flags, returned)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -244,7 +244,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtNextChannelPath ( channelenum : EVT_HANDLE , channelpathbuffersize : u32 , channelpathbuffer : :: windows::core::PWSTR , channelpathbufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtNextChannelPath(channelenum.into(), channelpathbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(channelpathbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(channelpathbufferused))
+    EvtNextChannelPath(channelenum.into(), channelpathbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(channelpathbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), channelpathbufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -264,7 +264,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtNextPublisherId ( publisherenum : EVT_HANDLE , publisheridbuffersize : u32 , publisheridbuffer : :: windows::core::PWSTR , publisheridbufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtNextPublisherId(publisherenum.into(), publisheridbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(publisheridbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(publisheridbufferused))
+    EvtNextPublisherId(publisherenum.into(), publisheridbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(publisheridbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), publisheridbufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -334,7 +334,7 @@ where
 #[inline]
 pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> ::windows::core::Result<EVT_HANDLE> {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtOpenSession ( loginclass : EVT_LOGIN_CLASS , login : *const ::core::ffi::c_void , timeout : u32 , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtOpenSession(loginclass, ::core::mem::transmute(login), timeout, flags);
+    let result__ = EvtOpenSession(loginclass, login, timeout, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -358,7 +358,7 @@ where
     P1: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtRender ( context : EVT_HANDLE , fragment : EVT_HANDLE , flags : u32 , buffersize : u32 , buffer : *mut ::core::ffi::c_void , bufferused : *mut u32 , propertycount : *mut u32 ) -> super::super::Foundation:: BOOL );
-    EvtRender(context.into(), fragment.into(), flags, buffersize, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(bufferused), ::core::mem::transmute(propertycount))
+    EvtRender(context.into(), fragment.into(), flags, buffersize, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bufferused, propertycount)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -389,7 +389,7 @@ where
     P0: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtSetChannelConfigProperty ( channelconfig : EVT_HANDLE , propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID , flags : u32 , propertyvalue : *const EVT_VARIANT ) -> super::super::Foundation:: BOOL );
-    EvtSetChannelConfigProperty(channelconfig.into(), propertyid, flags, ::core::mem::transmute(propertyvalue))
+    EvtSetChannelConfigProperty(channelconfig.into(), propertyid, flags, propertyvalue)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -402,8 +402,8 @@ where
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
     P4: ::std::convert::Into<EVT_HANDLE>,
 {
-    ::windows::core::link ! ( "wevtapi.dll""system" fn EvtSubscribe ( session : EVT_HANDLE , signalevent : super::super::Foundation:: HANDLE , channelpath : :: windows::core::PCWSTR , query : :: windows::core::PCWSTR , bookmark : EVT_HANDLE , context : *const ::core::ffi::c_void , callback : * mut::core::ffi::c_void , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtSubscribe(session.into(), signalevent.into(), channelpath.into(), query.into(), bookmark.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback), flags);
+    ::windows::core::link ! ( "wevtapi.dll""system" fn EvtSubscribe ( session : EVT_HANDLE , signalevent : super::super::Foundation:: HANDLE , channelpath : :: windows::core::PCWSTR , query : :: windows::core::PCWSTR , bookmark : EVT_HANDLE , context : *const ::core::ffi::c_void , callback : EVT_SUBSCRIBE_CALLBACK , flags : u32 ) -> EVT_HANDLE );
+    let result__ = EvtSubscribe(session.into(), signalevent.into(), channelpath.into(), query.into(), bookmark.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -425,7 +425,7 @@ where
     P0: ::std::convert::Into<EventLogHandle>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetEventLogInformation ( heventlog : EventLogHandle , dwinfolevel : u32 , lpbuffer : *mut ::core::ffi::c_void , cbbufsize : u32 , pcbbytesneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetEventLogInformation(heventlog.into(), dwinfolevel, ::core::mem::transmute(lpbuffer), cbbufsize, ::core::mem::transmute(pcbbytesneeded))
+    GetEventLogInformation(heventlog.into(), dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -435,7 +435,7 @@ where
     P0: ::std::convert::Into<EventLogHandle>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetNumberOfEventLogRecords ( heventlog : EventLogHandle , numberofrecords : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetNumberOfEventLogRecords(heventlog.into(), ::core::mem::transmute(numberofrecords))
+    GetNumberOfEventLogRecords(heventlog.into(), numberofrecords)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -445,7 +445,7 @@ where
     P0: ::std::convert::Into<EventLogHandle>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn GetOldestEventLogRecord ( heventlog : EventLogHandle , oldestrecord : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetOldestEventLogRecord(heventlog.into(), ::core::mem::transmute(oldestrecord))
+    GetOldestEventLogRecord(heventlog.into(), oldestrecord)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -510,7 +510,7 @@ where
     P0: ::std::convert::Into<EventLogHandle>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn ReadEventLogA ( heventlog : EventLogHandle , dwreadflags : READ_EVENT_LOG_READ_FLAGS , dwrecordoffset : u32 , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , pnbytesread : *mut u32 , pnminnumberofbytesneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ReadEventLogA(heventlog.into(), dwreadflags, dwrecordoffset, ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded))
+    ReadEventLogA(heventlog.into(), dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -520,7 +520,7 @@ where
     P0: ::std::convert::Into<EventLogHandle>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn ReadEventLogW ( heventlog : EventLogHandle , dwreadflags : READ_EVENT_LOG_READ_FLAGS , dwrecordoffset : u32 , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , pnbytesread : *mut u32 , pnminnumberofbytesneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ReadEventLogW(heventlog.into(), dwreadflags, dwrecordoffset, ::core::mem::transmute(lpbuffer), nnumberofbytestoread, ::core::mem::transmute(pnbytesread), ::core::mem::transmute(pnminnumberofbytesneeded))
+    ReadEventLogW(heventlog.into(), dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]

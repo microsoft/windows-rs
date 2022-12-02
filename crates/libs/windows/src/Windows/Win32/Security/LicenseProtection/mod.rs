@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "licenseprotection.dll""system" fn ValidateLicenseKeyProtection ( licensekey : :: windows::core::PCWSTR , notvalidbefore : *mut super::super::Foundation:: FILETIME , notvalidafter : *mut super::super::Foundation:: FILETIME , status : *mut LicenseProtectionStatus ) -> :: windows::core::HRESULT );
-    ValidateLicenseKeyProtection(licensekey.into(), ::core::mem::transmute(notvalidbefore), ::core::mem::transmute(notvalidafter), ::core::mem::transmute(status)).ok()
+    ValidateLicenseKeyProtection(licensekey.into(), notvalidbefore, notvalidafter, status).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 #[repr(transparent)]

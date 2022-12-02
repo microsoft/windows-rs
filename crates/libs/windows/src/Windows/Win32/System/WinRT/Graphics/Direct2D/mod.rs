@@ -66,7 +66,7 @@ impl IGraphicsEffectD2D1Interop {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetNamedPropertyMapping)(::windows::core::Vtable::as_raw(self), name.into(), ::core::mem::transmute(index), ::core::mem::transmute(mapping)).ok()
+        (::windows::core::Vtable::vtable(self).GetNamedPropertyMapping)(::windows::core::Vtable::as_raw(self), name.into(), index, mapping).ok()
     }
     pub unsafe fn GetPropertyCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "sensapi.dll""system" fn IsDestinationReachableA ( lpszdestination : :: windows::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
-    IsDestinationReachableA(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
+    IsDestinationReachableA(lpszdestination.into(), lpqocinfo)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16,14 +16,14 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "sensapi.dll""system" fn IsDestinationReachableW ( lpszdestination : :: windows::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
-    IsDestinationReachableW(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
+    IsDestinationReachableW(lpszdestination.into(), lpqocinfo)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "sensapi.dll""system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
-    IsNetworkAlive(::core::mem::transmute(lpdwflags))
+    IsNetworkAlive(lpdwflags)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -166,7 +166,7 @@ pub struct ISensNetwork(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISensNetwork {
     pub unsafe fn ConnectionMade(&self, bstrconnection: &::windows::core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConnectionMade)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype, ::core::mem::transmute(lpqocinfo)).ok()
+        (::windows::core::Vtable::vtable(self).ConnectionMade)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
     }
     pub unsafe fn ConnectionMadeNoQOCInfo(&self, bstrconnection: &::windows::core::BSTR, ultype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ConnectionMadeNoQOCInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
@@ -175,7 +175,7 @@ impl ISensNetwork {
         (::windows::core::Vtable::vtable(self).ConnectionLost)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
     }
     pub unsafe fn DestinationReachable(&self, bstrdestination: &::windows::core::BSTR, bstrconnection: &::windows::core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DestinationReachable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdestination), ::core::mem::transmute_copy(bstrconnection), ultype, ::core::mem::transmute(lpqocinfo)).ok()
+        (::windows::core::Vtable::vtable(self).DestinationReachable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdestination), ::core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
     }
     pub unsafe fn DestinationReachableNoQOCInfo(&self, bstrdestination: &::windows::core::BSTR, bstrconnection: &::windows::core::BSTR, ultype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DestinationReachableNoQOCInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdestination), ::core::mem::transmute_copy(bstrconnection), ultype).ok()

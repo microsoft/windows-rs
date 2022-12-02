@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CallNamedPipeA ( lpnamedpipename : :: windows::core::PCSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
-    CallNamedPipeA(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesread), ntimeout)
+    CallNamedPipeA(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CallNamedPipeW ( lpnamedpipename : :: windows::core::PCWSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
-    CallNamedPipeW(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesread), ntimeout)
+    CallNamedPipeW(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -54,7 +54,7 @@ where
 #[inline]
 pub unsafe fn CreatePipe(hreadpipe: *mut super::super::Foundation::HANDLE, hwritepipe: *mut super::super::Foundation::HANDLE, lppipeattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, nsize: u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreatePipe ( hreadpipe : *mut super::super::Foundation:: HANDLE , hwritepipe : *mut super::super::Foundation:: HANDLE , lppipeattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , nsize : u32 ) -> super::super::Foundation:: BOOL );
-    CreatePipe(::core::mem::transmute(hreadpipe), ::core::mem::transmute(hwritepipe), ::core::mem::transmute(lppipeattributes.unwrap_or(::std::ptr::null())), nsize)
+    CreatePipe(hreadpipe, hwritepipe, ::core::mem::transmute(lppipeattributes.unwrap_or(::std::ptr::null())), nsize)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -94,7 +94,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetNamedPipeClientProcessId ( pipe : super::super::Foundation:: HANDLE , clientprocessid : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetNamedPipeClientProcessId(pipe.into(), ::core::mem::transmute(clientprocessid))
+    GetNamedPipeClientProcessId(pipe.into(), clientprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -104,7 +104,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetNamedPipeClientSessionId ( pipe : super::super::Foundation:: HANDLE , clientsessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetNamedPipeClientSessionId(pipe.into(), ::core::mem::transmute(clientsessionid))
+    GetNamedPipeClientSessionId(pipe.into(), clientsessionid)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -144,7 +144,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetNamedPipeServerProcessId ( pipe : super::super::Foundation:: HANDLE , serverprocessid : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetNamedPipeServerProcessId(pipe.into(), ::core::mem::transmute(serverprocessid))
+    GetNamedPipeServerProcessId(pipe.into(), serverprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -154,7 +154,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetNamedPipeServerSessionId ( pipe : super::super::Foundation:: HANDLE , serversessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetNamedPipeServerSessionId(pipe.into(), ::core::mem::transmute(serversessionid))
+    GetNamedPipeServerSessionId(pipe.into(), serversessionid)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -194,7 +194,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn TransactNamedPipe ( hnamedpipe : super::super::Foundation:: HANDLE , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , lpoverlapped : *mut super::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
-    TransactNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesread), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
+    TransactNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

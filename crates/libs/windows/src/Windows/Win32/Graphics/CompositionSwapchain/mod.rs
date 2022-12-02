@@ -5,7 +5,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "dcomp.dll""system" fn CreatePresentationFactory ( d3ddevice : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CreatePresentationFactory(d3ddevice.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(presentationfactory)).ok()
+    CreatePresentationFactory(d3ddevice.into().abi(), riid, presentationfactory).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
@@ -26,7 +26,7 @@ impl ICompositionFramePresentStatistics {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
-        (::windows::core::Vtable::vtable(self).GetDisplayInstanceArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray))
+        (::windows::core::Vtable::vtable(self).GetDisplayInstanceArray)(::windows::core::Vtable::as_raw(self), displayinstancearraycount, displayinstancearray)
     }
 }
 ::windows::core::interface_hierarchy!(ICompositionFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
@@ -389,7 +389,7 @@ impl IPresentationManager {
     }
     pub unsafe fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentRetiringFence)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetPresentRetiringFence)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CancelPresentsFrom)(::windows::core::Vtable::as_raw(self), presentidtocancelfrom).ok()
@@ -490,10 +490,10 @@ impl IPresentationSurface {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSourceRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sourcerect)).ok()
+        (::windows::core::Vtable::vtable(self).SetSourceRect)(::windows::core::Vtable::as_raw(self), sourcerect).ok()
     }
     pub unsafe fn SetTransform(&self, transform: *const PresentationTransform) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transform)).ok()
+        (::windows::core::Vtable::vtable(self).SetTransform)(::windows::core::Vtable::as_raw(self), transform).ok()
     }
     pub unsafe fn RestrictToOutput<'a, P0>(&self, output: P0) -> ::windows::core::Result<()>
     where

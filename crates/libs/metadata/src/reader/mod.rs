@@ -633,7 +633,7 @@ impl<'a> Reader<'a> {
                     let flags = self.param_flags(param.def);
                     if param.ty.is_pointer() && (flags.optional() || self.param_is_reserved(param.def)) {
                         param.kind = SignatureParamKind::OptionalPointer;
-                    } else if self.type_is_primitive(&param.ty) && !param.ty.is_pointer() {
+                    } else if self.type_is_primitive(&param.ty) && (!param.ty.is_pointer() || self.type_is_blittable(&param.ty.deref())) {
                         param.kind = SignatureParamKind::ValueType;
                     } else if self.type_is_blittable(&param.ty) {
                         param.kind = SignatureParamKind::Blittable;
@@ -929,6 +929,7 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Enum => true,
             TypeKind::Struct => self.type_def_is_handle(row),
+            TypeKind::Delegate => !self.type_def_flags(row).winrt(),
             _ => false,
         }
     }

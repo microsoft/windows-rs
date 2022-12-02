@@ -16,7 +16,7 @@ impl ICivicAddressReport {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetValue)(::windows::core::Vtable::as_raw(self), pkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAddressLine1(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -113,7 +113,7 @@ impl ICivicAddressReportFactory {
         (::windows::core::Vtable::vtable(self).base__.SetDesiredAccuracy)(::windows::core::Vtable::as_raw(self), desiredaccuracy).ok()
     }
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RequestPermissions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(hwnd)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RequestPermissions)(::windows::core::Vtable::as_raw(self), hwnd).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -170,11 +170,11 @@ impl IDefaultLocation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>,
     {
-        (::windows::core::Vtable::vtable(self).SetReport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), plocationreport.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetReport)(::windows::core::Vtable::as_raw(self), reporttype, plocationreport.into().abi()).ok()
     }
     pub unsafe fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), reporttype, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDefaultLocation, ::windows::core::IUnknown);
@@ -381,7 +381,7 @@ impl ILatLongReport {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetValue)(::windows::core::Vtable::as_raw(self), pkey, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetLatitude(&self) -> ::windows::core::Result<f64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -468,7 +468,7 @@ impl ILatLongReportFactory {
         (::windows::core::Vtable::vtable(self).base__.SetDesiredAccuracy)(::windows::core::Vtable::as_raw(self), desiredaccuracy).ok()
     }
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RequestPermissions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(hwnd)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RequestPermissions)(::windows::core::Vtable::as_raw(self), hwnd).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -525,36 +525,36 @@ impl ILocation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationEvents>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterForReport)(::windows::core::Vtable::as_raw(self), pevents.into().abi(), ::core::mem::transmute(reporttype), dwrequestedreportinterval).ok()
+        (::windows::core::Vtable::vtable(self).RegisterForReport)(::windows::core::Vtable::as_raw(self), pevents.into().abi(), reporttype, dwrequestedreportinterval).ok()
     }
     pub unsafe fn UnregisterForReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UnregisterForReport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype)).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterForReport)(::windows::core::Vtable::as_raw(self), reporttype).ok()
     }
     pub unsafe fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetReport)(::windows::core::Vtable::as_raw(self), reporttype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetReportStatus(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<LOCATION_REPORT_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReportStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetReportStatus)(::windows::core::Vtable::as_raw(self), reporttype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetReportInterval(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReportInterval)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetReportInterval)(::windows::core::Vtable::as_raw(self), reporttype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetReportInterval(&self, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetReportInterval)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), millisecondsrequested).ok()
+        (::windows::core::Vtable::vtable(self).SetReportInterval)(::windows::core::Vtable::as_raw(self), reporttype, millisecondsrequested).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDesiredAccuracy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDesiredAccuracy)(::windows::core::Vtable::as_raw(self), reporttype, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDesiredAccuracy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), desiredaccuracy).ok()
+        (::windows::core::Vtable::vtable(self).SetDesiredAccuracy)(::windows::core::Vtable::as_raw(self), reporttype, desiredaccuracy).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -620,10 +620,10 @@ impl ILocationEvents {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>,
     {
-        (::windows::core::Vtable::vtable(self).OnLocationChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), plocationreport.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).OnLocationChanged)(::windows::core::Vtable::as_raw(self), reporttype, plocationreport.into().abi()).ok()
     }
     pub unsafe fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttype), newstatus).ok()
+        (::windows::core::Vtable::vtable(self).OnStatusChanged)(::windows::core::Vtable::as_raw(self), reporttype, newstatus).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ILocationEvents, ::windows::core::IUnknown);
@@ -715,7 +715,7 @@ impl ILocationReport {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pkey), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pkey, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ILocationReport, ::windows::core::IUnknown);
@@ -786,7 +786,7 @@ impl ILocationReportFactory {
         (::windows::core::Vtable::vtable(self).SetDesiredAccuracy)(::windows::core::Vtable::as_raw(self), desiredaccuracy).ok()
     }
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RequestPermissions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(hwnd)).ok()
+        (::windows::core::Vtable::vtable(self).RequestPermissions)(::windows::core::Vtable::as_raw(self), hwnd).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

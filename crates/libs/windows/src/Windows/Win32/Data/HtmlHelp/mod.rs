@@ -35,10 +35,10 @@ impl IITDatabase {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn CreateObject(&self, rclsid: *const ::windows::core::GUID, pdwobjinstance: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(pdwobjinstance)).ok()
+        (::windows::core::Vtable::vtable(self).CreateObject)(::windows::core::Vtable::as_raw(self), rclsid, pdwobjinstance).ok()
     }
     pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetObject)(::windows::core::Vtable::as_raw(self), dwobjinstance, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
+        (::windows::core::Vtable::vtable(self).GetObject)(::windows::core::Vtable::as_raw(self), dwobjinstance, riid, ppvobj).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -47,7 +47,7 @@ impl IITDatabase {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetObjectPersistence)(::windows::core::Vtable::as_raw(self), lpwszobject.into(), dwobjinstance, ::core::mem::transmute(ppvpersistence), fstream.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetObjectPersistence)(::windows::core::Vtable::as_raw(self), lpwszobject.into(), dwobjinstance, ppvpersistence, fstream.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IITDatabase, ::windows::core::IUnknown);
@@ -138,7 +138,7 @@ impl IITPropList {
         (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), propid, lpszwstring.into(), dwoperation).ok()
     }
     pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Set2)(::windows::core::Vtable::as_raw(self), propid, ::core::mem::transmute(lpvdata), cbdata, dwoperation).ok()
+        (::windows::core::Vtable::vtable(self).Set2)(::windows::core::Vtable::as_raw(self), propid, lpvdata, cbdata, dwoperation).ok()
     }
     pub unsafe fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Set3)(::windows::core::Vtable::as_raw(self), propid, dwdata, dwoperation).ok()
@@ -146,12 +146,12 @@ impl IITPropList {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Add(&self, prop: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prop)).ok()
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), prop).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, propid: u32, property: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), propid, ::core::mem::transmute(property)).ok()
+        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), propid, property).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -175,27 +175,27 @@ impl IITPropList {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFirst(&self, property: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFirst)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(property)).ok()
+        (::windows::core::Vtable::vtable(self).GetFirst)(::windows::core::Vtable::as_raw(self), property).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNext(&self, property: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(property)).ok()
+        (::windows::core::Vtable::vtable(self).GetNext)(::windows::core::Vtable::as_raw(self), property).ok()
     }
     pub unsafe fn GetPropCount(&self, cprop: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cprop)).ok()
+        (::windows::core::Vtable::vtable(self).GetPropCount)(::windows::core::Vtable::as_raw(self), cprop).ok()
     }
     pub unsafe fn SaveHeader(&self, lpvdata: *mut ::core::ffi::c_void, dwhdrsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SaveHeader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvdata), dwhdrsize).ok()
+        (::windows::core::Vtable::vtable(self).SaveHeader)(::windows::core::Vtable::as_raw(self), lpvdata, dwhdrsize).ok()
     }
     pub unsafe fn SaveData(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SaveData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvheader), dwhdrsize, ::core::mem::transmute(lpvdata), dwbufsize).ok()
+        (::windows::core::Vtable::vtable(self).SaveData)(::windows::core::Vtable::as_raw(self), lpvheader, dwhdrsize, lpvdata, dwbufsize).ok()
     }
     pub unsafe fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetHeaderSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dwhdrsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetHeaderSize)(::windows::core::Vtable::as_raw(self), dwhdrsize).ok()
     }
     pub unsafe fn GetDataSize(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDataSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvheader), dwhdrsize, ::core::mem::transmute(dwdatasize)).ok()
+        (::windows::core::Vtable::vtable(self).GetDataSize)(::windows::core::Vtable::as_raw(self), lpvheader, dwhdrsize, dwdatasize).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -203,13 +203,13 @@ impl IITPropList {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).SaveDataToStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvheader), dwhdrsize, pstream.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SaveDataToStream)(::windows::core::Vtable::as_raw(self), lpvheader, dwhdrsize, pstream.into().abi()).ok()
     }
     pub unsafe fn LoadFromMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LoadFromMem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvdata), dwbufsize).ok()
+        (::windows::core::Vtable::vtable(self).LoadFromMem)(::windows::core::Vtable::as_raw(self), lpvdata, dwbufsize).ok()
     }
     pub unsafe fn SaveToMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SaveToMem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvdata), dwbufsize).ok()
+        (::windows::core::Vtable::vtable(self).SaveToMem)(::windows::core::Vtable::as_raw(self), lpvdata, dwbufsize).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -295,7 +295,7 @@ impl IITResultSet {
         (::windows::core::Vtable::vtable(self).SetColumnPriority)(::windows::core::Vtable::as_raw(self), lcolumnindex, columnpriority).ok()
     }
     pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetColumnHeap)(::windows::core::Vtable::as_raw(self), lcolumnindex, ::core::mem::transmute(lpvheap), ::core::mem::transmute(pfncolheapfree)).ok()
+        (::windows::core::Vtable::vtable(self).SetColumnHeap)(::windows::core::Vtable::as_raw(self), lcolumnindex, lpvheap, pfncolheapfree).ok()
     }
     pub unsafe fn SetKeyProp(&self, propid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetKeyProp)(::windows::core::Vtable::as_raw(self), propid).ok()
@@ -310,16 +310,16 @@ impl IITResultSet {
         (::windows::core::Vtable::vtable(self).Add2)(::windows::core::Vtable::as_raw(self), propid, lpszwdefault.into(), priority).ok()
     }
     pub unsafe fn Add3(&self, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add3)(::windows::core::Vtable::as_raw(self), propid, ::core::mem::transmute(lpvdefaultdata), cbdata, priority).ok()
+        (::windows::core::Vtable::vtable(self).Add3)(::windows::core::Vtable::as_raw(self), propid, lpvdefaultdata, cbdata, priority).ok()
     }
     pub unsafe fn Add4(&self, lpvhdr: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add4)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvhdr)).ok()
+        (::windows::core::Vtable::vtable(self).Add4)(::windows::core::Vtable::as_raw(self), lpvhdr).ok()
     }
     pub unsafe fn Append(&self, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpvhdr), ::core::mem::transmute(lpvdata)).ok()
+        (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), lpvhdr, lpvdata).ok()
     }
     pub unsafe fn Set(&self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, ::core::mem::transmute(lpvdata), cbdata).ok()
+        (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, lpvdata, cbdata).ok()
     }
     pub unsafe fn Set2<'a, P0>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: P0) -> ::windows::core::Result<()>
     where
@@ -331,7 +331,7 @@ impl IITResultSet {
         (::windows::core::Vtable::vtable(self).Set3)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, dwdata).ok()
     }
     pub unsafe fn Set4(&self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Set4)(::windows::core::Vtable::as_raw(self), lrowindex, ::core::mem::transmute(lpvhdr), ::core::mem::transmute(lpvdata)).ok()
+        (::windows::core::Vtable::vtable(self).Set4)(::windows::core::Vtable::as_raw(self), lrowindex, lpvhdr, lpvdata).ok()
     }
     pub unsafe fn Copy<'a, P0>(&self, prscopy: P0) -> ::windows::core::Result<()>
     where
@@ -343,33 +343,33 @@ impl IITResultSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IITResultSet>>,
     {
-        (::windows::core::Vtable::vtable(self).AppendRows)(::windows::core::Vtable::as_raw(self), pressrc.into().abi(), lrowsrcfirst, csrcrows, ::core::mem::transmute(lrowfirstdest)).ok()
+        (::windows::core::Vtable::vtable(self).AppendRows)(::windows::core::Vtable::as_raw(self), pressrc.into().abi(), lrowsrcfirst, csrcrows, lrowfirstdest).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, ::core::mem::transmute(prop)).ok()
+        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, prop).ok()
     }
     pub unsafe fn GetKeyProp(&self, keypropid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetKeyProp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(keypropid)).ok()
+        (::windows::core::Vtable::vtable(self).GetKeyProp)(::windows::core::Vtable::as_raw(self), keypropid).ok()
     }
     pub unsafe fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColumnPriority)(::windows::core::Vtable::as_raw(self), lcolumnindex, ::core::mem::transmute(columnpriority)).ok()
+        (::windows::core::Vtable::vtable(self).GetColumnPriority)(::windows::core::Vtable::as_raw(self), lcolumnindex, columnpriority).ok()
     }
     pub unsafe fn GetRowCount(&self, lnumberofrows: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRowCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lnumberofrows)).ok()
+        (::windows::core::Vtable::vtable(self).GetRowCount)(::windows::core::Vtable::as_raw(self), lnumberofrows).ok()
     }
     pub unsafe fn GetColumnCount(&self, lnumberofcolumns: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColumnCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lnumberofcolumns)).ok()
+        (::windows::core::Vtable::vtable(self).GetColumnCount)(::windows::core::Vtable::as_raw(self), lnumberofcolumns).ok()
     }
     pub unsafe fn GetColumn(&self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut ::core::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColumn)(::windows::core::Vtable::as_raw(self), lcolumnindex, ::core::mem::transmute(propid), ::core::mem::transmute(dwtype), ::core::mem::transmute(lpvdefaultvalue), ::core::mem::transmute(cbsize), ::core::mem::transmute(columnpriority)).ok()
+        (::windows::core::Vtable::vtable(self).GetColumn)(::windows::core::Vtable::as_raw(self), lcolumnindex, propid, dwtype, lpvdefaultvalue, cbsize, columnpriority).ok()
     }
     pub unsafe fn GetColumn2(&self, lcolumnindex: i32, propid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColumn2)(::windows::core::Vtable::as_raw(self), lcolumnindex, ::core::mem::transmute(propid)).ok()
+        (::windows::core::Vtable::vtable(self).GetColumn2)(::windows::core::Vtable::as_raw(self), lcolumnindex, propid).ok()
     }
     pub unsafe fn GetColumnFromPropID(&self, propid: u32, lcolumnindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColumnFromPropID)(::windows::core::Vtable::as_raw(self), propid, ::core::mem::transmute(lcolumnindex)).ok()
+        (::windows::core::Vtable::vtable(self).GetColumnFromPropID)(::windows::core::Vtable::as_raw(self), propid, lcolumnindex).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -395,10 +395,10 @@ impl IITResultSet {
         (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self), fpause.into()).ok()
     }
     pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRowStatus)(::windows::core::Vtable::as_raw(self), lrowfirst, crows, ::core::mem::transmute(lprowstatus)).ok()
+        (::windows::core::Vtable::vtable(self).GetRowStatus)(::windows::core::Vtable::as_raw(self), lrowfirst, crows, lprowstatus).ok()
     }
     pub unsafe fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColumnStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpcolstatus)).ok()
+        (::windows::core::Vtable::vtable(self).GetColumnStatus)(::windows::core::Vtable::as_raw(self), lpcolstatus).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IITResultSet, ::windows::core::IUnknown);
@@ -429,7 +429,7 @@ unsafe impl ::windows::core::Interface for IITResultSet {
 pub struct IITResultSet_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetColumnPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::HRESULT,
-    pub SetColumnHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetColumnHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::HRESULT,
     pub SetKeyProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: u32) -> ::windows::core::HRESULT,
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::core::HRESULT,
     pub Add2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: u32, lpszwdefault: ::windows::core::PCWSTR, priority: PRIORITY) -> ::windows::core::HRESULT,
@@ -480,13 +480,13 @@ impl IITWordWheel {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLocaleInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Vtable::vtable(self).GetLocaleInfo)(::windows::core::Vtable::as_raw(self), pdwcodepageid, plcid).ok()
     }
     pub unsafe fn GetSorterInstance(&self, pdwobjinstance: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSorterInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwobjinstance)).ok()
+        (::windows::core::Vtable::vtable(self).GetSorterInstance)(::windows::core::Vtable::as_raw(self), pdwobjinstance).ok()
     }
     pub unsafe fn Count(&self, pcentries: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcentries)).ok()
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), pcentries).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -494,7 +494,7 @@ impl IITWordWheel {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpcvprefix), fexactmatch.into(), ::core::mem::transmute(plentry)).ok()
+        (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), lpcvprefix, fexactmatch.into(), plentry).ok()
     }
     pub unsafe fn Lookup2<'a, P0>(&self, lentry: i32, lpitresult: P0, centries: i32) -> ::windows::core::Result<()>
     where
@@ -503,16 +503,16 @@ impl IITWordWheel {
         (::windows::core::Vtable::vtable(self).Lookup2)(::windows::core::Vtable::as_raw(self), lentry, lpitresult.into().abi(), centries).ok()
     }
     pub unsafe fn Lookup3(&self, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Lookup3)(::windows::core::Vtable::as_raw(self), lentry, ::core::mem::transmute(lpvkeybuf), cbkeybuf).ok()
+        (::windows::core::Vtable::vtable(self).Lookup3)(::windows::core::Vtable::as_raw(self), lentry, lpvkeybuf, cbkeybuf).ok()
     }
     pub unsafe fn SetGroup(&self, piitgroup: *mut IITGroup) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piitgroup)).ok()
+        (::windows::core::Vtable::vtable(self).SetGroup)(::windows::core::Vtable::as_raw(self), piitgroup).ok()
     }
     pub unsafe fn GetGroup(&self, ppiitgroup: *mut *mut IITGroup) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppiitgroup)).ok()
+        (::windows::core::Vtable::vtable(self).GetGroup)(::windows::core::Vtable::as_raw(self), ppiitgroup).ok()
     }
     pub unsafe fn GetDataCount(&self, lentry: i32, pdwcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDataCount)(::windows::core::Vtable::as_raw(self), lentry, ::core::mem::transmute(pdwcount)).ok()
+        (::windows::core::Vtable::vtable(self).GetDataCount)(::windows::core::Vtable::as_raw(self), lentry, pdwcount).ok()
     }
     pub unsafe fn GetData<'a, P0>(&self, lentry: i32, lpitresult: P0) -> ::windows::core::Result<()>
     where
@@ -626,13 +626,13 @@ impl IStemmerConfig {
         (::windows::core::Vtable::vtable(self).SetLocaleInfo)(::windows::core::Vtable::as_raw(self), dwcodepageid, lcid).ok()
     }
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLocaleInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Vtable::vtable(self).GetLocaleInfo)(::windows::core::Vtable::as_raw(self), pdwcodepageid, plcid).ok()
     }
     pub unsafe fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetControlInfo)(::windows::core::Vtable::as_raw(self), grfstemflags, dwreserved).ok()
     }
     pub unsafe fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetControlInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pgrfstemflags), ::core::mem::transmute(pdwreserved)).ok()
+        (::windows::core::Vtable::vtable(self).GetControlInfo)(::windows::core::Vtable::as_raw(self), pgrfstemflags, pdwreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -687,19 +687,19 @@ impl IWordBreakerConfig {
         (::windows::core::Vtable::vtable(self).SetLocaleInfo)(::windows::core::Vtable::as_raw(self), dwcodepageid, lcid).ok()
     }
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLocaleInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Vtable::vtable(self).GetLocaleInfo)(::windows::core::Vtable::as_raw(self), pdwcodepageid, plcid).ok()
     }
     pub unsafe fn SetBreakWordType(&self, dwbreakwordtype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBreakWordType)(::windows::core::Vtable::as_raw(self), dwbreakwordtype).ok()
     }
     pub unsafe fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBreakWordType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwbreakwordtype)).ok()
+        (::windows::core::Vtable::vtable(self).GetBreakWordType)(::windows::core::Vtable::as_raw(self), pdwbreakwordtype).ok()
     }
     pub unsafe fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetControlInfo)(::windows::core::Vtable::as_raw(self), grfbreakflags, dwreserved).ok()
     }
     pub unsafe fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetControlInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pgrfbreakflags), ::core::mem::transmute(pdwreserved)).ok()
+        (::windows::core::Vtable::vtable(self).GetControlInfo)(::windows::core::Vtable::as_raw(self), pgrfbreakflags, pdwreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -715,7 +715,7 @@ impl IWordBreakerConfig {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Search::IStemmer>>,
     {
-        (::windows::core::Vtable::vtable(self).SetWordStemmer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rclsid), pstemmer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetWordStemmer)(::windows::core::Vtable::as_raw(self), rclsid, pstemmer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     #[cfg(feature = "Win32_System_Search")]

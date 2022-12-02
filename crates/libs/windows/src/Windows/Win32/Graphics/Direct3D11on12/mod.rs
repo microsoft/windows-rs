@@ -31,7 +31,7 @@ impl ID3D11On12Device {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Vtable::vtable(self).CreateWrappedResource)(::windows::core::Vtable::as_raw(self), presource12.into().abi(), ::core::mem::transmute(pflags11), instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Vtable::vtable(self).CreateWrappedResource)(::windows::core::Vtable::as_raw(self), presource12.into().abi(), pflags11, instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -97,7 +97,7 @@ impl ID3D11On12Device1 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Vtable::vtable(self).base__.CreateWrappedResource)(::windows::core::Vtable::as_raw(self), presource12.into().abi(), ::core::mem::transmute(pflags11), instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Vtable::vtable(self).base__.CreateWrappedResource)(::windows::core::Vtable::as_raw(self), presource12.into().abi(), pflags11, instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -159,7 +159,7 @@ impl ID3D11On12Device2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateWrappedResource)(::windows::core::Vtable::as_raw(self), presource12.into().abi(), ::core::mem::transmute(pflags11), instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateWrappedResource)(::windows::core::Vtable::as_raw(self), presource12.into().abi(), pflags11, instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -195,7 +195,7 @@ impl ID3D11On12Device2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D11::ID3D11Resource>>,
     {
-        (::windows::core::Vtable::vtable(self).ReturnUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource11.into().abi(), numsync, ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
+        (::windows::core::Vtable::vtable(self).ReturnUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource11.into().abi(), numsync, psignalvalues, ::core::mem::transmute(ppfences)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11On12Device2, ::windows::core::IUnknown, ID3D11On12Device, ID3D11On12Device1);

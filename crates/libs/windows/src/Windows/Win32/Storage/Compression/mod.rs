@@ -23,21 +23,21 @@ where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
     ::windows::core::link ! ( "cabinet.dll""system" fn Compress ( compressorhandle : COMPRESSOR_HANDLE , uncompresseddata : *const ::core::ffi::c_void , uncompresseddatasize : usize , compressedbuffer : *mut ::core::ffi::c_void , compressedbuffersize : usize , compresseddatasize : *mut usize ) -> super::super::Foundation:: BOOL );
-    Compress(compressorhandle.into(), ::core::mem::transmute(uncompresseddata.unwrap_or(::std::ptr::null())), uncompresseddatasize, ::core::mem::transmute(compressedbuffer.unwrap_or(::std::ptr::null_mut())), compressedbuffersize, ::core::mem::transmute(compresseddatasize))
+    Compress(compressorhandle.into(), ::core::mem::transmute(uncompresseddata.unwrap_or(::std::ptr::null())), uncompresseddatasize, ::core::mem::transmute(compressedbuffer.unwrap_or(::std::ptr::null_mut())), compressedbuffersize, compresseddatasize)
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<*const COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut isize) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "cabinet.dll""system" fn CreateCompressor ( algorithm : COMPRESS_ALGORITHM , allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES , compressorhandle : *mut isize ) -> super::super::Foundation:: BOOL );
-    CreateCompressor(algorithm, ::core::mem::transmute(allocationroutines.unwrap_or(::std::ptr::null())), ::core::mem::transmute(compressorhandle))
+    CreateCompressor(algorithm, ::core::mem::transmute(allocationroutines.unwrap_or(::std::ptr::null())), compressorhandle)
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<*const COMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: *mut isize) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "cabinet.dll""system" fn CreateDecompressor ( algorithm : COMPRESS_ALGORITHM , allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES , decompressorhandle : *mut isize ) -> super::super::Foundation:: BOOL );
-    CreateDecompressor(algorithm, ::core::mem::transmute(allocationroutines.unwrap_or(::std::ptr::null())), ::core::mem::transmute(decompressorhandle))
+    CreateDecompressor(algorithm, ::core::mem::transmute(allocationroutines.unwrap_or(::std::ptr::null())), decompressorhandle)
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -54,14 +54,14 @@ where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
     ::windows::core::link ! ( "cabinet.dll""system" fn QueryCompressorInformation ( compressorhandle : COMPRESSOR_HANDLE , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *mut ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
-    QueryCompressorInformation(compressorhandle.into(), compressinformationclass, ::core::mem::transmute(compressinformation), compressinformationsize)
+    QueryCompressorInformation(compressorhandle.into(), compressinformationclass, compressinformation, compressinformationsize)
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "cabinet.dll""system" fn QueryDecompressorInformation ( decompressorhandle : isize , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *mut ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
-    QueryDecompressorInformation(decompressorhandle, compressinformationclass, ::core::mem::transmute(compressinformation), compressinformationsize)
+    QueryDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize)
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -88,14 +88,14 @@ where
     P0: ::std::convert::Into<COMPRESSOR_HANDLE>,
 {
     ::windows::core::link ! ( "cabinet.dll""system" fn SetCompressorInformation ( compressorhandle : COMPRESSOR_HANDLE , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *const ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
-    SetCompressorInformation(compressorhandle.into(), compressinformationclass, ::core::mem::transmute(compressinformation), compressinformationsize)
+    SetCompressorInformation(compressorhandle.into(), compressinformationclass, compressinformation, compressinformationsize)
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "cabinet.dll""system" fn SetDecompressorInformation ( decompressorhandle : isize , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *const ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
-    SetDecompressorInformation(decompressorhandle, compressinformationclass, ::core::mem::transmute(compressinformation), compressinformationsize)
+    SetDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize)
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;

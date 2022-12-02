@@ -54,7 +54,7 @@ impl IThumbnailExtractor {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::StructuredStorage::IStorage>>,
     {
-        (::windows::core::Vtable::vtable(self).ExtractThumbnail)(::windows::core::Vtable::as_raw(self), pstg.into().abi(), ullength, ulheight, ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
+        (::windows::core::Vtable::vtable(self).ExtractThumbnail)(::windows::core::Vtable::as_raw(self), pstg.into().abi(), ullength, ulheight, puloutputlength, puloutputheight, phoutputbitmap).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]

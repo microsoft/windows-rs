@@ -40,8 +40,16 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
 
     let abi_params = signature.params.iter().map(|p| {
         let name = gen.param_name(p.def);
-        let tokens = gen.type_abi_name(&p.ty);
-        quote! { #name: #tokens }
+        match p.kind {
+            SignatureParamKind::ValueType => {
+                let abi = gen.type_default_name(&p.ty);
+                quote! { #name: #abi }
+            }
+            _ => {
+                let abi = gen.type_abi_name(&p.ty);
+                quote! { #name: #abi }
+            }
+        }
     });
 
     let extern_abi = gen.reader.method_def_extern_abi(def);

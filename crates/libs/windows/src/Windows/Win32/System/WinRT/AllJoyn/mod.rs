@@ -123,10 +123,10 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
 pub struct IWindowsDevicesAllJoynBusObjectInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectInterop {
     pub unsafe fn AddPropertyGetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddPropertyGetHandler)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute_copy(interfacename), callback).ok()
+        (::windows::core::Vtable::vtable(self).AddPropertyGetHandler)(::windows::core::Vtable::as_raw(self), context, ::core::mem::transmute_copy(interfacename), callback).ok()
     }
     pub unsafe fn AddPropertySetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddPropertySetHandler)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute_copy(interfacename), callback).ok()
+        (::windows::core::Vtable::vtable(self).AddPropertySetHandler)(::windows::core::Vtable::as_raw(self), context, ::core::mem::transmute_copy(interfacename), callback).ok()
     }
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

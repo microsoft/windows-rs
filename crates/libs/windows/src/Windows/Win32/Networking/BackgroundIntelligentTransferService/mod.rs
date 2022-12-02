@@ -83,7 +83,7 @@ impl IBITSExtensionSetup {
     }
     pub unsafe fn GetCleanupTask(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCleanupTask)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCleanupTask)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -423,7 +423,7 @@ pub struct IBackgroundCopyCallback3_Vtbl {
 pub struct IBackgroundCopyError(::windows::core::IUnknown);
 impl IBackgroundCopyError {
     pub unsafe fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetError)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcontext), ::core::mem::transmute(pcode)).ok()
+        (::windows::core::Vtable::vtable(self).GetError)(::windows::core::Vtable::as_raw(self), pcontext, pcode).ok()
     }
     pub unsafe fn GetFile(&self) -> ::windows::core::Result<IBackgroundCopyFile> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -547,7 +547,7 @@ impl IBackgroundCopyFile2 {
         (::windows::core::Vtable::vtable(self).base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
+        (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
     pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
@@ -605,7 +605,7 @@ impl IBackgroundCopyFile3 {
         (::windows::core::Vtable::vtable(self).base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
     pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
@@ -698,7 +698,7 @@ impl IBackgroundCopyFile4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
     pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
@@ -731,7 +731,7 @@ impl IBackgroundCopyFile4 {
         (::windows::core::Vtable::vtable(self).base__.IsDownloadedFromPeer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfromorigin), ::core::mem::transmute(pfrompeers)).ok()
+        (::windows::core::Vtable::vtable(self).GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), pfromorigin, pfrompeers).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IBackgroundCopyFile4, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3);
@@ -782,7 +782,7 @@ impl IBackgroundCopyFile5 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
     pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
@@ -815,7 +815,7 @@ impl IBackgroundCopyFile5 {
         (::windows::core::Vtable::vtable(self).base__.base__.IsDownloadedFromPeer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfromorigin), ::core::mem::transmute(pfrompeers)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), pfromorigin, pfrompeers).ok()
     }
     pub unsafe fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(propertyvalue)).ok()
@@ -874,7 +874,7 @@ impl IBackgroundCopyFile6 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetProgress)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
     pub unsafe fn SetRemoteName<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
@@ -907,7 +907,7 @@ impl IBackgroundCopyFile6 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.IsDownloadedFromPeer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfromorigin), ::core::mem::transmute(pfrompeers)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), pfromorigin, pfrompeers).ok()
     }
     pub unsafe fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetProperty)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(propertyvalue)).ok()
@@ -923,7 +923,7 @@ impl IBackgroundCopyFile6 {
         (::windows::core::Vtable::vtable(self).RequestFileRanges)(::windows::core::Vtable::as_raw(self), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFilledFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
+        (::windows::core::Vtable::vtable(self).GetFilledFileRanges)(::windows::core::Vtable::as_raw(self), rangecount, ranges).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IBackgroundCopyFile6, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
@@ -977,7 +977,7 @@ impl IBackgroundCopyGroup {
         (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), dwflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStatus(&self, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwstatus), ::core::mem::transmute(pdwjobindex)).ok()
+        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), pdwstatus, pdwjobindex).ok()
     }
     pub unsafe fn GetJob(&self, jobid: ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1013,13 +1013,13 @@ impl IBackgroundCopyGroup {
     }
     pub unsafe fn QueryNewJobInterface(&self, iid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryNewJobInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).QueryNewJobInterface)(::windows::core::Vtable::as_raw(self), iid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetNotificationPointer<'a, P0>(&self, iid: *const ::windows::core::GUID, punk: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).SetNotificationPointer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), punk.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetNotificationPointer)(::windows::core::Vtable::as_raw(self), iid, punk.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IBackgroundCopyGroup, ::windows::core::IUnknown);
@@ -1201,7 +1201,7 @@ impl IBackgroundCopyJob {
         (::windows::core::Vtable::vtable(self).SetProxySettings)(::windows::core::Vtable::as_raw(self), proxyusage, proxylist.into(), proxybypasslist.into()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pproxyusage), ::core::mem::transmute(pproxylist), ::core::mem::transmute(pproxybypasslist)).ok()
+        (::windows::core::Vtable::vtable(self).GetProxySettings)(::windows::core::Vtable::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
     }
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1282,7 +1282,7 @@ impl IBackgroundCopyJob1 {
         (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), dwflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStatus(&self, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwstatus), ::core::mem::transmute(pdwwin32result), ::core::mem::transmute(pdwtransportresult), ::core::mem::transmute(pdwnumofretries)).ok()
+        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), pdwstatus, pdwwin32result, pdwtransportresult, pdwnumofretries).ok()
     }
     pub unsafe fn AddFiles(&self, ppfileset: &[*const FILESETINFO]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddFiles)(::windows::core::Vtable::as_raw(self), ppfileset.len() as _, ::core::mem::transmute(ppfileset.as_ptr())).ok()
@@ -1469,7 +1469,7 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Vtable::vtable(self).base__.SetProxySettings)(::windows::core::Vtable::as_raw(self), proxyusage, proxylist.into(), proxybypasslist.into()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pproxyusage), ::core::mem::transmute(pproxylist), ::core::mem::transmute(pproxybypasslist)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
     }
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1482,13 +1482,13 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Vtable::vtable(self).SetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), program.into(), parameters.into()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogram), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Vtable::vtable(self).GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), pprogram, pparameters).ok()
     }
     pub unsafe fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetReplyProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogress)).ok()
+        (::windows::core::Vtable::vtable(self).GetReplyProgress)(::windows::core::Vtable::as_raw(self), pprogress).ok()
     }
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetReplyData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
+        (::windows::core::Vtable::vtable(self).GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
     pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
@@ -1501,7 +1501,7 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Vtable::vtable(self).GetReplyFileName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCredentials)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(credentials)).ok()
+        (::windows::core::Vtable::vtable(self).SetCredentials)(::windows::core::Vtable::as_raw(self), credentials).ok()
     }
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
@@ -1673,7 +1673,7 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Vtable::vtable(self).base__.base__.SetProxySettings)(::windows::core::Vtable::as_raw(self), proxyusage, proxylist.into(), proxybypasslist.into()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pproxyusage), ::core::mem::transmute(pproxylist), ::core::mem::transmute(pproxybypasslist)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
     }
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1686,13 +1686,13 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Vtable::vtable(self).base__.SetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), program.into(), parameters.into()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogram), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), pprogram, pparameters).ok()
     }
     pub unsafe fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetReplyProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogress)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetReplyProgress)(::windows::core::Vtable::as_raw(self), pprogress).ok()
     }
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
     pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
@@ -1705,7 +1705,7 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Vtable::vtable(self).base__.GetReplyFileName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetCredentials)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(credentials)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetCredentials)(::windows::core::Vtable::as_raw(self), credentials).ok()
     }
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
@@ -1894,7 +1894,7 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetProxySettings)(::windows::core::Vtable::as_raw(self), proxyusage, proxylist.into(), proxybypasslist.into()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pproxyusage), ::core::mem::transmute(pproxylist), ::core::mem::transmute(pproxybypasslist)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
     }
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1907,13 +1907,13 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Vtable::vtable(self).base__.base__.SetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), program.into(), parameters.into()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogram), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), pprogram, pparameters).ok()
     }
     pub unsafe fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetReplyProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogress)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetReplyProgress)(::windows::core::Vtable::as_raw(self), pprogress).ok()
     }
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
     pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
@@ -1926,7 +1926,7 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Vtable::vtable(self).base__.base__.GetReplyFileName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetCredentials)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(credentials)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetCredentials)(::windows::core::Vtable::as_raw(self), credentials).ok()
     }
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
@@ -2144,7 +2144,7 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetProxySettings)(::windows::core::Vtable::as_raw(self), proxyusage, proxylist.into(), proxybypasslist.into()).ok()
     }
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pproxyusage), ::core::mem::transmute(pproxylist), ::core::mem::transmute(pproxybypasslist)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), pproxyusage, pproxylist, pproxybypasslist).ok()
     }
     pub unsafe fn TakeOwnership(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2157,13 +2157,13 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), program.into(), parameters.into()).ok()
     }
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogram), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetNotifyCmdLine)(::windows::core::Vtable::as_raw(self), pprogram, pparameters).ok()
     }
     pub unsafe fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetReplyProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprogress)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetReplyProgress)(::windows::core::Vtable::as_raw(self), pprogress).ok()
     }
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetReplyData)(::windows::core::Vtable::as_raw(self), ppbuffer, plength).ok()
     }
     pub unsafe fn SetReplyFileName<'a, P0>(&self, replyfilename: P0) -> ::windows::core::Result<()>
     where
@@ -2176,7 +2176,7 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetReplyFileName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetCredentials)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(credentials)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetCredentials)(::windows::core::Vtable::as_raw(self), credentials).ok()
     }
     pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
@@ -2295,7 +2295,7 @@ impl IBackgroundCopyJobHttpOptions {
         (::windows::core::Vtable::vtable(self).RemoveClientCertificate)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClientCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
+        (::windows::core::Vtable::vtable(self).GetClientCertificate)(::windows::core::Vtable::as_raw(self), pstorelocation, pstorename, ppcerthashblob, psubjectname).ok()
     }
     pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
@@ -2372,7 +2372,7 @@ impl IBackgroundCopyJobHttpOptions2 {
         (::windows::core::Vtable::vtable(self).base__.RemoveClientCertificate)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetClientCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetClientCertificate)(::windows::core::Vtable::as_raw(self), pstorelocation, pstorename, ppcerthashblob, psubjectname).ok()
     }
     pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
@@ -2453,7 +2453,7 @@ impl IBackgroundCopyJobHttpOptions3 {
         (::windows::core::Vtable::vtable(self).base__.base__.RemoveClientCertificate)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows::core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetClientCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetClientCertificate)(::windows::core::Vtable::as_raw(self), pstorelocation, pstorename, ppcerthashblob, psubjectname).ok()
     }
     pub unsafe fn SetCustomHeaders<'a, P0>(&self, requestheaders: P0) -> ::windows::core::Result<()>
     where
@@ -2530,11 +2530,11 @@ impl IBackgroundCopyManager {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).CreateJob)(::windows::core::Vtable::as_raw(self), displayname.into(), r#type, ::core::mem::transmute(pjobid), ::core::mem::transmute(ppjob)).ok()
+        (::windows::core::Vtable::vtable(self).CreateJob)(::windows::core::Vtable::as_raw(self), displayname.into(), r#type, pjobid, ::core::mem::transmute(ppjob)).ok()
     }
     pub unsafe fn GetJob(&self, jobid: *const ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetJob)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(jobid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetJob)(::windows::core::Vtable::as_raw(self), jobid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumJobs(&self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyJobs> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2755,13 +2755,13 @@ impl IBitsPeerCacheAdministration {
     }
     pub unsafe fn GetRecord(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<IBitsPeerCacheRecord> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRecord)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(id), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetRecord)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ClearRecords(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ClearRecords)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn DeleteRecord(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteRecord)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Vtable::vtable(self).DeleteRecord)(::windows::core::Vtable::as_raw(self), id).ok()
     }
     pub unsafe fn DeleteUrl<'a, P0>(&self, url: P0) -> ::windows::core::Result<()>
     where
@@ -2854,7 +2854,7 @@ impl IBitsPeerCacheRecord {
         (::windows::core::Vtable::vtable(self).IsFileValidated)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetFileRanges(&self, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prangecount), ::core::mem::transmute(ppranges)).ok()
+        (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), prangecount, ppranges).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IBitsPeerCacheRecord, ::windows::core::IUnknown);
@@ -2958,7 +2958,7 @@ pub struct IBitsTokenOptions_Vtbl {
 pub struct IEnumBackgroundCopyFiles(::windows::core::IUnknown);
 impl IEnumBackgroundCopyFiles {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyFile>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -3013,7 +3013,7 @@ pub struct IEnumBackgroundCopyFiles_Vtbl {
 pub struct IEnumBackgroundCopyGroups(::windows::core::IUnknown);
 impl IEnumBackgroundCopyGroups {
     pub unsafe fn Next(&self, rgelt: &mut [::windows::core::GUID], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -3068,7 +3068,7 @@ pub struct IEnumBackgroundCopyGroups_Vtbl {
 pub struct IEnumBackgroundCopyJobs(::windows::core::IUnknown);
 impl IEnumBackgroundCopyJobs {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyJob>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -3123,7 +3123,7 @@ pub struct IEnumBackgroundCopyJobs_Vtbl {
 pub struct IEnumBackgroundCopyJobs1(::windows::core::IUnknown);
 impl IEnumBackgroundCopyJobs1 {
     pub unsafe fn Next(&self, rgelt: &mut [::windows::core::GUID], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -3178,7 +3178,7 @@ pub struct IEnumBackgroundCopyJobs1_Vtbl {
 pub struct IEnumBitsPeerCacheRecords(::windows::core::IUnknown);
 impl IEnumBitsPeerCacheRecords {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -3233,7 +3233,7 @@ pub struct IEnumBitsPeerCacheRecords_Vtbl {
 pub struct IEnumBitsPeers(::windows::core::IUnknown);
 impl IEnumBitsPeers {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeer>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()

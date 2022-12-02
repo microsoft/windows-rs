@@ -176,7 +176,7 @@ impl IDirectManipulationContent {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentRect(&self, contentsize: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetContentRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(contentsize)).ok()
+        (::windows::core::Vtable::vtable(self).SetContentRect)(::windows::core::Vtable::as_raw(self), contentsize).ok()
     }
     pub unsafe fn GetViewport<T>(&self) -> ::windows::core::Result<T>
     where
@@ -381,7 +381,7 @@ pub struct IDirectManipulationDragDropEventHandler_Vtbl {
 pub struct IDirectManipulationFrameInfoProvider(::windows::core::IUnknown);
 impl IDirectManipulationFrameInfoProvider {
     pub unsafe fn GetNextFrameInfo(&self, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextFrameInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(time), ::core::mem::transmute(processtime), ::core::mem::transmute(compositiontime)).ok()
+        (::windows::core::Vtable::vtable(self).GetNextFrameInfo)(::windows::core::Vtable::as_raw(self), time, processtime, compositiontime).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectManipulationFrameInfoProvider, ::windows::core::IUnknown);
@@ -486,7 +486,7 @@ impl IDirectManipulationManager {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ProcessInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(message), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ProcessInput)(::windows::core::Vtable::as_raw(self), message, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUpdateManager<T>(&self) -> ::windows::core::Result<T>
     where
@@ -512,7 +512,7 @@ impl IDirectManipulationManager {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDirectManipulationManager, ::windows::core::IUnknown);
@@ -598,7 +598,7 @@ impl IDirectManipulationManager2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ProcessInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(message), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.ProcessInput)(::windows::core::Vtable::as_raw(self), message, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUpdateManager<T>(&self) -> ::windows::core::Result<T>
     where
@@ -624,14 +624,14 @@ impl IDirectManipulationManager2 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateBehavior<T>(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBehavior)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateBehavior)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDirectManipulationManager2, ::windows::core::IUnknown, IDirectManipulationManager);
@@ -696,7 +696,7 @@ impl IDirectManipulationManager3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.ProcessInput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(message), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.ProcessInput)(::windows::core::Vtable::as_raw(self), message, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetUpdateManager<T>(&self) -> ::windows::core::Result<T>
     where
@@ -722,21 +722,21 @@ impl IDirectManipulationManager3 {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateContent)(::windows::core::Vtable::as_raw(self), frameinfo.into().abi(), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateBehavior<T>(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBehavior)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateBehavior)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetService<T>(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), clsid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDirectManipulationManager3, ::windows::core::IUnknown, IDirectManipulationManager, IDirectManipulationManager2);
@@ -797,7 +797,7 @@ impl IDirectManipulationPrimaryContent {
         (::windows::core::Vtable::vtable(self).GetInertiaEndTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix.as_ptr()), matrix.len() as _).ok()
     }
     pub unsafe fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCenterPoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(centerx), ::core::mem::transmute(centery)).ok()
+        (::windows::core::Vtable::vtable(self).GetCenterPoint)(::windows::core::Vtable::as_raw(self), centerx, centery).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectManipulationPrimaryContent, ::windows::core::IUnknown);
@@ -976,7 +976,7 @@ impl IDirectManipulationViewport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetViewportRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(viewport)).ok()
+        (::windows::core::Vtable::vtable(self).SetViewportRect)(::windows::core::Vtable::as_raw(self), viewport).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1167,7 +1167,7 @@ impl IDirectManipulationViewport2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewportRect(&self, viewport: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetViewportRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(viewport)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetViewportRect)(::windows::core::Vtable::as_raw(self), viewport).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

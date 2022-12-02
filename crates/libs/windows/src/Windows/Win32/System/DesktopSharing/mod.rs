@@ -447,7 +447,7 @@ impl IRDPSRAPIAudioStream {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ptimestamp)).ok()
+        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ppbdata, pcbdata, ptimestamp).ok()
     }
     pub unsafe fn FreeBuffer(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1006,7 +1006,7 @@ impl IRDPSRAPISharingSession {
         (::windows::core::Vtable::vtable(self).SetDesktopSharedRect)(::windows::core::Vtable::as_raw(self), left, top, right, bottom).ok()
     }
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDesktopSharedRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+        (::windows::core::Vtable::vtable(self).GetDesktopSharedRect)(::windows::core::Vtable::as_raw(self), pleft, ptop, pright, pbottom).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1136,7 +1136,7 @@ impl IRDPSRAPISharingSession2 {
         (::windows::core::Vtable::vtable(self).base__.SetDesktopSharedRect)(::windows::core::Vtable::as_raw(self), left, top, right, bottom).ok()
     }
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDesktopSharedRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetDesktopSharedRect)(::windows::core::Vtable::as_raw(self), pleft, ptop, pright, pbottom).ok()
     }
     pub unsafe fn ConnectUsingTransportStream<'a, P0>(&self, pstream: P0, bstrgroup: &::windows::core::BSTR, bstrauthenticatedattendeename: &::windows::core::BSTR) -> ::windows::core::Result<()>
     where

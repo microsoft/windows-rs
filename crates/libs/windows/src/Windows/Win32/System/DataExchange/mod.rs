@@ -226,14 +226,14 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
-    ::windows::core::link ! ( "user32.dll""system" fn DdeInitializeA ( pidinst : *mut u32 , pfncallback : * mut::core::ffi::c_void , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
-    DdeInitializeA(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd, ulres)
+    ::windows::core::link ! ( "user32.dll""system" fn DdeInitializeA ( pidinst : *mut u32 , pfncallback : PFNCALLBACK , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
+    DdeInitializeA(pidinst, pfncallback, afcmd, ulres)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
-    ::windows::core::link ! ( "user32.dll""system" fn DdeInitializeW ( pidinst : *mut u32 , pfncallback : * mut::core::ffi::c_void , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
-    DdeInitializeW(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd, ulres)
+    ::windows::core::link ! ( "user32.dll""system" fn DdeInitializeW ( pidinst : *mut u32 , pfncallback : PFNCALLBACK , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
+    DdeInitializeW(pidinst, pfncallback, afcmd, ulres)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -274,7 +274,7 @@ where
     P0: ::std::convert::Into<HCONV>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DdeQueryConvInfo ( hconv : HCONV , idtransaction : u32 , pconvinfo : *mut CONVINFO ) -> u32 );
-    DdeQueryConvInfo(hconv.into(), idtransaction, ::core::mem::transmute(pconvinfo))
+    DdeQueryConvInfo(hconv.into(), idtransaction, pconvinfo)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -321,7 +321,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DdeSetQualityOfService ( hwndclient : super::super::Foundation:: HWND , pqosnew : *const super::super::Security:: SECURITY_QUALITY_OF_SERVICE , pqosprev : *mut super::super::Security:: SECURITY_QUALITY_OF_SERVICE ) -> super::super::Foundation:: BOOL );
-    DdeSetQualityOfService(hwndclient.into(), ::core::mem::transmute(pqosnew), ::core::mem::transmute(pqosprev))
+    DdeSetQualityOfService(hwndclient.into(), pqosnew, pqosprev)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -467,7 +467,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
 #[inline]
 pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "user32.dll""system" fn GetUpdatedClipboardFormats ( lpuiformats : *mut u32 , cformats : u32 , pcformatsout : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetUpdatedClipboardFormats(::core::mem::transmute(lpuiformats.as_ptr()), lpuiformats.len() as _, ::core::mem::transmute(pcformatsout))
+    GetUpdatedClipboardFormats(::core::mem::transmute(lpuiformats.as_ptr()), lpuiformats.len() as _, pcformatsout)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -660,7 +660,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn UnpackDDElParam ( msg : u32 , lparam : super::super::Foundation:: LPARAM , puilo : *mut usize , puihi : *mut usize ) -> super::super::Foundation:: BOOL );
-    UnpackDDElParam(msg, lparam.into(), ::core::mem::transmute(puilo), ::core::mem::transmute(puihi))
+    UnpackDDElParam(msg, lparam.into(), puilo, puihi)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const APPCLASS_MASK: i32 = 15i32;
