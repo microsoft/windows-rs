@@ -929,6 +929,7 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Enum => true,
             TypeKind::Struct => self.type_def_is_handle(row),
+            TypeKind::Delegate => !self.type_def_flags(row).winrt(),
             _ => false,
         }
     }
