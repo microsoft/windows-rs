@@ -21,14 +21,14 @@ where
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DirectSoundCaptureEnumerateA(::core::mem::transmute(pdsenumcallback), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
+    DirectSoundCaptureEnumerateA(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundCaptureEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DirectSoundCaptureEnumerateW(::core::mem::transmute(pdsenumcallback), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
+    DirectSoundCaptureEnumerateW(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[inline]
@@ -53,14 +53,14 @@ where
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DirectSoundEnumerateA(::core::mem::transmute(pdsenumcallback), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
+    DirectSoundEnumerateA(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "dsound.dll""system" fn DirectSoundEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DirectSoundEnumerateW(::core::mem::transmute(pdsenumcallback), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
+    DirectSoundEnumerateW(pdsenumcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

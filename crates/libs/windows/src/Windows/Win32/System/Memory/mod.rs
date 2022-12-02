@@ -5,7 +5,7 @@ pub mod NonVolatile;
 #[inline]
 pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn AddSecureMemoryCacheCallback ( pfncallback : PSECURE_MEMORY_CACHE_CALLBACK ) -> super::super::Foundation:: BOOL );
-    AddSecureMemoryCacheCallback(::core::mem::transmute(pfncallback))
+    AddSecureMemoryCacheCallback(pfncallback)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -376,7 +376,7 @@ where
 #[inline]
 pub unsafe fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn IsBadCodePtr ( lpfn : super::super::Foundation:: FARPROC ) -> super::super::Foundation:: BOOL );
-    IsBadCodePtr(::core::mem::transmute(lpfn))
+    IsBadCodePtr(lpfn)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -651,14 +651,14 @@ pub unsafe fn ReclaimVirtualMemory(virtualaddress: &[u8]) -> u32 {
 #[inline]
 pub unsafe fn RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> *mut ::core::ffi::c_void {
     ::windows::core::link ! ( "kernel32.dll""system" fn RegisterBadMemoryNotification ( callback : PBAD_MEMORY_CALLBACK_ROUTINE ) -> *mut ::core::ffi::c_void );
-    RegisterBadMemoryNotification(::core::mem::transmute(callback))
+    RegisterBadMemoryNotification(callback)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn RemoveSecureMemoryCacheCallback ( pfncallback : PSECURE_MEMORY_CACHE_CALLBACK ) -> super::super::Foundation:: BOOL );
-    RemoveSecureMemoryCacheCallback(::core::mem::transmute(pfncallback))
+    RemoveSecureMemoryCacheCallback(pfncallback)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]

@@ -125,7 +125,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmEnumInputContext ( idthread : u32 , lpfn : IMCENUMPROC , lparam : super::super::super::Foundation:: LPARAM ) -> super::super::super::Foundation:: BOOL );
-    ImmEnumInputContext(idthread, ::core::mem::transmute(lpfn), lparam.into())
+    ImmEnumInputContext(idthread, lpfn, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -137,7 +137,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmEnumRegisterWordA ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCA , lpszreading : :: windows::core::PCSTR , param3 : u32 , lpszregister : :: windows::core::PCSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
-    ImmEnumRegisterWordA(param0.into(), ::core::mem::transmute(param1), lpszreading.into(), param3, lpszregister.into(), param5)
+    ImmEnumRegisterWordA(param0.into(), param1, lpszreading.into(), param3, lpszregister.into(), param5)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -149,7 +149,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmEnumRegisterWordW ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCW , lpszreading : :: windows::core::PCWSTR , param3 : u32 , lpszregister : :: windows::core::PCWSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
-    ImmEnumRegisterWordW(param0.into(), ::core::mem::transmute(param1), lpszreading.into(), param3, lpszregister.into(), param5)
+    ImmEnumRegisterWordW(param0.into(), param1, lpszreading.into(), param3, lpszregister.into(), param5)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -3615,7 +3615,7 @@ impl IFEDictionary {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ConvertFromOldMSIME)(::windows::core::Vtable::as_raw(self), pchdic.into(), ::core::mem::transmute(pfnlog), reg).ok()
+        (::windows::core::Vtable::vtable(self).ConvertFromOldMSIME)(::windows::core::Vtable::as_raw(self), pchdic.into(), pfnlog, reg).ok()
     }
     pub unsafe fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ConvertFromUserToSys)(::windows::core::Vtable::as_raw(self)).ok()

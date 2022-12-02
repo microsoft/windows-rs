@@ -170,7 +170,7 @@ where
 #[inline]
 pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwenum: u32) -> u32 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmDriverEnum ( fncallback : ACMDRIVERENUMCB , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmDriverEnum(::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmDriverEnum(fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -261,7 +261,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFilterEnumA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fncallback : ACMFILTERENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFilterEnumA(had.into(), pafd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFilterEnumA(had.into(), pafd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -271,7 +271,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFilterEnumW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fncallback : ACMFILTERENUMCBW , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFilterEnumW(had.into(), pafd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFilterEnumW(had.into(), pafd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -300,7 +300,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFilterTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fncallback : ACMFILTERTAGENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFilterTagEnumA(had.into(), paftd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFilterTagEnumA(had.into(), paftd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -310,7 +310,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFilterTagEnumW ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSW , fncallback : ACMFILTERTAGENUMCBW , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFilterTagEnumW(had.into(), paftd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFilterTagEnumW(had.into(), paftd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -353,7 +353,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFormatEnumA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fncallback : ACMFORMATENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFormatEnumA(had.into(), pafd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFormatEnumA(had.into(), pafd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -363,7 +363,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFormatEnumW ( had : HACMDRIVER , pafd : *mut tACMFORMATDETAILSW , fncallback : ACMFORMATENUMCBW , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFormatEnumW(had.into(), pafd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFormatEnumW(had.into(), pafd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -401,7 +401,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFormatTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fncallback : ACMFORMATTAGENUMCBA , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFormatTagEnumA(had.into(), paftd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFormatTagEnumA(had.into(), paftd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -411,7 +411,7 @@ where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
     ::windows::core::link ! ( "msacm32.dll""system" fn acmFormatTagEnumW ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSW , fncallback : ACMFORMATTAGENUMCBW , dwinstance : usize , fdwenum : u32 ) -> u32 );
-    acmFormatTagEnumW(had.into(), paftd, ::core::mem::transmute(fncallback), dwinstance, fdwenum)
+    acmFormatTagEnumW(had.into(), paftd, fncallback, dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -3112,7 +3112,7 @@ pub struct IAudioStateMonitor(::windows::core::IUnknown);
 impl IAudioStateMonitor {
     pub unsafe fn RegisterCallback(&self, callback: PAudioStateMonitorCallback, context: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<i64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterCallback)(::windows::core::Vtable::as_raw(self), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn UnregisterCallback(&self, registration: i64) {
         (::windows::core::Vtable::vtable(self).UnregisterCallback)(::windows::core::Vtable::as_raw(self), registration)

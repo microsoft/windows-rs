@@ -2710,8 +2710,8 @@ pub trait ID2D1Factory1_Impl: Sized + ID2D1Factory_Impl {
     fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1>;
     fn CreateDrawingStateBlock2(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: &::core::option::Option<super::DirectWrite::IDWriteRenderingParams>) -> ::windows::core::Result<ID2D1DrawingStateBlock1>;
     fn CreateGdiMetafile(&self, metafilestream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<ID2D1GdiMetafile>;
-    fn RegisterEffectFromStream(&self, classid: *const ::windows::core::GUID, propertyxml: &::core::option::Option<super::super::System::Com::IStream>, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: &PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>;
-    fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: &::windows::core::PCWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: &PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>;
+    fn RegisterEffectFromStream(&self, classid: *const ::windows::core::GUID, propertyxml: &::core::option::Option<super::super::System::Com::IStream>, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>;
+    fn RegisterEffectFromString(&self, classid: *const ::windows::core::GUID, propertyxml: &::windows::core::PCWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>;
     fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetRegisteredEffects(&self, effects: *mut ::windows::core::GUID, effectscount: u32, effectsreturned: *mut u32, effectsregistered: *mut u32) -> ::windows::core::Result<()>;
     fn GetEffectProperties(&self, effectid: *const ::windows::core::GUID) -> ::windows::core::Result<ID2D1Properties>;
@@ -2779,12 +2779,12 @@ impl ID2D1Factory1_Vtbl {
         unsafe extern "system" fn RegisterEffectFromStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID, propertyxml: *mut ::core::ffi::c_void, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterEffectFromStream(::core::mem::transmute_copy(&classid), ::core::mem::transmute(&propertyxml), ::core::mem::transmute_copy(&bindings), ::core::mem::transmute_copy(&bindingscount), ::core::mem::transmute(&effectfactory)).into()
+            this.RegisterEffectFromStream(::core::mem::transmute_copy(&classid), ::core::mem::transmute(&propertyxml), ::core::mem::transmute_copy(&bindings), ::core::mem::transmute_copy(&bindingscount), ::core::mem::transmute_copy(&effectfactory)).into()
         }
         unsafe extern "system" fn RegisterEffectFromString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID, propertyxml: ::windows::core::PCWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterEffectFromString(::core::mem::transmute_copy(&classid), ::core::mem::transmute(&propertyxml), ::core::mem::transmute_copy(&bindings), ::core::mem::transmute_copy(&bindingscount), ::core::mem::transmute(&effectfactory)).into()
+            this.RegisterEffectFromString(::core::mem::transmute_copy(&classid), ::core::mem::transmute(&propertyxml), ::core::mem::transmute_copy(&bindings), ::core::mem::transmute_copy(&bindingscount), ::core::mem::transmute_copy(&effectfactory)).into()
         }
         unsafe extern "system" fn UnregisterEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

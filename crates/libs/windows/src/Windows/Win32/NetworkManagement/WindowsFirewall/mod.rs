@@ -33,7 +33,7 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32,
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: ::core::option::Option<*const ::core::ffi::c_void>, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationRegisterForAppContainerChanges ( flags : u32 , callback : PAC_CHANGES_CALLBACK_FN , context : *const ::core::ffi::c_void , registrationobject : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    NetworkIsolationRegisterForAppContainerChanges(flags, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registrationobject)
+    NetworkIsolationRegisterForAppContainerChanges(flags, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registrationobject)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

@@ -73,7 +73,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceLanguagesA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , lpenumfunc : ENUMRESLANGPROCA , lparam : isize ) -> super::super::Foundation:: BOOL );
-    EnumResourceLanguagesA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam)
+    EnumResourceLanguagesA(hmodule.into(), lptype.into(), lpname.into(), lpenumfunc, lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -85,7 +85,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceLanguagesExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , lpenumfunc : ENUMRESLANGPROCA , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
-    EnumResourceLanguagesExA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
+    EnumResourceLanguagesExA(hmodule.into(), lptype.into(), lpname.into(), lpenumfunc, lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -97,7 +97,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceLanguagesExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , lpenumfunc : ENUMRESLANGPROCW , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
-    EnumResourceLanguagesExW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
+    EnumResourceLanguagesExW(hmodule.into(), lptype.into(), lpname.into(), lpenumfunc, lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -109,7 +109,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceLanguagesW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , lpenumfunc : ENUMRESLANGPROCW , lparam : isize ) -> super::super::Foundation:: BOOL );
-    EnumResourceLanguagesW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam)
+    EnumResourceLanguagesW(hmodule.into(), lptype.into(), lpname.into(), lpenumfunc, lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -120,7 +120,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceNamesA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpenumfunc : ENUMRESNAMEPROCA , lparam : isize ) -> super::super::Foundation:: BOOL );
-    EnumResourceNamesA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam)
+    EnumResourceNamesA(hmodule.into(), lptype.into(), lpenumfunc, lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -131,7 +131,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceNamesExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpenumfunc : ENUMRESNAMEPROCA , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
-    EnumResourceNamesExA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
+    EnumResourceNamesExA(hmodule.into(), lptype.into(), lpenumfunc, lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -142,7 +142,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceNamesExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpenumfunc : ENUMRESNAMEPROCW , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
-    EnumResourceNamesExW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
+    EnumResourceNamesExW(hmodule.into(), lptype.into(), lpenumfunc, lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -153,7 +153,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceNamesW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpenumfunc : ENUMRESNAMEPROCW , lparam : isize ) -> super::super::Foundation:: BOOL );
-    EnumResourceNamesW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam)
+    EnumResourceNamesW(hmodule.into(), lptype.into(), lpenumfunc, lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -163,7 +163,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceTypesA ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : ENUMRESTYPEPROCA , lparam : isize ) -> super::super::Foundation:: BOOL );
-    EnumResourceTypesA(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam)
+    EnumResourceTypesA(hmodule.into(), lpenumfunc, lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -173,7 +173,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceTypesExA ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : ENUMRESTYPEPROCA , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
-    EnumResourceTypesExA(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
+    EnumResourceTypesExA(hmodule.into(), lpenumfunc, lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -183,7 +183,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceTypesExW ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : ENUMRESTYPEPROCW , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
-    EnumResourceTypesExW(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
+    EnumResourceTypesExW(hmodule.into(), lpenumfunc, lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -193,7 +193,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumResourceTypesW ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : ENUMRESTYPEPROCW , lparam : isize ) -> super::super::Foundation:: BOOL );
-    EnumResourceTypesW(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam)
+    EnumResourceTypesW(hmodule.into(), lpenumfunc, lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

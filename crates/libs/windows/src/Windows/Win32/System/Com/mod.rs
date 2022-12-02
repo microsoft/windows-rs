@@ -2786,7 +2786,7 @@ impl IContextCallback {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).ContextCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfncallback), pparam, riid, imethod, punk.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).ContextCallback)(::windows::core::Vtable::as_raw(self), pfncallback, pparam, riid, imethod, punk.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IContextCallback, ::windows::core::IUnknown);

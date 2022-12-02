@@ -36431,7 +36431,7 @@ pub trait IStreamSample_Impl: Sized {
     fn GetMediaStream(&self, ppmediastream: *const ::core::option::Option<IMediaStream>) -> ::windows::core::Result<()>;
     fn GetSampleTimes(&self, pstarttime: *mut i64, pendtime: *mut i64, pcurrenttime: *mut i64) -> ::windows::core::Result<()>;
     fn SetSampleTimes(&self, pstarttime: *const i64, pendtime: *const i64) -> ::windows::core::Result<()>;
-    fn Update(&self, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: &super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows::core::Result<()>;
+    fn Update(&self, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows::core::Result<()>;
     fn CompletionStatus(&self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -36457,7 +36457,7 @@ impl IStreamSample_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&hevent), ::core::mem::transmute(&pfnapc), ::core::mem::transmute_copy(&dwapcdata)).into()
+            this.Update(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&hevent), ::core::mem::transmute_copy(&pfnapc), ::core::mem::transmute_copy(&dwapcdata)).into()
         }
         unsafe extern "system" fn CompletionStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

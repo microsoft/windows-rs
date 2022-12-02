@@ -134,7 +134,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn CallWindowProcA ( lpprevwndfunc : WNDPROC , hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
-    CallWindowProcA(::core::mem::transmute(lpprevwndfunc), hwnd.into(), msg, wparam.into(), lparam.into())
+    CallWindowProcA(lpprevwndfunc, hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -146,7 +146,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn CallWindowProcW ( lpprevwndfunc : WNDPROC , hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
-    CallWindowProcW(::core::mem::transmute(lpprevwndfunc), hwnd.into(), msg, wparam.into(), lparam.into())
+    CallWindowProcW(lpprevwndfunc, hwnd.into(), msg, wparam.into(), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -490,7 +490,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDialogIndirectParamA ( hinstance : super::super::Foundation:: HINSTANCE , lptemplate : *const DLGTEMPLATE , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: HWND );
-    CreateDialogIndirectParamA(hinstance.into(), lptemplate, hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    CreateDialogIndirectParamA(hinstance.into(), lptemplate, hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -502,7 +502,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDialogIndirectParamW ( hinstance : super::super::Foundation:: HINSTANCE , lptemplate : *const DLGTEMPLATE , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: HWND );
-    CreateDialogIndirectParamW(hinstance.into(), lptemplate, hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    CreateDialogIndirectParamW(hinstance.into(), lptemplate, hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -515,7 +515,7 @@ where
     P3: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDialogParamA ( hinstance : super::super::Foundation:: HINSTANCE , lptemplatename : :: windows::core::PCSTR , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: HWND );
-    CreateDialogParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    CreateDialogParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -528,7 +528,7 @@ where
     P3: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDialogParamW ( hinstance : super::super::Foundation:: HINSTANCE , lptemplatename : :: windows::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: HWND );
-    CreateDialogParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    CreateDialogParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -864,7 +864,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DialogBoxIndirectParamA ( hinstance : super::super::Foundation:: HINSTANCE , hdialogtemplate : *const DLGTEMPLATE , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> isize );
-    DialogBoxIndirectParamA(hinstance.into(), hdialogtemplate, hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    DialogBoxIndirectParamA(hinstance.into(), hdialogtemplate, hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -876,7 +876,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DialogBoxIndirectParamW ( hinstance : super::super::Foundation:: HINSTANCE , hdialogtemplate : *const DLGTEMPLATE , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> isize );
-    DialogBoxIndirectParamW(hinstance.into(), hdialogtemplate, hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    DialogBoxIndirectParamW(hinstance.into(), hdialogtemplate, hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -889,7 +889,7 @@ where
     P3: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DialogBoxParamA ( hinstance : super::super::Foundation:: HINSTANCE , lptemplatename : :: windows::core::PCSTR , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> isize );
-    DialogBoxParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    DialogBoxParamA(hinstance.into(), lptemplatename.into(), hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -902,7 +902,7 @@ where
     P3: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DialogBoxParamW ( hinstance : super::super::Foundation:: HINSTANCE , lptemplatename : :: windows::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , lpdialogfunc : DLGPROC , dwinitparam : super::super::Foundation:: LPARAM ) -> isize );
-    DialogBoxParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into())
+    DialogBoxParamW(hinstance.into(), lptemplatename.into(), hwndparent.into(), lpdialogfunc, dwinitparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -1015,7 +1015,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumChildWindows ( hwndparent : super::super::Foundation:: HWND , lpenumfunc : WNDENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumChildWindows(hwndparent.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumChildWindows(hwndparent.into(), lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1025,7 +1025,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumPropsA ( hwnd : super::super::Foundation:: HWND , lpenumfunc : PROPENUMPROCA ) -> i32 );
-    EnumPropsA(hwnd.into(), ::core::mem::transmute(lpenumfunc))
+    EnumPropsA(hwnd.into(), lpenumfunc)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1036,7 +1036,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumPropsExA ( hwnd : super::super::Foundation:: HWND , lpenumfunc : PROPENUMPROCEXA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumPropsExA(hwnd.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumPropsExA(hwnd.into(), lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1047,7 +1047,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumPropsExW ( hwnd : super::super::Foundation:: HWND , lpenumfunc : PROPENUMPROCEXW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumPropsExW(hwnd.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumPropsExW(hwnd.into(), lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1057,7 +1057,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumPropsW ( hwnd : super::super::Foundation:: HWND , lpenumfunc : PROPENUMPROCW ) -> i32 );
-    EnumPropsW(hwnd.into(), ::core::mem::transmute(lpenumfunc))
+    EnumPropsW(hwnd.into(), lpenumfunc)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1067,7 +1067,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumThreadWindows ( dwthreadid : u32 , lpfn : WNDENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumThreadWindows(dwthreadid, ::core::mem::transmute(lpfn), lparam.into())
+    EnumThreadWindows(dwthreadid, lpfn, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1077,7 +1077,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumWindows ( lpenumfunc : WNDENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumWindows(::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumWindows(lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3211,7 +3211,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SendMessageCallbackA ( hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , lpresultcallback : SENDASYNCPROC , dwdata : usize ) -> super::super::Foundation:: BOOL );
-    SendMessageCallbackA(hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(lpresultcallback), dwdata)
+    SendMessageCallbackA(hwnd.into(), msg, wparam.into(), lparam.into(), lpresultcallback, dwdata)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3223,7 +3223,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SendMessageCallbackW ( hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , lpresultcallback : SENDASYNCPROC , dwdata : usize ) -> super::super::Foundation:: BOOL );
-    SendMessageCallbackW(hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(lpresultcallback), dwdata)
+    SendMessageCallbackW(hwnd.into(), msg, wparam.into(), lparam.into(), lpresultcallback, dwdata)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3359,7 +3359,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetCoalescableTimer ( hwnd : super::super::Foundation:: HWND , nidevent : usize , uelapse : u32 , lptimerfunc : TIMERPROC , utolerancedelay : u32 ) -> usize );
-    SetCoalescableTimer(hwnd.into(), nidevent, uelapse, ::core::mem::transmute(lptimerfunc), utolerancedelay)
+    SetCoalescableTimer(hwnd.into(), nidevent, uelapse, lptimerfunc, utolerancedelay)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -3593,7 +3593,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetTimer ( hwnd : super::super::Foundation:: HWND , nidevent : usize , uelapse : u32 , lptimerfunc : TIMERPROC ) -> usize );
-    SetTimer(hwnd.into(), nidevent, uelapse, ::core::mem::transmute(lptimerfunc))
+    SetTimer(hwnd.into(), nidevent, uelapse, lptimerfunc)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3705,7 +3705,7 @@ where
 #[inline]
 pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOOK {
     ::windows::core::link ! ( "user32.dll""system" fn SetWindowsHookA ( nfiltertype : i32 , pfnfilterproc : HOOKPROC ) -> HHOOK );
-    SetWindowsHookA(nfiltertype, ::core::mem::transmute(pfnfilterproc))
+    SetWindowsHookA(nfiltertype, pfnfilterproc)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3715,7 +3715,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetWindowsHookExA ( idhook : WINDOWS_HOOK_ID , lpfn : HOOKPROC , hmod : super::super::Foundation:: HINSTANCE , dwthreadid : u32 ) -> HHOOK );
-    let result__ = SetWindowsHookExA(idhook, ::core::mem::transmute(lpfn), hmod.into(), dwthreadid);
+    let result__ = SetWindowsHookExA(idhook, lpfn, hmod.into(), dwthreadid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
@@ -3726,7 +3726,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetWindowsHookExW ( idhook : WINDOWS_HOOK_ID , lpfn : HOOKPROC , hmod : super::super::Foundation:: HINSTANCE , dwthreadid : u32 ) -> HHOOK );
-    let result__ = SetWindowsHookExW(idhook, ::core::mem::transmute(lpfn), hmod.into(), dwthreadid);
+    let result__ = SetWindowsHookExW(idhook, lpfn, hmod.into(), dwthreadid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
@@ -3734,7 +3734,7 @@ where
 #[inline]
 pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOOK {
     ::windows::core::link ! ( "user32.dll""system" fn SetWindowsHookW ( nfiltertype : i32 , pfnfilterproc : HOOKPROC ) -> HHOOK );
-    SetWindowsHookW(nfiltertype, ::core::mem::transmute(pfnfilterproc))
+    SetWindowsHookW(nfiltertype, pfnfilterproc)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3895,7 +3895,7 @@ pub unsafe fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::B
 #[inline]
 pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: HOOKPROC) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "user32.dll""system" fn UnhookWindowsHook ( ncode : i32 , pfnfilterproc : HOOKPROC ) -> super::super::Foundation:: BOOL );
-    UnhookWindowsHook(ncode, ::core::mem::transmute(pfnfilterproc))
+    UnhookWindowsHook(ncode, pfnfilterproc)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

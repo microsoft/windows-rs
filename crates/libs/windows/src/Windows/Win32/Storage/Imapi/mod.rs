@@ -26,7 +26,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn OpenIMsgOnIStg ( lpmsgsess : *mut _MSGSESS , lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER , lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE , lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER , lpmalloc : * mut::core::ffi::c_void , lpmapisup : *mut ::core::ffi::c_void , lpstg : * mut::core::ffi::c_void , lpfmsgcallrelease : *mut MSGCALLRELEASE , ulcallerdata : u32 , ulflags : u32 , lppmsg : *mut * mut::core::ffi::c_void ) -> i32 );
-    OpenIMsgOnIStg(lpmsgsess, ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), lpmalloc.into().abi(), lpmapisup, lpstg.into().abi(), lpfmsgcallrelease, ulcallerdata, ulflags, ::core::mem::transmute(lppmsg))
+    OpenIMsgOnIStg(lpmsgsess, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into().abi(), lpmapisup, lpstg.into().abi(), lpfmsgcallrelease, ulcallerdata, ulflags, ::core::mem::transmute(lppmsg))
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]

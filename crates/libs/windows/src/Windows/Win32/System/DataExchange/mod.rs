@@ -227,13 +227,13 @@ where
 #[inline]
 pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     ::windows::core::link ! ( "user32.dll""system" fn DdeInitializeA ( pidinst : *mut u32 , pfncallback : PFNCALLBACK , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
-    DdeInitializeA(pidinst, ::core::mem::transmute(pfncallback), afcmd, ulres)
+    DdeInitializeA(pidinst, pfncallback, afcmd, ulres)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     ::windows::core::link ! ( "user32.dll""system" fn DdeInitializeW ( pidinst : *mut u32 , pfncallback : PFNCALLBACK , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
-    DdeInitializeW(pidinst, ::core::mem::transmute(pfncallback), afcmd, ulres)
+    DdeInitializeW(pidinst, pfncallback, afcmd, ulres)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -595,7 +595,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetConsoleCtrlHandler ( handlerroutine : PHANDLER_ROUTINE , add : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    SetConsoleCtrlHandler(::core::mem::transmute(handlerroutine), add.into())
+    SetConsoleCtrlHandler(handlerroutine, add.into())
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

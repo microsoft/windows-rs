@@ -20,14 +20,14 @@ pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::core::ffi::c_void, c
 #[inline]
 pub unsafe fn K32EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn K32EnumPageFilesA ( pcallbackroutine : PENUM_PAGE_FILE_CALLBACKA , pcontext : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    K32EnumPageFilesA(::core::mem::transmute(pcallbackroutine), pcontext)
+    K32EnumPageFilesA(pcallbackroutine, pcontext)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn K32EnumPageFilesW ( pcallbackroutine : PENUM_PAGE_FILE_CALLBACKW , pcontext : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    K32EnumPageFilesW(::core::mem::transmute(pcallbackroutine), pcontext)
+    K32EnumPageFilesW(pcallbackroutine, pcontext)
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

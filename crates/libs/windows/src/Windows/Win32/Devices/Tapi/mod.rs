@@ -865,7 +865,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "tapi32.dll""system" fn lineInitialize ( lphlineapp : *mut u32 , hinstance : super::super::Foundation:: HINSTANCE , lpfncallback : LINECALLBACK , lpszappname : :: windows::core::PCSTR , lpdwnumdevs : *mut u32 ) -> i32 );
-    lineInitialize(lphlineapp, hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), lpdwnumdevs)
+    lineInitialize(lphlineapp, hinstance.into(), lpfncallback, lpszappname.into(), lpdwnumdevs)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -876,7 +876,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "tapi32.dll""system" fn lineInitializeExA ( lphlineapp : *mut u32 , hinstance : super::super::Foundation:: HINSTANCE , lpfncallback : LINECALLBACK , lpszfriendlyappname : :: windows::core::PCSTR , lpdwnumdevs : *mut u32 , lpdwapiversion : *mut u32 , lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS ) -> i32 );
-    lineInitializeExA(lphlineapp, hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
+    lineInitializeExA(lphlineapp, hinstance.into(), lpfncallback, lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -887,7 +887,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "tapi32.dll""system" fn lineInitializeExW ( lphlineapp : *mut u32 , hinstance : super::super::Foundation:: HINSTANCE , lpfncallback : LINECALLBACK , lpszfriendlyappname : :: windows::core::PCWSTR , lpdwnumdevs : *mut u32 , lpdwapiversion : *mut u32 , lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS ) -> i32 );
-    lineInitializeExW(lphlineapp, hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
+    lineInitializeExW(lphlineapp, hinstance.into(), lpfncallback, lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
@@ -1689,7 +1689,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "tapi32.dll""system" fn phoneInitialize ( lphphoneapp : *mut u32 , hinstance : super::super::Foundation:: HINSTANCE , lpfncallback : PHONECALLBACK , lpszappname : :: windows::core::PCSTR , lpdwnumdevs : *mut u32 ) -> i32 );
-    phoneInitialize(lphphoneapp, hinstance.into(), ::core::mem::transmute(lpfncallback), lpszappname.into(), lpdwnumdevs)
+    phoneInitialize(lphphoneapp, hinstance.into(), lpfncallback, lpszappname.into(), lpdwnumdevs)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1700,7 +1700,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "tapi32.dll""system" fn phoneInitializeExA ( lphphoneapp : *mut u32 , hinstance : super::super::Foundation:: HINSTANCE , lpfncallback : PHONECALLBACK , lpszfriendlyappname : :: windows::core::PCSTR , lpdwnumdevs : *mut u32 , lpdwapiversion : *mut u32 , lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS ) -> i32 );
-    phoneInitializeExA(lphphoneapp, hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
+    phoneInitializeExA(lphphoneapp, hinstance.into(), lpfncallback, lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1711,7 +1711,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "tapi32.dll""system" fn phoneInitializeExW ( lphphoneapp : *mut u32 , hinstance : super::super::Foundation:: HINSTANCE , lpfncallback : PHONECALLBACK , lpszfriendlyappname : :: windows::core::PCWSTR , lpdwnumdevs : *mut u32 , lpdwapiversion : *mut u32 , lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS ) -> i32 );
-    phoneInitializeExW(lphphoneapp, hinstance.into(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
+    phoneInitializeExW(lphphoneapp, hinstance.into(), lpfncallback, lpszfriendlyappname.into(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]

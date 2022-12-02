@@ -42,14 +42,14 @@ pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
 #[inline]
 pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumCalendarInfoA ( lpcalinfoenumproc : CALINFO_ENUMPROCA , locale : u32 , calendar : u32 , caltype : u32 ) -> super::Foundation:: BOOL );
-    EnumCalendarInfoA(::core::mem::transmute(lpcalinfoenumproc), locale, calendar, caltype)
+    EnumCalendarInfoA(lpcalinfoenumproc, locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumCalendarInfoExA ( lpcalinfoenumprocex : CALINFO_ENUMPROCEXA , locale : u32 , calendar : u32 , caltype : u32 ) -> super::Foundation:: BOOL );
-    EnumCalendarInfoExA(::core::mem::transmute(lpcalinfoenumprocex), locale, calendar, caltype)
+    EnumCalendarInfoExA(lpcalinfoenumprocex, locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -61,35 +61,35 @@ where
     P2: ::std::convert::Into<super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumCalendarInfoExEx ( pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX , lplocalename : :: windows::core::PCWSTR , calendar : u32 , lpreserved : :: windows::core::PCWSTR , caltype : u32 , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
-    EnumCalendarInfoExEx(::core::mem::transmute(pcalinfoenumprocexex), lplocalename.into(), calendar, lpreserved.into(), caltype, lparam.into())
+    EnumCalendarInfoExEx(pcalinfoenumprocexex, lplocalename.into(), calendar, lpreserved.into(), caltype, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumCalendarInfoExW ( lpcalinfoenumprocex : CALINFO_ENUMPROCEXW , locale : u32 , calendar : u32 , caltype : u32 ) -> super::Foundation:: BOOL );
-    EnumCalendarInfoExW(::core::mem::transmute(lpcalinfoenumprocex), locale, calendar, caltype)
+    EnumCalendarInfoExW(lpcalinfoenumprocex, locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumCalendarInfoW ( lpcalinfoenumproc : CALINFO_ENUMPROCW , locale : u32 , calendar : u32 , caltype : u32 ) -> super::Foundation:: BOOL );
-    EnumCalendarInfoW(::core::mem::transmute(lpcalinfoenumproc), locale, calendar, caltype)
+    EnumCalendarInfoW(lpcalinfoenumproc, locale, calendar, caltype)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumDateFormatsA ( lpdatefmtenumproc : DATEFMT_ENUMPROCA , locale : u32 , dwflags : u32 ) -> super::Foundation:: BOOL );
-    EnumDateFormatsA(::core::mem::transmute(lpdatefmtenumproc), locale, dwflags)
+    EnumDateFormatsA(lpdatefmtenumproc, locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumDateFormatsExA ( lpdatefmtenumprocex : DATEFMT_ENUMPROCEXA , locale : u32 , dwflags : u32 ) -> super::Foundation:: BOOL );
-    EnumDateFormatsExA(::core::mem::transmute(lpdatefmtenumprocex), locale, dwflags)
+    EnumDateFormatsExA(lpdatefmtenumprocex, locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -100,56 +100,56 @@ where
     P1: ::std::convert::Into<super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumDateFormatsExEx ( lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX , lplocalename : :: windows::core::PCWSTR , dwflags : ENUM_DATE_FORMATS_FLAGS , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
-    EnumDateFormatsExEx(::core::mem::transmute(lpdatefmtenumprocexex), lplocalename.into(), dwflags, lparam.into())
+    EnumDateFormatsExEx(lpdatefmtenumprocexex, lplocalename.into(), dwflags, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumDateFormatsExW ( lpdatefmtenumprocex : DATEFMT_ENUMPROCEXW , locale : u32 , dwflags : u32 ) -> super::Foundation:: BOOL );
-    EnumDateFormatsExW(::core::mem::transmute(lpdatefmtenumprocex), locale, dwflags)
+    EnumDateFormatsExW(lpdatefmtenumprocex, locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumDateFormatsW ( lpdatefmtenumproc : DATEFMT_ENUMPROCW , locale : u32 , dwflags : u32 ) -> super::Foundation:: BOOL );
-    EnumDateFormatsW(::core::mem::transmute(lpdatefmtenumproc), locale, dwflags)
+    EnumDateFormatsW(lpdatefmtenumproc, locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumLanguageGroupLocalesA ( lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCA , languagegroup : u32 , dwflags : u32 , lparam : isize ) -> super::Foundation:: BOOL );
-    EnumLanguageGroupLocalesA(::core::mem::transmute(lplanggrouplocaleenumproc), languagegroup, dwflags, lparam)
+    EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc, languagegroup, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumLanguageGroupLocalesW ( lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCW , languagegroup : u32 , dwflags : u32 , lparam : isize ) -> super::Foundation:: BOOL );
-    EnumLanguageGroupLocalesW(::core::mem::transmute(lplanggrouplocaleenumproc), languagegroup, dwflags, lparam)
+    EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc, languagegroup, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemCodePagesA ( lpcodepageenumproc : CODEPAGE_ENUMPROCA , dwflags : ENUM_SYSTEM_CODE_PAGES_FLAGS ) -> super::Foundation:: BOOL );
-    EnumSystemCodePagesA(::core::mem::transmute(lpcodepageenumproc), dwflags)
+    EnumSystemCodePagesA(lpcodepageenumproc, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemCodePagesW ( lpcodepageenumproc : CODEPAGE_ENUMPROCW , dwflags : ENUM_SYSTEM_CODE_PAGES_FLAGS ) -> super::Foundation:: BOOL );
-    EnumSystemCodePagesW(::core::mem::transmute(lpcodepageenumproc), dwflags)
+    EnumSystemCodePagesW(lpcodepageenumproc, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemGeoID ( geoclass : u32 , parentgeoid : i32 , lpgeoenumproc : GEO_ENUMPROC ) -> super::Foundation:: BOOL );
-    EnumSystemGeoID(geoclass, parentgeoid, ::core::mem::transmute(lpgeoenumproc))
+    EnumSystemGeoID(geoclass, parentgeoid, lpgeoenumproc)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -159,28 +159,28 @@ where
     P0: ::std::convert::Into<super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemGeoNames ( geoclass : u32 , geoenumproc : GEO_ENUMNAMEPROC , data : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
-    EnumSystemGeoNames(geoclass, ::core::mem::transmute(geoenumproc), data.into())
+    EnumSystemGeoNames(geoclass, geoenumproc, data.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemLanguageGroupsA ( lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCA , dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS , lparam : isize ) -> super::Foundation:: BOOL );
-    EnumSystemLanguageGroupsA(::core::mem::transmute(lplanguagegroupenumproc), dwflags, lparam)
+    EnumSystemLanguageGroupsA(lplanguagegroupenumproc, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemLanguageGroupsW ( lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCW , dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS , lparam : isize ) -> super::Foundation:: BOOL );
-    EnumSystemLanguageGroupsW(::core::mem::transmute(lplanguagegroupenumproc), dwflags, lparam)
+    EnumSystemLanguageGroupsW(lplanguagegroupenumproc, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemLocalesA ( lplocaleenumproc : LOCALE_ENUMPROCA , dwflags : u32 ) -> super::Foundation:: BOOL );
-    EnumSystemLocalesA(::core::mem::transmute(lplocaleenumproc), dwflags)
+    EnumSystemLocalesA(lplocaleenumproc, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -190,21 +190,21 @@ where
     P0: ::std::convert::Into<super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemLocalesEx ( lplocaleenumprocex : LOCALE_ENUMPROCEX , dwflags : u32 , lparam : super::Foundation:: LPARAM , lpreserved : *const ::core::ffi::c_void ) -> super::Foundation:: BOOL );
-    EnumSystemLocalesEx(::core::mem::transmute(lplocaleenumprocex), dwflags, lparam.into(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
+    EnumSystemLocalesEx(lplocaleenumprocex, dwflags, lparam.into(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumSystemLocalesW ( lplocaleenumproc : LOCALE_ENUMPROCW , dwflags : u32 ) -> super::Foundation:: BOOL );
-    EnumSystemLocalesW(::core::mem::transmute(lplocaleenumproc), dwflags)
+    EnumSystemLocalesW(lplocaleenumproc, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumTimeFormatsA ( lptimefmtenumproc : TIMEFMT_ENUMPROCA , locale : u32 , dwflags : TIME_FORMAT_FLAGS ) -> super::Foundation:: BOOL );
-    EnumTimeFormatsA(::core::mem::transmute(lptimefmtenumproc), locale, dwflags)
+    EnumTimeFormatsA(lptimefmtenumproc, locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -215,28 +215,28 @@ where
     P1: ::std::convert::Into<super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumTimeFormatsEx ( lptimefmtenumprocex : TIMEFMT_ENUMPROCEX , lplocalename : :: windows::core::PCWSTR , dwflags : u32 , lparam : super::Foundation:: LPARAM ) -> super::Foundation:: BOOL );
-    EnumTimeFormatsEx(::core::mem::transmute(lptimefmtenumprocex), lplocalename.into(), dwflags, lparam.into())
+    EnumTimeFormatsEx(lptimefmtenumprocex, lplocalename.into(), dwflags, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumTimeFormatsW ( lptimefmtenumproc : TIMEFMT_ENUMPROCW , locale : u32 , dwflags : TIME_FORMAT_FLAGS ) -> super::Foundation:: BOOL );
-    EnumTimeFormatsW(::core::mem::transmute(lptimefmtenumproc), locale, dwflags)
+    EnumTimeFormatsW(lptimefmtenumproc, locale, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumUILanguagesA ( lpuilanguageenumproc : UILANGUAGE_ENUMPROCA , dwflags : u32 , lparam : isize ) -> super::Foundation:: BOOL );
-    EnumUILanguagesA(::core::mem::transmute(lpuilanguageenumproc), dwflags, lparam)
+    EnumUILanguagesA(lpuilanguageenumproc, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn EnumUILanguagesW ( lpuilanguageenumproc : UILANGUAGE_ENUMPROCW , dwflags : u32 , lparam : isize ) -> super::Foundation:: BOOL );
-    EnumUILanguagesW(::core::mem::transmute(lpuilanguageenumproc), dwflags, lparam)
+    EnumUILanguagesW(lpuilanguageenumproc, dwflags, lparam)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2469,7 +2469,7 @@ where
 #[inline]
 pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32 {
     ::windows::core::link ! ( "icu.dll""cdecl" fn u_unescapeAt ( charat : UNESCAPE_CHAR_AT , offset : *mut i32 , length : i32 , context : *mut ::core::ffi::c_void ) -> i32 );
-    u_unescapeAt(::core::mem::transmute(charat), offset, length, context)
+    u_unescapeAt(charat, offset, length, context)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -2727,7 +2727,7 @@ pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut
 #[inline]
 pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const ::core::ffi::c_void, oldfn: *mut UBiDiClassCallback, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) {
     ::windows::core::link ! ( "icu.dll""cdecl" fn ubidi_setClassCallback ( pbidi : *mut UBiDi , newfn : UBiDiClassCallback , newcontext : *const ::core::ffi::c_void , oldfn : *mut UBiDiClassCallback , oldcontext : *const *const ::core::ffi::c_void , perrorcode : *mut UErrorCode ) -> ( ) );
-    ubidi_setClassCallback(pbidi, ::core::mem::transmute(newfn), newcontext, oldfn, oldcontext, perrorcode)
+    ubidi_setClassCallback(pbidi, newfn, newcontext, oldfn, oldcontext, perrorcode)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -3810,7 +3810,7 @@ pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
 #[inline]
 pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConverterFromUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterFromUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
     ::windows::core::link ! ( "icu.dll""cdecl" fn ucnv_setFromUCallBack ( converter : *mut UConverter , newaction : UConverterFromUCallback , newcontext : *const ::core::ffi::c_void , oldaction : *mut UConverterFromUCallback , oldcontext : *const *const ::core::ffi::c_void , err : *mut UErrorCode ) -> ( ) );
-    ucnv_setFromUCallBack(converter, ::core::mem::transmute(newaction), newcontext, oldaction, oldcontext, err)
+    ucnv_setFromUCallBack(converter, newaction, newcontext, oldaction, oldcontext, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -3831,7 +3831,7 @@ pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i
 #[inline]
 pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConverterToUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterToUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
     ::windows::core::link ! ( "icu.dll""cdecl" fn ucnv_setToUCallBack ( converter : *mut UConverter , newaction : UConverterToUCallback , newcontext : *const ::core::ffi::c_void , oldaction : *mut UConverterToUCallback , oldcontext : *const *const ::core::ffi::c_void , err : *mut UErrorCode ) -> ( ) );
-    ucnv_setToUCallBack(converter, ::core::mem::transmute(newaction), newcontext, oldaction, oldcontext, err)
+    ucnv_setToUCallBack(converter, newaction, newcontext, oldaction, oldcontext, err)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -6770,13 +6770,13 @@ pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status
 #[inline]
 pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: URegexFindProgressCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     ::windows::core::link ! ( "icu.dll""cdecl" fn uregex_setFindProgressCallback ( regexp : *mut URegularExpression , callback : URegexFindProgressCallback , context : *const ::core::ffi::c_void , status : *mut UErrorCode ) -> ( ) );
-    uregex_setFindProgressCallback(regexp, ::core::mem::transmute(callback), context, status)
+    uregex_setFindProgressCallback(regexp, callback, context, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
 pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: URegexMatchCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     ::windows::core::link ! ( "icu.dll""cdecl" fn uregex_setMatchCallback ( regexp : *mut URegularExpression , callback : URegexMatchCallback , context : *const ::core::ffi::c_void , status : *mut UErrorCode ) -> ( ) );
-    uregex_setMatchCallback(regexp, ::core::mem::transmute(callback), context, status)
+    uregex_setMatchCallback(regexp, callback, context, status)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
@@ -8194,7 +8194,7 @@ pub unsafe fn utrace_getLevel() -> i32 {
 #[inline]
 pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
     ::windows::core::link ! ( "icu.dll""cdecl" fn utrace_setFunctions ( context : *const ::core::ffi::c_void , e : UTraceEntry , x : UTraceExit , d : UTraceData ) -> ( ) );
-    utrace_setFunctions(context, ::core::mem::transmute(e), ::core::mem::transmute(x), ::core::mem::transmute(d))
+    utrace_setFunctions(context, e, x, d)
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]

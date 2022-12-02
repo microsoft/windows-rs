@@ -109,7 +109,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_CALLOUT_SUBSCRIPTION0 , callback : FWPM_CALLOUT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmCalloutSubscribeChanges0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    FwpmCalloutSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -202,7 +202,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_CONNECTION_SUBSCRIPTION0 , callback : FWPM_CONNECTION_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmConnectionSubscribe0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    FwpmConnectionSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -220,7 +220,7 @@ where
 #[inline]
 pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KEYWORD_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmDynamicKeywordSubscribe0 ( flags : u32 , callback : FWPM_DYNAMIC_KEYWORD_CALLBACK0 , context : *const ::core::ffi::c_void , subscriptionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmDynamicKeywordSubscribe0(flags, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), subscriptionhandle)
+    FwpmDynamicKeywordSubscribe0(flags, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), subscriptionhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -403,7 +403,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_FILTER_SUBSCRIPTION0 , callback : FWPM_FILTER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmFilterSubscribeChanges0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    FwpmFilterSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -662,7 +662,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    FwpmNetEventSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -672,7 +672,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe1 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK1 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe1(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    FwpmNetEventSubscribe1(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -682,7 +682,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe2 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK2 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe2(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    FwpmNetEventSubscribe2(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -692,7 +692,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe3 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK3 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe3(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    FwpmNetEventSubscribe3(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -702,7 +702,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe4 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK4 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe4(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    FwpmNetEventSubscribe4(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -993,7 +993,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderContextSubscribeChanges0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    FwpmProviderContextSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1096,7 +1096,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderSubscribeChanges0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    FwpmProviderSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1242,7 +1242,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0 , callback : FWPM_SUBLAYER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSubLayerSubscribeChanges0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    FwpmSubLayerSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1283,7 +1283,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *mut ::core::ffi::c_void , callback : FWPM_SYSTEM_PORTS_CALLBACK0 , context : *const ::core::ffi::c_void , sysportshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSystemPortsSubscribe0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), sysportshandle)
+    FwpmSystemPortsSubscribe0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), sysportshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1334,7 +1334,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0 , callback : FWPM_VSWITCH_EVENT_CALLBACK0 , context : *const ::core::ffi::c_void , subscriptionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmvSwitchEventSubscribe0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), subscriptionhandle)
+    FwpmvSwitchEventSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), subscriptionhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1681,7 +1681,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const IPSEC_SA_CONTEXT_SUBSCRIPTION0 , callback : IPSEC_SA_CONTEXT_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecSaContextSubscribe0(enginehandle.into(), subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    IPsecSaContextSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

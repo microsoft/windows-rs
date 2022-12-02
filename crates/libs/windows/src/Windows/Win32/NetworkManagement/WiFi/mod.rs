@@ -53,7 +53,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "wlanapi.dll""system" fn WFDStartOpenSession ( hclienthandle : super::super::Foundation:: HANDLE , pdeviceaddress : *const *const u8 , pvcontext : *const ::core::ffi::c_void , pfncallback : WFD_OPEN_SESSION_COMPLETE_CALLBACK , phsessionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    WFDStartOpenSession(hclienthandle.into(), pdeviceaddress, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pfncallback), phsessionhandle)
+    WFDStartOpenSession(hclienthandle.into(), pdeviceaddress, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())), pfncallback, phsessionhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[inline]
@@ -432,7 +432,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "wlanapi.dll""system" fn WlanRegisterNotification ( hclienthandle : super::super::Foundation:: HANDLE , dwnotifsource : u32 , bignoreduplicate : super::super::Foundation:: BOOL , funccallback : WLAN_NOTIFICATION_CALLBACK , pcallbackcontext : *const ::core::ffi::c_void , preserved : *mut ::core::ffi::c_void , pdwprevnotifsource : *mut u32 ) -> u32 );
-    WlanRegisterNotification(hclienthandle.into(), dwnotifsource, bignoreduplicate.into(), ::core::mem::transmute(funccallback), ::core::mem::transmute(pcallbackcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwprevnotifsource.unwrap_or(::std::ptr::null_mut())))
+    WlanRegisterNotification(hclienthandle.into(), dwnotifsource, bignoreduplicate.into(), funccallback, ::core::mem::transmute(pcallbackcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwprevnotifsource.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

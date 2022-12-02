@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "verifier.dll""system" fn VerifierEnumerateResource ( process : super::super::Foundation:: HANDLE , flags : VERIFIER_ENUM_RESOURCE_FLAGS , resourcetype : eAvrfResourceTypes , resourcecallback : AVRF_RESOURCE_ENUMERATE_CALLBACK , enumerationcontext : *mut ::core::ffi::c_void ) -> u32 );
-    VerifierEnumerateResource(process.into(), flags, resourcetype, ::core::mem::transmute(resourcecallback), enumerationcontext)
+    VerifierEnumerateResource(process.into(), flags, resourcetype, resourcecallback, enumerationcontext)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const AVRF_MAX_TRACES: u32 = 32u32;

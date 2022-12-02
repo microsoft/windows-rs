@@ -1073,7 +1073,7 @@ where
 #[inline]
 pub unsafe fn PerfStartProvider(providerguid: *const ::windows::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut PerfProviderHandle) -> u32 {
     ::windows::core::link ! ( "advapi32.dll""system" fn PerfStartProvider ( providerguid : *const :: windows::core::GUID , controlcallback : PERFLIBREQUEST , phprovider : *mut PerfProviderHandle ) -> u32 );
-    PerfStartProvider(providerguid, ::core::mem::transmute(controlcallback), phprovider)
+    PerfStartProvider(providerguid, controlcallback, phprovider)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]

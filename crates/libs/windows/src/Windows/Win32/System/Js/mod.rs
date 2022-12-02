@@ -96,13 +96,13 @@ pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mu
 #[inline]
 pub unsafe fn JsCreateExternalObject(data: ::core::option::Option<*const ::core::ffi::c_void>, finalizecallback: JsFinalizeCallback, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateExternalObject ( data : *const ::core::ffi::c_void , finalizecallback : JsFinalizeCallback , object : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateExternalObject(::core::mem::transmute(data.unwrap_or(::std::ptr::null())), ::core::mem::transmute(finalizecallback), object)
+    JsCreateExternalObject(::core::mem::transmute(data.unwrap_or(::std::ptr::null())), finalizecallback, object)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateFunction ( nativefunction : JsNativeFunction , callbackstate : *const ::core::ffi::c_void , function : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateFunction(::core::mem::transmute(nativefunction), ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), function)
+    JsCreateFunction(nativefunction, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), function)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -126,7 +126,7 @@ pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error:
 #[inline]
 pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateRuntime ( attributes : JsRuntimeAttributes , runtimeversion : JsRuntimeVersion , threadservice : JsThreadServiceCallback , runtime : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateRuntime(attributes, runtimeversion, ::core::mem::transmute(threadservice), runtime)
+    JsCreateRuntime(attributes, runtimeversion, threadservice, runtime)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -491,13 +491,13 @@ pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject
 #[inline]
 pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, beforecollectcallback: JsBeforeCollectCallback) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetRuntimeBeforeCollectCallback ( runtime : *const ::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , beforecollectcallback : JsBeforeCollectCallback ) -> JsErrorCode );
-    JsSetRuntimeBeforeCollectCallback(runtime, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(beforecollectcallback))
+    JsSetRuntimeBeforeCollectCallback(runtime, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), beforecollectcallback)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, allocationcallback: JsMemoryAllocationCallback) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetRuntimeMemoryAllocationCallback ( runtime : *const ::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , allocationcallback : JsMemoryAllocationCallback ) -> JsErrorCode );
-    JsSetRuntimeMemoryAllocationCallback(runtime, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(allocationcallback))
+    JsSetRuntimeMemoryAllocationCallback(runtime, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), allocationcallback)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]

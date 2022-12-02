@@ -159,7 +159,7 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    RegisterOutputCallbackInteractionContext(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
+    RegisterOutputCallbackInteractionContext(interactioncontext.into(), outputcallback, ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -169,7 +169,7 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn RegisterOutputCallbackInteractionContext2 ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2 , clientdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    RegisterOutputCallbackInteractionContext2(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
+    RegisterOutputCallbackInteractionContext2(interactioncontext.into(), outputcallback, ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]

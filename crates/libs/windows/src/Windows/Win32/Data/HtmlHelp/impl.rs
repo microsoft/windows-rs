@@ -194,7 +194,7 @@ impl IITPropList_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITResultSet_Impl: Sized {
     fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::Result<()>;
-    fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: &PFNCOLHEAPFREE) -> ::windows::core::Result<()>;
+    fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()>;
     fn SetKeyProp(&self, propid: u32) -> ::windows::core::Result<()>;
     fn Add(&self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::core::Result<()>;
     fn Add2(&self, propid: u32, lpszwdefault: &::windows::core::PCWSTR, priority: PRIORITY) -> ::windows::core::Result<()>;
@@ -237,7 +237,7 @@ impl IITResultSet_Vtbl {
         unsafe extern "system" fn SetColumnHeap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColumnHeap(::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&lpvheap), ::core::mem::transmute(&pfncolheapfree)).into()
+            this.SetColumnHeap(::core::mem::transmute_copy(&lcolumnindex), ::core::mem::transmute_copy(&lpvheap), ::core::mem::transmute_copy(&pfncolheapfree)).into()
         }
         unsafe extern "system" fn SetKeyProp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -90,7 +90,7 @@ pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: :
         ::core::mem::transmute(newfileactualsize.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(newfiletime.unwrap_or(::std::ptr::null_mut())),
         applyoptionflags,
-        ::core::mem::transmute(progresscallback),
+        progresscallback,
         ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())),
     )
 }
@@ -116,7 +116,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileByHandlesEx ( patchfilehandle : super::super::Foundation:: HANDLE , oldfilehandle : super::super::Foundation:: HANDLE , newfilehandle : super::super::Foundation:: HANDLE , applyoptionflags : u32 , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    ApplyPatchToFileByHandlesEx(patchfilehandle.into(), oldfilehandle.into(), newfilehandle.into(), applyoptionflags, ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
+    ApplyPatchToFileByHandlesEx(patchfilehandle.into(), oldfilehandle.into(), newfilehandle.into(), applyoptionflags, progresscallback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -128,7 +128,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileExA ( patchfilename : :: windows::core::PCSTR , oldfilename : :: windows::core::PCSTR , newfilename : :: windows::core::PCSTR , applyoptionflags : u32 , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    ApplyPatchToFileExA(patchfilename.into(), oldfilename.into(), newfilename.into(), applyoptionflags, ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
+    ApplyPatchToFileExA(patchfilename.into(), oldfilename.into(), newfilename.into(), applyoptionflags, progresscallback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -140,7 +140,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileExW ( patchfilename : :: windows::core::PCWSTR , oldfilename : :: windows::core::PCWSTR , newfilename : :: windows::core::PCWSTR , applyoptionflags : u32 , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    ApplyPatchToFileExW(patchfilename.into(), oldfilename.into(), newfilename.into(), applyoptionflags, ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
+    ApplyPatchToFileExW(patchfilename.into(), oldfilename.into(), newfilename.into(), applyoptionflags, progresscallback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -238,7 +238,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileByHandlesEx ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H , newfilehandle : super::super::Foundation:: HANDLE , patchfilehandle : super::super::Foundation:: HANDLE , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    CreatePatchFileByHandlesEx(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle.into(), patchfilehandle.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
+    CreatePatchFileByHandlesEx(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle.into(), patchfilehandle.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), progresscallback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -249,7 +249,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileExA ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A , newfilename : :: windows::core::PCSTR , patchfilename : :: windows::core::PCSTR , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
+    CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), progresscallback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -260,7 +260,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileExW ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_W , newfilename : :: windows::core::PCWSTR , patchfilename : :: windows::core::PCWSTR , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
+    CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), progresscallback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2496,19 +2496,19 @@ where
 #[inline]
 pub unsafe fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: u32, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> INSTALLUI_HANDLERA {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIA ( puihandler : INSTALLUI_HANDLERA , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void ) -> INSTALLUI_HANDLERA );
-    MsiSetExternalUIA(::core::mem::transmute(puihandler), dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())))
+    MsiSetExternalUIA(puihandler, dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
 pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIRecord ( puihandler : PINSTALLUI_HANDLER_RECORD , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void , ppuiprevhandler : PINSTALLUI_HANDLER_RECORD ) -> u32 );
-    MsiSetExternalUIRecord(::core::mem::transmute(puihandler), dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppuiprevhandler))
+    MsiSetExternalUIRecord(puihandler, dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())), ppuiprevhandler)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
 pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> INSTALLUI_HANDLERW {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIW ( puihandler : INSTALLUI_HANDLERW , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void ) -> INSTALLUI_HANDLERW );
-    MsiSetExternalUIW(::core::mem::transmute(puihandler), dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())))
+    MsiSetExternalUIW(puihandler, dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -6388,12 +6388,12 @@ impl IValidate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDisplay)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdisplayfunction), pcontext).ok()
+        (::windows::core::Vtable::vtable(self).SetDisplay)(::windows::core::Vtable::as_raw(self), pdisplayfunction, pcontext).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatusfunction), pcontext).ok()
+        (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), pstatusfunction, pcontext).ok()
     }
     pub unsafe fn Validate<'a, P0>(&self, wzices: P0) -> ::windows::core::Result<()>
     where

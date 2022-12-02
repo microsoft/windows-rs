@@ -356,7 +356,7 @@ pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkc
 #[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "hid.dll""system" fn HidP_TranslateUsagesToI8042ScanCodes ( changedusagelist : *const u16 , usagelistlength : u32 , keyaction : HIDP_KEYBOARD_DIRECTION , modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE , insertcodesprocedure : PHIDP_INSERT_SCANCODES , insertcodescontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: NTSTATUS );
-    HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len() as _, keyaction, modifierstate, ::core::mem::transmute(insertcodesprocedure), ::core::mem::transmute(insertcodescontext.unwrap_or(::std::ptr::null()))).ok()
+    HidP_TranslateUsagesToI8042ScanCodes(::core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len() as _, keyaction, modifierstate, insertcodesprocedure, ::core::mem::transmute(insertcodescontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -391,7 +391,7 @@ impl IDirectInput2A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -461,7 +461,7 @@ impl IDirectInput2W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -531,7 +531,7 @@ impl IDirectInput7A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -607,7 +607,7 @@ impl IDirectInput7W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -683,7 +683,7 @@ impl IDirectInput8A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -716,12 +716,12 @@ impl IDirectInput8A {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into(), param1, ::core::mem::transmute(param2), param3, param4).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInput8A, ::windows::core::IUnknown);
@@ -788,7 +788,7 @@ impl IDirectInput8W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -821,12 +821,12 @@ impl IDirectInput8W {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into(), param1, ::core::mem::transmute(param2), param3, param4).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInput8W, ::windows::core::IUnknown);
@@ -893,7 +893,7 @@ impl IDirectInputA {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -967,7 +967,7 @@ impl IDirectInputDevice2A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1041,7 +1041,7 @@ impl IDirectInputDevice2A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1057,7 +1057,7 @@ impl IDirectInputDevice2A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Escape)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1125,7 +1125,7 @@ impl IDirectInputDevice2W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1195,7 +1195,7 @@ impl IDirectInputDevice2W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetEffectInfo)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1209,7 +1209,7 @@ impl IDirectInputDevice2W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Escape)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1274,7 +1274,7 @@ impl IDirectInputDevice7A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1348,7 +1348,7 @@ impl IDirectInputDevice7A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumEffects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1364,7 +1364,7 @@ impl IDirectInputDevice7A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Escape)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1381,7 +1381,7 @@ impl IDirectInputDevice7A {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1438,7 +1438,7 @@ impl IDirectInputDevice7W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1508,7 +1508,7 @@ impl IDirectInputDevice7W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumEffects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetEffectInfo)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1522,7 +1522,7 @@ impl IDirectInputDevice7W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Escape)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1539,7 +1539,7 @@ impl IDirectInputDevice7W {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1596,7 +1596,7 @@ impl IDirectInputDevice8A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1670,7 +1670,7 @@ impl IDirectInputDevice8A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1686,7 +1686,7 @@ impl IDirectInputDevice8A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Escape)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1703,7 +1703,7 @@ impl IDirectInputDevice8A {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1847,7 +1847,7 @@ impl IDirectInputDevice8W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1917,7 +1917,7 @@ impl IDirectInputDevice8W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetEffectInfo)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1931,7 +1931,7 @@ impl IDirectInputDevice8W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumCreatedEffectObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Escape)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1948,7 +1948,7 @@ impl IDirectInputDevice8W {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2083,7 +2083,7 @@ impl IDirectInputDeviceA {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -2223,7 +2223,7 @@ impl IDirectInputDeviceW {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).EnumObjects)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -2525,7 +2525,7 @@ impl IDirectInputJoyConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumTypes(&self, param0: LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1).ok()
+        (::windows::core::Vtable::vtable(self).EnumTypes)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetTypeInfo<'a, P0>(&self, param0: P0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>
     where
@@ -2665,7 +2665,7 @@ impl IDirectInputJoyConfig8 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumTypes(&self, param0: LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1).ok()
+        (::windows::core::Vtable::vtable(self).EnumTypes)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetTypeInfo<'a, P0>(&self, param0: P0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>
     where
@@ -2795,7 +2795,7 @@ impl IDirectInputW {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDeviceStatus)(::windows::core::Vtable::as_raw(self), param0).ok()

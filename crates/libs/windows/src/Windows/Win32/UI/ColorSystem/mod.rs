@@ -44,7 +44,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "icm32.dll""system" fn CMCheckRGBs ( hcmtransform : isize , lpsrcbits : *const ::core::ffi::c_void , bminput : BMFORMAT , dwwidth : u32 , dwheight : u32 , dwstride : u32 , lparesult : *mut u8 , pfncallback : LPBMCALLBACKFN , ulcallbackdata : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    CMCheckRGBs(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lparesult, ::core::mem::transmute(pfncallback), ulcallbackdata.into())
+    CMCheckRGBs(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lparesult, pfncallback, ulcallbackdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -174,7 +174,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "icm32.dll""system" fn CMTranslateRGBsExt ( hcmtransform : isize , lpsrcbits : *const ::core::ffi::c_void , bminput : BMFORMAT , dwwidth : u32 , dwheight : u32 , dwinputstride : u32 , lpdestbits : *mut ::core::ffi::c_void , bmoutput : BMFORMAT , dwoutputstride : u32 , lpfncallback : LPBMCALLBACKFN , ulcallbackdata : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    CMTranslateRGBsExt(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwinputstride, lpdestbits, bmoutput, dwoutputstride, ::core::mem::transmute(lpfncallback), ulcallbackdata.into())
+    CMTranslateRGBsExt(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwinputstride, lpdestbits, bmoutput, dwoutputstride, lpfncallback, ulcallbackdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -184,7 +184,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "mscms.dll""system" fn CheckBitmapBits ( hcolortransform : isize , psrcbits : *const ::core::ffi::c_void , bminput : BMFORMAT , dwwidth : u32 , dwheight : u32 , dwstride : u32 , paresult : *mut u8 , pfncallback : LPBMCALLBACKFN , lpcallbackdata : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    CheckBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwstride, paresult, ::core::mem::transmute(pfncallback), lpcallbackdata.into())
+    CheckBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwstride, paresult, pfncallback, lpcallbackdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -427,7 +427,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumICMProfilesA ( hdc : super::super::Graphics::Gdi:: HDC , proc : ICMENUMPROCA , param2 : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumICMProfilesA(hdc.into(), ::core::mem::transmute(proc), param2.into())
+    EnumICMProfilesA(hdc.into(), proc, param2.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -438,7 +438,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumICMProfilesW ( hdc : super::super::Graphics::Gdi:: HDC , proc : ICMENUMPROCW , param2 : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumICMProfilesW(hdc.into(), ::core::mem::transmute(proc), param2.into())
+    EnumICMProfilesW(hdc.into(), proc, param2.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
@@ -811,7 +811,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "mscms.dll""system" fn TranslateBitmapBits ( hcolortransform : isize , psrcbits : *const ::core::ffi::c_void , bminput : BMFORMAT , dwwidth : u32 , dwheight : u32 , dwinputstride : u32 , pdestbits : *mut ::core::ffi::c_void , bmoutput : BMFORMAT , dwoutputstride : u32 , pfncallback : LPBMCALLBACKFN , ulcallbackdata : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    TranslateBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwinputstride, pdestbits, bmoutput, dwoutputstride, ::core::mem::transmute(pfncallback), ulcallbackdata.into())
+    TranslateBitmapBits(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwinputstride, pdestbits, bmoutput, dwoutputstride, pfncallback, ulcallbackdata.into())
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

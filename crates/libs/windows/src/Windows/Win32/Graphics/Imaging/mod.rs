@@ -364,7 +364,7 @@ pub struct IWICBitmapCodecInfo_Vtbl {
 pub struct IWICBitmapCodecProgressNotification(::windows::core::IUnknown);
 impl IWICBitmapCodecProgressNotification {
     pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: ::core::option::Option<*const ::core::ffi::c_void>, dwprogressflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterProgressNotification)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfnprogressnotification), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), dwprogressflags).ok()
+        (::windows::core::Vtable::vtable(self).RegisterProgressNotification)(::windows::core::Vtable::as_raw(self), pfnprogressnotification, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), dwprogressflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWICBitmapCodecProgressNotification, ::windows::core::IUnknown);

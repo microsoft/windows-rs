@@ -270,13 +270,13 @@ where
 #[inline]
 pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const ::core::ffi::c_void, callback: HCN_NOTIFICATION_CALLBACK, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnRegisterGuestNetworkServiceCallback ( guestnetworkservice : *const ::core::ffi::c_void , callback : HCN_NOTIFICATION_CALLBACK , context : *const ::core::ffi::c_void , callbackhandle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    HcnRegisterGuestNetworkServiceCallback(guestnetworkservice, ::core::mem::transmute(callback), context, callbackhandle).ok()
+    HcnRegisterGuestNetworkServiceCallback(guestnetworkservice, callback, context, callbackhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
 pub unsafe fn HcnRegisterServiceCallback(callback: HCN_NOTIFICATION_CALLBACK, context: *const ::core::ffi::c_void, callbackhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnRegisterServiceCallback ( callback : HCN_NOTIFICATION_CALLBACK , context : *const ::core::ffi::c_void , callbackhandle : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    HcnRegisterServiceCallback(::core::mem::transmute(callback), context, callbackhandle).ok()
+    HcnRegisterServiceCallback(callback, context, callbackhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

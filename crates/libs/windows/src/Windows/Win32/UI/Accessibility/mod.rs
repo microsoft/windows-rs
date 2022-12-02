@@ -363,7 +363,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
-    SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), ::core::mem::transmute(pfnwineventproc), idprocess, idthread, dwflags)
+    SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), pfnwineventproc, idprocess, idthread, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]

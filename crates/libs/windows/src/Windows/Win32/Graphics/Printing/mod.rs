@@ -336,7 +336,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "compstui.dll""system" fn CommonPropertySheetUIA ( hwndowner : super::super::Foundation:: HWND , pfnpropsheetui : PFNPROPSHEETUI , lparam : super::super::Foundation:: LPARAM , presult : *mut u32 ) -> i32 );
-    CommonPropertySheetUIA(hwndowner.into(), ::core::mem::transmute(pfnpropsheetui), lparam.into(), ::core::mem::transmute(presult.unwrap_or(::std::ptr::null_mut())))
+    CommonPropertySheetUIA(hwndowner.into(), pfnpropsheetui, lparam.into(), ::core::mem::transmute(presult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -347,7 +347,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "compstui.dll""system" fn CommonPropertySheetUIW ( hwndowner : super::super::Foundation:: HWND , pfnpropsheetui : PFNPROPSHEETUI , lparam : super::super::Foundation:: LPARAM , presult : *mut u32 ) -> i32 );
-    CommonPropertySheetUIW(hwndowner.into(), ::core::mem::transmute(pfnpropsheetui), lparam.into(), ::core::mem::transmute(presult.unwrap_or(::std::ptr::null_mut())))
+    CommonPropertySheetUIW(hwndowner.into(), pfnpropsheetui, lparam.into(), ::core::mem::transmute(presult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

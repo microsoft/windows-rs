@@ -48,7 +48,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "wsnmp32.dll""system" fn SnmpCreateSession ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , fcallback : SNMPAPI_CALLBACK , lpclientdata : *mut ::core::ffi::c_void ) -> isize );
-    SnmpCreateSession(hwnd.into(), wmsg, ::core::mem::transmute(fcallback), lpclientdata)
+    SnmpCreateSession(hwnd.into(), wmsg, fcallback, lpclientdata)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]

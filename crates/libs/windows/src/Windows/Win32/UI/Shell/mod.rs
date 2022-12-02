@@ -129,7 +129,7 @@ where
 {
     ::windows::core::link ! ( "shell32.dll""system" fn CDefFolderMenu_Create2 ( pidlfolder : *const Common:: ITEMIDLIST , hwnd : super::super::Foundation:: HWND , cidl : u32 , apidl : *const *const Common:: ITEMIDLIST , psf : * mut::core::ffi::c_void , pfn : LPFNDFMCALLBACK , nkeys : u32 , ahkeys : *const super::super::System::Registry:: HKEY , ppcm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CDefFolderMenu_Create2(::core::mem::transmute(pidlfolder.unwrap_or(::std::ptr::null())), hwnd.into(), apidl.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apidl.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psf.into().abi(), ::core::mem::transmute(pfn), ahkeys.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ahkeys.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), result__.as_mut_ptr()).from_abi(result__)
+    CDefFolderMenu_Create2(::core::mem::transmute(pidlfolder.unwrap_or(::std::ptr::null())), hwnd.into(), apidl.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apidl.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psf.into().abi(), pfn, ahkeys.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ahkeys.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -658,7 +658,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn GetWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize , pdwrefdata : *mut usize ) -> super::super::Foundation:: BOOL );
-    GetWindowSubclass(hwnd.into(), ::core::mem::transmute(pfnsubclass), uidsubclass, ::core::mem::transmute(pdwrefdata.unwrap_or(::std::ptr::null_mut())))
+    GetWindowSubclass(hwnd.into(), pfnsubclass, uidsubclass, ::core::mem::transmute(pdwrefdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2814,14 +2814,14 @@ where
 #[inline]
 pub unsafe fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: ::core::option::Option<*const ::core::ffi::c_void>, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32 {
     ::windows::core::link ! ( "api-ms-win-core-psm-appnotify-l1-1-1.dll""system" fn RegisterAppConstrainedChangeNotification ( routine : PAPPCONSTRAIN_CHANGE_ROUTINE , context : *const ::core::ffi::c_void , registration : *mut *mut _APPCONSTRAIN_REGISTRATION ) -> u32 );
-    RegisterAppConstrainedChangeNotification(::core::mem::transmute(routine), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registration)
+    RegisterAppConstrainedChangeNotification(routine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registration)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: ::core::option::Option<*const ::core::ffi::c_void>, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32 {
     ::windows::core::link ! ( "api-ms-win-core-psm-appnotify-l1-1-0.dll""system" fn RegisterAppStateChangeNotification ( routine : PAPPSTATE_CHANGE_ROUTINE , context : *const ::core::ffi::c_void , registration : *mut *mut _APPSTATE_REGISTRATION ) -> u32 );
-    RegisterAppStateChangeNotification(::core::mem::transmute(routine), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registration)
+    RegisterAppStateChangeNotification(routine, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), registration)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2853,7 +2853,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn RemoveWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize ) -> super::super::Foundation:: BOOL );
-    RemoveWindowSubclass(hwnd.into(), ::core::mem::transmute(pfnsubclass), uidsubclass)
+    RemoveWindowSubclass(hwnd.into(), pfnsubclass, uidsubclass)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2892,7 +2892,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "shell32.dll""system" fn SHAddFromPropSheetExtArray ( hpsxa : HPSXA , lpfnaddpage : super::Controls:: LPFNSVADDPROPSHEETPAGE , lparam : super::super::Foundation:: LPARAM ) -> u32 );
-    SHAddFromPropSheetExtArray(hpsxa.into(), ::core::mem::transmute(lpfnaddpage), lparam.into())
+    SHAddFromPropSheetExtArray(hpsxa.into(), lpfnaddpage, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
@@ -3456,7 +3456,7 @@ where
 #[inline]
 pub unsafe fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateThread ( pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE , pdata : *const ::core::ffi::c_void , flags : u32 , pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE ) -> super::super::Foundation:: BOOL );
-    SHCreateThread(::core::mem::transmute(pfnthreadproc), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(pfncallback))
+    SHCreateThread(pfnthreadproc, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), flags, pfncallback)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
@@ -3469,7 +3469,7 @@ pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::core::option::Opt
 #[inline]
 pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "shlwapi.dll""system" fn SHCreateThreadWithHandle ( pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE , pdata : *const ::core::ffi::c_void , flags : u32 , pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE , phandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    SHCreateThreadWithHandle(::core::mem::transmute(pfnthreadproc), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(pfncallback), ::core::mem::transmute(phandle.unwrap_or(::std::ptr::null_mut())))
+    SHCreateThreadWithHandle(pfnthreadproc, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), flags, pfncallback, ::core::mem::transmute(phandle.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -4946,7 +4946,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "shell32.dll""system" fn SHReplaceFromPropSheetExtArray ( hpsxa : HPSXA , upageid : u32 , lpfnreplacewith : super::Controls:: LPFNSVADDPROPSHEETPAGE , lparam : super::super::Foundation:: LPARAM ) -> u32 );
-    SHReplaceFromPropSheetExtArray(hpsxa.into(), upageid, ::core::mem::transmute(lpfnreplacewith), lparam.into())
+    SHReplaceFromPropSheetExtArray(hpsxa.into(), upageid, lpfnreplacewith, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
@@ -5290,7 +5290,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn SetWindowSubclass ( hwnd : super::super::Foundation:: HWND , pfnsubclass : SUBCLASSPROC , uidsubclass : usize , dwrefdata : usize ) -> super::super::Foundation:: BOOL );
-    SetWindowSubclass(hwnd.into(), ::core::mem::transmute(pfnsubclass), uidsubclass, dwrefdata)
+    SetWindowSubclass(hwnd.into(), pfnsubclass, uidsubclass, dwrefdata)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -32722,7 +32722,7 @@ impl IShellPropSheetExt {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).AddPages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfnaddpage), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddPages)(::windows::core::Vtable::as_raw(self), pfnaddpage, lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -32730,7 +32730,7 @@ impl IShellPropSheetExt {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).ReplacePage)(::windows::core::Vtable::as_raw(self), upageid, ::core::mem::transmute(pfnreplacewith), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).ReplacePage)(::windows::core::Vtable::as_raw(self), upageid, pfnreplacewith, lparam.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IShellPropSheetExt, ::windows::core::IUnknown);
@@ -36241,7 +36241,7 @@ impl IShellView {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).AddPropertySheetPages)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(pfn), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddPropertySheetPages)(::windows::core::Vtable::as_raw(self), dwreserved, pfn, lparam.into()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SaveViewState)(::windows::core::Vtable::as_raw(self)).ok()
@@ -36383,7 +36383,7 @@ impl IShellView2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddPropertySheetPages)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(pfn), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddPropertySheetPages)(::windows::core::Vtable::as_raw(self), dwreserved, pfn, lparam.into()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveViewState)(::windows::core::Vtable::as_raw(self)).ok()
@@ -36530,7 +36530,7 @@ impl IShellView3 {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddPropertySheetPages)(::windows::core::Vtable::as_raw(self), dwreserved, ::core::mem::transmute(pfn), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddPropertySheetPages)(::windows::core::Vtable::as_raw(self), dwreserved, pfn, lparam.into()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SaveViewState)(::windows::core::Vtable::as_raw(self)).ok()

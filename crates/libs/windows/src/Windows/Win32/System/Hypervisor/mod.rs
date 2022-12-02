@@ -384,7 +384,7 @@ where
 #[inline]
 pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "vmsavedstatedumpprovider.dll""system" fn ScanMemoryForDosImages ( vmsavedstatedumphandle : *mut ::core::ffi::c_void , vpid : u32 , startaddress : u64 , endaddress : u64 , callbackcontext : *mut ::core::ffi::c_void , foundimagecallback : FOUND_IMAGE_CALLBACK , standaloneaddress : *const u64 , standaloneaddresscount : u32 ) -> :: windows::core::HRESULT );
-    ScanMemoryForDosImages(vmsavedstatedumphandle, vpid, startaddress, endaddress, callbackcontext, ::core::mem::transmute(foundimagecallback), standaloneaddress, standaloneaddresscount).ok()
+    ScanMemoryForDosImages(vmsavedstatedumphandle, vpid, startaddress, endaddress, callbackcontext, foundimagecallback, standaloneaddress, standaloneaddresscount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
@@ -396,7 +396,7 @@ pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi:
 #[inline]
 pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "vmsavedstatedumpprovider.dll""system" fn SetSavedStateSymbolProviderDebugInfoCallback ( vmsavedstatedumphandle : *mut ::core::ffi::c_void , callback : GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK ) -> :: windows::core::HRESULT );
-    SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle, ::core::mem::transmute(callback)).ok()
+    SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle, callback).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

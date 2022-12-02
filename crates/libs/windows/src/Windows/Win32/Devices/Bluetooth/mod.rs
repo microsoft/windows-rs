@@ -213,7 +213,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "bluetoothapis.dll""system" fn BluetoothGATTRegisterEvent ( hservice : super::super::Foundation:: HANDLE , eventtype : BTH_LE_GATT_EVENT_TYPE , eventparameterin : *const ::core::ffi::c_void , callback : PFNBLUETOOTH_GATT_EVENT_CALLBACK , callbackcontext : *const ::core::ffi::c_void , peventhandle : *mut isize , flags : u32 ) -> :: windows::core::HRESULT );
-    BluetoothGATTRegisterEvent(hservice.into(), eventtype, eventparameterin, ::core::mem::transmute(callback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), peventhandle, flags).ok()
+    BluetoothGATTRegisterEvent(hservice.into(), eventtype, eventparameterin, callback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), peventhandle, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -293,14 +293,14 @@ pub unsafe fn BluetoothIsVersionAvailable(majorversion: u8, minorversion: u8) ->
 #[inline]
 pub unsafe fn BluetoothRegisterForAuthentication(pbtdi: ::core::option::Option<*const BLUETOOTH_DEVICE_INFO>, phreghandle: *mut isize, pfncallback: PFN_AUTHENTICATION_CALLBACK, pvparam: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
     ::windows::core::link ! ( "bluetoothapis.dll""system" fn BluetoothRegisterForAuthentication ( pbtdi : *const BLUETOOTH_DEVICE_INFO , phreghandle : *mut isize , pfncallback : PFN_AUTHENTICATION_CALLBACK , pvparam : *const ::core::ffi::c_void ) -> u32 );
-    BluetoothRegisterForAuthentication(::core::mem::transmute(pbtdi.unwrap_or(::std::ptr::null())), phreghandle, ::core::mem::transmute(pfncallback), ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())))
+    BluetoothRegisterForAuthentication(::core::mem::transmute(pbtdi.unwrap_or(::std::ptr::null())), phreghandle, pfncallback, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BluetoothRegisterForAuthenticationEx(pbtdiin: ::core::option::Option<*const BLUETOOTH_DEVICE_INFO>, phreghandleout: *mut isize, pfncallbackin: PFN_AUTHENTICATION_CALLBACK_EX, pvparam: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
     ::windows::core::link ! ( "bluetoothapis.dll""system" fn BluetoothRegisterForAuthenticationEx ( pbtdiin : *const BLUETOOTH_DEVICE_INFO , phreghandleout : *mut isize , pfncallbackin : PFN_AUTHENTICATION_CALLBACK_EX , pvparam : *const ::core::ffi::c_void ) -> u32 );
-    BluetoothRegisterForAuthenticationEx(::core::mem::transmute(pbtdiin.unwrap_or(::std::ptr::null())), phreghandleout, ::core::mem::transmute(pfncallbackin), ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())))
+    BluetoothRegisterForAuthenticationEx(::core::mem::transmute(pbtdiin.unwrap_or(::std::ptr::null())), phreghandleout, pfncallbackin, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[inline]
@@ -313,7 +313,7 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
 #[inline]
 pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "bluetoothapis.dll""system" fn BluetoothSdpEnumAttributes ( psdpstream : *const u8 , cbstreamsize : u32 , pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK , pvparam : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    BluetoothSdpEnumAttributes(::core::mem::transmute(psdpstream.as_ptr()), psdpstream.len() as _, ::core::mem::transmute(pfncallback), pvparam)
+    BluetoothSdpEnumAttributes(::core::mem::transmute(psdpstream.as_ptr()), psdpstream.len() as _, pfncallback, pvparam)
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

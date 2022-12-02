@@ -91,7 +91,7 @@ where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn SetAbortProc ( hdc : super::super::Graphics::Gdi:: HDC , proc : ABORTPROC ) -> i32 );
-    SetAbortProc(hdc.into(), ::core::mem::transmute(proc))
+    SetAbortProc(hdc.into(), proc)
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]

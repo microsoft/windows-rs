@@ -22,7 +22,7 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "wscapi.dll""system" fn WscRegisterForChanges ( reserved : *mut ::core::ffi::c_void , phcallbackregistration : *mut super::super::Foundation:: HANDLE , lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE , pcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WscRegisterForChanges(reserved, phcallbackregistration, ::core::mem::transmute(lpcallbackaddress), pcontext).ok()
+    WscRegisterForChanges(reserved, phcallbackregistration, lpcallbackaddress, pcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]

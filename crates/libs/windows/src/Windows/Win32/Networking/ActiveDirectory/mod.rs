@@ -9851,7 +9851,7 @@ impl IDsAdminNewObjExt {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).AddPages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpfnaddpage), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddPages)(::windows::core::Vtable::as_raw(self), lpfnaddpage, lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10186,7 +10186,7 @@ impl IDsDisplaySpecifier {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).EnumClassAttributes)(::windows::core::Vtable::as_raw(self), pszobjectclass.into(), ::core::mem::transmute(pcbenum), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).EnumClassAttributes)(::windows::core::Vtable::as_raw(self), pszobjectclass.into(), pcbenum, lparam.into()).ok()
     }
     pub unsafe fn GetAttributeADsType<'a, P0>(&self, pszattributename: P0) -> ADSTYPE
     where
@@ -10573,7 +10573,7 @@ impl IQueryForm {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).AddForms)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddformsproc), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddForms)(::windows::core::Vtable::as_raw(self), paddformsproc, lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -10581,7 +10581,7 @@ impl IQueryForm {
     where
         P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).AddPages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(paddpagesproc), lparam.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddPages)(::windows::core::Vtable::as_raw(self), paddpagesproc, lparam.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IQueryForm, ::windows::core::IUnknown);

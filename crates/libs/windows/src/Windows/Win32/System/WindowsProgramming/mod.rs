@@ -951,7 +951,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "ntdll.dll""system" fn NtDeviceIoControlFile ( filehandle : super::super::Foundation:: HANDLE , event : super::super::Foundation:: HANDLE , apcroutine : PIO_APC_ROUTINE , apccontext : *mut ::core::ffi::c_void , iostatusblock : *mut IO_STATUS_BLOCK , iocontrolcode : u32 , inputbuffer : *mut ::core::ffi::c_void , inputbufferlength : u32 , outputbuffer : *mut ::core::ffi::c_void , outputbufferlength : u32 ) -> super::super::Foundation:: NTSTATUS );
-    NtDeviceIoControlFile(filehandle.into(), event.into(), ::core::mem::transmute(apcroutine), apccontext, iostatusblock, iocontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength).ok()
+    NtDeviceIoControlFile(filehandle.into(), event.into(), apcroutine, apccontext, iostatusblock, iocontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -964,7 +964,7 @@ where
     P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "ntdll.dll""system" fn NtNotifyChangeMultipleKeys ( masterkeyhandle : super::super::Foundation:: HANDLE , count : u32 , subordinateobjects : *const OBJECT_ATTRIBUTES , event : super::super::Foundation:: HANDLE , apcroutine : PIO_APC_ROUTINE , apccontext : *const ::core::ffi::c_void , iostatusblock : *mut IO_STATUS_BLOCK , completionfilter : u32 , watchtree : super::super::Foundation:: BOOLEAN , buffer : *mut ::core::ffi::c_void , buffersize : u32 , asynchronous : super::super::Foundation:: BOOLEAN ) -> super::super::Foundation:: NTSTATUS );
-    NtNotifyChangeMultipleKeys(masterkeyhandle.into(), subordinateobjects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(subordinateobjects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), iostatusblock, completionfilter, watchtree.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, asynchronous.into()).ok()
+    NtNotifyChangeMultipleKeys(masterkeyhandle.into(), subordinateobjects.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(subordinateobjects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), event.into(), apcroutine, ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), iostatusblock, completionfilter, watchtree.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, asynchronous.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1631,7 +1631,7 @@ where
 #[inline]
 pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: ::core::option::Option<*const ::core::ffi::c_void>) {
     ::windows::core::link ! ( "api-ms-win-core-featurestaging-l1-1-0.dll""system" fn SubscribeFeatureStateChangeNotification ( subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION , callback : PFEATURE_STATE_CHANGE_CALLBACK , context : *const ::core::ffi::c_void ) -> ( ) );
-    SubscribeFeatureStateChangeNotification(subscription, ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
+    SubscribeFeatureStateChangeNotification(subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -1805,7 +1805,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "dciman32.dll""system" fn WinWatchNotify ( hww : HWINWATCH , notifycallback : WINWATCHNOTIFYPROC , notifyparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    WinWatchNotify(hww.into(), ::core::mem::transmute(notifycallback), notifyparam.into())
+    WinWatchNotify(hww.into(), notifycallback, notifyparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

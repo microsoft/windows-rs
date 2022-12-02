@@ -151,7 +151,7 @@ pub unsafe fn WsAlloc(heap: *const WS_HEAP, size: usize, ptr: *mut *mut ::core::
 #[inline]
 pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsAsyncExecute ( asyncstate : *const WS_ASYNC_STATE , operation : WS_ASYNC_FUNCTION , callbackmodel : WS_CALLBACK_MODEL , callbackstate : *const ::core::ffi::c_void , asynccontext : *const WS_ASYNC_CONTEXT , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsAsyncExecute(asyncstate, ::core::mem::transmute(operation), callbackmodel, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsAsyncExecute(asyncstate, operation, callbackmodel, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -282,7 +282,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
         properties.as_deref().map_or(0, |slice| slice.len() as _),
         ::core::mem::transmute(addressurl.unwrap_or(::std::ptr::null())),
         contract,
-        ::core::mem::transmute(authorizationcallback),
+        authorizationcallback,
         heap,
         templatetype,
         ::core::mem::transmute(templatevalue.unwrap_or(::std::ptr::null())),
@@ -745,13 +745,13 @@ pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address:
 #[inline]
 pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_CALLBACK, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsPullBytes ( writer : *const WS_XML_WRITER , callback : WS_PULL_BYTES_CALLBACK , callbackstate : *const ::core::ffi::c_void , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsPullBytes(writer, ::core::mem::transmute(callback), ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsPullBytes(writer, callback, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
 pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsPushBytes ( writer : *const WS_XML_WRITER , callback : WS_PUSH_BYTES_CALLBACK , callbackstate : *const ::core::ffi::c_void , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsPushBytes(writer, ::core::mem::transmute(callback), ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsPushBytes(writer, callback, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -827,7 +827,7 @@ pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: ::core::optio
 #[inline]
 pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsReadEnvelopeStart ( message : *const WS_MESSAGE , reader : *const WS_XML_READER , donecallback : WS_MESSAGE_DONE_CALLBACK , donecallbackstate : *const ::core::ffi::c_void , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsReadEnvelopeStart(message, reader, ::core::mem::transmute(donecallback), ::core::mem::transmute(donecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsReadEnvelopeStart(message, reader, donecallback, ::core::mem::transmute(donecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -914,7 +914,7 @@ pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_ME
 #[inline]
 pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsRegisterOperationForCancel ( context : *const WS_OPERATION_CONTEXT , cancelcallback : WS_OPERATION_CANCEL_CALLBACK , freestatecallback : WS_OPERATION_FREE_STATE_CALLBACK , userstate : *const ::core::ffi::c_void , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsRegisterOperationForCancel(context, ::core::mem::transmute(cancelcallback), ::core::mem::transmute(freestatecallback), ::core::mem::transmute(userstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsRegisterOperationForCancel(context, cancelcallback, freestatecallback, ::core::mem::transmute(userstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1124,13 +1124,13 @@ pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: ::core::option::Op
 #[inline]
 pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsStartReaderCanonicalization ( reader : *const WS_XML_READER , writecallback : WS_WRITE_CALLBACK , writecallbackstate : *const ::core::ffi::c_void , properties : *const WS_XML_CANONICALIZATION_PROPERTY , propertycount : u32 , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsStartReaderCanonicalization(reader, ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsStartReaderCanonicalization(reader, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
 pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsStartWriterCanonicalization ( writer : *const WS_XML_WRITER , writecallback : WS_WRITE_CALLBACK , writecallbackstate : *const ::core::ffi::c_void , properties : *const WS_XML_CANONICALIZATION_PROPERTY , propertycount : u32 , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsStartWriterCanonicalization(writer, ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsStartWriterCanonicalization(writer, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -1224,7 +1224,7 @@ pub unsafe fn WsWriteEnvelopeEnd(message: *const WS_MESSAGE, error: ::core::opti
 #[inline]
 pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "webservices.dll""system" fn WsWriteEnvelopeStart ( message : *const WS_MESSAGE , writer : *const WS_XML_WRITER , donecallback : WS_MESSAGE_DONE_CALLBACK , donecallbackstate : *const ::core::ffi::c_void , error : *const WS_ERROR ) -> :: windows::core::HRESULT );
-    WsWriteEnvelopeStart(message, writer, ::core::mem::transmute(donecallback), ::core::mem::transmute(donecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
+    WsWriteEnvelopeStart(message, writer, donecallback, ::core::mem::transmute(donecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]

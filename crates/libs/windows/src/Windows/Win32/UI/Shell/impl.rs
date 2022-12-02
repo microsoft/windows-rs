@@ -17246,8 +17246,8 @@ impl IShellNameSpace_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub trait IShellPropSheetExt_Impl: Sized {
-    fn AddPages(&self, pfnaddpage: &super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn ReplacePage(&self, upageid: u32, pfnreplacewith: &super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn AddPages(&self, pfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn ReplacePage(&self, upageid: u32, pfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::windows::core::RuntimeName for IShellPropSheetExt {}
@@ -17257,12 +17257,12 @@ impl IShellPropSheetExt_Vtbl {
         unsafe extern "system" fn AddPages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellPropSheetExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPages(::core::mem::transmute(&pfnaddpage), ::core::mem::transmute_copy(&lparam)).into()
+            this.AddPages(::core::mem::transmute_copy(&pfnaddpage), ::core::mem::transmute_copy(&lparam)).into()
         }
         unsafe extern "system" fn ReplacePage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellPropSheetExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, upageid: u32, pfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReplacePage(::core::mem::transmute_copy(&upageid), ::core::mem::transmute(&pfnreplacewith), ::core::mem::transmute_copy(&lparam)).into()
+            this.ReplacePage(::core::mem::transmute_copy(&upageid), ::core::mem::transmute_copy(&pfnreplacewith), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -18368,7 +18368,7 @@ pub trait IShellView_Impl: Sized + super::super::System::Ole::IOleWindow_Impl {
     fn CreateViewWindow(&self, psvprevious: &::core::option::Option<IShellView>, pfs: *const FOLDERSETTINGS, psb: &::core::option::Option<IShellBrowser>, prcview: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn DestroyViewWindow(&self) -> ::windows::core::Result<()>;
     fn GetCurrentInfo(&self) -> ::windows::core::Result<FOLDERSETTINGS>;
-    fn AddPropertySheetPages(&self, dwreserved: u32, pfn: &super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn AddPropertySheetPages(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn SaveViewState(&self) -> ::windows::core::Result<()>;
     fn SelectItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<()>;
     fn GetItemObject(&self, uitem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -18428,7 +18428,7 @@ impl IShellView_Vtbl {
         unsafe extern "system" fn AddPropertySheetPages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertySheetPages(::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute(&pfn), ::core::mem::transmute_copy(&lparam)).into()
+            this.AddPropertySheetPages(::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&pfn), ::core::mem::transmute_copy(&lparam)).into()
         }
         unsafe extern "system" fn SaveViewState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

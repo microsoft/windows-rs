@@ -1464,7 +1464,7 @@ where
     P3: ::std::convert::Into<alljoyn_sessionopts>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsessionasync ( bus : alljoyn_busattachment , sessionhost : :: windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , opts : alljoyn_sessionopts , callback : alljoyn_busattachment_joinsessioncb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_busattachment_joinsessionasync(bus.into(), sessionhost.into(), sessionport, listener.into(), opts.into(), ::core::mem::transmute(callback), context)
+    alljoyn_busattachment_joinsessionasync(bus.into(), sessionhost.into(), sessionport, listener.into(), opts.into(), callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1563,7 +1563,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_busattachment_registersignalhandler(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), srcpath.into())
+    alljoyn_busattachment_registersignalhandler(bus.into(), signal_handler, ::core::mem::transmute(member), srcpath.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1573,7 +1573,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_busattachment_registersignalhandlerwithrule(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), matchrule.into())
+    alljoyn_busattachment_registersignalhandlerwithrule(bus.into(), signal_handler, ::core::mem::transmute(member), matchrule.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1680,7 +1680,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setlinktimeoutasync ( bus : alljoyn_busattachment , sessionid : u32 , linktimeout : u32 , callback : alljoyn_busattachment_setlinktimeoutcb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_busattachment_setlinktimeoutasync(bus.into(), sessionid, linktimeout, ::core::mem::transmute(callback), context)
+    alljoyn_busattachment_setlinktimeoutasync(bus.into(), sessionid, linktimeout, callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1785,7 +1785,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_busattachment_unregistersignalhandler(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), srcpath.into())
+    alljoyn_busattachment_unregistersignalhandler(bus.into(), signal_handler, ::core::mem::transmute(member), srcpath.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1795,7 +1795,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_busattachment_unregistersignalhandlerwithrule(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), matchrule.into())
+    alljoyn_busattachment_unregistersignalhandlerwithrule(bus.into(), signal_handler, ::core::mem::transmute(member), matchrule.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1858,7 +1858,7 @@ where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busobject_addmethodhandler ( bus : alljoyn_busobject , member : alljoyn_interfacedescription_member , handler : alljoyn_messagereceiver_methodhandler_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_busobject_addmethodhandler(bus.into(), ::core::mem::transmute(member), ::core::mem::transmute(handler), context)
+    alljoyn_busobject_addmethodhandler(bus.into(), ::core::mem::transmute(member), handler, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2754,7 +2754,7 @@ where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescriptiontranslationcallback ( iface : alljoyn_interfacedescription , translationcallback : alljoyn_interfacedescription_translation_callback_ptr ) -> ( ) );
-    alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into(), ::core::mem::transmute(translationcallback))
+    alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into(), translationcallback)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4357,7 +4357,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getallpropertiesasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getallpropertiescb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into(), iface.into(), ::core::mem::transmute(callback), timeout, context)
+    alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into(), iface.into(), callback, timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4427,7 +4427,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_getpropertyasync(proxyobj.into(), iface.into(), property.into(), ::core::mem::transmute(callback), timeout, context)
+    alljoyn_proxybusobject_getpropertyasync(proxyobj.into(), iface.into(), property.into(), callback, timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4482,7 +4482,7 @@ where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_introspectremoteobjectasync ( proxyobj : alljoyn_proxybusobject , callback : alljoyn_proxybusobject_listener_introspectcb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj.into(), ::core::mem::transmute(callback), context)
+    alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj.into(), callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4558,7 +4558,7 @@ where
     P3: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync ( proxyobj : alljoyn_proxybusobject , ifacename : :: windows::core::PCSTR , methodname : :: windows::core::PCSTR , replyfunc : alljoyn_messagereceiver_replyhandler_ptr , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
-    alljoyn_proxybusobject_methodcallasync(proxyobj.into(), ifacename.into(), methodname.into(), ::core::mem::transmute(replyfunc), args.into(), numargs, context, timeout, flags)
+    alljoyn_proxybusobject_methodcallasync(proxyobj.into(), ifacename.into(), methodname.into(), replyfunc, args.into(), numargs, context, timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4568,7 +4568,7 @@ where
     P1: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync_member ( proxyobj : alljoyn_proxybusobject , method : alljoyn_interfacedescription_member , replyfunc : alljoyn_messagereceiver_replyhandler_ptr , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
-    alljoyn_proxybusobject_methodcallasync_member(proxyobj.into(), ::core::mem::transmute(method), ::core::mem::transmute(replyfunc), args.into(), numargs, context, timeout, flags)
+    alljoyn_proxybusobject_methodcallasync_member(proxyobj.into(), ::core::mem::transmute(method), replyfunc, args.into(), numargs, context, timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4625,7 +4625,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_registerpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , properties : *const *const i8 , numproperties : usize , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into(), iface.into(), properties, numproperties, ::core::mem::transmute(callback), context)
+    alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into(), iface.into(), properties, numproperties, callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4677,7 +4677,7 @@ where
     P3: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_setpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , value : alljoyn_msgarg , callback : alljoyn_proxybusobject_listener_setpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_setpropertyasync(proxyobj.into(), iface.into(), property.into(), value.into(), ::core::mem::transmute(callback), timeout, context)
+    alljoyn_proxybusobject_setpropertyasync(proxyobj.into(), iface.into(), property.into(), value.into(), callback, timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4687,7 +4687,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_unregisterpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr ) -> QStatus );
-    alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj.into(), iface.into(), ::core::mem::transmute(callback))
+    alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj.into(), iface.into(), callback)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]

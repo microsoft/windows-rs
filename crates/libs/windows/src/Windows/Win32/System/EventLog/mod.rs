@@ -403,7 +403,7 @@ where
     P4: ::std::convert::Into<EVT_HANDLE>,
 {
     ::windows::core::link ! ( "wevtapi.dll""system" fn EvtSubscribe ( session : EVT_HANDLE , signalevent : super::super::Foundation:: HANDLE , channelpath : :: windows::core::PCWSTR , query : :: windows::core::PCWSTR , bookmark : EVT_HANDLE , context : *const ::core::ffi::c_void , callback : EVT_SUBSCRIBE_CALLBACK , flags : u32 ) -> EVT_HANDLE );
-    let result__ = EvtSubscribe(session.into(), signalevent.into(), channelpath.into(), query.into(), bookmark.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback), flags);
+    let result__ = EvtSubscribe(session.into(), signalevent.into(), channelpath.into(), query.into(), bookmark.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]

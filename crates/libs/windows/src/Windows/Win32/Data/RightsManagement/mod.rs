@@ -128,7 +128,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msdrm.dll""system" fn DRMCreateClientSession ( pfncallback : DRMCALLBACK , ucallbackversion : u32 , wszgroupidprovidertype : :: windows::core::PCWSTR , wszgroupid : :: windows::core::PCWSTR , phclient : *mut u32 ) -> :: windows::core::HRESULT );
-    DRMCreateClientSession(::core::mem::transmute(pfncallback), ucallbackversion, wszgroupidprovidertype.into(), wszgroupid.into(), phclient).ok()
+    DRMCreateClientSession(pfncallback, ucallbackversion, wszgroupidprovidertype.into(), wszgroupid.into(), phclient).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
@@ -448,7 +448,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msdrm.dll""system" fn DRMGetSignedIssuanceLicense ( henv : u32 , hissuancelicense : u32 , uflags : u32 , pbsymkey : *mut u8 , cbsymkey : u32 , wszsymkeytype : :: windows::core::PCWSTR , wszclientlicensorcertificate : :: windows::core::PCWSTR , pfncallback : DRMCALLBACK , wszurl : :: windows::core::PCWSTR , pvcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DRMGetSignedIssuanceLicense(henv, hissuancelicense, uflags, pbsymkey, cbsymkey, wszsymkeytype.into(), wszclientlicensorcertificate.into(), ::core::mem::transmute(pfncallback), wszurl.into(), pvcontext).ok()
+    DRMGetSignedIssuanceLicense(henv, hissuancelicense, uflags, pbsymkey, cbsymkey, wszsymkeytype.into(), wszclientlicensorcertificate.into(), pfncallback, wszurl.into(), pvcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
@@ -457,7 +457,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msdrm.dll""system" fn DRMGetSignedIssuanceLicenseEx ( henv : u32 , hissuancelicense : u32 , uflags : u32 , pbsymkey : *const u8 , cbsymkey : u32 , wszsymkeytype : :: windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void , henablingprincipal : u32 , hboundlicenseclc : u32 , pfncallback : DRMCALLBACK , pvcontext : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, ::core::mem::transmute(pbsymkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbsymkey.as_deref().map_or(0, |slice| slice.len() as _), wszsymkeytype.into(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), henablingprincipal, hboundlicenseclc, ::core::mem::transmute(pfncallback), pvcontext).ok()
+    DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, ::core::mem::transmute(pbsymkey.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbsymkey.as_deref().map_or(0, |slice| slice.len() as _), wszsymkeytype.into(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), henablingprincipal, hboundlicenseclc, pfncallback, pvcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

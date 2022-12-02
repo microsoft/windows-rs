@@ -73,13 +73,13 @@ where
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmRestart ( dwsessionhandle : u32 , dwrestartflags : u32 , fnstatus : RM_WRITE_STATUS_CALLBACK ) -> u32 );
-    RmRestart(dwsessionhandle, dwrestartflags, ::core::mem::transmute(fnstatus))
+    RmRestart(dwsessionhandle, dwrestartflags, fnstatus)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmShutdown ( dwsessionhandle : u32 , lactionflags : u32 , fnstatus : RM_WRITE_STATUS_CALLBACK ) -> u32 );
-    RmShutdown(dwsessionhandle, lactionflags, ::core::mem::transmute(fnstatus))
+    RmShutdown(dwsessionhandle, lactionflags, fnstatus)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]

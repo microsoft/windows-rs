@@ -8914,7 +8914,7 @@ impl ID3D12InfoQueue1 {
         (::windows::core::Vtable::vtable(self).base__.GetMuteDebugOutput)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterMessageCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(callbackfunc), callbackfilterflags, pcontext, pcallbackcookie).ok()
+        (::windows::core::Vtable::vtable(self).RegisterMessageCallback)(::windows::core::Vtable::as_raw(self), callbackfunc, callbackfilterflags, pcontext, pcallbackcookie).ok()
     }
     pub unsafe fn UnregisterMessageCallback(&self, callbackcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterMessageCallback)(::windows::core::Vtable::as_raw(self), callbackcookie).ok()

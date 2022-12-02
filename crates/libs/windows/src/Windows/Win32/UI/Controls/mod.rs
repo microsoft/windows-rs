@@ -249,7 +249,7 @@ where
     P0: ::std::convert::Into<HDPA>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DPA_DestroyCallback ( hdpa : HDPA , pfncb : PFNDAENUMCALLBACK , pdata : *const ::core::ffi::c_void ) -> ( ) );
-    DPA_DestroyCallback(hdpa.into(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
+    DPA_DestroyCallback(hdpa.into(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -258,7 +258,7 @@ where
     P0: ::std::convert::Into<HDPA>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DPA_EnumCallback ( hdpa : HDPA , pfncb : PFNDAENUMCALLBACK , pdata : *const ::core::ffi::c_void ) -> ( ) );
-    DPA_EnumCallback(hdpa.into(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
+    DPA_EnumCallback(hdpa.into(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -314,7 +314,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DPA_LoadStream ( phdpa : *mut HDPA , pfn : PFNDPASTREAM , pstream : * mut::core::ffi::c_void , pvinstdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DPA_LoadStream(phdpa, ::core::mem::transmute(pfn), pstream.into().abi(), ::core::mem::transmute(pvinstdata.unwrap_or(::std::ptr::null()))).ok()
+    DPA_LoadStream(phdpa, pfn, pstream.into().abi(), ::core::mem::transmute(pvinstdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -326,7 +326,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DPA_Merge ( hdpadest : HDPA , hdpasrc : HDPA , dwflags : u32 , pfncompare : PFNDACOMPARE , pfnmerge : PFNDPAMERGE , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    DPA_Merge(hdpadest.into(), hdpasrc.into(), dwflags, ::core::mem::transmute(pfncompare), ::core::mem::transmute(pfnmerge), lparam.into())
+    DPA_Merge(hdpadest.into(), hdpasrc.into(), dwflags, pfncompare, pfnmerge, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -337,7 +337,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DPA_SaveStream ( hdpa : HDPA , pfn : PFNDPASTREAM , pstream : * mut::core::ffi::c_void , pvinstdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DPA_SaveStream(hdpa.into(), ::core::mem::transmute(pfn), pstream.into().abi(), ::core::mem::transmute(pvinstdata.unwrap_or(::std::ptr::null()))).ok()
+    DPA_SaveStream(hdpa.into(), pfn, pstream.into().abi(), ::core::mem::transmute(pvinstdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -348,7 +348,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DPA_Search ( hdpa : HDPA , pfind : *const ::core::ffi::c_void , istart : i32 , pfncompare : PFNDACOMPARE , lparam : super::super::Foundation:: LPARAM , options : u32 ) -> i32 );
-    DPA_Search(hdpa.into(), ::core::mem::transmute(pfind.unwrap_or(::std::ptr::null())), istart, ::core::mem::transmute(pfncompare), lparam.into(), options)
+    DPA_Search(hdpa.into(), ::core::mem::transmute(pfind.unwrap_or(::std::ptr::null())), istart, pfncompare, lparam.into(), options)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -369,7 +369,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DPA_Sort ( hdpa : HDPA , pfncompare : PFNDACOMPARE , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    DPA_Sort(hdpa.into(), ::core::mem::transmute(pfncompare), lparam.into())
+    DPA_Sort(hdpa.into(), pfncompare, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -423,7 +423,7 @@ where
     P0: ::std::convert::Into<HDSA>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DSA_DestroyCallback ( hdsa : HDSA , pfncb : PFNDAENUMCALLBACK , pdata : *const ::core::ffi::c_void ) -> ( ) );
-    DSA_DestroyCallback(hdsa.into(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
+    DSA_DestroyCallback(hdsa.into(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -432,7 +432,7 @@ where
     P0: ::std::convert::Into<HDSA>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DSA_EnumCallback ( hdsa : HDSA , pfncb : PFNDAENUMCALLBACK , pdata : *const ::core::ffi::c_void ) -> ( ) );
-    DSA_EnumCallback(hdsa.into(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
+    DSA_EnumCallback(hdsa.into(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -490,7 +490,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn DSA_Sort ( pdsa : HDSA , pfncompare : PFNDACOMPARE , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    DSA_Sort(pdsa.into(), ::core::mem::transmute(pfncompare), lparam.into())
+    DSA_Sort(pdsa.into(), pfncompare, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

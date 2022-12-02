@@ -2332,7 +2332,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "rtm.dll""system" fn RtmRegisterEntity ( rtmentityinfo : *mut RTM_ENTITY_INFO , exportmethods : *mut RTM_ENTITY_EXPORT_METHODS , eventcallback : RTM_EVENT_CALLBACK , reserveopaquepointer : super::super::Foundation:: BOOL , rtmregprofile : *mut RTM_REGN_PROFILE , rtmreghandle : *mut isize ) -> u32 );
-    RtmRegisterEntity(rtmentityinfo, exportmethods, ::core::mem::transmute(eventcallback), reserveopaquepointer.into(), rtmregprofile, rtmreghandle)
+    RtmRegisterEntity(rtmentityinfo, exportmethods, eventcallback, reserveopaquepointer.into(), rtmregprofile, rtmreghandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]

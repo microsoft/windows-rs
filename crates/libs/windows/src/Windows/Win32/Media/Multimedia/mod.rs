@@ -198,7 +198,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
     ::windows::core::link ! ( "avifil32.dll""cdecl" fn AVISaveA ( szfile : :: windows::core::PCSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , pfile : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
-    AVISaveA(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpfncallback), nstreams, pfile.into().abi(), lpoptions).ok()
+    AVISaveA(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, pfile.into().abi(), lpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -224,7 +224,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "avifil32.dll""system" fn AVISaveVA ( szfile : :: windows::core::PCSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , ppavi : *const * mut::core::ffi::c_void , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
-    AVISaveVA(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpfncallback), nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
+    AVISaveVA(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -234,7 +234,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "avifil32.dll""system" fn AVISaveVW ( szfile : :: windows::core::PCWSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , ppavi : *const * mut::core::ffi::c_void , plpoptions : *const *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
-    AVISaveVW(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpfncallback), nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
+    AVISaveVW(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, ::core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -245,7 +245,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, IAVIStream>>,
 {
     ::windows::core::link ! ( "avifil32.dll""cdecl" fn AVISaveW ( szfile : :: windows::core::PCWSTR , pclsidhandler : *const :: windows::core::GUID , lpfncallback : AVISAVECALLBACK , nstreams : i32 , pfile : * mut::core::ffi::c_void , lpoptions : *const AVICOMPRESSOPTIONS ) -> :: windows::core::HRESULT );
-    AVISaveW(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpfncallback), nstreams, pfile.into().abi(), lpoptions).ok()
+    AVISaveW(szfile.into(), ::core::mem::transmute(pclsidhandler.unwrap_or(::std::ptr::null())), lpfncallback, nstreams, pfile.into().abi(), lpoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -879,7 +879,7 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
 #[inline]
 pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
     ::windows::core::link ! ( "msvfw32.dll""system" fn ICOpenFunction ( fcctype : u32 , fcchandler : u32 , wmode : u32 , lpfnhandler : super::super::Foundation:: FARPROC ) -> HIC );
-    ICOpenFunction(fcctype, fcchandler, wmode, ::core::mem::transmute(lpfnhandler))
+    ICOpenFunction(fcctype, fcchandler, wmode, lpfnhandler)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1224,7 +1224,7 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::F
 #[inline]
 pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "winmm.dll""system" fn mciSetYieldProc ( mciid : u32 , fpyieldproc : YIELDPROC , dwyielddata : u32 ) -> super::super::Foundation:: BOOL );
-    mciSetYieldProc(mciid, ::core::mem::transmute(fpyieldproc), dwyielddata)
+    mciSetYieldProc(mciid, fpyieldproc, dwyielddata)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -1234,7 +1234,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "winmm.dll""system" fn mmDrvInstall ( hdriver : HDRVR , wszdrventry : :: windows::core::PCWSTR , drvmessage : DRIVERMSGPROC , wflags : u32 ) -> u32 );
-    mmDrvInstall(hdriver.into(), wszdrventry.into(), ::core::mem::transmute(drvmessage), wflags)
+    mmDrvInstall(hdriver.into(), wszdrventry.into(), drvmessage, wflags)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -1253,7 +1253,7 @@ pub unsafe fn mmTaskBlock(h: u32) {
 #[inline]
 pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     ::windows::core::link ! ( "winmm.dll""system" fn mmTaskCreate ( lpfn : LPTASKCALLBACK , lph : *mut super::super::Foundation:: HANDLE , dwinst : usize ) -> u32 );
-    mmTaskCreate(::core::mem::transmute(lpfn), lph, dwinst)
+    mmTaskCreate(lpfn, lph, dwinst)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1338,14 +1338,14 @@ where
 #[inline]
 pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     ::windows::core::link ! ( "winmm.dll""system" fn mmioInstallIOProcA ( fccioproc : u32 , pioproc : LPMMIOPROC , dwflags : u32 ) -> LPMMIOPROC );
-    mmioInstallIOProcA(fccioproc, ::core::mem::transmute(pioproc), dwflags)
+    mmioInstallIOProcA(fccioproc, pioproc, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     ::windows::core::link ! ( "winmm.dll""system" fn mmioInstallIOProcW ( fccioproc : u32 , pioproc : LPMMIOPROC , dwflags : u32 ) -> LPMMIOPROC );
-    mmioInstallIOProcW(fccioproc, ::core::mem::transmute(pioproc), dwflags)
+    mmioInstallIOProcW(fccioproc, pioproc, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

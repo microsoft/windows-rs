@@ -30,28 +30,28 @@ where
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DirectDrawEnumerateA(::core::mem::transmute(lpcallback), lpcontext).ok()
+    DirectDrawEnumerateA(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
-    DirectDrawEnumerateExA(::core::mem::transmute(lpcallback), lpcontext, dwflags).ok()
+    DirectDrawEnumerateExA(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows::core::HRESULT );
-    DirectDrawEnumerateExW(::core::mem::transmute(lpcallback), lpcontext, dwflags).ok()
+    DirectDrawEnumerateExW(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "ddraw.dll""system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DirectDrawEnumerateW(::core::mem::transmute(lpcallback), lpcontext).ok()
+    DirectDrawEnumerateW(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
@@ -64,7 +64,7 @@ impl IDDVideoPortContainer {
         (::windows::core::Vtable::vtable(self).CreateVideoPort)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
     pub unsafe fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumVideoPorts)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumVideoPorts)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: ::core::option::Option<*mut DDVIDEOPORTCONNECT>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetVideoPortConnectInfo)(::windows::core::Vtable::as_raw(self), param0, pcinfo, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -145,10 +145,10 @@ impl IDirectDraw {
         (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FlipToGDISurface)(::windows::core::Vtable::as_raw(self)).ok()
@@ -293,10 +293,10 @@ impl IDirectDraw2 {
         (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FlipToGDISurface)(::windows::core::Vtable::as_raw(self)).ok()
@@ -445,10 +445,10 @@ impl IDirectDraw4 {
         (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FlipToGDISurface)(::windows::core::Vtable::as_raw(self)).ok()
@@ -627,10 +627,10 @@ impl IDirectDraw7 {
         (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
+        (::windows::core::Vtable::vtable(self).EnumSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FlipToGDISurface)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1112,10 +1112,10 @@ impl IDirectDrawSurface {
         (::windows::core::Vtable::vtable(self).DeleteAttachedSurface)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi()).ok()
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2)).ok()
+        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Flip<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -1355,10 +1355,10 @@ impl IDirectDrawSurface2 {
         (::windows::core::Vtable::vtable(self).DeleteAttachedSurface)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi()).ok()
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2)).ok()
+        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Flip<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -1610,10 +1610,10 @@ impl IDirectDrawSurface3 {
         (::windows::core::Vtable::vtable(self).DeleteAttachedSurface)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi()).ok()
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2)).ok()
+        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Flip<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -1869,10 +1869,10 @@ impl IDirectDrawSurface4 {
         (::windows::core::Vtable::vtable(self).DeleteAttachedSurface)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi()).ok()
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2)).ok()
+        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Flip<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -2153,10 +2153,10 @@ impl IDirectDrawSurface7 {
         (::windows::core::Vtable::vtable(self).DeleteAttachedSurface)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi()).ok()
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+        (::windows::core::Vtable::vtable(self).EnumAttachedSurfaces)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2)).ok()
+        (::windows::core::Vtable::vtable(self).EnumOverlayZOrders)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
     pub unsafe fn Flip<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where

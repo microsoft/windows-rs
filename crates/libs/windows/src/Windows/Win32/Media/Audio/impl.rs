@@ -1209,7 +1209,7 @@ impl IAudioSessionNotification_Vtbl {
     }
 }
 pub trait IAudioStateMonitor_Impl: Sized {
-    fn RegisterCallback(&self, callback: &PAudioStateMonitorCallback, context: *const ::core::ffi::c_void) -> ::windows::core::Result<i64>;
+    fn RegisterCallback(&self, callback: PAudioStateMonitorCallback, context: *const ::core::ffi::c_void) -> ::windows::core::Result<i64>;
     fn UnregisterCallback(&self, registration: i64);
     fn GetSoundLevel(&self) -> AudioStateMonitorSoundLevel;
 }
@@ -1219,7 +1219,7 @@ impl IAudioStateMonitor_Vtbl {
         unsafe extern "system" fn RegisterCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioStateMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: PAudioStateMonitorCallback, context: *const ::core::ffi::c_void, registration: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RegisterCallback(::core::mem::transmute(&callback), ::core::mem::transmute_copy(&context)) {
+            match this.RegisterCallback(::core::mem::transmute_copy(&callback), ::core::mem::transmute_copy(&context)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(registration, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

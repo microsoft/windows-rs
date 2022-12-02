@@ -39,7 +39,7 @@ where
 {
     ::windows::core::link ! ( "dxva2.dll""system" fn DXVAHD_CreateDevice ( pd3ddevice : * mut::core::ffi::c_void , pcontentdesc : *const DXVAHD_CONTENT_DESC , usage : DXVAHD_DEVICE_USAGE , pplugin : PDXVAHDSW_Plugin , ppdevice : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DXVAHD_CreateDevice(pd3ddevice.into().abi(), pcontentdesc, usage, ::core::mem::transmute(pplugin), result__.as_mut_ptr()).from_abi(result__)
+    DXVAHD_CreateDevice(pd3ddevice.into().abi(), pcontentdesc, usage, pplugin, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
@@ -49,7 +49,7 @@ where
 {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFAddPeriodicCallback ( callback : MFPERIODICCALLBACK , pcontext : * mut::core::ffi::c_void , pdwkey : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MFAddPeriodicCallback(::core::mem::transmute(callback), pcontext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    MFAddPeriodicCallback(callback, pcontext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]

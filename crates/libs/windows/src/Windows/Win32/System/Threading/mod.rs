@@ -366,13 +366,13 @@ where
 #[inline]
 pub unsafe fn CreateFiber(dwstacksize: usize, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateFiber ( dwstacksize : usize , lpstartaddress : LPFIBER_START_ROUTINE , lpparameter : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
-    CreateFiber(dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())))
+    CreateFiber(dwstacksize, lpstartaddress, ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: ::core::option::Option<*const ::core::ffi::c_void>) -> *mut ::core::ffi::c_void {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateFiberEx ( dwstackcommitsize : usize , dwstackreservesize : usize , dwflags : u32 , lpstartaddress : LPFIBER_START_ROUTINE , lpparameter : *const ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
-    CreateFiberEx(dwstackcommitsize, dwstackreservesize, dwflags, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())))
+    CreateFiberEx(dwstackcommitsize, dwstackreservesize, dwflags, lpstartaddress, ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -525,7 +525,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateRemoteThread ( hprocess : super::super::Foundation:: HANDLE , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwstacksize : usize , lpstartaddress : LPTHREAD_START_ROUTINE , lpparameter : *const ::core::ffi::c_void , dwcreationflags : u32 , lpthreadid : *mut u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateRemoteThread(hprocess.into(), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())), dwcreationflags, ::core::mem::transmute(lpthreadid.unwrap_or(::std::ptr::null_mut())));
+    let result__ = CreateRemoteThread(hprocess.into(), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), dwstacksize, lpstartaddress, ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())), dwcreationflags, ::core::mem::transmute(lpthreadid.unwrap_or(::std::ptr::null_mut())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -537,7 +537,7 @@ where
     P1: ::std::convert::Into<LPPROC_THREAD_ATTRIBUTE_LIST>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateRemoteThreadEx ( hprocess : super::super::Foundation:: HANDLE , lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwstacksize : usize , lpstartaddress : LPTHREAD_START_ROUTINE , lpparameter : *const ::core::ffi::c_void , dwcreationflags : u32 , lpattributelist : LPPROC_THREAD_ATTRIBUTE_LIST , lpthreadid : *mut u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateRemoteThreadEx(hprocess.into(), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())), dwcreationflags, lpattributelist.into(), ::core::mem::transmute(lpthreadid.unwrap_or(::std::ptr::null_mut())));
+    let result__ = CreateRemoteThreadEx(hprocess.into(), ::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), dwstacksize, lpstartaddress, ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())), dwcreationflags, lpattributelist.into(), ::core::mem::transmute(lpthreadid.unwrap_or(::std::ptr::null_mut())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -589,7 +589,7 @@ where
 #[inline]
 pub unsafe fn CreateThread(lpthreadattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: ::core::option::Option<*const ::core::ffi::c_void>, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: ::core::option::Option<*mut u32>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateThread ( lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwstacksize : usize , lpstartaddress : LPTHREAD_START_ROUTINE , lpparameter : *const ::core::ffi::c_void , dwcreationflags : THREAD_CREATION_FLAGS , lpthreadid : *mut u32 ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateThread(::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), dwstacksize, ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())), dwcreationflags, ::core::mem::transmute(lpthreadid.unwrap_or(::std::ptr::null_mut())));
+    let result__ = CreateThread(::core::mem::transmute(lpthreadattributes.unwrap_or(::std::ptr::null())), dwstacksize, lpstartaddress, ::core::mem::transmute(lpparameter.unwrap_or(::std::ptr::null())), dwcreationflags, ::core::mem::transmute(lpthreadid.unwrap_or(::std::ptr::null_mut())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -612,25 +612,25 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateThreadpoolIo ( fl : super::super::Foundation:: HANDLE , pfnio : PTP_WIN32_IO_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_IO );
-    CreateThreadpoolIo(fl.into(), ::core::mem::transmute(pfnio), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+    CreateThreadpoolIo(fl.into(), pfnio, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> *mut TP_TIMER {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateThreadpoolTimer ( pfnti : PTP_TIMER_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_TIMER );
-    CreateThreadpoolTimer(::core::mem::transmute(pfnti), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+    CreateThreadpoolTimer(pfnti, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> *mut TP_WAIT {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateThreadpoolWait ( pfnwa : PTP_WAIT_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_WAIT );
-    CreateThreadpoolWait(::core::mem::transmute(pfnwa), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+    CreateThreadpoolWait(pfnwa, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> *mut TP_WORK {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateThreadpoolWork ( pfnwk : PTP_WORK_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_WORK );
-    CreateThreadpoolWork(::core::mem::transmute(pfnwk), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+    CreateThreadpoolWork(pfnwk, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -648,7 +648,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateTimerQueueTimer ( phnewtimer : *mut super::super::Foundation:: HANDLE , timerqueue : super::super::Foundation:: HANDLE , callback : WAITORTIMERCALLBACK , parameter : *const ::core::ffi::c_void , duetime : u32 , period : u32 , flags : WORKER_THREAD_FLAGS ) -> super::super::Foundation:: BOOL );
-    CreateTimerQueueTimer(phnewtimer, timerqueue.into(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter.unwrap_or(::std::ptr::null())), duetime, period, flags)
+    CreateTimerQueueTimer(phnewtimer, timerqueue.into(), callback, ::core::mem::transmute(parameter.unwrap_or(::std::ptr::null())), duetime, period, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -826,7 +826,7 @@ pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
 #[inline]
 pub unsafe fn FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION) -> u32 {
     ::windows::core::link ! ( "kernel32.dll""system" fn FlsAlloc ( lpcallback : PFLS_CALLBACK_FUNCTION ) -> u32 );
-    FlsAlloc(::core::mem::transmute(lpcallback))
+    FlsAlloc(lpcallback)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1393,7 +1393,7 @@ pub unsafe fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpco
 #[inline]
 pub unsafe fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: PINIT_ONCE_FN, parameter: ::core::option::Option<*mut ::core::ffi::c_void>, context: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn InitOnceExecuteOnce ( initonce : *mut RTL_RUN_ONCE , initfn : PINIT_ONCE_FN , parameter : *mut ::core::ffi::c_void , context : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    InitOnceExecuteOnce(initonce, ::core::mem::transmute(initfn), ::core::mem::transmute(parameter.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(context.unwrap_or(::std::ptr::null_mut())))
+    InitOnceExecuteOnce(initonce, initfn, ::core::mem::transmute(parameter.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(context.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -1788,7 +1788,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn QueueUserAPC ( pfnapc : super::super::Foundation:: PAPCFUNC , hthread : super::super::Foundation:: HANDLE , dwdata : usize ) -> u32 );
-    QueueUserAPC(::core::mem::transmute(pfnapc), hthread.into(), dwdata)
+    QueueUserAPC(pfnapc, hthread.into(), dwdata)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1798,14 +1798,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn QueueUserAPC2 ( apcroutine : super::super::Foundation:: PAPCFUNC , thread : super::super::Foundation:: HANDLE , data : usize , flags : QUEUE_USER_APC_FLAGS ) -> super::super::Foundation:: BOOL );
-    QueueUserAPC2(::core::mem::transmute(apcroutine), thread.into(), data, flags)
+    QueueUserAPC2(apcroutine, thread.into(), data, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: ::core::option::Option<*const ::core::ffi::c_void>, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn QueueUserWorkItem ( function : LPTHREAD_START_ROUTINE , context : *const ::core::ffi::c_void , flags : WORKER_THREAD_FLAGS ) -> super::super::Foundation:: BOOL );
-    QueueUserWorkItem(::core::mem::transmute(function), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), flags)
+    QueueUserWorkItem(function, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1815,7 +1815,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn RegisterWaitForSingleObject ( phnewwaitobject : *mut super::super::Foundation:: HANDLE , hobject : super::super::Foundation:: HANDLE , callback : WAITORTIMERCALLBACK , context : *const ::core::ffi::c_void , dwmilliseconds : u32 , dwflags : WORKER_THREAD_FLAGS ) -> super::super::Foundation:: BOOL );
-    RegisterWaitForSingleObject(phnewwaitobject, hobject.into(), ::core::mem::transmute(callback), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), dwmilliseconds, dwflags)
+    RegisterWaitForSingleObject(phnewwaitobject, hobject.into(), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), dwmilliseconds, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2246,7 +2246,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetTimerQueueTimer ( timerqueue : super::super::Foundation:: HANDLE , callback : WAITORTIMERCALLBACK , parameter : *const ::core::ffi::c_void , duetime : u32 , period : u32 , preferio : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
-    SetTimerQueueTimer(timerqueue.into(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter.unwrap_or(::std::ptr::null())), duetime, period, preferio.into())
+    SetTimerQueueTimer(timerqueue.into(), callback, ::core::mem::transmute(parameter.unwrap_or(::std::ptr::null())), duetime, period, preferio.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2264,7 +2264,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetWaitableTimer ( htimer : super::super::Foundation:: HANDLE , lpduetime : *const i64 , lperiod : i32 , pfncompletionroutine : PTIMERAPCROUTINE , lpargtocompletionroutine : *const ::core::ffi::c_void , fresume : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    SetWaitableTimer(htimer.into(), lpduetime, lperiod, ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine.unwrap_or(::std::ptr::null())), fresume.into())
+    SetWaitableTimer(htimer.into(), lpduetime, lperiod, pfncompletionroutine, ::core::mem::transmute(lpargtocompletionroutine.unwrap_or(::std::ptr::null())), fresume.into())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2274,7 +2274,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetWaitableTimerEx ( htimer : super::super::Foundation:: HANDLE , lpduetime : *const i64 , lperiod : i32 , pfncompletionroutine : PTIMERAPCROUTINE , lpargtocompletionroutine : *const ::core::ffi::c_void , wakecontext : *const REASON_CONTEXT , tolerabledelay : u32 ) -> super::super::Foundation:: BOOL );
-    SetWaitableTimerEx(htimer.into(), lpduetime, lperiod, ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine.unwrap_or(::std::ptr::null())), ::core::mem::transmute(wakecontext.unwrap_or(::std::ptr::null())), tolerabledelay)
+    SetWaitableTimerEx(htimer.into(), lpduetime, lperiod, pfncompletionroutine, ::core::mem::transmute(lpargtocompletionroutine.unwrap_or(::std::ptr::null())), ::core::mem::transmute(wakecontext.unwrap_or(::std::ptr::null())), tolerabledelay)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -2413,7 +2413,7 @@ pub unsafe fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTI
 #[inline]
 pub unsafe fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: ::core::option::Option<*mut ::core::ffi::c_void>, pcbe: ::core::option::Option<*const TP_CALLBACK_ENVIRON_V3>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn TrySubmitThreadpoolCallback ( pfns : PTP_SIMPLE_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> super::super::Foundation:: BOOL );
-    TrySubmitThreadpoolCallback(::core::mem::transmute(pfns), ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
+    TrySubmitThreadpoolCallback(pfns, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbe.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

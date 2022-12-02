@@ -108,7 +108,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "magnification.dll""system" fn MagSetImageScalingCallback ( hwnd : super::super::Foundation:: HWND , callback : MagImageScalingCallback ) -> super::super::Foundation:: BOOL );
-    MagSetImageScalingCallback(hwnd.into(), ::core::mem::transmute(callback))
+    MagSetImageScalingCallback(hwnd.into(), callback)
 }
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -2144,7 +2144,7 @@ impl IAMMediaTypeSample {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), ::core::mem::transmute(pfnapc), dwapcdata).ok()
+        (::windows::core::Vtable::vtable(self).base__.Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), pfnapc, dwapcdata).ok()
     }
     pub unsafe fn CompletionStatus(&self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CompletionStatus)(::windows::core::Vtable::as_raw(self), dwflags, dwmilliseconds).ok()
@@ -7475,7 +7475,7 @@ impl IAudioStreamSample {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), ::core::mem::transmute(pfnapc), dwapcdata).ok()
+        (::windows::core::Vtable::vtable(self).base__.Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), pfnapc, dwapcdata).ok()
     }
     pub unsafe fn CompletionStatus(&self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CompletionStatus)(::windows::core::Vtable::as_raw(self), dwflags, dwmilliseconds).ok()
@@ -17051,7 +17051,7 @@ impl IDirectDrawStreamSample {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), ::core::mem::transmute(pfnapc), dwapcdata).ok()
+        (::windows::core::Vtable::vtable(self).base__.Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), pfnapc, dwapcdata).ok()
     }
     pub unsafe fn CompletionStatus(&self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CompletionStatus)(::windows::core::Vtable::as_raw(self), dwflags, dwmilliseconds).ok()
@@ -43373,7 +43373,7 @@ impl IStreamSample {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), ::core::mem::transmute(pfnapc), dwapcdata).ok()
+        (::windows::core::Vtable::vtable(self).Update)(::windows::core::Vtable::as_raw(self), dwflags, hevent.into(), pfnapc, dwapcdata).ok()
     }
     pub unsafe fn CompletionStatus(&self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CompletionStatus)(::windows::core::Vtable::as_raw(self), dwflags, dwmilliseconds).ok()

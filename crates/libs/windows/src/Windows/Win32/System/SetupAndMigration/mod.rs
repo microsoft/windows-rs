@@ -10,7 +10,7 @@ pub unsafe fn OOBEComplete(isoobecomplete: *mut super::super::Foundation::BOOL) 
 #[inline]
 pub unsafe fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: OOBE_COMPLETED_CALLBACK, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, waithandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn RegisterWaitUntilOOBECompleted ( oobecompletedcallback : OOBE_COMPLETED_CALLBACK , callbackcontext : *const ::core::ffi::c_void , waithandle : *mut *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    RegisterWaitUntilOOBECompleted(::core::mem::transmute(oobecompletedcallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), waithandle)
+    RegisterWaitUntilOOBECompleted(oobecompletedcallback, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), waithandle)
 }
 #[doc = "*Required features: `\"Win32_System_SetupAndMigration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

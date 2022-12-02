@@ -41,7 +41,7 @@ where
 #[inline]
 pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, pvparameter: ::core::option::Option<*const ::core::ffi::c_void>, dwpinginterval: u32, dwflags: u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "kernel32.dll""system" fn RegisterApplicationRecoveryCallback ( precoveycallback : super::WindowsProgramming:: APPLICATION_RECOVERY_CALLBACK , pvparameter : *const ::core::ffi::c_void , dwpinginterval : u32 , dwflags : u32 ) -> :: windows::core::HRESULT );
-    RegisterApplicationRecoveryCallback(::core::mem::transmute(precoveycallback), ::core::mem::transmute(pvparameter.unwrap_or(::std::ptr::null())), dwpinginterval, dwflags).ok()
+    RegisterApplicationRecoveryCallback(precoveycallback, ::core::mem::transmute(pvparameter.unwrap_or(::std::ptr::null())), dwpinginterval, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[inline]

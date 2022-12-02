@@ -476,7 +476,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn RegisterServiceCtrlHandlerA ( lpservicename : :: windows::core::PCSTR , lphandlerproc : LPHANDLER_FUNCTION ) -> SERVICE_STATUS_HANDLE );
-    let result__ = RegisterServiceCtrlHandlerA(lpservicename.into(), ::core::mem::transmute(lphandlerproc));
+    let result__ = RegisterServiceCtrlHandlerA(lpservicename.into(), lphandlerproc);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -486,7 +486,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn RegisterServiceCtrlHandlerExA ( lpservicename : :: windows::core::PCSTR , lphandlerproc : LPHANDLER_FUNCTION_EX , lpcontext : *const ::core::ffi::c_void ) -> SERVICE_STATUS_HANDLE );
-    let result__ = RegisterServiceCtrlHandlerExA(lpservicename.into(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())));
+    let result__ = RegisterServiceCtrlHandlerExA(lpservicename.into(), lphandlerproc, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -496,7 +496,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn RegisterServiceCtrlHandlerExW ( lpservicename : :: windows::core::PCWSTR , lphandlerproc : LPHANDLER_FUNCTION_EX , lpcontext : *const ::core::ffi::c_void ) -> SERVICE_STATUS_HANDLE );
-    let result__ = RegisterServiceCtrlHandlerExW(lpservicename.into(), ::core::mem::transmute(lphandlerproc), ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())));
+    let result__ = RegisterServiceCtrlHandlerExW(lpservicename.into(), lphandlerproc, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -506,7 +506,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn RegisterServiceCtrlHandlerW ( lpservicename : :: windows::core::PCWSTR , lphandlerproc : LPHANDLER_FUNCTION ) -> SERVICE_STATUS_HANDLE );
-    let result__ = RegisterServiceCtrlHandlerW(lpservicename.into(), ::core::mem::transmute(lphandlerproc));
+    let result__ = RegisterServiceCtrlHandlerW(lpservicename.into(), lphandlerproc);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]

@@ -1356,7 +1356,7 @@ where
 #[inline]
 pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: ::core::option::Option<*const ::core::ffi::c_void>, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: *mut isize) -> CONFIGRET {
     ::windows::core::link ! ( "cfgmgr32.dll""system" fn CM_Register_Notification ( pfilter : *const CM_NOTIFY_FILTER , pcontext : *const ::core::ffi::c_void , pcallback : PCM_NOTIFY_CALLBACK , pnotifycontext : *mut isize ) -> CONFIGRET );
-    CM_Register_Notification(pfilter, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pcallback), pnotifycontext)
+    CM_Register_Notification(pfilter, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), pcallback, pnotifycontext)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -1920,7 +1920,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupCommitFileQueueA ( owner : super::super::Foundation:: HWND , queuehandle : *const ::core::ffi::c_void , msghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SetupCommitFileQueueA(owner.into(), queuehandle, ::core::mem::transmute(msghandler), context)
+    SetupCommitFileQueueA(owner.into(), queuehandle, msghandler, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1930,7 +1930,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupCommitFileQueueW ( owner : super::super::Foundation:: HWND , queuehandle : *const ::core::ffi::c_void , msghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SetupCommitFileQueueW(owner.into(), queuehandle, ::core::mem::transmute(msghandler), context)
+    SetupCommitFileQueueW(owner.into(), queuehandle, msghandler, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3323,7 +3323,7 @@ where
     P0: ::std::convert::Into<HDEVINFO>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupDiRegisterDeviceInfo ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA , flags : u32 , compareproc : PSP_DETSIG_CMPPROC , comparecontext : *const ::core::ffi::c_void , dupdeviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
-    SetupDiRegisterDeviceInfo(deviceinfoset.into(), deviceinfodata, flags, ::core::mem::transmute(compareproc), ::core::mem::transmute(comparecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dupdeviceinfodata.unwrap_or(::std::ptr::null_mut())))
+    SetupDiRegisterDeviceInfo(deviceinfoset.into(), deviceinfodata, flags, compareproc, ::core::mem::transmute(comparecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dupdeviceinfodata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4050,7 +4050,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupInstallFileA ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows::core::PCSTR , sourcepathroot : :: windows::core::PCSTR , destinationname : :: windows::core::PCSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SetupInstallFileA(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, ::core::mem::transmute(copymsghandler), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
+    SetupInstallFileA(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, copymsghandler, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4062,7 +4062,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupInstallFileExA ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows::core::PCSTR , sourcepathroot : :: windows::core::PCSTR , destinationname : :: windows::core::PCSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void , filewasinuse : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    SetupInstallFileExA(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, ::core::mem::transmute(copymsghandler), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), filewasinuse)
+    SetupInstallFileExA(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, copymsghandler, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), filewasinuse)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4074,7 +4074,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupInstallFileExW ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows::core::PCWSTR , sourcepathroot : :: windows::core::PCWSTR , destinationname : :: windows::core::PCWSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void , filewasinuse : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    SetupInstallFileExW(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, ::core::mem::transmute(copymsghandler), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), filewasinuse)
+    SetupInstallFileExW(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, copymsghandler, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), filewasinuse)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4086,7 +4086,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupInstallFileW ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows::core::PCWSTR , sourcepathroot : :: windows::core::PCWSTR , destinationname : :: windows::core::PCWSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SetupInstallFileW(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, ::core::mem::transmute(copymsghandler), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
+    SetupInstallFileW(::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(infcontext.unwrap_or(::std::ptr::null())), sourcefile.into(), sourcepathroot.into(), destinationname.into(), copystyle, copymsghandler, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4122,7 +4122,7 @@ where
     P4: ::std::convert::Into<HDEVINFO>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupInstallFromInfSectionA ( owner : super::super::Foundation:: HWND , infhandle : *const ::core::ffi::c_void , sectionname : :: windows::core::PCSTR , flags : u32 , relativekeyroot : super::super::System::Registry:: HKEY , sourcerootpath : :: windows::core::PCSTR , copyflags : u32 , msghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
-    SetupInstallFromInfSectionA(owner.into(), infhandle, sectionname.into(), flags, relativekeyroot.into(), sourcerootpath.into(), copyflags, ::core::mem::transmute(msghandler), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())))
+    SetupInstallFromInfSectionA(owner.into(), infhandle, sectionname.into(), flags, relativekeyroot.into(), sourcerootpath.into(), copyflags, msghandler, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -4136,7 +4136,7 @@ where
     P4: ::std::convert::Into<HDEVINFO>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupInstallFromInfSectionW ( owner : super::super::Foundation:: HWND , infhandle : *const ::core::ffi::c_void , sectionname : :: windows::core::PCWSTR , flags : u32 , relativekeyroot : super::super::System::Registry:: HKEY , sourcerootpath : :: windows::core::PCWSTR , copyflags : u32 , msghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
-    SetupInstallFromInfSectionW(owner.into(), infhandle, sectionname.into(), flags, relativekeyroot.into(), sourcerootpath.into(), copyflags, ::core::mem::transmute(msghandler), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())))
+    SetupInstallFromInfSectionW(owner.into(), infhandle, sectionname.into(), flags, relativekeyroot.into(), sourcerootpath.into(), copyflags, msghandler, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), deviceinfoset.into(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4188,7 +4188,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupIterateCabinetA ( cabinetfile : :: windows::core::PCSTR , reserved : u32 , msghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SetupIterateCabinetA(cabinetfile.into(), reserved, ::core::mem::transmute(msghandler), context)
+    SetupIterateCabinetA(cabinetfile.into(), reserved, msghandler, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4198,7 +4198,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupIterateCabinetW ( cabinetfile : :: windows::core::PCWSTR , reserved : u32 , msghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SetupIterateCabinetW(cabinetfile.into(), reserved, ::core::mem::transmute(msghandler), context)
+    SetupIterateCabinetW(cabinetfile.into(), reserved, msghandler, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4807,7 +4807,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupScanFileQueueA ( filequeue : *const ::core::ffi::c_void , flags : u32 , window : super::super::Foundation:: HWND , callbackroutine : PSP_FILE_CALLBACK_A , callbackcontext : *const ::core::ffi::c_void , result : *mut u32 ) -> super::super::Foundation:: BOOL );
-    SetupScanFileQueueA(filequeue, flags, window.into(), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result)
+    SetupScanFileQueueA(filequeue, flags, window.into(), callbackroutine, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4817,7 +4817,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "setupapi.dll""system" fn SetupScanFileQueueW ( filequeue : *const ::core::ffi::c_void , flags : u32 , window : super::super::Foundation:: HWND , callbackroutine : PSP_FILE_CALLBACK_W , callbackcontext : *const ::core::ffi::c_void , result : *mut u32 ) -> super::super::Foundation:: BOOL );
-    SetupScanFileQueueW(filequeue, flags, window.into(), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result)
+    SetupScanFileQueueW(filequeue, flags, window.into(), callbackroutine, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

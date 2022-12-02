@@ -92,7 +92,7 @@ where
 #[inline]
 pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32 {
     ::windows::core::link ! ( "davclnt.dll""system" fn DavRegisterAuthCallback ( callback : PFNDAVAUTHCALLBACK , version : u32 ) -> u32 );
-    DavRegisterAuthCallback(::core::mem::transmute(callback), version)
+    DavRegisterAuthCallback(callback, version)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]

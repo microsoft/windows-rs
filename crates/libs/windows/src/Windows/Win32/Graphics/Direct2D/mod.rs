@@ -10252,13 +10252,13 @@ impl ID2D1Factory1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn RegisterEffectFromString<'a, P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -10454,13 +10454,13 @@ impl ID2D1Factory2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn RegisterEffectFromString<'a, P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -10647,13 +10647,13 @@ impl ID2D1Factory3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn RegisterEffectFromString<'a, P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -10849,13 +10849,13 @@ impl ID2D1Factory4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn RegisterEffectFromString<'a, P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -11060,13 +11060,13 @@ impl ID2D1Factory5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn RegisterEffectFromString<'a, P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -11280,13 +11280,13 @@ impl ID2D1Factory6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn RegisterEffectFromString<'a, P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -11509,13 +11509,13 @@ impl ID2D1Factory7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromStream)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn RegisterEffectFromString<'a, P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(effectfactory)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()

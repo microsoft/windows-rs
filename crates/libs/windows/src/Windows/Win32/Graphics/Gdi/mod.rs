@@ -471,7 +471,7 @@ pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
 #[inline]
 pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     ::windows::core::link ! ( "fontsub.dll""cdecl" fn CreateFontPackage ( puchsrcbuffer : *const u8 , ulsrcbuffersize : u32 , ppuchfontpackagebuffer : *mut *mut u8 , pulfontpackagebuffersize : *mut u32 , pulbyteswritten : *mut u32 , usflag : u16 , usttcindex : u16 , ussubsetformat : u16 , ussubsetlanguage : u16 , ussubsetplatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM , ussubsetencoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING , pussubsetkeeplist : *const u16 , ussubsetlistcount : u16 , lpfnallocate : CFP_ALLOCPROC , lpfnreallocate : CFP_REALLOCPROC , lpfnfree : CFP_FREEPROC , lpvreserved : *mut ::core::ffi::c_void ) -> u32 );
-    CreateFontPackage(puchsrcbuffer, ulsrcbuffersize, ppuchfontpackagebuffer, pulfontpackagebuffersize, pulbyteswritten, usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount, ::core::mem::transmute(lpfnallocate), ::core::mem::transmute(lpfnreallocate), ::core::mem::transmute(lpfnfree), lpvreserved)
+    CreateFontPackage(puchsrcbuffer, ulsrcbuffersize, ppuchfontpackagebuffer, pulfontpackagebuffersize, pulbyteswritten, usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -763,7 +763,7 @@ where
     P3: ::std::convert::Into<super::super::Foundation::WPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DrawStateA ( hdc : HDC , hbrfore : HBRUSH , qfncallback : DRAWSTATEPROC , ldata : super::super::Foundation:: LPARAM , wdata : super::super::Foundation:: WPARAM , x : i32 , y : i32 , cx : i32 , cy : i32 , uflags : DRAWSTATE_FLAGS ) -> super::super::Foundation:: BOOL );
-    DrawStateA(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), x, y, cx, cy, uflags)
+    DrawStateA(hdc.into(), hbrfore.into(), qfncallback, ldata.into(), wdata.into(), x, y, cx, cy, uflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -776,7 +776,7 @@ where
     P3: ::std::convert::Into<super::super::Foundation::WPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn DrawStateW ( hdc : HDC , hbrfore : HBRUSH , qfncallback : DRAWSTATEPROC , ldata : super::super::Foundation:: LPARAM , wdata : super::super::Foundation:: WPARAM , x : i32 , y : i32 , cx : i32 , cy : i32 , uflags : DRAWSTATE_FLAGS ) -> super::super::Foundation:: BOOL );
-    DrawStateW(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), x, y, cx, cy, uflags)
+    DrawStateW(hdc.into(), hbrfore.into(), qfncallback, ldata.into(), wdata.into(), x, y, cx, cy, uflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -877,7 +877,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDisplayMonitors ( hdc : HDC , lprcclip : *const super::super::Foundation:: RECT , lpfnenum : MONITORENUMPROC , dwdata : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumDisplayMonitors(hdc.into(), ::core::mem::transmute(lprcclip.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpfnenum), dwdata.into())
+    EnumDisplayMonitors(hdc.into(), ::core::mem::transmute(lprcclip.unwrap_or(::std::ptr::null())), lpfnenum, dwdata.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -928,7 +928,7 @@ where
     P1: ::std::convert::Into<HENHMETAFILE>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumEnhMetaFile ( hdc : HDC , hmf : HENHMETAFILE , proc : ENHMFENUMPROC , param3 : *const ::core::ffi::c_void , lprect : *const super::super::Foundation:: RECT ) -> super::super::Foundation:: BOOL );
-    EnumEnhMetaFile(hdc.into(), hmf.into(), ::core::mem::transmute(proc), ::core::mem::transmute(param3.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())))
+    EnumEnhMetaFile(hdc.into(), hmf.into(), proc, ::core::mem::transmute(param3.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -940,7 +940,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontFamiliesA ( hdc : HDC , lplogfont : :: windows::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontFamiliesA(hdc.into(), lplogfont.into(), ::core::mem::transmute(lpproc), lparam.into())
+    EnumFontFamiliesA(hdc.into(), lplogfont.into(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -951,7 +951,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontFamiliesExA ( hdc : HDC , lplogfont : *const LOGFONTA , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM , dwflags : u32 ) -> i32 );
-    EnumFontFamiliesExA(hdc.into(), lplogfont, ::core::mem::transmute(lpproc), lparam.into(), dwflags)
+    EnumFontFamiliesExA(hdc.into(), lplogfont, lpproc, lparam.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -962,7 +962,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontFamiliesExW ( hdc : HDC , lplogfont : *const LOGFONTW , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM , dwflags : u32 ) -> i32 );
-    EnumFontFamiliesExW(hdc.into(), lplogfont, ::core::mem::transmute(lpproc), lparam.into(), dwflags)
+    EnumFontFamiliesExW(hdc.into(), lplogfont, lpproc, lparam.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -974,7 +974,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontFamiliesW ( hdc : HDC , lplogfont : :: windows::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontFamiliesW(hdc.into(), lplogfont.into(), ::core::mem::transmute(lpproc), lparam.into())
+    EnumFontFamiliesW(hdc.into(), lplogfont.into(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -986,7 +986,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontsA ( hdc : HDC , lplogfont : :: windows::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontsA(hdc.into(), lplogfont.into(), ::core::mem::transmute(lpproc), lparam.into())
+    EnumFontsA(hdc.into(), lplogfont.into(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -998,7 +998,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontsW ( hdc : HDC , lplogfont : :: windows::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontsW(hdc.into(), lplogfont.into(), ::core::mem::transmute(lpproc), lparam.into())
+    EnumFontsW(hdc.into(), lplogfont.into(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1010,7 +1010,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumMetaFile ( hdc : HDC , hmf : HMETAFILE , proc : MFENUMPROC , param3 : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumMetaFile(hdc.into(), hmf.into(), ::core::mem::transmute(proc), param3.into())
+    EnumMetaFile(hdc.into(), hmf.into(), proc, param3.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1021,7 +1021,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumObjects ( hdc : HDC , ntype : OBJ_TYPE , lpfunc : GOBJENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumObjects(hdc.into(), ntype, ::core::mem::transmute(lpfunc), lparam.into())
+    EnumObjects(hdc.into(), ntype, lpfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2350,7 +2350,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn GrayStringA ( hdc : HDC , hbrush : HBRUSH , lpoutputfunc : GRAYSTRINGPROC , lpdata : super::super::Foundation:: LPARAM , ncount : i32 , x : i32 , y : i32 , nwidth : i32 , nheight : i32 ) -> super::super::Foundation:: BOOL );
-    GrayStringA(hdc.into(), hbrush.into(), ::core::mem::transmute(lpoutputfunc), lpdata.into(), ncount, x, y, nwidth, nheight)
+    GrayStringA(hdc.into(), hbrush.into(), lpoutputfunc, lpdata.into(), ncount, x, y, nwidth, nheight)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2362,7 +2362,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn GrayStringW ( hdc : HDC , hbrush : HBRUSH , lpoutputfunc : GRAYSTRINGPROC , lpdata : super::super::Foundation:: LPARAM , ncount : i32 , x : i32 , y : i32 , nwidth : i32 , nheight : i32 ) -> super::super::Foundation:: BOOL );
-    GrayStringW(hdc.into(), hbrush.into(), ::core::mem::transmute(lpoutputfunc), lpdata.into(), ncount, x, y, nwidth, nheight)
+    GrayStringW(hdc.into(), hbrush.into(), lpoutputfunc, lpdata.into(), ncount, x, y, nwidth, nheight)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2456,7 +2456,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn LineDDA ( xstart : i32 , ystart : i32 , xend : i32 , yend : i32 , lpproc : LINEDDAPROC , data : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    LineDDA(xstart, ystart, xend, yend, ::core::mem::transmute(lpproc), data.into())
+    LineDDA(xstart, ystart, xend, yend, lpproc, data.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2527,7 +2527,7 @@ where
 #[inline]
 pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     ::windows::core::link ! ( "fontsub.dll""cdecl" fn MergeFontPackage ( puchmergefontbuffer : *const u8 , ulmergefontbuffersize : u32 , puchfontpackagebuffer : *const u8 , ulfontpackagebuffersize : u32 , ppuchdestbuffer : *mut *mut u8 , puldestbuffersize : *mut u32 , pulbyteswritten : *mut u32 , usmode : u16 , lpfnallocate : CFP_ALLOCPROC , lpfnreallocate : CFP_REALLOCPROC , lpfnfree : CFP_FREEPROC , lpvreserved : *mut ::core::ffi::c_void ) -> u32 );
-    MergeFontPackage(puchmergefontbuffer, ulmergefontbuffersize, puchfontpackagebuffer, ulfontpackagebuffersize, ppuchdestbuffer, puldestbuffersize, pulbyteswritten, usmode, ::core::mem::transmute(lpfnallocate), ::core::mem::transmute(lpfnreallocate), ::core::mem::transmute(lpfnfree), lpvreserved)
+    MergeFontPackage(puchmergefontbuffer, ulmergefontbuffersize, puchfontpackagebuffer, ulfontpackagebuffersize, ppuchdestbuffer, puldestbuffersize, pulbyteswritten, usmode, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3558,7 +3558,7 @@ where
     P0: ::std::convert::Into<HDC>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTEmbedFont ( hdc : HDC , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , puscharcodeset : *const u16 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
-    TTEmbedFont(hdc.into(), ulflags, ulcharset, pulprivstatus, pulstatus, ::core::mem::transmute(lpfnwritetostream), lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
+    TTEmbedFont(hdc.into(), ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -3567,7 +3567,7 @@ where
     P0: ::std::convert::Into<HDC>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTEmbedFontEx ( hdc : HDC , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , pulcharcodeset : *const u32 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
-    TTEmbedFontEx(hdc.into(), ulflags, ulcharset, pulprivstatus, pulstatus, ::core::mem::transmute(lpfnwritetostream), lpvwritestream, ::core::mem::transmute(pulcharcodeset.as_ptr()), pulcharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
+    TTEmbedFontEx(hdc.into(), ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(pulcharcodeset.as_ptr()), pulcharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -3577,7 +3577,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTEmbedFontFromFileA ( hdc : HDC , szfontfilename : :: windows::core::PCSTR , usttcindex : u16 , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , puscharcodeset : *const u16 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
-    TTEmbedFontFromFileA(hdc.into(), szfontfilename.into(), usttcindex, ulflags, ulcharset, pulprivstatus, pulstatus, ::core::mem::transmute(lpfnwritetostream), lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
+    TTEmbedFontFromFileA(hdc.into(), szfontfilename.into(), usttcindex, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3594,7 +3594,7 @@ where
 #[inline]
 pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: ::core::option::Option<*const TTLOADINFO>) -> i32 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTGetEmbeddedFontInfo ( ulflags : TTEMBED_FLAGS , pulprivstatus : *mut u32 , ulprivs : FONT_LICENSE_PRIVS , pulstatus : *mut u32 , lpfnreadfromstream : READEMBEDPROC , lpvreadstream : *const ::core::ffi::c_void , pttloadinfo : *const TTLOADINFO ) -> i32 );
-    TTGetEmbeddedFontInfo(ulflags, pulprivstatus, ulprivs, pulstatus, ::core::mem::transmute(lpfnreadfromstream), lpvreadstream, ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
+    TTGetEmbeddedFontInfo(ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -3641,7 +3641,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTLoadEmbeddedFont ( phfontreference : *mut super::super::Foundation:: HANDLE , ulflags : u32 , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , ulprivs : FONT_LICENSE_PRIVS , pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS , lpfnreadfromstream : READEMBEDPROC , lpvreadstream : *const ::core::ffi::c_void , szwinfamilyname : :: windows::core::PCWSTR , szmacfamilyname : :: windows::core::PCSTR , pttloadinfo : *const TTLOADINFO ) -> i32 );
-    TTLoadEmbeddedFont(phfontreference, ulflags, pulprivstatus, ulprivs, pulstatus, ::core::mem::transmute(lpfnreadfromstream), lpvreadstream, szwinfamilyname.into(), szmacfamilyname.into(), ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
+    TTLoadEmbeddedFont(phfontreference, ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, szwinfamilyname.into(), szmacfamilyname.into(), ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]

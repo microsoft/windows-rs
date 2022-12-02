@@ -934,7 +934,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "wininet.dll""system" fn GopherGetAttributeA ( hconnect : *const ::core::ffi::c_void , lpszlocator : :: windows::core::PCSTR , lpszattributename : :: windows::core::PCSTR , lpbuffer : *mut u8 , dwbufferlength : u32 , lpdwcharactersreturned : *mut u32 , lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR , dwcontext : usize ) -> super::super::Foundation:: BOOL );
-    GopherGetAttributeA(hconnect, lpszlocator.into(), lpszattributename.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpdwcharactersreturned, ::core::mem::transmute(lpfnenumerator), dwcontext)
+    GopherGetAttributeA(hconnect, lpszlocator.into(), lpszattributename.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpdwcharactersreturned, lpfnenumerator, dwcontext)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -945,7 +945,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "wininet.dll""system" fn GopherGetAttributeW ( hconnect : *const ::core::ffi::c_void , lpszlocator : :: windows::core::PCWSTR , lpszattributename : :: windows::core::PCWSTR , lpbuffer : *mut u8 , dwbufferlength : u32 , lpdwcharactersreturned : *mut u32 , lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR , dwcontext : usize ) -> super::super::Foundation:: BOOL );
-    GopherGetAttributeW(hconnect, lpszlocator.into(), lpszattributename.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpdwcharactersreturned, ::core::mem::transmute(lpfnenumerator), dwcontext)
+    GopherGetAttributeW(hconnect, lpszlocator.into(), lpszattributename.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, lpdwcharactersreturned, lpfnenumerator, dwcontext)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2022,19 +2022,19 @@ where
 #[inline]
 pub unsafe fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     ::windows::core::link ! ( "wininet.dll""system" fn InternetSetStatusCallback ( hinternet : *const ::core::ffi::c_void , lpfninternetcallback : LPINTERNET_STATUS_CALLBACK ) -> LPINTERNET_STATUS_CALLBACK );
-    InternetSetStatusCallback(hinternet, ::core::mem::transmute(lpfninternetcallback))
+    InternetSetStatusCallback(hinternet, lpfninternetcallback)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]
 pub unsafe fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     ::windows::core::link ! ( "wininet.dll""system" fn InternetSetStatusCallbackA ( hinternet : *const ::core::ffi::c_void , lpfninternetcallback : LPINTERNET_STATUS_CALLBACK ) -> LPINTERNET_STATUS_CALLBACK );
-    InternetSetStatusCallbackA(hinternet, ::core::mem::transmute(lpfninternetcallback))
+    InternetSetStatusCallbackA(hinternet, lpfninternetcallback)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]
 pub unsafe fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK {
     ::windows::core::link ! ( "wininet.dll""system" fn InternetSetStatusCallbackW ( hinternet : *const ::core::ffi::c_void , lpfninternetcallback : LPINTERNET_STATUS_CALLBACK ) -> LPINTERNET_STATUS_CALLBACK );
-    InternetSetStatusCallbackW(hinternet, ::core::mem::transmute(lpfninternetcallback))
+    InternetSetStatusCallbackW(hinternet, lpfninternetcallback)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2228,7 +2228,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "wininet.dll""system" fn PerformOperationOverUrlCacheA ( pszurlsearchpattern : :: windows::core::PCSTR , dwflags : u32 , dwfilter : u32 , groupid : i64 , preserved1 : *mut ::core::ffi::c_void , pdwreserved2 : *mut u32 , preserved3 : *mut ::core::ffi::c_void , op : CACHE_OPERATOR , poperatordata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    PerformOperationOverUrlCacheA(pszurlsearchpattern.into(), dwflags, dwfilter, groupid, ::core::mem::transmute(preserved1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwreserved2.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved3.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(op), poperatordata)
+    PerformOperationOverUrlCacheA(pszurlsearchpattern.into(), dwflags, dwfilter, groupid, ::core::mem::transmute(preserved1.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwreserved2.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(preserved3.unwrap_or(::std::ptr::null_mut())), op, poperatordata)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[inline]

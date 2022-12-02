@@ -295,7 +295,7 @@ impl IITResultSet {
         (::windows::core::Vtable::vtable(self).SetColumnPriority)(::windows::core::Vtable::as_raw(self), lcolumnindex, columnpriority).ok()
     }
     pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetColumnHeap)(::windows::core::Vtable::as_raw(self), lcolumnindex, lpvheap, ::core::mem::transmute(pfncolheapfree)).ok()
+        (::windows::core::Vtable::vtable(self).SetColumnHeap)(::windows::core::Vtable::as_raw(self), lcolumnindex, lpvheap, pfncolheapfree).ok()
     }
     pub unsafe fn SetKeyProp(&self, propid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetKeyProp)(::windows::core::Vtable::as_raw(self), propid).ok()

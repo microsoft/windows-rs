@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BindIoCompletionCallback ( filehandle : super::super::Foundation:: HANDLE , function : LPOVERLAPPED_COMPLETION_ROUTINE , flags : u32 ) -> super::super::Foundation:: BOOL );
-    BindIoCompletionCallback(filehandle.into(), ::core::mem::transmute(function), flags)
+    BindIoCompletionCallback(filehandle.into(), function, flags)
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

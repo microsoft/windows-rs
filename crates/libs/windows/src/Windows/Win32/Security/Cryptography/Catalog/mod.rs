@@ -118,21 +118,21 @@ pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::F
 #[inline]
 pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
     ::windows::core::link ! ( "wintrust.dll""system" fn CryptCATCDFEnumAttributes ( pcdf : *mut CRYPTCATCDF , pmember : *mut CRYPTCATMEMBER , pprevattr : *mut CRYPTCATATTRIBUTE , pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK ) -> *mut CRYPTCATATTRIBUTE );
-    CryptCATCDFEnumAttributes(pcdf, pmember, pprevattr, ::core::mem::transmute(pfnparseerror))
+    CryptCATCDFEnumAttributes(pcdf, pmember, pprevattr, pfnparseerror)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
     ::windows::core::link ! ( "wintrust.dll""system" fn CryptCATCDFEnumCatAttributes ( pcdf : *mut CRYPTCATCDF , pprevattr : *mut CRYPTCATATTRIBUTE , pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK ) -> *mut CRYPTCATATTRIBUTE );
-    CryptCATCDFEnumCatAttributes(pcdf, pprevattr, ::core::mem::transmute(pfnparseerror))
+    CryptCATCDFEnumCatAttributes(pcdf, pprevattr, pfnparseerror)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Sip\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
 pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER {
     ::windows::core::link ! ( "wintrust.dll""system" fn CryptCATCDFEnumMembers ( pcdf : *mut CRYPTCATCDF , pprevmember : *mut CRYPTCATMEMBER , pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK ) -> *mut CRYPTCATMEMBER );
-    CryptCATCDFEnumMembers(pcdf, pprevmember, ::core::mem::transmute(pfnparseerror))
+    CryptCATCDFEnumMembers(pcdf, pprevmember, pfnparseerror)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -142,7 +142,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "wintrust.dll""system" fn CryptCATCDFOpen ( pwszfilepath : :: windows::core::PCWSTR , pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK ) -> *mut CRYPTCATCDF );
-    CryptCATCDFOpen(pwszfilepath.into(), ::core::mem::transmute(pfnparseerror))
+    CryptCATCDFOpen(pwszfilepath.into(), pfnparseerror)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

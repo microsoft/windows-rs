@@ -141,7 +141,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopWindows ( hdesktop : HDESK , lpfn : super::super::UI::WindowsAndMessaging:: WNDENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumDesktopWindows(hdesktop.into(), ::core::mem::transmute(lpfn), lparam.into())
+    EnumDesktopWindows(hdesktop.into(), lpfn, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -152,7 +152,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopsA ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumDesktopsA(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumDesktopsA(hwinsta.into(), lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -163,7 +163,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopsW ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumDesktopsW(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumDesktopsW(hwinsta.into(), lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -173,7 +173,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumWindowStationsA ( lpenumfunc : WINSTAENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumWindowStationsA(::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumWindowStationsA(lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -183,7 +183,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumWindowStationsW ( lpenumfunc : WINSTAENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
-    EnumWindowStationsW(::core::mem::transmute(lpenumfunc), lparam.into())
+    EnumWindowStationsW(lpenumfunc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[inline]

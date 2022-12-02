@@ -302,7 +302,7 @@ where
 #[inline]
 pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK {
     ::windows::core::link ! ( "winhttp.dll""system" fn WinHttpSetStatusCallback ( hinternet : *mut ::core::ffi::c_void , lpfninternetcallback : WINHTTP_STATUS_CALLBACK , dwnotificationflags : u32 , dwreserved : usize ) -> WINHTTP_STATUS_CALLBACK );
-    WinHttpSetStatusCallback(hinternet, ::core::mem::transmute(lpfninternetcallback), dwnotificationflags, dwreserved)
+    WinHttpSetStatusCallback(hinternet, lpfninternetcallback, dwnotificationflags, dwreserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

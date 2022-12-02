@@ -1916,7 +1916,7 @@ pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
 #[inline]
 pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
     ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_set_dbg_routine ( debugprintroutine : DBGPRINT ) -> ( ) );
-    ldap_set_dbg_routine(::core::mem::transmute(debugprintroutine))
+    ldap_set_dbg_routine(debugprintroutine)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
