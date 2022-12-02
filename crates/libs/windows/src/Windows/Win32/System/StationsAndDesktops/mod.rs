@@ -140,7 +140,7 @@ where
     P0: ::std::convert::Into<HDESK>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopWindows ( hdesktop : HDESK , lpfn : * mut::core::ffi::c_void , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopWindows ( hdesktop : HDESK , lpfn : super::super::UI::WindowsAndMessaging:: WNDENUMPROC , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumDesktopWindows(hdesktop.into(), ::core::mem::transmute(lpfn), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -151,7 +151,7 @@ where
     P0: ::std::convert::Into<HWINSTA>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopsA ( hwinsta : HWINSTA , lpenumfunc : * mut::core::ffi::c_void , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopsA ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumDesktopsA(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -162,7 +162,7 @@ where
     P0: ::std::convert::Into<HWINSTA>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopsW ( hwinsta : HWINSTA , lpenumfunc : * mut::core::ffi::c_void , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll""system" fn EnumDesktopsW ( hwinsta : HWINSTA , lpenumfunc : DESKTOPENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumDesktopsW(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -172,7 +172,7 @@ pub unsafe fn EnumWindowStationsA<'a, P0>(lpenumfunc: WINSTAENUMPROCA, lparam: P
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn EnumWindowStationsA ( lpenumfunc : * mut::core::ffi::c_void , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll""system" fn EnumWindowStationsA ( lpenumfunc : WINSTAENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumWindowStationsA(::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
@@ -182,7 +182,7 @@ pub unsafe fn EnumWindowStationsW<'a, P0>(lpenumfunc: WINSTAENUMPROCW, lparam: P
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn EnumWindowStationsW ( lpenumfunc : * mut::core::ffi::c_void , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll""system" fn EnumWindowStationsW ( lpenumfunc : WINSTAENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     EnumWindowStationsW(::core::mem::transmute(lpenumfunc), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
@@ -306,7 +306,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetUserObjectInformationA ( hobj : super::super::Foundation:: HANDLE , nindex : i32 , pvinfo : *const ::core::ffi::c_void , nlength : u32 ) -> super::super::Foundation:: BOOL );
-    SetUserObjectInformationA(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength)
+    SetUserObjectInformationA(hobj.into(), nindex, pvinfo, nlength)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -316,7 +316,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetUserObjectInformationW ( hobj : super::super::Foundation:: HANDLE , nindex : i32 , pvinfo : *const ::core::ffi::c_void , nlength : u32 ) -> super::super::Foundation:: BOOL );
-    SetUserObjectInformationW(hobj.into(), nindex, ::core::mem::transmute(pvinfo), nlength)
+    SetUserObjectInformationW(hobj.into(), nindex, pvinfo, nlength)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

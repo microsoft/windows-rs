@@ -27,7 +27,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn AccessibleChildren ( pacccontainer : * mut::core::ffi::c_void , ichildstart : i32 , cchildren : i32 , rgvarchildren : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , pcobtained : *mut i32 ) -> :: windows::core::HRESULT );
-    AccessibleChildren(pacccontainer.into().abi(), ichildstart, rgvarchildren.len() as _, ::core::mem::transmute(rgvarchildren.as_ptr()), ::core::mem::transmute(pcobtained)).ok()
+    AccessibleChildren(pacccontainer.into().abi(), ichildstart, rgvarchildren.len() as _, ::core::mem::transmute(rgvarchildren.as_ptr()), pcobtained).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -54,7 +54,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn AccessibleObjectFromWindow ( hwnd : super::super::Foundation:: HWND , dwid : u32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    AccessibleObjectFromWindow(hwnd.into(), dwid, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    AccessibleObjectFromWindow(hwnd.into(), dwid, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -64,7 +64,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleObject ( hwnd : super::super::Foundation:: HWND , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CreateStdAccessibleObject(hwnd.into(), idobject, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    CreateStdAccessibleObject(hwnd.into(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -75,7 +75,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyA ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CreateStdAccessibleProxyA(hwnd.into(), pclassname.into(), idobject, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    CreateStdAccessibleProxyA(hwnd.into(), pclassname.into(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -86,7 +86,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyW ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCWSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CreateStdAccessibleProxyW(hwnd.into(), pclassname.into(), idobject, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    CreateStdAccessibleProxyW(hwnd.into(), pclassname.into(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -119,7 +119,7 @@ where
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
     ::windows::core::link ! ( "oleacc.dll""system" fn GetOleaccVersionInfo ( pver : *mut u32 , pbuild : *mut u32 ) -> ( ) );
-    GetOleaccVersionInfo(::core::mem::transmute(pver), ::core::mem::transmute(pbuild))
+    GetOleaccVersionInfo(pver, pbuild)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -152,7 +152,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn GridPattern_GetItem ( hobj : HUIAPATTERNOBJECT , row : i32 , column : i32 , presult : *mut HUIANODE ) -> :: windows::core::HRESULT );
-    GridPattern_GetItem(hobj.into(), row, column, ::core::mem::transmute(presult)).ok()
+    GridPattern_GetItem(hobj.into(), row, column, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -180,7 +180,7 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn ItemContainerPattern_FindItemByProperty ( hobj : HUIAPATTERNOBJECT , hnodestartafter : HUIANODE , propertyid : i32 , value : ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , pfound : *mut HUIANODE ) -> :: windows::core::HRESULT );
-    ItemContainerPattern_FindItemByProperty(hobj.into(), hnodestartafter.into(), propertyid, value.into().abi(), ::core::mem::transmute(pfound)).ok()
+    ItemContainerPattern_FindItemByProperty(hobj.into(), hnodestartafter.into(), propertyid, value.into().abi(), pfound).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -230,7 +230,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn LresultFromObject ( riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , punk : * mut::core::ffi::c_void ) -> super::super::Foundation:: LRESULT );
-    LresultFromObject(::core::mem::transmute(riid), wparam.into(), punk.into().abi())
+    LresultFromObject(riid, wparam.into(), punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -269,7 +269,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn ObjectFromLresult ( lresult : super::super::Foundation:: LRESULT , riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    ObjectFromLresult(lresult.into(), ::core::mem::transmute(riid), wparam.into(), ::core::mem::transmute(ppvobject)).ok()
+    ObjectFromLresult(lresult.into(), riid, wparam.into(), ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -362,7 +362,7 @@ pub unsafe fn SetWinEventHook<'a, P0>(eventmin: u32, eventmax: u32, hmodwinevent
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : * mut::core::ffi::c_void , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
+    ::windows::core::link ! ( "user32.dll""system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : WINEVENTPROC , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
     SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), ::core::mem::transmute(pfnwineventproc), idprocess, idthread, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -391,7 +391,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_GetSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
-    TextPattern_GetSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextPattern_GetSelection(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -401,7 +401,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_GetVisibleRanges ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
-    TextPattern_GetVisibleRanges(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextPattern_GetVisibleRanges(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -411,7 +411,7 @@ where
     P1: ::std::convert::Into<HUIANODE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_RangeFromChild ( hobj : HUIAPATTERNOBJECT , hnodechild : HUIANODE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    TextPattern_RangeFromChild(hobj.into(), hnodechild.into(), ::core::mem::transmute(pretval)).ok()
+    TextPattern_RangeFromChild(hobj.into(), hnodechild.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -420,7 +420,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_RangeFromPoint ( hobj : HUIAPATTERNOBJECT , point : UiaPoint , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    TextPattern_RangeFromPoint(hobj.into(), ::core::mem::transmute(point), ::core::mem::transmute(pretval)).ok()
+    TextPattern_RangeFromPoint(hobj.into(), ::core::mem::transmute(point), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -429,7 +429,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_get_DocumentRange ( hobj : HUIAPATTERNOBJECT , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    TextPattern_get_DocumentRange(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextPattern_get_DocumentRange(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -438,7 +438,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextPattern_get_SupportedTextSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut SupportedTextSelection ) -> :: windows::core::HRESULT );
-    TextPattern_get_SupportedTextSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextPattern_get_SupportedTextSelection(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -456,7 +456,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_Clone ( hobj : HUIATEXTRANGE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    TextRange_Clone(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextRange_Clone(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -467,7 +467,7 @@ where
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_Compare ( hobj : HUIATEXTRANGE , range : HUIATEXTRANGE , pretval : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    TextRange_Compare(hobj.into(), range.into(), ::core::mem::transmute(pretval)).ok()
+    TextRange_Compare(hobj.into(), range.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -477,7 +477,7 @@ where
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_CompareEndpoints ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , targetrange : HUIATEXTRANGE , targetendpoint : TextPatternRangeEndpoint , pretval : *mut i32 ) -> :: windows::core::HRESULT );
-    TextRange_CompareEndpoints(hobj.into(), endpoint, targetrange.into(), targetendpoint, ::core::mem::transmute(pretval)).ok()
+    TextRange_CompareEndpoints(hobj.into(), endpoint, targetrange.into(), targetendpoint, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -498,7 +498,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_FindAttribute ( hobj : HUIATEXTRANGE , attributeid : i32 , val : ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , backward : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    TextRange_FindAttribute(hobj.into(), attributeid, val.into().abi(), backward.into(), ::core::mem::transmute(pretval)).ok()
+    TextRange_FindAttribute(hobj.into(), attributeid, val.into().abi(), backward.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -510,7 +510,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_FindText ( hobj : HUIATEXTRANGE , text : * mut::core::ffi::c_void , backward : super::super::Foundation:: BOOL , ignorecase : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    TextRange_FindText(hobj.into(), ::core::mem::transmute_copy(text), backward.into(), ignorecase.into(), ::core::mem::transmute(pretval)).ok()
+    TextRange_FindText(hobj.into(), ::core::mem::transmute_copy(text), backward.into(), ignorecase.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -530,7 +530,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetBoundingRectangles ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
-    TextRange_GetBoundingRectangles(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextRange_GetBoundingRectangles(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -540,7 +540,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetChildren ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
-    TextRange_GetChildren(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextRange_GetChildren(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -549,7 +549,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_GetEnclosingElement ( hobj : HUIATEXTRANGE , pretval : *mut HUIANODE ) -> :: windows::core::HRESULT );
-    TextRange_GetEnclosingElement(hobj.into(), ::core::mem::transmute(pretval)).ok()
+    TextRange_GetEnclosingElement(hobj.into(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -567,7 +567,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_Move ( hobj : HUIATEXTRANGE , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
-    TextRange_Move(hobj.into(), unit, count, ::core::mem::transmute(pretval)).ok()
+    TextRange_Move(hobj.into(), unit, count, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -586,7 +586,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn TextRange_MoveEndpointByUnit ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
-    TextRange_MoveEndpointByUnit(hobj.into(), endpoint, unit, count, ::core::mem::transmute(pretval)).ok()
+    TextRange_MoveEndpointByUnit(hobj.into(), endpoint, unit, count, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -660,8 +660,8 @@ pub unsafe fn UiaAddEvent<'a, P0>(hnode: P0, eventid: i32, pcallback: *mut UiaEv
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaAddEvent ( hnode : HUIANODE , eventid : i32 , pcallback : *mut * mut::core::ffi::c_void , scope : TreeScope , pproperties : *mut i32 , cproperties : i32 , prequest : *mut UiaCacheRequest , phevent : *mut HUIAEVENT ) -> :: windows::core::HRESULT );
-    UiaAddEvent(hnode.into(), eventid, ::core::mem::transmute(pcallback), scope, ::core::mem::transmute(pproperties), cproperties, ::core::mem::transmute(prequest), ::core::mem::transmute(phevent)).ok()
+    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaAddEvent ( hnode : HUIANODE , eventid : i32 , pcallback : *mut UiaEventCallback , scope : TreeScope , pproperties : *mut i32 , cproperties : i32 , prequest : *mut UiaCacheRequest , phevent : *mut HUIAEVENT ) -> :: windows::core::HRESULT );
+    UiaAddEvent(hnode.into(), eventid, pcallback, scope, pproperties, cproperties, prequest, phevent).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -715,7 +715,7 @@ where
     P0: ::std::convert::Into<HUIANODE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaFind ( hnode : HUIANODE , pparams : *mut UiaFindParams , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
-    UiaFind(hnode.into(), ::core::mem::transmute(pparams), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(ppoffsets), ::core::mem::transmute(pptreestructures)).ok()
+    UiaFind(hnode.into(), pparams, prequest, pprequesteddata, ppoffsets, pptreestructures).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -731,7 +731,7 @@ where
     P0: ::std::convert::Into<HUIANODE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetPatternProvider ( hnode : HUIANODE , patternid : i32 , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
-    UiaGetPatternProvider(hnode.into(), patternid, ::core::mem::transmute(phobj)).ok()
+    UiaGetPatternProvider(hnode.into(), patternid, phobj).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -761,7 +761,7 @@ pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::win
 #[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetRootNode ( phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
-    UiaGetRootNode(::core::mem::transmute(phnode)).ok()
+    UiaGetRootNode(phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -771,7 +771,7 @@ where
     P0: ::std::convert::Into<HUIANODE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetRuntimeId ( hnode : HUIANODE , pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
-    UiaGetRuntimeId(hnode.into(), ::core::mem::transmute(pruntimeid)).ok()
+    UiaGetRuntimeId(hnode.into(), pruntimeid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -781,28 +781,28 @@ where
     P0: ::std::convert::Into<HUIANODE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaGetUpdatedCache ( hnode : HUIANODE , prequest : *mut UiaCacheRequest , normalizestate : NormalizeState , pnormalizecondition : *mut UiaCondition , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    UiaGetUpdatedCache(hnode.into(), ::core::mem::transmute(prequest), normalizestate, ::core::mem::transmute(pnormalizecondition), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    UiaGetUpdatedCache(hnode.into(), prequest, normalizestate, pnormalizecondition, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHPatternObjectFromVariant ( pvar : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
-    UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phobj)).ok()
+    UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), phobj).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHTextRangeFromVariant ( pvar : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , phtextrange : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
-    UiaHTextRangeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phtextrange)).ok()
+    UiaHTextRangeFromVariant(::core::mem::transmute(pvar), phtextrange).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaHUiaNodeFromVariant ( pvar : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
-    UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phnode)).ok()
+    UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -839,7 +839,7 @@ where
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaLookupId ( r#type : AutomationIdentifierType , pguid : *const :: windows::core::GUID ) -> i32 );
-    UiaLookupId(r#type, ::core::mem::transmute(pguid))
+    UiaLookupId(r#type, pguid)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -849,14 +849,14 @@ where
     P0: ::std::convert::Into<HUIANODE>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNavigate ( hnode : HUIANODE , direction : NavigateDirection , pcondition : *mut UiaCondition , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    UiaNavigate(hnode.into(), direction, ::core::mem::transmute(pcondition), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    UiaNavigate(hnode.into(), direction, pcondition, prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromFocus ( prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    UiaNodeFromFocus(::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    UiaNodeFromFocus(prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -866,14 +866,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromHandle ( hwnd : super::super::Foundation:: HWND , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
-    UiaNodeFromHandle(hwnd.into(), ::core::mem::transmute(phnode)).ok()
+    UiaNodeFromHandle(hwnd.into(), phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromPoint ( x : f64 , y : f64 , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    UiaNodeFromPoint(x, y, ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    UiaNodeFromPoint(x, y, prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -882,7 +882,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaNodeFromProvider ( pprovider : * mut::core::ffi::c_void , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
-    UiaNodeFromProvider(pprovider.into().abi(), ::core::mem::transmute(phnode)).ok()
+    UiaNodeFromProvider(pprovider.into().abi(), phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -992,7 +992,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseStructureChangedEvent ( pprovider : * mut::core::ffi::c_void , structurechangetype : StructureChangeType , pruntimeid : *mut i32 , cruntimeidlen : i32 ) -> :: windows::core::HRESULT );
-    UiaRaiseStructureChangedEvent(pprovider.into().abi(), structurechangetype, ::core::mem::transmute(pruntimeid), cruntimeidlen).ok()
+    UiaRaiseStructureChangedEvent(pprovider.into().abi(), structurechangetype, pruntimeid, cruntimeidlen).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1002,14 +1002,14 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRaiseTextEditTextChangedEvent ( pprovider : * mut::core::ffi::c_void , texteditchangetype : TextEditChangeType , pchangeddata : *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
-    UiaRaiseTextEditTextChangedEvent(pprovider.into().abi(), texteditchangetype, ::core::mem::transmute(pchangeddata)).ok()
+    UiaRaiseTextEditTextChangedEvent(pprovider.into().abi(), texteditchangetype, pchangeddata).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
-    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRegisterProviderCallback ( pcallback : *mut * mut::core::ffi::c_void ) -> ( ) );
-    UiaRegisterProviderCallback(::core::mem::transmute(pcallback))
+    ::windows::core::link ! ( "uiautomationcore.dll""system" fn UiaRegisterProviderCallback ( pcallback : *mut UiaProviderCallback ) -> ( ) );
+    UiaRegisterProviderCallback(pcallback)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -1138,14 +1138,14 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn WindowPattern_WaitForInputIdle ( hobj : HUIAPATTERNOBJECT , milliseconds : i32 , presult : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    WindowPattern_WaitForInputIdle(hobj.into(), milliseconds, ::core::mem::transmute(presult)).ok()
+    WindowPattern_WaitForInputIdle(hobj.into(), milliseconds, presult).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct IAccIdentity(::windows::core::IUnknown);
 impl IAccIdentity {
     pub unsafe fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIdentityString)(::windows::core::Vtable::as_raw(self), dwidchild, ::core::mem::transmute(ppidstring), ::core::mem::transmute(pdwidstringlen)).ok()
+        (::windows::core::Vtable::vtable(self).GetIdentityString)(::windows::core::Vtable::as_raw(self), dwidchild, ppidstring, pdwidstringlen).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAccIdentity, ::windows::core::IUnknown);
@@ -1184,7 +1184,7 @@ impl IAccPropServer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: ::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(idprop), ::core::mem::transmute(pvarvalue), ::core::mem::transmute(pfhasprop)).ok()
+        (::windows::core::Vtable::vtable(self).GetPropValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(idprop), ::core::mem::transmute(pvarvalue), pfhasprop).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAccPropServer, ::windows::core::IUnknown);
@@ -1281,12 +1281,12 @@ impl IAccPropServices {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).ComposeHwndIdentityString)(::windows::core::Vtable::as_raw(self), hwnd.into(), idobject, idchild, ::core::mem::transmute(ppidstring), ::core::mem::transmute(pdwidstringlen)).ok()
+        (::windows::core::Vtable::vtable(self).ComposeHwndIdentityString)(::windows::core::Vtable::as_raw(self), hwnd.into(), idobject, idchild, ppidstring, pdwidstringlen).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: &[u8], phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DecomposeHwndIdentityString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(phwnd), ::core::mem::transmute(pidobject), ::core::mem::transmute(pidchild)).ok()
+        (::windows::core::Vtable::vtable(self).DecomposeHwndIdentityString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, phwnd, pidobject, pidchild).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1329,12 +1329,12 @@ impl IAccPropServices {
     where
         P0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
     {
-        (::windows::core::Vtable::vtable(self).ComposeHmenuIdentityString)(::windows::core::Vtable::as_raw(self), hmenu.into(), idchild, ::core::mem::transmute(ppidstring), ::core::mem::transmute(pdwidstringlen)).ok()
+        (::windows::core::Vtable::vtable(self).ComposeHmenuIdentityString)(::windows::core::Vtable::as_raw(self), hmenu.into(), idchild, ppidstring, pdwidstringlen).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn DecomposeHmenuIdentityString(&self, pidstring: &[u8], phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DecomposeHmenuIdentityString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(phmenu), ::core::mem::transmute(pidchild)).ok()
+        (::windows::core::Vtable::vtable(self).DecomposeHmenuIdentityString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, phmenu, pidchild).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAccPropServices, ::windows::core::IUnknown);
@@ -1504,7 +1504,7 @@ impl IAccessible {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Vtable::vtable(self).get_accHelpTopic)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszhelpfile), varchild.into().abi(), ::core::mem::transmute(pidtopic)).ok()
+        (::windows::core::Vtable::vtable(self).get_accHelpTopic)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszhelpfile), varchild.into().abi(), pidtopic).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1550,7 +1550,7 @@ impl IAccessible {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Vtable::vtable(self).accLocation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pxleft), ::core::mem::transmute(pytop), ::core::mem::transmute(pcxwidth), ::core::mem::transmute(pcyheight), varchild.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).accLocation)(::windows::core::Vtable::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, varchild.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1720,7 +1720,7 @@ impl IAccessibleEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessiblePair(&self, ppacc: *mut ::core::option::Option<IAccessible>, pidchild: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIAccessiblePair)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppacc), ::core::mem::transmute(pidchild)).ok()
+        (::windows::core::Vtable::vtable(self).GetIAccessiblePair)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppacc), pidchild).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2708,7 +2708,7 @@ impl IProxyProviderWinEventSink {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
     {
-        (::windows::core::Vtable::vtable(self).AddStructureChangedEvent)(::windows::core::Vtable::as_raw(self), pprovider.into().abi(), structurechangetype, ::core::mem::transmute(runtimeid)).ok()
+        (::windows::core::Vtable::vtable(self).AddStructureChangedEvent)(::windows::core::Vtable::as_raw(self), pprovider.into().abi(), structurechangetype, runtimeid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IProxyProviderWinEventSink, ::windows::core::IUnknown);
@@ -2827,12 +2827,12 @@ impl IRawElementProviderAdviseEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AdviseEventAdded)(::windows::core::Vtable::as_raw(self), eventid, ::core::mem::transmute(propertyids)).ok()
+        (::windows::core::Vtable::vtable(self).AdviseEventAdded)(::windows::core::Vtable::as_raw(self), eventid, propertyids).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdviseEventRemoved(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AdviseEventRemoved)(::windows::core::Vtable::as_raw(self), eventid, ::core::mem::transmute(propertyids)).ok()
+        (::windows::core::Vtable::vtable(self).AdviseEventRemoved)(::windows::core::Vtable::as_raw(self), eventid, propertyids).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRawElementProviderAdviseEvents, ::windows::core::IUnknown);
@@ -3305,7 +3305,7 @@ pub struct IRawElementProviderWindowlessSite_Vtbl {
 pub struct IRichEditUiaInformation(::windows::core::IUnknown);
 impl IRichEditUiaInformation {
     pub unsafe fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBoundaryRectangle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puiarect)).ok()
+        (::windows::core::Vtable::vtable(self).GetBoundaryRectangle)(::windows::core::Vtable::as_raw(self), puiarect).ok()
     }
     pub unsafe fn IsVisible(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsVisible)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4251,7 +4251,7 @@ impl ITextProvider2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCaretRange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(isactive), ::core::mem::transmute(pretval)).ok()
+        (::windows::core::Vtable::vtable(self).GetCaretRange)(::windows::core::Vtable::as_raw(self), isactive, ::core::mem::transmute(pretval)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITextProvider2, ::windows::core::IUnknown, ITextProvider);
@@ -4824,7 +4824,7 @@ impl IUIAutomation {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(runtimeid1), ::core::mem::transmute(runtimeid2), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), runtimeid1, runtimeid2, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRootElement(&self) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4955,7 +4955,7 @@ impl IUIAutomation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4973,7 +4973,7 @@ impl IUIAutomation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5017,7 +5017,7 @@ impl IUIAutomation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationPropertyChangedEventHandler>>,
     {
-        (::windows::core::Vtable::vtable(self).AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), ::core::mem::transmute(propertyarray)).ok()
+        (::windows::core::Vtable::vtable(self).AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<'a, P0, P1>(&self, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
@@ -5066,7 +5066,7 @@ impl IUIAutomation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intarray), ::core::mem::transmute(array), ::core::mem::transmute(arraycount)).ok()
+        (::windows::core::Vtable::vtable(self).IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), intarray, array, arraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5086,7 +5086,7 @@ impl IUIAutomation {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rects), ::core::mem::transmute(rectarray), ::core::mem::transmute(rectarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), rects, rectarray, rectarraycount).ok()
     }
     pub unsafe fn CreateProxyFactoryEntry<'a, P0>(&self, factory: P0) -> ::windows::core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -5113,7 +5113,7 @@ impl IUIAutomation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(patternids), ::core::mem::transmute(patternnames)).ok()
+        (::windows::core::Vtable::vtable(self).PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), patternids, patternnames).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5121,7 +5121,7 @@ impl IUIAutomation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(propertyids), ::core::mem::transmute(propertynames)).ok()
+        (::windows::core::Vtable::vtable(self).PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), propertyids, propertynames).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5324,7 +5324,7 @@ impl IUIAutomation2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(runtimeid1), ::core::mem::transmute(runtimeid2), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), runtimeid1, runtimeid2, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRootElement(&self) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5455,7 +5455,7 @@ impl IUIAutomation2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5473,7 +5473,7 @@ impl IUIAutomation2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5517,7 +5517,7 @@ impl IUIAutomation2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationPropertyChangedEventHandler>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), ::core::mem::transmute(propertyarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<'a, P0, P1>(&self, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
@@ -5566,7 +5566,7 @@ impl IUIAutomation2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intarray), ::core::mem::transmute(array), ::core::mem::transmute(arraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), intarray, array, arraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5586,7 +5586,7 @@ impl IUIAutomation2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rects), ::core::mem::transmute(rectarray), ::core::mem::transmute(rectarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), rects, rectarray, rectarraycount).ok()
     }
     pub unsafe fn CreateProxyFactoryEntry<'a, P0>(&self, factory: P0) -> ::windows::core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -5613,7 +5613,7 @@ impl IUIAutomation2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(patternids), ::core::mem::transmute(patternnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), patternids, patternnames).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5621,7 +5621,7 @@ impl IUIAutomation2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(propertyids), ::core::mem::transmute(propertynames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), propertyids, propertynames).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5746,7 +5746,7 @@ impl IUIAutomation3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(runtimeid1), ::core::mem::transmute(runtimeid2), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), runtimeid1, runtimeid2, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRootElement(&self) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5877,7 +5877,7 @@ impl IUIAutomation3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5895,7 +5895,7 @@ impl IUIAutomation3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5939,7 +5939,7 @@ impl IUIAutomation3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationPropertyChangedEventHandler>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), ::core::mem::transmute(propertyarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<'a, P0, P1>(&self, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
@@ -5988,7 +5988,7 @@ impl IUIAutomation3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intarray), ::core::mem::transmute(array), ::core::mem::transmute(arraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), intarray, array, arraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6008,7 +6008,7 @@ impl IUIAutomation3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rects), ::core::mem::transmute(rectarray), ::core::mem::transmute(rectarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), rects, rectarray, rectarraycount).ok()
     }
     pub unsafe fn CreateProxyFactoryEntry<'a, P0>(&self, factory: P0) -> ::windows::core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -6035,7 +6035,7 @@ impl IUIAutomation3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(patternids), ::core::mem::transmute(patternnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), patternids, patternnames).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6043,7 +6043,7 @@ impl IUIAutomation3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(propertyids), ::core::mem::transmute(propertynames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), propertyids, propertynames).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6173,7 +6173,7 @@ impl IUIAutomation4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(runtimeid1), ::core::mem::transmute(runtimeid2), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), runtimeid1, runtimeid2, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRootElement(&self) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6304,7 +6304,7 @@ impl IUIAutomation4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6322,7 +6322,7 @@ impl IUIAutomation4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6366,7 +6366,7 @@ impl IUIAutomation4 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationPropertyChangedEventHandler>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), ::core::mem::transmute(propertyarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<'a, P0, P1>(&self, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
@@ -6415,7 +6415,7 @@ impl IUIAutomation4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intarray), ::core::mem::transmute(array), ::core::mem::transmute(arraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), intarray, array, arraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6435,7 +6435,7 @@ impl IUIAutomation4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rects), ::core::mem::transmute(rectarray), ::core::mem::transmute(rectarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), rects, rectarray, rectarraycount).ok()
     }
     pub unsafe fn CreateProxyFactoryEntry<'a, P0>(&self, factory: P0) -> ::windows::core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -6462,7 +6462,7 @@ impl IUIAutomation4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(patternids), ::core::mem::transmute(patternnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), patternids, patternnames).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6470,7 +6470,7 @@ impl IUIAutomation4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(propertyids), ::core::mem::transmute(propertynames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), propertyids, propertynames).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6615,7 +6615,7 @@ impl IUIAutomation5 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(runtimeid1), ::core::mem::transmute(runtimeid2), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), runtimeid1, runtimeid2, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRootElement(&self) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6746,7 +6746,7 @@ impl IUIAutomation5 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6764,7 +6764,7 @@ impl IUIAutomation5 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6808,7 +6808,7 @@ impl IUIAutomation5 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationPropertyChangedEventHandler>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), ::core::mem::transmute(propertyarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<'a, P0, P1>(&self, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
@@ -6857,7 +6857,7 @@ impl IUIAutomation5 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intarray), ::core::mem::transmute(array), ::core::mem::transmute(arraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), intarray, array, arraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6877,7 +6877,7 @@ impl IUIAutomation5 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rects), ::core::mem::transmute(rectarray), ::core::mem::transmute(rectarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), rects, rectarray, rectarraycount).ok()
     }
     pub unsafe fn CreateProxyFactoryEntry<'a, P0>(&self, factory: P0) -> ::windows::core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -6904,7 +6904,7 @@ impl IUIAutomation5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(patternids), ::core::mem::transmute(patternnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), patternids, patternnames).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6912,7 +6912,7 @@ impl IUIAutomation5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(propertyids), ::core::mem::transmute(propertynames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), propertyids, propertynames).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7072,7 +7072,7 @@ impl IUIAutomation6 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(runtimeid1), ::core::mem::transmute(runtimeid2), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CompareRuntimeIds)(::windows::core::Vtable::as_raw(self), runtimeid1, runtimeid2, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRootElement(&self) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7203,7 +7203,7 @@ impl IUIAutomation6 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7221,7 +7221,7 @@ impl IUIAutomation6 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7265,7 +7265,7 @@ impl IUIAutomation6 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationPropertyChangedEventHandler>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), ::core::mem::transmute(propertyarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.AddPropertyChangedEventHandler)(::windows::core::Vtable::as_raw(self), element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi(), propertyarray).ok()
     }
     pub unsafe fn RemovePropertyChangedEventHandler<'a, P0, P1>(&self, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
@@ -7314,7 +7314,7 @@ impl IUIAutomation6 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(intarray), ::core::mem::transmute(array), ::core::mem::transmute(arraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows::core::Vtable::as_raw(self), intarray, array, arraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7334,7 +7334,7 @@ impl IUIAutomation6 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rects), ::core::mem::transmute(rectarray), ::core::mem::transmute(rectarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows::core::Vtable::as_raw(self), rects, rectarray, rectarraycount).ok()
     }
     pub unsafe fn CreateProxyFactoryEntry<'a, P0>(&self, factory: P0) -> ::windows::core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -7361,7 +7361,7 @@ impl IUIAutomation6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(patternids), ::core::mem::transmute(patternnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedPatterns)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), patternids, patternnames).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7369,7 +7369,7 @@ impl IUIAutomation6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), ::core::mem::transmute(propertyids), ::core::mem::transmute(propertynames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows::core::Vtable::as_raw(self), pelement.into().abi(), propertyids, propertynames).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7615,7 +7615,7 @@ impl IUIAutomationAndCondition {
         (::windows::core::Vtable::vtable(self).ChildCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChildrenAsNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(childarray), ::core::mem::transmute(childarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).GetChildrenAsNativeArray)(::windows::core::Vtable::as_raw(self), childarray, childarraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7652,7 +7652,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationAndCondition {
 pub struct IUIAutomationAndCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub ChildCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childcount: *mut i32) -> ::windows::core::HRESULT,
-    pub GetChildrenAsNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childarray: *mut *mut IUIAutomationCondition, childarraycount: *mut i32) -> ::windows::core::HRESULT,
+    pub GetChildrenAsNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8591,7 +8591,7 @@ impl IUIAutomationElement {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationElement, ::windows::core::IUnknown);
@@ -9201,7 +9201,7 @@ impl IUIAutomationElement2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9685,7 +9685,7 @@ impl IUIAutomationElement3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10181,7 +10181,7 @@ impl IUIAutomationElement4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10728,7 +10728,7 @@ impl IUIAutomationElement5 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11279,7 +11279,7 @@ impl IUIAutomationElement6 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11836,7 +11836,7 @@ impl IUIAutomationElement7 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12439,7 +12439,7 @@ impl IUIAutomationElement8 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13044,7 +13044,7 @@ impl IUIAutomationElement9 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows::core::Vtable::as_raw(self), clickable, gotclickable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14097,7 +14097,7 @@ impl IUIAutomationOrCondition {
         (::windows::core::Vtable::vtable(self).ChildCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChildrenAsNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(childarray), ::core::mem::transmute(childarraycount)).ok()
+        (::windows::core::Vtable::vtable(self).GetChildrenAsNativeArray)(::windows::core::Vtable::as_raw(self), childarray, childarraycount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -14134,7 +14134,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationOrCondition {
 pub struct IUIAutomationOrCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub ChildCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childcount: *mut i32) -> ::windows::core::HRESULT,
-    pub GetChildrenAsNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childarray: *mut *mut IUIAutomationCondition, childarraycount: *mut i32) -> ::windows::core::HRESULT,
+    pub GetChildrenAsNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -14155,7 +14155,7 @@ impl IUIAutomationPatternHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).Dispatch)(::windows::core::Vtable::as_raw(self), ptarget.into().abi(), index, ::core::mem::transmute(pparams), cparams).ok()
+        (::windows::core::Vtable::vtable(self).Dispatch)(::windows::core::Vtable::as_raw(self), ptarget.into().abi(), index, pparams, cparams).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationPatternHandler, ::windows::core::IUnknown);
@@ -14198,10 +14198,10 @@ impl IUIAutomationPatternInstance {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), index, cached.into(), r#type, ::core::mem::transmute(pptr)).ok()
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), index, cached.into(), r#type, pptr).ok()
     }
     pub unsafe fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CallMethod)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(pparams), cparams).ok()
+        (::windows::core::Vtable::vtable(self).CallMethod)(::windows::core::Vtable::as_raw(self), index, pparams, cparams).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationPatternInstance, ::windows::core::IUnknown);
@@ -14460,7 +14460,7 @@ impl IUIAutomationProxyFactoryEntry {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWinEventsForAutomationEvent)(::windows::core::Vtable::as_raw(self), eventid, propertyid, ::core::mem::transmute(winevents)).ok()
+        (::windows::core::Vtable::vtable(self).SetWinEventsForAutomationEvent)(::windows::core::Vtable::as_raw(self), eventid, propertyid, winevents).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -14555,12 +14555,12 @@ impl IUIAutomationProxyFactoryMapping {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(factorylist)).ok()
+        (::windows::core::Vtable::vtable(self).SetTable)(::windows::core::Vtable::as_raw(self), factorylist).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InsertEntries)(::windows::core::Vtable::as_raw(self), before, ::core::mem::transmute(factorylist)).ok()
+        (::windows::core::Vtable::vtable(self).InsertEntries)(::windows::core::Vtable::as_raw(self), before, factorylist).ok()
     }
     pub unsafe fn InsertEntry<'a, P0>(&self, before: u32, factory: P0) -> ::windows::core::Result<()>
     where
@@ -14737,16 +14737,16 @@ pub struct IUIAutomationRegistrar(::windows::core::IUnknown);
 impl IUIAutomationRegistrar {
     pub unsafe fn RegisterProperty(&self, property: *const UIAutomationPropertyInfo) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(property), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterProperty)(::windows::core::Vtable::as_raw(self), property, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RegisterEvent(&self, event: *const UIAutomationEventInfo) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(event), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterEvent)(::windows::core::Vtable::as_raw(self), event, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, ppropertyids: &mut [i32], peventids: &mut [i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterPattern)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattern), ::core::mem::transmute(ppatternid), ::core::mem::transmute(ppatternavailablepropertyid), ppropertyids.len() as _, ::core::mem::transmute(ppropertyids.as_ptr()), peventids.len() as _, ::core::mem::transmute(peventids.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).RegisterPattern)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattern), ppatternid, ppatternavailablepropertyid, ppropertyids.len() as _, ::core::mem::transmute(ppropertyids.as_ptr()), peventids.len() as _, ::core::mem::transmute(peventids.as_ptr())).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationRegistrar, ::windows::core::IUnknown);
@@ -15325,7 +15325,7 @@ impl IUIAutomationStructureChangedEventHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).HandleStructureChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), changetype, ::core::mem::transmute(runtimeid)).ok()
+        (::windows::core::Vtable::vtable(self).HandleStructureChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), changetype, runtimeid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationStructureChangedEventHandler, ::windows::core::IUnknown);
@@ -15393,7 +15393,7 @@ impl IUIAutomationStylesPattern {
         (::windows::core::Vtable::vtable(self).CurrentExtendedProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCurrentExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCurrentExtendedPropertiesAsArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyarray), ::core::mem::transmute(propertycount)).ok()
+        (::windows::core::Vtable::vtable(self).GetCurrentExtendedPropertiesAsArray)(::windows::core::Vtable::as_raw(self), propertyarray, propertycount).ok()
     }
     pub unsafe fn CachedStyleId(&self) -> ::windows::core::Result<UIA_STYLE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15424,7 +15424,7 @@ impl IUIAutomationStylesPattern {
         (::windows::core::Vtable::vtable(self).CachedExtendedProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCachedExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCachedExtendedPropertiesAsArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyarray), ::core::mem::transmute(propertycount)).ok()
+        (::windows::core::Vtable::vtable(self).GetCachedExtendedPropertiesAsArray)(::windows::core::Vtable::as_raw(self), propertyarray, propertycount).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationStylesPattern, ::windows::core::IUnknown);
@@ -15753,7 +15753,7 @@ impl IUIAutomationTextEditTextChangedEventHandler {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
-        (::windows::core::Vtable::vtable(self).HandleTextEditTextChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), texteditchangetype, ::core::mem::transmute(eventstrings)).ok()
+        (::windows::core::Vtable::vtable(self).HandleTextEditTextChangedEvent)(::windows::core::Vtable::as_raw(self), sender.into().abi(), texteditchangetype, eventstrings).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationTextEditTextChangedEventHandler, ::windows::core::IUnknown);
@@ -15902,7 +15902,7 @@ impl IUIAutomationTextPattern2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCaretRange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(isactive), ::core::mem::transmute(range)).ok()
+        (::windows::core::Vtable::vtable(self).GetCaretRange)(::windows::core::Vtable::as_raw(self), isactive, ::core::mem::transmute(range)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationTextPattern2, ::windows::core::IUnknown, IUIAutomationTextPattern);

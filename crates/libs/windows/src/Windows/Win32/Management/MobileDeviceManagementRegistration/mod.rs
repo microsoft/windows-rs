@@ -36,13 +36,13 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn GetDeviceManagementConfigInfo ( providerid : :: windows::core::PCWSTR , configstringbufferlength : *mut u32 , configstring : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    GetDeviceManagementConfigInfo(providerid.into(), ::core::mem::transmute(configstringbufferlength), ::core::mem::transmute(configstring)).ok()
+    GetDeviceManagementConfigInfo(providerid.into(), configstringbufferlength, ::core::mem::transmute(configstring)).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
 pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn GetDeviceRegistrationInfo ( deviceinformationclass : REGISTRATION_INFORMATION_CLASS , ppdeviceregistrationinfo : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    GetDeviceRegistrationInfo(deviceinformationclass, ::core::mem::transmute(ppdeviceregistrationinfo)).ok()
+    GetDeviceRegistrationInfo(deviceinformationclass, ppdeviceregistrationinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
@@ -55,7 +55,7 @@ pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> ::windows::
 #[inline]
 pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, pszupn: ::core::option::Option<&mut [u16]>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mdmregistration.dll""system" fn IsDeviceRegisteredWithManagement ( pfisdeviceregisteredwithmanagement : *mut super::super::Foundation:: BOOL , cchupn : u32 , pszupn : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    IsDeviceRegisteredWithManagement(::core::mem::transmute(pfisdeviceregisteredwithmanagement), pszupn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszupn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement, pszupn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszupn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

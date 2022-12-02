@@ -10565,7 +10565,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             this.CallExtension(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunction(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -11390,7 +11390,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             this.CallExtension(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunction(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -12300,7 +12300,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             this.CallExtension(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunction(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -13383,7 +13383,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             this.CallExtension(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunction(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -13805,7 +13805,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             this.CallExtensionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunctionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -14831,7 +14831,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             this.CallExtension(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunction(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -15253,7 +15253,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             this.CallExtensionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunctionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -16317,7 +16317,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             this.CallExtension(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunction(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -16739,7 +16739,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             this.CallExtensionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunctionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -17822,7 +17822,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             this.CallExtension(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunction(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()
@@ -18244,7 +18244,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             this.CallExtensionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&function), ::core::mem::transmute(&arguments)).into()
         }
-        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtensionFunctionWide<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugControl7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, funcname: ::windows::core::PCWSTR, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtensionFunctionWide(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&funcname), ::core::mem::transmute_copy(&function)).into()

@@ -6,27 +6,27 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IMalloc>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn BuildDisplayTable ( lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpmalloc : * mut::core::ffi::c_void , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut * mut::core::ffi::c_void , lpptbldata : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    BuildDisplayTable(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), lpmalloc.into().abi(), hinstance.into(), cpages, ::core::mem::transmute(lppage), ulflags, ::core::mem::transmute(lpptable), ::core::mem::transmute(lpptbldata)).ok()
+    ::windows::core::link ! ( "mapi32.dll""system" fn BuildDisplayTable ( lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpmalloc : * mut::core::ffi::c_void , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut * mut::core::ffi::c_void , lpptbldata : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    BuildDisplayTable(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), lpmalloc.into().abi(), hinstance.into(), cpages, lppage, ulflags, ::core::mem::transmute(lpptable), ::core::mem::transmute(lpptbldata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
-    ::windows::core::link ! ( "mapi32.dll""system" fn ChangeIdleRoutine ( ftg : *mut ::core::ffi::c_void , lpfnidle : * mut::core::ffi::c_void , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 , ircidle : u16 ) -> ( ) );
-    ChangeIdleRoutine(::core::mem::transmute(ftg), ::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), priidle, csecidle, iroidle, ircidle)
+    ::windows::core::link ! ( "mapi32.dll""system" fn ChangeIdleRoutine ( ftg : *mut ::core::ffi::c_void , lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 , ircidle : u16 ) -> ( ) );
+    ChangeIdleRoutine(ftg, ::core::mem::transmute(lpfnidle), lpvidleparam, priidle, csecidle, iroidle, ircidle)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut ::core::option::Option<IPropData>) -> i32 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn CreateIProp ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut * mut::core::ffi::c_void ) -> i32 );
-    CreateIProp(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ::core::mem::transmute(lpppropdata))
+    ::windows::core::link ! ( "mapi32.dll""system" fn CreateIProp ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut * mut::core::ffi::c_void ) -> i32 );
+    CreateIProp(lpinterface, ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), lpvreserved, ::core::mem::transmute(lpppropdata))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ::core::option::Option<ITableData>) -> i32 {
-    ::windows::core::link ! ( "rtm.dll""system" fn CreateTable ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut * mut::core::ffi::c_void ) -> i32 );
-    CreateTable(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ultabletype, ulproptagindexcolumn, ::core::mem::transmute(lpsproptagarraycolumns), ::core::mem::transmute(lpptabledata))
+    ::windows::core::link ! ( "rtm.dll""system" fn CreateTable ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut * mut::core::ffi::c_void ) -> i32 );
+    CreateTable(lpinterface, ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), lpvreserved, ultabletype, ulproptagindexcolumn, lpsproptagarraycolumns, ::core::mem::transmute(lpptabledata))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -38,7 +38,7 @@ pub unsafe fn DeinitMapiUtil() {
 #[inline]
 pub unsafe fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void) {
     ::windows::core::link ! ( "mapi32.dll""system" fn DeregisterIdleRoutine ( ftg : *mut ::core::ffi::c_void ) -> ( ) );
-    DeregisterIdleRoutine(::core::mem::transmute(ftg))
+    DeregisterIdleRoutine(ftg)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -48,28 +48,28 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn EnableIdleRoutine ( ftg : *mut ::core::ffi::c_void , fenable : super::super::Foundation:: BOOL ) -> ( ) );
-    EnableIdleRoutine(::core::mem::transmute(ftg), fenable.into())
+    EnableIdleRoutine(ftg, fenable.into())
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "mapi32.dll""system" fn FEqualNames ( lpname1 : *mut MAPINAMEID , lpname2 : *mut MAPINAMEID ) -> super::super::Foundation:: BOOL );
-    FEqualNames(::core::mem::transmute(lpname1), ::core::mem::transmute(lpname2))
+    FEqualNames(lpname1, lpname2)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "mapi32.dll""system" fn FPropCompareProp ( lpspropvalue1 : *mut SPropValue , ulrelop : u32 , lpspropvalue2 : *mut SPropValue ) -> super::super::Foundation:: BOOL );
-    FPropCompareProp(::core::mem::transmute(lpspropvalue1), ulrelop, ::core::mem::transmute(lpspropvalue2))
+    FPropCompareProp(lpspropvalue1, ulrelop, lpspropvalue2)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "mapi32.dll""system" fn FPropContainsProp ( lpspropvaluedst : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , ulfuzzylevel : u32 ) -> super::super::Foundation:: BOOL );
-    FPropContainsProp(::core::mem::transmute(lpspropvaluedst), ::core::mem::transmute(lpspropvaluesrc), ulfuzzylevel)
+    FPropContainsProp(lpspropvaluedst, lpspropvaluesrc, ulfuzzylevel)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -86,14 +86,14 @@ where
 #[inline]
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     ::windows::core::link ! ( "mapi32.dll""system" fn FreePadrlist ( lpadrlist : *mut ADRLIST ) -> ( ) );
-    FreePadrlist(::core::mem::transmute(lpadrlist))
+    FreePadrlist(lpadrlist)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     ::windows::core::link ! ( "mapi32.dll""system" fn FreeProws ( lprows : *mut SRowSet ) -> ( ) );
-    FreeProws(::core::mem::transmute(lprows))
+    FreeProws(lprows)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -134,8 +134,8 @@ pub unsafe fn FtSubFt(ftminuend: super::super::Foundation::FILETIME, ftsubtrahen
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void {
-    ::windows::core::link ! ( "mapi32.dll""system" fn FtgRegisterIdleRoutine ( lpfnidle : * mut::core::ffi::c_void , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 ) -> *mut ::core::ffi::c_void );
-    FtgRegisterIdleRoutine(::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), priidle, csecidle, iroidle)
+    ::windows::core::link ! ( "mapi32.dll""system" fn FtgRegisterIdleRoutine ( lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 ) -> *mut ::core::ffi::c_void );
+    FtgRegisterIdleRoutine(::core::mem::transmute(lpfnidle), lpvidleparam, priidle, csecidle, iroidle)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -143,8 +143,8 @@ pub unsafe fn HrAddColumns<'a, P0>(lptbl: P0, lpproptagcolumnsnew: *mut SPropTag
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPITable>>,
 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn HrAddColumns ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    HrAddColumns(lptbl.into().abi(), ::core::mem::transmute(lpproptagcolumnsnew), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer)).ok()
+    ::windows::core::link ! ( "mapi32.dll""system" fn HrAddColumns ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER ) -> :: windows::core::HRESULT );
+    HrAddColumns(lptbl.into().abi(), lpproptagcolumnsnew, ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -152,15 +152,15 @@ pub unsafe fn HrAddColumnsEx<'a, P0>(lptbl: P0, lpproptagcolumnsnew: *mut SPropT
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPITable>>,
 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn HrAddColumnsEx ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpfnfiltercolumns : isize ) -> :: windows::core::HRESULT );
-    HrAddColumnsEx(lptbl.into().abi(), ::core::mem::transmute(lpproptagcolumnsnew), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), lpfnfiltercolumns).ok()
+    ::windows::core::link ! ( "mapi32.dll""system" fn HrAddColumnsEx ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , lpfnfiltercolumns : isize ) -> :: windows::core::HRESULT );
+    HrAddColumnsEx(lptbl.into().abi(), lpproptagcolumnsnew, ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), lpfnfiltercolumns).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut ::core::option::Option<IMAPIAdviseSink>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "mapi32.dll""system" fn HrAllocAdviseSink ( lpfncallback : * mut::core::ffi::c_void , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    HrAllocAdviseSink(::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpvcontext), ::core::mem::transmute(lppadvisesink)).ok()
+    ::windows::core::link ! ( "mapi32.dll""system" fn HrAllocAdviseSink ( lpfncallback : LPNOTIFCALLBACK , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    HrAllocAdviseSink(::core::mem::transmute(lpfncallback), lpvcontext, ::core::mem::transmute(lppadvisesink)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -176,7 +176,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProp>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn HrGetOneProp ( lpmapiprop : * mut::core::ffi::c_void , ulproptag : u32 , lppprop : *mut *mut SPropValue ) -> :: windows::core::HRESULT );
-    HrGetOneProp(lpmapiprop.into().abi(), ulproptag, ::core::mem::transmute(lppprop)).ok()
+    HrGetOneProp(lpmapiprop.into().abi(), ulproptag, lppprop).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -186,7 +186,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn HrIStorageFromStream ( lpunkin : * mut::core::ffi::c_void , lpinterface : *mut :: windows::core::GUID , ulflags : u32 , lppstorageout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    HrIStorageFromStream(lpunkin.into().abi(), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lppstorageout)).ok()
+    HrIStorageFromStream(lpunkin.into().abi(), lpinterface, ulflags, ::core::mem::transmute(lppstorageout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -196,7 +196,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPITable>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn HrQueryAllRows ( lptable : * mut::core::ffi::c_void , lpproptags : *mut SPropTagArray , lprestriction : *mut SRestriction , lpsortorderset : *mut SSortOrderSet , crowsmax : i32 , lpprows : *mut *mut SRowSet ) -> :: windows::core::HRESULT );
-    HrQueryAllRows(lptable.into().abi(), ::core::mem::transmute(lpproptags), ::core::mem::transmute(lprestriction), ::core::mem::transmute(lpsortorderset), crowsmax, ::core::mem::transmute(lpprows)).ok()
+    HrQueryAllRows(lptable.into().abi(), lpproptags, lprestriction, lpsortorderset, crowsmax, lpprows).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -206,7 +206,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProp>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn HrSetOneProp ( lpmapiprop : * mut::core::ffi::c_void , lpprop : *mut SPropValue ) -> :: windows::core::HRESULT );
-    HrSetOneProp(lpmapiprop.into().abi(), ::core::mem::transmute(lpprop)).ok()
+    HrSetOneProp(lpmapiprop.into().abi(), lpprop).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -223,14 +223,14 @@ where
 #[inline]
 pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *mut SPropValue) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn LPropCompareProp ( lpspropvaluea : *mut SPropValue , lpspropvalueb : *mut SPropValue ) -> i32 );
-    LPropCompareProp(::core::mem::transmute(lpspropvaluea), ::core::mem::transmute(lpspropvalueb))
+    LPropCompareProp(lpspropvaluea, lpspropvalueb)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPropValue) -> *mut SPropValue {
     ::windows::core::link ! ( "mapi32.dll""system" fn LpValFindProp ( ulproptag : u32 , cvalues : u32 , lpproparray : *mut SPropValue ) -> *mut SPropValue );
-    LpValFindProp(ulproptag, cvalues, ::core::mem::transmute(lpproparray))
+    LpValFindProp(ulproptag, cvalues, lpproparray)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -249,29 +249,29 @@ pub unsafe fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMall
 #[inline]
 pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn MAPIInitIdle ( lpvreserved : *mut ::core::ffi::c_void ) -> i32 );
-    MAPIInitIdle(::core::mem::transmute(lpvreserved))
+    MAPIInitIdle(lpvreserved)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: ::core::option::Option<*const i8>) -> ::windows::core::Result<super::Com::IStream> {
-    ::windows::core::link ! ( "mapi32.dll""system" fn OpenStreamOnFile ( lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll""system" fn OpenStreamOnFile ( lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OpenStreamOnFile(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), ulflags, ::core::mem::transmute(lpszfilename), ::core::mem::transmute(lpszprefix.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    OpenStreamOnFile(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), ulflags, lpszfilename, ::core::mem::transmute(lpszprefix.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulproptag: u32) -> *mut SPropValue {
     ::windows::core::link ! ( "mapi32.dll""system" fn PpropFindProp ( lpproparray : *mut SPropValue , cvalues : u32 , ulproptag : u32 ) -> *mut SPropValue );
-    PpropFindProp(::core::mem::transmute(lpproparray), cvalues, ulproptag)
+    PpropFindProp(lpproparray, cvalues, ulproptag)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: LPALLOCATEMORE, lpvobject: *mut ::core::ffi::c_void) -> i32 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn PropCopyMore ( lpspropvaluedest : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , lpfallocmore : * mut::core::ffi::c_void , lpvobject : *mut ::core::ffi::c_void ) -> i32 );
-    PropCopyMore(::core::mem::transmute(lpspropvaluedest), ::core::mem::transmute(lpspropvaluesrc), ::core::mem::transmute(lpfallocmore), ::core::mem::transmute(lpvobject))
+    ::windows::core::link ! ( "mapi32.dll""system" fn PropCopyMore ( lpspropvaluedest : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , lpfallocmore : LPALLOCATEMORE , lpvobject : *mut ::core::ffi::c_void ) -> i32 );
+    PropCopyMore(lpspropvaluedest, lpspropvaluesrc, ::core::mem::transmute(lpfallocmore), lpvobject)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -281,48 +281,48 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMessage>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn RTFSync ( lpmessage : * mut::core::ffi::c_void , ulflags : u32 , lpfmessageupdated : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    RTFSync(lpmessage.into().abi(), ulflags, ::core::mem::transmute(lpfmessageupdated)).ok()
+    RTFSync(lpmessage.into().abi(), ulflags, lpfmessageupdated).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScCopyNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
-    ScCopyNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb))
+    ScCopyNotifications(cnotification, lpnotifications, lpvdst, lpcb)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScCopyProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
-    ScCopyProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb))
+    ScCopyProps(cvalues, lpproparray, lpvdst, lpcb)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NOTIFICATION, lpcb: *mut u32) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScCountNotifications ( cnotifications : i32 , lpnotifications : *mut NOTIFICATION , lpcb : *mut u32 ) -> i32 );
-    ScCountNotifications(cnotifications, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpcb))
+    ScCountNotifications(cnotifications, lpnotifications, lpcb)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScCountProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpcb : *mut u32 ) -> i32 );
-    ScCountProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpcb))
+    ScCountProps(cvalues, lpproparray, lpcb)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScCreateConversationIndex ( cbparent : u32 , lpbparent : *mut u8 , lpcbconvindex : *mut u32 , lppbconvindex : *mut *mut u8 ) -> i32 );
-    ScCreateConversationIndex(cbparent, ::core::mem::transmute(lpbparent), ::core::mem::transmute(lpcbconvindex), ::core::mem::transmute(lppbconvindex))
+    ScCreateConversationIndex(cbparent, lpbparent, lpcbconvindex, lppbconvindex)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: LPALLOCATEBUFFER, lppproparray: *mut *mut SPropValue) -> i32 {
-    ::windows::core::link ! ( "mapi32.dll""system" fn ScDupPropset ( cvalues : i32 , lpproparray : *mut SPropValue , lpallocatebuffer : * mut::core::ffi::c_void , lppproparray : *mut *mut SPropValue ) -> i32 );
-    ScDupPropset(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lppproparray))
+    ::windows::core::link ! ( "mapi32.dll""system" fn ScDupPropset ( cvalues : i32 , lpproparray : *mut SPropValue , lpallocatebuffer : LPALLOCATEBUFFER , lppproparray : *mut *mut SPropValue ) -> i32 );
+    ScDupPropset(cvalues, lpproparray, ::core::mem::transmute(lpallocatebuffer), lppproparray)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -344,14 +344,14 @@ where
 #[inline]
 pub unsafe fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScRelocNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
-    ScRelocNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb))
+    ScRelocNotifications(cnotification, lpnotifications, lpvbaseold, lpvbasenew, lpcb)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScRelocProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
-    ScRelocProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb))
+    ScRelocProps(cvalues, lpproparray, lpvbaseold, lpvbasenew, lpcb)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -366,44 +366,44 @@ where
 #[inline]
 pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     ::windows::core::link ! ( "mapi32.dll""system" fn SzFindCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
-    SzFindCh(::core::mem::transmute(lpsz), ch)
+    SzFindCh(lpsz, ch)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     ::windows::core::link ! ( "mapi32.dll""system" fn SzFindLastCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
-    SzFindLastCh(::core::mem::transmute(lpsz), ch)
+    SzFindLastCh(lpsz, ch)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8 {
     ::windows::core::link ! ( "mapi32.dll""system" fn SzFindSz ( lpsz : *mut i8 , lpszkey : *mut i8 ) -> *mut i8 );
-    SzFindSz(::core::mem::transmute(lpsz), ::core::mem::transmute(lpszkey))
+    SzFindSz(lpsz, lpszkey)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn UFromSz ( lpsz : *mut i8 ) -> u32 );
-    UFromSz(::core::mem::transmute(lpsz))
+    UFromSz(lpsz)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn UlAddRef(lpunk: *mut ::core::ffi::c_void) -> u32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn UlAddRef ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
-    UlAddRef(::core::mem::transmute(lpunk))
+    UlAddRef(lpunk)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn UlPropSize ( lpspropvalue : *mut SPropValue ) -> u32 );
-    UlPropSize(::core::mem::transmute(lpspropvalue))
+    UlPropSize(lpspropvalue)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn UlRelease(lpunk: *mut ::core::ffi::c_void) -> u32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn UlRelease ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
-    UlRelease(::core::mem::transmute(lpunk))
+    UlRelease(lpunk)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -420,14 +420,14 @@ where
 #[inline]
 pub unsafe fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "mapi32.dll""system" fn WrapStoreEntryID ( ulflags : u32 , lpszdllname : *const i8 , cborigentry : u32 , lporigentry : *const ENTRYID , lpcbwrappedentry : *mut u32 , lppwrappedentry : *mut *mut ENTRYID ) -> :: windows::core::HRESULT );
-    WrapStoreEntryID(ulflags, ::core::mem::transmute(lpszdllname), cborigentry, ::core::mem::transmute(lporigentry), ::core::mem::transmute(lpcbwrappedentry), ::core::mem::transmute(lppwrappedentry)).ok()
+    WrapStoreEntryID(ulflags, lpszdllname, cborigentry, lporigentry, lpcbwrappedentry, lppwrappedentry).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
 pub struct IABContainer(::windows::core::IUnknown);
 impl IABContainer {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -435,39 +435,39 @@ impl IABContainer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -478,7 +478,7 @@ impl IABContainer {
         (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -492,22 +492,22 @@ impl IABContainer {
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CopyEntries<'a, P0>(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyEntries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpentries), uluiparam, lpprogress.into().abi(), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).CopyEntries)(::windows::core::Vtable::as_raw(self), lpentries, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteEntries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpentries), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteEntries)(::windows::core::Vtable::as_raw(self), lpentries, ulflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<*const SPropTagArray>, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<FlagList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IABContainer, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
@@ -550,7 +550,7 @@ pub struct IABContainer_Vtbl {
 pub struct IAddrBook(::windows::core::IUnknown);
 impl IAddrBook {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -558,110 +558,110 @@ impl IAddrBook {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *mut ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
     }
     pub unsafe fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *mut ENTRYID, cbentryid2: u32, lpentryid2: *mut ENTRYID, ulflags: u32, lpulresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, ::core::mem::transmute(lpentryid1), cbentryid2, ::core::mem::transmute(lpentryid2), ulflags, ::core::mem::transmute(lpulresult)).ok()
+        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, lpentryid1, cbentryid2, lpentryid2, ulflags, lpulresult).ok()
     }
     pub unsafe fn Advise<'a, P0>(&self, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: P0, lpulconnection: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIAdviseSink>>,
     {
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), uleventmask, lpadvisesink.into().abi(), ::core::mem::transmute(lpulconnection)).ok()
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, uleventmask, lpadvisesink.into().abi(), lpulconnection).ok()
     }
     pub unsafe fn Unadvise(&self, ulconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), ulconnection).ok()
     }
     pub unsafe fn CreateOneOff(&self, lpszname: *mut i8, lpszadrtype: *mut i8, lpszaddress: *mut i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateOneOff)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszname), ::core::mem::transmute(lpszadrtype), ::core::mem::transmute(lpszaddress), ulflags, ::core::mem::transmute(lpcbentryid), ::core::mem::transmute(lppentryid)).ok()
+        (::windows::core::Vtable::vtable(self).CreateOneOff)(::windows::core::Vtable::as_raw(self), lpszname, lpszadrtype, lpszaddress, ulflags, lpcbentryid, lppentryid).ok()
     }
     pub unsafe fn NewEntry(&self, uluiparam: u32, ulflags: u32, cbeidcontainer: u32, lpeidcontainer: *mut ENTRYID, cbeidnewentrytpl: u32, lpeidnewentrytpl: *mut ENTRYID, lpcbeidnewentry: *mut u32, lppeidnewentry: *mut *mut ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).NewEntry)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags, cbeidcontainer, ::core::mem::transmute(lpeidcontainer), cbeidnewentrytpl, ::core::mem::transmute(lpeidnewentrytpl), ::core::mem::transmute(lpcbeidnewentry), ::core::mem::transmute(lppeidnewentry)).ok()
+        (::windows::core::Vtable::vtable(self).NewEntry)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags, cbeidcontainer, lpeidcontainer, cbeidnewentrytpl, lpeidnewentrytpl, lpcbeidnewentry, lppeidnewentry).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveName(&self, uluiparam: usize, ulflags: u32, lpsznewentrytitle: *mut i8, lpadrlist: *mut ADRLIST) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ResolveName)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags, ::core::mem::transmute(lpsznewentrytitle), ::core::mem::transmute(lpadrlist)).ok()
+        (::windows::core::Vtable::vtable(self).ResolveName)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags, lpsznewentrytitle, lpadrlist).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Address(&self, lpuluiparam: *mut u32, lpadrparms: *mut ADRPARM, lppadrlist: *mut *mut ADRLIST) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Address)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuluiparam), ::core::mem::transmute(lpadrparms), ::core::mem::transmute(lppadrlist)).ok()
+        (::windows::core::Vtable::vtable(self).Address)(::windows::core::Vtable::as_raw(self), lpuluiparam, lpadrparms, lppadrlist).ok()
     }
     pub unsafe fn Details(&self, lpuluiparam: *mut usize, lpfndismiss: LPFNDISMISS, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: LPFNBUTTON, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Details)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuluiparam), ::core::mem::transmute(lpfndismiss), ::core::mem::transmute(lpvdismisscontext), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpfbuttoncallback), ::core::mem::transmute(lpvbuttoncontext), ::core::mem::transmute(lpszbuttontext), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).Details)(::windows::core::Vtable::as_raw(self), lpuluiparam, ::core::mem::transmute(lpfndismiss), lpvdismisscontext, cbentryid, lpentryid, ::core::mem::transmute(lpfbuttoncallback), lpvbuttoncontext, lpszbuttontext, ulflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RecipOptions(&self, uluiparam: u32, ulflags: u32, lprecip: *mut ADRENTRY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RecipOptions)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags, ::core::mem::transmute(lprecip)).ok()
+        (::windows::core::Vtable::vtable(self).RecipOptions)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags, lprecip).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryDefaultRecipOpt(&self, lpszadrtype: *mut i8, ulflags: u32, lpcvalues: *mut u32, lppoptions: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryDefaultRecipOpt)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszadrtype), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppoptions)).ok()
+        (::windows::core::Vtable::vtable(self).QueryDefaultRecipOpt)(::windows::core::Vtable::as_raw(self), lpszadrtype, ulflags, lpcvalues, lppoptions).ok()
     }
     pub unsafe fn GetPAB(&self, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPAB)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpcbentryid), ::core::mem::transmute(lppentryid)).ok()
+        (::windows::core::Vtable::vtable(self).GetPAB)(::windows::core::Vtable::as_raw(self), lpcbentryid, lppentryid).ok()
     }
     pub unsafe fn SetPAB(&self, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPAB)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid)).ok()
+        (::windows::core::Vtable::vtable(self).SetPAB)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid).ok()
     }
     pub unsafe fn GetDefaultDir(&self, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDefaultDir)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpcbentryid), ::core::mem::transmute(lppentryid)).ok()
+        (::windows::core::Vtable::vtable(self).GetDefaultDir)(::windows::core::Vtable::as_raw(self), lpcbentryid, lppentryid).ok()
     }
     pub unsafe fn SetDefaultDir(&self, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDefaultDir)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid)).ok()
+        (::windows::core::Vtable::vtable(self).SetDefaultDir)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSearchPath(&self, ulflags: u32, lppsearchpath: *mut *mut SRowSet) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSearchPath)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppsearchpath)).ok()
+        (::windows::core::Vtable::vtable(self).GetSearchPath)(::windows::core::Vtable::as_raw(self), ulflags, lppsearchpath).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetSearchPath(&self, ulflags: u32, lpsearchpath: *mut SRowSet) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSearchPath)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpsearchpath)).ok()
+        (::windows::core::Vtable::vtable(self).SetSearchPath)(::windows::core::Vtable::as_raw(self), ulflags, lpsearchpath).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn PrepareRecips(&self, ulflags: u32, lpproptagarray: *mut SPropTagArray, lpreciplist: *mut ADRLIST) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PrepareRecips)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lpreciplist)).ok()
+        (::windows::core::Vtable::vtable(self).PrepareRecips)(::windows::core::Vtable::as_raw(self), ulflags, lpproptagarray, lpreciplist).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAddrBook, ::windows::core::IUnknown, IMAPIProp);
@@ -705,7 +705,7 @@ pub struct IAddrBook_Vtbl {
     pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuluiparam: *mut u32, lpadrparms: *mut ADRPARM, lppadrlist: *mut *mut ADRLIST) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Address: usize,
-    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuluiparam: *mut usize, lpfndismiss: *mut ::core::ffi::c_void, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: *mut ::core::ffi::c_void, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows::core::HRESULT,
+    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuluiparam: *mut usize, lpfndismiss: LPFNDISMISS, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: LPFNBUTTON, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub RecipOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: u32, ulflags: u32, lprecip: *mut ADRENTRY) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -736,7 +736,7 @@ pub struct IAddrBook_Vtbl {
 pub struct IAttach(::windows::core::IUnknown);
 impl IAttach {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -744,39 +744,39 @@ impl IAttach {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAttach, ::windows::core::IUnknown, IMAPIProp);
@@ -812,7 +812,7 @@ pub struct IAttach_Vtbl {
 pub struct IDistList(::windows::core::IUnknown);
 impl IDistList {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -820,39 +820,39 @@ impl IDistList {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -863,7 +863,7 @@ impl IDistList {
         (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -877,22 +877,22 @@ impl IDistList {
     }
     pub unsafe fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulcreateflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CopyEntries<'a, P0>(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyEntries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpentries), uluiparam, lpprogress.into().abi(), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).CopyEntries)(::windows::core::Vtable::as_raw(self), lpentries, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteEntries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpentries), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteEntries)(::windows::core::Vtable::as_raw(self), lpentries, ulflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ResolveNames(&self, lpproptagarray: ::core::option::Option<*const SPropTagArray>, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<FlagList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDistList, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
@@ -937,7 +937,7 @@ impl IMAPIAdviseSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnNotify(&self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32 {
-        (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), cnotif, ::core::mem::transmute(lpnotifications))
+        (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), cnotif, lpnotifications)
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIAdviseSink, ::windows::core::IUnknown);
@@ -977,7 +977,7 @@ pub struct IMAPIAdviseSink_Vtbl {
 pub struct IMAPIContainer(::windows::core::IUnknown);
 impl IMAPIContainer {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -985,39 +985,39 @@ impl IMAPIContainer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1028,7 +1028,7 @@ impl IMAPIContainer {
         (::windows::core::Vtable::vtable(self).GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1092,7 +1092,7 @@ impl IMAPIControl {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), ulflags, uluiparam).ok()
     }
     pub unsafe fn GetState(&self, ulflags: u32, lpulstate: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpulstate)).ok()
+        (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), ulflags, lpulstate).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIControl, ::windows::core::IUnknown);
@@ -1131,7 +1131,7 @@ pub struct IMAPIControl_Vtbl {
 pub struct IMAPIFolder(::windows::core::IUnknown);
 impl IMAPIFolder {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -1139,39 +1139,39 @@ impl IMAPIFolder {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1182,7 +1182,7 @@ impl IMAPIFolder {
         (::windows::core::Vtable::vtable(self).base__.GetHierarchyTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, lpinterface, ulflags, lpulobjtype, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1195,52 +1195,52 @@ impl IMAPIFolder {
         (::windows::core::Vtable::vtable(self).base__.GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpprestriction.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lppcontainerlist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateMessage(&self, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppmessage: *mut ::core::option::Option<IMessage>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateMessage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lppmessage)).ok()
+        (::windows::core::Vtable::vtable(self).CreateMessage)(::windows::core::Vtable::as_raw(self), lpinterface, ulflags, ::core::mem::transmute(lppmessage)).ok()
     }
     pub unsafe fn CopyMessages<'a, P0>(&self, lpmsglist: *const SBinaryArray, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, lpdestfolder: *const ::core::ffi::c_void, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyMessages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpmsglist), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpdestfolder), uluiparam, lpprogress.into().abi(), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).CopyMessages)(::windows::core::Vtable::as_raw(self), lpmsglist, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), lpdestfolder, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn DeleteMessages<'a, P0>(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteMessages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpmsglist), uluiparam, lpprogress.into().abi(), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteMessages)(::windows::core::Vtable::as_raw(self), lpmsglist, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: ::core::option::Option<*const i8>, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IMAPIFolder> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ulfoldertype, ::core::mem::transmute(lpszfoldername), ::core::mem::transmute(lpszfoldercomment.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ulfoldertype, lpszfoldername, ::core::mem::transmute(lpszfoldercomment.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CopyFolder<'a, P0>(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, lpdestfolder: *const ::core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyFolder)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpdestfolder), ::core::mem::transmute(lpsznewfoldername), uluiparam, lpprogress.into().abi(), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).CopyFolder)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), lpdestfolder, lpsznewfoldername, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn DeleteFolder<'a, P0>(&self, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteFolder)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), uluiparam, lpprogress.into().abi(), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteFolder)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn SetReadFlags<'a, P0>(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).SetReadFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpmsglist), uluiparam, lpprogress.into().abi(), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).SetReadFlags)(::windows::core::Vtable::as_raw(self), lpmsglist, uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
     pub unsafe fn GetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulnewstatus: u32, ulnewstatusmask: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulnewstatus, ulnewstatusmask, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SetMessageStatus)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulnewstatus, ulnewstatusmask, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SaveContentsSort(&self, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SaveContentsSort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpsortcriteria), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).SaveContentsSort)(::windows::core::Vtable::as_raw(self), lpsortcriteria, ulflags).ok()
     }
     pub unsafe fn EmptyFolder<'a, P0>(&self, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -1296,16 +1296,16 @@ impl IMAPIProgress {
         (::windows::core::Vtable::vtable(self).Progress)(::windows::core::Vtable::as_raw(self), ulvalue, ulcount, ultotal).ok()
     }
     pub unsafe fn GetFlags(&self, lpulflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulflags)).ok()
+        (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), lpulflags).ok()
     }
     pub unsafe fn GetMax(&self, lpulmax: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMax)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulmax)).ok()
+        (::windows::core::Vtable::vtable(self).GetMax)(::windows::core::Vtable::as_raw(self), lpulmax).ok()
     }
     pub unsafe fn GetMin(&self, lpulmin: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulmin)).ok()
+        (::windows::core::Vtable::vtable(self).GetMin)(::windows::core::Vtable::as_raw(self), lpulmin).ok()
     }
     pub unsafe fn SetLimits(&self, lpulmin: *mut u32, lpulmax: *mut u32, lpulflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLimits)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulmin), ::core::mem::transmute(lpulmax), ::core::mem::transmute(lpulflags)).ok()
+        (::windows::core::Vtable::vtable(self).SetLimits)(::windows::core::Vtable::as_raw(self), lpulmin, lpulmax, lpulflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIProgress, ::windows::core::IUnknown);
@@ -1346,7 +1346,7 @@ pub struct IMAPIProgress_Vtbl {
 pub struct IMAPIProp(::windows::core::IUnknown);
 impl IMAPIProp {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -1354,39 +1354,39 @@ impl IMAPIProp {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMAPIProp, ::windows::core::IUnknown);
@@ -1439,7 +1439,7 @@ pub struct IMAPIProp_Vtbl {
 pub struct IMAPIStatus(::windows::core::IUnknown);
 impl IMAPIStatus {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -1447,39 +1447,39 @@ impl IMAPIStatus {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn ValidateState(&self, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ValidateState)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags).ok()
@@ -1488,7 +1488,7 @@ impl IMAPIStatus {
         (::windows::core::Vtable::vtable(self).SettingsDialog)(::windows::core::Vtable::as_raw(self), uluiparam, ulflags).ok()
     }
     pub unsafe fn ChangePassword(&self, lpoldpass: *const i8, lpnewpass: *const i8, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ChangePassword)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpoldpass), ::core::mem::transmute(lpnewpass), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).ChangePassword)(::windows::core::Vtable::as_raw(self), lpoldpass, lpnewpass, ulflags).ok()
     }
     pub unsafe fn FlushQueues(&self, uluiparam: usize, lptargettransport: ::core::option::Option<&[ENTRYID]>, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FlushQueues)(::windows::core::Vtable::as_raw(self), uluiparam, lptargettransport.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lptargettransport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ulflags).ok()
@@ -1531,64 +1531,64 @@ pub struct IMAPIStatus_Vtbl {
 pub struct IMAPITable(::windows::core::IUnknown);
 impl IMAPITable {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn Advise<'a, P0>(&self, uleventmask: u32, lpadvisesink: P0, lpulconnection: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIAdviseSink>>,
     {
-        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), uleventmask, lpadvisesink.into().abi(), ::core::mem::transmute(lpulconnection)).ok()
+        (::windows::core::Vtable::vtable(self).Advise)(::windows::core::Vtable::as_raw(self), uleventmask, lpadvisesink.into().abi(), lpulconnection).ok()
     }
     pub unsafe fn Unadvise(&self, ulconnection: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), ulconnection).ok()
     }
     pub unsafe fn GetStatus(&self, lpultablestatus: *mut u32, lpultabletype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpultablestatus), ::core::mem::transmute(lpultabletype)).ok()
+        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), lpultablestatus, lpultabletype).ok()
     }
     pub unsafe fn SetColumns(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetColumns)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).SetColumns)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags).ok()
     }
     pub unsafe fn QueryColumns(&self, ulflags: u32, lpproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryColumns)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).QueryColumns)(::windows::core::Vtable::as_raw(self), ulflags, lpproptagarray).ok()
     }
     pub unsafe fn GetRowCount(&self, ulflags: u32, lpulcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRowCount)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpulcount)).ok()
+        (::windows::core::Vtable::vtable(self).GetRowCount)(::windows::core::Vtable::as_raw(self), ulflags, lpulcount).ok()
     }
     pub unsafe fn SeekRow(&self, bkorigin: u32, lrowcount: i32, lplrowssought: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SeekRow)(::windows::core::Vtable::as_raw(self), bkorigin, lrowcount, ::core::mem::transmute(lplrowssought)).ok()
+        (::windows::core::Vtable::vtable(self).SeekRow)(::windows::core::Vtable::as_raw(self), bkorigin, lrowcount, lplrowssought).ok()
     }
     pub unsafe fn SeekRowApprox(&self, ulnumerator: u32, uldenominator: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SeekRowApprox)(::windows::core::Vtable::as_raw(self), ulnumerator, uldenominator).ok()
     }
     pub unsafe fn QueryPosition(&self, lpulrow: *mut u32, lpulnumerator: *mut u32, lpuldenominator: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulrow), ::core::mem::transmute(lpulnumerator), ::core::mem::transmute(lpuldenominator)).ok()
+        (::windows::core::Vtable::vtable(self).QueryPosition)(::windows::core::Vtable::as_raw(self), lpulrow, lpulnumerator, lpuldenominator).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn FindRow(&self, lprestriction: *mut SRestriction, bkorigin: u32, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).FindRow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lprestriction), bkorigin, ulflags).ok()
+        (::windows::core::Vtable::vtable(self).FindRow)(::windows::core::Vtable::as_raw(self), lprestriction, bkorigin, ulflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Restrict(&self, lprestriction: *mut SRestriction, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Restrict)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lprestriction), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).Restrict)(::windows::core::Vtable::as_raw(self), lprestriction, ulflags).ok()
     }
     pub unsafe fn CreateBookmark(&self, lpbkposition: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateBookmark)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpbkposition)).ok()
+        (::windows::core::Vtable::vtable(self).CreateBookmark)(::windows::core::Vtable::as_raw(self), lpbkposition).ok()
     }
     pub unsafe fn FreeBookmark(&self, bkposition: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FreeBookmark)(::windows::core::Vtable::as_raw(self), bkposition).ok()
     }
     pub unsafe fn SortTable(&self, lpsortcriteria: *mut SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SortTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpsortcriteria), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).SortTable)(::windows::core::Vtable::as_raw(self), lpsortcriteria, ulflags).ok()
     }
     pub unsafe fn QuerySortOrder(&self, lppsortcriteria: *mut *mut SSortOrderSet) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QuerySortOrder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppsortcriteria)).ok()
+        (::windows::core::Vtable::vtable(self).QuerySortOrder)(::windows::core::Vtable::as_raw(self), lppsortcriteria).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryRows(&self, lrowcount: i32, ulflags: u32, lpprows: *mut *mut SRowSet) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryRows)(::windows::core::Vtable::as_raw(self), lrowcount, ulflags, ::core::mem::transmute(lpprows)).ok()
+        (::windows::core::Vtable::vtable(self).QueryRows)(::windows::core::Vtable::as_raw(self), lrowcount, ulflags, lpprows).ok()
     }
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1596,19 +1596,19 @@ impl IMAPITable {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ExpandRow(&self, cbinstancekey: u32, pbinstancekey: *mut u8, ulrowcount: u32, ulflags: u32, lpprows: *mut *mut SRowSet, lpulmorerows: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ExpandRow)(::windows::core::Vtable::as_raw(self), cbinstancekey, ::core::mem::transmute(pbinstancekey), ulrowcount, ulflags, ::core::mem::transmute(lpprows), ::core::mem::transmute(lpulmorerows)).ok()
+        (::windows::core::Vtable::vtable(self).ExpandRow)(::windows::core::Vtable::as_raw(self), cbinstancekey, pbinstancekey, ulrowcount, ulflags, lpprows, lpulmorerows).ok()
     }
     pub unsafe fn CollapseRow(&self, cbinstancekey: u32, pbinstancekey: *mut u8, ulflags: u32, lpulrowcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CollapseRow)(::windows::core::Vtable::as_raw(self), cbinstancekey, ::core::mem::transmute(pbinstancekey), ulflags, ::core::mem::transmute(lpulrowcount)).ok()
+        (::windows::core::Vtable::vtable(self).CollapseRow)(::windows::core::Vtable::as_raw(self), cbinstancekey, pbinstancekey, ulflags, lpulrowcount).ok()
     }
     pub unsafe fn WaitForCompletion(&self, ulflags: u32, ultimeout: u32, lpultablestatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WaitForCompletion)(::windows::core::Vtable::as_raw(self), ulflags, ultimeout, ::core::mem::transmute(lpultablestatus)).ok()
+        (::windows::core::Vtable::vtable(self).WaitForCompletion)(::windows::core::Vtable::as_raw(self), ulflags, ultimeout, lpultablestatus).ok()
     }
     pub unsafe fn GetCollapseState(&self, ulflags: u32, cbinstancekey: u32, lpbinstancekey: *mut u8, lpcbcollapsestate: *mut u32, lppbcollapsestate: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCollapseState)(::windows::core::Vtable::as_raw(self), ulflags, cbinstancekey, ::core::mem::transmute(lpbinstancekey), ::core::mem::transmute(lpcbcollapsestate), ::core::mem::transmute(lppbcollapsestate)).ok()
+        (::windows::core::Vtable::vtable(self).GetCollapseState)(::windows::core::Vtable::as_raw(self), ulflags, cbinstancekey, lpbinstancekey, lpcbcollapsestate, lppbcollapsestate).ok()
     }
     pub unsafe fn SetCollapseState(&self, ulflags: u32, cbcollapsestate: u32, pbcollapsestate: *mut u8, lpbklocation: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCollapseState)(::windows::core::Vtable::as_raw(self), ulflags, cbcollapsestate, ::core::mem::transmute(pbcollapsestate), ::core::mem::transmute(lpbklocation)).ok()
+        (::windows::core::Vtable::vtable(self).SetCollapseState)(::windows::core::Vtable::as_raw(self), ulflags, cbcollapsestate, pbcollapsestate, lpbklocation).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMAPITable, ::windows::core::IUnknown);
@@ -1679,7 +1679,7 @@ pub struct IMAPITable_Vtbl {
 pub struct IMailUser(::windows::core::IUnknown);
 impl IMailUser {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -1687,39 +1687,39 @@ impl IMailUser {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMailUser, ::windows::core::IUnknown, IMAPIProp);
@@ -1755,7 +1755,7 @@ pub struct IMailUser_Vtbl {
 pub struct IMessage(::windows::core::IUnknown);
 impl IMessage {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -1763,39 +1763,39 @@ impl IMessage {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn GetAttachmentTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1806,7 +1806,7 @@ impl IMessage {
         (::windows::core::Vtable::vtable(self).OpenAttach)(::windows::core::Vtable::as_raw(self), ulattachmentnum, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateAttach(&self, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: *mut ::core::option::Option<IAttach>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateAttach)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpulattachmentnum), ::core::mem::transmute(lppattach)).ok()
+        (::windows::core::Vtable::vtable(self).CreateAttach)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, lpulattachmentnum, ::core::mem::transmute(lppattach)).ok()
     }
     pub unsafe fn DeleteAttach<'a, P0>(&self, ulattachmentnum: u32, uluiparam: usize, lpprogress: P0, ulflags: u32) -> ::windows::core::Result<()>
     where
@@ -1821,7 +1821,7 @@ impl IMessage {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ModifyRecipients(&self, ulflags: u32, lpmods: *const ADRLIST) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ModifyRecipients)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpmods)).ok()
+        (::windows::core::Vtable::vtable(self).ModifyRecipients)(::windows::core::Vtable::as_raw(self), ulflags, lpmods).ok()
     }
     pub unsafe fn SubmitMessage(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SubmitMessage)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -1874,7 +1874,7 @@ pub struct IMessage_Vtbl {
 pub struct IMsgStore(::windows::core::IUnknown);
 impl IMsgStore {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -1882,39 +1882,39 @@ impl IMsgStore {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn Advise<'a, P0>(&self, cbentryid: u32, lpentryid: ::core::option::Option<*const ENTRYID>, uleventmask: u32, lpadvisesink: P0) -> ::windows::core::Result<u32>
     where
@@ -1928,26 +1928,26 @@ impl IMsgStore {
     }
     pub unsafe fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, ::core::mem::transmute(lpentryid1), cbentryid2, ::core::mem::transmute(lpentryid2), ulflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CompareEntryIDs)(::windows::core::Vtable::as_raw(self), cbentryid1, lpentryid1, cbentryid2, lpentryid2, ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32, lpulobjtype: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpulobjtype), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Vtable::vtable(self).OpenEntry)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, lpulobjtype, ::core::mem::transmute(ppunk)).ok()
     }
     pub unsafe fn SetReceiveFolder(&self, lpszmessageclass: ::core::option::Option<*const i8>, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, cbentryid, ::core::mem::transmute(lpentryid)).ok()
+        (::windows::core::Vtable::vtable(self).SetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, cbentryid, lpentryid).ok()
     }
     pub unsafe fn GetReceiveFolder(&self, lpszmessageclass: ::core::option::Option<*const i8>, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID, lppszexplicitclass: ::core::option::Option<*mut *mut i8>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpcbentryid), ::core::mem::transmute(lppentryid), ::core::mem::transmute(lppszexplicitclass.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).GetReceiveFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszmessageclass.unwrap_or(::std::ptr::null())), ulflags, lpcbentryid, lppentryid, ::core::mem::transmute(lppszexplicitclass.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReceiveFolderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetReceiveFolderTable)(::windows::core::Vtable::as_raw(self), ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn StoreLogoff(&self, lpulflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StoreLogoff)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulflags)).ok()
+        (::windows::core::Vtable::vtable(self).StoreLogoff)(::windows::core::Vtable::as_raw(self), lpulflags).ok()
     }
     pub unsafe fn AbortSubmit(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AbortSubmit)(::windows::core::Vtable::as_raw(self), cbentryid, ::core::mem::transmute(lpentryid), ulflags).ok()
+        (::windows::core::Vtable::vtable(self).AbortSubmit)(::windows::core::Vtable::as_raw(self), cbentryid, lpentryid, ulflags).ok()
     }
     pub unsafe fn GetOutgoingQueue(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1960,12 +1960,12 @@ impl IMsgStore {
         (::windows::core::Vtable::vtable(self).SetLockState)(::windows::core::Vtable::as_raw(self), lpmessage.into().abi(), ullockstate).ok()
     }
     pub unsafe fn FinishedMsg(&self, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).FinishedMsg)(::windows::core::Vtable::as_raw(self), ulflags, cbentryid, ::core::mem::transmute(lpentryid)).ok()
+        (::windows::core::Vtable::vtable(self).FinishedMsg)(::windows::core::Vtable::as_raw(self), ulflags, cbentryid, lpentryid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn NotifyNewMail(&self, lpnotification: *const NOTIFICATION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).NotifyNewMail)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpnotification)).ok()
+        (::windows::core::Vtable::vtable(self).NotifyNewMail)(::windows::core::Vtable::as_raw(self), lpnotification).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMsgStore, ::windows::core::IUnknown, IMAPIProp);
@@ -2017,7 +2017,7 @@ pub struct IMsgStore_Vtbl {
 pub struct IProfSect(::windows::core::IUnknown);
 impl IProfSect {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -2025,39 +2025,39 @@ impl IProfSect {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IProfSect, ::windows::core::IUnknown, IMAPIProp);
@@ -2093,7 +2093,7 @@ pub struct IProfSect_Vtbl {
 pub struct IPropData(::windows::core::IUnknown);
 impl IPropData {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SaveChanges)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -2101,51 +2101,51 @@ impl IPropData {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ulflags, ::core::mem::transmute(lpcvalues), ::core::mem::transmute(lppproparray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, ulflags, lpcvalues, lppproparray).ok()
     }
     pub unsafe fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lppproptagarray)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPropList)(::windows::core::Vtable::as_raw(self), ulflags, lppproptagarray).ok()
     }
     pub unsafe fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, ::core::mem::transmute(lpiid), ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OpenProperty)(::windows::core::Vtable::as_raw(self), ulproptag, lpiid, ulinterfaceoptions, ulflags, ::core::mem::transmute(lppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProps)(::windows::core::Vtable::as_raw(self), cvalues, lpproparray, lppproblems).ok()
     }
     pub unsafe fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteProps)(::windows::core::Vtable::as_raw(self), lpproptagarray, lppproblems).ok()
     }
     pub unsafe fn CopyTo<'a, P0>(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, ::core::mem::transmute(rgiidexclude), ::core::mem::transmute(lpexcludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), ciidexclude, rgiidexclude, lpexcludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn CopyProps<'a, P0>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P0, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpincludeprops), uluiparam, lpprogress.into().abi(), ::core::mem::transmute(lpinterface), ::core::mem::transmute(lpdestobj), ulflags, ::core::mem::transmute(lppproblems)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CopyProps)(::windows::core::Vtable::as_raw(self), lpincludeprops, uluiparam, lpprogress.into().abi(), lpinterface, lpdestobj, ulflags, lppproblems).ok()
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptags), ::core::mem::transmute(lppropsetguid), ulflags, ::core::mem::transmute(lpcpropnames), ::core::mem::transmute(lppppropnames)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNamesFromIDs)(::windows::core::Vtable::as_raw(self), lppproptags, lppropsetguid, ulflags, lpcpropnames, lppppropnames).ok()
     }
     pub unsafe fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
     pub unsafe fn HrSetObjAccess(&self, ulaccess: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).HrSetObjAccess)(::windows::core::Vtable::as_raw(self), ulaccess).ok()
     }
     pub unsafe fn HrSetPropAccess(&self, lpproptagarray: *mut SPropTagArray, rgulaccess: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrSetPropAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(rgulaccess)).ok()
+        (::windows::core::Vtable::vtable(self).HrSetPropAccess)(::windows::core::Vtable::as_raw(self), lpproptagarray, rgulaccess).ok()
     }
     pub unsafe fn HrGetPropAccess(&self, lppproptagarray: *mut *mut SPropTagArray, lprgulaccess: *mut *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrGetPropAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptagarray), ::core::mem::transmute(lprgulaccess)).ok()
+        (::windows::core::Vtable::vtable(self).HrGetPropAccess)(::windows::core::Vtable::as_raw(self), lppproptagarray, lprgulaccess).ok()
     }
     pub unsafe fn HrAddObjProps(&self, lppproptagarray: *mut SPropTagArray, lprgulaccess: *mut *mut SPropProblemArray) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrAddObjProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptagarray), ::core::mem::transmute(lprgulaccess)).ok()
+        (::windows::core::Vtable::vtable(self).HrAddObjProps)(::windows::core::Vtable::as_raw(self), lppproptagarray, lprgulaccess).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPropData, ::windows::core::IUnknown, IMAPIProp);
@@ -2196,10 +2196,10 @@ impl IProviderAdmin {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateProvider(&self, lpszprovider: *const i8, lpprops: &[SPropValue], uluiparam: usize, ulflags: u32) -> ::windows::core::Result<MAPIUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpszprovider), lpprops.len() as _, ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateProvider)(::windows::core::Vtable::as_raw(self), lpszprovider, lpprops.len() as _, ::core::mem::transmute(lpprops.as_ptr()), uluiparam, ulflags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeleteProvider(&self, lpuid: *const MAPIUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeleteProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuid)).ok()
+        (::windows::core::Vtable::vtable(self).DeleteProvider)(::windows::core::Vtable::as_raw(self), lpuid).ok()
     }
     pub unsafe fn OpenProfileSection(&self, lpuid: ::core::option::Option<*const MAPIUID>, lpinterface: ::core::option::Option<*const ::windows::core::GUID>, ulflags: u32) -> ::windows::core::Result<IProfSect> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2247,47 +2247,47 @@ pub struct IProviderAdmin_Vtbl {
 pub struct ITableData(::windows::core::IUnknown);
 impl ITableData {
     pub unsafe fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrGetView)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpssortorderset), ::core::mem::transmute(lpfcallerrelease), ulcallerdata, ::core::mem::transmute(lppmapitable)).ok()
+        (::windows::core::Vtable::vtable(self).HrGetView)(::windows::core::Vtable::as_raw(self), lpssortorderset, lpfcallerrelease, ulcallerdata, ::core::mem::transmute(lppmapitable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrModifyRow(&self, param0: *mut SRow) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrModifyRow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
+        (::windows::core::Vtable::vtable(self).HrModifyRow)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrDeleteRow(&self, lpspropvalue: *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrDeleteRow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpspropvalue)).ok()
+        (::windows::core::Vtable::vtable(self).HrDeleteRow)(::windows::core::Vtable::as_raw(self), lpspropvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrQueryRow(&self, lpspropvalue: *mut SPropValue, lppsrow: *mut *mut SRow, lpulirow: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrQueryRow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpspropvalue), ::core::mem::transmute(lppsrow), ::core::mem::transmute(lpulirow)).ok()
+        (::windows::core::Vtable::vtable(self).HrQueryRow)(::windows::core::Vtable::as_raw(self), lpspropvalue, lppsrow, lpulirow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrEnumRow(&self, ulrownumber: u32, lppsrow: *mut *mut SRow) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrEnumRow)(::windows::core::Vtable::as_raw(self), ulrownumber, ::core::mem::transmute(lppsrow)).ok()
+        (::windows::core::Vtable::vtable(self).HrEnumRow)(::windows::core::Vtable::as_raw(self), ulrownumber, lppsrow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrNotify(&self, ulflags: u32, cvalues: u32, lpspropvalue: *mut SPropValue) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrNotify)(::windows::core::Vtable::as_raw(self), ulflags, cvalues, ::core::mem::transmute(lpspropvalue)).ok()
+        (::windows::core::Vtable::vtable(self).HrNotify)(::windows::core::Vtable::as_raw(self), ulflags, cvalues, lpspropvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrInsertRow(&self, ulirow: u32, lpsrow: *mut SRow) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrInsertRow)(::windows::core::Vtable::as_raw(self), ulirow, ::core::mem::transmute(lpsrow)).ok()
+        (::windows::core::Vtable::vtable(self).HrInsertRow)(::windows::core::Vtable::as_raw(self), ulirow, lpsrow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrModifyRows(&self, ulflags: u32, lpsrowset: *mut SRowSet) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrModifyRows)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpsrowset)).ok()
+        (::windows::core::Vtable::vtable(self).HrModifyRows)(::windows::core::Vtable::as_raw(self), ulflags, lpsrowset).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn HrDeleteRows(&self, ulflags: u32, lprowsettodelete: *mut SRowSet, crowsdeleted: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HrDeleteRows)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lprowsettodelete), ::core::mem::transmute(crowsdeleted)).ok()
+        (::windows::core::Vtable::vtable(self).HrDeleteRows)(::windows::core::Vtable::as_raw(self), ulflags, lprowsettodelete, crowsdeleted).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITableData, ::windows::core::IUnknown);
@@ -2317,7 +2317,7 @@ unsafe impl ::windows::core::Interface for ITableData {
 #[doc(hidden)]
 pub struct ITableData_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub HrGetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut *mut ::core::ffi::c_void, ulcallerdata: u32, lppmapitable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HrGetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub HrModifyRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut SRow) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -2398,16 +2398,16 @@ pub struct IWABExtInit_Vtbl {
 pub struct IWABObject(::windows::core::IUnknown);
 impl IWABObject {
     pub unsafe fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, ::core::mem::transmute(lppmapierror)).ok()
+        (::windows::core::Vtable::vtable(self).GetLastError)(::windows::core::Vtable::as_raw(self), hresult, ulflags, lppmapierror).ok()
     }
     pub unsafe fn AllocateBuffer(&self, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AllocateBuffer)(::windows::core::Vtable::as_raw(self), cbsize, ::core::mem::transmute(lppbuffer)).ok()
+        (::windows::core::Vtable::vtable(self).AllocateBuffer)(::windows::core::Vtable::as_raw(self), cbsize, lppbuffer).ok()
     }
     pub unsafe fn AllocateMore(&self, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AllocateMore)(::windows::core::Vtable::as_raw(self), cbsize, ::core::mem::transmute(lpobject), ::core::mem::transmute(lppbuffer)).ok()
+        (::windows::core::Vtable::vtable(self).AllocateMore)(::windows::core::Vtable::as_raw(self), cbsize, lpobject, lppbuffer).ok()
     }
     pub unsafe fn FreeBuffer(&self, lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpbuffer)).ok()
+        (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self), lpbuffer).ok()
     }
     pub unsafe fn Backup<'a, P0>(&self, lpfilename: P0) -> ::windows::core::Result<()>
     where
@@ -2474,7 +2474,7 @@ impl IWABObject {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IAddrBook>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).GetMe)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, ::core::mem::transmute(lpdwaction), ::core::mem::transmute(lpsbeid), hwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetMe)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpdwaction, lpsbeid, hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

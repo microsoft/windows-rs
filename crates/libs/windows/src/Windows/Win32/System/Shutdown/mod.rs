@@ -26,7 +26,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn CheckForHiberboot ( phiberboot : *mut super::super::Foundation:: BOOLEAN , bclearflag : super::super::Foundation:: BOOLEAN ) -> u32 );
-    CheckForHiberboot(::core::mem::transmute(phiberboot), bclearflag.into())
+    CheckForHiberboot(phiberboot, bclearflag.into())
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -143,7 +143,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn ShutdownBlockReasonQuery ( hwnd : super::super::Foundation:: HWND , pwszbuff : :: windows::core::PWSTR , pcchbuff : *mut u32 ) -> super::super::Foundation:: BOOL );
-    ShutdownBlockReasonQuery(hwnd.into(), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(pcchbuff))
+    ShutdownBlockReasonQuery(hwnd.into(), ::core::mem::transmute(pwszbuff), pcchbuff)
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 pub const MAX_NUM_REASONS: u32 = 256u32;

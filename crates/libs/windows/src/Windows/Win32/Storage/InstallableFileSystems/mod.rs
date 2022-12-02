@@ -76,7 +76,7 @@ where
 #[inline]
 pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut FilterFindHandle) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterFindFirst ( dwinformationclass : FILTER_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 , lpfilterfind : *mut FilterFindHandle ) -> :: windows::core::HRESULT );
-    FilterFindFirst(dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpfilterfind)).ok()
+    FilterFindFirst(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterfind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -86,7 +86,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterFindNext ( hfilterfind : super::super::Foundation:: HANDLE , dwinformationclass : FILTER_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterFindNext(hfilterfind.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned)).ok()
+    FilterFindNext(hfilterfind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -104,7 +104,7 @@ where
     P0: ::std::convert::Into<HFILTER>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterGetInformation ( hfilter : HFILTER , dwinformationclass : FILTER_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterGetInformation(hfilter.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned)).ok()
+    FilterGetInformation(hfilter.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -114,7 +114,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterGetMessage ( hport : super::super::Foundation:: HANDLE , lpmessagebuffer : *mut FILTER_MESSAGE_HEADER , dwmessagebuffersize : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> :: windows::core::HRESULT );
-    FilterGetMessage(hport.into(), ::core::mem::transmute(lpmessagebuffer), dwmessagebuffersize, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
+    FilterGetMessage(hport.into(), lpmessagebuffer, dwmessagebuffersize, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -154,7 +154,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterInstanceFindFirst ( lpfiltername : :: windows::core::PCWSTR , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 , lpfilterinstancefind : *mut FilterInstanceFindHandle ) -> :: windows::core::HRESULT );
-    FilterInstanceFindFirst(lpfiltername.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpfilterinstancefind)).ok()
+    FilterInstanceFindFirst(lpfiltername.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterinstancefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -164,7 +164,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterInstanceFindNext ( hfilterinstancefind : super::super::Foundation:: HANDLE , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterInstanceFindNext(hfilterinstancefind.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned)).ok()
+    FilterInstanceFindNext(hfilterinstancefind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -173,7 +173,7 @@ where
     P0: ::std::convert::Into<HFILTER_INSTANCE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterInstanceGetInformation ( hinstance : HFILTER_INSTANCE , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterInstanceGetInformation(hinstance.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned)).ok()
+    FilterInstanceGetInformation(hinstance.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -192,7 +192,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterReplyMessage ( hport : super::super::Foundation:: HANDLE , lpreplybuffer : *const FILTER_REPLY_HEADER , dwreplybuffersize : u32 ) -> :: windows::core::HRESULT );
-    FilterReplyMessage(hport.into(), ::core::mem::transmute(lpreplybuffer), dwreplybuffersize).ok()
+    FilterReplyMessage(hport.into(), lpreplybuffer, dwreplybuffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -202,7 +202,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterSendMessage ( hport : super::super::Foundation:: HANDLE , lpinbuffer : *const ::core::ffi::c_void , dwinbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , dwoutbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterSendMessage(hport.into(), ::core::mem::transmute(lpinbuffer), dwinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), dwoutbuffersize, ::core::mem::transmute(lpbytesreturned)).ok()
+    FilterSendMessage(hport.into(), lpinbuffer, dwinbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), dwoutbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[inline]
@@ -227,7 +227,7 @@ where
 #[inline]
 pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut FilterVolumeFindHandle) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterVolumeFindFirst ( dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 , lpvolumefind : *mut FilterVolumeFindHandle ) -> :: windows::core::HRESULT );
-    FilterVolumeFindFirst(dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpvolumefind)).ok()
+    FilterVolumeFindFirst(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -237,7 +237,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterVolumeFindNext ( hvolumefind : super::super::Foundation:: HANDLE , dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterVolumeFindNext(hvolumefind.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned)).ok()
+    FilterVolumeFindNext(hvolumefind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -256,7 +256,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterVolumeInstanceFindFirst ( lpvolumename : :: windows::core::PCWSTR , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 , lpvolumeinstancefind : *mut FilterVolumeInstanceFindHandle ) -> :: windows::core::HRESULT );
-    FilterVolumeInstanceFindFirst(lpvolumename.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpvolumeinstancefind)).ok()
+    FilterVolumeInstanceFindFirst(lpvolumename.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumeinstancefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -266,7 +266,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "fltlib.dll""system" fn FilterVolumeInstanceFindNext ( hvolumeinstancefind : super::super::Foundation:: HANDLE , dwinformationclass : INSTANCE_INFORMATION_CLASS , lpbuffer : *mut ::core::ffi::c_void , dwbuffersize : u32 , lpbytesreturned : *mut u32 ) -> :: windows::core::HRESULT );
-    FilterVolumeInstanceFindNext(hvolumeinstancefind.into(), dwinformationclass, ::core::mem::transmute(lpbuffer), dwbuffersize, ::core::mem::transmute(lpbytesreturned)).ok()
+    FilterVolumeInstanceFindNext(hvolumeinstancefind.into(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;

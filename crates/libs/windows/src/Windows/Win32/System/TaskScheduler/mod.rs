@@ -11,7 +11,7 @@ impl IAction {
         (::windows::core::Vtable::vtable(self).SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id)).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -60,7 +60,7 @@ pub struct IActionCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IActionCollection {
     pub unsafe fn Count(&self, pcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcount)).ok()
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), pcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -164,7 +164,7 @@ pub struct IBootTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBootTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -207,7 +207,7 @@ impl IBootTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -272,7 +272,7 @@ impl IComHandlerAction {
         (::windows::core::Vtable::vtable(self).base__.SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id)).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn ClassId(&self, pclsid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ClassId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pclsid)).ok()
@@ -334,7 +334,7 @@ pub struct IDailyTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDailyTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -377,7 +377,7 @@ impl IDailyTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -385,7 +385,7 @@ impl IDailyTrigger {
         (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
     }
     pub unsafe fn DaysInterval(&self, pdays: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DaysInterval)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdays)).ok()
+        (::windows::core::Vtable::vtable(self).DaysInterval)(::windows::core::Vtable::as_raw(self), pdays).ok()
     }
     pub unsafe fn SetDaysInterval(&self, days: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDaysInterval)(::windows::core::Vtable::as_raw(self), days).ok()
@@ -450,7 +450,7 @@ impl IEmailAction {
         (::windows::core::Vtable::vtable(self).base__.SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id)).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Server(&self, pserver: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Server)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pserver)).ok()
@@ -517,12 +517,12 @@ impl IEmailAction {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attachments(&self, pattachements: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Attachments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattachements)).ok()
+        (::windows::core::Vtable::vtable(self).Attachments)(::windows::core::Vtable::as_raw(self), pattachements).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAttachments(&self, pattachements: *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAttachments)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattachements)).ok()
+        (::windows::core::Vtable::vtable(self).SetAttachments)(::windows::core::Vtable::as_raw(self), pattachements).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -598,7 +598,7 @@ pub struct IEmailAction_Vtbl {
 pub struct IEnumWorkItems(::windows::core::IUnknown);
 impl IEnumWorkItems {
     pub unsafe fn Next(&self, celt: u32, rgpwsznames: *mut *mut ::windows::core::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(rgpwsznames), ::core::mem::transmute(pceltfetched))
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, rgpwsznames, pceltfetched)
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt)
@@ -650,7 +650,7 @@ pub struct IEventTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEventTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -693,7 +693,7 @@ impl IEventTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -788,7 +788,7 @@ impl IExecAction {
         (::windows::core::Vtable::vtable(self).base__.SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id)).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Path(&self, ppath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Path)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppath)).ok()
@@ -864,7 +864,7 @@ impl IExecAction2 {
         (::windows::core::Vtable::vtable(self).base__.base__.SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id)).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Path(&self, ppath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Path)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppath)).ok()
@@ -887,7 +887,7 @@ impl IExecAction2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HideAppWindow(&self, phideappwindow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HideAppWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phideappwindow)).ok()
+        (::windows::core::Vtable::vtable(self).HideAppWindow)(::windows::core::Vtable::as_raw(self), phideappwindow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -960,7 +960,7 @@ impl IIdleSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopOnIdleEnd(&self, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StopOnIdleEnd)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstop)).ok()
+        (::windows::core::Vtable::vtable(self).StopOnIdleEnd)(::windows::core::Vtable::as_raw(self), pstop).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -970,7 +970,7 @@ impl IIdleSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RestartOnIdle(&self, prestart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RestartOnIdle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prestart)).ok()
+        (::windows::core::Vtable::vtable(self).RestartOnIdle)(::windows::core::Vtable::as_raw(self), prestart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1041,7 +1041,7 @@ pub struct IIdleTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IIdleTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -1084,7 +1084,7 @@ impl IIdleTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1135,7 +1135,7 @@ pub struct ILogonTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ILogonTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -1178,7 +1178,7 @@ impl ILogonTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1264,7 +1264,7 @@ impl IMaintenanceSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Exclusive(&self, target: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Exclusive)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(target)).ok()
+        (::windows::core::Vtable::vtable(self).Exclusive)(::windows::core::Vtable::as_raw(self), target).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1322,7 +1322,7 @@ pub struct IMonthlyDOWTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMonthlyDOWTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -1365,7 +1365,7 @@ impl IMonthlyDOWTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1373,19 +1373,19 @@ impl IMonthlyDOWTrigger {
         (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
     }
     pub unsafe fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DaysOfWeek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdays)).ok()
+        (::windows::core::Vtable::vtable(self).DaysOfWeek)(::windows::core::Vtable::as_raw(self), pdays).ok()
     }
     pub unsafe fn SetDaysOfWeek(&self, days: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDaysOfWeek)(::windows::core::Vtable::as_raw(self), days).ok()
     }
     pub unsafe fn WeeksOfMonth(&self, pweeks: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WeeksOfMonth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pweeks)).ok()
+        (::windows::core::Vtable::vtable(self).WeeksOfMonth)(::windows::core::Vtable::as_raw(self), pweeks).ok()
     }
     pub unsafe fn SetWeeksOfMonth(&self, weeks: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWeeksOfMonth)(::windows::core::Vtable::as_raw(self), weeks).ok()
     }
     pub unsafe fn MonthsOfYear(&self, pmonths: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MonthsOfYear)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmonths)).ok()
+        (::windows::core::Vtable::vtable(self).MonthsOfYear)(::windows::core::Vtable::as_raw(self), pmonths).ok()
     }
     pub unsafe fn SetMonthsOfYear(&self, months: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMonthsOfYear)(::windows::core::Vtable::as_raw(self), months).ok()
@@ -1393,7 +1393,7 @@ impl IMonthlyDOWTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunOnLastWeekOfMonth(&self, plastweek: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RunOnLastWeekOfMonth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plastweek)).ok()
+        (::windows::core::Vtable::vtable(self).RunOnLastWeekOfMonth)(::windows::core::Vtable::as_raw(self), plastweek).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1466,7 +1466,7 @@ pub struct IMonthlyTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMonthlyTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -1509,7 +1509,7 @@ impl IMonthlyTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1517,13 +1517,13 @@ impl IMonthlyTrigger {
         (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
     }
     pub unsafe fn DaysOfMonth(&self, pdays: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DaysOfMonth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdays)).ok()
+        (::windows::core::Vtable::vtable(self).DaysOfMonth)(::windows::core::Vtable::as_raw(self), pdays).ok()
     }
     pub unsafe fn SetDaysOfMonth(&self, days: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDaysOfMonth)(::windows::core::Vtable::as_raw(self), days).ok()
     }
     pub unsafe fn MonthsOfYear(&self, pmonths: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MonthsOfYear)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmonths)).ok()
+        (::windows::core::Vtable::vtable(self).MonthsOfYear)(::windows::core::Vtable::as_raw(self), pmonths).ok()
     }
     pub unsafe fn SetMonthsOfYear(&self, months: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMonthsOfYear)(::windows::core::Vtable::as_raw(self), months).ok()
@@ -1531,7 +1531,7 @@ impl IMonthlyTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunOnLastDayOfMonth(&self, plastday: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RunOnLastDayOfMonth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plastday)).ok()
+        (::windows::core::Vtable::vtable(self).RunOnLastDayOfMonth)(::windows::core::Vtable::as_raw(self), plastday).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1679,7 +1679,7 @@ impl IPrincipal {
         (::windows::core::Vtable::vtable(self).SetUserId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(user)).ok()
     }
     pub unsafe fn LogonType(&self, plogon: *mut TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LogonType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plogon)).ok()
+        (::windows::core::Vtable::vtable(self).LogonType)(::windows::core::Vtable::as_raw(self), plogon).ok()
     }
     pub unsafe fn SetLogonType(&self, logon: TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLogonType)(::windows::core::Vtable::as_raw(self), logon).ok()
@@ -1691,7 +1691,7 @@ impl IPrincipal {
         (::windows::core::Vtable::vtable(self).SetGroupId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(group)).ok()
     }
     pub unsafe fn RunLevel(&self, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RunLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prunlevel)).ok()
+        (::windows::core::Vtable::vtable(self).RunLevel)(::windows::core::Vtable::as_raw(self), prunlevel).ok()
     }
     pub unsafe fn SetRunLevel(&self, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRunLevel)(::windows::core::Vtable::as_raw(self), runlevel).ok()
@@ -1752,13 +1752,13 @@ pub struct IPrincipal2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrincipal2 {
     pub unsafe fn ProcessTokenSidType(&self, pprocesstokensidtype: *mut TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ProcessTokenSidType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprocesstokensidtype)).ok()
+        (::windows::core::Vtable::vtable(self).ProcessTokenSidType)(::windows::core::Vtable::as_raw(self), pprocesstokensidtype).ok()
     }
     pub unsafe fn SetProcessTokenSidType(&self, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProcessTokenSidType)(::windows::core::Vtable::as_raw(self), processtokensidtype).ok()
     }
     pub unsafe fn RequiredPrivilegeCount(&self, pcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RequiredPrivilegeCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcount)).ok()
+        (::windows::core::Vtable::vtable(self).RequiredPrivilegeCount)(::windows::core::Vtable::as_raw(self), pcount).ok()
     }
     pub unsafe fn get_RequiredPrivilege(&self, index: i32, pprivilege: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).get_RequiredPrivilege)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(pprivilege)).ok()
@@ -1946,7 +1946,7 @@ impl IRegisteredTask {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunTimes(&self, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRunTimes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pststart), ::core::mem::transmute(pstend), ::core::mem::transmute(pcount), ::core::mem::transmute(pruntimes)).ok()
+        (::windows::core::Vtable::vtable(self).GetRunTimes)(::windows::core::Vtable::as_raw(self), pststart, pstend, pcount, pruntimes).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2225,7 +2225,7 @@ pub struct IRegistrationTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRegistrationTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -2268,7 +2268,7 @@ impl IRegistrationTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2341,7 +2341,7 @@ impl IRepetitionPattern {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopAtDurationEnd(&self, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StopAtDurationEnd)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstop)).ok()
+        (::windows::core::Vtable::vtable(self).StopAtDurationEnd)(::windows::core::Vtable::as_raw(self), pstop).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2549,7 +2549,7 @@ pub struct IRunningTaskCollection_Vtbl {
 pub struct IScheduledWorkItem(::windows::core::IUnknown);
 impl IScheduledWorkItem {
     pub unsafe fn CreateTrigger(&self, pinewtrigger: *mut u16, pptrigger: *mut ::core::option::Option<ITaskTrigger>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateTrigger)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinewtrigger), ::core::mem::transmute(pptrigger)).ok()
+        (::windows::core::Vtable::vtable(self).CreateTrigger)(::windows::core::Vtable::as_raw(self), pinewtrigger, ::core::mem::transmute(pptrigger)).ok()
     }
     pub unsafe fn DeleteTrigger(&self, itrigger: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteTrigger)(::windows::core::Vtable::as_raw(self), itrigger).ok()
@@ -2569,18 +2569,18 @@ impl IScheduledWorkItem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunTimes(&self, pstbegin: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRunTimes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstbegin), ::core::mem::transmute(pstend), ::core::mem::transmute(pcount), ::core::mem::transmute(rgsttasktimes)).ok()
+        (::windows::core::Vtable::vtable(self).GetRunTimes)(::windows::core::Vtable::as_raw(self), pstbegin, pstend, pcount, rgsttasktimes).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextRunTime(&self, pstnextrun: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextRunTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstnextrun)).ok()
+        (::windows::core::Vtable::vtable(self).GetNextRunTime)(::windows::core::Vtable::as_raw(self), pstnextrun).ok()
     }
     pub unsafe fn SetIdleWait(&self, widleminutes: u16, wdeadlineminutes: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetIdleWait)(::windows::core::Vtable::as_raw(self), widleminutes, wdeadlineminutes).ok()
     }
     pub unsafe fn GetIdleWait(&self, pwidleminutes: *mut u16, pwdeadlineminutes: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetIdleWait)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidleminutes), ::core::mem::transmute(pwdeadlineminutes)).ok()
+        (::windows::core::Vtable::vtable(self).GetIdleWait)(::windows::core::Vtable::as_raw(self), pwidleminutes, pwdeadlineminutes).ok()
     }
     pub unsafe fn Run(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Run)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2631,10 +2631,10 @@ impl IScheduledWorkItem {
         (::windows::core::Vtable::vtable(self).GetCreator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetWorkItemData(&self, cbdata: u16, rgbdata: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWorkItemData)(::windows::core::Vtable::as_raw(self), cbdata, ::core::mem::transmute(rgbdata)).ok()
+        (::windows::core::Vtable::vtable(self).SetWorkItemData)(::windows::core::Vtable::as_raw(self), cbdata, rgbdata).ok()
     }
     pub unsafe fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetWorkItemData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcbdata), ::core::mem::transmute(prgbdata)).ok()
+        (::windows::core::Vtable::vtable(self).GetWorkItemData)(::windows::core::Vtable::as_raw(self), pcbdata, prgbdata).ok()
     }
     pub unsafe fn SetErrorRetryCount(&self, wretrycount: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetErrorRetryCount)(::windows::core::Vtable::as_raw(self), wretrycount).ok()
@@ -2745,7 +2745,7 @@ pub struct ISessionStateChangeTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISessionStateChangeTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -2788,7 +2788,7 @@ impl ISessionStateChangeTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2808,7 +2808,7 @@ impl ISessionStateChangeTrigger {
         (::windows::core::Vtable::vtable(self).SetUserId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(user)).ok()
     }
     pub unsafe fn StateChange(&self, ptype: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StateChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).StateChange)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn SetStateChange(&self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetStateChange)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -2869,7 +2869,7 @@ impl IShowMessageAction {
         (::windows::core::Vtable::vtable(self).base__.SetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(id)).ok()
     }
     pub unsafe fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Title(&self, ptitle: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Title)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptitle)).ok()
@@ -2929,7 +2929,7 @@ pub struct IShowMessageAction_Vtbl {
 pub struct ITask(::windows::core::IUnknown);
 impl ITask {
     pub unsafe fn CreateTrigger(&self, pinewtrigger: *mut u16, pptrigger: *mut ::core::option::Option<ITaskTrigger>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CreateTrigger)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinewtrigger), ::core::mem::transmute(pptrigger)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CreateTrigger)(::windows::core::Vtable::as_raw(self), pinewtrigger, ::core::mem::transmute(pptrigger)).ok()
     }
     pub unsafe fn DeleteTrigger(&self, itrigger: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteTrigger)(::windows::core::Vtable::as_raw(self), itrigger).ok()
@@ -2949,18 +2949,18 @@ impl ITask {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunTimes(&self, pstbegin: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetRunTimes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstbegin), ::core::mem::transmute(pstend), ::core::mem::transmute(pcount), ::core::mem::transmute(rgsttasktimes)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetRunTimes)(::windows::core::Vtable::as_raw(self), pstbegin, pstend, pcount, rgsttasktimes).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextRunTime(&self, pstnextrun: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetNextRunTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstnextrun)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetNextRunTime)(::windows::core::Vtable::as_raw(self), pstnextrun).ok()
     }
     pub unsafe fn SetIdleWait(&self, widleminutes: u16, wdeadlineminutes: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetIdleWait)(::windows::core::Vtable::as_raw(self), widleminutes, wdeadlineminutes).ok()
     }
     pub unsafe fn GetIdleWait(&self, pwidleminutes: *mut u16, pwdeadlineminutes: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetIdleWait)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidleminutes), ::core::mem::transmute(pwdeadlineminutes)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetIdleWait)(::windows::core::Vtable::as_raw(self), pwidleminutes, pwdeadlineminutes).ok()
     }
     pub unsafe fn Run(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Run)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3011,10 +3011,10 @@ impl ITask {
         (::windows::core::Vtable::vtable(self).base__.GetCreator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetWorkItemData(&self, cbdata: u16, rgbdata: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetWorkItemData)(::windows::core::Vtable::as_raw(self), cbdata, ::core::mem::transmute(rgbdata)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetWorkItemData)(::windows::core::Vtable::as_raw(self), cbdata, rgbdata).ok()
     }
     pub unsafe fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetWorkItemData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcbdata), ::core::mem::transmute(prgbdata)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetWorkItemData)(::windows::core::Vtable::as_raw(self), pcbdata, prgbdata).ok()
     }
     pub unsafe fn SetErrorRetryCount(&self, wretrycount: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetErrorRetryCount)(::windows::core::Vtable::as_raw(self), wretrycount).ok()
@@ -3630,7 +3630,7 @@ pub struct ITaskNamedValueCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskNamedValueCollection {
     pub unsafe fn Count(&self, pcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcount)).ok()
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), pcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3785,7 +3785,7 @@ impl ITaskScheduler {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), pwszname.into(), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), pwszname.into(), riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Delete<'a, P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
     where
@@ -3798,7 +3798,7 @@ impl ITaskScheduler {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NewWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into(), ::core::mem::transmute(rclsid), ::core::mem::transmute(riid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).NewWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into(), rclsid, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddWorkItem<'a, P0, P1>(&self, pwsztaskname: P0, pworkitem: P1) -> ::windows::core::Result<()>
     where
@@ -3811,7 +3811,7 @@ impl ITaskScheduler {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).IsOfType)(::windows::core::Vtable::as_raw(self), pwszname.into(), ::core::mem::transmute(riid)).ok()
+        (::windows::core::Vtable::vtable(self).IsOfType)(::windows::core::Vtable::as_raw(self), pwszname.into(), riid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITaskScheduler, ::windows::core::IUnknown);
@@ -3977,7 +3977,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowDemandStart(&self, pallowdemandstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AllowDemandStart)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pallowdemandstart)).ok()
+        (::windows::core::Vtable::vtable(self).AllowDemandStart)(::windows::core::Vtable::as_raw(self), pallowdemandstart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3991,13 +3991,13 @@ impl ITaskSettings {
         (::windows::core::Vtable::vtable(self).SetRestartInterval)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(restartinterval)).ok()
     }
     pub unsafe fn RestartCount(&self, prestartcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RestartCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prestartcount)).ok()
+        (::windows::core::Vtable::vtable(self).RestartCount)(::windows::core::Vtable::as_raw(self), prestartcount).ok()
     }
     pub unsafe fn SetRestartCount(&self, restartcount: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRestartCount)(::windows::core::Vtable::as_raw(self), restartcount).ok()
     }
     pub unsafe fn MultipleInstances(&self, ppolicy: *mut TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MultipleInstances)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppolicy)).ok()
+        (::windows::core::Vtable::vtable(self).MultipleInstances)(::windows::core::Vtable::as_raw(self), ppolicy).ok()
     }
     pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMultipleInstances)(::windows::core::Vtable::as_raw(self), policy).ok()
@@ -4005,7 +4005,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StopIfGoingOnBatteries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstopifonbatteries)).ok()
+        (::windows::core::Vtable::vtable(self).StopIfGoingOnBatteries)(::windows::core::Vtable::as_raw(self), pstopifonbatteries).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4015,7 +4015,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisallowStartIfOnBatteries(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisallowStartIfOnBatteries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdisallowstart)).ok()
+        (::windows::core::Vtable::vtable(self).DisallowStartIfOnBatteries)(::windows::core::Vtable::as_raw(self), pdisallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4025,7 +4025,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowHardTerminate(&self, pallowhardterminate: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AllowHardTerminate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pallowhardterminate)).ok()
+        (::windows::core::Vtable::vtable(self).AllowHardTerminate)(::windows::core::Vtable::as_raw(self), pallowhardterminate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4035,7 +4035,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartWhenAvailable(&self, pstartwhenavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartWhenAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstartwhenavailable)).ok()
+        (::windows::core::Vtable::vtable(self).StartWhenAvailable)(::windows::core::Vtable::as_raw(self), pstartwhenavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4051,7 +4051,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunOnlyIfNetworkAvailable(&self, prunonlyifnetworkavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RunOnlyIfNetworkAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prunonlyifnetworkavailable)).ok()
+        (::windows::core::Vtable::vtable(self).RunOnlyIfNetworkAvailable)(::windows::core::Vtable::as_raw(self), prunonlyifnetworkavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4067,7 +4067,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4081,13 +4081,13 @@ impl ITaskSettings {
         (::windows::core::Vtable::vtable(self).SetDeleteExpiredTaskAfter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(expirationdelay)).ok()
     }
     pub unsafe fn Priority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Priority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppriority)).ok()
+        (::windows::core::Vtable::vtable(self).Priority)(::windows::core::Vtable::as_raw(self), ppriority).ok()
     }
     pub unsafe fn SetPriority(&self, priority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPriority)(::windows::core::Vtable::as_raw(self), priority).ok()
     }
     pub unsafe fn Compatibility(&self, pcompatlevel: *mut TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Compatibility)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcompatlevel)).ok()
+        (::windows::core::Vtable::vtable(self).Compatibility)(::windows::core::Vtable::as_raw(self), pcompatlevel).ok()
     }
     pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCompatibility)(::windows::core::Vtable::as_raw(self), compatlevel).ok()
@@ -4095,7 +4095,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Hidden(&self, phidden: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Hidden)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phidden)).ok()
+        (::windows::core::Vtable::vtable(self).Hidden)(::windows::core::Vtable::as_raw(self), phidden).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4119,7 +4119,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunOnlyIfIdle(&self, prunonlyifidle: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RunOnlyIfIdle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prunonlyifidle)).ok()
+        (::windows::core::Vtable::vtable(self).RunOnlyIfIdle)(::windows::core::Vtable::as_raw(self), prunonlyifidle).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4129,7 +4129,7 @@ impl ITaskSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WakeToRun(&self, pwake: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WakeToRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwake)).ok()
+        (::windows::core::Vtable::vtable(self).WakeToRun)(::windows::core::Vtable::as_raw(self), pwake).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4308,7 +4308,7 @@ impl ITaskSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisallowStartOnRemoteAppSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdisallowstart)).ok()
+        (::windows::core::Vtable::vtable(self).DisallowStartOnRemoteAppSession)(::windows::core::Vtable::as_raw(self), pdisallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4318,7 +4318,7 @@ impl ITaskSettings2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UseUnifiedSchedulingEngine)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puseunifiedengine)).ok()
+        (::windows::core::Vtable::vtable(self).UseUnifiedSchedulingEngine)(::windows::core::Vtable::as_raw(self), puseunifiedengine).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4387,7 +4387,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowDemandStart(&self, pallowdemandstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.AllowDemandStart)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pallowdemandstart)).ok()
+        (::windows::core::Vtable::vtable(self).base__.AllowDemandStart)(::windows::core::Vtable::as_raw(self), pallowdemandstart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4401,13 +4401,13 @@ impl ITaskSettings3 {
         (::windows::core::Vtable::vtable(self).base__.SetRestartInterval)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(restartinterval)).ok()
     }
     pub unsafe fn RestartCount(&self, prestartcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RestartCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prestartcount)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RestartCount)(::windows::core::Vtable::as_raw(self), prestartcount).ok()
     }
     pub unsafe fn SetRestartCount(&self, restartcount: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetRestartCount)(::windows::core::Vtable::as_raw(self), restartcount).ok()
     }
     pub unsafe fn MultipleInstances(&self, ppolicy: *mut TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.MultipleInstances)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppolicy)).ok()
+        (::windows::core::Vtable::vtable(self).base__.MultipleInstances)(::windows::core::Vtable::as_raw(self), ppolicy).ok()
     }
     pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetMultipleInstances)(::windows::core::Vtable::as_raw(self), policy).ok()
@@ -4415,7 +4415,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.StopIfGoingOnBatteries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstopifonbatteries)).ok()
+        (::windows::core::Vtable::vtable(self).base__.StopIfGoingOnBatteries)(::windows::core::Vtable::as_raw(self), pstopifonbatteries).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4425,7 +4425,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisallowStartIfOnBatteries(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.DisallowStartIfOnBatteries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdisallowstart)).ok()
+        (::windows::core::Vtable::vtable(self).base__.DisallowStartIfOnBatteries)(::windows::core::Vtable::as_raw(self), pdisallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4435,7 +4435,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowHardTerminate(&self, pallowhardterminate: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.AllowHardTerminate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pallowhardterminate)).ok()
+        (::windows::core::Vtable::vtable(self).base__.AllowHardTerminate)(::windows::core::Vtable::as_raw(self), pallowhardterminate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4445,7 +4445,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartWhenAvailable(&self, pstartwhenavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.StartWhenAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstartwhenavailable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.StartWhenAvailable)(::windows::core::Vtable::as_raw(self), pstartwhenavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4461,7 +4461,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunOnlyIfNetworkAvailable(&self, prunonlyifnetworkavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RunOnlyIfNetworkAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prunonlyifnetworkavailable)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RunOnlyIfNetworkAvailable)(::windows::core::Vtable::as_raw(self), prunonlyifnetworkavailable).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4477,7 +4477,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4491,13 +4491,13 @@ impl ITaskSettings3 {
         (::windows::core::Vtable::vtable(self).base__.SetDeleteExpiredTaskAfter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(expirationdelay)).ok()
     }
     pub unsafe fn Priority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Priority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppriority)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Priority)(::windows::core::Vtable::as_raw(self), ppriority).ok()
     }
     pub unsafe fn SetPriority(&self, priority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPriority)(::windows::core::Vtable::as_raw(self), priority).ok()
     }
     pub unsafe fn Compatibility(&self, pcompatlevel: *mut TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Compatibility)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcompatlevel)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Compatibility)(::windows::core::Vtable::as_raw(self), pcompatlevel).ok()
     }
     pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetCompatibility)(::windows::core::Vtable::as_raw(self), compatlevel).ok()
@@ -4505,7 +4505,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Hidden(&self, phidden: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Hidden)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phidden)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Hidden)(::windows::core::Vtable::as_raw(self), phidden).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4529,7 +4529,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunOnlyIfIdle(&self, prunonlyifidle: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RunOnlyIfIdle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prunonlyifidle)).ok()
+        (::windows::core::Vtable::vtable(self).base__.RunOnlyIfIdle)(::windows::core::Vtable::as_raw(self), prunonlyifidle).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4539,7 +4539,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WakeToRun(&self, pwake: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.WakeToRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwake)).ok()
+        (::windows::core::Vtable::vtable(self).base__.WakeToRun)(::windows::core::Vtable::as_raw(self), pwake).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4563,7 +4563,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisallowStartOnRemoteAppSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdisallowstart)).ok()
+        (::windows::core::Vtable::vtable(self).DisallowStartOnRemoteAppSession)(::windows::core::Vtable::as_raw(self), pdisallowstart).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4573,7 +4573,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UseUnifiedSchedulingEngine)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puseunifiedengine)).ok()
+        (::windows::core::Vtable::vtable(self).UseUnifiedSchedulingEngine)(::windows::core::Vtable::as_raw(self), puseunifiedengine).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4603,7 +4603,7 @@ impl ITaskSettings3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Volatile(&self, pvolatile: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Volatile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvolatile)).ok()
+        (::windows::core::Vtable::vtable(self).Volatile)(::windows::core::Vtable::as_raw(self), pvolatile).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4688,7 +4688,7 @@ pub struct ITaskSettings3_Vtbl {
 pub struct ITaskTrigger(::windows::core::IUnknown);
 impl ITaskTrigger {
     pub unsafe fn SetTrigger(&self, ptrigger: *const TASK_TRIGGER) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTrigger)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptrigger)).ok()
+        (::windows::core::Vtable::vtable(self).SetTrigger)(::windows::core::Vtable::as_raw(self), ptrigger).ok()
     }
     pub unsafe fn GetTrigger(&self) -> ::windows::core::Result<TASK_TRIGGER> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4784,7 +4784,7 @@ pub struct ITimeTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITimeTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -4827,7 +4827,7 @@ impl ITimeTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4886,7 +4886,7 @@ pub struct ITrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -4929,7 +4929,7 @@ impl ITrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5005,7 +5005,7 @@ pub struct ITriggerCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITriggerCollection {
     pub unsafe fn Count(&self, pcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcount)).ok()
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), pcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5093,7 +5093,7 @@ pub struct IWeeklyTrigger(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWeeklyTrigger {
     pub unsafe fn Type(&self, ptype: *mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Type)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn Id(&self, pid: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Id)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid)).ok()
@@ -5136,7 +5136,7 @@ impl IWeeklyTrigger {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Enabled)(::windows::core::Vtable::as_raw(self), penabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5144,13 +5144,13 @@ impl IWeeklyTrigger {
         (::windows::core::Vtable::vtable(self).base__.SetEnabled)(::windows::core::Vtable::as_raw(self), enabled).ok()
     }
     pub unsafe fn DaysOfWeek(&self, pdays: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DaysOfWeek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdays)).ok()
+        (::windows::core::Vtable::vtable(self).DaysOfWeek)(::windows::core::Vtable::as_raw(self), pdays).ok()
     }
     pub unsafe fn SetDaysOfWeek(&self, days: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDaysOfWeek)(::windows::core::Vtable::as_raw(self), days).ok()
     }
     pub unsafe fn WeeksInterval(&self, pweeks: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WeeksInterval)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pweeks)).ok()
+        (::windows::core::Vtable::vtable(self).WeeksInterval)(::windows::core::Vtable::as_raw(self), pweeks).ok()
     }
     pub unsafe fn SetWeeksInterval(&self, weeks: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWeeksInterval)(::windows::core::Vtable::as_raw(self), weeks).ok()

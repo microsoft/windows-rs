@@ -8,7 +8,7 @@ where
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DCompile ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , psourcename : :: windows::core::PCSTR , pdefines : *const super:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , pentrypoint : :: windows::core::PCSTR , ptarget : :: windows::core::PCSTR , flags1 : u32 , flags2 : u32 , ppcode : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3DCompile(::core::mem::transmute(psrcdata), srcdatasize, psourcename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), pentrypoint.into(), ptarget.into(), flags1, flags2, ::core::mem::transmute(ppcode), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3DCompile(psrcdata, srcdatasize, psourcename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), pentrypoint.into(), ptarget.into(), flags1, flags2, ::core::mem::transmute(ppcode), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
@@ -20,7 +20,7 @@ where
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DCompile2 ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , psourcename : :: windows::core::PCSTR , pdefines : *const super:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , pentrypoint : :: windows::core::PCSTR , ptarget : :: windows::core::PCSTR , flags1 : u32 , flags2 : u32 , secondarydataflags : u32 , psecondarydata : *const ::core::ffi::c_void , secondarydatasize : usize , ppcode : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3DCompile2(::core::mem::transmute(psrcdata), srcdatasize, psourcename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), pentrypoint.into(), ptarget.into(), flags1, flags2, secondarydataflags, ::core::mem::transmute(psecondarydata.unwrap_or(::std::ptr::null())), secondarydatasize, ::core::mem::transmute(ppcode), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3DCompile2(psrcdata, srcdatasize, psourcename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), pentrypoint.into(), ptarget.into(), flags1, flags2, secondarydataflags, ::core::mem::transmute(psecondarydata.unwrap_or(::std::ptr::null())), secondarydatasize, ::core::mem::transmute(ppcode), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
@@ -68,7 +68,7 @@ pub unsafe fn D3DCreateLinker() -> ::windows::core::Result<super::super::Direct3
 #[inline]
 pub unsafe fn D3DDecompressShaders(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: ::core::option::Option<*const u32>, uflags: u32, ppshaders: *mut ::core::option::Option<super::ID3DBlob>, ptotalshaders: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DDecompressShaders ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , unumshaders : u32 , ustartindex : u32 , pindices : *const u32 , uflags : u32 , ppshaders : *mut * mut::core::ffi::c_void , ptotalshaders : *mut u32 ) -> :: windows::core::HRESULT );
-    D3DDecompressShaders(::core::mem::transmute(psrcdata), srcdatasize, unumshaders, ustartindex, ::core::mem::transmute(pindices.unwrap_or(::std::ptr::null())), uflags, ::core::mem::transmute(ppshaders), ::core::mem::transmute(ptotalshaders.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3DDecompressShaders(psrcdata, srcdatasize, unumshaders, ustartindex, ::core::mem::transmute(pindices.unwrap_or(::std::ptr::null())), uflags, ::core::mem::transmute(ppshaders), ::core::mem::transmute(ptotalshaders.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
@@ -78,7 +78,7 @@ where
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassemble ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , flags : u32 , szcomments : :: windows::core::PCSTR , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DDisassemble(::core::mem::transmute(psrcdata), srcdatasize, flags, szcomments.into(), result__.as_mut_ptr()).from_abi(result__)
+    D3DDisassemble(psrcdata, srcdatasize, flags, szcomments.into(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`, `\"Win32_Graphics_Direct3D10\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D10")]
@@ -98,48 +98,48 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DDisassembleRegion ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , flags : u32 , szcomments : :: windows::core::PCSTR , startbyteoffset : usize , numinsts : usize , pfinishbyteoffset : *mut usize , ppdisassembly : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3DDisassembleRegion(::core::mem::transmute(psrcdata), srcdatasize, flags, szcomments.into(), startbyteoffset, numinsts, ::core::mem::transmute(pfinishbyteoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdisassembly)).ok()
+    D3DDisassembleRegion(psrcdata, srcdatasize, flags, szcomments.into(), startbyteoffset, numinsts, ::core::mem::transmute(pfinishbyteoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdisassembly)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DGetBlobPart ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , part : D3D_BLOB_PART , flags : u32 , pppart : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DGetBlobPart(::core::mem::transmute(psrcdata), srcdatasize, part, flags, result__.as_mut_ptr()).from_abi(result__)
+    D3DGetBlobPart(psrcdata, srcdatasize, part, flags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DGetDebugInfo ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ppdebuginfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DGetDebugInfo(::core::mem::transmute(psrcdata), srcdatasize, result__.as_mut_ptr()).from_abi(result__)
+    D3DGetDebugInfo(psrcdata, srcdatasize, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DGetInputAndOutputSignatureBlob ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DGetInputAndOutputSignatureBlob(::core::mem::transmute(psrcdata), srcdatasize, result__.as_mut_ptr()).from_abi(result__)
+    D3DGetInputAndOutputSignatureBlob(psrcdata, srcdatasize, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DGetInputSignatureBlob ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DGetInputSignatureBlob(::core::mem::transmute(psrcdata), srcdatasize, result__.as_mut_ptr()).from_abi(result__)
+    D3DGetInputSignatureBlob(psrcdata, srcdatasize, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DGetOutputSignatureBlob ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ppsignatureblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DGetOutputSignatureBlob(::core::mem::transmute(psrcdata), srcdatasize, result__.as_mut_ptr()).from_abi(result__)
+    D3DGetOutputSignatureBlob(psrcdata, srcdatasize, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: ::core::option::Option<&mut [usize]>, ptotalinsts: ::core::option::Option<*mut usize>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DGetTraceInstructionOffsets ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , flags : u32 , startinstindex : usize , numinsts : usize , poffsets : *mut usize , ptotalinsts : *mut usize ) -> :: windows::core::HRESULT );
-    D3DGetTraceInstructionOffsets(::core::mem::transmute(psrcdata), srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ptotalinsts.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ptotalinsts.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`, `\"Win32_Graphics_Direct3D11\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
@@ -147,7 +147,7 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void
 pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize) -> ::windows::core::Result<super::super::Direct3D11::ID3D11Module> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DLoadModule ( psrcdata : *const ::core::ffi::c_void , cbsrcdatasize : usize , ppmodule : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DLoadModule(::core::mem::transmute(psrcdata), cbsrcdatasize, result__.as_mut_ptr()).from_abi(result__)
+    D3DLoadModule(psrcdata, cbsrcdatasize, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
@@ -157,7 +157,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::ID3DInclude>>,
 {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DPreprocess ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , psourcename : :: windows::core::PCSTR , pdefines : *const super:: D3D_SHADER_MACRO , pinclude : * mut::core::ffi::c_void , ppcodetext : *mut * mut::core::ffi::c_void , pperrormsgs : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3DPreprocess(::core::mem::transmute(psrcdata), srcdatasize, psourcename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), ::core::mem::transmute(ppcodetext), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
+    D3DPreprocess(psrcdata, srcdatasize, psourcename.into(), ::core::mem::transmute(pdefines.unwrap_or(::std::ptr::null())), pinclude.into().abi(), ::core::mem::transmute(ppcodetext), ::core::mem::transmute(pperrormsgs.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
@@ -173,27 +173,27 @@ where
 #[inline]
 pub unsafe fn D3DReflect(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pinterface: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DReflect ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , pinterface : *const :: windows::core::GUID , ppreflector : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3DReflect(::core::mem::transmute(psrcdata), srcdatasize, ::core::mem::transmute(pinterface), ::core::mem::transmute(ppreflector)).ok()
+    D3DReflect(psrcdata, srcdatasize, pinterface, ppreflector).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, riid: *const ::windows::core::GUID, ppreflector: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DReflectLibrary ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , riid : *const :: windows::core::GUID , ppreflector : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    D3DReflectLibrary(::core::mem::transmute(psrcdata), srcdatasize, ::core::mem::transmute(riid), ::core::mem::transmute(ppreflector)).ok()
+    D3DReflectLibrary(psrcdata, srcdatasize, riid, ppreflector).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DSetBlobPart ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , part : D3D_BLOB_PART , flags : u32 , ppart : *const ::core::ffi::c_void , partsize : usize , ppnewshader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DSetBlobPart(::core::mem::transmute(psrcdata), srcdatasize, part, flags, ::core::mem::transmute(ppart), partsize, result__.as_mut_ptr()).from_abi(result__)
+    D3DSetBlobPart(psrcdata, srcdatasize, part, flags, ppart, partsize, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
 pub unsafe fn D3DStripShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     ::windows::core::link ! ( "d3dcompiler_47.dll""system" fn D3DStripShader ( pshaderbytecode : *const ::core::ffi::c_void , bytecodelength : usize , ustripflags : u32 , ppstrippedblob : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    D3DStripShader(::core::mem::transmute(pshaderbytecode), bytecodelength, ustripflags, result__.as_mut_ptr()).from_abi(result__)
+    D3DStripShader(pshaderbytecode, bytecodelength, ustripflags, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

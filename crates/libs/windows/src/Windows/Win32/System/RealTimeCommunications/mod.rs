@@ -5,12 +5,12 @@ impl INetworkTransportSettings {
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ApplySetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(settingid), valuein.len() as _, ::core::mem::transmute(valuein.as_ptr()), ::core::mem::transmute(lengthout), ::core::mem::transmute(valueout)).ok()
+        (::windows::core::Vtable::vtable(self).ApplySetting)(::windows::core::Vtable::as_raw(self), settingid, valuein.len() as _, ::core::mem::transmute(valuein.as_ptr()), lengthout, valueout).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(settingid), valuein.len() as _, ::core::mem::transmute(valuein.as_ptr()), ::core::mem::transmute(lengthout), ::core::mem::transmute(valueout)).ok()
+        (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), settingid, valuein.len() as _, ::core::mem::transmute(valuein.as_ptr()), lengthout, valueout).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetworkTransportSettings, ::windows::core::IUnknown);
@@ -1155,7 +1155,7 @@ impl IRTCClientPortManagement {
         (::windows::core::Vtable::vtable(self).StopListenAddressAndPort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport).ok()
     }
     pub unsafe fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPortRange)(::windows::core::Vtable::as_raw(self), enporttype, ::core::mem::transmute(plminvalue), ::core::mem::transmute(plmaxvalue)).ok()
+        (::windows::core::Vtable::vtable(self).GetPortRange)(::windows::core::Vtable::as_raw(self), enporttype, plminvalue, plmaxvalue).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRTCClientPortManagement, ::windows::core::IUnknown);
@@ -1523,7 +1523,7 @@ impl IRTCClientPresence2 {
         (::windows::core::Vtable::vtable(self).GetPresenceData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrnamespace), ::core::mem::transmute(pbstrdata)).ok()
     }
     pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLocalPresenceInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penstatus), ::core::mem::transmute(pbstrnotes)).ok()
+        (::windows::core::Vtable::vtable(self).GetLocalPresenceInfo)(::windows::core::Vtable::as_raw(self), penstatus, ::core::mem::transmute(pbstrnotes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2698,7 +2698,7 @@ pub struct IRTCParticipantStateChangeEvent_Vtbl {
 pub struct IRTCPortManager(::windows::core::IUnknown);
 impl IRTCPortManager {
     pub unsafe fn GetMapping(&self, bstrremoteaddress: &::windows::core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut ::windows::core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut ::windows::core::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrremoteaddress), enporttype, ::core::mem::transmute(pbstrinternallocaladdress), ::core::mem::transmute(plinternallocalport), ::core::mem::transmute(pbstrexternallocaladdress), ::core::mem::transmute(plexternallocalport)).ok()
+        (::windows::core::Vtable::vtable(self).GetMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrremoteaddress), enporttype, ::core::mem::transmute(pbstrinternallocaladdress), plinternallocalport, ::core::mem::transmute(pbstrexternallocaladdress), plexternallocalport).ok()
     }
     pub unsafe fn UpdateRemoteAddress(&self, bstrremoteaddress: &::windows::core::BSTR, bstrinternallocaladdress: &::windows::core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &::windows::core::BSTR, lexternallocalport: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateRemoteAddress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrremoteaddress), ::core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport, ::core::mem::transmute_copy(bstrexternallocaladdress), lexternallocalport).ok()
@@ -3004,7 +3004,7 @@ impl IRTCPresenceStatusEvent {
         (::windows::core::Vtable::vtable(self).StatusText)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLocalPresenceInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(penstatus), ::core::mem::transmute(pbstrnotes)).ok()
+        (::windows::core::Vtable::vtable(self).GetLocalPresenceInfo)(::windows::core::Vtable::as_raw(self), penstatus, ::core::mem::transmute(pbstrnotes)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3973,7 +3973,7 @@ impl IRTCSessionDescriptionManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EvaluateSessionDescription(&self, bstrcontenttype: &::windows::core::BSTR, bstrsessiondescription: &::windows::core::BSTR, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EvaluateSessionDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcontenttype), ::core::mem::transmute_copy(bstrsessiondescription), ::core::mem::transmute(pfapplicationsession)).ok()
+        (::windows::core::Vtable::vtable(self).EvaluateSessionDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrcontenttype), ::core::mem::transmute_copy(bstrsessiondescription), pfapplicationsession).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRTCSessionDescriptionManager, ::windows::core::IUnknown);
@@ -4968,12 +4968,12 @@ impl ITransportSettingsInternal {
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ApplySetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(setting)).ok()
+        (::windows::core::Vtable::vtable(self).ApplySetting)(::windows::core::Vtable::as_raw(self), setting).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(setting)).ok()
+        (::windows::core::Vtable::vtable(self).QuerySetting)(::windows::core::Vtable::as_raw(self), setting).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITransportSettingsInternal, ::windows::core::IUnknown);

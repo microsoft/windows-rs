@@ -7,7 +7,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "query.dll""system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    BindIFilterFromStorage(pstg.into().abi(), punkouter.into().abi(), ::core::mem::transmute(ppiunk)).ok()
+    BindIFilterFromStorage(pstg.into().abi(), punkouter.into().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -18,7 +18,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "query.dll""system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    BindIFilterFromStream(pstm.into().abi(), punkouter.into().abi(), ::core::mem::transmute(ppiunk)).ok()
+    BindIFilterFromStream(pstm.into().abi(), punkouter.into().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[inline]
@@ -28,7 +28,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    LoadIFilter(pwcspath.into(), punkouter.into().abi(), ::core::mem::transmute(ppiunk)).ok()
+    LoadIFilter(pwcspath.into(), punkouter.into().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[inline]
@@ -37,7 +37,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    LoadIFilterEx(pwcspath.into(), dwflags, ::core::mem::transmute(riid), ::core::mem::transmute(ppiunk)).ok()
+    LoadIFilterEx(pwcspath.into(), dwflags, riid, ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -46,23 +46,23 @@ impl IFilter {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
-        (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(aattributes.as_ptr()), ::core::mem::transmute(pflags))
+        (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(aattributes.as_ptr()), pflags)
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        (::windows::core::Vtable::vtable(self).GetChunk)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstat))
+        (::windows::core::Vtable::vtable(self).GetChunk)(::windows::core::Vtable::as_raw(self), pstat)
     }
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: ::windows::core::PWSTR) -> i32 {
-        (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcwcbuffer), ::core::mem::transmute(awcbuffer))
+        (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), pcwcbuffer, ::core::mem::transmute(awcbuffer))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppropvalue))
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pppropvalue)
     }
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32 {
-        (::windows::core::Vtable::vtable(self).BindRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(origpos), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk))
+        (::windows::core::Vtable::vtable(self).BindRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(origpos), riid, ppunk)
     }
 }
 ::windows::core::interface_hierarchy!(IFilter, ::windows::core::IUnknown);

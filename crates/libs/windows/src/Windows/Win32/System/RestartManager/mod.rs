@@ -25,14 +25,14 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: ::core::option::Option<&mut [u8]>, cbfilterbufneeded: *mut u32) -> u32 {
     ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmGetFilterList ( dwsessionhandle : u32 , pbfilterbuf : *mut u8 , cbfilterbuf : u32 , cbfilterbufneeded : *mut u32 ) -> u32 );
-    RmGetFilterList(dwsessionhandle, ::core::mem::transmute(pbfilterbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(cbfilterbufneeded))
+    RmGetFilterList(dwsessionhandle, ::core::mem::transmute(pbfilterbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len() as _), cbfilterbufneeded)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: ::core::option::Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: *mut u32) -> u32 {
     ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmGetList ( dwsessionhandle : u32 , pnprocinfoneeded : *mut u32 , pnprocinfo : *mut u32 , rgaffectedapps : *mut RM_PROCESS_INFO , lpdwrebootreasons : *mut u32 ) -> u32 );
-    RmGetList(dwsessionhandle, ::core::mem::transmute(pnprocinfoneeded), ::core::mem::transmute(pnprocinfo), ::core::mem::transmute(rgaffectedapps.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwrebootreasons))
+    RmGetList(dwsessionhandle, pnprocinfoneeded, pnprocinfo, ::core::mem::transmute(rgaffectedapps.unwrap_or(::std::ptr::null_mut())), lpdwrebootreasons)
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
@@ -41,7 +41,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmJoinSession ( psessionhandle : *mut u32 , strsessionkey : :: windows::core::PCWSTR ) -> u32 );
-    RmJoinSession(::core::mem::transmute(psessionhandle), strsessionkey.into())
+    RmJoinSession(psessionhandle, strsessionkey.into())
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -72,20 +72,20 @@ where
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
-    ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmRestart ( dwsessionhandle : u32 , dwrestartflags : u32 , fnstatus : * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmRestart ( dwsessionhandle : u32 , dwrestartflags : u32 , fnstatus : RM_WRITE_STATUS_CALLBACK ) -> u32 );
     RmRestart(dwsessionhandle, dwrestartflags, ::core::mem::transmute(fnstatus))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
-    ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmShutdown ( dwsessionhandle : u32 , lactionflags : u32 , fnstatus : * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmShutdown ( dwsessionhandle : u32 , lactionflags : u32 , fnstatus : RM_WRITE_STATUS_CALLBACK ) -> u32 );
     RmShutdown(dwsessionhandle, lactionflags, ::core::mem::transmute(fnstatus))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strsessionkey: ::windows::core::PWSTR) -> u32 {
     ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmStartSession ( psessionhandle : *mut u32 , dwsessionflags : u32 , strsessionkey : :: windows::core::PWSTR ) -> u32 );
-    RmStartSession(::core::mem::transmute(psessionhandle), dwsessionflags, ::core::mem::transmute(strsessionkey))
+    RmStartSession(psessionhandle, dwsessionflags, ::core::mem::transmute(strsessionkey))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;

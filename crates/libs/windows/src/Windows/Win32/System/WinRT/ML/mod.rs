@@ -129,7 +129,7 @@ pub struct ILearningModelSessionOptionsNative_Vtbl {
 pub struct ITensorNative(::windows::core::IUnknown);
 impl ITensorNative {
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(capacity)).ok()
+        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), value, capacity).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -181,7 +181,7 @@ impl ITensorStaticsNative {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateFromD3D12Resource)(::windows::core::Vtable::as_raw(self), value.into().abi(), ::core::mem::transmute(shape), shapecount, ::core::mem::transmute(result)).ok()
+        (::windows::core::Vtable::vtable(self).CreateFromD3D12Resource)(::windows::core::Vtable::as_raw(self), value.into().abi(), shape, shapecount, ::core::mem::transmute(result)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITensorStaticsNative, ::windows::core::IUnknown);

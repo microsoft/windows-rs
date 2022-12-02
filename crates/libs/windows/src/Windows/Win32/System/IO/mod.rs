@@ -5,7 +5,7 @@ pub unsafe fn BindIoCompletionCallback<'a, P0>(filehandle: P0, function: LPOVERL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn BindIoCompletionCallback ( filehandle : super::super::Foundation:: HANDLE , function : * mut::core::ffi::c_void , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll""system" fn BindIoCompletionCallback ( filehandle : super::super::Foundation:: HANDLE , function : LPOVERLAPPED_COMPLETION_ROUTINE , flags : u32 ) -> super::super::Foundation:: BOOL );
     BindIoCompletionCallback(filehandle.into(), ::core::mem::transmute(function), flags)
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -69,7 +69,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetOverlappedResult ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED , lpnumberofbytestransferred : *mut u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    GetOverlappedResult(hfile.into(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into())
+    GetOverlappedResult(hfile.into(), lpoverlapped, lpnumberofbytestransferred, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -80,7 +80,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetOverlappedResultEx ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED , lpnumberofbytestransferred : *mut u32 , dwmilliseconds : u32 , balertable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    GetOverlappedResultEx(hfile.into(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), dwmilliseconds, balertable.into())
+    GetOverlappedResultEx(hfile.into(), lpoverlapped, lpnumberofbytestransferred, dwmilliseconds, balertable.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -90,7 +90,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetQueuedCompletionStatus ( completionport : super::super::Foundation:: HANDLE , lpnumberofbytestransferred : *mut u32 , lpcompletionkey : *mut usize , lpoverlapped : *mut *mut OVERLAPPED , dwmilliseconds : u32 ) -> super::super::Foundation:: BOOL );
-    GetQueuedCompletionStatus(completionport.into(), ::core::mem::transmute(lpnumberofbytestransferred), ::core::mem::transmute(lpcompletionkey), ::core::mem::transmute(lpoverlapped), dwmilliseconds)
+    GetQueuedCompletionStatus(completionport.into(), lpnumberofbytestransferred, lpcompletionkey, lpoverlapped, dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -101,7 +101,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetQueuedCompletionStatusEx ( completionport : super::super::Foundation:: HANDLE , lpcompletionportentries : *mut OVERLAPPED_ENTRY , ulcount : u32 , ulnumentriesremoved : *mut u32 , dwmilliseconds : u32 , falertable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    GetQueuedCompletionStatusEx(completionport.into(), ::core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len() as _, ::core::mem::transmute(ulnumentriesremoved), dwmilliseconds, falertable.into())
+    GetQueuedCompletionStatusEx(completionport.into(), ::core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len() as _, ulnumentriesremoved, dwmilliseconds, falertable.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

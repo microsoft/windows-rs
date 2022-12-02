@@ -46,7 +46,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn AllJoynEnumEvents ( connectedbushandle : super::super::Foundation:: HANDLE , eventtoreset : super::super::Foundation:: HANDLE , eventtypes : *mut u32 ) -> super::super::Foundation:: BOOL );
-    AllJoynEnumEvents(connectedbushandle.into(), eventtoreset.into(), ::core::mem::transmute(eventtypes))
+    AllJoynEnumEvents(connectedbushandle.into(), eventtoreset.into(), eventtypes)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -67,7 +67,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn AllJoynReceiveFromBus ( connectedbushandle : super::super::Foundation:: HANDLE , buffer : *mut ::core::ffi::c_void , bytestoread : u32 , bytestransferred : *mut u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    AllJoynReceiveFromBus(connectedbushandle.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bytestoread, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved))
+    AllJoynReceiveFromBus(connectedbushandle.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bytestoread, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), reserved)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -77,7 +77,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn AllJoynSendToBus ( connectedbushandle : super::super::Foundation:: HANDLE , buffer : *const ::core::ffi::c_void , bytestowrite : u32 , bytestransferred : *mut u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    AllJoynSendToBus(connectedbushandle.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), bytestowrite, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved))
+    AllJoynSendToBus(connectedbushandle.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), bytestowrite, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), reserved)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -158,7 +158,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getajsoftwareversion ( data : alljoyn_aboutdata , ajsoftwareversion : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_getajsoftwareversion(data.into(), ::core::mem::transmute(ajsoftwareversion))
+    alljoyn_aboutdata_getajsoftwareversion(data.into(), ajsoftwareversion)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -177,7 +177,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getappid ( data : alljoyn_aboutdata , appid : *mut *mut u8 , num : *mut usize ) -> QStatus );
-    alljoyn_aboutdata_getappid(data.into(), ::core::mem::transmute(appid), ::core::mem::transmute(num))
+    alljoyn_aboutdata_getappid(data.into(), appid, num)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -187,7 +187,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getappname ( data : alljoyn_aboutdata , appname : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_aboutdata_getappname(data.into(), ::core::mem::transmute(appname), language.into())
+    alljoyn_aboutdata_getappname(data.into(), appname, language.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -196,7 +196,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdateofmanufacture ( data : alljoyn_aboutdata , dateofmanufacture : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_getdateofmanufacture(data.into(), ::core::mem::transmute(dateofmanufacture))
+    alljoyn_aboutdata_getdateofmanufacture(data.into(), dateofmanufacture)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -205,7 +205,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdefaultlanguage ( data : alljoyn_aboutdata , defaultlanguage : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_getdefaultlanguage(data.into(), ::core::mem::transmute(defaultlanguage))
+    alljoyn_aboutdata_getdefaultlanguage(data.into(), defaultlanguage)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -215,7 +215,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdescription ( data : alljoyn_aboutdata , description : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_aboutdata_getdescription(data.into(), ::core::mem::transmute(description), language.into())
+    alljoyn_aboutdata_getdescription(data.into(), description, language.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -224,7 +224,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdeviceid ( data : alljoyn_aboutdata , deviceid : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_getdeviceid(data.into(), ::core::mem::transmute(deviceid))
+    alljoyn_aboutdata_getdeviceid(data.into(), deviceid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -234,7 +234,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getdevicename ( data : alljoyn_aboutdata , devicename : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_aboutdata_getdevicename(data.into(), ::core::mem::transmute(devicename), language.into())
+    alljoyn_aboutdata_getdevicename(data.into(), devicename, language.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -245,7 +245,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getfield ( data : alljoyn_aboutdata , name : :: windows::core::PCSTR , value : *mut alljoyn_msgarg , language : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_aboutdata_getfield(data.into(), name.into(), ::core::mem::transmute(value), language.into())
+    alljoyn_aboutdata_getfield(data.into(), name.into(), value, language.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -254,7 +254,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getfields ( data : alljoyn_aboutdata , fields : *const *const i8 , num_fields : usize ) -> usize );
-    alljoyn_aboutdata_getfields(data.into(), ::core::mem::transmute(fields), num_fields)
+    alljoyn_aboutdata_getfields(data.into(), fields, num_fields)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -273,7 +273,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_gethardwareversion ( data : alljoyn_aboutdata , hardwareversion : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_gethardwareversion(data.into(), ::core::mem::transmute(hardwareversion))
+    alljoyn_aboutdata_gethardwareversion(data.into(), hardwareversion)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -283,7 +283,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getmanufacturer ( data : alljoyn_aboutdata , manufacturer : *mut *mut i8 , language : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_aboutdata_getmanufacturer(data.into(), ::core::mem::transmute(manufacturer), language.into())
+    alljoyn_aboutdata_getmanufacturer(data.into(), manufacturer, language.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -292,7 +292,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getmodelnumber ( data : alljoyn_aboutdata , modelnumber : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_getmodelnumber(data.into(), ::core::mem::transmute(modelnumber))
+    alljoyn_aboutdata_getmodelnumber(data.into(), modelnumber)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -301,7 +301,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getsoftwareversion ( data : alljoyn_aboutdata , softwareversion : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_getsoftwareversion(data.into(), ::core::mem::transmute(softwareversion))
+    alljoyn_aboutdata_getsoftwareversion(data.into(), softwareversion)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -310,7 +310,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getsupportedlanguages ( data : alljoyn_aboutdata , languagetags : *const *const i8 , num : usize ) -> usize );
-    alljoyn_aboutdata_getsupportedlanguages(data.into(), ::core::mem::transmute(languagetags), num)
+    alljoyn_aboutdata_getsupportedlanguages(data.into(), languagetags, num)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -319,7 +319,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_getsupporturl ( data : alljoyn_aboutdata , supporturl : *mut *mut i8 ) -> QStatus );
-    alljoyn_aboutdata_getsupporturl(data.into(), ::core::mem::transmute(supporturl))
+    alljoyn_aboutdata_getsupporturl(data.into(), supporturl)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -368,7 +368,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutdata>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdata_setappid ( data : alljoyn_aboutdata , appid : *const u8 , num : usize ) -> QStatus );
-    alljoyn_aboutdata_setappid(data.into(), ::core::mem::transmute(appid), num)
+    alljoyn_aboutdata_setappid(data.into(), appid, num)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -520,7 +520,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutdatalistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_aboutdatalistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutdatalistener_create ( callbacks : *const alljoyn_aboutdatalistener_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_aboutdatalistener );
-    alljoyn_aboutdatalistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_aboutdatalistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -535,7 +535,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_clear ( icon : *mut _alljoyn_abouticon_handle ) -> ( ) );
-    alljoyn_abouticon_clear(::core::mem::transmute(icon))
+    alljoyn_abouticon_clear(icon)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -547,19 +547,19 @@ pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
 #[inline]
 pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_destroy ( icon : *mut _alljoyn_abouticon_handle ) -> ( ) );
-    alljoyn_abouticon_destroy(::core::mem::transmute(icon))
+    alljoyn_abouticon_destroy(icon)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_getcontent ( icon : *mut _alljoyn_abouticon_handle , data : *const *const u8 , size : *mut usize ) -> ( ) );
-    alljoyn_abouticon_getcontent(::core::mem::transmute(icon), ::core::mem::transmute(data), ::core::mem::transmute(size))
+    alljoyn_abouticon_getcontent(icon, data, size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_geturl ( icon : *mut _alljoyn_abouticon_handle , r#type : *const *const i8 , url : *const *const i8 ) -> ( ) );
-    alljoyn_abouticon_geturl(::core::mem::transmute(icon), ::core::mem::transmute(r#type), ::core::mem::transmute(url))
+    alljoyn_abouticon_geturl(icon, r#type, url)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -568,7 +568,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_setcontent ( icon : *mut _alljoyn_abouticon_handle , r#type : :: windows::core::PCSTR , data : *mut u8 , csize : usize , ownsdata : u8 ) -> QStatus );
-    alljoyn_abouticon_setcontent(::core::mem::transmute(icon), r#type.into(), ::core::mem::transmute(data), csize, ownsdata)
+    alljoyn_abouticon_setcontent(icon, r#type.into(), data, csize, ownsdata)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -577,7 +577,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_setcontent_frommsgarg ( icon : *mut _alljoyn_abouticon_handle , arg : alljoyn_msgarg ) -> QStatus );
-    alljoyn_abouticon_setcontent_frommsgarg(::core::mem::transmute(icon), arg.into())
+    alljoyn_abouticon_setcontent_frommsgarg(icon, arg.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -587,7 +587,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticon_seturl ( icon : *mut _alljoyn_abouticon_handle , r#type : :: windows::core::PCSTR , url : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_abouticon_seturl(::core::mem::transmute(icon), r#type.into(), url.into())
+    alljoyn_abouticon_seturl(icon, r#type.into(), url.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -596,13 +596,13 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticonobj_create ( bus : alljoyn_busattachment , icon : *mut _alljoyn_abouticon_handle ) -> *mut _alljoyn_abouticonobj_handle );
-    alljoyn_abouticonobj_create(bus.into(), ::core::mem::transmute(icon))
+    alljoyn_abouticonobj_create(bus.into(), icon)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticonobj_destroy ( icon : *mut _alljoyn_abouticonobj_handle ) -> ( ) );
-    alljoyn_abouticonobj_destroy(::core::mem::transmute(icon))
+    alljoyn_abouticonobj_destroy(icon)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -618,25 +618,25 @@ where
 #[inline]
 pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticonproxy_destroy ( proxy : *mut _alljoyn_abouticonproxy_handle ) -> ( ) );
-    alljoyn_abouticonproxy_destroy(::core::mem::transmute(proxy))
+    alljoyn_abouticonproxy_destroy(proxy)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy_handle, icon: *mut _alljoyn_abouticon_handle) -> QStatus {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticonproxy_geticon ( proxy : *mut _alljoyn_abouticonproxy_handle , icon : *mut _alljoyn_abouticon_handle ) -> QStatus );
-    alljoyn_abouticonproxy_geticon(::core::mem::transmute(proxy), ::core::mem::transmute(icon))
+    alljoyn_abouticonproxy_geticon(proxy, icon)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonproxy_handle, version: *mut u16) -> QStatus {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_abouticonproxy_getversion ( proxy : *mut _alljoyn_abouticonproxy_handle , version : *mut u16 ) -> QStatus );
-    alljoyn_abouticonproxy_getversion(::core::mem::transmute(proxy), ::core::mem::transmute(version))
+    alljoyn_abouticonproxy_getversion(proxy, version)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_aboutlistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutlistener_create ( callback : *const alljoyn_aboutlistener_callback , context : *const ::core::ffi::c_void ) -> alljoyn_aboutlistener );
-    alljoyn_aboutlistener_create(::core::mem::transmute(callback), ::core::mem::transmute(context))
+    alljoyn_aboutlistener_create(callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -745,7 +745,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_getinterfacepaths ( description : alljoyn_aboutobjectdescription , interfacename : :: windows::core::PCSTR , paths : *const *const i8 , numpaths : usize ) -> usize );
-    alljoyn_aboutobjectdescription_getinterfacepaths(description.into(), interfacename.into(), ::core::mem::transmute(paths), numpaths)
+    alljoyn_aboutobjectdescription_getinterfacepaths(description.into(), interfacename.into(), paths, numpaths)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -755,7 +755,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_getinterfaces ( description : alljoyn_aboutobjectdescription , path : :: windows::core::PCSTR , interfaces : *const *const i8 , numinterfaces : usize ) -> usize );
-    alljoyn_aboutobjectdescription_getinterfaces(description.into(), path.into(), ::core::mem::transmute(interfaces), numinterfaces)
+    alljoyn_aboutobjectdescription_getinterfaces(description.into(), path.into(), interfaces, numinterfaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -774,7 +774,7 @@ where
     P0: ::std::convert::Into<alljoyn_aboutobjectdescription>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutobjectdescription_getpaths ( description : alljoyn_aboutobjectdescription , paths : *const *const i8 , numpaths : usize ) -> usize );
-    alljoyn_aboutobjectdescription_getpaths(description.into(), ::core::mem::transmute(paths), numpaths)
+    alljoyn_aboutobjectdescription_getpaths(description.into(), paths, numpaths)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -854,13 +854,13 @@ where
     P0: ::std::convert::Into<alljoyn_aboutproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_aboutproxy_getversion ( proxy : alljoyn_aboutproxy , version : *mut u16 ) -> QStatus );
-    alljoyn_aboutproxy_getversion(proxy.into(), ::core::mem::transmute(version))
+    alljoyn_aboutproxy_getversion(proxy.into(), version)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_applicationstatelistener_create ( callbacks : *const alljoyn_applicationstatelistener_callbacks , context : *mut ::core::ffi::c_void ) -> alljoyn_applicationstatelistener );
-    alljoyn_applicationstatelistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_applicationstatelistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -875,7 +875,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_authlistener_create ( callbacks : *const alljoyn_authlistener_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_authlistener );
-    alljoyn_authlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_authlistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -894,7 +894,7 @@ where
     P1: ::std::convert::Into<alljoyn_credentials>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_authlistener_requestcredentialsresponse ( listener : alljoyn_authlistener , authcontext : *mut ::core::ffi::c_void , accept : i32 , credentials : alljoyn_credentials ) -> QStatus );
-    alljoyn_authlistener_requestcredentialsresponse(listener.into(), ::core::mem::transmute(authcontext), accept, credentials.into())
+    alljoyn_authlistener_requestcredentialsresponse(listener.into(), authcontext, accept, credentials.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -903,7 +903,7 @@ where
     P0: ::std::convert::Into<alljoyn_authlistener>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_authlistener_setsharedsecret ( listener : alljoyn_authlistener , sharedsecret : *const u8 , sharedsecretsize : usize ) -> QStatus );
-    alljoyn_authlistener_setsharedsecret(listener.into(), ::core::mem::transmute(sharedsecret), sharedsecretsize)
+    alljoyn_authlistener_setsharedsecret(listener.into(), sharedsecret, sharedsecretsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -912,13 +912,13 @@ where
     P0: ::std::convert::Into<alljoyn_authlistener>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_authlistener_verifycredentialsresponse ( listener : alljoyn_authlistener , authcontext : *mut ::core::ffi::c_void , accept : i32 ) -> QStatus );
-    alljoyn_authlistener_verifycredentialsresponse(listener.into(), ::core::mem::transmute(authcontext), accept)
+    alljoyn_authlistener_verifycredentialsresponse(listener.into(), authcontext, accept)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlistenerasync_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_authlistenerasync_create ( callbacks : *const alljoyn_authlistenerasync_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_authlistener );
-    alljoyn_authlistenerasync_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_authlistenerasync_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1059,7 +1059,7 @@ where
     P2: ::std::convert::Into<alljoyn_sessionportlistener>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_bindsessionport ( bus : alljoyn_busattachment , sessionport : *mut u16 , opts : alljoyn_sessionopts , listener : alljoyn_sessionportlistener ) -> QStatus );
-    alljoyn_busattachment_bindsessionport(bus.into(), ::core::mem::transmute(sessionport), opts.into(), listener.into())
+    alljoyn_busattachment_bindsessionport(bus.into(), sessionport, opts.into(), listener.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1108,7 +1108,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_cancelwhoimplements_interfaces ( bus : alljoyn_busattachment , implementsinterfaces : *const *const i8 , numberinterfaces : usize ) -> QStatus );
-    alljoyn_busattachment_cancelwhoimplements_interfaces(bus.into(), ::core::mem::transmute(implementsinterfaces), numberinterfaces)
+    alljoyn_busattachment_cancelwhoimplements_interfaces(bus.into(), implementsinterfaces, numberinterfaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1165,7 +1165,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterface ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , iface : *mut alljoyn_interfacedescription ) -> QStatus );
-    alljoyn_busattachment_createinterface(bus.into(), name.into(), ::core::mem::transmute(iface))
+    alljoyn_busattachment_createinterface(bus.into(), name.into(), iface)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1175,7 +1175,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_createinterface_secure ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , iface : *mut alljoyn_interfacedescription , secpolicy : alljoyn_interfacedescription_securitypolicy ) -> QStatus );
-    alljoyn_busattachment_createinterface_secure(bus.into(), name.into(), ::core::mem::transmute(iface), secpolicy)
+    alljoyn_busattachment_createinterface_secure(bus.into(), name.into(), iface, secpolicy)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1350,7 +1350,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getinterfaces ( bus : alljoyn_busattachment , ifaces : *const alljoyn_interfacedescription , numifaces : usize ) -> usize );
-    alljoyn_busattachment_getinterfaces(bus.into(), ::core::mem::transmute(ifaces), numifaces)
+    alljoyn_busattachment_getinterfaces(bus.into(), ifaces, numifaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1360,7 +1360,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getkeyexpiration ( bus : alljoyn_busattachment , guid : :: windows::core::PCSTR , timeout : *mut u32 ) -> QStatus );
-    alljoyn_busattachment_getkeyexpiration(bus.into(), guid.into(), ::core::mem::transmute(timeout))
+    alljoyn_busattachment_getkeyexpiration(bus.into(), guid.into(), timeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1371,7 +1371,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_getpeerguid ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , guid : :: windows::core::PCSTR , guidsz : *mut usize ) -> QStatus );
-    alljoyn_busattachment_getpeerguid(bus.into(), name.into(), guid.into(), ::core::mem::transmute(guidsz))
+    alljoyn_busattachment_getpeerguid(bus.into(), name.into(), guid.into(), guidsz)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1452,7 +1452,7 @@ where
     P3: ::std::convert::Into<alljoyn_sessionopts>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsession ( bus : alljoyn_busattachment , sessionhost : :: windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , sessionid : *mut u32 , opts : alljoyn_sessionopts ) -> QStatus );
-    alljoyn_busattachment_joinsession(bus.into(), sessionhost.into(), sessionport, listener.into(), ::core::mem::transmute(sessionid), opts.into())
+    alljoyn_busattachment_joinsession(bus.into(), sessionhost.into(), sessionport, listener.into(), sessionid, opts.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1463,8 +1463,8 @@ where
     P2: ::std::convert::Into<alljoyn_sessionlistener>,
     P3: ::std::convert::Into<alljoyn_sessionopts>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsessionasync ( bus : alljoyn_busattachment , sessionhost : :: windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , opts : alljoyn_sessionopts , callback : * mut::core::ffi::c_void , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_busattachment_joinsessionasync(bus.into(), sessionhost.into(), sessionport, listener.into(), opts.into(), ::core::mem::transmute(callback), ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_joinsessionasync ( bus : alljoyn_busattachment , sessionhost : :: windows::core::PCSTR , sessionport : u16 , listener : alljoyn_sessionlistener , opts : alljoyn_sessionopts , callback : alljoyn_busattachment_joinsessioncb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_busattachment_joinsessionasync(bus.into(), sessionhost.into(), sessionport, listener.into(), opts.into(), ::core::mem::transmute(callback), context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1483,7 +1483,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_namehasowner ( bus : alljoyn_busattachment , name : :: windows::core::PCSTR , hasowner : *mut i32 ) -> QStatus );
-    alljoyn_busattachment_namehasowner(bus.into(), name.into(), ::core::mem::transmute(hasowner))
+    alljoyn_busattachment_namehasowner(bus.into(), name.into(), hasowner)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1562,7 +1562,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandler ( bus : alljoyn_busattachment , signal_handler : * mut::core::ffi::c_void , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_registersignalhandler(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), srcpath.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1572,7 +1572,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : * mut::core::ffi::c_void , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_registersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_registersignalhandlerwithrule(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), matchrule.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1671,7 +1671,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setlinktimeout ( bus : alljoyn_busattachment , sessionid : u32 , linktimeout : *mut u32 ) -> QStatus );
-    alljoyn_busattachment_setlinktimeout(bus.into(), sessionid, ::core::mem::transmute(linktimeout))
+    alljoyn_busattachment_setlinktimeout(bus.into(), sessionid, linktimeout)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1679,8 +1679,8 @@ pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, P0>(bus: P0, session
 where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setlinktimeoutasync ( bus : alljoyn_busattachment , sessionid : u32 , linktimeout : u32 , callback : * mut::core::ffi::c_void , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_busattachment_setlinktimeoutasync(bus.into(), sessionid, linktimeout, ::core::mem::transmute(callback), ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_setlinktimeoutasync ( bus : alljoyn_busattachment , sessionid : u32 , linktimeout : u32 , callback : alljoyn_busattachment_setlinktimeoutcb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_busattachment_setlinktimeoutasync(bus.into(), sessionid, linktimeout, ::core::mem::transmute(callback), context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1784,7 +1784,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandler ( bus : alljoyn_busattachment , signal_handler : * mut::core::ffi::c_void , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandler ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , srcpath : :: windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_unregistersignalhandler(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), srcpath.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1794,7 +1794,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : * mut::core::ffi::c_void , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_unregistersignalhandlerwithrule ( bus : alljoyn_busattachment , signal_handler : alljoyn_messagereceiver_signalhandler_ptr , member : alljoyn_interfacedescription_member , matchrule : :: windows::core::PCSTR ) -> QStatus );
     alljoyn_busattachment_unregistersignalhandlerwithrule(bus.into(), ::core::mem::transmute(signal_handler), ::core::mem::transmute(member), matchrule.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -1814,13 +1814,13 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busattachment_whoimplements_interfaces ( bus : alljoyn_busattachment , implementsinterfaces : *const *const i8 , numberinterfaces : usize ) -> QStatus );
-    alljoyn_busattachment_whoimplements_interfaces(bus.into(), ::core::mem::transmute(implementsinterfaces), numberinterfaces)
+    alljoyn_busattachment_whoimplements_interfaces(bus.into(), implementsinterfaces, numberinterfaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_buslistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_buslistener_create ( callbacks : *const alljoyn_buslistener_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_buslistener );
-    alljoyn_buslistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_buslistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1857,8 +1857,8 @@ pub unsafe fn alljoyn_busobject_addmethodhandler<'a, P0>(bus: P0, member: alljoy
 where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busobject_addmethodhandler ( bus : alljoyn_busobject , member : alljoyn_interfacedescription_member , handler : * mut::core::ffi::c_void , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_busobject_addmethodhandler(bus.into(), ::core::mem::transmute(member), ::core::mem::transmute(handler), ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busobject_addmethodhandler ( bus : alljoyn_busobject , member : alljoyn_interfacedescription_member , handler : alljoyn_messagereceiver_methodhandler_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_busobject_addmethodhandler(bus.into(), ::core::mem::transmute(member), ::core::mem::transmute(handler), context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1867,7 +1867,7 @@ where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busobject_addmethodhandlers ( bus : alljoyn_busobject , entries : *const alljoyn_busobject_methodentry , numentries : usize ) -> QStatus );
-    alljoyn_busobject_addmethodhandlers(bus.into(), ::core::mem::transmute(entries), numentries)
+    alljoyn_busobject_addmethodhandlers(bus.into(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1895,7 +1895,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busobject_create ( path : :: windows::core::PCSTR , isplaceholder : i32 , callbacks_in : *const alljoyn_busobject_callbacks , context_in : *const ::core::ffi::c_void ) -> alljoyn_busobject );
-    alljoyn_busobject_create(path.into(), isplaceholder, ::core::mem::transmute(callbacks_in), ::core::mem::transmute(context_in))
+    alljoyn_busobject_create(path.into(), isplaceholder, callbacks_in, context_in)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1914,7 +1914,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busobject_emitpropertieschanged ( bus : alljoyn_busobject , ifcname : :: windows::core::PCSTR , propnames : *const *const i8 , numprops : usize , id : u32 ) -> ( ) );
-    alljoyn_busobject_emitpropertieschanged(bus.into(), ifcname.into(), ::core::mem::transmute(propnames), numprops, id)
+    alljoyn_busobject_emitpropertieschanged(bus.into(), ifcname.into(), propnames, numprops, id)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -1935,7 +1935,7 @@ where
     P0: ::std::convert::Into<alljoyn_busobject>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_busobject_getannouncedinterfacenames ( bus : alljoyn_busobject , interfaces : *const *const i8 , numinterfaces : usize ) -> usize );
-    alljoyn_busobject_getannouncedinterfacenames(bus.into(), ::core::mem::transmute(interfaces), numinterfaces)
+    alljoyn_busobject_getannouncedinterfacenames(bus.into(), interfaces, numinterfaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2326,7 +2326,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getannotation ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
-    alljoyn_interfacedescription_getannotation(iface.into(), name.into(), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_getannotation(iface.into(), name.into(), value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2337,7 +2337,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getannotationatindex ( iface : alljoyn_interfacedescription , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
-    alljoyn_interfacedescription_getannotationatindex(iface.into(), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_getannotationatindex(iface.into(), index, name.into(), name_size, value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2379,7 +2379,7 @@ where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getdescriptionlanguages ( iface : alljoyn_interfacedescription , languages : *const *const i8 , size : usize ) -> usize );
-    alljoyn_interfacedescription_getdescriptionlanguages(iface.into(), ::core::mem::transmute(languages), size)
+    alljoyn_interfacedescription_getdescriptionlanguages(iface.into(), languages, size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2408,7 +2408,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmember ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
-    alljoyn_interfacedescription_getmember(iface.into(), name.into(), ::core::mem::transmute(member))
+    alljoyn_interfacedescription_getmember(iface.into(), name.into(), member)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2420,7 +2420,7 @@ where
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberannotation ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
-    alljoyn_interfacedescription_getmemberannotation(iface.into(), member.into(), name.into(), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_getmemberannotation(iface.into(), member.into(), name.into(), value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2433,7 +2433,7 @@ where
     P4: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmemberargannotation ( iface : alljoyn_interfacedescription , member : :: windows::core::PCSTR , argname : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
-    alljoyn_interfacedescription_getmemberargannotation(iface.into(), member.into(), argname.into(), name.into(), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_getmemberargannotation(iface.into(), member.into(), argname.into(), name.into(), value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2454,7 +2454,7 @@ where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmembers ( iface : alljoyn_interfacedescription , members : *mut alljoyn_interfacedescription_member , nummembers : usize ) -> usize );
-    alljoyn_interfacedescription_getmembers(iface.into(), ::core::mem::transmute(members), nummembers)
+    alljoyn_interfacedescription_getmembers(iface.into(), members, nummembers)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2464,7 +2464,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getmethod ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
-    alljoyn_interfacedescription_getmethod(iface.into(), name.into(), ::core::mem::transmute(member))
+    alljoyn_interfacedescription_getmethod(iface.into(), name.into(), member)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2482,7 +2482,7 @@ where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getproperties ( iface : alljoyn_interfacedescription , props : *mut alljoyn_interfacedescription_property , numprops : usize ) -> usize );
-    alljoyn_interfacedescription_getproperties(iface.into(), ::core::mem::transmute(props), numprops)
+    alljoyn_interfacedescription_getproperties(iface.into(), props, numprops)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2492,7 +2492,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getproperty ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , property : *mut alljoyn_interfacedescription_property ) -> i32 );
-    alljoyn_interfacedescription_getproperty(iface.into(), name.into(), ::core::mem::transmute(property))
+    alljoyn_interfacedescription_getproperty(iface.into(), name.into(), property)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2504,7 +2504,7 @@ where
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getpropertyannotation ( iface : alljoyn_interfacedescription , property : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , str_size : *mut usize ) -> i32 );
-    alljoyn_interfacedescription_getpropertyannotation(iface.into(), property.into(), name.into(), value.into(), ::core::mem::transmute(str_size))
+    alljoyn_interfacedescription_getpropertyannotation(iface.into(), property.into(), name.into(), value.into(), str_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2535,7 +2535,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_getsignal ( iface : alljoyn_interfacedescription , name : :: windows::core::PCSTR , member : *mut alljoyn_interfacedescription_member ) -> i32 );
-    alljoyn_interfacedescription_getsignal(iface.into(), name.into(), ::core::mem::transmute(member))
+    alljoyn_interfacedescription_getsignal(iface.into(), name.into(), member)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2610,7 +2610,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getannotation ( member : alljoyn_interfacedescription_member , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
-    alljoyn_interfacedescription_member_getannotation(::core::mem::transmute(member), name.into(), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_member_getannotation(::core::mem::transmute(member), name.into(), value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2620,7 +2620,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getannotationatindex ( member : alljoyn_interfacedescription_member , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
-    alljoyn_interfacedescription_member_getannotationatindex(::core::mem::transmute(member), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_member_getannotationatindex(::core::mem::transmute(member), index, name.into(), name_size, value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2637,7 +2637,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotation ( member : alljoyn_interfacedescription_member , argname : :: windows::core::PCSTR , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
-    alljoyn_interfacedescription_member_getargannotation(::core::mem::transmute(member), argname.into(), name.into(), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_member_getargannotation(::core::mem::transmute(member), argname.into(), name.into(), value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2648,7 +2648,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_member_getargannotationatindex ( member : alljoyn_interfacedescription_member , argname : :: windows::core::PCSTR , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
-    alljoyn_interfacedescription_member_getargannotationatindex(::core::mem::transmute(member), argname.into(), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_member_getargannotationatindex(::core::mem::transmute(member), argname.into(), index, name.into(), name_size, value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2673,7 +2673,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_property_getannotation ( property : alljoyn_interfacedescription_property , name : :: windows::core::PCSTR , value : :: windows::core::PCSTR , value_size : *mut usize ) -> i32 );
-    alljoyn_interfacedescription_property_getannotation(::core::mem::transmute(property), name.into(), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_property_getannotation(::core::mem::transmute(property), name.into(), value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2683,7 +2683,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_property_getannotationatindex ( property : alljoyn_interfacedescription_property , index : usize , name : :: windows::core::PCSTR , name_size : *mut usize , value : :: windows::core::PCSTR , value_size : *mut usize ) -> ( ) );
-    alljoyn_interfacedescription_property_getannotationatindex(::core::mem::transmute(property), index, name.into(), ::core::mem::transmute(name_size), value.into(), ::core::mem::transmute(value_size))
+    alljoyn_interfacedescription_property_getannotationatindex(::core::mem::transmute(property), index, name.into(), name_size, value.into(), value_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2753,7 +2753,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a,
 where
     P0: ::std::convert::Into<alljoyn_interfacedescription>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescriptiontranslationcallback ( iface : alljoyn_interfacedescription , translationcallback : * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_interfacedescription_setdescriptiontranslationcallback ( iface : alljoyn_interfacedescription , translationcallback : alljoyn_interfacedescription_translation_callback_ptr ) -> ( ) );
     alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into(), ::core::mem::transmute(translationcallback))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -2806,7 +2806,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_keystorelistener_create ( callbacks : *const alljoyn_keystorelistener_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_keystorelistener );
-    alljoyn_keystorelistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_keystorelistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2826,7 +2826,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_keystorelistener_getkeys ( listener : alljoyn_keystorelistener , keystore : alljoyn_keystore , sink : :: windows::core::PCSTR , sink_sz : *mut usize ) -> QStatus );
-    alljoyn_keystorelistener_getkeys(listener.into(), keystore.into(), sink.into(), ::core::mem::transmute(sink_sz))
+    alljoyn_keystorelistener_getkeys(listener.into(), keystore.into(), sink.into(), sink_sz)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2844,7 +2844,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_keystorelistener_with_synchronization_create ( callbacks : *const alljoyn_keystorelistener_with_synchronization_callbacks , context : *mut ::core::ffi::c_void ) -> alljoyn_keystorelistener );
-    alljoyn_keystorelistener_with_synchronization_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_keystorelistener_with_synchronization_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2900,7 +2900,7 @@ where
     P0: ::std::convert::Into<alljoyn_message>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_message_getargs ( msg : alljoyn_message , numargs : *mut usize , args : *mut alljoyn_msgarg ) -> ( ) );
-    alljoyn_message_getargs(msg.into(), ::core::mem::transmute(numargs), ::core::mem::transmute(args))
+    alljoyn_message_getargs(msg.into(), numargs, args)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -2946,7 +2946,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_message_geterrorname ( msg : alljoyn_message , errormessage : :: windows::core::PCSTR , errormessage_size : *mut usize ) -> :: windows::core::PSTR );
-    alljoyn_message_geterrorname(msg.into(), errormessage.into(), ::core::mem::transmute(errormessage_size))
+    alljoyn_message_geterrorname(msg.into(), errormessage.into(), errormessage_size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3072,7 +3072,7 @@ where
     P0: ::std::convert::Into<alljoyn_message>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_message_isexpired ( msg : alljoyn_message , tillexpirems : *mut u32 ) -> i32 );
-    alljoyn_message_isexpired(msg.into(), ::core::mem::transmute(tillexpirems))
+    alljoyn_message_isexpired(msg.into(), tillexpirems)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3160,7 +3160,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_set ( args : alljoyn_msgarg , numargs : *mut usize , signature : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_msgarg_array_set(args.into(), ::core::mem::transmute(numargs), signature.into())
+    alljoyn_msgarg_array_set(args.into(), numargs, signature.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3170,7 +3170,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""cdecl" fn alljoyn_msgarg_array_set_offset ( args : alljoyn_msgarg , argoffset : usize , numargs : *mut usize , signature : :: windows::core::PCSTR ) -> QStatus );
-    alljoyn_msgarg_array_set_offset(args.into(), argoffset, ::core::mem::transmute(numargs), signature.into())
+    alljoyn_msgarg_array_set_offset(args.into(), argoffset, numargs, signature.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3271,7 +3271,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_array_element ( arg : alljoyn_msgarg , index : usize , element : *mut alljoyn_msgarg ) -> ( ) );
-    alljoyn_msgarg_get_array_element(arg.into(), index, ::core::mem::transmute(element))
+    alljoyn_msgarg_get_array_element(arg.into(), index, element)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3298,7 +3298,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_bool ( arg : alljoyn_msgarg , b : *mut i32 ) -> QStatus );
-    alljoyn_msgarg_get_bool(arg.into(), ::core::mem::transmute(b))
+    alljoyn_msgarg_get_bool(arg.into(), b)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3307,7 +3307,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_bool_array ( arg : alljoyn_msgarg , length : *mut usize , ab : *mut i32 ) -> QStatus );
-    alljoyn_msgarg_get_bool_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ab))
+    alljoyn_msgarg_get_bool_array(arg.into(), length, ab)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3316,7 +3316,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_double ( arg : alljoyn_msgarg , d : *mut f64 ) -> QStatus );
-    alljoyn_msgarg_get_double(arg.into(), ::core::mem::transmute(d))
+    alljoyn_msgarg_get_double(arg.into(), d)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3325,7 +3325,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_double_array ( arg : alljoyn_msgarg , length : *mut usize , ad : *mut f64 ) -> QStatus );
-    alljoyn_msgarg_get_double_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ad))
+    alljoyn_msgarg_get_double_array(arg.into(), length, ad)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3334,7 +3334,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_int16 ( arg : alljoyn_msgarg , n : *mut i16 ) -> QStatus );
-    alljoyn_msgarg_get_int16(arg.into(), ::core::mem::transmute(n))
+    alljoyn_msgarg_get_int16(arg.into(), n)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3343,7 +3343,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_int16_array ( arg : alljoyn_msgarg , length : *mut usize , an : *mut i16 ) -> QStatus );
-    alljoyn_msgarg_get_int16_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(an))
+    alljoyn_msgarg_get_int16_array(arg.into(), length, an)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3352,7 +3352,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_int32 ( arg : alljoyn_msgarg , i : *mut i32 ) -> QStatus );
-    alljoyn_msgarg_get_int32(arg.into(), ::core::mem::transmute(i))
+    alljoyn_msgarg_get_int32(arg.into(), i)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3361,7 +3361,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_int32_array ( arg : alljoyn_msgarg , length : *mut usize , ai : *mut i32 ) -> QStatus );
-    alljoyn_msgarg_get_int32_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ai))
+    alljoyn_msgarg_get_int32_array(arg.into(), length, ai)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3370,7 +3370,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_int64 ( arg : alljoyn_msgarg , x : *mut i64 ) -> QStatus );
-    alljoyn_msgarg_get_int64(arg.into(), ::core::mem::transmute(x))
+    alljoyn_msgarg_get_int64(arg.into(), x)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3379,7 +3379,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_int64_array ( arg : alljoyn_msgarg , length : *mut usize , ax : *mut i64 ) -> QStatus );
-    alljoyn_msgarg_get_int64_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ax))
+    alljoyn_msgarg_get_int64_array(arg.into(), length, ax)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3388,7 +3388,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_objectpath ( arg : alljoyn_msgarg , o : *mut *mut i8 ) -> QStatus );
-    alljoyn_msgarg_get_objectpath(arg.into(), ::core::mem::transmute(o))
+    alljoyn_msgarg_get_objectpath(arg.into(), o)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3397,7 +3397,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_signature ( arg : alljoyn_msgarg , g : *mut *mut i8 ) -> QStatus );
-    alljoyn_msgarg_get_signature(arg.into(), ::core::mem::transmute(g))
+    alljoyn_msgarg_get_signature(arg.into(), g)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3406,7 +3406,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_string ( arg : alljoyn_msgarg , s : *mut *mut i8 ) -> QStatus );
-    alljoyn_msgarg_get_string(arg.into(), ::core::mem::transmute(s))
+    alljoyn_msgarg_get_string(arg.into(), s)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3415,7 +3415,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint16 ( arg : alljoyn_msgarg , q : *mut u16 ) -> QStatus );
-    alljoyn_msgarg_get_uint16(arg.into(), ::core::mem::transmute(q))
+    alljoyn_msgarg_get_uint16(arg.into(), q)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3424,7 +3424,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint16_array ( arg : alljoyn_msgarg , length : *mut usize , aq : *mut u16 ) -> QStatus );
-    alljoyn_msgarg_get_uint16_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(aq))
+    alljoyn_msgarg_get_uint16_array(arg.into(), length, aq)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3433,7 +3433,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint32 ( arg : alljoyn_msgarg , u : *mut u32 ) -> QStatus );
-    alljoyn_msgarg_get_uint32(arg.into(), ::core::mem::transmute(u))
+    alljoyn_msgarg_get_uint32(arg.into(), u)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3442,7 +3442,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint32_array ( arg : alljoyn_msgarg , length : *mut usize , au : *mut u32 ) -> QStatus );
-    alljoyn_msgarg_get_uint32_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(au))
+    alljoyn_msgarg_get_uint32_array(arg.into(), length, au)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3451,7 +3451,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint64 ( arg : alljoyn_msgarg , t : *mut u64 ) -> QStatus );
-    alljoyn_msgarg_get_uint64(arg.into(), ::core::mem::transmute(t))
+    alljoyn_msgarg_get_uint64(arg.into(), t)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3460,7 +3460,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint64_array ( arg : alljoyn_msgarg , length : *mut usize , at : *mut u64 ) -> QStatus );
-    alljoyn_msgarg_get_uint64_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(at))
+    alljoyn_msgarg_get_uint64_array(arg.into(), length, at)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3469,7 +3469,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint8 ( arg : alljoyn_msgarg , y : *mut u8 ) -> QStatus );
-    alljoyn_msgarg_get_uint8(arg.into(), ::core::mem::transmute(y))
+    alljoyn_msgarg_get_uint8(arg.into(), y)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3478,7 +3478,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_uint8_array ( arg : alljoyn_msgarg , length : *mut usize , ay : *mut u8 ) -> QStatus );
-    alljoyn_msgarg_get_uint8_array(arg.into(), ::core::mem::transmute(length), ::core::mem::transmute(ay))
+    alljoyn_msgarg_get_uint8_array(arg.into(), length, ay)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3498,7 +3498,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_get_variant_array ( arg : alljoyn_msgarg , signature : :: windows::core::PCSTR , length : *mut usize , av : *mut alljoyn_msgarg ) -> QStatus );
-    alljoyn_msgarg_get_variant_array(arg.into(), signature.into(), ::core::mem::transmute(length), ::core::mem::transmute(av))
+    alljoyn_msgarg_get_variant_array(arg.into(), signature.into(), length, av)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3601,7 +3601,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_bool_array ( arg : alljoyn_msgarg , length : usize , ab : *mut i32 ) -> QStatus );
-    alljoyn_msgarg_set_bool_array(arg.into(), length, ::core::mem::transmute(ab))
+    alljoyn_msgarg_set_bool_array(arg.into(), length, ab)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3619,7 +3619,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_double_array ( arg : alljoyn_msgarg , length : usize , ad : *mut f64 ) -> QStatus );
-    alljoyn_msgarg_set_double_array(arg.into(), length, ::core::mem::transmute(ad))
+    alljoyn_msgarg_set_double_array(arg.into(), length, ad)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3637,7 +3637,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_int16_array ( arg : alljoyn_msgarg , length : usize , an : *mut i16 ) -> QStatus );
-    alljoyn_msgarg_set_int16_array(arg.into(), length, ::core::mem::transmute(an))
+    alljoyn_msgarg_set_int16_array(arg.into(), length, an)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3655,7 +3655,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_int32_array ( arg : alljoyn_msgarg , length : usize , ai : *mut i32 ) -> QStatus );
-    alljoyn_msgarg_set_int32_array(arg.into(), length, ::core::mem::transmute(ai))
+    alljoyn_msgarg_set_int32_array(arg.into(), length, ai)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3673,7 +3673,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_int64_array ( arg : alljoyn_msgarg , length : usize , ax : *mut i64 ) -> QStatus );
-    alljoyn_msgarg_set_int64_array(arg.into(), length, ::core::mem::transmute(ax))
+    alljoyn_msgarg_set_int64_array(arg.into(), length, ax)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3692,7 +3692,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_objectpath_array ( arg : alljoyn_msgarg , length : usize , ao : *const *const i8 ) -> QStatus );
-    alljoyn_msgarg_set_objectpath_array(arg.into(), length, ::core::mem::transmute(ao))
+    alljoyn_msgarg_set_objectpath_array(arg.into(), length, ao)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3711,7 +3711,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_signature_array ( arg : alljoyn_msgarg , length : usize , ag : *const *const i8 ) -> QStatus );
-    alljoyn_msgarg_set_signature_array(arg.into(), length, ::core::mem::transmute(ag))
+    alljoyn_msgarg_set_signature_array(arg.into(), length, ag)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3730,7 +3730,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_string_array ( arg : alljoyn_msgarg , length : usize , r#as : *const *const i8 ) -> QStatus );
-    alljoyn_msgarg_set_string_array(arg.into(), length, ::core::mem::transmute(r#as))
+    alljoyn_msgarg_set_string_array(arg.into(), length, r#as)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3748,7 +3748,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_uint16_array ( arg : alljoyn_msgarg , length : usize , aq : *mut u16 ) -> QStatus );
-    alljoyn_msgarg_set_uint16_array(arg.into(), length, ::core::mem::transmute(aq))
+    alljoyn_msgarg_set_uint16_array(arg.into(), length, aq)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3766,7 +3766,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_uint32_array ( arg : alljoyn_msgarg , length : usize , au : *mut u32 ) -> QStatus );
-    alljoyn_msgarg_set_uint32_array(arg.into(), length, ::core::mem::transmute(au))
+    alljoyn_msgarg_set_uint32_array(arg.into(), length, au)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3784,7 +3784,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_uint64_array ( arg : alljoyn_msgarg , length : usize , at : *mut u64 ) -> QStatus );
-    alljoyn_msgarg_set_uint64_array(arg.into(), length, ::core::mem::transmute(at))
+    alljoyn_msgarg_set_uint64_array(arg.into(), length, at)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3802,7 +3802,7 @@ where
     P0: ::std::convert::Into<alljoyn_msgarg>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_msgarg_set_uint8_array ( arg : alljoyn_msgarg , length : usize , ay : *mut u8 ) -> QStatus );
-    alljoyn_msgarg_set_uint8_array(arg.into(), length, ::core::mem::transmute(ay))
+    alljoyn_msgarg_set_uint8_array(arg.into(), length, ay)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3861,7 +3861,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_observer_create ( bus : alljoyn_busattachment , mandatoryinterfaces : *const *const i8 , nummandatoryinterfaces : usize ) -> alljoyn_observer );
-    alljoyn_observer_create(bus.into(), ::core::mem::transmute(mandatoryinterfaces), nummandatoryinterfaces)
+    alljoyn_observer_create(bus.into(), mandatoryinterfaces, nummandatoryinterfaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3935,7 +3935,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_observerlistener_create ( callback : *const alljoyn_observerlistener_callback , context : *const ::core::ffi::c_void ) -> alljoyn_observerlistener );
-    alljoyn_observerlistener_create(::core::mem::transmute(callback), ::core::mem::transmute(context))
+    alljoyn_observerlistener_create(callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3960,7 +3960,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurationlistener_create ( callbacks : *const alljoyn_permissionconfigurationlistener_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_permissionconfigurationlistener );
-    alljoyn_permissionconfigurationlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_permissionconfigurationlistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3975,19 +3975,19 @@ where
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_certificatechain_destroy ( certificatechain : *mut i8 ) -> ( ) );
-    alljoyn_permissionconfigurator_certificatechain_destroy(::core::mem::transmute(certificatechain))
+    alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_certificateid_cleanup ( certificateid : *mut alljoyn_certificateid ) -> ( ) );
-    alljoyn_permissionconfigurator_certificateid_cleanup(::core::mem::transmute(certificateid))
+    alljoyn_permissionconfigurator_certificateid_cleanup(certificateid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_certificateidarray_cleanup ( certificateidarray : *mut alljoyn_certificateidarray ) -> ( ) );
-    alljoyn_permissionconfigurator_certificateidarray_cleanup(::core::mem::transmute(certificateidarray))
+    alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -3996,7 +3996,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_claim ( configurator : alljoyn_permissionconfigurator , cakey : *mut i8 , identitycertificatechain : *mut i8 , groupid : *const u8 , groupsize : usize , groupauthority : *mut i8 , manifestsxmls : *mut *mut i8 , manifestscount : usize ) -> QStatus );
-    alljoyn_permissionconfigurator_claim(configurator.into(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), groupsize, ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), manifestscount)
+    alljoyn_permissionconfigurator_claim(configurator.into(), cakey, identitycertificatechain, groupid, groupsize, groupauthority, manifestsxmls, manifestscount)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4014,7 +4014,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getapplicationstate ( configurator : alljoyn_permissionconfigurator , state : *mut alljoyn_applicationstate ) -> QStatus );
-    alljoyn_permissionconfigurator_getapplicationstate(configurator.into(), ::core::mem::transmute(state))
+    alljoyn_permissionconfigurator_getapplicationstate(configurator.into(), state)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4023,7 +4023,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getclaimcapabilities ( configurator : alljoyn_permissionconfigurator , claimcapabilities : *mut u16 ) -> QStatus );
-    alljoyn_permissionconfigurator_getclaimcapabilities(configurator.into(), ::core::mem::transmute(claimcapabilities))
+    alljoyn_permissionconfigurator_getclaimcapabilities(configurator.into(), claimcapabilities)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4032,7 +4032,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo ( configurator : alljoyn_permissionconfigurator , additionalinfo : *mut u16 ) -> QStatus );
-    alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(configurator.into(), ::core::mem::transmute(additionalinfo))
+    alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(configurator.into(), additionalinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4047,7 +4047,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getdefaultpolicy ( configurator : alljoyn_permissionconfigurator , policyxml : *mut *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_getdefaultpolicy(configurator.into(), ::core::mem::transmute(policyxml))
+    alljoyn_permissionconfigurator_getdefaultpolicy(configurator.into(), policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4056,7 +4056,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getidentity ( configurator : alljoyn_permissionconfigurator , identitycertificatechain : *mut *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_getidentity(configurator.into(), ::core::mem::transmute(identitycertificatechain))
+    alljoyn_permissionconfigurator_getidentity(configurator.into(), identitycertificatechain)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4065,7 +4065,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getidentitycertificateid ( configurator : alljoyn_permissionconfigurator , certificateid : *mut alljoyn_certificateid ) -> QStatus );
-    alljoyn_permissionconfigurator_getidentitycertificateid(configurator.into(), ::core::mem::transmute(certificateid))
+    alljoyn_permissionconfigurator_getidentitycertificateid(configurator.into(), certificateid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4074,7 +4074,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getmanifests ( configurator : alljoyn_permissionconfigurator , manifestarray : *mut alljoyn_manifestarray ) -> QStatus );
-    alljoyn_permissionconfigurator_getmanifests(configurator.into(), ::core::mem::transmute(manifestarray))
+    alljoyn_permissionconfigurator_getmanifests(configurator.into(), manifestarray)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4083,7 +4083,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getmanifesttemplate ( configurator : alljoyn_permissionconfigurator , manifesttemplatexml : *mut *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_getmanifesttemplate(configurator.into(), ::core::mem::transmute(manifesttemplatexml))
+    alljoyn_permissionconfigurator_getmanifesttemplate(configurator.into(), manifesttemplatexml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4092,7 +4092,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getmembershipsummaries ( configurator : alljoyn_permissionconfigurator , certificateids : *mut alljoyn_certificateidarray ) -> QStatus );
-    alljoyn_permissionconfigurator_getmembershipsummaries(configurator.into(), ::core::mem::transmute(certificateids))
+    alljoyn_permissionconfigurator_getmembershipsummaries(configurator.into(), certificateids)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4101,7 +4101,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getpolicy ( configurator : alljoyn_permissionconfigurator , policyxml : *mut *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_getpolicy(configurator.into(), ::core::mem::transmute(policyxml))
+    alljoyn_permissionconfigurator_getpolicy(configurator.into(), policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4110,7 +4110,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_getpublickey ( configurator : alljoyn_permissionconfigurator , publickey : *mut *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_getpublickey(configurator.into(), ::core::mem::transmute(publickey))
+    alljoyn_permissionconfigurator_getpublickey(configurator.into(), publickey)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4119,7 +4119,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_installmanifests ( configurator : alljoyn_permissionconfigurator , manifestsxmls : *mut *mut i8 , manifestscount : usize , append : i32 ) -> QStatus );
-    alljoyn_permissionconfigurator_installmanifests(configurator.into(), ::core::mem::transmute(manifestsxmls), manifestscount, append)
+    alljoyn_permissionconfigurator_installmanifests(configurator.into(), manifestsxmls, manifestscount, append)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4128,31 +4128,31 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_installmembership ( configurator : alljoyn_permissionconfigurator , membershipcertificatechain : *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_installmembership(configurator.into(), ::core::mem::transmute(membershipcertificatechain))
+    alljoyn_permissionconfigurator_installmembership(configurator.into(), membershipcertificatechain)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_manifestarray_cleanup ( manifestarray : *mut alljoyn_manifestarray ) -> ( ) );
-    alljoyn_permissionconfigurator_manifestarray_cleanup(::core::mem::transmute(manifestarray))
+    alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_manifesttemplate_destroy ( manifesttemplatexml : *mut i8 ) -> ( ) );
-    alljoyn_permissionconfigurator_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml))
+    alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_policy_destroy ( policyxml : *mut i8 ) -> ( ) );
-    alljoyn_permissionconfigurator_policy_destroy(::core::mem::transmute(policyxml))
+    alljoyn_permissionconfigurator_policy_destroy(policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_publickey_destroy ( publickey : *mut i8 ) -> ( ) );
-    alljoyn_permissionconfigurator_publickey_destroy(::core::mem::transmute(publickey))
+    alljoyn_permissionconfigurator_publickey_destroy(publickey)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4161,7 +4161,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_removemembership ( configurator : alljoyn_permissionconfigurator , serial : *const u8 , seriallen : usize , issuerpublickey : *mut i8 , issueraki : *const u8 , issuerakilen : usize ) -> QStatus );
-    alljoyn_permissionconfigurator_removemembership(configurator.into(), ::core::mem::transmute(serial), seriallen, ::core::mem::transmute(issuerpublickey), ::core::mem::transmute(issueraki), issuerakilen)
+    alljoyn_permissionconfigurator_removemembership(configurator.into(), serial, seriallen, issuerpublickey, issueraki, issuerakilen)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4215,7 +4215,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_setmanifesttemplatefromxml ( configurator : alljoyn_permissionconfigurator , manifesttemplatexml : *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_setmanifesttemplatefromxml(configurator.into(), ::core::mem::transmute(manifesttemplatexml))
+    alljoyn_permissionconfigurator_setmanifesttemplatefromxml(configurator.into(), manifesttemplatexml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4233,7 +4233,7 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_updateidentity ( configurator : alljoyn_permissionconfigurator , identitycertificatechain : *mut i8 , manifestsxmls : *mut *mut i8 , manifestscount : usize ) -> QStatus );
-    alljoyn_permissionconfigurator_updateidentity(configurator.into(), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(manifestsxmls), manifestscount)
+    alljoyn_permissionconfigurator_updateidentity(configurator.into(), identitycertificatechain, manifestsxmls, manifestscount)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4242,13 +4242,13 @@ where
     P0: ::std::convert::Into<alljoyn_permissionconfigurator>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_permissionconfigurator_updatepolicy ( configurator : alljoyn_permissionconfigurator , policyxml : *mut i8 ) -> QStatus );
-    alljoyn_permissionconfigurator_updatepolicy(configurator.into(), ::core::mem::transmute(policyxml))
+    alljoyn_permissionconfigurator_updatepolicy(configurator.into(), policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_pinglistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_pinglistener_create ( callback : *const alljoyn_pinglistener_callback , context : *const ::core::ffi::c_void ) -> alljoyn_pinglistener );
-    alljoyn_pinglistener_create(::core::mem::transmute(callback), ::core::mem::transmute(context))
+    alljoyn_pinglistener_create(callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4356,8 +4356,8 @@ where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getallpropertiesasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : * mut::core::ffi::c_void , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into(), iface.into(), ::core::mem::transmute(callback), timeout, ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getallpropertiesasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getallpropertiescb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into(), iface.into(), ::core::mem::transmute(callback), timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4376,7 +4376,7 @@ where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getchildren ( proxyobj : alljoyn_proxybusobject , children : *mut alljoyn_proxybusobject , numchildren : usize ) -> usize );
-    alljoyn_proxybusobject_getchildren(proxyobj.into(), ::core::mem::transmute(children), numchildren)
+    alljoyn_proxybusobject_getchildren(proxyobj.into(), children, numchildren)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4395,7 +4395,7 @@ where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getinterfaces ( proxyobj : alljoyn_proxybusobject , ifaces : *const alljoyn_interfacedescription , numifaces : usize ) -> usize );
-    alljoyn_proxybusobject_getinterfaces(proxyobj.into(), ::core::mem::transmute(ifaces), numifaces)
+    alljoyn_proxybusobject_getinterfaces(proxyobj.into(), ifaces, numifaces)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4426,8 +4426,8 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , callback : * mut::core::ffi::c_void , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_getpropertyasync(proxyobj.into(), iface.into(), property.into(), ::core::mem::transmute(callback), timeout, ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_getpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_getpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_proxybusobject_getpropertyasync(proxyobj.into(), iface.into(), property.into(), ::core::mem::transmute(callback), timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4481,8 +4481,8 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, P0>(proxyob
 where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_introspectremoteobjectasync ( proxyobj : alljoyn_proxybusobject , callback : * mut::core::ffi::c_void , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj.into(), ::core::mem::transmute(callback), ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_introspectremoteobjectasync ( proxyobj : alljoyn_proxybusobject , callback : alljoyn_proxybusobject_listener_introspectcb_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj.into(), ::core::mem::transmute(callback), context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4557,8 +4557,8 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
     P3: ::std::convert::Into<alljoyn_msgarg>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync ( proxyobj : alljoyn_proxybusobject , ifacename : :: windows::core::PCSTR , methodname : :: windows::core::PCSTR , replyfunc : * mut::core::ffi::c_void , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
-    alljoyn_proxybusobject_methodcallasync(proxyobj.into(), ifacename.into(), methodname.into(), ::core::mem::transmute(replyfunc), args.into(), numargs, ::core::mem::transmute(context), timeout, flags)
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync ( proxyobj : alljoyn_proxybusobject , ifacename : :: windows::core::PCSTR , methodname : :: windows::core::PCSTR , replyfunc : alljoyn_messagereceiver_replyhandler_ptr , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
+    alljoyn_proxybusobject_methodcallasync(proxyobj.into(), ifacename.into(), methodname.into(), ::core::mem::transmute(replyfunc), args.into(), numargs, context, timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4567,8 +4567,8 @@ where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<alljoyn_msgarg>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync_member ( proxyobj : alljoyn_proxybusobject , method : alljoyn_interfacedescription_member , replyfunc : * mut::core::ffi::c_void , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
-    alljoyn_proxybusobject_methodcallasync_member(proxyobj.into(), ::core::mem::transmute(method), ::core::mem::transmute(replyfunc), args.into(), numargs, ::core::mem::transmute(context), timeout, flags)
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_methodcallasync_member ( proxyobj : alljoyn_proxybusobject , method : alljoyn_interfacedescription_member , replyfunc : alljoyn_messagereceiver_replyhandler_ptr , args : alljoyn_msgarg , numargs : usize , context : *mut ::core::ffi::c_void , timeout : u32 , flags : u8 ) -> QStatus );
+    alljoyn_proxybusobject_methodcallasync_member(proxyobj.into(), ::core::mem::transmute(method), ::core::mem::transmute(replyfunc), args.into(), numargs, context, timeout, flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4624,8 +4624,8 @@ where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_registerpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , properties : *const *const i8 , numproperties : usize , callback : * mut::core::ffi::c_void , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into(), iface.into(), ::core::mem::transmute(properties), numproperties, ::core::mem::transmute(callback), ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_registerpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , properties : *const *const i8 , numproperties : usize , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into(), iface.into(), properties, numproperties, ::core::mem::transmute(callback), context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4676,8 +4676,8 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
     P3: ::std::convert::Into<alljoyn_msgarg>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_setpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , value : alljoyn_msgarg , callback : * mut::core::ffi::c_void , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
-    alljoyn_proxybusobject_setpropertyasync(proxyobj.into(), iface.into(), property.into(), value.into(), ::core::mem::transmute(callback), timeout, ::core::mem::transmute(context))
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_setpropertyasync ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , property : :: windows::core::PCSTR , value : alljoyn_msgarg , callback : alljoyn_proxybusobject_listener_setpropertycb_ptr , timeout : u32 , context : *mut ::core::ffi::c_void ) -> QStatus );
+    alljoyn_proxybusobject_setpropertyasync(proxyobj.into(), iface.into(), property.into(), value.into(), ::core::mem::transmute(callback), timeout, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4686,7 +4686,7 @@ where
     P0: ::std::convert::Into<alljoyn_proxybusobject>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_unregisterpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : * mut::core::ffi::c_void ) -> QStatus );
+    ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_proxybusobject_unregisterpropertieschangedlistener ( proxyobj : alljoyn_proxybusobject , iface : :: windows::core::PCSTR , callback : alljoyn_proxybusobject_listener_propertieschanged_ptr ) -> QStatus );
     alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj.into(), iface.into(), ::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
@@ -4699,7 +4699,7 @@ pub unsafe fn alljoyn_routerinit() -> QStatus {
 #[inline]
 pub unsafe fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_routerinitwithconfig ( configxml : *mut i8 ) -> QStatus );
-    alljoyn_routerinitwithconfig(::core::mem::transmute(configxml))
+    alljoyn_routerinitwithconfig(configxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4714,13 +4714,13 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_claim ( proxy : alljoyn_securityapplicationproxy , cakey : *mut i8 , identitycertificatechain : *mut i8 , groupid : *const u8 , groupsize : usize , groupauthority : *mut i8 , manifestsxmls : *mut *mut i8 , manifestscount : usize ) -> QStatus );
-    alljoyn_securityapplicationproxy_claim(proxy.into(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), groupsize, ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), manifestscount)
+    alljoyn_securityapplicationproxy_claim(proxy.into(), cakey, identitycertificatechain, groupid, groupsize, groupauthority, manifestsxmls, manifestscount)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, digest: *mut *mut u8, digestsize: *mut usize) -> QStatus {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_computemanifestdigest ( unsignedmanifestxml : *mut i8 , identitycertificatepem : *mut i8 , digest : *mut *mut u8 , digestsize : *mut usize ) -> QStatus );
-    alljoyn_securityapplicationproxy_computemanifestdigest(::core::mem::transmute(unsignedmanifestxml), ::core::mem::transmute(identitycertificatepem), ::core::mem::transmute(digest), ::core::mem::transmute(digestsize))
+    alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml, identitycertificatepem, digest, digestsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4729,7 +4729,7 @@ where
     P0: ::std::convert::Into<alljoyn_busattachment>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_create ( bus : alljoyn_busattachment , appbusname : *mut i8 , sessionid : u32 ) -> alljoyn_securityapplicationproxy );
-    alljoyn_securityapplicationproxy_create(bus.into(), ::core::mem::transmute(appbusname), sessionid)
+    alljoyn_securityapplicationproxy_create(bus.into(), appbusname, sessionid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4744,13 +4744,13 @@ where
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_digest_destroy ( digest : *mut u8 ) -> ( ) );
-    alljoyn_securityapplicationproxy_digest_destroy(::core::mem::transmute(digest))
+    alljoyn_securityapplicationproxy_digest_destroy(digest)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_eccpublickey_destroy ( eccpublickey : *mut i8 ) -> ( ) );
-    alljoyn_securityapplicationproxy_eccpublickey_destroy(::core::mem::transmute(eccpublickey))
+    alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4768,7 +4768,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_getapplicationstate ( proxy : alljoyn_securityapplicationproxy , applicationstate : *mut alljoyn_applicationstate ) -> QStatus );
-    alljoyn_securityapplicationproxy_getapplicationstate(proxy.into(), ::core::mem::transmute(applicationstate))
+    alljoyn_securityapplicationproxy_getapplicationstate(proxy.into(), applicationstate)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4777,7 +4777,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_getclaimcapabilities ( proxy : alljoyn_securityapplicationproxy , capabilities : *mut u16 ) -> QStatus );
-    alljoyn_securityapplicationproxy_getclaimcapabilities(proxy.into(), ::core::mem::transmute(capabilities))
+    alljoyn_securityapplicationproxy_getclaimcapabilities(proxy.into(), capabilities)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4786,7 +4786,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo ( proxy : alljoyn_securityapplicationproxy , additionalinfo : *mut u16 ) -> QStatus );
-    alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(proxy.into(), ::core::mem::transmute(additionalinfo))
+    alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(proxy.into(), additionalinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4795,7 +4795,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_getdefaultpolicy ( proxy : alljoyn_securityapplicationproxy , policyxml : *mut *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_getdefaultpolicy(proxy.into(), ::core::mem::transmute(policyxml))
+    alljoyn_securityapplicationproxy_getdefaultpolicy(proxy.into(), policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4804,7 +4804,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_geteccpublickey ( proxy : alljoyn_securityapplicationproxy , eccpublickey : *mut *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_geteccpublickey(proxy.into(), ::core::mem::transmute(eccpublickey))
+    alljoyn_securityapplicationproxy_geteccpublickey(proxy.into(), eccpublickey)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4813,7 +4813,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_getmanifesttemplate ( proxy : alljoyn_securityapplicationproxy , manifesttemplatexml : *mut *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_getmanifesttemplate(proxy.into(), ::core::mem::transmute(manifesttemplatexml))
+    alljoyn_securityapplicationproxy_getmanifesttemplate(proxy.into(), manifesttemplatexml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4828,7 +4828,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_getpolicy ( proxy : alljoyn_securityapplicationproxy , policyxml : *mut *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_getpolicy(proxy.into(), ::core::mem::transmute(policyxml))
+    alljoyn_securityapplicationproxy_getpolicy(proxy.into(), policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4837,25 +4837,25 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_installmembership ( proxy : alljoyn_securityapplicationproxy , membershipcertificatechain : *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_installmembership(proxy.into(), ::core::mem::transmute(membershipcertificatechain))
+    alljoyn_securityapplicationproxy_installmembership(proxy.into(), membershipcertificatechain)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_manifest_destroy ( signedmanifestxml : *mut i8 ) -> ( ) );
-    alljoyn_securityapplicationproxy_manifest_destroy(::core::mem::transmute(signedmanifestxml))
+    alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_manifesttemplate_destroy ( manifesttemplatexml : *mut i8 ) -> ( ) );
-    alljoyn_securityapplicationproxy_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml))
+    alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8) {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_policy_destroy ( policyxml : *mut i8 ) -> ( ) );
-    alljoyn_securityapplicationproxy_policy_destroy(::core::mem::transmute(policyxml))
+    alljoyn_securityapplicationproxy_policy_destroy(policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4879,13 +4879,13 @@ where
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *const u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_setmanifestsignature ( unsignedmanifestxml : *mut i8 , identitycertificatepem : *mut i8 , signature : *const u8 , signaturesize : usize , signedmanifestxml : *mut *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_setmanifestsignature(::core::mem::transmute(unsignedmanifestxml), ::core::mem::transmute(identitycertificatepem), ::core::mem::transmute(signature), signaturesize, ::core::mem::transmute(signedmanifestxml))
+    alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml, identitycertificatepem, signature, signaturesize, signedmanifestxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signingprivatekeypem: *mut i8, signedmanifestxml: *mut *mut i8) -> QStatus {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_signmanifest ( unsignedmanifestxml : *mut i8 , identitycertificatepem : *mut i8 , signingprivatekeypem : *mut i8 , signedmanifestxml : *mut *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_signmanifest(::core::mem::transmute(unsignedmanifestxml), ::core::mem::transmute(identitycertificatepem), ::core::mem::transmute(signingprivatekeypem), ::core::mem::transmute(signedmanifestxml))
+    alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml, identitycertificatepem, signingprivatekeypem, signedmanifestxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4903,7 +4903,7 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_updateidentity ( proxy : alljoyn_securityapplicationproxy , identitycertificatechain : *mut i8 , manifestsxmls : *mut *mut i8 , manifestscount : usize ) -> QStatus );
-    alljoyn_securityapplicationproxy_updateidentity(proxy.into(), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(manifestsxmls), manifestscount)
+    alljoyn_securityapplicationproxy_updateidentity(proxy.into(), identitycertificatechain, manifestsxmls, manifestscount)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -4912,13 +4912,13 @@ where
     P0: ::std::convert::Into<alljoyn_securityapplicationproxy>,
 {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_securityapplicationproxy_updatepolicy ( proxy : alljoyn_securityapplicationproxy , policyxml : *mut i8 ) -> QStatus );
-    alljoyn_securityapplicationproxy_updatepolicy(proxy.into(), ::core::mem::transmute(policyxml))
+    alljoyn_securityapplicationproxy_updatepolicy(proxy.into(), policyxml)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
 pub unsafe fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionlistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_sessionlistener_create ( callbacks : *const alljoyn_sessionlistener_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_sessionlistener );
-    alljoyn_sessionlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_sessionlistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -5040,7 +5040,7 @@ where
 #[inline]
 pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessionportlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionportlistener {
     ::windows::core::link ! ( "msajapi.dll""system" fn alljoyn_sessionportlistener_create ( callbacks : *const alljoyn_sessionportlistener_callbacks , context : *const ::core::ffi::c_void ) -> alljoyn_sessionportlistener );
-    alljoyn_sessionportlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context))
+    alljoyn_sessionportlistener_create(callbacks, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]

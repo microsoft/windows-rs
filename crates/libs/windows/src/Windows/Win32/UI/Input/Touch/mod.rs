@@ -26,7 +26,7 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn GetGestureConfig ( hwnd : super::super::super::Foundation:: HWND , dwreserved : u32 , dwflags : u32 , pcids : *const u32 , pgestureconfig : *mut GESTURECONFIG , cbsize : u32 ) -> super::super::super::Foundation:: BOOL );
-    GetGestureConfig(hwnd.into(), dwreserved, dwflags, ::core::mem::transmute(pcids), ::core::mem::transmute(pgestureconfig), cbsize)
+    GetGestureConfig(hwnd.into(), dwreserved, dwflags, pcids, pgestureconfig, cbsize)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -46,7 +46,7 @@ where
     P0: ::std::convert::Into<HGESTUREINFO>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn GetGestureInfo ( hgestureinfo : HGESTUREINFO , pgestureinfo : *mut GESTUREINFO ) -> super::super::super::Foundation:: BOOL );
-    GetGestureInfo(hgestureinfo.into(), ::core::mem::transmute(pgestureinfo))
+    GetGestureInfo(hgestureinfo.into(), pgestureinfo)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -115,7 +115,7 @@ impl IDXCoreAdapterFactory_Vtbl {
             let this = (*this).get_impl();
             this.IsNotificationTypeSupported(::core::mem::transmute_copy(&notificationtype))
         }
-        unsafe extern "system" fn RegisterEventNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxcoreobject: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterEventNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxcoreobject: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterEventNotification(::core::mem::transmute(&dxcoreobject), ::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute(&callbackfunction), ::core::mem::transmute_copy(&callbackcontext)) {

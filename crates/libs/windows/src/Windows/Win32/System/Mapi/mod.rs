@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32 {
     ::windows::core::link ! ( "mapi32.dll""system" fn MAPIFreeBuffer ( pv : *mut ::core::ffi::c_void ) -> u32 );
-    MAPIFreeBuffer(::core::mem::transmute(pv))
+    MAPIFreeBuffer(pv)
 }
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;

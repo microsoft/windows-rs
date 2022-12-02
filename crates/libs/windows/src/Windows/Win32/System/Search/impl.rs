@@ -5604,7 +5604,7 @@ impl ISearchQueryHits_Vtbl {
             let this = (*this).get_impl();
             this.Init(::core::mem::transmute(&pflt), ::core::mem::transmute_copy(&ulflags))
         }
-        unsafe extern "system" fn NextHitMoniker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchQueryHits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmnk: *mut u32, papmnk: *mut *mut super::Com::IMoniker) -> i32 {
+        unsafe extern "system" fn NextHitMoniker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISearchQueryHits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmnk: *mut u32, papmnk: *mut *mut ::core::option::Option<super::Com::IMoniker>) -> i32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NextHitMoniker(::core::mem::transmute_copy(&pcmnk), ::core::mem::transmute_copy(&papmnk))

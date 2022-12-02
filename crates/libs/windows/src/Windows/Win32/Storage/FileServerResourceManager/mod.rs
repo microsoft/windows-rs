@@ -653,7 +653,7 @@ impl IFsrmActionReport {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetReportTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reporttypes)).ok()
+        (::windows::core::Vtable::vtable(self).SetReportTypes)(::windows::core::Vtable::as_raw(self), reporttypes).ok()
     }
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -814,7 +814,7 @@ impl IFsrmAutoApplyQuota {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetExcludeFolders)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(folders)).ok()
+        (::windows::core::Vtable::vtable(self).SetExcludeFolders)(::windows::core::Vtable::as_raw(self), folders).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -886,7 +886,7 @@ impl IFsrmClassificationManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetClassificationReportFormats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(formats)).ok()
+        (::windows::core::Vtable::vtable(self).SetClassificationReportFormats)(::windows::core::Vtable::as_raw(self), formats).ok()
     }
     pub unsafe fn Logging(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1136,7 +1136,7 @@ impl IFsrmClassificationManager2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetClassificationReportFormats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(formats)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetClassificationReportFormats)(::windows::core::Vtable::as_raw(self), formats).ok()
     }
     pub unsafe fn Logging(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1262,7 +1262,7 @@ impl IFsrmClassificationManager2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ClassifyFiles)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filepaths), ::core::mem::transmute(propertynames), ::core::mem::transmute(propertyvalues), options).ok()
+        (::windows::core::Vtable::vtable(self).ClassifyFiles)(::windows::core::Vtable::as_raw(self), filepaths, propertynames, propertyvalues, options).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1355,7 +1355,7 @@ impl IFsrmClassificationRule {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), namespaceroots).ok()
     }
     pub unsafe fn RuleFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1373,7 +1373,7 @@ impl IFsrmClassificationRule {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1538,7 +1538,7 @@ impl IFsrmClassifierModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetSupportedExtensions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(supportedextensions)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetSupportedExtensions)(::windows::core::Vtable::as_raw(self), supportedextensions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1549,7 +1549,7 @@ impl IFsrmClassifierModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1560,7 +1560,7 @@ impl IFsrmClassifierModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPropertiesAffected)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertiesaffected)).ok()
+        (::windows::core::Vtable::vtable(self).SetPropertiesAffected)(::windows::core::Vtable::as_raw(self), propertiesaffected).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1571,7 +1571,7 @@ impl IFsrmClassifierModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertiesUsed(&self, propertiesused: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPropertiesUsed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertiesused)).ok()
+        (::windows::core::Vtable::vtable(self).SetPropertiesUsed)(::windows::core::Vtable::as_raw(self), propertiesused).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1684,12 +1684,12 @@ impl IFsrmClassifierModuleImplementation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPropertyBag>>,
     {
-        (::windows::core::Vtable::vtable(self).OnBeginFile)(::windows::core::Vtable::as_raw(self), propertybag.into().abi(), ::core::mem::transmute(arrayruleids)).ok()
+        (::windows::core::Vtable::vtable(self).OnBeginFile)(::windows::core::Vtable::as_raw(self), propertybag.into().abi(), arrayruleids).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesPropertyValueApply(&self, property: &::windows::core::BSTR, value: &::windows::core::BSTR, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: ::windows::core::GUID, idpropdef: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DoesPropertyValueApply)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(property), ::core::mem::transmute_copy(value), ::core::mem::transmute(applyvalue), ::core::mem::transmute(idrule), ::core::mem::transmute(idpropdef)).ok()
+        (::windows::core::Vtable::vtable(self).DoesPropertyValueApply)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(property), ::core::mem::transmute_copy(value), applyvalue, ::core::mem::transmute(idrule), ::core::mem::transmute(idpropdef)).ok()
     }
     pub unsafe fn GetPropertyValueToApply(&self, property: &::windows::core::BSTR, value: *mut ::windows::core::BSTR, idrule: ::windows::core::GUID, idpropdef: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPropertyValueToApply)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(property), ::core::mem::transmute(value), ::core::mem::transmute(idrule), ::core::mem::transmute(idpropdef)).ok()
@@ -2632,7 +2632,7 @@ impl IFsrmFileManagementJob {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
+        (::windows::core::Vtable::vtable(self).SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), namespaceroots).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2698,7 +2698,7 @@ impl IFsrmFileManagementJob {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFormats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(formats)).ok()
+        (::windows::core::Vtable::vtable(self).SetFormats)(::windows::core::Vtable::as_raw(self), formats).ok()
     }
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2757,7 +2757,7 @@ impl IFsrmFileManagementJob {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
     pub unsafe fn RunningStatus(&self) -> ::windows::core::Result<FsrmReportRunningStatus> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4253,7 +4253,7 @@ impl IFsrmPipelineModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSupportedExtensions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(supportedextensions)).ok()
+        (::windows::core::Vtable::vtable(self).SetSupportedExtensions)(::windows::core::Vtable::as_raw(self), supportedextensions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4264,7 +4264,7 @@ impl IFsrmPipelineModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4962,7 +4962,7 @@ impl IFsrmPropertyDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPossibleValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(possiblevalues)).ok()
+        (::windows::core::Vtable::vtable(self).SetPossibleValues)(::windows::core::Vtable::as_raw(self), possiblevalues).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4973,7 +4973,7 @@ impl IFsrmPropertyDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValueDescriptions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(valuedescriptions)).ok()
+        (::windows::core::Vtable::vtable(self).SetValueDescriptions)(::windows::core::Vtable::as_raw(self), valuedescriptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4984,7 +4984,7 @@ impl IFsrmPropertyDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5097,7 +5097,7 @@ impl IFsrmPropertyDefinition2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetPossibleValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(possiblevalues)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetPossibleValues)(::windows::core::Vtable::as_raw(self), possiblevalues).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5108,7 +5108,7 @@ impl IFsrmPropertyDefinition2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetValueDescriptions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(valuedescriptions)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetValueDescriptions)(::windows::core::Vtable::as_raw(self), valuedescriptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5119,7 +5119,7 @@ impl IFsrmPropertyDefinition2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
     pub unsafe fn PropertyDefinitionFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6473,7 +6473,7 @@ impl IFsrmReportJob {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
+        (::windows::core::Vtable::vtable(self).SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), namespaceroots).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6484,7 +6484,7 @@ impl IFsrmReportJob {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetFormats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(formats)).ok()
+        (::windows::core::Vtable::vtable(self).SetFormats)(::windows::core::Vtable::as_raw(self), formats).ok()
     }
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6868,7 +6868,7 @@ impl IFsrmRule {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
+        (::windows::core::Vtable::vtable(self).SetNamespaceRoots)(::windows::core::Vtable::as_raw(self), namespaceroots).ok()
     }
     pub unsafe fn RuleFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6886,7 +6886,7 @@ impl IFsrmRule {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7172,7 +7172,7 @@ impl IFsrmStorageModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetSupportedExtensions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(supportedextensions)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetSupportedExtensions)(::windows::core::Vtable::as_raw(self), supportedextensions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7183,7 +7183,7 @@ impl IFsrmStorageModuleDefinition {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(parameters)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetParameters)(::windows::core::Vtable::as_raw(self), parameters).ok()
     }
     pub unsafe fn Capabilities(&self) -> ::windows::core::Result<FsrmStorageModuleCaps> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

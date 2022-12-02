@@ -3,14 +3,14 @@
 #[inline]
 pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "sfc.dll""system" fn SRSetRestorePointA ( prestoreptspec : *const RESTOREPOINTINFOA , psmgrstatus : *mut STATEMGRSTATUS ) -> super::super::Foundation:: BOOL );
-    SRSetRestorePointA(::core::mem::transmute(prestoreptspec), ::core::mem::transmute(psmgrstatus))
+    SRSetRestorePointA(prestoreptspec, psmgrstatus)
 }
 #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "sfc.dll""system" fn SRSetRestorePointW ( prestoreptspec : *const RESTOREPOINTINFOW , psmgrstatus : *mut STATEMGRSTATUS ) -> super::super::Foundation:: BOOL );
-    SRSetRestorePointW(::core::mem::transmute(prestoreptspec), ::core::mem::transmute(psmgrstatus))
+    SRSetRestorePointW(prestoreptspec, psmgrstatus)
 }
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;

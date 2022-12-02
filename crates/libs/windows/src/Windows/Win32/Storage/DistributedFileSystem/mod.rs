@@ -51,7 +51,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsEnum ( dfsname : :: windows::core::PCWSTR , level : u32 , prefmaxlen : u32 , buffer : *mut *mut u8 , entriesread : *mut u32 , resumehandle : *mut u32 ) -> u32 );
-    NetDfsEnum(dfsname.into(), level, prefmaxlen, ::core::mem::transmute(buffer), ::core::mem::transmute(entriesread), ::core::mem::transmute(resumehandle))
+    NetDfsEnum(dfsname.into(), level, prefmaxlen, buffer, entriesread, resumehandle)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -62,7 +62,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsGetClientInfo ( dfsentrypath : :: windows::core::PCWSTR , servername : :: windows::core::PCWSTR , sharename : :: windows::core::PCWSTR , level : u32 , buffer : *mut *mut u8 ) -> u32 );
-    NetDfsGetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer))
+    NetDfsGetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -72,7 +72,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsGetFtContainerSecurity ( domainname : :: windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
-    NetDfsGetFtContainerSecurity(domainname.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor))
+    NetDfsGetFtContainerSecurity(domainname.into(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -83,7 +83,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsGetInfo ( dfsentrypath : :: windows::core::PCWSTR , servername : :: windows::core::PCWSTR , sharename : :: windows::core::PCWSTR , level : u32 , buffer : *mut *mut u8 ) -> u32 );
-    NetDfsGetInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer))
+    NetDfsGetInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -93,7 +93,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsGetSecurity ( dfsentrypath : :: windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
-    NetDfsGetSecurity(dfsentrypath.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor))
+    NetDfsGetSecurity(dfsentrypath.into(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -103,7 +103,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsGetStdContainerSecurity ( machinename : :: windows::core::PCWSTR , securityinformation : u32 , ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR , lpcbsecuritydescriptor : *mut u32 ) -> u32 );
-    NetDfsGetStdContainerSecurity(machinename.into(), securityinformation, ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor))
+    NetDfsGetStdContainerSecurity(machinename.into(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -112,7 +112,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsGetSupportedNamespaceVersion ( origin : DFS_NAMESPACE_VERSION_ORIGIN , pname : :: windows::core::PCWSTR , ppversioninfo : *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO ) -> u32 );
-    NetDfsGetSupportedNamespaceVersion(origin, pname.into(), ::core::mem::transmute(ppversioninfo))
+    NetDfsGetSupportedNamespaceVersion(origin, pname.into(), ppversioninfo)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
@@ -187,7 +187,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsSetClientInfo ( dfsentrypath : :: windows::core::PCWSTR , servername : :: windows::core::PCWSTR , sharename : :: windows::core::PCWSTR , level : u32 , buffer : *const u8 ) -> u32 );
-    NetDfsSetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer))
+    NetDfsSetClientInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -209,7 +209,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetDfsSetInfo ( dfsentrypath : :: windows::core::PCWSTR , servername : :: windows::core::PCWSTR , sharename : :: windows::core::PCWSTR , level : u32 , buffer : *const u8 ) -> u32 );
-    NetDfsSetInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, ::core::mem::transmute(buffer))
+    NetDfsSetInfo(dfsentrypath.into(), servername.into(), sharename.into(), level, buffer)
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]

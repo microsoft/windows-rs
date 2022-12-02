@@ -193,7 +193,7 @@ impl INetwork {
         (::windows::core::Vtable::vtable(self).GetNetworkConnections)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTimeCreatedAndConnected)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwlowdatetimecreated), ::core::mem::transmute(pdwhighdatetimecreated), ::core::mem::transmute(pdwlowdatetimeconnected), ::core::mem::transmute(pdwhighdatetimeconnected)).ok()
+        (::windows::core::Vtable::vtable(self).GetTimeCreatedAndConnected)(::windows::core::Vtable::as_raw(self), pdwlowdatetimecreated, pdwhighdatetimecreated, pdwlowdatetimeconnected, pdwhighdatetimeconnected).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -505,12 +505,12 @@ pub struct INetworkConnectionEvents_Vtbl {
 pub struct INetworkCostManager(::windows::core::IUnknown);
 impl INetworkCostManager {
     pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCost)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcost), ::core::mem::transmute(pdestipaddr)).ok()
+        (::windows::core::Vtable::vtable(self).GetCost)(::windows::core::Vtable::as_raw(self), pcost, pdestipaddr).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDataPlanStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdataplanstatus), ::core::mem::transmute(pdestipaddr)).ok()
+        (::windows::core::Vtable::vtable(self).GetDataPlanStatus)(::windows::core::Vtable::as_raw(self), pdataplanstatus, pdestipaddr).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -560,10 +560,10 @@ pub struct INetworkCostManager_Vtbl {
 pub struct INetworkCostManagerEvents(::windows::core::IUnknown);
 impl INetworkCostManagerEvents {
     pub unsafe fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CostChanged)(::windows::core::Vtable::as_raw(self), newcost, ::core::mem::transmute(pdestaddr)).ok()
+        (::windows::core::Vtable::vtable(self).CostChanged)(::windows::core::Vtable::as_raw(self), newcost, pdestaddr).ok()
     }
     pub unsafe fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DataPlanStatusChanged)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdestaddr)).ok()
+        (::windows::core::Vtable::vtable(self).DataPlanStatusChanged)(::windows::core::Vtable::as_raw(self), pdestaddr).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetworkCostManagerEvents, ::windows::core::IUnknown);
@@ -692,7 +692,7 @@ impl INetworkListManager {
         (::windows::core::Vtable::vtable(self).GetConnectivity)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSimulatedProfileInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psimulatedinfo)).ok()
+        (::windows::core::Vtable::vtable(self).SetSimulatedProfileInfo)(::windows::core::Vtable::as_raw(self), psimulatedinfo).ok()
     }
     pub unsafe fn ClearSimulatedProfileInfo(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ClearSimulatedProfileInfo)(::windows::core::Vtable::as_raw(self)).ok()

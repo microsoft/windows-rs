@@ -5,7 +5,7 @@ where
     P0: ::std::convert::Into<HCOMDB>,
 {
     ::windows::core::link ! ( "msports.dll""system" fn ComDBClaimNextFreePort ( hcomdb : HCOMDB , comnumber : *mut u32 ) -> i32 );
-    ComDBClaimNextFreePort(hcomdb.into(), ::core::mem::transmute(comnumber))
+    ComDBClaimNextFreePort(hcomdb.into(), comnumber)
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -40,7 +40,7 @@ where
 #[inline]
 pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
     ::windows::core::link ! ( "msports.dll""system" fn ComDBOpen ( phcomdb : *mut isize ) -> i32 );
-    ComDBOpen(::core::mem::transmute(phcomdb))
+    ComDBOpen(phcomdb)
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]

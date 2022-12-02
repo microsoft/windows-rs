@@ -3,7 +3,7 @@
 pub struct IEnumVdsObject(::windows::core::IUnknown);
 impl IEnumVdsObject {
     pub unsafe fn Next(&self, celt: u32, ppobjectarray: *mut ::core::option::Option<::windows::core::IUnknown>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(ppobjectarray), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, ::core::mem::transmute(ppobjectarray), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -139,10 +139,10 @@ impl IVdsAsync {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Wait(&self, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Wait)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phrresult), ::core::mem::transmute(pasyncout)).ok()
+        (::windows::core::Vtable::vtable(self).Wait)(::windows::core::Vtable::as_raw(self), phrresult, ::core::mem::transmute(pasyncout)).ok()
     }
     pub unsafe fn QueryStatus(&self, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phrresult), ::core::mem::transmute(pulpercentcompleted)).ok()
+        (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), phrresult, pulpercentcompleted).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsAsync, ::windows::core::IUnknown);
@@ -354,7 +354,7 @@ impl IVdsDrive {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryExtents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppextentarray), ::core::mem::transmute(plnumberofextents)).ok()
+        (::windows::core::Vtable::vtable(self).QueryExtents)(::windows::core::Vtable::as_raw(self), ppextentarray, plnumberofextents).ok()
     }
     pub unsafe fn SetFlags(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), ulflags).ok()
@@ -498,7 +498,7 @@ impl IVdsHwProviderPrivate {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into(), ::core::mem::transmute(pvdsluninformation), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into(), pvdsluninformation, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IVdsHwProviderPrivate, ::windows::core::IUnknown);
@@ -732,14 +732,14 @@ impl IVdsIscsiPortal {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
     pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIpsecTunnelAddress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptunneladdress), ::core::mem::transmute(pdestinationaddress)).ok()
+        (::windows::core::Vtable::vtable(self).SetIpsecTunnelAddress)(::windows::core::Vtable::as_raw(self), ptunneladdress, pdestinationaddress).ok()
     }
     pub unsafe fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIpsecSecurity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinitiatorportaladdress), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetIpsecSecurity)(::windows::core::Vtable::as_raw(self), pinitiatorportaladdress, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIpsecSecurity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinitiatorportaladdress), ullsecurityflags, ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).SetIpsecSecurity)(::windows::core::Vtable::as_raw(self), pinitiatorportaladdress, ullsecurityflags, ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsIscsiPortal, ::windows::core::IUnknown);
@@ -889,7 +889,7 @@ impl IVdsIscsiTarget {
         (::windows::core::Vtable::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Vtable::as_raw(self), pwszinitiatorname.into(), ::core::mem::transmute(pinitiatorsharedsecret.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetConnectedInitiators)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppwszinitiatorlist), ::core::mem::transmute(plnumberofinitiators)).ok()
+        (::windows::core::Vtable::vtable(self).GetConnectedInitiators)(::windows::core::Vtable::as_raw(self), pppwszinitiatorlist, plnumberofinitiators).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsIscsiTarget, ::windows::core::IUnknown);
@@ -1000,7 +1000,7 @@ impl IVdsLun {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ApplyHints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phints)).ok()
+        (::windows::core::Vtable::vtable(self).ApplyHints)(::windows::core::Vtable::as_raw(self), phints).ok()
     }
     pub unsafe fn SetStatus(&self, status: VDS_LUN_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
@@ -1077,7 +1077,7 @@ impl IVdsLun2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ApplyHints2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phints2)).ok()
+        (::windows::core::Vtable::vtable(self).ApplyHints2)(::windows::core::Vtable::as_raw(self), phints2).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLun2, ::windows::core::IUnknown);
@@ -1205,12 +1205,12 @@ pub struct IVdsLunIscsi_Vtbl {
 pub struct IVdsLunMpio(::windows::core::IUnknown);
 impl IVdsLunMpio {
     pub unsafe fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPathInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppaths), ::core::mem::transmute(plnumberofpaths)).ok()
+        (::windows::core::Vtable::vtable(self).GetPathInfo)(::windows::core::Vtable::as_raw(self), pppaths, plnumberofpaths).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLoadBalancePolicy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppolicy), ::core::mem::transmute(pppaths), ::core::mem::transmute(plnumberofpaths)).ok()
+        (::windows::core::Vtable::vtable(self).GetLoadBalancePolicy)(::windows::core::Vtable::as_raw(self), ppolicy, pppaths, plnumberofpaths).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1353,7 +1353,7 @@ impl IVdsLunPlex {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryExtents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppextentarray), ::core::mem::transmute(plnumberofextents)).ok()
+        (::windows::core::Vtable::vtable(self).QueryExtents)(::windows::core::Vtable::as_raw(self), ppextentarray, plnumberofextents).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1364,7 +1364,7 @@ impl IVdsLunPlex {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ApplyHints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phints)).ok()
+        (::windows::core::Vtable::vtable(self).ApplyHints)(::windows::core::Vtable::as_raw(self), phints).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IVdsLunPlex, ::windows::core::IUnknown);
@@ -1609,7 +1609,7 @@ impl IVdsStoragePool {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryDriveExtents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppextentarray), ::core::mem::transmute(plnumberofextents)).ok()
+        (::windows::core::Vtable::vtable(self).QueryDriveExtents)(::windows::core::Vtable::as_raw(self), ppextentarray, plnumberofextents).ok()
     }
     pub unsafe fn QueryAllocatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

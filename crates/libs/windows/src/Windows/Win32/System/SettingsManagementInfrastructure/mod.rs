@@ -75,10 +75,10 @@ impl ISettingsContext {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITargetInfo>>,
     {
-        (::windows::core::Vtable::vtable(self).Deserialize)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), ptarget.into().abi(), ::core::mem::transmute(pppresults), ::core::mem::transmute(pcresultcount)).ok()
+        (::windows::core::Vtable::vtable(self).Deserialize)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), ptarget.into().abi(), pppresults, pcresultcount).ok()
     }
     pub unsafe fn SetUserData(&self, puserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUserData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puserdata)).ok()
+        (::windows::core::Vtable::vtable(self).SetUserData)(::windows::core::Vtable::as_raw(self), puserdata).ok()
     }
     pub unsafe fn GetUserData(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -134,7 +134,7 @@ pub struct ISettingsContext_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Serialize: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Deserialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, pppresults: *mut *mut ISettingsResult, pcresultcount: *mut usize) -> ::windows::core::HRESULT,
+    pub Deserialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Deserialize: usize,
     pub SetUserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puserdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -149,14 +149,14 @@ pub struct ISettingsEngine(::windows::core::IUnknown);
 impl ISettingsEngine {
     pub unsafe fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNamespaces)(::windows::core::Vtable::as_raw(self), flags, ::core::mem::transmute(reserved), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetNamespaces)(::windows::core::Vtable::as_raw(self), flags, reserved, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNamespace<'a, P0>(&self, settingsid: P0, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsIdentity>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNamespace)(::windows::core::Vtable::as_raw(self), settingsid.into().abi(), access, ::core::mem::transmute(reserved), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetNamespace)(::windows::core::Vtable::as_raw(self), settingsid.into().abi(), access, reserved, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetErrorDescription(&self, hresult: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -168,13 +168,13 @@ impl ISettingsEngine {
     }
     pub unsafe fn GetStoreStatus(&self, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<WcmUserStatus> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStoreStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reserved), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetStoreStatus)(::windows::core::Vtable::as_raw(self), reserved, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn LoadStore(&self, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).LoadStore)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
     pub unsafe fn UnloadStore(&self, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UnloadStore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reserved)).ok()
+        (::windows::core::Vtable::vtable(self).UnloadStore)(::windows::core::Vtable::as_raw(self), reserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -212,7 +212,7 @@ impl ISettingsEngine {
     }
     pub unsafe fn CreateSettingsContext(&self, flags: u32, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSettingsContext)(::windows::core::Vtable::as_raw(self), flags, ::core::mem::transmute(reserved), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateSettingsContext)(::windows::core::Vtable::as_raw(self), flags, reserved, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetSettingsContext<'a, P0>(&self, settingscontext: P0) -> ::windows::core::Result<()>
     where
@@ -224,7 +224,7 @@ impl ISettingsEngine {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsContext>>,
     {
-        (::windows::core::Vtable::vtable(self).ApplySettingsContext)(::windows::core::Vtable::as_raw(self), settingscontext.into().abi(), ::core::mem::transmute(pppwzidentities), ::core::mem::transmute(pcidentities)).ok()
+        (::windows::core::Vtable::vtable(self).ApplySettingsContext)(::windows::core::Vtable::as_raw(self), settingscontext.into().abi(), pppwzidentities, pcidentities).ok()
     }
     pub unsafe fn GetSettingsContext(&self) -> ::windows::core::Result<ISettingsContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -290,14 +290,14 @@ impl ISettingsIdentity {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reserved), name.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), reserved, name.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetAttribute<'a, P0, P1>(&self, reserved: *const ::core::ffi::c_void, name: P0, value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(reserved), name.into(), value.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAttribute)(::windows::core::Vtable::as_raw(self), reserved, name.into(), value.into()).ok()
     }
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -367,7 +367,7 @@ impl ISettingsItem {
         (::windows::core::Vtable::vtable(self).GetDataType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetValueRaw(&self, data: *mut *mut u8, datasize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetValueRaw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data), ::core::mem::transmute(datasize)).ok()
+        (::windows::core::Vtable::vtable(self).GetValueRaw)(::windows::core::Vtable::as_raw(self), data, datasize).ok()
     }
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetValueRaw)(::windows::core::Vtable::as_raw(self), datatype, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
@@ -410,7 +410,7 @@ impl ISettingsItem {
         (::windows::core::Vtable::vtable(self).RemoveSettingByPath)(::windows::core::Vtable::as_raw(self), path.into()).ok()
     }
     pub unsafe fn GetListKeyInformation(&self, keyname: *mut ::windows::core::BSTR, datatype: *mut WcmDataType) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetListKeyInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(keyname), ::core::mem::transmute(datatype)).ok()
+        (::windows::core::Vtable::vtable(self).GetListKeyInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(keyname), datatype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -786,7 +786,7 @@ impl ITargetInfo {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetWow64Context)(::windows::core::Vtable::as_raw(self), installermodule.into(), ::core::mem::transmute(wow64context)).ok()
+        (::windows::core::Vtable::vtable(self).SetWow64Context)(::windows::core::Vtable::as_raw(self), installermodule.into(), wow64context).ok()
     }
     pub unsafe fn TranslateWow64<'a, P0, P1>(&self, clientarchitecture: P0, value: P1) -> ::windows::core::Result<::windows::core::BSTR>
     where

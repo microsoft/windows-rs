@@ -36454,7 +36454,7 @@ impl IStreamSample_Vtbl {
             let this = (*this).get_impl();
             this.SetSampleTimes(::core::mem::transmute_copy(&pstarttime), ::core::mem::transmute_copy(&pendtime)).into()
         }
-        unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: *mut ::core::ffi::c_void, dwapcdata: usize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, hevent: super::super::Foundation::HANDLE, pfnapc: super::super::Foundation::PAPCFUNC, dwapcdata: usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Update(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&hevent), ::core::mem::transmute(&pfnapc), ::core::mem::transmute_copy(&dwapcdata)).into()

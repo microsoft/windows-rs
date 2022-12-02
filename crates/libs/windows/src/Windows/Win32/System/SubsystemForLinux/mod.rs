@@ -14,7 +14,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "api-ms-win-wsl-api-l1-1-0.dll""system" fn WslGetDistributionConfiguration ( distributionname : :: windows::core::PCWSTR , distributionversion : *mut u32 , defaultuid : *mut u32 , wsldistributionflags : *mut WSL_DISTRIBUTION_FLAGS , defaultenvironmentvariables : *mut *mut :: windows::core::PSTR , defaultenvironmentvariablecount : *mut u32 ) -> :: windows::core::HRESULT );
-    WslGetDistributionConfiguration(distributionname.into(), ::core::mem::transmute(distributionversion), ::core::mem::transmute(defaultuid), ::core::mem::transmute(wsldistributionflags), ::core::mem::transmute(defaultenvironmentvariables), ::core::mem::transmute(defaultenvironmentvariablecount)).ok()
+    WslGetDistributionConfiguration(distributionname.into(), distributionversion, defaultuid, wsldistributionflags, defaultenvironmentvariables, defaultenvironmentvariablecount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

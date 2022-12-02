@@ -2,43 +2,43 @@
 #[inline]
 pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlFirstEntrySList ( listhead : *const SLIST_HEADER ) -> *mut SLIST_ENTRY );
-    RtlFirstEntrySList(::core::mem::transmute(listhead))
+    RtlFirstEntrySList(listhead)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER) {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlInitializeSListHead ( listhead : *mut SLIST_HEADER ) -> ( ) );
-    RtlInitializeSListHead(::core::mem::transmute(listhead))
+    RtlInitializeSListHead(listhead)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlInterlockedFlushSList ( listhead : *mut SLIST_HEADER ) -> *mut SLIST_ENTRY );
-    RtlInterlockedFlushSList(::core::mem::transmute(listhead))
+    RtlInterlockedFlushSList(listhead)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlInterlockedPopEntrySList ( listhead : *mut SLIST_HEADER ) -> *mut SLIST_ENTRY );
-    RtlInterlockedPopEntrySList(::core::mem::transmute(listhead))
+    RtlInterlockedPopEntrySList(listhead)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlInterlockedPushEntrySList ( listhead : *mut SLIST_HEADER , listentry : *mut SLIST_ENTRY ) -> *mut SLIST_ENTRY );
-    RtlInterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry))
+    RtlInterlockedPushEntrySList(listhead, listentry)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlInterlockedPushListSListEx ( listhead : *mut SLIST_HEADER , list : *mut SLIST_ENTRY , listend : *mut SLIST_ENTRY , count : u32 ) -> *mut SLIST_ENTRY );
-    RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), count)
+    RtlInterlockedPushListSListEx(listhead, list, listend, count)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
     ::windows::core::link ! ( "ntdll.dll""system" fn RtlQueryDepthSList ( listhead : *const SLIST_HEADER ) -> u16 );
-    RtlQueryDepthSList(::core::mem::transmute(listhead))
+    RtlQueryDepthSList(listhead)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const MAXUCHAR: u32 = 255u32;

@@ -40,13 +40,13 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     ::windows::core::link ! ( "winmm.dll""system" fn timeGetDevCaps ( ptc : *mut TIMECAPS , cbtc : u32 ) -> u32 );
-    timeGetDevCaps(::core::mem::transmute(ptc), cbtc)
+    timeGetDevCaps(ptc, cbtc)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     ::windows::core::link ! ( "winmm.dll""system" fn timeGetSystemTime ( pmmt : *mut MMTIME , cbmmt : u32 ) -> u32 );
-    timeGetSystemTime(::core::mem::transmute(pmmt), cbmmt)
+    timeGetSystemTime(pmmt, cbmmt)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
@@ -63,7 +63,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
-    ::windows::core::link ! ( "winmm.dll""system" fn timeSetEvent ( udelay : u32 , uresolution : u32 , fptc : * mut::core::ffi::c_void , dwuser : usize , fuevent : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll""system" fn timeSetEvent ( udelay : u32 , uresolution : u32 , fptc : LPTIMECALLBACK , dwuser : usize , fuevent : u32 ) -> u32 );
     timeSetEvent(udelay, uresolution, ::core::mem::transmute(fptc), dwuser, fuevent)
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]

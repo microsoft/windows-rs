@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn ActivateActCtx ( hactctx : super::super::Foundation:: HANDLE , lpcookie : *mut usize ) -> super::super::Foundation:: BOOL );
-    ActivateActCtx(hactctx.into(), ::core::mem::transmute(lpcookie))
+    ActivateActCtx(hactctx.into(), lpcookie)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -35,21 +35,21 @@ where
 #[inline]
 pub unsafe fn ApplyDeltaB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn ApplyDeltaB ( applyflags : i64 , source : DELTA_INPUT , delta : DELTA_INPUT , lptarget : *mut DELTA_OUTPUT ) -> super::super::Foundation:: BOOL );
-    ApplyDeltaB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lptarget))
+    ApplyDeltaB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), lptarget)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyDeltaGetReverseB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lpreversefiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, lptarget: *mut DELTA_OUTPUT, lptargetreverse: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn ApplyDeltaGetReverseB ( applyflags : i64 , source : DELTA_INPUT , delta : DELTA_INPUT , lpreversefiletime : *const super::super::Foundation:: FILETIME , lptarget : *mut DELTA_OUTPUT , lptargetreverse : *mut DELTA_OUTPUT ) -> super::super::Foundation:: BOOL );
-    ApplyDeltaGetReverseB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lpreversefiletime.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lptarget), ::core::mem::transmute(lptargetreverse))
+    ApplyDeltaGetReverseB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lpreversefiletime.unwrap_or(::std::ptr::null())), lptarget, lptargetreverse)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn ApplyDeltaProvidedB ( applyflags : i64 , source : DELTA_INPUT , delta : DELTA_INPUT , lptarget : *mut ::core::ffi::c_void , utargetsize : usize ) -> super::super::Foundation:: BOOL );
-    ApplyDeltaProvidedB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), ::core::mem::transmute(lptarget), utargetsize)
+    ApplyDeltaProvidedB(applyflags, ::core::mem::transmute(source), ::core::mem::transmute(delta), lptarget, utargetsize)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -79,7 +79,7 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: ::core::option::Option<&[u8]>, newfilebuffer: &mut [u8], newfileactualsize: ::core::option::Option<*mut u32>, newfiletime: ::core::option::Option<*mut super::super::Foundation::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileByBuffers ( patchfilemapped : *const u8 , patchfilesize : u32 , oldfilemapped : *const u8 , oldfilesize : u32 , newfilebuffer : *mut *mut u8 , newfilebuffersize : u32 , newfileactualsize : *mut u32 , newfiletime : *mut super::super::Foundation:: FILETIME , applyoptionflags : u32 , progresscallback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileByBuffers ( patchfilemapped : *const u8 , patchfilesize : u32 , oldfilemapped : *const u8 , oldfilesize : u32 , newfilebuffer : *mut *mut u8 , newfilebuffersize : u32 , newfileactualsize : *mut u32 , newfiletime : *mut super::super::Foundation:: FILETIME , applyoptionflags : u32 , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ApplyPatchToFileByBuffers(
         ::core::mem::transmute(patchfilemapped.as_ptr()),
         patchfilemapped.len() as _,
@@ -115,7 +115,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileByHandlesEx ( patchfilehandle : super::super::Foundation:: HANDLE , oldfilehandle : super::super::Foundation:: HANDLE , newfilehandle : super::super::Foundation:: HANDLE , applyoptionflags : u32 , progresscallback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileByHandlesEx ( patchfilehandle : super::super::Foundation:: HANDLE , oldfilehandle : super::super::Foundation:: HANDLE , newfilehandle : super::super::Foundation:: HANDLE , applyoptionflags : u32 , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ApplyPatchToFileByHandlesEx(patchfilehandle.into(), oldfilehandle.into(), newfilehandle.into(), applyoptionflags, ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -127,7 +127,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileExA ( patchfilename : :: windows::core::PCSTR , oldfilename : :: windows::core::PCSTR , newfilename : :: windows::core::PCSTR , applyoptionflags : u32 , progresscallback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileExA ( patchfilename : :: windows::core::PCSTR , oldfilename : :: windows::core::PCSTR , newfilename : :: windows::core::PCSTR , applyoptionflags : u32 , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ApplyPatchToFileExA(patchfilename.into(), oldfilename.into(), newfilename.into(), applyoptionflags, ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -139,7 +139,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileExW ( patchfilename : :: windows::core::PCWSTR , oldfilename : :: windows::core::PCWSTR , newfilename : :: windows::core::PCWSTR , applyoptionflags : u32 , progresscallback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mspatcha.dll""system" fn ApplyPatchToFileExW ( patchfilename : :: windows::core::PCWSTR , oldfilename : :: windows::core::PCWSTR , newfilename : :: windows::core::PCWSTR , applyoptionflags : u32 , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     ApplyPatchToFileExW(patchfilename.into(), oldfilename.into(), newfilename.into(), applyoptionflags, ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -159,7 +159,7 @@ where
 #[inline]
 pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateActCtxA ( pactctx : *const ACTCTXA ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateActCtxA(::core::mem::transmute(pactctx));
+    let result__ = CreateActCtxA(pactctx);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -167,7 +167,7 @@ pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> ::windows::core::Result<
 #[inline]
 pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateActCtxW ( pactctx : *const ACTCTXW ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateActCtxW(::core::mem::transmute(pactctx));
+    let result__ = CreateActCtxW(pactctx);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -189,7 +189,7 @@ where
 #[inline]
 pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: u32, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn CreateDeltaB ( filetypeset : i64 , setflags : i64 , resetflags : i64 , source : DELTA_INPUT , target : DELTA_INPUT , sourceoptions : DELTA_INPUT , targetoptions : DELTA_INPUT , globaloptions : DELTA_INPUT , lptargetfiletime : *const super::super::Foundation:: FILETIME , hashalgid : u32 , lpdelta : *mut DELTA_OUTPUT ) -> super::super::Foundation:: BOOL );
-    CreateDeltaB(filetypeset, setflags, resetflags, ::core::mem::transmute(source), ::core::mem::transmute(target), ::core::mem::transmute(sourceoptions), ::core::mem::transmute(targetoptions), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime.unwrap_or(::std::ptr::null())), hashalgid, ::core::mem::transmute(lpdelta))
+    CreateDeltaB(filetypeset, setflags, resetflags, ::core::mem::transmute(source), ::core::mem::transmute(target), ::core::mem::transmute(sourceoptions), ::core::mem::transmute(targetoptions), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime.unwrap_or(::std::ptr::null())), hashalgid, lpdelta)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -237,7 +237,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileByHandlesEx ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H , newfilehandle : super::super::Foundation:: HANDLE , patchfilehandle : super::super::Foundation:: HANDLE , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileByHandlesEx ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H , newfilehandle : super::super::Foundation:: HANDLE , patchfilehandle : super::super::Foundation:: HANDLE , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     CreatePatchFileByHandlesEx(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle.into(), patchfilehandle.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -248,7 +248,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileExA ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A , newfilename : :: windows::core::PCSTR , patchfilename : :: windows::core::PCSTR , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileExA ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A , newfilename : :: windows::core::PCSTR , patchfilename : :: windows::core::PCSTR , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     CreatePatchFileExA(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -259,7 +259,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileExW ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_W , newfilename : :: windows::core::PCWSTR , patchfilename : :: windows::core::PCWSTR , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : * mut::core::ffi::c_void , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mspatchc.dll""system" fn CreatePatchFileExW ( oldfilecount : u32 , oldfileinfoarray : *const PATCH_OLD_FILE_INFO_W , newfilename : :: windows::core::PCWSTR , patchfilename : :: windows::core::PCWSTR , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , progresscallback : PPATCH_PROGRESS_CALLBACK , callbackcontext : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     CreatePatchFileExW(oldfileinfoarray.len() as _, ::core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.into(), patchfilename.into(), optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(progresscallback), ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
@@ -286,14 +286,14 @@ pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::F
 #[inline]
 pub unsafe fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn DeltaFree ( lpmemory : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    DeltaFree(::core::mem::transmute(lpmemory))
+    DeltaFree(lpmemory)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn DeltaNormalizeProvidedB ( filetypeset : i64 , normalizeflags : i64 , normalizeoptions : DELTA_INPUT , lpsource : *mut ::core::ffi::c_void , usourcesize : usize ) -> super::super::Foundation:: BOOL );
-    DeltaNormalizeProvidedB(filetypeset, normalizeflags, ::core::mem::transmute(normalizeoptions), ::core::mem::transmute(lpsource), usourcesize)
+    DeltaNormalizeProvidedB(filetypeset, normalizeflags, ::core::mem::transmute(normalizeoptions), lpsource, usourcesize)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -333,7 +333,7 @@ where
 #[inline]
 pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: ::core::option::Option<*const ::windows::core::GUID>, ulsectionid: u32, lpguidtofind: ::core::option::Option<*const ::windows::core::GUID>, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn FindActCtxSectionGuid ( dwflags : u32 , lpextensionguid : *const :: windows::core::GUID , ulsectionid : u32 , lpguidtofind : *const :: windows::core::GUID , returneddata : *mut ACTCTX_SECTION_KEYED_DATA ) -> super::super::Foundation:: BOOL );
-    FindActCtxSectionGuid(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, ::core::mem::transmute(lpguidtofind.unwrap_or(::std::ptr::null())), ::core::mem::transmute(returneddata))
+    FindActCtxSectionGuid(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, ::core::mem::transmute(lpguidtofind.unwrap_or(::std::ptr::null())), returneddata)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -343,7 +343,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn FindActCtxSectionStringA ( dwflags : u32 , lpextensionguid : *const :: windows::core::GUID , ulsectionid : u32 , lpstringtofind : :: windows::core::PCSTR , returneddata : *mut ACTCTX_SECTION_KEYED_DATA ) -> super::super::Foundation:: BOOL );
-    FindActCtxSectionStringA(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, lpstringtofind.into(), ::core::mem::transmute(returneddata))
+    FindActCtxSectionStringA(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, lpstringtofind.into(), returneddata)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
@@ -353,14 +353,14 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn FindActCtxSectionStringW ( dwflags : u32 , lpextensionguid : *const :: windows::core::GUID , ulsectionid : u32 , lpstringtofind : :: windows::core::PCWSTR , returneddata : *mut ACTCTX_SECTION_KEYED_DATA ) -> super::super::Foundation:: BOOL );
-    FindActCtxSectionStringW(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, lpstringtofind.into(), ::core::mem::transmute(returneddata))
+    FindActCtxSectionStringW(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, lpstringtofind.into(), returneddata)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCurrentActCtx ( lphactctx : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    GetCurrentActCtx(::core::mem::transmute(lphactctx))
+    GetCurrentActCtx(lphactctx)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -370,14 +370,14 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msdelta.dll""system" fn GetDeltaInfoA ( lpdeltaname : :: windows::core::PCSTR , lpheaderinfo : *mut DELTA_HEADER_INFO ) -> super::super::Foundation:: BOOL );
-    GetDeltaInfoA(lpdeltaname.into(), ::core::mem::transmute(lpheaderinfo))
+    GetDeltaInfoA(lpdeltaname.into(), lpheaderinfo)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaInfoB(delta: DELTA_INPUT, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn GetDeltaInfoB ( delta : DELTA_INPUT , lpheaderinfo : *mut DELTA_HEADER_INFO ) -> super::super::Foundation:: BOOL );
-    GetDeltaInfoB(::core::mem::transmute(delta), ::core::mem::transmute(lpheaderinfo))
+    GetDeltaInfoB(::core::mem::transmute(delta), lpheaderinfo)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -387,7 +387,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msdelta.dll""system" fn GetDeltaInfoW ( lpdeltaname : :: windows::core::PCWSTR , lpheaderinfo : *mut DELTA_HEADER_INFO ) -> super::super::Foundation:: BOOL );
-    GetDeltaInfoW(lpdeltaname.into(), ::core::mem::transmute(lpheaderinfo))
+    GetDeltaInfoW(lpdeltaname.into(), lpheaderinfo)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -397,14 +397,14 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msdelta.dll""system" fn GetDeltaSignatureA ( filetypeset : i64 , hashalgid : u32 , lpsourcename : :: windows::core::PCSTR , lphash : *mut DELTA_HASH ) -> super::super::Foundation:: BOOL );
-    GetDeltaSignatureA(filetypeset, hashalgid, lpsourcename.into(), ::core::mem::transmute(lphash))
+    GetDeltaSignatureA(filetypeset, hashalgid, lpsourcename.into(), lphash)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeltaSignatureB(filetypeset: i64, hashalgid: u32, source: DELTA_INPUT, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "msdelta.dll""system" fn GetDeltaSignatureB ( filetypeset : i64 , hashalgid : u32 , source : DELTA_INPUT , lphash : *mut DELTA_HASH ) -> super::super::Foundation:: BOOL );
-    GetDeltaSignatureB(filetypeset, hashalgid, ::core::mem::transmute(source), ::core::mem::transmute(lphash))
+    GetDeltaSignatureB(filetypeset, hashalgid, ::core::mem::transmute(source), lphash)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -414,7 +414,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msdelta.dll""system" fn GetDeltaSignatureW ( filetypeset : i64 , hashalgid : u32 , lpsourcename : :: windows::core::PCWSTR , lphash : *mut DELTA_HASH ) -> super::super::Foundation:: BOOL );
-    GetDeltaSignatureW(filetypeset, hashalgid, lpsourcename.into(), ::core::mem::transmute(lphash))
+    GetDeltaSignatureW(filetypeset, hashalgid, lpsourcename.into(), lphash)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -612,7 +612,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiBeginTransactionA ( szname : :: windows::core::PCSTR , dwtransactionattributes : u32 , phtransactionhandle : *mut MSIHANDLE , phchangeofownerevent : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    MsiBeginTransactionA(szname.into(), dwtransactionattributes, ::core::mem::transmute(phtransactionhandle), ::core::mem::transmute(phchangeofownerevent))
+    MsiBeginTransactionA(szname.into(), dwtransactionattributes, phtransactionhandle, phchangeofownerevent)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -622,7 +622,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiBeginTransactionW ( szname : :: windows::core::PCWSTR , dwtransactionattributes : u32 , phtransactionhandle : *mut MSIHANDLE , phchangeofownerevent : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    MsiBeginTransactionW(szname.into(), dwtransactionattributes, ::core::mem::transmute(phtransactionhandle), ::core::mem::transmute(phchangeofownerevent))
+    MsiBeginTransactionW(szname.into(), dwtransactionattributes, phtransactionhandle, phchangeofownerevent)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -826,7 +826,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiDatabaseGetPrimaryKeysA ( hdatabase : MSIHANDLE , sztablename : :: windows::core::PCSTR , phrecord : *mut MSIHANDLE ) -> u32 );
-    MsiDatabaseGetPrimaryKeysA(hdatabase.into(), sztablename.into(), ::core::mem::transmute(phrecord))
+    MsiDatabaseGetPrimaryKeysA(hdatabase.into(), sztablename.into(), phrecord)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -836,7 +836,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiDatabaseGetPrimaryKeysW ( hdatabase : MSIHANDLE , sztablename : :: windows::core::PCWSTR , phrecord : *mut MSIHANDLE ) -> u32 );
-    MsiDatabaseGetPrimaryKeysW(hdatabase.into(), sztablename.into(), ::core::mem::transmute(phrecord))
+    MsiDatabaseGetPrimaryKeysW(hdatabase.into(), sztablename.into(), phrecord)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -910,7 +910,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiDatabaseOpenViewA ( hdatabase : MSIHANDLE , szquery : :: windows::core::PCSTR , phview : *mut MSIHANDLE ) -> u32 );
-    MsiDatabaseOpenViewA(hdatabase.into(), szquery.into(), ::core::mem::transmute(phview))
+    MsiDatabaseOpenViewA(hdatabase.into(), szquery.into(), phview)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -920,7 +920,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiDatabaseOpenViewW ( hdatabase : MSIHANDLE , szquery : :: windows::core::PCWSTR , phview : *mut MSIHANDLE ) -> u32 );
-    MsiDatabaseOpenViewW(hdatabase.into(), szquery.into(), ::core::mem::transmute(phview))
+    MsiDatabaseOpenViewW(hdatabase.into(), szquery.into(), phview)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1005,7 +1005,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiEnableUIPreview ( hdatabase : MSIHANDLE , phpreview : *mut MSIHANDLE ) -> u32 );
-    MsiEnableUIPreview(hdatabase.into(), ::core::mem::transmute(phpreview))
+    MsiEnableUIPreview(hdatabase.into(), phpreview)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1059,7 +1059,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiEnumComponentCostsA ( hinstall : MSIHANDLE , szcomponent : :: windows::core::PCSTR , dwindex : u32 , istate : INSTALLSTATE , szdrivebuf : :: windows::core::PSTR , pcchdrivebuf : *mut u32 , picost : *mut i32 , pitempcost : *mut i32 ) -> u32 );
-    MsiEnumComponentCostsA(hinstall.into(), szcomponent.into(), dwindex, istate, ::core::mem::transmute(szdrivebuf), ::core::mem::transmute(pcchdrivebuf), ::core::mem::transmute(picost), ::core::mem::transmute(pitempcost))
+    MsiEnumComponentCostsA(hinstall.into(), szcomponent.into(), dwindex, istate, ::core::mem::transmute(szdrivebuf), pcchdrivebuf, picost, pitempcost)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1069,7 +1069,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiEnumComponentCostsW ( hinstall : MSIHANDLE , szcomponent : :: windows::core::PCWSTR , dwindex : u32 , istate : INSTALLSTATE , szdrivebuf : :: windows::core::PWSTR , pcchdrivebuf : *mut u32 , picost : *mut i32 , pitempcost : *mut i32 ) -> u32 );
-    MsiEnumComponentCostsW(hinstall.into(), szcomponent.into(), dwindex, istate, ::core::mem::transmute(szdrivebuf), ::core::mem::transmute(pcchdrivebuf), ::core::mem::transmute(picost), ::core::mem::transmute(pitempcost))
+    MsiEnumComponentCostsW(hinstall.into(), szcomponent.into(), dwindex, istate, ::core::mem::transmute(szdrivebuf), pcchdrivebuf, picost, pitempcost)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1078,7 +1078,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiEnumComponentQualifiersA ( szcomponent : :: windows::core::PCSTR , iindex : u32 , lpqualifierbuf : :: windows::core::PSTR , pcchqualifierbuf : *mut u32 , lpapplicationdatabuf : :: windows::core::PSTR , pcchapplicationdatabuf : *mut u32 ) -> u32 );
-    MsiEnumComponentQualifiersA(szcomponent.into(), iindex, ::core::mem::transmute(lpqualifierbuf), ::core::mem::transmute(pcchqualifierbuf), ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumComponentQualifiersA(szcomponent.into(), iindex, ::core::mem::transmute(lpqualifierbuf), pcchqualifierbuf, ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1087,7 +1087,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiEnumComponentQualifiersW ( szcomponent : :: windows::core::PCWSTR , iindex : u32 , lpqualifierbuf : :: windows::core::PWSTR , pcchqualifierbuf : *mut u32 , lpapplicationdatabuf : :: windows::core::PWSTR , pcchapplicationdatabuf : *mut u32 ) -> u32 );
-    MsiEnumComponentQualifiersW(szcomponent.into(), iindex, ::core::mem::transmute(lpqualifierbuf), ::core::mem::transmute(pcchqualifierbuf), ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumComponentQualifiersW(szcomponent.into(), iindex, ::core::mem::transmute(lpqualifierbuf), pcchqualifierbuf, ::core::mem::transmute(lpapplicationdatabuf), ::core::mem::transmute(pcchapplicationdatabuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1144,7 +1144,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiEnumPatchesA ( szproduct : :: windows::core::PCSTR , ipatchindex : u32 , lppatchbuf : :: windows::core::PSTR , lptransformsbuf : :: windows::core::PSTR , pcchtransformsbuf : *mut u32 ) -> u32 );
-    MsiEnumPatchesA(szproduct.into(), ipatchindex, ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), ::core::mem::transmute(pcchtransformsbuf))
+    MsiEnumPatchesA(szproduct.into(), ipatchindex, ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), pcchtransformsbuf)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1173,7 +1173,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiEnumPatchesW ( szproduct : :: windows::core::PCWSTR , ipatchindex : u32 , lppatchbuf : :: windows::core::PWSTR , lptransformsbuf : :: windows::core::PWSTR , pcchtransformsbuf : *mut u32 ) -> u32 );
-    MsiEnumPatchesW(szproduct.into(), ipatchindex, ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), ::core::mem::transmute(pcchtransformsbuf))
+    MsiEnumPatchesW(szproduct.into(), ipatchindex, ::core::mem::transmute(lppatchbuf), ::core::mem::transmute(lptransformsbuf), pcchtransformsbuf)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1342,7 +1342,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetComponentStateA ( hinstall : MSIHANDLE , szcomponent : :: windows::core::PCSTR , piinstalled : *mut INSTALLSTATE , piaction : *mut INSTALLSTATE ) -> u32 );
-    MsiGetComponentStateA(hinstall.into(), szcomponent.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction))
+    MsiGetComponentStateA(hinstall.into(), szcomponent.into(), piinstalled, piaction)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1352,7 +1352,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetComponentStateW ( hinstall : MSIHANDLE , szcomponent : :: windows::core::PCWSTR , piinstalled : *mut INSTALLSTATE , piaction : *mut INSTALLSTATE ) -> u32 );
-    MsiGetComponentStateW(hinstall.into(), szcomponent.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction))
+    MsiGetComponentStateW(hinstall.into(), szcomponent.into(), piinstalled, piaction)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1371,7 +1371,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFeatureCostA ( hinstall : MSIHANDLE , szfeature : :: windows::core::PCSTR , icosttree : MSICOSTTREE , istate : INSTALLSTATE , picost : *mut i32 ) -> u32 );
-    MsiGetFeatureCostA(hinstall.into(), szfeature.into(), icosttree, istate, ::core::mem::transmute(picost))
+    MsiGetFeatureCostA(hinstall.into(), szfeature.into(), icosttree, istate, picost)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1381,7 +1381,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFeatureCostW ( hinstall : MSIHANDLE , szfeature : :: windows::core::PCWSTR , icosttree : MSICOSTTREE , istate : INSTALLSTATE , picost : *mut i32 ) -> u32 );
-    MsiGetFeatureCostW(hinstall.into(), szfeature.into(), icosttree, istate, ::core::mem::transmute(picost))
+    MsiGetFeatureCostW(hinstall.into(), szfeature.into(), icosttree, istate, picost)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1411,7 +1411,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFeatureStateA ( hinstall : MSIHANDLE , szfeature : :: windows::core::PCSTR , piinstalled : *mut INSTALLSTATE , piaction : *mut INSTALLSTATE ) -> u32 );
-    MsiGetFeatureStateA(hinstall.into(), szfeature.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction))
+    MsiGetFeatureStateA(hinstall.into(), szfeature.into(), piinstalled, piaction)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1421,7 +1421,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFeatureStateW ( hinstall : MSIHANDLE , szfeature : :: windows::core::PCWSTR , piinstalled : *mut INSTALLSTATE , piaction : *mut INSTALLSTATE ) -> u32 );
-    MsiGetFeatureStateW(hinstall.into(), szfeature.into(), ::core::mem::transmute(piinstalled), ::core::mem::transmute(piaction))
+    MsiGetFeatureStateW(hinstall.into(), szfeature.into(), piinstalled, piaction)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1451,7 +1451,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFeatureValidStatesA ( hinstall : MSIHANDLE , szfeature : :: windows::core::PCSTR , lpinstallstates : *mut u32 ) -> u32 );
-    MsiGetFeatureValidStatesA(hinstall.into(), szfeature.into(), ::core::mem::transmute(lpinstallstates))
+    MsiGetFeatureValidStatesA(hinstall.into(), szfeature.into(), lpinstallstates)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1461,7 +1461,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFeatureValidStatesW ( hinstall : MSIHANDLE , szfeature : :: windows::core::PCWSTR , lpinstallstates : *mut u32 ) -> u32 );
-    MsiGetFeatureValidStatesW(hinstall.into(), szfeature.into(), ::core::mem::transmute(lpinstallstates))
+    MsiGetFeatureValidStatesW(hinstall.into(), szfeature.into(), lpinstallstates)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1470,7 +1470,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFileHashA ( szfilepath : :: windows::core::PCSTR , dwoptions : u32 , phash : *mut MSIFILEHASHINFO ) -> u32 );
-    MsiGetFileHashA(szfilepath.into(), dwoptions, ::core::mem::transmute(phash))
+    MsiGetFileHashA(szfilepath.into(), dwoptions, phash)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1479,7 +1479,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFileHashW ( szfilepath : :: windows::core::PCWSTR , dwoptions : u32 , phash : *mut MSIFILEHASHINFO ) -> u32 );
-    MsiGetFileHashW(szfilepath.into(), dwoptions, ::core::mem::transmute(phash))
+    MsiGetFileHashW(szfilepath.into(), dwoptions, phash)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1489,7 +1489,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFileSignatureInformationA ( szsignedobjectpath : :: windows::core::PCSTR , dwflags : u32 , ppccertcontext : *mut *mut super::super::Security::Cryptography:: CERT_CONTEXT , pbhashdata : *mut u8 , pcbhashdata : *mut u32 ) -> :: windows::core::HRESULT );
-    MsiGetFileSignatureInformationA(szsignedobjectpath.into(), dwflags, ::core::mem::transmute(ppccertcontext), ::core::mem::transmute(pbhashdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbhashdata.unwrap_or(::std::ptr::null_mut()))).ok()
+    MsiGetFileSignatureInformationA(szsignedobjectpath.into(), dwflags, ppccertcontext, ::core::mem::transmute(pbhashdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbhashdata.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1499,7 +1499,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetFileSignatureInformationW ( szsignedobjectpath : :: windows::core::PCWSTR , dwflags : u32 , ppccertcontext : *mut *mut super::super::Security::Cryptography:: CERT_CONTEXT , pbhashdata : *mut u8 , pcbhashdata : *mut u32 ) -> :: windows::core::HRESULT );
-    MsiGetFileSignatureInformationW(szsignedobjectpath.into(), dwflags, ::core::mem::transmute(ppccertcontext), ::core::mem::transmute(pbhashdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbhashdata.unwrap_or(::std::ptr::null_mut()))).ok()
+    MsiGetFileSignatureInformationW(szsignedobjectpath.into(), dwflags, ppccertcontext, ::core::mem::transmute(pbhashdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbhashdata.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1552,7 +1552,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetPatchFileListA ( szproductcode : :: windows::core::PCSTR , szpatchpackages : :: windows::core::PCSTR , pcfiles : *mut u32 , pphfilerecords : *mut *mut MSIHANDLE ) -> u32 );
-    MsiGetPatchFileListA(szproductcode.into(), szpatchpackages.into(), ::core::mem::transmute(pcfiles), ::core::mem::transmute(pphfilerecords.unwrap_or(::std::ptr::null_mut())))
+    MsiGetPatchFileListA(szproductcode.into(), szpatchpackages.into(), pcfiles, ::core::mem::transmute(pphfilerecords.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1562,7 +1562,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetPatchFileListW ( szproductcode : :: windows::core::PCWSTR , szpatchpackages : :: windows::core::PCWSTR , pcfiles : *mut u32 , pphfilerecords : *mut *mut MSIHANDLE ) -> u32 );
-    MsiGetPatchFileListW(szproductcode.into(), szpatchpackages.into(), ::core::mem::transmute(pcfiles), ::core::mem::transmute(pphfilerecords.unwrap_or(::std::ptr::null_mut())))
+    MsiGetPatchFileListW(szproductcode.into(), szpatchpackages.into(), pcfiles, ::core::mem::transmute(pphfilerecords.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1772,7 +1772,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetSummaryInformationA ( hdatabase : MSIHANDLE , szdatabasepath : :: windows::core::PCSTR , uiupdatecount : u32 , phsummaryinfo : *mut MSIHANDLE ) -> u32 );
-    MsiGetSummaryInformationA(hdatabase.into(), szdatabasepath.into(), uiupdatecount, ::core::mem::transmute(phsummaryinfo))
+    MsiGetSummaryInformationA(hdatabase.into(), szdatabasepath.into(), uiupdatecount, phsummaryinfo)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1782,7 +1782,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiGetSummaryInformationW ( hdatabase : MSIHANDLE , szdatabasepath : :: windows::core::PCWSTR , uiupdatecount : u32 , phsummaryinfo : *mut MSIHANDLE ) -> u32 );
-    MsiGetSummaryInformationW(hdatabase.into(), szdatabasepath.into(), uiupdatecount, ::core::mem::transmute(phsummaryinfo))
+    MsiGetSummaryInformationW(hdatabase.into(), szdatabasepath.into(), uiupdatecount, phsummaryinfo)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1890,7 +1890,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiIsProductElevatedA ( szproduct : :: windows::core::PCSTR , pfelevated : *mut super::super::Foundation:: BOOL ) -> u32 );
-    MsiIsProductElevatedA(szproduct.into(), ::core::mem::transmute(pfelevated))
+    MsiIsProductElevatedA(szproduct.into(), pfelevated)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1900,7 +1900,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiIsProductElevatedW ( szproduct : :: windows::core::PCWSTR , pfelevated : *mut super::super::Foundation:: BOOL ) -> u32 );
-    MsiIsProductElevatedW(szproduct.into(), ::core::mem::transmute(pfelevated))
+    MsiIsProductElevatedW(szproduct.into(), pfelevated)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1910,7 +1910,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiJoinTransaction ( htransactionhandle : MSIHANDLE , dwtransactionattributes : u32 , phchangeofownerevent : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    MsiJoinTransaction(htransactionhandle.into(), dwtransactionattributes, ::core::mem::transmute(phchangeofownerevent))
+    MsiJoinTransaction(htransactionhandle.into(), dwtransactionattributes, phchangeofownerevent)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1958,7 +1958,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenDatabaseA ( szdatabasepath : :: windows::core::PCSTR , szpersist : :: windows::core::PCSTR , phdatabase : *mut MSIHANDLE ) -> u32 );
-    MsiOpenDatabaseA(szdatabasepath.into(), szpersist.into(), ::core::mem::transmute(phdatabase))
+    MsiOpenDatabaseA(szdatabasepath.into(), szpersist.into(), phdatabase)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1968,7 +1968,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenDatabaseW ( szdatabasepath : :: windows::core::PCWSTR , szpersist : :: windows::core::PCWSTR , phdatabase : *mut MSIHANDLE ) -> u32 );
-    MsiOpenDatabaseW(szdatabasepath.into(), szpersist.into(), ::core::mem::transmute(phdatabase))
+    MsiOpenDatabaseW(szdatabasepath.into(), szpersist.into(), phdatabase)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1977,7 +1977,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenPackageA ( szpackagepath : :: windows::core::PCSTR , hproduct : *mut MSIHANDLE ) -> u32 );
-    MsiOpenPackageA(szpackagepath.into(), ::core::mem::transmute(hproduct))
+    MsiOpenPackageA(szpackagepath.into(), hproduct)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1986,7 +1986,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenPackageExA ( szpackagepath : :: windows::core::PCSTR , dwoptions : u32 , hproduct : *mut MSIHANDLE ) -> u32 );
-    MsiOpenPackageExA(szpackagepath.into(), dwoptions, ::core::mem::transmute(hproduct))
+    MsiOpenPackageExA(szpackagepath.into(), dwoptions, hproduct)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1995,7 +1995,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenPackageExW ( szpackagepath : :: windows::core::PCWSTR , dwoptions : u32 , hproduct : *mut MSIHANDLE ) -> u32 );
-    MsiOpenPackageExW(szpackagepath.into(), dwoptions, ::core::mem::transmute(hproduct))
+    MsiOpenPackageExW(szpackagepath.into(), dwoptions, hproduct)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2004,7 +2004,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenPackageW ( szpackagepath : :: windows::core::PCWSTR , hproduct : *mut MSIHANDLE ) -> u32 );
-    MsiOpenPackageW(szpackagepath.into(), ::core::mem::transmute(hproduct))
+    MsiOpenPackageW(szpackagepath.into(), hproduct)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2013,7 +2013,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenProductA ( szproduct : :: windows::core::PCSTR , hproduct : *mut MSIHANDLE ) -> u32 );
-    MsiOpenProductA(szproduct.into(), ::core::mem::transmute(hproduct))
+    MsiOpenProductA(szproduct.into(), hproduct)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2022,7 +2022,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiOpenProductW ( szproduct : :: windows::core::PCWSTR , hproduct : *mut MSIHANDLE ) -> u32 );
-    MsiOpenProductW(szproduct.into(), ::core::mem::transmute(hproduct))
+    MsiOpenProductW(szproduct.into(), hproduct)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2341,7 +2341,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiRecordReadStream ( hrecord : MSIHANDLE , ifield : u32 , szdatabuf : :: windows::core::PSTR , pcbdatabuf : *mut u32 ) -> u32 );
-    MsiRecordReadStream(hrecord.into(), ifield, ::core::mem::transmute(szdatabuf), ::core::mem::transmute(pcbdatabuf))
+    MsiRecordReadStream(hrecord.into(), ifield, ::core::mem::transmute(szdatabuf), pcbdatabuf)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2495,19 +2495,19 @@ where
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
 pub unsafe fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: u32, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> INSTALLUI_HANDLERA {
-    ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIA ( puihandler : * mut::core::ffi::c_void , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void ) -> INSTALLUI_HANDLERA );
+    ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIA ( puihandler : INSTALLUI_HANDLERA , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void ) -> INSTALLUI_HANDLERA );
     MsiSetExternalUIA(::core::mem::transmute(puihandler), dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
 pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32 {
-    ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIRecord ( puihandler : * mut::core::ffi::c_void , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void , ppuiprevhandler : * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIRecord ( puihandler : PINSTALLUI_HANDLER_RECORD , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void , ppuiprevhandler : PINSTALLUI_HANDLER_RECORD ) -> u32 );
     MsiSetExternalUIRecord(::core::mem::transmute(puihandler), dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppuiprevhandler))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
 pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> INSTALLUI_HANDLERW {
-    ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIW ( puihandler : * mut::core::ffi::c_void , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void ) -> INSTALLUI_HANDLERW );
+    ::windows::core::link ! ( "msi.dll""system" fn MsiSetExternalUIW ( puihandler : INSTALLUI_HANDLERW , dwmessagefilter : u32 , pvcontext : *const ::core::ffi::c_void ) -> INSTALLUI_HANDLERW );
     MsiSetExternalUIW(::core::mem::transmute(puihandler), dwmessagefilter, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
@@ -2905,7 +2905,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSummaryInfoGetPropertyA ( hsummaryinfo : MSIHANDLE , uiproperty : u32 , puidatatype : *mut u32 , pivalue : *mut i32 , pftvalue : *mut super::super::Foundation:: FILETIME , szvaluebuf : :: windows::core::PSTR , pcchvaluebuf : *mut u32 ) -> u32 );
-    MsiSummaryInfoGetPropertyA(hsummaryinfo.into(), uiproperty, ::core::mem::transmute(puidatatype), ::core::mem::transmute(pivalue), ::core::mem::transmute(pftvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf.unwrap_or(::std::ptr::null_mut())))
+    MsiSummaryInfoGetPropertyA(hsummaryinfo.into(), uiproperty, puidatatype, pivalue, ::core::mem::transmute(pftvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2914,7 +2914,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSummaryInfoGetPropertyCount ( hsummaryinfo : MSIHANDLE , puipropertycount : *mut u32 ) -> u32 );
-    MsiSummaryInfoGetPropertyCount(hsummaryinfo.into(), ::core::mem::transmute(puipropertycount))
+    MsiSummaryInfoGetPropertyCount(hsummaryinfo.into(), puipropertycount)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2924,7 +2924,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSummaryInfoGetPropertyW ( hsummaryinfo : MSIHANDLE , uiproperty : u32 , puidatatype : *mut u32 , pivalue : *mut i32 , pftvalue : *mut super::super::Foundation:: FILETIME , szvaluebuf : :: windows::core::PWSTR , pcchvaluebuf : *mut u32 ) -> u32 );
-    MsiSummaryInfoGetPropertyW(hsummaryinfo.into(), uiproperty, ::core::mem::transmute(puidatatype), ::core::mem::transmute(pivalue), ::core::mem::transmute(pftvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf.unwrap_or(::std::ptr::null_mut())))
+    MsiSummaryInfoGetPropertyW(hsummaryinfo.into(), uiproperty, puidatatype, pivalue, ::core::mem::transmute(pftvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szvaluebuf), ::core::mem::transmute(pcchvaluebuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2944,7 +2944,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSummaryInfoSetPropertyA ( hsummaryinfo : MSIHANDLE , uiproperty : u32 , uidatatype : u32 , ivalue : i32 , pftvalue : *mut super::super::Foundation:: FILETIME , szvalue : :: windows::core::PCSTR ) -> u32 );
-    MsiSummaryInfoSetPropertyA(hsummaryinfo.into(), uiproperty, uidatatype, ivalue, ::core::mem::transmute(pftvalue), szvalue.into())
+    MsiSummaryInfoSetPropertyA(hsummaryinfo.into(), uiproperty, uidatatype, ivalue, pftvalue, szvalue.into())
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2955,7 +2955,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiSummaryInfoSetPropertyW ( hsummaryinfo : MSIHANDLE , uiproperty : u32 , uidatatype : u32 , ivalue : i32 , pftvalue : *mut super::super::Foundation:: FILETIME , szvalue : :: windows::core::PCWSTR ) -> u32 );
-    MsiSummaryInfoSetPropertyW(hsummaryinfo.into(), uiproperty, uidatatype, ivalue, ::core::mem::transmute(pftvalue), szvalue.into())
+    MsiSummaryInfoSetPropertyW(hsummaryinfo.into(), uiproperty, uidatatype, ivalue, pftvalue, szvalue.into())
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -3050,7 +3050,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiViewFetch ( hview : MSIHANDLE , phrecord : *mut MSIHANDLE ) -> u32 );
-    MsiViewFetch(hview.into(), ::core::mem::transmute(phrecord))
+    MsiViewFetch(hview.into(), phrecord)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -3059,7 +3059,7 @@ where
     P0: ::std::convert::Into<MSIHANDLE>,
 {
     ::windows::core::link ! ( "msi.dll""system" fn MsiViewGetColumnInfo ( hview : MSIHANDLE , ecolumninfo : MSICOLINFO , phrecord : *mut MSIHANDLE ) -> u32 );
-    MsiViewGetColumnInfo(hview.into(), ecolumninfo, ::core::mem::transmute(phrecord))
+    MsiViewGetColumnInfo(hview.into(), ecolumninfo, phrecord)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -3094,18 +3094,7 @@ where
 #[inline]
 pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: ::core::option::Option<*const PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: ::core::option::Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: ::core::option::Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
     ::windows::core::link ! ( "mspatcha.dll""system" fn NormalizeFileForPatchSignature ( filebuffer : *mut ::core::ffi::c_void , filesize : u32 , optionflags : u32 , optiondata : *const PATCH_OPTION_DATA , newfilecoffbase : u32 , newfilecofftime : u32 , ignorerangecount : u32 , ignorerangearray : *const PATCH_IGNORE_RANGE , retainrangecount : u32 , retainrangearray : *const PATCH_RETAIN_RANGE ) -> i32 );
-    NormalizeFileForPatchSignature(
-        ::core::mem::transmute(filebuffer),
-        filesize,
-        optionflags,
-        ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())),
-        newfilecoffbase,
-        newfilecofftime,
-        ignorerangearray.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(ignorerangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        retainrangearray.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-    )
+    NormalizeFileForPatchSignature(filebuffer, filesize, optionflags, ::core::mem::transmute(optiondata.unwrap_or(::std::ptr::null())), newfilecoffbase, newfilecofftime, ignorerangearray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ignorerangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(retainrangearray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3147,7 +3136,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "sfc.dll""system" fn SfcGetNextProtectedFile ( rpchandle : super::super::Foundation:: HANDLE , protfiledata : *mut PROTECTED_FILE_DATA ) -> super::super::Foundation:: BOOL );
-    SfcGetNextProtectedFile(rpchandle.into(), ::core::mem::transmute(protfiledata))
+    SfcGetNextProtectedFile(rpchandle.into(), protfiledata)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3239,19 +3228,19 @@ impl IAssemblyCache {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).UninstallAssembly)(::windows::core::Vtable::as_raw(self), dwflags, pszassemblyname.into(), ::core::mem::transmute(prefdata), ::core::mem::transmute(puldisposition)).ok()
+        (::windows::core::Vtable::vtable(self).UninstallAssembly)(::windows::core::Vtable::as_raw(self), dwflags, pszassemblyname.into(), prefdata, puldisposition).ok()
     }
     pub unsafe fn QueryAssemblyInfo<'a, P0>(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: P0, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).QueryAssemblyInfo)(::windows::core::Vtable::as_raw(self), dwflags, pszassemblyname.into(), ::core::mem::transmute(pasminfo)).ok()
+        (::windows::core::Vtable::vtable(self).QueryAssemblyInfo)(::windows::core::Vtable::as_raw(self), dwflags, pszassemblyname.into(), pasminfo).ok()
     }
     pub unsafe fn CreateAssemblyCacheItem<'a, P0>(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).CreateAssemblyCacheItem)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppasmitem), pszassemblyname.into()).ok()
+        (::windows::core::Vtable::vtable(self).CreateAssemblyCacheItem)(::windows::core::Vtable::as_raw(self), dwflags, pvreserved, ::core::mem::transmute(ppasmitem), pszassemblyname.into()).ok()
     }
     pub unsafe fn Reserved(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3261,7 +3250,7 @@ impl IAssemblyCache {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).InstallAssembly)(::windows::core::Vtable::as_raw(self), dwflags, pszmanifestfilepath.into(), ::core::mem::transmute(prefdata)).ok()
+        (::windows::core::Vtable::vtable(self).InstallAssembly)(::windows::core::Vtable::as_raw(self), dwflags, pszmanifestfilepath.into(), prefdata).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAssemblyCache, ::windows::core::IUnknown);
@@ -3307,10 +3296,10 @@ impl IAssemblyCacheItem {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).CreateStream)(::windows::core::Vtable::as_raw(self), dwflags, pszstreamname.into(), dwformat, dwformatflags, ::core::mem::transmute(ppistream), ::core::mem::transmute(pulimaxsize)).ok()
+        (::windows::core::Vtable::vtable(self).CreateStream)(::windows::core::Vtable::as_raw(self), dwflags, pszstreamname.into(), dwformat, dwformatflags, ::core::mem::transmute(ppistream), pulimaxsize).ok()
     }
     pub unsafe fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(puldisposition)).ok()
+        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), dwflags, puldisposition).ok()
     }
     pub unsafe fn AbortItem(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AbortItem)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3355,16 +3344,16 @@ pub struct IAssemblyCacheItem_Vtbl {
 pub struct IAssemblyName(::windows::core::IUnknown);
 impl IAssemblyName {
     pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(pvproperty), cbproperty).ok()
+        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), propertyid, pvproperty, cbproperty).ok()
     }
     pub unsafe fn GetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, pcbproperty: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(pvproperty), ::core::mem::transmute(pcbproperty)).ok()
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, pvproperty, pcbproperty).ok()
     }
     pub unsafe fn Finalize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finalize)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetDisplayName(&self, szdisplayname: ::windows::core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDisplayName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(pccdisplayname), dwdisplayflags).ok()
+        (::windows::core::Vtable::vtable(self).GetDisplayName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(szdisplayname), pccdisplayname, dwdisplayflags).ok()
     }
     pub unsafe fn Reserved<'a, P0, P1, P2>(&self, refiid: *const ::windows::core::GUID, punkreserved1: P0, punkreserved2: P1, szreserved: P2, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -3372,13 +3361,13 @@ impl IAssemblyName {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Reserved)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refiid), punkreserved1.into().abi(), punkreserved2.into().abi(), szreserved.into(), llreserved, ::core::mem::transmute(pvreserved), cbreserved, ::core::mem::transmute(ppreserved)).ok()
+        (::windows::core::Vtable::vtable(self).Reserved)(::windows::core::Vtable::as_raw(self), refiid, punkreserved1.into().abi(), punkreserved2.into().abi(), szreserved.into(), llreserved, pvreserved, cbreserved, ppreserved).ok()
     }
     pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpcwbuffer), ::core::mem::transmute(pwzname)).ok()
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), lpcwbuffer, ::core::mem::transmute(pwzname)).ok()
     }
     pub unsafe fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwversionhi), ::core::mem::transmute(pdwversionlow)).ok()
+        (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), pdwversionhi, pdwversionlow).ok()
     }
     pub unsafe fn IsEqual<'a, P0>(&self, pname: P0, dwcmpflags: u32) -> ::windows::core::Result<()>
     where
@@ -3435,7 +3424,7 @@ impl IEnumMsmDependency {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmdependencies: *mut ::core::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), cfetch, ::core::mem::transmute(rgmsmdependencies), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), cfetch, ::core::mem::transmute(rgmsmdependencies), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), cskip).ok()
@@ -3490,7 +3479,7 @@ impl IEnumMsmError {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmerrors: *mut ::core::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), cfetch, ::core::mem::transmute(rgmsmerrors), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), cfetch, ::core::mem::transmute(rgmsmerrors), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), cskip).ok()
@@ -3543,7 +3532,7 @@ pub struct IEnumMsmError_Vtbl {
 pub struct IEnumMsmString(::windows::core::IUnknown);
 impl IEnumMsmString {
     pub unsafe fn Next(&self, cfetch: u32, rgbstrstrings: *mut ::windows::core::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), cfetch, ::core::mem::transmute(rgbstrstrings), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), cfetch, ::core::mem::transmute(rgbstrstrings), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), cskip).ok()
@@ -3601,7 +3590,7 @@ impl IMsmDependencies {
         (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), item, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), count).ok()
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3660,7 +3649,7 @@ impl IMsmDependency {
         (::windows::core::Vtable::vtable(self).Module)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(module)).ok()
     }
     pub unsafe fn Language(&self, language: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Language)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(language)).ok()
+        (::windows::core::Vtable::vtable(self).Language)(::windows::core::Vtable::as_raw(self), language).ok()
     }
     pub unsafe fn Version(&self, version: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Version)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(version)).ok()
@@ -3712,13 +3701,13 @@ pub struct IMsmError(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmError {
     pub unsafe fn Type(&self, errortype: *mut msmErrorType) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(errortype)).ok()
+        (::windows::core::Vtable::vtable(self).Type)(::windows::core::Vtable::as_raw(self), errortype).ok()
     }
     pub unsafe fn Path(&self, errorpath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Path)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(errorpath)).ok()
     }
     pub unsafe fn Language(&self, errorlanguage: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Language)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(errorlanguage)).ok()
+        (::windows::core::Vtable::vtable(self).Language)(::windows::core::Vtable::as_raw(self), errorlanguage).ok()
     }
     pub unsafe fn DatabaseTable(&self, errortable: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DatabaseTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(errortable)).ok()
@@ -3801,7 +3790,7 @@ impl IMsmErrors {
         (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), item, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), count).ok()
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4025,7 +4014,7 @@ impl IMsmStrings {
         (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), item, ::core::mem::transmute(r#return)).ok()
     }
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), count).ok()
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4880,8 +4869,8 @@ impl IPMDeploymentManager {
         (::windows::core::Vtable::vtable(self).GetLicenseChallenge)(
             ::windows::core::Vtable::as_raw(self),
             ::core::mem::transmute_copy(packagepath),
-            ::core::mem::transmute(ppbchallenge),
-            ::core::mem::transmute(pcbchallenge),
+            ppbchallenge,
+            pcbchallenge,
             ::core::mem::transmute(ppbkid.unwrap_or(::std::ptr::null_mut())),
             ::core::mem::transmute(pcbkid.unwrap_or(::std::ptr::null_mut())),
             ::core::mem::transmute(ppbdeviceid.unwrap_or(::std::ptr::null_mut())),
@@ -4894,14 +4883,14 @@ impl IPMDeploymentManager {
         .ok()
     }
     pub unsafe fn GetLicenseChallengeByProductID(&self, productid: ::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLicenseChallengeByProductID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense)).ok()
+        (::windows::core::Vtable::vtable(self).GetLicenseChallengeByProductID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), ppbchallenge, pcblicense).ok()
     }
     pub unsafe fn GetLicenseChallengeByProductID2(&self, productid: ::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: ::core::option::Option<*mut *mut u8>, pcbkid: ::core::option::Option<*mut u32>, ppbdeviceid: ::core::option::Option<*mut *mut u8>, pcbdeviceid: ::core::option::Option<*mut u32>, ppbsaltvalue: ::core::option::Option<*mut *mut u8>, pcbsaltvalue: ::core::option::Option<*mut u32>, ppbkgvvalue: ::core::option::Option<*mut *mut u8>, pcbkgvvalue: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLicenseChallengeByProductID2)(
             ::windows::core::Vtable::as_raw(self),
             ::core::mem::transmute(productid),
-            ::core::mem::transmute(ppbchallenge),
-            ::core::mem::transmute(pcblicense),
+            ppbchallenge,
+            pcblicense,
             ::core::mem::transmute(ppbkid.unwrap_or(::std::ptr::null_mut())),
             ::core::mem::transmute(pcbkid.unwrap_or(::std::ptr::null_mut())),
             ::core::mem::transmute(ppbdeviceid.unwrap_or(::std::ptr::null_mut())),
@@ -4919,7 +4908,7 @@ impl IPMDeploymentManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RebindMdilBinaries(&self, productid: ::windows::core::GUID, filenames: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RebindMdilBinaries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(filenames)).ok()
+        (::windows::core::Vtable::vtable(self).RebindMdilBinaries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), filenames).ok()
     }
     pub unsafe fn RebindAllMdilBinaries(&self, productid: ::windows::core::GUID, instanceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RebindAllMdilBinaries)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(instanceid)).ok()
@@ -4927,7 +4916,7 @@ impl IPMDeploymentManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegenerateXbf(&self, productid: ::windows::core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegenerateXbf)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(assemblypaths)).ok()
+        (::windows::core::Vtable::vtable(self).RegenerateXbf)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid), assemblypaths).ok()
     }
     pub unsafe fn GenerateXbfForCurrentLocale(&self, productid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GenerateXbfForCurrentLocale)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(productid)).ok()
@@ -5160,7 +5149,7 @@ impl IPMEnumerationManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
     {
-        (::windows::core::Vtable::vtable(self).get_StartTileEnumeratorBlob)(::windows::core::Vtable::as_raw(self), filter.into().abi(), ::core::mem::transmute(pctiles), ::core::mem::transmute(pptileblobs)).ok()
+        (::windows::core::Vtable::vtable(self).get_StartTileEnumeratorBlob)(::windows::core::Vtable::as_raw(self), filter.into().abi(), pctiles, pptileblobs).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5168,7 +5157,7 @@ impl IPMEnumerationManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PM_ENUM_FILTER>>,
     {
-        (::windows::core::Vtable::vtable(self).get_StartAppEnumeratorBlob)(::windows::core::Vtable::as_raw(self), filter.into().abi(), ::core::mem::transmute(pcapps), ::core::mem::transmute(ppappblobs)).ok()
+        (::windows::core::Vtable::vtable(self).get_StartAppEnumeratorBlob)(::windows::core::Vtable::as_raw(self), filter.into().abi(), pcapps, ppappblobs).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPMEnumerationManager, ::windows::core::IUnknown);
@@ -5326,7 +5315,7 @@ impl IPMExtensionFileExtensionInfo {
         (::windows::core::Vtable::vtable(self).get_InvocationInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
     pub unsafe fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcbtypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), pcbtypes, pptypes).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPMExtensionFileExtensionInfo, ::windows::core::IUnknown);
@@ -5369,7 +5358,7 @@ pub struct IPMExtensionFileExtensionInfo_Vtbl {
 pub struct IPMExtensionFileOpenPickerInfo(::windows::core::IUnknown);
 impl IPMExtensionFileOpenPickerInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), pctypes, pptypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5416,7 +5405,7 @@ pub struct IPMExtensionFileOpenPickerInfo_Vtbl {
 pub struct IPMExtensionFileSavePickerInfo(::windows::core::IUnknown);
 impl IPMExtensionFileSavePickerInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), pctypes, pptypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5600,10 +5589,10 @@ pub struct IPMExtensionProtocolInfo_Vtbl {
 pub struct IPMExtensionShareTargetInfo(::windows::core::IUnknown);
 impl IPMExtensionShareTargetInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Vtable::vtable(self).get_AllFileTypes)(::windows::core::Vtable::as_raw(self), pctypes, pptypes).ok()
     }
     pub unsafe fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_AllDataFormats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcdataformats), ::core::mem::transmute(ppdataformats)).ok()
+        (::windows::core::Vtable::vtable(self).get_AllDataFormats)(::windows::core::Vtable::as_raw(self), pcdataformats, ppdataformats).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5722,13 +5711,13 @@ impl IPMLiveTileJobInfo {
         (::windows::core::Vtable::vtable(self).set_RecurrenceType)(::windows::core::Vtable::as_raw(self), ulrecurrencetype).ok()
     }
     pub unsafe fn get_TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_TileXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptilexml), ::core::mem::transmute(pcbtilexml)).ok()
+        (::windows::core::Vtable::vtable(self).get_TileXML)(::windows::core::Vtable::as_raw(self), ptilexml, pcbtilexml).ok()
     }
     pub unsafe fn set_TileXML(&self, ptilexml: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).set_TileXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptilexml.as_ptr()), ptilexml.len() as _).ok()
     }
     pub unsafe fn get_UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_UrlXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(purlxml), ::core::mem::transmute(pcburlxml)).ok()
+        (::windows::core::Vtable::vtable(self).get_UrlXML)(::windows::core::Vtable::as_raw(self), purlxml, pcburlxml).ok()
     }
     pub unsafe fn set_UrlXML(&self, purlxml: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).set_UrlXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(purlxml.as_ptr()), purlxml.len() as _).ok()
@@ -5922,7 +5911,7 @@ impl IPMTaskInfo {
         (::windows::core::Vtable::vtable(self).InstallType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn get_Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).get_Version)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptargetmajorversion), ::core::mem::transmute(ptargetminorversion)).ok()
+        (::windows::core::Vtable::vtable(self).get_Version)(::windows::core::Vtable::as_raw(self), ptargetmajorversion, ptargetminorversion).ok()
     }
     pub unsafe fn BitsPerPixel(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6399,12 +6388,12 @@ impl IValidate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDisplay)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdisplayfunction), ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Vtable::vtable(self).SetDisplay)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdisplayfunction), pcontext).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatusfunction), ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatusfunction), pcontext).ok()
     }
     pub unsafe fn Validate<'a, P0>(&self, wzices: P0) -> ::windows::core::Result<()>
     where
@@ -6445,11 +6434,11 @@ pub struct IValidate_Vtbl {
     pub CloseDatabase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CloseCUB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisplayfunction: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDisplay: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatusfunction: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetStatus: usize,
     pub Validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzices: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,

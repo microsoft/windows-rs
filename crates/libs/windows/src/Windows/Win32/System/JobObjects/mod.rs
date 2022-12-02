@@ -42,7 +42,7 @@ pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::s
 #[inline]
 pub unsafe fn FreeMemoryJobObject(buffer: *const ::core::ffi::c_void) {
     ::windows::core::link ! ( "kernel32.dll""system" fn FreeMemoryJobObject ( buffer : *const ::core::ffi::c_void ) -> ( ) );
-    FreeMemoryJobObject(::core::mem::transmute(buffer))
+    FreeMemoryJobObject(buffer)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -53,7 +53,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn IsProcessInJob ( processhandle : super::super::Foundation:: HANDLE , jobhandle : super::super::Foundation:: HANDLE , result : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    IsProcessInJob(processhandle.into(), jobhandle.into(), ::core::mem::transmute(result))
+    IsProcessInJob(processhandle.into(), jobhandle.into(), result)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -87,7 +87,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn QueryInformationJobObject ( hjob : super::super::Foundation:: HANDLE , jobobjectinformationclass : JOBOBJECTINFOCLASS , lpjobobjectinformation : *mut ::core::ffi::c_void , cbjobobjectinformationlength : u32 , lpreturnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
-    QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength, ::core::mem::transmute(lpreturnlength.unwrap_or(::std::ptr::null_mut())))
+    QueryInformationJobObject(hjob.into(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, ::core::mem::transmute(lpreturnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -98,7 +98,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn QueryIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , volumename : :: windows::core::PCWSTR , infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION , infoblockcount : *mut u32 ) -> u32 );
-    QueryIoRateControlInformationJobObject(hjob.into(), volumename.into(), ::core::mem::transmute(infoblocks), ::core::mem::transmute(infoblockcount))
+    QueryIoRateControlInformationJobObject(hjob.into(), volumename.into(), infoblocks, infoblockcount)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -108,7 +108,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetInformationJobObject ( hjob : super::super::Foundation:: HANDLE , jobobjectinformationclass : JOBOBJECTINFOCLASS , lpjobobjectinformation : *const ::core::ffi::c_void , cbjobobjectinformationlength : u32 ) -> super::super::Foundation:: BOOL );
-    SetInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength)
+    SetInformationJobObject(hjob.into(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -118,7 +118,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , ioratecontrolinfo : *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION ) -> u32 );
-    SetIoRateControlInformationJobObject(hjob.into(), ::core::mem::transmute(ioratecontrolinfo))
+    SetIoRateControlInformationJobObject(hjob.into(), ioratecontrolinfo)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -22,8 +22,8 @@ where
         pszextensions.as_deref().map_or(0, |slice| slice.len() as _),
         ::core::mem::transmute(pinitialheaders.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         pinitialheaders.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(padditionalheaders),
-        ::core::mem::transmute(puladditionalheadercount),
+        padditionalheaders,
+        puladditionalheadercount,
     )
     .ok()
 }
@@ -35,7 +35,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "websocket.dll""system" fn WebSocketBeginServerHandshake ( hwebsocket : WEB_SOCKET_HANDLE , pszsubprotocolselected : :: windows::core::PCSTR , pszextensionselected : *const :: windows::core::PSTR , ulextensionselectedcount : u32 , prequestheaders : *const WEB_SOCKET_HTTP_HEADER , ulrequestheadercount : u32 , presponseheaders : *mut *mut WEB_SOCKET_HTTP_HEADER , pulresponseheadercount : *mut u32 ) -> :: windows::core::HRESULT );
-    WebSocketBeginServerHandshake(hwebsocket.into(), pszsubprotocolselected.into(), ::core::mem::transmute(pszextensionselected.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len() as _, ::core::mem::transmute(presponseheaders), ::core::mem::transmute(pulresponseheadercount)).ok()
+    WebSocketBeginServerHandshake(hwebsocket.into(), pszsubprotocolselected.into(), ::core::mem::transmute(pszextensionselected.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len() as _, presponseheaders, pulresponseheadercount).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -44,7 +44,7 @@ where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
 {
     ::windows::core::link ! ( "websocket.dll""system" fn WebSocketCompleteAction ( hwebsocket : WEB_SOCKET_HANDLE , pvactioncontext : *const ::core::ffi::c_void , ulbytestransferred : u32 ) -> ( ) );
-    WebSocketCompleteAction(hwebsocket.into(), ::core::mem::transmute(pvactioncontext), ulbytestransferred)
+    WebSocketCompleteAction(hwebsocket.into(), pvactioncontext, ulbytestransferred)
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -94,13 +94,13 @@ where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
 {
     ::windows::core::link ! ( "websocket.dll""system" fn WebSocketGetAction ( hwebsocket : WEB_SOCKET_HANDLE , eactionqueue : WEB_SOCKET_ACTION_QUEUE , pdatabuffers : *mut WEB_SOCKET_BUFFER , puldatabuffercount : *mut u32 , paction : *mut WEB_SOCKET_ACTION , pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE , pvapplicationcontext : *mut *mut ::core::ffi::c_void , pvactioncontext : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WebSocketGetAction(hwebsocket.into(), eactionqueue, ::core::mem::transmute(pdatabuffers), ::core::mem::transmute(puldatabuffercount), ::core::mem::transmute(paction), ::core::mem::transmute(pbuffertype), ::core::mem::transmute(pvapplicationcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvactioncontext)).ok()
+    WebSocketGetAction(hwebsocket.into(), eactionqueue, pdatabuffers, puldatabuffercount, paction, pbuffertype, ::core::mem::transmute(pvapplicationcontext.unwrap_or(::std::ptr::null_mut())), pvactioncontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "websocket.dll""system" fn WebSocketGetGlobalProperty ( etype : WEB_SOCKET_PROPERTY_TYPE , pvvalue : *mut ::core::ffi::c_void , ulsize : *mut u32 ) -> :: windows::core::HRESULT );
-    WebSocketGetGlobalProperty(etype, ::core::mem::transmute(pvvalue), ::core::mem::transmute(ulsize)).ok()
+    WebSocketGetGlobalProperty(etype, pvvalue, ulsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]

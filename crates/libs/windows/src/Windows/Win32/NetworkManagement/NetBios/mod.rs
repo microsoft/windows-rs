@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     ::windows::core::link ! ( "netapi32.dll""system" fn Netbios ( pncb : *mut NCB ) -> u8 );
-    Netbios(::core::mem::transmute(pncb))
+    Netbios(pncb)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const ALL_TRANSPORTS: ::windows::core::PCSTR = ::windows::s!("M\u{0}\u{0}\u{0}");

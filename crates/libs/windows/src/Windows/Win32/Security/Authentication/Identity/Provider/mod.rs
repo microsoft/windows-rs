@@ -123,7 +123,7 @@ impl AsyncIConnectedIdentityProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Finish_GetUrl(&self, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Finish_GetUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(postdata), ::core::mem::transmute(url)).ok()
+        (::windows::core::Vtable::vtable(self).Finish_GetUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(postdata), url).ok()
     }
     pub unsafe fn Begin_GetAccountState(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Begin_GetAccountState)(::windows::core::Vtable::as_raw(self)).ok()
@@ -461,7 +461,7 @@ impl AsyncIIdentityStore {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(providerguid)).ok()
+        (::windows::core::Vtable::vtable(self).Begin_AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid).ok()
     }
     pub unsafe fn Finish_AddToCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_AddToCache)(::windows::core::Vtable::as_raw(self)).ok()
@@ -470,10 +470,10 @@ impl AsyncIIdentityStore {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(providerguid), cbsid, ::core::mem::transmute(psid.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).Begin_ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid, cbsid, ::core::mem::transmute(psid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Finish_ConvertToSid(&self, psid: ::core::option::Option<*mut u8>, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Finish_ConvertToSid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbrequiredsid)).ok()
+        (::windows::core::Vtable::vtable(self).Finish_ConvertToSid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psid.unwrap_or(::std::ptr::null_mut())), pcbrequiredsid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -548,7 +548,7 @@ impl AsyncIIdentityStoreEx {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into(), connectedname.into(), ::core::mem::transmute(providerguid)).ok()
+        (::windows::core::Vtable::vtable(self).Begin_CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into(), connectedname.into(), providerguid).ok()
     }
     pub unsafe fn Finish_CreateConnectedIdentity(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self)).ok()
@@ -557,7 +557,7 @@ impl AsyncIIdentityStoreEx {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into(), ::core::mem::transmute(providerguid)).ok()
+        (::windows::core::Vtable::vtable(self).Begin_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into(), providerguid).ok()
     }
     pub unsafe fn Finish_DeleteConnectedIdentity(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self)).ok()
@@ -689,7 +689,7 @@ impl IConnectedIdentityProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::System::Com::IBindCtx>>,
     {
-        (::windows::core::Vtable::vtable(self).GetUrl)(::windows::core::Vtable::as_raw(self), identifier, context.into().abi(), ::core::mem::transmute(postdata), ::core::mem::transmute(url)).ok()
+        (::windows::core::Vtable::vtable(self).GetUrl)(::windows::core::Vtable::as_raw(self), identifier, context.into().abi(), ::core::mem::transmute(postdata), url).ok()
     }
     pub unsafe fn GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -950,13 +950,13 @@ impl IIdentityStore {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(providerguid)).ok()
+        (::windows::core::Vtable::vtable(self).AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid).ok()
     }
     pub unsafe fn ConvertToSid<'a, P0>(&self, lpszuniqueid: P0, providerguid: *const ::windows::core::GUID, psid: ::core::option::Option<&mut [u8]>, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(providerguid), psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcbrequiredsid)).ok()
+        (::windows::core::Vtable::vtable(self).ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid, psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcbrequiredsid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1014,13 +1014,13 @@ impl IIdentityStoreEx {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into(), connectedname.into(), ::core::mem::transmute(providerguid)).ok()
+        (::windows::core::Vtable::vtable(self).CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into(), connectedname.into(), providerguid).ok()
     }
     pub unsafe fn DeleteConnectedIdentity<'a, P0>(&self, connectedname: P0, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into(), ::core::mem::transmute(providerguid)).ok()
+        (::windows::core::Vtable::vtable(self).DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into(), providerguid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityStoreEx, ::windows::core::IUnknown);

@@ -1750,7 +1750,7 @@ impl IDirectXVideoDecoder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCreationParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceguid: *mut ::windows::core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut super::super::Graphics::Direct3D9::IDirect3DSurface9, pnumsurfaces: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCreationParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectXVideoDecoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceguid: *mut ::windows::core::GUID, pvideodesc: *mut DXVA2_VideoDesc, pconfig: *mut DXVA2_ConfigPictureDecode, pdecoderrendertargets: *mut *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pnumsurfaces: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCreationParameters(::core::mem::transmute_copy(&pdeviceguid), ::core::mem::transmute_copy(&pvideodesc), ::core::mem::transmute_copy(&pconfig), ::core::mem::transmute_copy(&pdecoderrendertargets), ::core::mem::transmute_copy(&pnumsurfaces)).into()

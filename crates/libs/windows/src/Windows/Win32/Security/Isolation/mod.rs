@@ -62,7 +62,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::PSID>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetAppContainerNamedObjectPath ( token : super::super::Foundation:: HANDLE , appcontainersid : super::super::Foundation:: PSID , objectpathlength : u32 , objectpath : :: windows::core::PWSTR , returnlength : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetAppContainerNamedObjectPath(token.into(), appcontainersid.into(), objectpath.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(objectpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(returnlength))
+    GetAppContainerNamedObjectPath(token.into(), appcontainersid.into(), objectpath.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(objectpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), returnlength)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -94,7 +94,7 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result
 pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "api-ms-win-security-isolatedcontainer-l1-1-1.dll""system" fn IsProcessInWDAGContainer ( reserved : *const ::core::ffi::c_void , isprocessinwdagcontainer : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IsProcessInWDAGContainer(::core::mem::transmute(reserved), result__.as_mut_ptr()).from_abi(result__)
+    IsProcessInWDAGContainer(reserved, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -107,7 +107,7 @@ impl IIsolatedAppLauncher {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Launch)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), arguments.into(), ::core::mem::transmute(telemetryparameters)).ok()
+        (::windows::core::Vtable::vtable(self).Launch)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), arguments.into(), telemetryparameters).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IIsolatedAppLauncher, ::windows::core::IUnknown);

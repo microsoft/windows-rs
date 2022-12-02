@@ -86,7 +86,7 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: ::core::option::Option<*mut COMPOSITION_TARGET_ID>, actualtargetidcount: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionGetStatistics ( frameid : u64 , framestats : *mut COMPOSITION_FRAME_STATS , targetidcount : u32 , targetids : *mut COMPOSITION_TARGET_ID , actualtargetidcount : *mut u32 ) -> :: windows::core::HRESULT );
-    DCompositionGetStatistics(frameid, ::core::mem::transmute(framestats), targetidcount, ::core::mem::transmute(targetids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(actualtargetidcount.unwrap_or(::std::ptr::null_mut()))).ok()
+    DCompositionGetStatistics(frameid, framestats, targetidcount, ::core::mem::transmute(targetids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(actualtargetidcount.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -94,7 +94,7 @@ pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITI
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID) -> ::windows::core::Result<COMPOSITION_TARGET_STATS> {
     ::windows::core::link ! ( "dcomp.dll""system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DCompositionGetTargetStatistics(frameid, ::core::mem::transmute(targetid), result__.as_mut_ptr()).from_abi(result__)
+    DCompositionGetTargetStatistics(frameid, targetid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -126,7 +126,7 @@ impl IDCompositionAffineTransform2DEffect {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransformMatrix)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transformmatrix)).ok()
+        (::windows::core::Vtable::vtable(self).SetTransformMatrix)(::windows::core::Vtable::as_raw(self), transformmatrix).ok()
     }
     pub unsafe fn SetTransformMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
@@ -261,7 +261,7 @@ impl IDCompositionArithmeticCompositeEffect {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCoefficients)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(coefficients)).ok()
+        (::windows::core::Vtable::vtable(self).SetCoefficients)(::windows::core::Vtable::as_raw(self), coefficients).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -413,12 +413,12 @@ impl IDCompositionBrightnessEffect {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWhitePoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(whitepoint)).ok()
+        (::windows::core::Vtable::vtable(self).SetWhitePoint)(::windows::core::Vtable::as_raw(self), whitepoint).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetBlackPoint(&self, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBlackPoint)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(blackpoint)).ok()
+        (::windows::core::Vtable::vtable(self).SetBlackPoint)(::windows::core::Vtable::as_raw(self), blackpoint).ok()
     }
     pub unsafe fn SetWhitePointX<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
@@ -546,7 +546,7 @@ impl IDCompositionColorMatrixEffect {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
@@ -679,7 +679,7 @@ impl IDCompositionDelegatedInkTrail {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn StartNewTrail(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartNewTrail)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Vtable::vtable(self).StartNewTrail)(::windows::core::Vtable::as_raw(self), color).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDCompositionDelegatedInkTrail, ::windows::core::IUnknown);
@@ -1933,7 +1933,7 @@ impl IDCompositionMatrixTransform {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
@@ -1986,7 +1986,7 @@ impl IDCompositionMatrixTransform3D {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
     where
@@ -2621,7 +2621,7 @@ impl IDCompositionShadowEffect {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetColor(&self, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetColor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Vtable::vtable(self).SetColor)(::windows::core::Vtable::as_raw(self), color).ok()
     }
     pub unsafe fn SetRed<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
@@ -2790,7 +2790,7 @@ impl IDCompositionSurface {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr(), ::core::mem::transmute(updateoffset)).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr(), updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EndDraw)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3296,17 +3296,17 @@ impl IDCompositionTurbulenceEffect {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetOffset(&self, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOffset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(offset)).ok()
+        (::windows::core::Vtable::vtable(self).SetOffset)(::windows::core::Vtable::as_raw(self), offset).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetBaseFrequency(&self, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBaseFrequency)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(frequency)).ok()
+        (::windows::core::Vtable::vtable(self).SetBaseFrequency)(::windows::core::Vtable::as_raw(self), frequency).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetSize(&self, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size)).ok()
+        (::windows::core::Vtable::vtable(self).SetSize)(::windows::core::Vtable::as_raw(self), size).ok()
     }
     pub unsafe fn SetNumOctaves(&self, numoctaves: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetNumOctaves)(::windows::core::Vtable::as_raw(self), numoctaves).ok()
@@ -3389,7 +3389,7 @@ impl IDCompositionVirtualSurface {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr(), ::core::mem::transmute(updateoffset)).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.BeginDraw)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(updaterect.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr(), updateoffset).from_abi(result__)
     }
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.EndDraw)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3478,7 +3478,7 @@ impl IDCompositionVisual {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransform2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
@@ -3507,7 +3507,7 @@ impl IDCompositionVisual {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetClip2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rect)).ok()
+        (::windows::core::Vtable::vtable(self).SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
@@ -3623,7 +3623,7 @@ impl IDCompositionVisual2 {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetTransform2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
@@ -3652,7 +3652,7 @@ impl IDCompositionVisual2 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetClip2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rect)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
@@ -3750,7 +3750,7 @@ impl IDCompositionVisual3 {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
@@ -3779,7 +3779,7 @@ impl IDCompositionVisual3 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rect)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
@@ -3818,7 +3818,7 @@ impl IDCompositionVisual3 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnableHeatMap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnableHeatMap)(::windows::core::Vtable::as_raw(self), color).ok()
     }
     pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DisableHeatMap)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3859,7 +3859,7 @@ impl IDCompositionVisual3 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetTransform4(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTransform4)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).SetTransform4)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3943,7 +3943,7 @@ impl IDCompositionVisualDebug {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetTransform2)(::windows::core::Vtable::as_raw(self), matrix).ok()
     }
     pub unsafe fn SetTransformParent<'a, P0>(&self, visual: P0) -> ::windows::core::Result<()>
     where
@@ -3972,7 +3972,7 @@ impl IDCompositionVisualDebug {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetClip2(&self, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rect)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetClip2)(::windows::core::Vtable::as_raw(self), rect).ok()
     }
     pub unsafe fn SetContent<'a, P0>(&self, content: P0) -> ::windows::core::Result<()>
     where
@@ -4011,7 +4011,7 @@ impl IDCompositionVisualDebug {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnableHeatMap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Vtable::vtable(self).EnableHeatMap)(::windows::core::Vtable::as_raw(self), color).ok()
     }
     pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DisableHeatMap)(::windows::core::Vtable::as_raw(self)).ok()

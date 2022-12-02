@@ -104,7 +104,7 @@ where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordBinaryDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PWSTR , producernamecount : u32 , topnbinaries : u32 , binarystats : *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
-    DdqGetDiagnosticRecordBinaryDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, topnbinaries, ::core::mem::transmute(binarystats), ::core::mem::transmute(statcount)).ok()
+    DdqGetDiagnosticRecordBinaryDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, topnbinaries, binarystats, statcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
@@ -176,7 +176,7 @@ where
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordPage ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA , offset : u32 , pagerecordcount : u32 , baserowid : i64 , hrecord : *mut super:: HDIAGNOSTIC_RECORD ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordPage(hsession.into(), ::core::mem::transmute(searchcriteria), offset, pagerecordcount, baserowid, result__.as_mut_ptr()).from_abi(result__)
+    DdqGetDiagnosticRecordPage(hsession.into(), searchcriteria, offset, pagerecordcount, baserowid, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
@@ -237,7 +237,7 @@ where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordStats ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , searchcriteria : *const DIAGNOSTIC_DATA_SEARCH_CRITERIA , recordcount : *mut u32 , minrowid : *mut i64 , maxrowid : *mut i64 ) -> :: windows::core::HRESULT );
-    DdqGetDiagnosticRecordStats(hsession.into(), ::core::mem::transmute(searchcriteria), ::core::mem::transmute(recordcount), ::core::mem::transmute(minrowid), ::core::mem::transmute(maxrowid)).ok()
+    DdqGetDiagnosticRecordStats(hsession.into(), searchcriteria, recordcount, minrowid, maxrowid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
@@ -256,7 +256,7 @@ where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordTagDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PWSTR , producernamecount : u32 , tagstats : *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
-    DdqGetDiagnosticRecordTagDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(tagstats), ::core::mem::transmute(statcount)).ok()
+    DdqGetDiagnosticRecordTagDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, tagstats, statcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
@@ -330,7 +330,7 @@ where
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqIsDiagnosticRecordSampledIn ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , providergroup : *const :: windows::core::GUID , providerid : *const :: windows::core::GUID , providername : :: windows::core::PCWSTR , eventid : *const u32 , eventname : :: windows::core::PCWSTR , eventversion : *const u32 , eventkeywords : *const u64 , issampledin : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqIsDiagnosticRecordSampledIn(hsession.into(), ::core::mem::transmute(providergroup), ::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), providername.into(), ::core::mem::transmute(eventid.unwrap_or(::std::ptr::null())), eventname.into(), ::core::mem::transmute(eventversion.unwrap_or(::std::ptr::null())), ::core::mem::transmute(eventkeywords.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    DdqIsDiagnosticRecordSampledIn(hsession.into(), providergroup, ::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), providername.into(), ::core::mem::transmute(eventid.unwrap_or(::std::ptr::null())), eventname.into(), ::core::mem::transmute(eventversion.unwrap_or(::std::ptr::null())), ::core::mem::transmute(eventkeywords.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
@@ -339,7 +339,7 @@ where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
     ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqSetTranscriptConfiguration ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION ) -> :: windows::core::HRESULT );
-    DdqSetTranscriptConfiguration(hsession.into(), ::core::mem::transmute(desiredconfig)).ok()
+    DdqSetTranscriptConfiguration(hsession.into(), desiredconfig).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[repr(transparent)]

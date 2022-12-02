@@ -43,7 +43,7 @@ impl IEffectivePermission {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>,
     {
-        (::windows::core::Vtable::vtable(self).GetEffectivePermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidobjecttype), pusersid.into(), pszservername.into(), psd.into(), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
+        (::windows::core::Vtable::vtable(self).GetEffectivePermission)(::windows::core::Vtable::as_raw(self), pguidobjecttype, pusersid.into(), pszservername.into(), psd.into(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEffectivePermission, ::windows::core::IUnknown);
@@ -111,7 +111,7 @@ impl IEffectivePermission2 {
             psid.into(),
             pdevicesid.into(),
             pszservername.into(),
-            ::core::mem::transmute(psecurityobjects),
+            psecurityobjects,
             dwsecurityobjectcount,
             ::core::mem::transmute(pusergroups.unwrap_or(::std::ptr::null())),
             ::core::mem::transmute(pauthzusergroupsoperations.unwrap_or(::std::ptr::null())),
@@ -121,7 +121,7 @@ impl IEffectivePermission2 {
             ::core::mem::transmute(pauthzuserclaimsoperations.unwrap_or(::std::ptr::null())),
             ::core::mem::transmute(pauthzdeviceclaims.unwrap_or(::std::ptr::null())),
             ::core::mem::transmute(pauthzdeviceclaimsoperations.unwrap_or(::std::ptr::null())),
-            ::core::mem::transmute(peffpermresultlists),
+            peffpermresultlists,
         )
         .ok()
     }
@@ -181,7 +181,7 @@ impl ISecurityInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetObjectInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pobjectinfo)).ok()
+        (::windows::core::Vtable::vtable(self).GetObjectInformation)(::windows::core::Vtable::as_raw(self), pobjectinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -189,7 +189,7 @@ impl ISecurityInformation {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetSecurity)(::windows::core::Vtable::as_raw(self), requestedinformation, ::core::mem::transmute(ppsecuritydescriptor), fdefault.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetSecurity)(::windows::core::Vtable::as_raw(self), requestedinformation, ppsecuritydescriptor, fdefault.into()).ok()
     }
     pub unsafe fn SetSecurity<'a, P0>(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P0) -> ::windows::core::Result<()>
     where
@@ -198,13 +198,13 @@ impl ISecurityInformation {
         (::windows::core::Vtable::vtable(self).SetSecurity)(::windows::core::Vtable::as_raw(self), securityinformation, psecuritydescriptor.into()).ok()
     }
     pub unsafe fn GetAccessRights(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAccessRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidobjecttype), dwflags, ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
+        (::windows::core::Vtable::vtable(self).GetAccessRights)(::windows::core::Vtable::as_raw(self), pguidobjecttype, dwflags, ppaccess, pcaccesses, pidefaultaccess).ok()
     }
     pub unsafe fn MapGeneric(&self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MapGeneric)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidobjecttype), ::core::mem::transmute(paceflags), ::core::mem::transmute(pmask)).ok()
+        (::windows::core::Vtable::vtable(self).MapGeneric)(::windows::core::Vtable::as_raw(self), pguidobjecttype, paceflags, pmask).ok()
     }
     pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInheritTypes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppinherittypes), ::core::mem::transmute(pcinherittypes)).ok()
+        (::windows::core::Vtable::vtable(self).GetInheritTypes)(::windows::core::Vtable::as_raw(self), ppinherittypes, pcinherittypes).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -266,13 +266,13 @@ impl ISecurityInformation2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL {
-        (::windows::core::Vtable::vtable(self).IsDaclCanonical)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdacl))
+        (::windows::core::Vtable::vtable(self).IsDaclCanonical)(::windows::core::Vtable::as_raw(self), pdacl)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> ::windows::core::Result<super::super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, ::core::mem::transmute(rgpsids), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, rgpsids, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityInformation2, ::windows::core::IUnknown);
@@ -368,7 +368,7 @@ impl ISecurityInformation4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSecondarySecurity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psecurityobjects), ::core::mem::transmute(psecurityobjectcount)).ok()
+        (::windows::core::Vtable::vtable(self).GetSecondarySecurity)(::windows::core::Vtable::as_raw(self), psecurityobjects, psecurityobjectcount).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityInformation4, ::windows::core::IUnknown);
@@ -408,7 +408,7 @@ pub struct ISecurityInformation4_Vtbl {
 pub struct ISecurityObjectTypeInfo(::windows::core::IUnknown);
 impl ISecurityObjectTypeInfo {
     pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInheritSource)(::windows::core::Vtable::as_raw(self), si, ::core::mem::transmute(pacl), ::core::mem::transmute(ppinheritarray)).ok()
+        (::windows::core::Vtable::vtable(self).GetInheritSource)(::windows::core::Vtable::as_raw(self), si, pacl, ppinheritarray).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows::core::IUnknown);

@@ -2,67 +2,67 @@
 #[inline]
 pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: ::core::option::Option<*mut u32>) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsAddRef ( r#ref : *const ::core::ffi::c_void , count : *mut u32 ) -> JsErrorCode );
-    JsAddRef(::core::mem::transmute(r#ref), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
+    JsAddRef(r#ref, ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsBoolToBoolean ( value : u8 , booleanvalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsBoolToBoolean(value, ::core::mem::transmute(booleanvalue))
+    JsBoolToBoolean(value, booleanvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsBooleanToBool(value: *const ::core::ffi::c_void, boolvalue: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsBooleanToBool ( value : *const ::core::ffi::c_void , boolvalue : *mut bool ) -> JsErrorCode );
-    JsBooleanToBool(::core::mem::transmute(value), ::core::mem::transmute(boolvalue))
+    JsBooleanToBool(value, boolvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCallFunction(function: *const ::core::ffi::c_void, arguments: &[*const ::core::ffi::c_void], result: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCallFunction ( function : *const ::core::ffi::c_void , arguments : *const *const ::core::ffi::c_void , argumentcount : u16 , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCallFunction(::core::mem::transmute(function), ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut())))
+    JsCallFunction(function, ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCollectGarbage(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCollectGarbage ( runtime : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsCollectGarbage(::core::mem::transmute(runtime))
+    JsCollectGarbage(runtime)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConstructObject(function: *const ::core::ffi::c_void, arguments: &[*const ::core::ffi::c_void], result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsConstructObject ( function : *const ::core::ffi::c_void , arguments : *const *const ::core::ffi::c_void , argumentcount : u16 , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsConstructObject(::core::mem::transmute(function), ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, ::core::mem::transmute(result))
+    JsConstructObject(function, ::core::mem::transmute(arguments.as_ptr()), arguments.len() as _, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToBoolean(value: *const ::core::ffi::c_void, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsConvertValueToBoolean ( value : *const ::core::ffi::c_void , booleanvalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsConvertValueToBoolean(::core::mem::transmute(value), ::core::mem::transmute(booleanvalue))
+    JsConvertValueToBoolean(value, booleanvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToNumber(value: *const ::core::ffi::c_void, numbervalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsConvertValueToNumber ( value : *const ::core::ffi::c_void , numbervalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsConvertValueToNumber(::core::mem::transmute(value), ::core::mem::transmute(numbervalue))
+    JsConvertValueToNumber(value, numbervalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToObject(value: *const ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsConvertValueToObject ( value : *const ::core::ffi::c_void , object : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsConvertValueToObject(::core::mem::transmute(value), ::core::mem::transmute(object))
+    JsConvertValueToObject(value, object)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsConvertValueToString(value: *const ::core::ffi::c_void, stringvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsConvertValueToString ( value : *const ::core::ffi::c_void , stringvalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsConvertValueToString(::core::mem::transmute(value), ::core::mem::transmute(stringvalue))
+    JsConvertValueToString(value, stringvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateArray ( length : u32 , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateArray(length, ::core::mem::transmute(result))
+    JsCreateArray(length, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -73,7 +73,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IDebugApplication64>>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateContext(::core::mem::transmute(runtime), debugapplication.into().abi(), ::core::mem::transmute(newcontext))
+    JsCreateContext(runtime, debugapplication.into().abi(), newcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -84,109 +84,109 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IDebugApplication32>>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateContext ( runtime : *const ::core::ffi::c_void , debugapplication : * mut::core::ffi::c_void , newcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateContext(::core::mem::transmute(runtime), debugapplication.into().abi(), ::core::mem::transmute(newcontext))
+    JsCreateContext(runtime, debugapplication.into().abi(), newcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateError ( message : *const ::core::ffi::c_void , error : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateError(::core::mem::transmute(message), ::core::mem::transmute(error))
+    JsCreateError(message, error)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateExternalObject(data: ::core::option::Option<*const ::core::ffi::c_void>, finalizecallback: JsFinalizeCallback, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
-    ::windows::core::link ! ( "chakra.dll""system" fn JsCreateExternalObject ( data : *const ::core::ffi::c_void , finalizecallback : * mut::core::ffi::c_void , object : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateExternalObject(::core::mem::transmute(data.unwrap_or(::std::ptr::null())), ::core::mem::transmute(finalizecallback), ::core::mem::transmute(object))
+    ::windows::core::link ! ( "chakra.dll""system" fn JsCreateExternalObject ( data : *const ::core::ffi::c_void , finalizecallback : JsFinalizeCallback , object : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    JsCreateExternalObject(::core::mem::transmute(data.unwrap_or(::std::ptr::null())), ::core::mem::transmute(finalizecallback), object)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
-    ::windows::core::link ! ( "chakra.dll""system" fn JsCreateFunction ( nativefunction : * mut::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , function : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateFunction(::core::mem::transmute(nativefunction), ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(function))
+    ::windows::core::link ! ( "chakra.dll""system" fn JsCreateFunction ( nativefunction : JsNativeFunction , callbackstate : *const ::core::ffi::c_void , function : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    JsCreateFunction(::core::mem::transmute(nativefunction), ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), function)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateObject ( object : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateObject(::core::mem::transmute(object))
+    JsCreateObject(object)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateRangeError ( message : *const ::core::ffi::c_void , error : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateRangeError(::core::mem::transmute(message), ::core::mem::transmute(error))
+    JsCreateRangeError(message, error)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateReferenceError ( message : *const ::core::ffi::c_void , error : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateReferenceError(::core::mem::transmute(message), ::core::mem::transmute(error))
+    JsCreateReferenceError(message, error)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
-    ::windows::core::link ! ( "chakra.dll""system" fn JsCreateRuntime ( attributes : JsRuntimeAttributes , runtimeversion : JsRuntimeVersion , threadservice : * mut::core::ffi::c_void , runtime : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateRuntime(attributes, runtimeversion, ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime))
+    ::windows::core::link ! ( "chakra.dll""system" fn JsCreateRuntime ( attributes : JsRuntimeAttributes , runtimeversion : JsRuntimeVersion , threadservice : JsThreadServiceCallback , runtime : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
+    JsCreateRuntime(attributes, runtimeversion, ::core::mem::transmute(threadservice), runtime)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateSyntaxError ( message : *const ::core::ffi::c_void , error : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateSyntaxError(::core::mem::transmute(message), ::core::mem::transmute(error))
+    JsCreateSyntaxError(message, error)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateTypeError ( message : *const ::core::ffi::c_void , error : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateTypeError(::core::mem::transmute(message), ::core::mem::transmute(error))
+    JsCreateTypeError(message, error)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsCreateURIError ( message : *const ::core::ffi::c_void , error : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsCreateURIError(::core::mem::transmute(message), ::core::mem::transmute(error))
+    JsCreateURIError(message, error)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDefineProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsDefineProperty ( object : *const ::core::ffi::c_void , propertyid : *const ::core::ffi::c_void , propertydescriptor : *const ::core::ffi::c_void , result : *mut bool ) -> JsErrorCode );
-    JsDefineProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertydescriptor), ::core::mem::transmute(result))
+    JsDefineProperty(object, propertyid, propertydescriptor, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDeleteIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsDeleteIndexedProperty ( object : *const ::core::ffi::c_void , index : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsDeleteIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index))
+    JsDeleteIndexedProperty(object, index)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDeleteProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, usestrictrules: u8, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsDeleteProperty ( object : *const ::core::ffi::c_void , propertyid : *const ::core::ffi::c_void , usestrictrules : u8 , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsDeleteProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), usestrictrules, ::core::mem::transmute(result))
+    JsDeleteProperty(object, propertyid, usestrictrules, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsDisableRuntimeExecution ( runtime : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsDisableRuntimeExecution(::core::mem::transmute(runtime))
+    JsDisableRuntimeExecution(runtime)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDisposeRuntime(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsDisposeRuntime ( runtime : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsDisposeRuntime(::core::mem::transmute(runtime))
+    JsDisposeRuntime(runtime)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsDoubleToNumber ( doublevalue : f64 , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsDoubleToNumber(doublevalue, ::core::mem::transmute(value))
+    JsDoubleToNumber(doublevalue, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsEnableRuntimeExecution ( runtime : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsEnableRuntimeExecution(::core::mem::transmute(runtime))
+    JsEnableRuntimeExecution(runtime)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -199,73 +199,73 @@ pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Dia
 #[inline]
 pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsEquals ( object1 : *const ::core::ffi::c_void , object2 : *const ::core::ffi::c_void , result : *mut bool ) -> JsErrorCode );
-    JsEquals(::core::mem::transmute(object1), ::core::mem::transmute(object2), ::core::mem::transmute(result))
+    JsEquals(object1, object2, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetAndClearException ( exception : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetAndClearException(::core::mem::transmute(exception))
+    JsGetAndClearException(exception)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetCurrentContext ( currentcontext : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetCurrentContext(::core::mem::transmute(currentcontext))
+    JsGetCurrentContext(currentcontext)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetExtensionAllowed(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetExtensionAllowed ( object : *const ::core::ffi::c_void , value : *mut bool ) -> JsErrorCode );
-    JsGetExtensionAllowed(::core::mem::transmute(object), ::core::mem::transmute(value))
+    JsGetExtensionAllowed(object, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetExternalData(object: *const ::core::ffi::c_void, externaldata: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetExternalData ( object : *const ::core::ffi::c_void , externaldata : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetExternalData(::core::mem::transmute(object), ::core::mem::transmute(externaldata))
+    JsGetExternalData(object, externaldata)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetFalseValue ( falsevalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetFalseValue(::core::mem::transmute(falsevalue))
+    JsGetFalseValue(falsevalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetGlobalObject ( globalobject : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetGlobalObject(::core::mem::transmute(globalobject))
+    JsGetGlobalObject(globalobject)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetIndexedProperty ( object : *const ::core::ffi::c_void , index : *const ::core::ffi::c_void , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(result))
+    JsGetIndexedProperty(object, index, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetNullValue ( nullvalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetNullValue(::core::mem::transmute(nullvalue))
+    JsGetNullValue(nullvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetOwnPropertyDescriptor(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, propertydescriptor: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetOwnPropertyDescriptor ( object : *const ::core::ffi::c_void , propertyid : *const ::core::ffi::c_void , propertydescriptor : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetOwnPropertyDescriptor(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertydescriptor))
+    JsGetOwnPropertyDescriptor(object, propertyid, propertydescriptor)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetOwnPropertyNames(object: *const ::core::ffi::c_void, propertynames: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetOwnPropertyNames ( object : *const ::core::ffi::c_void , propertynames : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetOwnPropertyNames(::core::mem::transmute(object), ::core::mem::transmute(propertynames))
+    JsGetOwnPropertyNames(object, propertynames)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetProperty ( object : *const ::core::ffi::c_void , propertyid : *const ::core::ffi::c_void , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value))
+    JsGetProperty(object, propertyid, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -274,85 +274,85 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetPropertyIdFromName ( name : :: windows::core::PCWSTR , propertyid : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetPropertyIdFromName(name.into(), ::core::mem::transmute(propertyid))
+    JsGetPropertyIdFromName(name.into(), propertyid)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetPropertyNameFromId(propertyid: *const ::core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetPropertyNameFromId ( propertyid : *const ::core::ffi::c_void , name : *mut *mut u16 ) -> JsErrorCode );
-    JsGetPropertyNameFromId(::core::mem::transmute(propertyid), ::core::mem::transmute(name))
+    JsGetPropertyNameFromId(propertyid, name)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetPrototype ( object : *const ::core::ffi::c_void , prototypeobject : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetPrototype(::core::mem::transmute(object), ::core::mem::transmute(prototypeobject))
+    JsGetPrototype(object, prototypeobject)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetRuntime(context: *const ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetRuntime ( context : *const ::core::ffi::c_void , runtime : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetRuntime(::core::mem::transmute(context), ::core::mem::transmute(runtime))
+    JsGetRuntime(context, runtime)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: *mut usize) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetRuntimeMemoryLimit ( runtime : *const ::core::ffi::c_void , memorylimit : *mut usize ) -> JsErrorCode );
-    JsGetRuntimeMemoryLimit(::core::mem::transmute(runtime), ::core::mem::transmute(memorylimit))
+    JsGetRuntimeMemoryLimit(runtime, memorylimit)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetRuntimeMemoryUsage(runtime: *const ::core::ffi::c_void, memoryusage: *mut usize) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetRuntimeMemoryUsage ( runtime : *const ::core::ffi::c_void , memoryusage : *mut usize ) -> JsErrorCode );
-    JsGetRuntimeMemoryUsage(::core::mem::transmute(runtime), ::core::mem::transmute(memoryusage))
+    JsGetRuntimeMemoryUsage(runtime, memoryusage)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetStringLength(stringvalue: *const ::core::ffi::c_void, length: *mut i32) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetStringLength ( stringvalue : *const ::core::ffi::c_void , length : *mut i32 ) -> JsErrorCode );
-    JsGetStringLength(::core::mem::transmute(stringvalue), ::core::mem::transmute(length))
+    JsGetStringLength(stringvalue, length)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetTrueValue ( truevalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetTrueValue(::core::mem::transmute(truevalue))
+    JsGetTrueValue(truevalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetUndefinedValue ( undefinedvalue : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsGetUndefinedValue(::core::mem::transmute(undefinedvalue))
+    JsGetUndefinedValue(undefinedvalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetValueType(value: *const ::core::ffi::c_void, r#type: *mut JsValueType) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsGetValueType ( value : *const ::core::ffi::c_void , r#type : *mut JsValueType ) -> JsErrorCode );
-    JsGetValueType(::core::mem::transmute(value), ::core::mem::transmute(r#type))
+    JsGetValueType(value, r#type)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsHasException ( hasexception : *mut bool ) -> JsErrorCode );
-    JsHasException(::core::mem::transmute(hasexception))
+    JsHasException(hasexception)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasExternalData(object: *const ::core::ffi::c_void, value: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsHasExternalData ( object : *const ::core::ffi::c_void , value : *mut bool ) -> JsErrorCode );
-    JsHasExternalData(::core::mem::transmute(object), ::core::mem::transmute(value))
+    JsHasExternalData(object, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsHasIndexedProperty ( object : *const ::core::ffi::c_void , index : *const ::core::ffi::c_void , result : *mut bool ) -> JsErrorCode );
-    JsHasIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(result))
+    JsHasIndexedProperty(object, index, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsHasProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, hasproperty: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsHasProperty ( object : *const ::core::ffi::c_void , propertyid : *const ::core::ffi::c_void , hasproperty : *mut bool ) -> JsErrorCode );
-    JsHasProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(hasproperty))
+    JsHasProperty(object, propertyid, hasproperty)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -364,25 +364,25 @@ pub unsafe fn JsIdle(nextidletick: ::core::option::Option<*mut u32>) -> JsErrorC
 #[inline]
 pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsIntToNumber ( intvalue : i32 , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsIntToNumber(intvalue, ::core::mem::transmute(value))
+    JsIntToNumber(intvalue, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsIsEnumeratingHeap ( isenumeratingheap : *mut bool ) -> JsErrorCode );
-    JsIsEnumeratingHeap(::core::mem::transmute(isenumeratingheap))
+    JsIsEnumeratingHeap(isenumeratingheap)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, isdisabled: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsIsRuntimeExecutionDisabled ( runtime : *const ::core::ffi::c_void , isdisabled : *mut bool ) -> JsErrorCode );
-    JsIsRuntimeExecutionDisabled(::core::mem::transmute(runtime), ::core::mem::transmute(isdisabled))
+    JsIsRuntimeExecutionDisabled(runtime, isdisabled)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: *mut f64) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsNumberToDouble ( value : *const ::core::ffi::c_void , doublevalue : *mut f64 ) -> JsErrorCode );
-    JsNumberToDouble(::core::mem::transmute(value), ::core::mem::transmute(doublevalue))
+    JsNumberToDouble(value, doublevalue)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -392,7 +392,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsParseScript ( script : :: windows::core::PCWSTR , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsParseScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
+    JsParseScript(script.into(), sourcecontext, sourceurl.into(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -402,25 +402,25 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsParseSerializedScript ( script : :: windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsParseSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
+    JsParseSerializedScript(script.into(), buffer, sourcecontext, sourceurl.into(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsPointerToString ( stringvalue : :: windows::core::PCWSTR , stringlength : usize , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsPointerToString(::core::mem::transmute(stringvalue.as_ptr()), stringvalue.len() as _, ::core::mem::transmute(value))
+    JsPointerToString(::core::mem::transmute(stringvalue.as_ptr()), stringvalue.len() as _, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsPreventExtension(object: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsPreventExtension ( object : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsPreventExtension(::core::mem::transmute(object))
+    JsPreventExtension(object)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsRelease(r#ref: *const ::core::ffi::c_void, count: ::core::option::Option<*mut u32>) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsRelease ( r#ref : *const ::core::ffi::c_void , count : *mut u32 ) -> JsErrorCode );
-    JsRelease(::core::mem::transmute(r#ref), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
+    JsRelease(r#ref, ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -430,7 +430,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsRunScript ( script : :: windows::core::PCWSTR , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsRunScript(script.into(), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
+    JsRunScript(script.into(), sourcecontext, sourceurl.into(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -440,7 +440,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsRunSerializedScript ( script : :: windows::core::PCWSTR , buffer : *const u8 , sourcecontext : usize , sourceurl : :: windows::core::PCWSTR , result : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsRunSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
+    JsRunSerializedScript(script.into(), buffer, sourcecontext, sourceurl.into(), result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -449,61 +449,61 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSerializeScript ( script : :: windows::core::PCWSTR , buffer : *mut u8 , buffersize : *mut u32 ) -> JsErrorCode );
-    JsSerializeScript(script.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(buffersize))
+    JsSerializeScript(script.into(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetCurrentContext(context: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetCurrentContext ( context : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsSetCurrentContext(::core::mem::transmute(context))
+    JsSetCurrentContext(context)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetException(exception: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetException ( exception : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsSetException(::core::mem::transmute(exception))
+    JsSetException(exception)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetExternalData(object: *const ::core::ffi::c_void, externaldata: ::core::option::Option<*const ::core::ffi::c_void>) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetExternalData ( object : *const ::core::ffi::c_void , externaldata : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsSetExternalData(::core::mem::transmute(object), ::core::mem::transmute(externaldata.unwrap_or(::std::ptr::null())))
+    JsSetExternalData(object, ::core::mem::transmute(externaldata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetIndexedProperty ( object : *const ::core::ffi::c_void , index : *const ::core::ffi::c_void , value : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsSetIndexedProperty(::core::mem::transmute(object), ::core::mem::transmute(index), ::core::mem::transmute(value))
+    JsSetIndexedProperty(object, index, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, usestrictrules: u8) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetProperty ( object : *const ::core::ffi::c_void , propertyid : *const ::core::ffi::c_void , value : *const ::core::ffi::c_void , usestrictrules : u8 ) -> JsErrorCode );
-    JsSetProperty(::core::mem::transmute(object), ::core::mem::transmute(propertyid), ::core::mem::transmute(value), usestrictrules)
+    JsSetProperty(object, propertyid, value, usestrictrules)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *const ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetPrototype ( object : *const ::core::ffi::c_void , prototypeobject : *const ::core::ffi::c_void ) -> JsErrorCode );
-    JsSetPrototype(::core::mem::transmute(object), ::core::mem::transmute(prototypeobject))
+    JsSetPrototype(object, prototypeobject)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, beforecollectcallback: JsBeforeCollectCallback) -> JsErrorCode {
-    ::windows::core::link ! ( "chakra.dll""system" fn JsSetRuntimeBeforeCollectCallback ( runtime : *const ::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , beforecollectcallback : * mut::core::ffi::c_void ) -> JsErrorCode );
-    JsSetRuntimeBeforeCollectCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(beforecollectcallback))
+    ::windows::core::link ! ( "chakra.dll""system" fn JsSetRuntimeBeforeCollectCallback ( runtime : *const ::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , beforecollectcallback : JsBeforeCollectCallback ) -> JsErrorCode );
+    JsSetRuntimeBeforeCollectCallback(runtime, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(beforecollectcallback))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, allocationcallback: JsMemoryAllocationCallback) -> JsErrorCode {
-    ::windows::core::link ! ( "chakra.dll""system" fn JsSetRuntimeMemoryAllocationCallback ( runtime : *const ::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , allocationcallback : * mut::core::ffi::c_void ) -> JsErrorCode );
-    JsSetRuntimeMemoryAllocationCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(allocationcallback))
+    ::windows::core::link ! ( "chakra.dll""system" fn JsSetRuntimeMemoryAllocationCallback ( runtime : *const ::core::ffi::c_void , callbackstate : *const ::core::ffi::c_void , allocationcallback : JsMemoryAllocationCallback ) -> JsErrorCode );
+    JsSetRuntimeMemoryAllocationCallback(runtime, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(allocationcallback))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsSetRuntimeMemoryLimit ( runtime : *const ::core::ffi::c_void , memorylimit : usize ) -> JsErrorCode );
-    JsSetRuntimeMemoryLimit(::core::mem::transmute(runtime), memorylimit)
+    JsSetRuntimeMemoryLimit(runtime, memorylimit)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -547,27 +547,27 @@ pub unsafe fn JsStopProfiling(reason: ::windows::core::HRESULT) -> JsErrorCode {
 #[inline]
 pub unsafe fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsStrictEquals ( object1 : *const ::core::ffi::c_void , object2 : *const ::core::ffi::c_void , result : *mut bool ) -> JsErrorCode );
-    JsStrictEquals(::core::mem::transmute(object1), ::core::mem::transmute(object2), ::core::mem::transmute(result))
+    JsStrictEquals(object1, object2, result)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsStringToPointer ( value : *const ::core::ffi::c_void , stringvalue : *mut *mut u16 , stringlength : *mut usize ) -> JsErrorCode );
-    JsStringToPointer(::core::mem::transmute(value), ::core::mem::transmute(stringvalue), ::core::mem::transmute(stringlength))
+    JsStringToPointer(value, stringvalue, stringlength)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsValueToVariant ( object : *const ::core::ffi::c_void , variant : *mut ::core::mem::ManuallyDrop < super::Com:: VARIANT > ) -> JsErrorCode );
-    JsValueToVariant(::core::mem::transmute(object), ::core::mem::transmute(variant))
+    JsValueToVariant(object, ::core::mem::transmute(variant))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     ::windows::core::link ! ( "chakra.dll""system" fn JsVariantToValue ( variant : *const ::core::mem::ManuallyDrop < super::Com:: VARIANT > , value : *mut *mut ::core::ffi::c_void ) -> JsErrorCode );
-    JsVariantToValue(::core::mem::transmute(variant), ::core::mem::transmute(value))
+    JsVariantToValue(::core::mem::transmute(variant), value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;

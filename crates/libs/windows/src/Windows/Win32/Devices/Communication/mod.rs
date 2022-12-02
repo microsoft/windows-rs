@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBA ( lpdef : :: windows::core::PCSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBA(lpdef.into(), ::core::mem::transmute(lpdcb))
+    BuildCommDCBA(lpdef.into(), lpdcb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBAndTimeoutsA ( lpdef : :: windows::core::PCSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBAndTimeoutsA(lpdef.into(), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts))
+    BuildCommDCBAndTimeoutsA(lpdef.into(), lpdcb, lpcommtimeouts)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -26,7 +26,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBAndTimeoutsW ( lpdef : :: windows::core::PCWSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBAndTimeoutsW(lpdef.into(), ::core::mem::transmute(lpdcb), ::core::mem::transmute(lpcommtimeouts))
+    BuildCommDCBAndTimeoutsW(lpdef.into(), lpdcb, lpcommtimeouts)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -36,7 +36,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBW ( lpdef : :: windows::core::PCWSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBW(lpdef.into(), ::core::mem::transmute(lpdcb))
+    BuildCommDCBW(lpdef.into(), lpdcb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -67,7 +67,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CommConfigDialogA ( lpszname : :: windows::core::PCSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
-    CommConfigDialogA(lpszname.into(), hwnd.into(), ::core::mem::transmute(lpcc))
+    CommConfigDialogA(lpszname.into(), hwnd.into(), lpcc)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -78,7 +78,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CommConfigDialogW ( lpszname : :: windows::core::PCWSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
-    CommConfigDialogW(lpszname.into(), hwnd.into(), ::core::mem::transmute(lpcc))
+    CommConfigDialogW(lpszname.into(), hwnd.into(), lpcc)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -98,7 +98,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCommConfig ( hcommdev : super::super::Foundation:: HANDLE , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetCommConfig(hcommdev.into(), ::core::mem::transmute(lpcc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpdwsize))
+    GetCommConfig(hcommdev.into(), ::core::mem::transmute(lpcc.unwrap_or(::std::ptr::null_mut())), lpdwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -108,7 +108,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCommMask ( hfile : super::super::Foundation:: HANDLE , lpevtmask : *mut COMM_EVENT_MASK ) -> super::super::Foundation:: BOOL );
-    GetCommMask(hfile.into(), ::core::mem::transmute(lpevtmask))
+    GetCommMask(hfile.into(), lpevtmask)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -118,13 +118,13 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCommModemStatus ( hfile : super::super::Foundation:: HANDLE , lpmodemstat : *mut MODEM_STATUS_FLAGS ) -> super::super::Foundation:: BOOL );
-    GetCommModemStatus(hfile.into(), ::core::mem::transmute(lpmodemstat))
+    GetCommModemStatus(hfile.into(), lpmodemstat)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[inline]
 pub unsafe fn GetCommPorts(lpportnumbers: &mut [u32], puportnumbersfound: *mut u32) -> u32 {
     ::windows::core::link ! ( "api-ms-win-core-comm-l1-1-2.dll""system" fn GetCommPorts ( lpportnumbers : *mut u32 , uportnumberscount : u32 , puportnumbersfound : *mut u32 ) -> u32 );
-    GetCommPorts(::core::mem::transmute(lpportnumbers.as_ptr()), lpportnumbers.len() as _, ::core::mem::transmute(puportnumbersfound))
+    GetCommPorts(::core::mem::transmute(lpportnumbers.as_ptr()), lpportnumbers.len() as _, puportnumbersfound)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -134,7 +134,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCommProperties ( hfile : super::super::Foundation:: HANDLE , lpcommprop : *mut COMMPROP ) -> super::super::Foundation:: BOOL );
-    GetCommProperties(hfile.into(), ::core::mem::transmute(lpcommprop))
+    GetCommProperties(hfile.into(), lpcommprop)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -144,7 +144,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCommState ( hfile : super::super::Foundation:: HANDLE , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
-    GetCommState(hfile.into(), ::core::mem::transmute(lpdcb))
+    GetCommState(hfile.into(), lpdcb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -154,7 +154,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
-    GetCommTimeouts(hfile.into(), ::core::mem::transmute(lpcommtimeouts))
+    GetCommTimeouts(hfile.into(), lpcommtimeouts)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -164,7 +164,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetDefaultCommConfigA ( lpszname : :: windows::core::PCSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetDefaultCommConfigA(lpszname.into(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize))
+    GetDefaultCommConfigA(lpszname.into(), lpcc, lpdwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -174,7 +174,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetDefaultCommConfigW ( lpszname : :: windows::core::PCWSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetDefaultCommConfigW(lpszname.into(), ::core::mem::transmute(lpcc), ::core::mem::transmute(lpdwsize))
+    GetDefaultCommConfigW(lpszname.into(), lpcc, lpdwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -211,7 +211,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetCommConfig ( hcommdev : super::super::Foundation:: HANDLE , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
-    SetCommConfig(hcommdev.into(), ::core::mem::transmute(lpcc), dwsize)
+    SetCommConfig(hcommdev.into(), lpcc, dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -231,7 +231,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetCommState ( hfile : super::super::Foundation:: HANDLE , lpdcb : *const DCB ) -> super::super::Foundation:: BOOL );
-    SetCommState(hfile.into(), ::core::mem::transmute(lpdcb))
+    SetCommState(hfile.into(), lpdcb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -241,7 +241,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *const COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
-    SetCommTimeouts(hfile.into(), ::core::mem::transmute(lpcommtimeouts))
+    SetCommTimeouts(hfile.into(), lpcommtimeouts)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -251,7 +251,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetDefaultCommConfigA ( lpszname : :: windows::core::PCSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
-    SetDefaultCommConfigA(lpszname.into(), ::core::mem::transmute(lpcc), dwsize)
+    SetDefaultCommConfigA(lpszname.into(), lpcc, dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -261,7 +261,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetDefaultCommConfigW ( lpszname : :: windows::core::PCWSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
-    SetDefaultCommConfigW(lpszname.into(), ::core::mem::transmute(lpcc), dwsize)
+    SetDefaultCommConfigW(lpszname.into(), lpcc, dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -292,7 +292,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn WaitCommEvent ( hfile : super::super::Foundation:: HANDLE , lpevtmask : *mut COMM_EVENT_MASK , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
-    WaitCommEvent(hfile.into(), ::core::mem::transmute(lpevtmask), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
+    WaitCommEvent(hfile.into(), lpevtmask, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MAXLENGTH_NAI: u32 = 72u32;

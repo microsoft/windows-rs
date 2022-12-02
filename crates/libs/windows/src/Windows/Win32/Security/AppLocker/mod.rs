@@ -17,14 +17,14 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferComputeTokenFromLevel ( levelhandle : super:: SAFER_LEVEL_HANDLE , inaccesstoken : super::super::Foundation:: HANDLE , outaccesstoken : *mut super::super::Foundation:: HANDLE , dwflags : SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferComputeTokenFromLevel(levelhandle.into(), inaccesstoken.into(), ::core::mem::transmute(outaccesstoken), dwflags, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
+    SaferComputeTokenFromLevel(levelhandle.into(), inaccesstoken.into(), outaccesstoken, dwflags, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferCreateLevel(dwscopeid: u32, dwlevelid: u32, openflags: u32, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferCreateLevel ( dwscopeid : u32 , dwlevelid : u32 , openflags : u32 , plevelhandle : *mut super:: SAFER_LEVEL_HANDLE , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferCreateLevel(dwscopeid, dwlevelid, openflags, ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
+    SaferCreateLevel(dwscopeid, dwlevelid, openflags, plevelhandle, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -34,21 +34,21 @@ where
     P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferGetLevelInformation ( levelhandle : super:: SAFER_LEVEL_HANDLE , dwinfotype : SAFER_OBJECT_INFO_CLASS , lpquerybuffer : *mut ::core::ffi::c_void , dwinbuffersize : u32 , lpdwoutbuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    SaferGetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer.unwrap_or(::std::ptr::null_mut())), dwinbuffersize, ::core::mem::transmute(lpdwoutbuffersize))
+    SaferGetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer.unwrap_or(::std::ptr::null_mut())), dwinbuffersize, lpdwoutbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *mut ::core::ffi::c_void, infobufferretsize: *mut u32, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferGetPolicyInformation ( dwscopeid : u32 , saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS , infobuffersize : u32 , infobuffer : *mut ::core::ffi::c_void , infobufferretsize : *mut u32 , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferretsize), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
+    SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, infobufferretsize, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferIdentifyLevel ( dwnumproperties : u32 , pcodeproperties : *const SAFER_CODE_PROPERTIES_V2 , plevelhandle : *mut super:: SAFER_LEVEL_HANDLE , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcodeproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(plevelhandle), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
+    SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcodeproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), plevelhandle, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -69,14 +69,14 @@ where
     P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferSetLevelInformation ( levelhandle : super:: SAFER_LEVEL_HANDLE , dwinfotype : SAFER_OBJECT_INFO_CLASS , lpquerybuffer : *const ::core::ffi::c_void , dwinbuffersize : u32 ) -> super::super::Foundation:: BOOL );
-    SaferSetLevelInformation(levelhandle.into(), dwinfotype, ::core::mem::transmute(lpquerybuffer), dwinbuffersize)
+    SaferSetLevelInformation(levelhandle.into(), dwinfotype, lpquerybuffer, dwinbuffersize)
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: u32, infobuffer: *const ::core::ffi::c_void, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferSetPolicyInformation ( dwscopeid : u32 , saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS , infobuffersize : u32 , infobuffer : *const ::core::ffi::c_void , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, ::core::mem::transmute(infobuffer), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
+    SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

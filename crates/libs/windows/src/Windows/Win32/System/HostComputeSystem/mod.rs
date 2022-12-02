@@ -102,7 +102,7 @@ where
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
 pub unsafe fn HcsCreateOperation(context: ::core::option::Option<*const ::core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
-    ::windows::core::link ! ( "computecore.dll""system" fn HcsCreateOperation ( context : *const ::core::ffi::c_void , callback : * mut::core::ffi::c_void ) -> HCS_OPERATION );
+    ::windows::core::link ! ( "computecore.dll""system" fn HcsCreateOperation ( context : *const ::core::ffi::c_void , callback : HCS_OPERATION_COMPLETION ) -> HCS_OPERATION );
     HcsCreateOperation(::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback))
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -495,7 +495,7 @@ pub unsafe fn HcsSetComputeSystemCallback<'a, P0>(computesystem: P0, callbackopt
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
-    ::windows::core::link ! ( "computecore.dll""system" fn HcsSetComputeSystemCallback ( computesystem : HCS_SYSTEM , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "computecore.dll""system" fn HcsSetComputeSystemCallback ( computesystem : HCS_SYSTEM , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : HCS_EVENT_CALLBACK ) -> :: windows::core::HRESULT );
     HcsSetComputeSystemCallback(computesystem.into(), callbackoptions, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -504,7 +504,7 @@ pub unsafe fn HcsSetOperationCallback<'a, P0>(operation: P0, context: ::core::op
 where
     P0: ::std::convert::Into<HCS_OPERATION>,
 {
-    ::windows::core::link ! ( "computecore.dll""system" fn HcsSetOperationCallback ( operation : HCS_OPERATION , context : *const ::core::ffi::c_void , callback : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "computecore.dll""system" fn HcsSetOperationCallback ( operation : HCS_OPERATION , context : *const ::core::ffi::c_void , callback : HCS_OPERATION_COMPLETION ) -> :: windows::core::HRESULT );
     HcsSetOperationCallback(operation.into(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -522,8 +522,8 @@ pub unsafe fn HcsSetProcessCallback<'a, P0>(process: P0, callbackoptions: HCS_EV
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
 {
-    ::windows::core::link ! ( "computecore.dll""system" fn HcsSetProcessCallback ( process : HCS_PROCESS , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    HcsSetProcessCallback(process.into(), callbackoptions, ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
+    ::windows::core::link ! ( "computecore.dll""system" fn HcsSetProcessCallback ( process : HCS_PROCESS , callbackoptions : HCS_EVENT_OPTIONS , context : *const ::core::ffi::c_void , callback : HCS_EVENT_CALLBACK ) -> :: windows::core::HRESULT );
+    HcsSetProcessCallback(process.into(), callbackoptions, context, ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

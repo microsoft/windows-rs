@@ -27,7 +27,7 @@ impl IMLOperatorAttributes {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<'a, P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
@@ -187,7 +187,7 @@ impl IMLOperatorKernelCreationContext {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<'a, P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
@@ -320,14 +320,14 @@ impl IMLOperatorRegistry {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorTypeInferrer>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorShapeInferrer>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterOperatorSetSchema)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(operatorsetid), baselineversion, ::core::mem::transmute(schema.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len() as _), typeinferrer.into().abi(), shapeinferrer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterOperatorSetSchema)(::windows::core::Vtable::as_raw(self), operatorsetid, baselineversion, ::core::mem::transmute(schema.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len() as _), typeinferrer.into().abi(), shapeinferrer.into().abi()).ok()
     }
     pub unsafe fn RegisterOperatorKernel<'a, P0, P1>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: P0, shapeinferrer: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorKernelFactory>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IMLOperatorShapeInferrer>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterOperatorKernel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(operatorkernel), operatorkernelfactory.into().abi(), shapeinferrer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterOperatorKernel)(::windows::core::Vtable::as_raw(self), operatorkernel, operatorkernelfactory.into().abi(), shapeinferrer.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorRegistry, ::windows::core::IUnknown);
@@ -375,7 +375,7 @@ impl IMLOperatorShapeInferenceContext {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<'a, P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
@@ -414,7 +414,7 @@ impl IMLOperatorShapeInferenceContext {
         (::windows::core::Vtable::vtable(self).GetInputTensorShape)(::windows::core::Vtable::as_raw(self), inputindex, dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
     }
     pub unsafe fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOutputTensorShape)(::windows::core::Vtable::as_raw(self), outputindex, dimensioncount, ::core::mem::transmute(dimensions)).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputTensorShape)(::windows::core::Vtable::as_raw(self), outputindex, dimensioncount, dimensions).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorShapeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
@@ -624,7 +624,7 @@ impl IMLOperatorTypeInferenceContext {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, ::core::mem::transmute(value)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<'a, P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
@@ -656,7 +656,7 @@ impl IMLOperatorTypeInferenceContext {
         (::windows::core::Vtable::vtable(self).GetInputEdgeDescription)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOutputEdgeDescription)(::windows::core::Vtable::as_raw(self), outputindex, ::core::mem::transmute(edgedescription)).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputEdgeDescription)(::windows::core::Vtable::as_raw(self), outputindex, edgedescription).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorTypeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
@@ -801,7 +801,7 @@ impl IWinMLModel {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumerateMetadata)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(pkey), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Vtable::vtable(self).EnumerateMetadata)(::windows::core::Vtable::as_raw(self), index, pkey, pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

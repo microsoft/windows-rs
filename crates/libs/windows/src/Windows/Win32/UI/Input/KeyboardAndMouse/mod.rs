@@ -143,13 +143,13 @@ pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
 #[inline]
 pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::super::Foundation::BOOL {
     ::windows::core::link ! ( "user32.dll""system" fn GetLastInputInfo ( plii : *mut LASTINPUTINFO ) -> super::super::super::Foundation:: BOOL );
-    GetLastInputInfo(::core::mem::transmute(plii))
+    GetLastInputInfo(plii)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: &mut [MOUSEMOVEPOINT], resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32 {
     ::windows::core::link ! ( "user32.dll""system" fn GetMouseMovePointsEx ( cbsize : u32 , lppt : *const MOUSEMOVEPOINT , lpptbuf : *mut MOUSEMOVEPOINT , nbufpoints : i32 , resolution : GET_MOUSE_MOVE_POINTS_EX_RESOLUTION ) -> i32 );
-    GetMouseMovePointsEx(cbsize, ::core::mem::transmute(lppt), ::core::mem::transmute(lpptbuf.as_ptr()), lpptbuf.len() as _, resolution)
+    GetMouseMovePointsEx(cbsize, lppt, ::core::mem::transmute(lpptbuf.as_ptr()), lpptbuf.len() as _, resolution)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -302,7 +302,7 @@ where
 #[inline]
 pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32) -> i32 {
     ::windows::core::link ! ( "user32.dll""system" fn ToAscii ( uvirtkey : u32 , uscancode : u32 , lpkeystate : *const u8 , lpchar : *mut u16 , uflags : u32 ) -> i32 );
-    ToAscii(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpchar), uflags)
+    ToAscii(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpchar, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -312,7 +312,7 @@ where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn ToAsciiEx ( uvirtkey : u32 , uscancode : u32 , lpkeystate : *const u8 , lpchar : *mut u16 , uflags : u32 , dwhkl : super::super::TextServices:: HKL ) -> i32 );
-    ToAsciiEx(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpchar), uflags, dwhkl.into())
+    ToAsciiEx(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpchar, uflags, dwhkl.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -335,7 +335,7 @@ where
 #[inline]
 pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
     ::windows::core::link ! ( "user32.dll""system" fn TrackMouseEvent ( lpeventtrack : *mut TRACKMOUSEEVENT ) -> super::super::super::Foundation:: BOOL );
-    TrackMouseEvent(::core::mem::transmute(lpeventtrack))
+    TrackMouseEvent(lpeventtrack)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -399,7 +399,7 @@ pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
 #[inline]
 pub unsafe fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
     ::windows::core::link ! ( "comctl32.dll""system" fn _TrackMouseEvent ( lpeventtrack : *mut TRACKMOUSEEVENT ) -> super::super::super::Foundation:: BOOL );
-    _TrackMouseEvent(::core::mem::transmute(lpeventtrack))
+    _TrackMouseEvent(lpeventtrack)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]

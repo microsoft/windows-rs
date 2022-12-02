@@ -84,7 +84,7 @@ pub struct IApoAuxiliaryInputConfiguration_Vtbl {
 pub struct IApoAuxiliaryInputRT(::windows::core::IUnknown);
 impl IApoAuxiliaryInputRT {
     pub unsafe fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY) {
-        (::windows::core::Vtable::vtable(self).AcceptInput)(::windows::core::Vtable::as_raw(self), dwinputid, ::core::mem::transmute(pinputconnection))
+        (::windows::core::Vtable::vtable(self).AcceptInput)(::windows::core::Vtable::as_raw(self), dwinputid, pinputconnection)
     }
 }
 ::windows::core::interface_hierarchy!(IApoAuxiliaryInputRT, ::windows::core::IUnknown);
@@ -376,7 +376,7 @@ pub struct IAudioProcessingObjectLoggingService_Vtbl {
 pub struct IAudioProcessingObjectNotifications(::windows::core::IUnknown);
 impl IAudioProcessingObjectNotifications {
     pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetApoNotificationRegistrationInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(aponotifications), ::core::mem::transmute(count)).ok()
+        (::windows::core::Vtable::vtable(self).GetApoNotificationRegistrationInfo)(::windows::core::Vtable::as_raw(self), aponotifications, count).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -422,7 +422,7 @@ pub struct IAudioProcessingObjectNotifications_Vtbl {
 pub struct IAudioProcessingObjectRT(::windows::core::IUnknown);
 impl IAudioProcessingObjectRT {
     pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY) {
-        (::windows::core::Vtable::vtable(self).APOProcess)(::windows::core::Vtable::as_raw(self), u32numinputconnections, ::core::mem::transmute(ppinputconnections), u32numoutputconnections, ::core::mem::transmute(ppoutputconnections))
+        (::windows::core::Vtable::vtable(self).APOProcess)(::windows::core::Vtable::as_raw(self), u32numinputconnections, ppinputconnections, u32numoutputconnections, ppoutputconnections)
     }
     pub unsafe fn CalcInputFrames(&self, u32outputframecount: u32) -> u32 {
         (::windows::core::Vtable::vtable(self).CalcInputFrames)(::windows::core::Vtable::as_raw(self), u32outputframecount)
@@ -585,7 +585,7 @@ impl IAudioSystemEffects2 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).GetEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppeffectsids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pceffects), event.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppeffectsids.unwrap_or(::std::ptr::null_mut())), pceffects, event.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAudioSystemEffects2, ::windows::core::IUnknown, IAudioSystemEffects);
@@ -630,7 +630,7 @@ impl IAudioSystemEffects3 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppeffectsids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pceffects), event.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppeffectsids.unwrap_or(::std::ptr::null_mut())), pceffects, event.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -638,7 +638,7 @@ impl IAudioSystemEffects3 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).GetControllableSystemEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effects.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numeffects), event.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetControllableSystemEffectsList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effects.unwrap_or(::std::ptr::null_mut())), numeffects, event.into()).ok()
     }
     pub unsafe fn SetAudioSystemEffectState(&self, effectid: ::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAudioSystemEffectState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effectid), state).ok()

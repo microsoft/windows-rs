@@ -28,10 +28,10 @@ impl IRichEditOle {
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).ConvertObject)(::windows::core::Vtable::as_raw(self), iob, ::core::mem::transmute(rclsidnew), lpstrusertypenew.into()).ok()
+        (::windows::core::Vtable::vtable(self).ConvertObject)(::windows::core::Vtable::as_raw(self), iob, rclsidnew, lpstrusertypenew.into()).ok()
     }
     pub unsafe fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ActivateAs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rclsidas)).ok()
+        (::windows::core::Vtable::vtable(self).ActivateAs)(::windows::core::Vtable::as_raw(self), rclsid, rclsidas).ok()
     }
     pub unsafe fn SetHostNames<'a, P0, P1>(&self, lpstrcontainerapp: P0, lpstrcontainerobj: P1) -> ::windows::core::Result<()>
     where
@@ -76,7 +76,7 @@ impl IRichEditOle {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClipboardData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpchrg), reco, ::core::mem::transmute(lplpdataobj)).ok()
+        (::windows::core::Vtable::vtable(self).GetClipboardData)(::windows::core::Vtable::as_raw(self), lpchrg, reco, ::core::mem::transmute(lplpdataobj)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -168,7 +168,7 @@ impl IRichEditOleCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetInPlaceContext(&self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInPlaceContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lplpframe), ::core::mem::transmute(lplpdoc), ::core::mem::transmute(lpframeinfo)).ok()
+        (::windows::core::Vtable::vtable(self).GetInPlaceContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lplpframe), ::core::mem::transmute(lplpdoc), lpframeinfo).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -184,7 +184,7 @@ impl IRichEditOleCallback {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IStorage>>,
     {
-        (::windows::core::Vtable::vtable(self).QueryInsertObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpclsid), lpstg.into().abi(), cp).ok()
+        (::windows::core::Vtable::vtable(self).QueryInsertObject)(::windows::core::Vtable::as_raw(self), lpclsid, lpstg.into().abi(), cp).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -201,7 +201,7 @@ impl IRichEditOleCallback {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IDataObject>>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).QueryAcceptData)(::windows::core::Vtable::as_raw(self), lpdataobj.into().abi(), ::core::mem::transmute(lpcfformat), reco, freally.into(), hmetapict).ok()
+        (::windows::core::Vtable::vtable(self).QueryAcceptData)(::windows::core::Vtable::as_raw(self), lpdataobj.into().abi(), lpcfformat, reco, freally.into(), hmetapict).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -214,7 +214,7 @@ impl IRichEditOleCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClipboardData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpchrg), reco, ::core::mem::transmute(lplpdataobj)).ok()
+        (::windows::core::Vtable::vtable(self).GetClipboardData)(::windows::core::Vtable::as_raw(self), lpchrg, reco, ::core::mem::transmute(lplpdataobj)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
@@ -222,7 +222,7 @@ impl IRichEditOleCallback {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetDragDropEffect)(::windows::core::Vtable::as_raw(self), fdrag.into(), grfkeystate, ::core::mem::transmute(pdweffect)).ok()
+        (::windows::core::Vtable::vtable(self).GetDragDropEffect)(::windows::core::Vtable::as_raw(self), fdrag.into(), grfkeystate, pdweffect).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -230,7 +230,7 @@ impl IRichEditOleCallback {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Ole::IOleObject>>,
     {
-        (::windows::core::Vtable::vtable(self).GetContextMenu)(::windows::core::Vtable::as_raw(self), seltype, lpoleobj.into().abi(), ::core::mem::transmute(lpchrg), ::core::mem::transmute(lphmenu)).ok()
+        (::windows::core::Vtable::vtable(self).GetContextMenu)(::windows::core::Vtable::as_raw(self), seltype, lpoleobj.into().abi(), lpchrg, lphmenu).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRichEditOleCallback, ::windows::core::IUnknown);
@@ -723,14 +723,14 @@ impl ITextDocument2 {
         (::windows::core::Vtable::vtable(self).AttachMsgFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi()).ok()
     }
     pub unsafe fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CheckTextLimit)(::windows::core::Vtable::as_raw(self), cch, ::core::mem::transmute(pcch)).ok()
+        (::windows::core::Vtable::vtable(self).CheckTextLimit)(::windows::core::Vtable::as_raw(self), cch, pcch).ok()
     }
     pub unsafe fn GetCallManager(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCallManager)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetClientRect(&self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClientRect)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+        (::windows::core::Vtable::vtable(self).GetClientRect)(::windows::core::Vtable::as_raw(self), r#type, pleft, ptop, pright, pbottom).ok()
     }
     pub unsafe fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -741,7 +741,7 @@ impl ITextDocument2 {
         (::windows::core::Vtable::vtable(self).GetImmContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut ::windows::core::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPreferredFont)(::windows::core::Vtable::as_raw(self), cp, charrep, options, curcharrep, curfontsize, ::core::mem::transmute(pbstr), ::core::mem::transmute(ppitchandfamily), ::core::mem::transmute(pnewfontsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetPreferredFont)(::windows::core::Vtable::as_raw(self), cp, charrep, options, curcharrep, curfontsize, ::core::mem::transmute(pbstr), ppitchandfamily, pnewfontsize).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1057,7 +1057,7 @@ impl ITextDocument2Old {
         (::windows::core::Vtable::vtable(self).ReleaseImmContext)(::windows::core::Vtable::as_raw(self), context).ok()
     }
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut ::windows::core::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPreferredFont)(::windows::core::Vtable::as_raw(self), cp, charrep, option, charrepcur, curfontsize, ::core::mem::transmute(pbstr), ::core::mem::transmute(ppitchandfamily), ::core::mem::transmute(pnewfontsize)).ok()
+        (::windows::core::Vtable::vtable(self).GetPreferredFont)(::windows::core::Vtable::as_raw(self), cp, charrep, option, charrepcur, curfontsize, ::core::mem::transmute(pbstr), ppitchandfamily, pnewfontsize).ok()
     }
     pub unsafe fn GetNotificationMode(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1067,7 +1067,7 @@ impl ITextDocument2Old {
         (::windows::core::Vtable::vtable(self).SetNotificationMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
     pub unsafe fn GetClientRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClientRect)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+        (::windows::core::Vtable::vtable(self).GetClientRect)(::windows::core::Vtable::as_raw(self), r#type, pleft, ptop, pright, pbottom).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1087,7 +1087,7 @@ impl ITextDocument2Old {
         (::windows::core::Vtable::vtable(self).UpdateWindow)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CheckTextLimit)(::windows::core::Vtable::as_raw(self), cch, ::core::mem::transmute(pcch)).ok()
+        (::windows::core::Vtable::vtable(self).CheckTextLimit)(::windows::core::Vtable::as_raw(self), cch, pcch).ok()
     }
     pub unsafe fn IMEInProgress(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IMEInProgress)(::windows::core::Vtable::as_raw(self), value).ok()
@@ -1864,17 +1864,17 @@ impl ITextFont2 {
         (::windows::core::Vtable::vtable(self).SetUnderlinePositionMode)(::windows::core::Vtable::as_raw(self), value).ok()
     }
     pub unsafe fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvalue), ::core::mem::transmute(pmask)).ok()
+        (::windows::core::Vtable::vtable(self).GetEffects)(::windows::core::Vtable::as_raw(self), pvalue, pmask).ok()
     }
     pub unsafe fn GetEffects2(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEffects2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvalue), ::core::mem::transmute(pmask)).ok()
+        (::windows::core::Vtable::vtable(self).GetEffects2)(::windows::core::Vtable::as_raw(self), pvalue, pmask).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPropertyInfo(&self, index: i32, ptype: *mut i32, pvalue: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), index, ptype, pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2038,7 +2038,7 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).TxInvalidateRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc), fmode.into())
+        (::windows::core::Vtable::vtable(self).TxInvalidateRect)(::windows::core::Vtable::as_raw(self), prc, fmode.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2083,7 +2083,7 @@ impl ITextHost {
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>,
     {
-        (::windows::core::Vtable::vtable(self).TxScrollWindowEx)(::windows::core::Vtable::as_raw(self), dx, dy, ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll)
+        (::windows::core::Vtable::vtable(self).TxScrollWindowEx)(::windows::core::Vtable::as_raw(self), dx, dy, lprcscroll, lprcclip, hrgnupdate.into(), lprcupdate, fuscroll)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2108,15 +2108,15 @@ impl ITextHost {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        (::windows::core::Vtable::vtable(self).TxScreenToClient)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppt))
+        (::windows::core::Vtable::vtable(self).TxScreenToClient)(::windows::core::Vtable::as_raw(self), lppt)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        (::windows::core::Vtable::vtable(self).TxClientToScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppt))
+        (::windows::core::Vtable::vtable(self).TxClientToScreen)(::windows::core::Vtable::as_raw(self), lppt)
     }
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxActivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ploldstate)).ok()
+        (::windows::core::Vtable::vtable(self).TxActivate)(::windows::core::Vtable::as_raw(self), ploldstate).ok()
     }
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TxDeactivate)(::windows::core::Vtable::as_raw(self), lnewstate).ok()
@@ -2124,20 +2124,20 @@ impl ITextHost {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetClientRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetClientRect)(::windows::core::Vtable::as_raw(self), prc).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetViewInset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetViewInset)(::windows::core::Vtable::as_raw(self), prc).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetCharFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppcf)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetCharFormat)(::windows::core::Vtable::as_raw(self), ppcf).ok()
     }
     pub unsafe fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetParaFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppf)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetParaFormat)(::windows::core::Vtable::as_raw(self), pppf).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2145,39 +2145,39 @@ impl ITextHost {
         (::windows::core::Vtable::vtable(self).TxGetSysColor)(::windows::core::Vtable::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetBackStyle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstyle)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetBackStyle)(::windows::core::Vtable::as_raw(self), pstyle).ok()
     }
     pub unsafe fn TxGetMaxLength(&self, plength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetMaxLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plength)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetMaxLength)(::windows::core::Vtable::as_raw(self), plength).ok()
     }
     pub unsafe fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetScrollBars)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwscrollbar)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetScrollBars)(::windows::core::Vtable::as_raw(self), pdwscrollbar).ok()
     }
     pub unsafe fn TxGetPasswordChar(&self) -> ::windows::core::Result<i8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).TxGetPasswordChar)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetAcceleratorPos)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcp)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetAcceleratorPos)(::windows::core::Vtable::as_raw(self), pcp).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetExtent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpextent)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetExtent)(::windows::core::Vtable::as_raw(self), lpextent).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnTxCharFormatChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcf)).ok()
+        (::windows::core::Vtable::vtable(self).OnTxCharFormatChange)(::windows::core::Vtable::as_raw(self), pcf).ok()
     }
     pub unsafe fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnTxParaFormatChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppf)).ok()
+        (::windows::core::Vtable::vtable(self).OnTxParaFormatChange)(::windows::core::Vtable::as_raw(self), ppf).ok()
     }
     pub unsafe fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetPropertyBits)(::windows::core::Vtable::as_raw(self), dwmask, ::core::mem::transmute(pdwbits)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetPropertyBits)(::windows::core::Vtable::as_raw(self), dwmask, pdwbits).ok()
     }
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxNotify)(::windows::core::Vtable::as_raw(self), inotify, ::core::mem::transmute(pv)).ok()
+        (::windows::core::Vtable::vtable(self).TxNotify)(::windows::core::Vtable::as_raw(self), inotify, pv).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2193,7 +2193,7 @@ impl ITextHost {
         (::windows::core::Vtable::vtable(self).TxImmReleaseContext)(::windows::core::Vtable::as_raw(self), himc.into())
     }
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetSelectionBarWidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lselbarwidth)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetSelectionBarWidth)(::windows::core::Vtable::as_raw(self), lselbarwidth).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITextHost, ::windows::core::IUnknown);
@@ -2390,7 +2390,7 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TxInvalidateRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc), fmode.into())
+        (::windows::core::Vtable::vtable(self).base__.TxInvalidateRect)(::windows::core::Vtable::as_raw(self), prc, fmode.into())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2435,7 +2435,7 @@ impl ITextHost2 {
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TxScrollWindowEx)(::windows::core::Vtable::as_raw(self), dx, dy, ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll)
+        (::windows::core::Vtable::vtable(self).base__.TxScrollWindowEx)(::windows::core::Vtable::as_raw(self), dx, dy, lprcscroll, lprcclip, hrgnupdate.into(), lprcupdate, fuscroll)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2460,15 +2460,15 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        (::windows::core::Vtable::vtable(self).base__.TxScreenToClient)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppt))
+        (::windows::core::Vtable::vtable(self).base__.TxScreenToClient)(::windows::core::Vtable::as_raw(self), lppt)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
-        (::windows::core::Vtable::vtable(self).base__.TxClientToScreen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppt))
+        (::windows::core::Vtable::vtable(self).base__.TxClientToScreen)(::windows::core::Vtable::as_raw(self), lppt)
     }
     pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxActivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ploldstate)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxActivate)(::windows::core::Vtable::as_raw(self), ploldstate).ok()
     }
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.TxDeactivate)(::windows::core::Vtable::as_raw(self), lnewstate).ok()
@@ -2476,20 +2476,20 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetClientRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetClientRect)(::windows::core::Vtable::as_raw(self), prc).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetViewInset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetViewInset)(::windows::core::Vtable::as_raw(self), prc).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetCharFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppcf)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetCharFormat)(::windows::core::Vtable::as_raw(self), ppcf).ok()
     }
     pub unsafe fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetParaFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppf)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetParaFormat)(::windows::core::Vtable::as_raw(self), pppf).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2497,39 +2497,39 @@ impl ITextHost2 {
         (::windows::core::Vtable::vtable(self).base__.TxGetSysColor)(::windows::core::Vtable::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetBackStyle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstyle)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetBackStyle)(::windows::core::Vtable::as_raw(self), pstyle).ok()
     }
     pub unsafe fn TxGetMaxLength(&self, plength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetMaxLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plength)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetMaxLength)(::windows::core::Vtable::as_raw(self), plength).ok()
     }
     pub unsafe fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetScrollBars)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwscrollbar)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetScrollBars)(::windows::core::Vtable::as_raw(self), pdwscrollbar).ok()
     }
     pub unsafe fn TxGetPasswordChar(&self) -> ::windows::core::Result<i8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.TxGetPasswordChar)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetAcceleratorPos)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcp)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetAcceleratorPos)(::windows::core::Vtable::as_raw(self), pcp).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetExtent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpextent)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetExtent)(::windows::core::Vtable::as_raw(self), lpextent).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnTxCharFormatChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcf)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnTxCharFormatChange)(::windows::core::Vtable::as_raw(self), pcf).ok()
     }
     pub unsafe fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnTxParaFormatChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppf)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnTxParaFormatChange)(::windows::core::Vtable::as_raw(self), ppf).ok()
     }
     pub unsafe fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetPropertyBits)(::windows::core::Vtable::as_raw(self), dwmask, ::core::mem::transmute(pdwbits)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetPropertyBits)(::windows::core::Vtable::as_raw(self), dwmask, pdwbits).ok()
     }
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxNotify)(::windows::core::Vtable::as_raw(self), inotify, ::core::mem::transmute(pv)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxNotify)(::windows::core::Vtable::as_raw(self), inotify, pv).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2545,7 +2545,7 @@ impl ITextHost2 {
         (::windows::core::Vtable::vtable(self).base__.TxImmReleaseContext)(::windows::core::Vtable::as_raw(self), himc.into())
     }
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetSelectionBarWidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lselbarwidth)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetSelectionBarWidth)(::windows::core::Vtable::as_raw(self), lselbarwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2555,7 +2555,7 @@ impl ITextHost2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetWindow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phwnd)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetWindow)(::windows::core::Vtable::as_raw(self), phwnd).ok()
     }
     pub unsafe fn TxSetForegroundWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TxSetForegroundWindow)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2566,7 +2566,7 @@ impl ITextHost2 {
         (::windows::core::Vtable::vtable(self).TxGetPalette)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetEastAsianFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pflags)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetEastAsianFlags)(::windows::core::Vtable::as_raw(self), pflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2581,10 +2581,10 @@ impl ITextHost2 {
         (::windows::core::Vtable::vtable(self).TxFreeTextServicesNotification)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetEditStyle)(::windows::core::Vtable::as_raw(self), dwitem, ::core::mem::transmute(pdwdata)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetEditStyle)(::windows::core::Vtable::as_raw(self), dwitem, pdwdata).ok()
     }
     pub unsafe fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetWindowStyles)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwstyle), ::core::mem::transmute(pdwexstyle)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetWindowStyles)(::windows::core::Vtable::as_raw(self), pdwstyle, pdwexstyle).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2593,13 +2593,13 @@ impl ITextHost2 {
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).TxShowDropCaret)(::windows::core::Vtable::as_raw(self), fshow.into(), hdc.into(), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Vtable::vtable(self).TxShowDropCaret)(::windows::core::Vtable::as_raw(self), fshow.into(), hdc.into(), prc).ok()
     }
     pub unsafe fn TxDestroyCaret(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).TxDestroyCaret)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetHorzExtent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plhorzextent)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetHorzExtent)(::windows::core::Vtable::as_raw(self), plhorzextent).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITextHost2, ::windows::core::IUnknown, ITextHost);
@@ -2841,7 +2841,7 @@ impl ITextPara {
         (::windows::core::Vtable::vtable(self).DeleteTab)(::windows::core::Vtable::as_raw(self), tbpos).ok()
     }
     pub unsafe fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTab)(::windows::core::Vtable::as_raw(self), itab, ::core::mem::transmute(ptbpos), ::core::mem::transmute(ptbalign), ::core::mem::transmute(ptbleader)).ok()
+        (::windows::core::Vtable::vtable(self).GetTab)(::windows::core::Vtable::as_raw(self), itab, ptbpos, ptbalign, ptbleader).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3121,7 +3121,7 @@ impl ITextPara2 {
         (::windows::core::Vtable::vtable(self).base__.DeleteTab)(::windows::core::Vtable::as_raw(self), tbpos).ok()
     }
     pub unsafe fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetTab)(::windows::core::Vtable::as_raw(self), itab, ::core::mem::transmute(ptbpos), ::core::mem::transmute(ptbalign), ::core::mem::transmute(ptbleader)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetTab)(::windows::core::Vtable::as_raw(self), itab, ptbpos, ptbalign, ptbleader).ok()
     }
     pub unsafe fn GetBorders(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3170,7 +3170,7 @@ impl ITextPara2 {
         (::windows::core::Vtable::vtable(self).SetTrimPunctuationAtStart)(::windows::core::Vtable::as_raw(self), value).ok()
     }
     pub unsafe fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEffects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvalue), ::core::mem::transmute(pmask)).ok()
+        (::windows::core::Vtable::vtable(self).GetEffects)(::windows::core::Vtable::as_raw(self), pvalue, pmask).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3493,7 +3493,7 @@ impl ITextRange {
         (::windows::core::Vtable::vtable(self).ChangeCase)(::windows::core::Vtable::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetPoint(&self, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPoint)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
+        (::windows::core::Vtable::vtable(self).GetPoint)(::windows::core::Vtable::as_raw(self), r#type, px, py).ok()
     }
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPoint)(::windows::core::Vtable::as_raw(self), x, y, r#type, extend).ok()
@@ -3893,7 +3893,7 @@ impl ITextRange2 {
         (::windows::core::Vtable::vtable(self).base__.base__.ChangeCase)(::windows::core::Vtable::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetPoint(&self, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPoint)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPoint)(::windows::core::Vtable::as_raw(self), r#type, px, py).ok()
     }
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPoint)(::windows::core::Vtable::as_raw(self), x, y, r#type, extend).ok()
@@ -4054,23 +4054,23 @@ impl ITextRange2 {
         (::windows::core::Vtable::vtable(self).Find)(::windows::core::Vtable::as_raw(self), prange.into().abi(), count, flags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChar2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pchar), offset).ok()
+        (::windows::core::Vtable::vtable(self).GetChar2)(::windows::core::Vtable::as_raw(self), pchar, offset).ok()
     }
     pub unsafe fn GetDropCap(&self, pcline: *mut i32, pposition: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDropCap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcline), ::core::mem::transmute(pposition)).ok()
+        (::windows::core::Vtable::vtable(self).GetDropCap)(::windows::core::Vtable::as_raw(self), pcline, pposition).ok()
     }
     pub unsafe fn GetInlineObject(&self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInlineObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype), ::core::mem::transmute(palign), ::core::mem::transmute(pchar), ::core::mem::transmute(pchar1), ::core::mem::transmute(pchar2), ::core::mem::transmute(pcount), ::core::mem::transmute(ptexstyle), ::core::mem::transmute(pccol), ::core::mem::transmute(plevel)).ok()
+        (::windows::core::Vtable::vtable(self).GetInlineObject)(::windows::core::Vtable::as_raw(self), ptype, palign, pchar, pchar1, pchar2, pcount, ptexstyle, pccol, plevel).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32, phit: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRect)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom), ::core::mem::transmute(phit)).ok()
+        (::windows::core::Vtable::vtable(self).GetRect)(::windows::core::Vtable::as_raw(self), r#type, pleft, ptop, pright, pbottom, phit).ok()
     }
     pub unsafe fn GetSubrange(&self, isubrange: i32, pcpfirst: *mut i32, pcplim: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSubrange)(::windows::core::Vtable::as_raw(self), isubrange, ::core::mem::transmute(pcpfirst), ::core::mem::transmute(pcplim)).ok()
+        (::windows::core::Vtable::vtable(self).GetSubrange)(::windows::core::Vtable::as_raw(self), isubrange, pcpfirst, pcplim).ok()
     }
     pub unsafe fn GetText2(&self, flags: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4352,10 +4352,10 @@ impl ITextRow {
         (::windows::core::Vtable::vtable(self).SetCellWidth)(::windows::core::Vtable::as_raw(self), value).ok()
     }
     pub unsafe fn GetCellBorderColors(&self, pcrleft: *mut i32, pcrtop: *mut i32, pcrright: *mut i32, pcrbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCellBorderColors)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcrleft), ::core::mem::transmute(pcrtop), ::core::mem::transmute(pcrright), ::core::mem::transmute(pcrbottom)).ok()
+        (::windows::core::Vtable::vtable(self).GetCellBorderColors)(::windows::core::Vtable::as_raw(self), pcrleft, pcrtop, pcrright, pcrbottom).ok()
     }
     pub unsafe fn GetCellBorderWidths(&self, pduleft: *mut i32, pdutop: *mut i32, pduright: *mut i32, pdubottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCellBorderWidths)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pduleft), ::core::mem::transmute(pdutop), ::core::mem::transmute(pduright), ::core::mem::transmute(pdubottom)).ok()
+        (::windows::core::Vtable::vtable(self).GetCellBorderWidths)(::windows::core::Vtable::as_raw(self), pduleft, pdutop, pduright, pdubottom).ok()
     }
     pub unsafe fn SetCellBorderColors(&self, crleft: i32, crtop: i32, crright: i32, crbottom: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetCellBorderColors)(::windows::core::Vtable::as_raw(self), crleft, crtop, crright, crbottom).ok()
@@ -4718,7 +4718,7 @@ impl ITextSelection {
         (::windows::core::Vtable::vtable(self).base__.ChangeCase)(::windows::core::Vtable::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetPoint(&self, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPoint)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetPoint)(::windows::core::Vtable::as_raw(self), r#type, px, py).ok()
     }
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPoint)(::windows::core::Vtable::as_raw(self), x, y, r#type, extend).ok()
@@ -5055,7 +5055,7 @@ impl ITextSelection2 {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.ChangeCase)(::windows::core::Vtable::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetPoint(&self, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPoint)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(px), ::core::mem::transmute(py)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPoint)(::windows::core::Vtable::as_raw(self), r#type, px, py).ok()
     }
     pub unsafe fn SetPoint(&self, x: i32, y: i32, r#type: tomConstants, extend: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPoint)(::windows::core::Vtable::as_raw(self), x, y, r#type, extend).ok()
@@ -5216,23 +5216,23 @@ impl ITextSelection2 {
         (::windows::core::Vtable::vtable(self).base__.Find)(::windows::core::Vtable::as_raw(self), prange.into().abi(), count, flags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetChar2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pchar), offset).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetChar2)(::windows::core::Vtable::as_raw(self), pchar, offset).ok()
     }
     pub unsafe fn GetDropCap(&self, pcline: *mut i32, pposition: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDropCap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcline), ::core::mem::transmute(pposition)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetDropCap)(::windows::core::Vtable::as_raw(self), pcline, pposition).ok()
     }
     pub unsafe fn GetInlineObject(&self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInlineObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype), ::core::mem::transmute(palign), ::core::mem::transmute(pchar), ::core::mem::transmute(pchar1), ::core::mem::transmute(pchar2), ::core::mem::transmute(pcount), ::core::mem::transmute(ptexstyle), ::core::mem::transmute(pccol), ::core::mem::transmute(plevel)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetInlineObject)(::windows::core::Vtable::as_raw(self), ptype, palign, pchar, pchar1, pchar2, pcount, ptexstyle, pccol, plevel).ok()
     }
     pub unsafe fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetProperty)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32, phit: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetRect)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom), ::core::mem::transmute(phit)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetRect)(::windows::core::Vtable::as_raw(self), r#type, pleft, ptop, pright, pbottom, phit).ok()
     }
     pub unsafe fn GetSubrange(&self, isubrange: i32, pcpfirst: *mut i32, pcplim: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSubrange)(::windows::core::Vtable::as_raw(self), isubrange, ::core::mem::transmute(pcpfirst), ::core::mem::transmute(pcplim)).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetSubrange)(::windows::core::Vtable::as_raw(self), isubrange, pcpfirst, pcplim).ok()
     }
     pub unsafe fn GetText2(&self, flags: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5325,7 +5325,7 @@ impl ITextServices {
         P0: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).TxSendMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Vtable::vtable(self).TxSendMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), plresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5334,17 +5334,17 @@ impl ITextServices {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).TxDraw)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), pfncontinue, dwcontinue, lviewid).ok()
+        (::windows::core::Vtable::vtable(self).TxDraw)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.into(), hictargetdev.into(), lprcbounds, lprcwbounds, lprcupdate, pfncontinue, dwcontinue, lviewid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetHScroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetHScroll)(::windows::core::Vtable::as_raw(self), plmin, plmax, plpos, plpage, pfenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetVScroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetVScroll)(::windows::core::Vtable::as_raw(self), plmin, plmax, plpos, plpage, pfenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5353,7 +5353,7 @@ impl ITextServices {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).OnTxSetCursor)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y).ok()
+        (::windows::core::Vtable::vtable(self).OnTxSetCursor)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.into(), hictargetdev.into(), lprcclient, x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5362,12 +5362,12 @@ impl ITextServices {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).TxQueryHitPoint)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y, ::core::mem::transmute(phitresult)).ok()
+        (::windows::core::Vtable::vtable(self).TxQueryHitPoint)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.into(), hictargetdev.into(), lprcclient, x, y, phitresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnTxInPlaceActivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prcclient)).ok()
+        (::windows::core::Vtable::vtable(self).OnTxInPlaceActivate)(::windows::core::Vtable::as_raw(self), prcclient).ok()
     }
     pub unsafe fn OnTxInPlaceDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OnTxInPlaceDeactivate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5388,10 +5388,10 @@ impl ITextServices {
         (::windows::core::Vtable::vtable(self).TxSetText)(::windows::core::Vtable::as_raw(self), psztext.into()).ok()
     }
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetCurTargetX)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetCurTargetX)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn TxGetBaseLinePos(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetBaseLinePos)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetBaseLinePos)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5400,7 +5400,7 @@ impl ITextServices {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).TxGetNaturalSize)(::windows::core::Vtable::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), dwmode, ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetNaturalSize)(::windows::core::Vtable::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ptd, dwmode, psizelextent, pwidth, pheight).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -5412,7 +5412,7 @@ impl ITextServices {
         (::windows::core::Vtable::vtable(self).OnTxPropertyBitsChange)(::windows::core::Vtable::as_raw(self), dwmask, dwbits).ok()
     }
     pub unsafe fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TxGetCachedSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwwidth), ::core::mem::transmute(pdwheight)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetCachedSize)(::windows::core::Vtable::as_raw(self), pdwwidth, pdwheight).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITextServices, ::windows::core::IUnknown);
@@ -5499,7 +5499,7 @@ impl ITextServices2 {
         P0: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P1: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TxSendMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), ::core::mem::transmute(plresult)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxSendMessage)(::windows::core::Vtable::as_raw(self), msg, wparam.into(), lparam.into(), plresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5508,17 +5508,17 @@ impl ITextServices2 {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TxDraw)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), pfncontinue, dwcontinue, lviewid).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxDraw)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.into(), hictargetdev.into(), lprcbounds, lprcwbounds, lprcupdate, pfncontinue, dwcontinue, lviewid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetHScroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetHScroll)(::windows::core::Vtable::as_raw(self), plmin, plmax, plpos, plpage, pfenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetVScroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetVScroll)(::windows::core::Vtable::as_raw(self), plmin, plmax, plpos, plpage, pfenabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5527,7 +5527,7 @@ impl ITextServices2 {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).base__.OnTxSetCursor)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnTxSetCursor)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.into(), hictargetdev.into(), lprcclient, x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5536,12 +5536,12 @@ impl ITextServices2 {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TxQueryHitPoint)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y, ::core::mem::transmute(phitresult)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxQueryHitPoint)(::windows::core::Vtable::as_raw(self), dwdrawaspect, lindex, pvaspect, ptd, hdcdraw.into(), hictargetdev.into(), lprcclient, x, y, phitresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnTxInPlaceActivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prcclient)).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnTxInPlaceActivate)(::windows::core::Vtable::as_raw(self), prcclient).ok()
     }
     pub unsafe fn OnTxInPlaceDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OnTxInPlaceDeactivate)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5562,10 +5562,10 @@ impl ITextServices2 {
         (::windows::core::Vtable::vtable(self).base__.TxSetText)(::windows::core::Vtable::as_raw(self), psztext.into()).ok()
     }
     pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetCurTargetX)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetCurTargetX)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn TxGetBaseLinePos(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetBaseLinePos)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetBaseLinePos)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5574,7 +5574,7 @@ impl ITextServices2 {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).base__.TxGetNaturalSize)(::windows::core::Vtable::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), dwmode, ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetNaturalSize)(::windows::core::Vtable::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ptd, dwmode, psizelextent, pwidth, pheight).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -5586,7 +5586,7 @@ impl ITextServices2 {
         (::windows::core::Vtable::vtable(self).base__.OnTxPropertyBitsChange)(::windows::core::Vtable::as_raw(self), dwmask, dwbits).ok()
     }
     pub unsafe fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.TxGetCachedSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwwidth), ::core::mem::transmute(pdwheight)).ok()
+        (::windows::core::Vtable::vtable(self).base__.TxGetCachedSize)(::windows::core::Vtable::as_raw(self), pdwwidth, pdwheight).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -5595,7 +5595,7 @@ impl ITextServices2 {
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Vtable::vtable(self).TxGetNaturalSize2)(::windows::core::Vtable::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), dwmode, ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight), ::core::mem::transmute(pascent)).ok()
+        (::windows::core::Vtable::vtable(self).TxGetNaturalSize2)(::windows::core::Vtable::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ptd, dwmode, psizelextent, pwidth, pheight, pascent).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
@@ -5603,7 +5603,7 @@ impl ITextServices2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct2D::ID2D1RenderTarget>>,
     {
-        (::windows::core::Vtable::vtable(self).TxDrawD2D)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcupdate), lviewid).ok()
+        (::windows::core::Vtable::vtable(self).TxDrawD2D)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), lprcbounds, lprcupdate, lviewid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITextServices2, ::windows::core::IUnknown, ITextServices);
