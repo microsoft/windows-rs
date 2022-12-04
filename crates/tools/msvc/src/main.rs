@@ -87,10 +87,9 @@ fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<S
     def.write_all(
         format!(
             r#"
-LIBRARY {}
+LIBRARY {library}
 EXPORTS
-"#,
-            library
+"#
         )
         .as_bytes(),
     )
