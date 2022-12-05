@@ -907,9 +907,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetPlatformPathOverrideW ( r#override : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetSourceListA ( flags : u32 , sourcelist : *const :: windows_sys::core::PSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetSourceListA ( flags : u32 , sourcelist : *const :: windows_sys::core::PCSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetSourceListW ( flags : u32 , sourcelist : *const :: windows_sys::core::PWSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetSourceListW ( flags : u32 , sourcelist : *const :: windows_sys::core::PCWSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupSetThreadLogToken ( logtoken : u64 ) -> ( ) );
 ::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupTermDefaultQueueCallback ( context : *const ::core::ffi::c_void ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]

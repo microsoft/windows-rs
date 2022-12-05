@@ -15,7 +15,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn DispCallFunc ( pvinstance : *const ::core::ffi::c_void , ovft : usize , cc : super::Com:: CALLCONV , vtreturn : super::Com:: VARENUM , cactuals : u32 , prgvt : *const u16 , prgpvarg : *const *const super::Com:: VARIANT , pvargresult : *mut super::Com:: VARIANT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn DispGetIDsOfNames ( ptinfo : super::Com:: ITypeInfo , rgsznames : *const :: windows_sys::core::PWSTR , cnames : u32 , rgdispid : *mut i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn DispGetIDsOfNames ( ptinfo : super::Com:: ITypeInfo , rgsznames : *const :: windows_sys::core::PCWSTR , cnames : u32 , rgdispid : *mut i32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_sys::core::link ! ( "oleaut32.dll""system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn DispGetParam ( pdispparams : *const super::Com:: DISPPARAMS , position : u32 , vttarg : super::Com:: VARENUM , pvarresult : *mut super::Com:: VARIANT , puargerr : *mut u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
