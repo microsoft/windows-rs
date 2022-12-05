@@ -33,11 +33,11 @@ impl HRESULT {
 
     /// Converts the [`HRESULT`] to [`Result<()>`][Result<_>].
     #[inline]
-    pub const fn ok(self) -> Result<()> {
+    pub fn ok(self) -> Result<()> {
         if self.is_ok() {
             Ok(())
         } else {
-            Err(Error { code: self, info: None })
+            Err(Error::from(self))
         }
     }
 
