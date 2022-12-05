@@ -69,7 +69,7 @@ impl Type {
     pub fn to_const(self) -> Self {
         match self {
             Self::MutPtr(p) => Self::ConstPtr(p).to_const(),
-            Self::ConstPtr((kind, pointers)) => Self::ConstPtr((Box::new(kind.clone().to_const()), pointers)),
+            Self::ConstPtr((kind, pointers)) => Self::ConstPtr((Box::new(kind.to_const()), pointers)),
             Self::PSTR => Self::PCSTR,
             Self::PWSTR => Self::PCWSTR,
             _ => self,
