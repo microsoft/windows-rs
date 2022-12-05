@@ -4919,15 +4919,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupSetSourceListA(flags: u32, sourcelist: &[::windows::core::PSTR]) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "setupapi.dll""system" fn SetupSetSourceListA ( flags : u32 , sourcelist : *const :: windows::core::PSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupSetSourceListA(flags: u32, sourcelist: &[::windows::core::PCSTR]) -> super::super::Foundation::BOOL {
+    ::windows::core::link ! ( "setupapi.dll""system" fn SetupSetSourceListA ( flags : u32 , sourcelist : *const :: windows::core::PCSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
     SetupSetSourceListA(flags, ::core::mem::transmute(sourcelist.as_ptr()), sourcelist.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupSetSourceListW(flags: u32, sourcelist: &[::windows::core::PWSTR]) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "setupapi.dll""system" fn SetupSetSourceListW ( flags : u32 , sourcelist : *const :: windows::core::PWSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
+pub unsafe fn SetupSetSourceListW(flags: u32, sourcelist: &[::windows::core::PCWSTR]) -> super::super::Foundation::BOOL {
+    ::windows::core::link ! ( "setupapi.dll""system" fn SetupSetSourceListW ( flags : u32 , sourcelist : *const :: windows::core::PCWSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
     SetupSetSourceListW(flags, ::core::mem::transmute(sourcelist.as_ptr()), sourcelist.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]

@@ -352,12 +352,12 @@ pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
-pub unsafe fn DnsServiceConstructInstance<'a, P0, P1>(pservicename: P0, phostname: P1, pip4: ::core::option::Option<*const u32>, pip6: ::core::option::Option<*const IP6_ADDRESS>, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PWSTR, values: *const ::windows::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE
+pub unsafe fn DnsServiceConstructInstance<'a, P0, P1>(pservicename: P0, phostname: P1, pip4: ::core::option::Option<*const u32>, pip6: ::core::option::Option<*const IP6_ADDRESS>, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows::core::PCWSTR, values: *const ::windows::core::PCWSTR) -> *mut DNS_SERVICE_INSTANCE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "dnsapi.dll""system" fn DnsServiceConstructInstance ( pservicename : :: windows::core::PCWSTR , phostname : :: windows::core::PCWSTR , pip4 : *const u32 , pip6 : *const IP6_ADDRESS , wport : u16 , wpriority : u16 , wweight : u16 , dwpropertiescount : u32 , keys : *const :: windows::core::PWSTR , values : *const :: windows::core::PWSTR ) -> *mut DNS_SERVICE_INSTANCE );
+    ::windows::core::link ! ( "dnsapi.dll""system" fn DnsServiceConstructInstance ( pservicename : :: windows::core::PCWSTR , phostname : :: windows::core::PCWSTR , pip4 : *const u32 , pip6 : *const IP6_ADDRESS , wport : u16 , wpriority : u16 , wweight : u16 , dwpropertiescount : u32 , keys : *const :: windows::core::PCWSTR , values : *const :: windows::core::PCWSTR ) -> *mut DNS_SERVICE_INSTANCE );
     DnsServiceConstructInstance(pservicename.into(), phostname.into(), ::core::mem::transmute(pip4.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pip6.unwrap_or(::std::ptr::null())), wport, wpriority, wweight, dwpropertiescount, keys, values)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]

@@ -187,7 +187,7 @@ pub trait ICreateTypeInfo_Impl: Sized {
     fn SetAlignment(&self, cbalignment: u16) -> ::windows::core::Result<()>;
     fn SetSchema(&self, pstrschema: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::Result<()>;
-    fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const ::windows::core::PWSTR, cnames: u32) -> ::windows::core::Result<()>;
+    fn SetFuncAndParamNames(&self, index: u32, rgsznames: *const ::windows::core::PCWSTR, cnames: u32) -> ::windows::core::Result<()>;
     fn SetVarName(&self, index: u32, szname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetTypeDescAlias(&self, ptdescalias: *const super::Com::TYPEDESC) -> ::windows::core::Result<()>;
     fn DefineFuncAsDllEntry(&self, index: u32, szdllname: &::windows::core::PCWSTR, szprocname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -264,7 +264,7 @@ impl ICreateTypeInfo_Vtbl {
             let this = (*this).get_impl();
             this.AddVarDesc(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pvardesc)).into()
         }
-        unsafe extern "system" fn SetFuncAndParamNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const ::windows::core::PWSTR, cnames: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFuncAndParamNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const ::windows::core::PCWSTR, cnames: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFuncAndParamNames(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&rgsznames), ::core::mem::transmute_copy(&cnames)).into()

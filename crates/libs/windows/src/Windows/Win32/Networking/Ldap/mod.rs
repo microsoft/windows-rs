@@ -561,20 +561,20 @@ pub unsafe fn ldap_count_references(ld: *mut LDAP, res: *mut LDAPMessage) -> u32
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_count_values(vals: ::core::option::Option<*const ::windows::core::PSTR>) -> u32 {
-    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_count_values ( vals : *const :: windows::core::PSTR ) -> u32 );
+pub unsafe fn ldap_count_values(vals: ::core::option::Option<*const ::windows::core::PCSTR>) -> u32 {
+    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_count_values ( vals : *const :: windows::core::PCSTR ) -> u32 );
     ldap_count_values(::core::mem::transmute(vals.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_count_valuesA(vals: ::core::option::Option<*const ::windows::core::PSTR>) -> u32 {
-    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_count_valuesA ( vals : *const :: windows::core::PSTR ) -> u32 );
+pub unsafe fn ldap_count_valuesA(vals: ::core::option::Option<*const ::windows::core::PCSTR>) -> u32 {
+    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_count_valuesA ( vals : *const :: windows::core::PCSTR ) -> u32 );
     ldap_count_valuesA(::core::mem::transmute(vals.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_count_valuesW(vals: ::core::option::Option<*const ::windows::core::PWSTR>) -> u32 {
-    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_count_valuesW ( vals : *const :: windows::core::PWSTR ) -> u32 );
+pub unsafe fn ldap_count_valuesW(vals: ::core::option::Option<*const ::windows::core::PCWSTR>) -> u32 {
+    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_count_valuesW ( vals : *const :: windows::core::PCWSTR ) -> u32 );
     ldap_count_valuesW(::core::mem::transmute(vals.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
@@ -2086,20 +2086,20 @@ pub unsafe fn ldap_unbind_s(ld: *mut LDAP) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_value_free(vals: ::core::option::Option<*const ::windows::core::PSTR>) -> u32 {
-    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_value_free ( vals : *const :: windows::core::PSTR ) -> u32 );
+pub unsafe fn ldap_value_free(vals: ::core::option::Option<*const ::windows::core::PCSTR>) -> u32 {
+    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_value_free ( vals : *const :: windows::core::PCSTR ) -> u32 );
     ldap_value_free(::core::mem::transmute(vals.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_value_freeA(vals: ::core::option::Option<*const ::windows::core::PSTR>) -> u32 {
-    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_value_freeA ( vals : *const :: windows::core::PSTR ) -> u32 );
+pub unsafe fn ldap_value_freeA(vals: ::core::option::Option<*const ::windows::core::PCSTR>) -> u32 {
+    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_value_freeA ( vals : *const :: windows::core::PCSTR ) -> u32 );
     ldap_value_freeA(::core::mem::transmute(vals.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_value_freeW(vals: ::core::option::Option<*const ::windows::core::PWSTR>) -> u32 {
-    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_value_freeW ( vals : *const :: windows::core::PWSTR ) -> u32 );
+pub unsafe fn ldap_value_freeW(vals: ::core::option::Option<*const ::windows::core::PCWSTR>) -> u32 {
+    ::windows::core::link ! ( "wldap32.dll""cdecl" fn ldap_value_freeW ( vals : *const :: windows::core::PCWSTR ) -> u32 );
     ldap_value_freeW(::core::mem::transmute(vals.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]

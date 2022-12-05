@@ -46,8 +46,8 @@ where
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: ::core::option::Option<&[::windows::core::PWSTR]>, rgapplications: ::core::option::Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: ::core::option::Option<&[::windows::core::PWSTR]>) -> u32 {
-    ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmRegisterResources ( dwsessionhandle : u32 , nfiles : u32 , rgsfilenames : *const :: windows::core::PWSTR , napplications : u32 , rgapplications : *const RM_UNIQUE_PROCESS , nservices : u32 , rgsservicenames : *const :: windows::core::PWSTR ) -> u32 );
+pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: ::core::option::Option<&[::windows::core::PCWSTR]>, rgapplications: ::core::option::Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: ::core::option::Option<&[::windows::core::PCWSTR]>) -> u32 {
+    ::windows::core::link ! ( "rstrtmgr.dll""system" fn RmRegisterResources ( dwsessionhandle : u32 , nfiles : u32 , rgsfilenames : *const :: windows::core::PCWSTR , napplications : u32 , rgapplications : *const RM_UNIQUE_PROCESS , nservices : u32 , rgsservicenames : *const :: windows::core::PCWSTR ) -> u32 );
     RmRegisterResources(
         dwsessionhandle,
         rgsfilenames.as_deref().map_or(0, |slice| slice.len() as _),

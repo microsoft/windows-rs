@@ -1139,8 +1139,8 @@ pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: *const _HCLUSTER, pcnores
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const ::windows::core::PWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
-    ::windows::core::link ! ( "clusapi.dll""system" fn DetermineCNOResTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const :: windows::core::PWSTR , pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE ) -> u32 );
+pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const ::windows::core::PCWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
+    ::windows::core::link ! ( "clusapi.dll""system" fn DetermineCNOResTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const :: windows::core::PCWSTR , pcnorestype : *mut CLUSTER_MGMT_POINT_RESTYPE ) -> u32 );
     DetermineCNOResTypeFromNodelist(cnodes, ppsznodenames, pcnorestype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
@@ -1151,8 +1151,8 @@ pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: *const _HCLUSTER, p
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
-pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const ::windows::core::PWSTR, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
-    ::windows::core::link ! ( "clusapi.dll""system" fn DetermineClusterCloudTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const :: windows::core::PWSTR , pcloudtype : *mut CLUSTER_CLOUD_TYPE ) -> u32 );
+pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const ::windows::core::PCWSTR, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
+    ::windows::core::link ! ( "clusapi.dll""system" fn DetermineClusterCloudTypeFromNodelist ( cnodes : u32 , ppsznodenames : *const :: windows::core::PCWSTR , pcloudtype : *mut CLUSTER_CLOUD_TYPE ) -> u32 );
     DetermineClusterCloudTypeFromNodelist(cnodes, ppsznodenames, pcloudtype)
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]

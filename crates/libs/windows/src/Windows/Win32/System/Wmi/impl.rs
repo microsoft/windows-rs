@@ -3291,7 +3291,7 @@ impl IWbemConnectorLogin_Vtbl {
     }
 }
 pub trait IWbemConstructClassObject_Impl: Sized {
-    fn SetInheritanceChain(&self, lnumantecedents: i32, awszantecedents: *const ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetInheritanceChain(&self, lnumantecedents: i32, awszantecedents: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetPropertyOrigin(&self, wszpropertyname: &::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::Result<()>;
     fn SetMethodOrigin(&self, wszmethodname: &::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::Result<()>;
     fn SetServerNamespace(&self, wszserver: &::windows::core::PCWSTR, wsznamespace: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -3299,7 +3299,7 @@ pub trait IWbemConstructClassObject_Impl: Sized {
 impl ::windows::core::RuntimeName for IWbemConstructClassObject {}
 impl IWbemConstructClassObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWbemConstructClassObject_Impl, const OFFSET: isize>() -> IWbemConstructClassObject_Vtbl {
-        unsafe extern "system" fn SetInheritanceChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWbemConstructClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumantecedents: i32, awszantecedents: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInheritanceChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWbemConstructClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumantecedents: i32, awszantecedents: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetInheritanceChain(::core::mem::transmute_copy(&lnumantecedents), ::core::mem::transmute_copy(&awszantecedents)).into()
@@ -3581,7 +3581,7 @@ impl IWbemEventProviderSecurity_Vtbl {
 pub trait IWbemEventSink_Impl: Sized + IWbemObjectSink_Impl {
     fn SetSinkSecurity(&self, lsdlength: i32, psd: *const u8) -> ::windows::core::Result<()>;
     fn IsActive(&self) -> ::windows::core::Result<()>;
-    fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const ::windows::core::PWSTR, pcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IWbemEventSink>;
+    fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const ::windows::core::PCWSTR, pcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IWbemEventSink>;
     fn SetBatchingParameters(&self, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWbemEventSink {}
@@ -3597,7 +3597,7 @@ impl IWbemEventSink_Vtbl {
             let this = (*this).get_impl();
             this.IsActive().into()
         }
-        unsafe extern "system" fn GetRestrictedSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumqueries: i32, awszqueries: *const ::windows::core::PWSTR, pcallback: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRestrictedSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWbemEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumqueries: i32, awszqueries: *const ::windows::core::PCWSTR, pcallback: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRestrictedSink(::core::mem::transmute_copy(&lnumqueries), ::core::mem::transmute_copy(&awszqueries), ::core::mem::transmute(&pcallback)) {

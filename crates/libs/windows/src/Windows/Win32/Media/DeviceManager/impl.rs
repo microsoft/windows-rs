@@ -886,7 +886,7 @@ pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppispstorage: *const ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
     fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: &::windows::core::PCWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
-    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const ::windows::core::PWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const ::windows::core::PCWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage>;
     fn GetParent(&self) -> ::windows::core::Result<IMDSPStorage>;
 }
@@ -916,7 +916,7 @@ impl IMDSPStorage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSpecifiedMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppwszpropnames: *const ::windows::core::PWSTR, pmetadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSpecifiedMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppwszpropnames: *const ::windows::core::PCWSTR, pmetadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetSpecifiedMetadata(::core::mem::transmute_copy(&cproperties), ::core::mem::transmute_copy(&ppwszpropnames), ::core::mem::transmute(&pmetadata)).into()
@@ -2574,7 +2574,7 @@ pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
     fn GetRightsWithProgress(&self, piprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const ::windows::core::PWSTR) -> ::windows::core::Result<IWMDMMetaData>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const ::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMMetaData>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage>;
     fn GetParent(&self) -> ::windows::core::Result<IWMDMStorage>;
 }
@@ -2598,7 +2598,7 @@ impl IWMDMStorage4_Vtbl {
             let this = (*this).get_impl();
             this.GetRightsWithProgress(::core::mem::transmute(&piprogresscallback), ::core::mem::transmute_copy(&pprights), ::core::mem::transmute_copy(&pnrightscount)).into()
         }
-        unsafe extern "system" fn GetSpecifiedMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppwszpropnames: *const ::windows::core::PWSTR, ppmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSpecifiedMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppwszpropnames: *const ::windows::core::PCWSTR, ppmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSpecifiedMetadata(::core::mem::transmute_copy(&cproperties), ::core::mem::transmute_copy(&ppwszpropnames)) {

@@ -78,11 +78,11 @@ pub unsafe fn DispCallFunc(pvinstance: ::core::option::Option<*const ::core::ffi
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DispGetIDsOfNames<'a, P0>(ptinfo: P0, rgsznames: *const ::windows::core::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::Result<()>
+pub unsafe fn DispGetIDsOfNames<'a, P0>(ptinfo: P0, rgsznames: *const ::windows::core::PCWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn DispGetIDsOfNames ( ptinfo : * mut::core::ffi::c_void , rgsznames : *const :: windows::core::PWSTR , cnames : u32 , rgdispid : *mut i32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn DispGetIDsOfNames ( ptinfo : * mut::core::ffi::c_void , rgsznames : *const :: windows::core::PCWSTR , cnames : u32 , rgdispid : *mut i32 ) -> :: windows::core::HRESULT );
     DispGetIDsOfNames(ptinfo.into().abi(), rgsznames, cnames, rgdispid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4151,7 +4151,7 @@ impl ICreateTypeInfo {
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddVarDesc)(::windows::core::Vtable::as_raw(self), index, pvardesc).ok()
     }
-    pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFuncAndParamNames)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(rgsznames.as_ptr()), rgsznames.len() as _).ok()
     }
     pub unsafe fn SetVarName<'a, P0>(&self, index: u32, szname: P0) -> ::windows::core::Result<()>
@@ -4250,7 +4250,7 @@ pub struct ICreateTypeInfo_Vtbl {
     pub AddVarDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     AddVarDesc: usize,
-    pub SetFuncAndParamNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const ::windows::core::PWSTR, cnames: u32) -> ::windows::core::HRESULT,
+    pub SetFuncAndParamNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const ::windows::core::PCWSTR, cnames: u32) -> ::windows::core::HRESULT,
     pub SetVarName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub SetTypeDescAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptdescalias: *const super::Com::TYPEDESC) -> ::windows::core::HRESULT,
@@ -4323,7 +4323,7 @@ impl ICreateTypeInfo2 {
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.AddVarDesc)(::windows::core::Vtable::as_raw(self), index, pvardesc).ok()
     }
-    pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetFuncAndParamNames)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(rgsznames.as_ptr()), rgsznames.len() as _).ok()
     }
     pub unsafe fn SetVarName<'a, P0>(&self, index: u32, szname: P0) -> ::windows::core::Result<()>

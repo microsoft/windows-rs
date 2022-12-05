@@ -859,7 +859,7 @@ impl IInternetSecurityMgrSite_Vtbl {
     }
 }
 pub trait IInternetSession_Impl: Sized {
-    fn RegisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwzprotocol: &::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn RegisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwzprotocol: &::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
     fn UnregisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, pszprotocol: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn RegisterMimeFilter(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwztype: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn UnregisterMimeFilter(&self, pcf: &::core::option::Option<super::IClassFactory>, pwztype: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -870,7 +870,7 @@ pub trait IInternetSession_Impl: Sized {
 impl ::windows::core::RuntimeName for IInternetSession {}
 impl IInternetSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>() -> IInternetSession_Vtbl {
-        unsafe extern "system" fn RegisterNameSpace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pwzprotocol: ::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterNameSpace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pwzprotocol: ::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RegisterNameSpace(::core::mem::transmute(&pcf), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&pwzprotocol), ::core::mem::transmute_copy(&cpatterns), ::core::mem::transmute_copy(&ppwzpatterns), ::core::mem::transmute_copy(&dwreserved)).into()
@@ -1217,8 +1217,8 @@ impl IPersistMoniker_Vtbl {
 #[cfg(feature = "Win32_Data_Xml_MsXml")]
 pub trait ISoftDistExt_Impl: Sized {
     fn ProcessSoftDist(&self, szcdfurl: &::windows::core::PCWSTR, psoftdistelement: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>;
-    fn GetFirstCodeBase(&self, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
-    fn GetNextCodeBase(&self, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
+    fn GetFirstCodeBase(&self, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
+    fn GetNextCodeBase(&self, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
     fn AsyncInstallDistributionUnit(&self, pbc: &::core::option::Option<super::IBindCtx>, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Data_Xml_MsXml")]
@@ -1231,12 +1231,12 @@ impl ISoftDistExt_Vtbl {
             let this = (*this).get_impl();
             this.ProcessSoftDist(::core::mem::transmute(&szcdfurl), ::core::mem::transmute(&psoftdistelement), ::core::mem::transmute_copy(&lpsdi)).into()
         }
-        unsafe extern "system" fn GetFirstCodeBase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFirstCodeBase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFirstCodeBase(::core::mem::transmute_copy(&szcodebase), ::core::mem::transmute_copy(&dwmaxsize)).into()
         }
-        unsafe extern "system" fn GetNextCodeBase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNextCodeBase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetNextCodeBase(::core::mem::transmute_copy(&szcodebase), ::core::mem::transmute_copy(&dwmaxsize)).into()

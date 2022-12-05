@@ -175,7 +175,7 @@ impl IWPCSettings_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCWebSettings_Impl: Sized + IWPCSettings_Impl {
     fn GetSettings(&self) -> ::windows::core::Result<WPCFLAG_WEB_SETTING>;
-    fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: &::windows::core::PCWSTR, curls: u32, ppcszsuburls: *const ::windows::core::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: &::windows::core::PCWSTR, curls: u32, ppcszsuburls: *const ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IWPCWebSettings {}
@@ -193,7 +193,7 @@ impl IWPCWebSettings_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RequestURLOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: ::windows::core::PCWSTR, curls: u32, ppcszsuburls: *const ::windows::core::PWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestURLOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: ::windows::core::PCWSTR, curls: u32, ppcszsuburls: *const ::windows::core::PCWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RequestURLOverride(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&pcszurl), ::core::mem::transmute_copy(&curls), ::core::mem::transmute_copy(&ppcszsuburls)) {

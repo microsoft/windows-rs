@@ -498,17 +498,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterMediaTypeClass<'a, P0>(pbc: P0, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn RegisterMediaTypeClass<'a, P0>(pbc: P0, ctypes: u32, rgsztypes: *const ::windows::core::PCSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
 {
-    ::windows::core::link ! ( "urlmon.dll""system" fn RegisterMediaTypeClass ( pbc : * mut::core::ffi::c_void , ctypes : u32 , rgsztypes : *const :: windows::core::PSTR , rgclsid : *const :: windows::core::GUID , reserved : u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "urlmon.dll""system" fn RegisterMediaTypeClass ( pbc : * mut::core::ffi::c_void , ctypes : u32 , rgsztypes : *const :: windows::core::PCSTR , rgclsid : *const :: windows::core::GUID , reserved : u32 ) -> :: windows::core::HRESULT );
     RegisterMediaTypeClass(pbc.into().abi(), ctypes, rgsztypes, rgclsid, reserved).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "urlmon.dll""system" fn RegisterMediaTypes ( ctypes : u32 , rgsztypes : *const :: windows::core::PSTR , rgcftypes : *mut u16 ) -> :: windows::core::HRESULT );
+pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PCSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "urlmon.dll""system" fn RegisterMediaTypes ( ctypes : u32 , rgsztypes : *const :: windows::core::PCSTR , rgcftypes : *mut u16 ) -> :: windows::core::HRESULT );
     RegisterMediaTypes(ctypes, rgsztypes, rgcftypes).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2194,7 +2194,7 @@ pub struct IInternetSecurityMgrSite_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSession(::windows::core::IUnknown);
 impl IInternetSession {
-    pub unsafe fn RegisterNameSpace<'a, P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwzprotocol: P1, cpatterns: u32, ppwzpatterns: *const ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn RegisterNameSpace<'a, P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwzprotocol: P1, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2264,7 +2264,7 @@ unsafe impl ::windows::core::Interface for IInternetSession {
 #[doc(hidden)]
 pub struct IInternetSession_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub RegisterNameSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pwzprotocol: ::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
+    pub RegisterNameSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pwzprotocol: ::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT,
     pub UnregisterNameSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, pszprotocol: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub RegisterMimeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pwztype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub UnregisterMimeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, pwztype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -2754,10 +2754,10 @@ impl ISoftDistExt {
     {
         (::windows::core::Vtable::vtable(self).ProcessSoftDist)(::windows::core::Vtable::as_raw(self), szcdfurl.into(), psoftdistelement.into().abi(), lpsdi).ok()
     }
-    pub unsafe fn GetFirstCodeBase(&self, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetFirstCodeBase(&self, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetFirstCodeBase)(::windows::core::Vtable::as_raw(self), szcodebase, dwmaxsize).ok()
     }
-    pub unsafe fn GetNextCodeBase(&self, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetNextCodeBase(&self, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetNextCodeBase)(::windows::core::Vtable::as_raw(self), szcodebase, dwmaxsize).ok()
     }
     pub unsafe fn AsyncInstallDistributionUnit<'a, P0>(&self, pbc: P0, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>
@@ -2798,8 +2798,8 @@ pub struct ISoftDistExt_Vtbl {
     pub ProcessSoftDist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcdfurl: ::windows::core::PCWSTR, psoftdistelement: *mut ::core::ffi::c_void, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Data_Xml_MsXml"))]
     ProcessSoftDist: usize,
-    pub GetFirstCodeBase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT,
-    pub GetNextCodeBase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT,
+    pub GetFirstCodeBase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT,
+    pub GetNextCodeBase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT,
     pub AsyncInstallDistributionUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
