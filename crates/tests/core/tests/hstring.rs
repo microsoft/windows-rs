@@ -1,4 +1,4 @@
-#![cfg_attr(windows_raw_dylib, feature(raw_dylib, native_link_modifiers_verbatim))]
+#![cfg_attr(windows_raw_dylib, feature(raw_dylib))]
 
 use std::convert::TryFrom;
 use windows::core::*;
