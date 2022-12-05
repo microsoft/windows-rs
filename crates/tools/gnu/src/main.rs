@@ -63,10 +63,9 @@ fn build_library(output: &std::path::Path, dlltool: &str, library: &str, functio
     def.write_all(
         format!(
             r#"
-LIBRARY {}
+LIBRARY {library}
 EXPORTS
-"#,
-            library
+"#
         )
         .as_bytes(),
     )
