@@ -3791,7 +3791,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
     }
 }
 pub trait IWMReaderPlaylistBurn_Impl: Sized {
-    fn InitPlaylistBurn(&self, cfiles: u32, ppwszfilenames: *const ::windows::core::PWSTR, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn InitPlaylistBurn(&self, cfiles: u32, ppwszfilenames: *const ::windows::core::PCWSTR, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetInitResults(&self, cfiles: u32) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn EndPlaylistBurn(&self, hrburnresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
@@ -3799,7 +3799,7 @@ pub trait IWMReaderPlaylistBurn_Impl: Sized {
 impl ::windows::core::RuntimeName for IWMReaderPlaylistBurn {}
 impl IWMReaderPlaylistBurn_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMReaderPlaylistBurn_Impl, const OFFSET: isize>() -> IWMReaderPlaylistBurn_Vtbl {
-        unsafe extern "system" fn InitPlaylistBurn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMReaderPlaylistBurn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfiles: u32, ppwszfilenames: *const ::windows::core::PWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitPlaylistBurn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMReaderPlaylistBurn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfiles: u32, ppwszfilenames: *const ::windows::core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitPlaylistBurn(::core::mem::transmute_copy(&cfiles), ::core::mem::transmute_copy(&ppwszfilenames), ::core::mem::transmute(&pcallback), ::core::mem::transmute_copy(&pvcontext)).into()

@@ -1962,20 +1962,20 @@ pub unsafe fn PathFindOnPathW(pszpath: &mut [u16; 260], ppszotherdirs: ::core::o
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathFindSuffixArrayA<'a, P0>(pszpath: P0, apszsuffix: &[::windows::core::PSTR]) -> ::windows::core::PSTR
+pub unsafe fn PathFindSuffixArrayA<'a, P0>(pszpath: P0, apszsuffix: &[::windows::core::PCSTR]) -> ::windows::core::PSTR
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayA ( pszpath : :: windows::core::PCSTR , apszsuffix : *const :: windows::core::PSTR , iarraysize : i32 ) -> :: windows::core::PSTR );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayA ( pszpath : :: windows::core::PCSTR , apszsuffix : *const :: windows::core::PCSTR , iarraysize : i32 ) -> :: windows::core::PSTR );
     PathFindSuffixArrayA(pszpath.into(), ::core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathFindSuffixArrayW<'a, P0>(pszpath: P0, apszsuffix: &[::windows::core::PWSTR]) -> ::windows::core::PWSTR
+pub unsafe fn PathFindSuffixArrayW<'a, P0>(pszpath: P0, apszsuffix: &[::windows::core::PCWSTR]) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayW ( pszpath : :: windows::core::PCWSTR , apszsuffix : *const :: windows::core::PWSTR , iarraysize : i32 ) -> :: windows::core::PWSTR );
+    ::windows::core::link ! ( "shlwapi.dll""system" fn PathFindSuffixArrayW ( pszpath : :: windows::core::PCWSTR , apszsuffix : *const :: windows::core::PCWSTR , iarraysize : i32 ) -> :: windows::core::PWSTR );
     PathFindSuffixArrayW(pszpath.into(), ::core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -37732,7 +37732,7 @@ impl ISyncMgrControl {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartItemSync<'a, P0, P1, P2, P3>(&self, pszhandlerid: P0, ppszitemids: &[::windows::core::PWSTR], hwndowner: P1, punk: P2, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: P3) -> ::windows::core::Result<()>
+    pub unsafe fn StartItemSync<'a, P0, P1, P2, P3>(&self, pszhandlerid: P0, ppszitemids: &[::windows::core::PCWSTR], hwndowner: P1, punk: P2, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
@@ -37755,7 +37755,7 @@ impl ISyncMgrControl {
     {
         (::windows::core::Vtable::vtable(self).StopHandlerSync)(::windows::core::Vtable::as_raw(self), pszhandlerid.into()).ok()
     }
-    pub unsafe fn StopItemSync<'a, P0>(&self, pszhandlerid: P0, ppszitemids: &[::windows::core::PWSTR]) -> ::windows::core::Result<()>
+    pub unsafe fn StopItemSync<'a, P0>(&self, pszhandlerid: P0, ppszitemids: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -37866,7 +37866,7 @@ pub struct ISyncMgrControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StartHandlerSync: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub StartItemSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: *mut ::core::ffi::c_void, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartItemSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: *mut ::core::ffi::c_void, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     StartItemSync: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -37874,7 +37874,7 @@ pub struct ISyncMgrControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     StartSyncAll: usize,
     pub StopHandlerSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub StopItemSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32) -> ::windows::core::HRESULT,
+    pub StopItemSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32) -> ::windows::core::HRESULT,
     pub StopSyncAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UpdateHandlerCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsidcollectionid: *const ::windows::core::GUID, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> ::windows::core::HRESULT,
     pub UpdateHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> ::windows::core::HRESULT,
@@ -38188,7 +38188,7 @@ impl ISyncMgrHandler {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Synchronize<'a, P0, P1, P2>(&self, ppszitemids: &[::windows::core::PWSTR], hwndowner: P0, psessioncreator: P1, punk: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Synchronize<'a, P0, P1, P2>(&self, ppszitemids: &[::windows::core::PCWSTR], hwndowner: P0, psessioncreator: P1, punk: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ISyncMgrSessionCreator>>,
@@ -38238,7 +38238,7 @@ pub struct ISyncMgrHandler_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Enable: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Synchronize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszitemids: *const ::windows::core::PWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Synchronize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Synchronize: usize,
 }
@@ -38528,7 +38528,7 @@ pub struct ISyncMgrScheduleWizardUIOperation_Vtbl {
 #[repr(transparent)]
 pub struct ISyncMgrSessionCreator(::windows::core::IUnknown);
 impl ISyncMgrSessionCreator {
-    pub unsafe fn CreateSession<'a, P0>(&self, pszhandlerid: P0, ppszitemids: &[::windows::core::PWSTR]) -> ::windows::core::Result<ISyncMgrSyncCallback>
+    pub unsafe fn CreateSession<'a, P0>(&self, pszhandlerid: P0, ppszitemids: &[::windows::core::PCWSTR]) -> ::windows::core::Result<ISyncMgrSyncCallback>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -38563,7 +38563,7 @@ unsafe impl ::windows::core::Interface for ISyncMgrSessionCreator {
 #[doc(hidden)]
 pub struct ISyncMgrSessionCreator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32, ppcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, ppcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]

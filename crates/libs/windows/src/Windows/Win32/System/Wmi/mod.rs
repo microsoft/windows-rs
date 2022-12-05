@@ -4262,7 +4262,7 @@ pub struct IWbemConnectorLogin_Vtbl {
 #[repr(transparent)]
 pub struct IWbemConstructClassObject(::windows::core::IUnknown);
 impl IWbemConstructClassObject {
-    pub unsafe fn SetInheritanceChain(&self, lnumantecedents: i32, awszantecedents: *const ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+    pub unsafe fn SetInheritanceChain(&self, lnumantecedents: i32, awszantecedents: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetInheritanceChain)(::windows::core::Vtable::as_raw(self), lnumantecedents, awszantecedents).ok()
     }
     pub unsafe fn SetPropertyOrigin<'a, P0>(&self, wszpropertyname: P0, loriginindex: i32) -> ::windows::core::Result<()>
@@ -4312,7 +4312,7 @@ unsafe impl ::windows::core::Interface for IWbemConstructClassObject {
 #[doc(hidden)]
 pub struct IWbemConstructClassObject_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub SetInheritanceChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnumantecedents: i32, awszantecedents: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub SetInheritanceChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnumantecedents: i32, awszantecedents: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetPropertyOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpropertyname: ::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::HRESULT,
     pub SetMethodOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszmethodname: ::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::HRESULT,
     pub SetServerNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszserver: ::windows::core::PCWSTR, wsznamespace: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -4708,7 +4708,7 @@ impl IWbemEventSink {
     pub unsafe fn IsActive(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsActive)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn GetRestrictedSink<'a, P0>(&self, awszqueries: &[::windows::core::PWSTR], pcallback: P0) -> ::windows::core::Result<IWbemEventSink>
+    pub unsafe fn GetRestrictedSink<'a, P0>(&self, awszqueries: &[::windows::core::PCWSTR], pcallback: P0) -> ::windows::core::Result<IWbemEventSink>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
@@ -4748,7 +4748,7 @@ pub struct IWbemEventSink_Vtbl {
     pub base__: IWbemObjectSink_Vtbl,
     pub SetSinkSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsdlength: i32, psd: *const u8) -> ::windows::core::HRESULT,
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetRestrictedSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnumqueries: i32, awszqueries: *const ::windows::core::PWSTR, pcallback: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetRestrictedSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnumqueries: i32, awszqueries: *const ::windows::core::PCWSTR, pcallback: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBatchingParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]

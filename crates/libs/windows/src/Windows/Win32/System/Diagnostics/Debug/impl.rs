@@ -32548,7 +32548,7 @@ pub trait IScriptNode_Impl: Sized {
     fn GetChild(&self, isn: u32) -> ::windows::core::Result<IScriptNode>;
     fn GetLanguage(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CreateChildEntry(&self, isn: u32, dwcookie: u32, pszdelimiter: &::windows::core::PCWSTR) -> ::windows::core::Result<IScriptEntry>;
-    fn CreateChildHandler(&self, pszdefaultname: &::windows::core::PCWSTR, prgpsznames: *const ::windows::core::PWSTR, cpsznames: u32, pszevent: &::windows::core::PCWSTR, pszdelimiter: &::windows::core::PCWSTR, ptisignature: &::core::option::Option<super::super::Com::ITypeInfo>, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows::core::Result<IScriptEntry>;
+    fn CreateChildHandler(&self, pszdefaultname: &::windows::core::PCWSTR, prgpsznames: *const ::windows::core::PCWSTR, cpsznames: u32, pszevent: &::windows::core::PCWSTR, pszdelimiter: &::windows::core::PCWSTR, ptisignature: &::core::option::Option<super::super::Com::ITypeInfo>, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows::core::Result<IScriptEntry>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IScriptNode {}
@@ -32642,7 +32642,7 @@ impl IScriptNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateChildHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScriptNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultname: ::windows::core::PCWSTR, prgpsznames: *const ::windows::core::PWSTR, cpsznames: u32, pszevent: ::windows::core::PCWSTR, pszdelimiter: ::windows::core::PCWSTR, ptisignature: *mut ::core::ffi::c_void, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateChildHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScriptNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdefaultname: ::windows::core::PCWSTR, prgpsznames: *const ::windows::core::PCWSTR, cpsznames: u32, pszevent: ::windows::core::PCWSTR, pszdelimiter: ::windows::core::PCWSTR, ptisignature: *mut ::core::ffi::c_void, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateChildHandler(::core::mem::transmute(&pszdefaultname), ::core::mem::transmute_copy(&prgpsznames), ::core::mem::transmute_copy(&cpsznames), ::core::mem::transmute(&pszevent), ::core::mem::transmute(&pszdelimiter), ::core::mem::transmute(&ptisignature), ::core::mem::transmute_copy(&imethodsignature), ::core::mem::transmute_copy(&isn), ::core::mem::transmute_copy(&dwcookie)) {

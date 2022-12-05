@@ -87,9 +87,9 @@
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"] fn ldap_count_entries ( ld : *mut LDAP , res : *mut LDAPMessage ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"] fn ldap_count_references ( ld : *mut LDAP , res : *mut LDAPMessage ) -> u32 );
-::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_count_values ( vals : *const :: windows_sys::core::PSTR ) -> u32 );
-::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_count_valuesA ( vals : *const :: windows_sys::core::PSTR ) -> u32 );
-::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_count_valuesW ( vals : *const :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_count_values ( vals : *const :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_count_valuesA ( vals : *const :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_count_valuesW ( vals : *const :: windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_count_values_len ( vals : *mut *mut LDAP_BERVAL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"] fn ldap_create_page_control ( externalhandle : *mut LDAP , pagesize : u32 , cookie : *mut LDAP_BERVAL , iscritical : u8 , control : *mut *mut LDAPControlA ) -> u32 );
@@ -360,9 +360,9 @@
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_ufn2dnW ( ufn : :: windows_sys::core::PCWSTR , pdn : *mut :: windows_sys::core::PWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_unbind ( ld : *mut LDAP ) -> u32 );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_unbind_s ( ld : *mut LDAP ) -> u32 );
-::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_value_free ( vals : *const :: windows_sys::core::PSTR ) -> u32 );
-::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_value_freeA ( vals : *const :: windows_sys::core::PSTR ) -> u32 );
-::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_value_freeW ( vals : *const :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_value_free ( vals : *const :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_value_freeA ( vals : *const :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_value_freeW ( vals : *const :: windows_sys::core::PCWSTR ) -> u32 );
 ::windows_sys::core::link ! ( "wldap32.dll""cdecl" #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"] fn ldap_value_free_len ( vals : *mut *mut LDAP_BERVAL ) -> u32 );
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 pub const LAPI_MAJOR_VER1: u32 = 1u32;

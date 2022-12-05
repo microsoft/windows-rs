@@ -1,10 +1,10 @@
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[inline]
-pub unsafe fn DMProcessConfigXMLFiltered<'a, P0>(pszxmlin: P0, rgszallowedcspnodes: &[::windows::core::PWSTR]) -> ::windows::core::Result<::windows::core::BSTR>
+pub unsafe fn DMProcessConfigXMLFiltered<'a, P0>(pszxmlin: P0, rgszallowedcspnodes: &[::windows::core::PCWSTR]) -> ::windows::core::Result<::windows::core::BSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "dmprocessxmlfiltered.dll""system" fn DMProcessConfigXMLFiltered ( pszxmlin : :: windows::core::PCWSTR , rgszallowedcspnodes : *const :: windows::core::PWSTR , dwnumallowedcspnodes : u32 , pbstrxmlout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dmprocessxmlfiltered.dll""system" fn DMProcessConfigXMLFiltered ( pszxmlin : :: windows::core::PCWSTR , rgszallowedcspnodes : *const :: windows::core::PCWSTR , dwnumallowedcspnodes : u32 , pbstrxmlout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DMProcessConfigXMLFiltered(pszxmlin.into(), ::core::mem::transmute(rgszallowedcspnodes.as_ptr()), rgszallowedcspnodes.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }

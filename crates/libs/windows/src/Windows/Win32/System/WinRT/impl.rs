@@ -844,10 +844,10 @@ pub trait IRoSimpleMetaDataBuilder_Impl: Sized {
     fn SetWinRtInterface(&self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetDelegate(&self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetInterfaceGroupSimpleDefault(&self, name: &::windows::core::PCWSTR, defaultinterfacename: &::windows::core::PCWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetInterfaceGroupParameterizedDefault(&self, name: &::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetInterfaceGroupParameterizedDefault(&self, name: &::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetRuntimeClassSimpleDefault(&self, name: &::windows::core::PCWSTR, defaultinterfacename: &::windows::core::PCWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetRuntimeClassParameterizedDefault(&self, name: &::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PWSTR) -> ::windows::core::Result<()>;
-    fn SetStruct(&self, name: &::windows::core::PCWSTR, numfields: u32, fieldtypenames: *const ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn SetRuntimeClassParameterizedDefault(&self, name: &::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn SetStruct(&self, name: &::windows::core::PCWSTR, numfields: u32, fieldtypenames: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetEnum(&self, name: &::windows::core::PCWSTR, basetype: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetParameterizedInterface(&self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
     fn SetParameterizedDelegate(&self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
@@ -869,7 +869,7 @@ impl IRoSimpleMetaDataBuilder_Vtbl {
             let this = &*((*this).this as *const Impl);
             this.SetInterfaceGroupSimpleDefault(::core::mem::transmute(&name), ::core::mem::transmute(&defaultinterfacename), ::core::mem::transmute_copy(&defaultinterfaceiid)).into()
         }
-        unsafe extern "system" fn SetInterfaceGroupParameterizedDefault<Impl: IRoSimpleMetaDataBuilder_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInterfaceGroupParameterizedDefault<Impl: IRoSimpleMetaDataBuilder_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.SetInterfaceGroupParameterizedDefault(::core::mem::transmute(&name), ::core::mem::transmute_copy(&elementcount), ::core::mem::transmute_copy(&defaultinterfacenameelements)).into()
@@ -879,12 +879,12 @@ impl IRoSimpleMetaDataBuilder_Vtbl {
             let this = &*((*this).this as *const Impl);
             this.SetRuntimeClassSimpleDefault(::core::mem::transmute(&name), ::core::mem::transmute(&defaultinterfacename), ::core::mem::transmute_copy(&defaultinterfaceiid)).into()
         }
-        unsafe extern "system" fn SetRuntimeClassParameterizedDefault<Impl: IRoSimpleMetaDataBuilder_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRuntimeClassParameterizedDefault<Impl: IRoSimpleMetaDataBuilder_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, elementcount: u32, defaultinterfacenameelements: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.SetRuntimeClassParameterizedDefault(::core::mem::transmute(&name), ::core::mem::transmute_copy(&elementcount), ::core::mem::transmute_copy(&defaultinterfacenameelements)).into()
         }
-        unsafe extern "system" fn SetStruct<Impl: IRoSimpleMetaDataBuilder_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, numfields: u32, fieldtypenames: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStruct<Impl: IRoSimpleMetaDataBuilder_Impl>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, numfields: u32, fieldtypenames: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.SetStruct(::core::mem::transmute(&name), ::core::mem::transmute_copy(&numfields), ::core::mem::transmute_copy(&fieldtypenames)).into()

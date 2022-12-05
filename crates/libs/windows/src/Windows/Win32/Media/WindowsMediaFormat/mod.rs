@@ -6159,7 +6159,7 @@ pub struct IWMReaderNetworkConfig2_Vtbl {
 #[repr(transparent)]
 pub struct IWMReaderPlaylistBurn(::windows::core::IUnknown);
 impl IWMReaderPlaylistBurn {
-    pub unsafe fn InitPlaylistBurn<'a, P0>(&self, cfiles: u32, ppwszfilenames: *const ::windows::core::PWSTR, pcallback: P0, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn InitPlaylistBurn<'a, P0>(&self, cfiles: u32, ppwszfilenames: *const ::windows::core::PCWSTR, pcallback: P0, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWMStatusCallback>>,
     {
@@ -6203,7 +6203,7 @@ unsafe impl ::windows::core::Interface for IWMReaderPlaylistBurn {
 #[doc(hidden)]
 pub struct IWMReaderPlaylistBurn_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub InitPlaylistBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfiles: u32, ppwszfilenames: *const ::windows::core::PWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InitPlaylistBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfiles: u32, ppwszfilenames: *const ::windows::core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetInitResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfiles: u32, phrstati: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndPlaylistBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrburnresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,

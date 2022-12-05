@@ -10,11 +10,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
-pub unsafe fn DRMAcquireIssuanceLicenseTemplate<'a, P0>(hclient: u32, uflags: u32, pvreserved: *mut ::core::ffi::c_void, pwsztemplateids: ::core::option::Option<&[::windows::core::PWSTR]>, wszurl: P0, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn DRMAcquireIssuanceLicenseTemplate<'a, P0>(hclient: u32, uflags: u32, pvreserved: *mut ::core::ffi::c_void, pwsztemplateids: ::core::option::Option<&[::windows::core::PCWSTR]>, wszurl: P0, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "msdrm.dll""system" fn DRMAcquireIssuanceLicenseTemplate ( hclient : u32 , uflags : u32 , pvreserved : *mut ::core::ffi::c_void , ctemplates : u32 , pwsztemplateids : *const :: windows::core::PWSTR , wszurl : :: windows::core::PCWSTR , pvcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "msdrm.dll""system" fn DRMAcquireIssuanceLicenseTemplate ( hclient : u32 , uflags : u32 , pvreserved : *mut ::core::ffi::c_void , ctemplates : u32 , pwsztemplateids : *const :: windows::core::PCWSTR , wszurl : :: windows::core::PCWSTR , pvcontext : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved, pwsztemplateids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pwsztemplateids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), wszurl.into(), pvcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
@@ -107,8 +107,8 @@ pub unsafe fn DRMCloseSession(hsession: u32) -> ::windows::core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
-pub unsafe fn DRMConstructCertificateChain(rgwszcertificates: &[::windows::core::PWSTR], pcchain: *mut u32, wszchain: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdrm.dll""system" fn DRMConstructCertificateChain ( ccertificates : u32 , rgwszcertificates : *const :: windows::core::PWSTR , pcchain : *mut u32 , wszchain : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+pub unsafe fn DRMConstructCertificateChain(rgwszcertificates: &[::windows::core::PCWSTR], pcchain: *mut u32, wszchain: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "msdrm.dll""system" fn DRMConstructCertificateChain ( ccertificates : u32 , rgwszcertificates : *const :: windows::core::PCWSTR , pcchain : *mut u32 , wszchain : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     DRMConstructCertificateChain(rgwszcertificates.len() as _, ::core::mem::transmute(rgwszcertificates.as_ptr()), pcchain, ::core::mem::transmute(wszchain)).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
@@ -184,11 +184,11 @@ where
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateRight<'a, P0>(wszrightname: P0, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: ::core::option::Option<*const ::windows::core::PWSTR>, pwszextendedinfovalue: ::core::option::Option<*const ::windows::core::PWSTR>, phright: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn DRMCreateRight<'a, P0>(wszrightname: P0, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: ::core::option::Option<*const ::windows::core::PCWSTR>, pwszextendedinfovalue: ::core::option::Option<*const ::windows::core::PCWSTR>, phright: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "msdrm.dll""system" fn DRMCreateRight ( wszrightname : :: windows::core::PCWSTR , pstfrom : *mut super::super::Foundation:: SYSTEMTIME , pstuntil : *mut super::super::Foundation:: SYSTEMTIME , cextendedinfo : u32 , pwszextendedinfoname : *const :: windows::core::PWSTR , pwszextendedinfovalue : *const :: windows::core::PWSTR , phright : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "msdrm.dll""system" fn DRMCreateRight ( wszrightname : :: windows::core::PCWSTR , pstfrom : *mut super::super::Foundation:: SYSTEMTIME , pstuntil : *mut super::super::Foundation:: SYSTEMTIME , cextendedinfo : u32 , pwszextendedinfoname : *const :: windows::core::PCWSTR , pwszextendedinfovalue : *const :: windows::core::PCWSTR , phright : *mut u32 ) -> :: windows::core::HRESULT );
     DRMCreateRight(wszrightname.into(), pstfrom, pstuntil, cextendedinfo, ::core::mem::transmute(pwszextendedinfoname.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pwszextendedinfovalue.unwrap_or(::std::ptr::null())), phright).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]

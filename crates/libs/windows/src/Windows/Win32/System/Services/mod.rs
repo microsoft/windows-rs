@@ -545,11 +545,11 @@ where
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StartServiceA<'a, P0>(hservice: P0, lpserviceargvectors: ::core::option::Option<&[::windows::core::PSTR]>) -> super::super::Foundation::BOOL
+pub unsafe fn StartServiceA<'a, P0>(hservice: P0, lpserviceargvectors: ::core::option::Option<&[::windows::core::PCSTR]>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn StartServiceA ( hservice : super::super::Security:: SC_HANDLE , dwnumserviceargs : u32 , lpserviceargvectors : *const :: windows::core::PSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "advapi32.dll""system" fn StartServiceA ( hservice : super::super::Security:: SC_HANDLE , dwnumserviceargs : u32 , lpserviceargvectors : *const :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     StartServiceA(hservice.into(), lpserviceargvectors.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpserviceargvectors.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
@@ -569,11 +569,11 @@ pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TA
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StartServiceW<'a, P0>(hservice: P0, lpserviceargvectors: ::core::option::Option<&[::windows::core::PWSTR]>) -> super::super::Foundation::BOOL
+pub unsafe fn StartServiceW<'a, P0>(hservice: P0, lpserviceargvectors: ::core::option::Option<&[::windows::core::PCWSTR]>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn StartServiceW ( hservice : super::super::Security:: SC_HANDLE , dwnumserviceargs : u32 , lpserviceargvectors : *const :: windows::core::PWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "advapi32.dll""system" fn StartServiceW ( hservice : super::super::Security:: SC_HANDLE , dwnumserviceargs : u32 , lpserviceargvectors : *const :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     StartServiceW(hservice.into(), lpserviceargvectors.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpserviceargvectors.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]

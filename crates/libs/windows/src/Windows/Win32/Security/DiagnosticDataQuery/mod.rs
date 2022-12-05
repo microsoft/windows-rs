@@ -99,11 +99,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR], topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PCWSTR], topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordBinaryDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PWSTR , producernamecount : u32 , topnbinaries : u32 , binarystats : *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordBinaryDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PCWSTR , producernamecount : u32 , topnbinaries : u32 , binarystats : *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
     DdqGetDiagnosticRecordBinaryDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, topnbinaries, binarystats, statcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
@@ -241,21 +241,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordSummary<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR]) -> ::windows::core::Result<DIAGNOSTIC_DATA_GENERAL_STATS>
+pub unsafe fn DdqGetDiagnosticRecordSummary<'a, P0>(hsession: P0, producernames: &[::windows::core::PCWSTR]) -> ::windows::core::Result<DIAGNOSTIC_DATA_GENERAL_STATS>
 where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordSummary ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PWSTR , producernamecount : u32 , generalstats : *mut DIAGNOSTIC_DATA_GENERAL_STATS ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordSummary ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PCWSTR , producernamecount : u32 , generalstats : *mut DIAGNOSTIC_DATA_GENERAL_STATS ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DdqGetDiagnosticRecordSummary(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordTagDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR], tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn DdqGetDiagnosticRecordTagDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PCWSTR], tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
 {
-    ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordTagDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PWSTR , producernamecount : u32 , tagstats : *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "diagnosticdataquery.dll""system" fn DdqGetDiagnosticRecordTagDistribution ( hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION , producernames : *const :: windows::core::PCWSTR , producernamecount : u32 , tagstats : *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS , statcount : *mut u32 ) -> :: windows::core::HRESULT );
     DdqGetDiagnosticRecordTagDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, tagstats, statcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]

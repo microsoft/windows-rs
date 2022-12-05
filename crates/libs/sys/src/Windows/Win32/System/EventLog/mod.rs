@@ -19,7 +19,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wevtapi.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"] fn EvtClose ( object : EVT_HANDLE ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "wevtapi.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`*"] fn EvtCreateBookmark ( bookmarkxml : :: windows_sys::core::PCWSTR ) -> EVT_HANDLE );
-::windows_sys::core::link ! ( "wevtapi.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`*"] fn EvtCreateRenderContext ( valuepathscount : u32 , valuepaths : *const :: windows_sys::core::PWSTR , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::link ! ( "wevtapi.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`*"] fn EvtCreateRenderContext ( valuepathscount : u32 , valuepaths : *const :: windows_sys::core::PCWSTR , flags : u32 ) -> EVT_HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "wevtapi.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"] fn EvtExportLog ( session : EVT_HANDLE , path : :: windows_sys::core::PCWSTR , query : :: windows_sys::core::PCWSTR , targetfilepath : :: windows_sys::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -87,9 +87,9 @@
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`*"] fn RegisterEventSourceA ( lpuncservername : :: windows_sys::core::PCSTR , lpsourcename : :: windows_sys::core::PCSTR ) -> EventSourceHandle );
 ::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`*"] fn RegisterEventSourceW ( lpuncservername : :: windows_sys::core::PCWSTR , lpsourcename : :: windows_sys::core::PCWSTR ) -> EventSourceHandle );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"] fn ReportEventA ( heventlog : EventSourceHandle , wtype : REPORT_EVENT_TYPE , wcategory : u16 , dweventid : u32 , lpusersid : super::super::Foundation:: PSID , wnumstrings : u16 , dwdatasize : u32 , lpstrings : *const :: windows_sys::core::PSTR , lprawdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"] fn ReportEventA ( heventlog : EventSourceHandle , wtype : REPORT_EVENT_TYPE , wcategory : u16 , dweventid : u32 , lpusersid : super::super::Foundation:: PSID , wnumstrings : u16 , dwdatasize : u32 , lpstrings : *const :: windows_sys::core::PCSTR , lprawdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"] fn ReportEventW ( heventlog : EventSourceHandle , wtype : REPORT_EVENT_TYPE , wcategory : u16 , dweventid : u32 , lpusersid : super::super::Foundation:: PSID , wnumstrings : u16 , dwdatasize : u32 , lpstrings : *const :: windows_sys::core::PWSTR , lprawdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll""system" #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"] fn ReportEventW ( heventlog : EventSourceHandle , wtype : REPORT_EVENT_TYPE , wcategory : u16 , dweventid : u32 , lpusersid : super::super::Foundation:: PSID , wnumstrings : u16 , dwdatasize : u32 , lpstrings : *const :: windows_sys::core::PCWSTR , lprawdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]

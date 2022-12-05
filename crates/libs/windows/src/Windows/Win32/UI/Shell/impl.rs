@@ -19333,10 +19333,10 @@ impl ISyncMgrConflictStore_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISyncMgrControl_Impl: Sized {
     fn StartHandlerSync(&self, pszhandlerid: &::windows::core::PCWSTR, hwndowner: super::super::Foundation::HWND, punk: &::core::option::Option<::windows::core::IUnknown>, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: &::core::option::Option<ISyncMgrSyncResult>) -> ::windows::core::Result<()>;
-    fn StartItemSync(&self, pszhandlerid: &::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: &::core::option::Option<::windows::core::IUnknown>, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: &::core::option::Option<ISyncMgrSyncResult>) -> ::windows::core::Result<()>;
+    fn StartItemSync(&self, pszhandlerid: &::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: &::core::option::Option<::windows::core::IUnknown>, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: &::core::option::Option<ISyncMgrSyncResult>) -> ::windows::core::Result<()>;
     fn StartSyncAll(&self, hwndowner: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn StopHandlerSync(&self, pszhandlerid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn StopItemSync(&self, pszhandlerid: &::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32) -> ::windows::core::Result<()>;
+    fn StopItemSync(&self, pszhandlerid: &::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32) -> ::windows::core::Result<()>;
     fn StopSyncAll(&self) -> ::windows::core::Result<()>;
     fn UpdateHandlerCollection(&self, rclsidcollectionid: *const ::windows::core::GUID, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> ::windows::core::Result<()>;
     fn UpdateHandler(&self, pszhandlerid: &::windows::core::PCWSTR, ncontrolflags: SYNCMGR_CONTROL_FLAGS) -> ::windows::core::Result<()>;
@@ -19358,7 +19358,7 @@ impl ISyncMgrControl_Vtbl {
             let this = (*this).get_impl();
             this.StartHandlerSync(::core::mem::transmute(&pszhandlerid), ::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute(&punk), ::core::mem::transmute_copy(&nsynccontrolflags), ::core::mem::transmute(&presult)).into()
         }
-        unsafe extern "system" fn StartItemSync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: *mut ::core::ffi::c_void, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartItemSync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, punk: *mut ::core::ffi::c_void, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartItemSync(::core::mem::transmute(&pszhandlerid), ::core::mem::transmute_copy(&ppszitemids), ::core::mem::transmute_copy(&citems), ::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute(&punk), ::core::mem::transmute_copy(&nsynccontrolflags), ::core::mem::transmute(&presult)).into()
@@ -19373,7 +19373,7 @@ impl ISyncMgrControl_Vtbl {
             let this = (*this).get_impl();
             this.StopHandlerSync(::core::mem::transmute(&pszhandlerid)).into()
         }
-        unsafe extern "system" fn StopItemSync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopItemSync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StopItemSync(::core::mem::transmute(&pszhandlerid), ::core::mem::transmute_copy(&ppszitemids), ::core::mem::transmute_copy(&citems)).into()
@@ -19748,7 +19748,7 @@ pub trait ISyncMgrHandler_Impl: Sized {
     fn GetPolicies(&self) -> ::windows::core::Result<SYNCMGR_HANDLER_POLICIES>;
     fn Activate(&self, factivate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Enable(&self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Synchronize(&self, ppszitemids: *const ::windows::core::PWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: &::core::option::Option<ISyncMgrSessionCreator>, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Synchronize(&self, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: &::core::option::Option<ISyncMgrSessionCreator>, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ISyncMgrHandler {}
@@ -19814,7 +19814,7 @@ impl ISyncMgrHandler_Vtbl {
             let this = (*this).get_impl();
             this.Enable(::core::mem::transmute_copy(&fenable)).into()
         }
-        unsafe extern "system" fn Synchronize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszitemids: *const ::windows::core::PWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Synchronize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, hwndowner: super::super::Foundation::HWND, psessioncreator: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Synchronize(::core::mem::transmute_copy(&ppszitemids), ::core::mem::transmute_copy(&citems), ::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute(&psessioncreator), ::core::mem::transmute(&punk)).into()
@@ -20093,12 +20093,12 @@ impl ISyncMgrScheduleWizardUIOperation_Vtbl {
     }
 }
 pub trait ISyncMgrSessionCreator_Impl: Sized {
-    fn CreateSession(&self, pszhandlerid: &::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32) -> ::windows::core::Result<ISyncMgrSyncCallback>;
+    fn CreateSession(&self, pszhandlerid: &::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32) -> ::windows::core::Result<ISyncMgrSyncCallback>;
 }
 impl ::windows::core::RuntimeName for ISyncMgrSessionCreator {}
 impl ISyncMgrSessionCreator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrSessionCreator_Impl, const OFFSET: isize>() -> ISyncMgrSessionCreator_Vtbl {
-        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrSessionCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PWSTR, citems: u32, ppcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrSessionCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhandlerid: ::windows::core::PCWSTR, ppszitemids: *const ::windows::core::PCWSTR, citems: u32, ppcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSession(::core::mem::transmute(&pszhandlerid), ::core::mem::transmute_copy(&ppszitemids), ::core::mem::transmute_copy(&citems)) {
