@@ -68,7 +68,8 @@ impl Type {
     /// mutability is informed by something outside of the type signature.
     pub fn to_const(self) -> Self {
         match self {
-            Self::MutPtr(p) => Self::ConstPtr(p),
+            Self::MutPtr(p) => Self::ConstPtr(p).to_const(),
+            Self::ConstPtr((kind, pointers)) => Self::ConstPtr((Box::new(kind.clone().to_const()), pointers)),
             Self::PSTR => Self::PCSTR,
             Self::PWSTR => Self::PCWSTR,
             _ => self,
