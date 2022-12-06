@@ -321,7 +321,7 @@ impl IDMLDevice {
     {
         (::windows::core::Vtable::vtable(self).CompileOperator)(::windows::core::Vtable::as_raw(self), op.into().abi(), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[IDMLCompiledOperator]>) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -344,10 +344,10 @@ impl IDMLDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateBindingTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[IDMLPageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[IDMLPageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
@@ -440,7 +440,7 @@ impl IDMLDevice1 {
     {
         (::windows::core::Vtable::vtable(self).base__.CompileOperator)(::windows::core::Vtable::as_raw(self), op.into().abi(), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[IDMLCompiledOperator]>) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
@@ -463,10 +463,10 @@ impl IDMLDevice1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateBindingTable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[IDMLPageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[IDMLPageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
@@ -785,7 +785,7 @@ impl IDMLOperatorInitializer {
         (::windows::core::Vtable::vtable(self).base__.GetBindingProperties)(::windows::core::Vtable::as_raw(self), &mut result__);
         result__
     }
-    pub unsafe fn Reset(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<()> {
+    pub unsafe fn Reset(&self, operators: ::core::option::Option<&[IDMLCompiledOperator]>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }

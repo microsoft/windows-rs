@@ -976,10 +976,11 @@ impl<'a> Gen<'a> {
                 }
                 SignatureParamKind::ArrayRelativeLen(_) => {
                     let ty = param.ty.deref();
-                    let ty = self.type_default_name(&ty);
                     let ty = if self.reader.param_flags(param.def).output() {
+                        let ty = self.type_default_name(&ty);
                         quote! { &mut [#ty] }
                     } else {
+                        let ty = self.type_name(&ty);
                         quote! { &[#ty] }
                     };
                     if self.reader.param_flags(param.def).optional() {

@@ -243,7 +243,7 @@ impl ID3D12CommandQueue {
     {
         (::windows::core::Vtable::vtable(self).CopyTileMappings)(::windows::core::Vtable::as_raw(self), pdstresource.into().abi(), pdstregionstartcoordinate, psrcresource.into().abi(), psrcregionstartcoordinate, pregionsize, flags)
     }
-    pub unsafe fn ExecuteCommandLists(&self, ppcommandlists: &[::core::option::Option<ID3D12CommandList>]) {
+    pub unsafe fn ExecuteCommandLists(&self, ppcommandlists: &[ID3D12CommandList]) {
         (::windows::core::Vtable::vtable(self).ExecuteCommandLists)(::windows::core::Vtable::as_raw(self), ppcommandlists.len() as _, ::core::mem::transmute(ppcommandlists.as_ptr()))
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
@@ -1363,10 +1363,10 @@ impl ID3D12Device {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -1731,10 +1731,10 @@ impl ID3D12Device1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -2041,10 +2041,10 @@ impl ID3D12Device2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -2353,10 +2353,10 @@ impl ID3D12Device3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -2450,7 +2450,7 @@ impl ID3D12Device3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OpenExistingHeapFromFileMapping)(::windows::core::Vtable::as_raw(self), hfilemapping.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[::core::option::Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[ID3D12Pageable], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Fence>>,
     {
@@ -2693,10 +2693,10 @@ impl ID3D12Device4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -2790,7 +2790,7 @@ impl ID3D12Device4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.OpenExistingHeapFromFileMapping)(::windows::core::Vtable::as_raw(self), hfilemapping.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[::core::option::Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[ID3D12Pageable], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Fence>>,
     {
@@ -3088,10 +3088,10 @@ impl ID3D12Device5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -3185,7 +3185,7 @@ impl ID3D12Device5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.OpenExistingHeapFromFileMapping)(::windows::core::Vtable::as_raw(self), hfilemapping.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[::core::option::Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[ID3D12Pageable], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Fence>>,
     {
@@ -3518,10 +3518,10 @@ impl ID3D12Device6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -3615,7 +3615,7 @@ impl ID3D12Device6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenExistingHeapFromFileMapping)(::windows::core::Vtable::as_raw(self), hfilemapping.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[::core::option::Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[ID3D12Pageable], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Fence>>,
     {
@@ -3950,10 +3950,10 @@ impl ID3D12Device7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -4047,7 +4047,7 @@ impl ID3D12Device7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenExistingHeapFromFileMapping)(::windows::core::Vtable::as_raw(self), hfilemapping.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[::core::option::Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[ID3D12Pageable], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Fence>>,
     {
@@ -4395,10 +4395,10 @@ impl ID3D12Device8 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -4492,7 +4492,7 @@ impl ID3D12Device8 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.OpenExistingHeapFromFileMapping)(::windows::core::Vtable::as_raw(self), hfilemapping.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[::core::option::Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[ID3D12Pageable], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Fence>>,
     {
@@ -4892,10 +4892,10 @@ impl ID3D12Device9 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows::core::Vtable::as_raw(self), name.into(), access, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.MakeResident)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[ID3D12Pageable]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.Evict)(::windows::core::Vtable::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
     pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> ::windows::core::Result<T>
@@ -4989,7 +4989,7 @@ impl ID3D12Device9 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.OpenExistingHeapFromFileMapping)(::windows::core::Vtable::as_raw(self), hfilemapping.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[::core::option::Option<ID3D12Pageable>], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
+    pub unsafe fn EnqueueMakeResident<'a, P0>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[ID3D12Pageable], pfencetosignal: P0, fencevaluetosignal: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D12Fence>>,
     {
@@ -5912,7 +5912,7 @@ impl ID3D12GraphicsCommandList {
     {
         (::windows::core::Vtable::vtable(self).ExecuteBundle)(::windows::core::Vtable::as_raw(self), pcommandlist.into().abi())
     }
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[::core::option::Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[ID3D12DescriptorHeap]) {
         (::windows::core::Vtable::vtable(self).SetDescriptorHeaps)(::windows::core::Vtable::as_raw(self), ppdescriptorheaps.len() as _, ::core::mem::transmute(ppdescriptorheaps.as_ptr()))
     }
     pub unsafe fn SetComputeRootSignature<'a, P0>(&self, prootsignature: P0)
@@ -6303,7 +6303,7 @@ impl ID3D12GraphicsCommandList1 {
     {
         (::windows::core::Vtable::vtable(self).base__.ExecuteBundle)(::windows::core::Vtable::as_raw(self), pcommandlist.into().abi())
     }
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[::core::option::Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[ID3D12DescriptorHeap]) {
         (::windows::core::Vtable::vtable(self).base__.SetDescriptorHeaps)(::windows::core::Vtable::as_raw(self), ppdescriptorheaps.len() as _, ::core::mem::transmute(ppdescriptorheaps.as_ptr()))
     }
     pub unsafe fn SetComputeRootSignature<'a, P0>(&self, prootsignature: P0)
@@ -6648,7 +6648,7 @@ impl ID3D12GraphicsCommandList2 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.ExecuteBundle)(::windows::core::Vtable::as_raw(self), pcommandlist.into().abi())
     }
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[::core::option::Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[ID3D12DescriptorHeap]) {
         (::windows::core::Vtable::vtable(self).base__.base__.SetDescriptorHeaps)(::windows::core::Vtable::as_raw(self), ppdescriptorheaps.len() as _, ::core::mem::transmute(ppdescriptorheaps.as_ptr()))
     }
     pub unsafe fn SetComputeRootSignature<'a, P0>(&self, prootsignature: P0)
@@ -6988,7 +6988,7 @@ impl ID3D12GraphicsCommandList3 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.ExecuteBundle)(::windows::core::Vtable::as_raw(self), pcommandlist.into().abi())
     }
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[::core::option::Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[ID3D12DescriptorHeap]) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetDescriptorHeaps)(::windows::core::Vtable::as_raw(self), ppdescriptorheaps.len() as _, ::core::mem::transmute(ppdescriptorheaps.as_ptr()))
     }
     pub unsafe fn SetComputeRootSignature<'a, P0>(&self, prootsignature: P0)
@@ -7334,7 +7334,7 @@ impl ID3D12GraphicsCommandList4 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.ExecuteBundle)(::windows::core::Vtable::as_raw(self), pcommandlist.into().abi())
     }
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[::core::option::Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[ID3D12DescriptorHeap]) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetDescriptorHeaps)(::windows::core::Vtable::as_raw(self), ppdescriptorheaps.len() as _, ::core::mem::transmute(ppdescriptorheaps.as_ptr()))
     }
     pub unsafe fn SetComputeRootSignature<'a, P0>(&self, prootsignature: P0)
@@ -7734,7 +7734,7 @@ impl ID3D12GraphicsCommandList5 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.ExecuteBundle)(::windows::core::Vtable::as_raw(self), pcommandlist.into().abi())
     }
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[::core::option::Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[ID3D12DescriptorHeap]) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.SetDescriptorHeaps)(::windows::core::Vtable::as_raw(self), ppdescriptorheaps.len() as _, ::core::mem::transmute(ppdescriptorheaps.as_ptr()))
     }
     pub unsafe fn SetComputeRootSignature<'a, P0>(&self, prootsignature: P0)
@@ -8130,7 +8130,7 @@ impl ID3D12GraphicsCommandList6 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.ExecuteBundle)(::windows::core::Vtable::as_raw(self), pcommandlist.into().abi())
     }
-    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[::core::option::Option<ID3D12DescriptorHeap>]) {
+    pub unsafe fn SetDescriptorHeaps(&self, ppdescriptorheaps: &[ID3D12DescriptorHeap]) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetDescriptorHeaps)(::windows::core::Vtable::as_raw(self), ppdescriptorheaps.len() as _, ::core::mem::transmute(ppdescriptorheaps.as_ptr()))
     }
     pub unsafe fn SetComputeRootSignature<'a, P0>(&self, prootsignature: P0)

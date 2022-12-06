@@ -364,7 +364,7 @@ impl IRdcLibrary {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OpenGeneratorParameters)(::windows::core::Vtable::as_raw(self), size, parametersblob, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateGenerator(&self, igeneratorparametersarray: &[::core::option::Option<IRdcGeneratorParameters>]) -> ::windows::core::Result<IRdcGenerator> {
+    pub unsafe fn CreateGenerator(&self, igeneratorparametersarray: &[IRdcGeneratorParameters]) -> ::windows::core::Result<IRdcGenerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateGenerator)(::windows::core::Vtable::as_raw(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(igeneratorparametersarray.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
