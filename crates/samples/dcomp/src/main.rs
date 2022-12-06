@@ -661,9 +661,9 @@ fn create_effect(
 
         // TODO: workaround for https://github.com/microsoft/windows-rs/issues/2105
         let transform = device.CreateTransform3DGroup(&[
-            Some(pre_transform.cast()?),
-            Some(rotation.cast()?),
-            Some(post_transform.cast()?),
+            pre_transform.cast()?,
+            rotation.cast()?,
+            post_transform.cast()?,
         ])?;
 
         visual.SetEffect(&transform)
