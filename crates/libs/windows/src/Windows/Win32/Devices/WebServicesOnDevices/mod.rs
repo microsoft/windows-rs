@@ -34,7 +34,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
-pub unsafe fn WSDCreateDeviceHostAdvanced<'a, P0, P1>(pszlocalid: P0, pcontext: P1, pphostaddresses: ::core::option::Option<&[::core::option::Option<IWSDAddress>]>) -> ::windows::core::Result<IWSDDeviceHost>
+pub unsafe fn WSDCreateDeviceHostAdvanced<'a, P0, P1>(pszlocalid: P0, pcontext: P1, pphostaddresses: ::core::option::Option<&[IWSDAddress]>) -> ::windows::core::Result<IWSDDeviceHost>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, IWSDXMLContext>>,
@@ -475,7 +475,7 @@ pub struct IWSDAttachment_Vtbl {
 #[repr(transparent)]
 pub struct IWSDDeviceHost(::windows::core::IUnknown);
 impl IWSDDeviceHost {
-    pub unsafe fn Init<'a, P0, P1>(&self, pszlocalid: P0, pcontext: P1, pphostaddresses: ::core::option::Option<&[::core::option::Option<IWSDAddress>]>) -> ::windows::core::Result<()>
+    pub unsafe fn Init<'a, P0, P1>(&self, pszlocalid: P0, pcontext: P1, pphostaddresses: ::core::option::Option<&[IWSDAddress]>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWSDXMLContext>>,

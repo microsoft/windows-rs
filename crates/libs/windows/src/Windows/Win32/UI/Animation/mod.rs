@@ -1807,7 +1807,7 @@ impl IUIAnimationVariable2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
-    pub unsafe fn GetVectorCurve(&self, animation: &[::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>]) -> ::windows::core::Result<()> {
+    pub unsafe fn GetVectorCurve(&self, animation: &[super::super::Graphics::DirectComposition::IDCompositionAnimation]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetVectorCurve)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(animation.as_ptr()), animation.len() as _).ok()
     }
     pub unsafe fn GetFinalValue(&self) -> ::windows::core::Result<f64> {

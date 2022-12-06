@@ -905,7 +905,7 @@ impl IDXGIDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetMaximumFrameLatency)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+    pub unsafe fn OfferResources(&self, ppresources: &[IDXGIResource], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OfferResources)(::windows::core::Vtable::as_raw(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), priority).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1008,7 +1008,7 @@ impl IDXGIDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetMaximumFrameLatency)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+    pub unsafe fn OfferResources(&self, ppresources: &[IDXGIResource], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.OfferResources)(::windows::core::Vtable::as_raw(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), priority).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1106,7 +1106,7 @@ impl IDXGIDevice4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetMaximumFrameLatency)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+    pub unsafe fn OfferResources(&self, ppresources: &[IDXGIResource], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.OfferResources)(::windows::core::Vtable::as_raw(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), priority).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1125,7 +1125,7 @@ impl IDXGIDevice4 {
     pub unsafe fn Trim(&self) {
         (::windows::core::Vtable::vtable(self).base__.Trim)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn OfferResources1(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn OfferResources1(&self, ppresources: &[IDXGIResource], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OfferResources1)(::windows::core::Vtable::as_raw(self), ppresources.len() as _, ::core::mem::transmute(ppresources.as_ptr()), priority, flags).ok()
     }
     pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> ::windows::core::Result<()> {

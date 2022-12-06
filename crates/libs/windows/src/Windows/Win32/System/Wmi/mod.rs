@@ -4693,7 +4693,7 @@ pub struct IWbemEventProviderSecurity_Vtbl {
 #[repr(transparent)]
 pub struct IWbemEventSink(::windows::core::IUnknown);
 impl IWbemEventSink {
-    pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Indicate(&self, apobjarray: &[IWbemClassObject]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Indicate)(::windows::core::Vtable::as_raw(self), apobjarray.len() as _, ::core::mem::transmute(apobjarray.as_ptr())).ok()
     }
     pub unsafe fn SetStatus<'a, P0>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: &::windows::core::BSTR, pobjparam: P0) -> ::windows::core::Result<()>
@@ -5211,7 +5211,7 @@ pub struct IWbemObjectAccess_Vtbl {
 #[repr(transparent)]
 pub struct IWbemObjectSink(::windows::core::IUnknown);
 impl IWbemObjectSink {
-    pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Indicate(&self, apobjarray: &[IWbemClassObject]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Indicate)(::windows::core::Vtable::as_raw(self), apobjarray.len() as _, ::core::mem::transmute(apobjarray.as_ptr())).ok()
     }
     pub unsafe fn SetStatus<'a, P0>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: &::windows::core::BSTR, pobjparam: P0) -> ::windows::core::Result<()>
@@ -5255,7 +5255,7 @@ pub struct IWbemObjectSink_Vtbl {
 #[repr(transparent)]
 pub struct IWbemObjectSinkEx(::windows::core::IUnknown);
 impl IWbemObjectSinkEx {
-    pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows::core::Result<()> {
+    pub unsafe fn Indicate(&self, apobjarray: &[IWbemClassObject]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Indicate)(::windows::core::Vtable::as_raw(self), apobjarray.len() as _, ::core::mem::transmute(apobjarray.as_ptr())).ok()
     }
     pub unsafe fn SetStatus<'a, P0>(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: &::windows::core::BSTR, pobjparam: P0) -> ::windows::core::Result<()>
@@ -6366,7 +6366,7 @@ pub struct IWbemTransport_Vtbl {
 #[repr(transparent)]
 pub struct IWbemUnboundObjectSink(::windows::core::IUnknown);
 impl IWbemUnboundObjectSink {
-    pub unsafe fn IndicateToConsumer<'a, P0>(&self, plogicalconsumer: P0, apobjects: &[::core::option::Option<IWbemClassObject>]) -> ::windows::core::Result<()>
+    pub unsafe fn IndicateToConsumer<'a, P0>(&self, plogicalconsumer: P0, apobjects: &[IWbemClassObject]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>,
     {

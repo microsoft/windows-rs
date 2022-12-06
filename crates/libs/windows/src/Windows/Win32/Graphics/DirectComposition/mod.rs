@@ -776,7 +776,7 @@ impl IDCompositionDesktopDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[IDCompositionTransform]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -796,7 +796,7 @@ impl IDCompositionDesktopDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[IDCompositionTransform3D]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -961,7 +961,7 @@ impl IDCompositionDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[IDCompositionTransform]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -981,7 +981,7 @@ impl IDCompositionDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[IDCompositionTransform3D]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -1136,7 +1136,7 @@ impl IDCompositionDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[IDCompositionTransform]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -1156,7 +1156,7 @@ impl IDCompositionDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[IDCompositionTransform3D]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -1290,7 +1290,7 @@ impl IDCompositionDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransformGroup(&self, transforms: &[::core::option::Option<IDCompositionTransform>]) -> ::windows::core::Result<IDCompositionTransform> {
+    pub unsafe fn CreateTransformGroup(&self, transforms: &[IDCompositionTransform]) -> ::windows::core::Result<IDCompositionTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateTransformGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms.as_ptr()), transforms.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -1310,7 +1310,7 @@ impl IDCompositionDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateMatrixTransform3D)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[::core::option::Option<IDCompositionTransform3D>]) -> ::windows::core::Result<IDCompositionTransform3D> {
+    pub unsafe fn CreateTransform3DGroup(&self, transforms3d: &[IDCompositionTransform3D]) -> ::windows::core::Result<IDCompositionTransform3D> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateTransform3DGroup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(transforms3d.as_ptr()), transforms3d.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }

@@ -38448,7 +38448,7 @@ impl IMemInputPin {
     {
         (::windows::core::Vtable::vtable(self).Receive)(::windows::core::Vtable::as_raw(self), psample.into().abi()).ok()
     }
-    pub unsafe fn ReceiveMultiple(&self, psamples: &[::core::option::Option<IMediaSample>]) -> ::windows::core::Result<i32> {
+    pub unsafe fn ReceiveMultiple(&self, psamples: &[IMediaSample]) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ReceiveMultiple)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psamples.as_ptr()), psamples.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }

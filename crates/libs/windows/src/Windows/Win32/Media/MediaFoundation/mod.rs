@@ -825,7 +825,7 @@ pub unsafe fn MFCreatePresentationClock() -> ::windows::core::Result<IMFPresenta
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
-pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: ::core::option::Option<&[::core::option::Option<IMFStreamDescriptor>]>) -> ::windows::core::Result<IMFPresentationDescriptor> {
+pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: ::core::option::Option<&[IMFStreamDescriptor]>) -> ::windows::core::Result<IMFPresentationDescriptor> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreatePresentationDescriptor ( cstreamdescriptors : u32 , apstreamdescriptors : *const * mut::core::ffi::c_void , pppresentationdescriptor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     MFCreatePresentationDescriptor(apstreamdescriptors.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(apstreamdescriptors.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), result__.as_mut_ptr()).from_abi(result__)
@@ -1056,7 +1056,7 @@ pub unsafe fn MFCreateStandardQualityManager() -> ::windows::core::Result<IMFQua
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
-pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, apmediatypes: &[::core::option::Option<IMFMediaType>]) -> ::windows::core::Result<IMFStreamDescriptor> {
+pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, apmediatypes: &[IMFMediaType]) -> ::windows::core::Result<IMFStreamDescriptor> {
     ::windows::core::link ! ( "mfplat.dll""system" fn MFCreateStreamDescriptor ( dwstreamidentifier : u32 , cmediatypes : u32 , apmediatypes : *const * mut::core::ffi::c_void , ppdescriptor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     MFCreateStreamDescriptor(dwstreamidentifier, apmediatypes.len() as _, ::core::mem::transmute(apmediatypes.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
@@ -6552,7 +6552,7 @@ impl IDirectXVideoDecoderService {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn CreateVideoDecoder(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: &[::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>]) -> ::windows::core::Result<IDirectXVideoDecoder> {
+    pub unsafe fn CreateVideoDecoder(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: &[super::super::Graphics::Direct3D9::IDirect3DSurface9]) -> ::windows::core::Result<IDirectXVideoDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateVideoDecoder)(::windows::core::Vtable::as_raw(self), guid, pvideodesc, pconfig, ::core::mem::transmute(ppdecoderrendertargets.as_ptr()), ppdecoderrendertargets.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -11071,7 +11071,7 @@ impl IMFContentDecryptionModuleFactory {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn CreateContentDecryptionModuleAccess<'a, P0>(&self, keysystem: P0, configurations: &[::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>]) -> ::windows::core::Result<IMFContentDecryptionModuleAccess>
+    pub unsafe fn CreateContentDecryptionModuleAccess<'a, P0>(&self, keysystem: P0, configurations: &[super::super::UI::Shell::PropertiesSystem::IPropertyStore]) -> ::windows::core::Result<IMFContentDecryptionModuleAccess>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -13521,7 +13521,7 @@ pub struct IMFMediaEngineClassFactory3(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory3 {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn CreateMediaKeySystemAccess(&self, keysystem: &::windows::core::BSTR, ppsupportedconfigurationsarray: &[::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>]) -> ::windows::core::Result<IMFMediaKeySystemAccess> {
+    pub unsafe fn CreateMediaKeySystemAccess(&self, keysystem: &::windows::core::BSTR, ppsupportedconfigurationsarray: &[super::super::UI::Shell::PropertiesSystem::IPropertyStore]) -> ::windows::core::Result<IMFMediaKeySystemAccess> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateMediaKeySystemAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(keysystem), ::core::mem::transmute(ppsupportedconfigurationsarray.as_ptr()), ppsupportedconfigurationsarray.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -18271,7 +18271,7 @@ impl IMFOutputTrustAuthority {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAction)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetPolicy(&self, pppolicy: ::core::option::Option<&[::core::option::Option<IMFOutputPolicy>]>, ppbticket: ::core::option::Option<*mut *mut u8>, pcbticket: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPolicy(&self, pppolicy: ::core::option::Option<&[IMFOutputPolicy]>, ppbticket: ::core::option::Option<*mut *mut u8>, pcbticket: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPolicy)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppolicy.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pppolicy.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppbticket.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbticket.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }

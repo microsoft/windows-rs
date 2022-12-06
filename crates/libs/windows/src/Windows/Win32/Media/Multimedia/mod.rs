@@ -165,7 +165,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
-pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, papstreams: &[::core::option::Option<IAVIStream>]) -> ::windows::core::Result<()> {
+pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, papstreams: &[IAVIStream]) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "avifil32.dll""system" fn AVIMakeFileFromStreams ( ppfile : *mut * mut::core::ffi::c_void , nstreams : i32 , papstreams : *const * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(papstreams.as_ptr())).ok()
 }
