@@ -2435,7 +2435,7 @@ impl ::core::fmt::Debug for SortEntry {
     }
 }
 unsafe impl ::windows::core::Abi for SortEntry {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 unsafe impl ::windows::core::RuntimeType for SortEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");

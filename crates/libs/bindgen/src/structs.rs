@@ -39,7 +39,7 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         if gen.reader.field_flags(f).literal() {
             quote! {}
         } else if flags.explicit_layout() && !gen.reader.field_is_copyable(f, def) {
-            // Rust can't tell that the type is copyable
+            // Rust can't tell that the type is copyable and won't accept windows::core::ManuallyDrop
             let ty = gen.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
         } else if !gen.sys && !flags.winrt() && !gen.reader.field_is_blittable(f, def) {
@@ -106,8 +106,7 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
         let abi = if gen.reader.type_def_is_blittable(def) {
             quote! { Self }
         } else {
-            // This can't be windows::core::ManuallyDrop since that would cause a cycle computing layout.
-            quote! { ::core::mem::ManuallyDrop<Self> }
+            quote! { ::std::mem::ManuallyDrop<Self> }
         };
 
         let features = gen.cfg_features(cfg);

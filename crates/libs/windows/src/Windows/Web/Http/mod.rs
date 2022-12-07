@@ -4323,7 +4323,7 @@ impl ::core::fmt::Debug for HttpProgress {
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for HttpProgress {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for HttpProgress {

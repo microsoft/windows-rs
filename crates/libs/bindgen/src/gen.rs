@@ -177,7 +177,7 @@ impl<'a> Gen<'a> {
                     if self.reader.type_def_is_blittable(*def) {
                         tokens
                     } else {
-                        quote! { ::windows::core::ManuallyDrop<#tokens> }
+                        quote! { ::std::mem::ManuallyDrop<#tokens> }
                     }
                 }
                 TypeKind::Delegate => {
