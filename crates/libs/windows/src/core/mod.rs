@@ -14,6 +14,7 @@ mod heap;
 mod hresult;
 mod inspectable;
 mod interface;
+mod manually_drop;
 mod param;
 mod ref_count;
 mod runtime_name;
@@ -45,6 +46,7 @@ pub(crate) use heap::*;
 pub use hresult::*;
 pub use inspectable::*;
 pub use interface::*;
+pub use manually_drop::*;
 pub use param::*;
 #[doc(hidden)]
 pub use ref_count::*;
