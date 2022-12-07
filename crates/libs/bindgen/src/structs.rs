@@ -38,7 +38,7 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
 
         if gen.reader.field_flags(f).literal() {
             quote! {}
-        } else if flags.explicit_layout() && !gen.reader.field_is_copyable(f, def) {
+        } else if !gen.sys && flags.explicit_layout() && !gen.reader.field_is_copyable(f, def) {
             // Rust can't tell that the type is copyable and won't accept windows::core::ManuallyDrop
             let ty = gen.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
