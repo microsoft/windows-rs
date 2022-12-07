@@ -58,6 +58,7 @@ fn test() -> Result<()> {
 
             let none = ManuallyDrop::<ITest>::none();
             assert_eq!(none.as_ref(), None);
+            assert_eq!(none.abi(), std::ptr::null_mut());
         }
         assert_eq!(COUNTER, 0);
         Ok(())
