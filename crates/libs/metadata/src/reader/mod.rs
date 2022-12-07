@@ -396,7 +396,7 @@ impl<'a> Reader<'a> {
     pub fn field_is_copyable(&self, row: Field, enclosing: TypeDef) -> bool {
         self.type_is_copyable(&self.field_type(row, Some(enclosing)))
     }
-        pub fn field_guid(&self, row: Field) -> Option<GUID> {
+    pub fn field_guid(&self, row: Field) -> Option<GUID> {
         for attribute in self.field_attributes(row) {
             if self.attribute_name(attribute) == "GuidAttribute" {
                 return Some(GUID::from_args(&self.attribute_args(attribute)));
@@ -870,9 +870,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_is_copyable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
-            TypeKind::Struct => {
-                self.type_def_fields(row).all(|field| self.field_is_copyable(field, row))
-            }
+            TypeKind::Struct => self.type_def_fields(row).all(|field| self.field_is_copyable(field, row)),
             TypeKind::Enum => true,
             TypeKind::Delegate => !self.type_def_flags(row).winrt(),
             _ => false,
