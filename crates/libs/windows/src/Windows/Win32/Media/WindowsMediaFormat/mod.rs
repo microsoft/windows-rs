@@ -169,7 +169,7 @@ pub struct INSNetSourceCreator_Vtbl {
     pub GetNetSourceProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows::core::PCWSTR, pppropertiesnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetNetSourceSharedNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsharednamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetNetSourceAdminInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows::core::PCWSTR, pval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetNetSourceAdminInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows::core::PCWSTR, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetNetSourceAdminInterface: usize,
     pub GetNumProtocolsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprotocols: *mut u32) -> ::windows::core::HRESULT,
@@ -2294,12 +2294,12 @@ impl IWMInputMediaProps {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype), pcbtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetMediaType)(::windows::core::Vtable::as_raw(self), ptype, pcbtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetMediaType)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn GetConnectionName(&self, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetConnectionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszname), pcchname).ok()
@@ -2528,12 +2528,12 @@ impl IWMMediaProps {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype), pcbtype).ok()
+        (::windows::core::Vtable::vtable(self).GetMediaType)(::windows::core::Vtable::as_raw(self), ptype, pcbtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).SetMediaType)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMMediaProps, ::windows::core::IUnknown);
@@ -2565,11 +2565,11 @@ pub struct IWMMediaProps_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut ::core::mem::ManuallyDrop<WM_MEDIA_TYPE>, pcbtype: *mut u32) -> ::windows::core::HRESULT,
+    pub GetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetMediaType: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *const ::core::mem::ManuallyDrop<WM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
+    pub SetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMediaType: usize,
 }
@@ -2831,12 +2831,12 @@ impl IWMOutputMediaProps {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype), pcbtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetMediaType)(::windows::core::Vtable::as_raw(self), ptype, pcbtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetMediaType)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn GetStreamGroupName(&self, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStreamGroupName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszname), pcchname).ok()
@@ -3865,7 +3865,7 @@ impl IWMReaderAccelerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Notify(&self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), dwoutputnum, ::core::mem::transmute(psubtype)).ok()
+        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), dwoutputnum, psubtype).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMReaderAccelerator, ::windows::core::IUnknown);
@@ -3897,7 +3897,7 @@ pub struct IWMReaderAccelerator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCodecInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, riid: *const ::windows::core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, psubtype: *const ::core::mem::ManuallyDrop<WM_MEDIA_TYPE>) -> ::windows::core::HRESULT,
+    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Notify: usize,
 }
@@ -5491,7 +5491,7 @@ impl IWMReaderCallbackAdvanced {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnOutputPropsChanged)(::windows::core::Vtable::as_raw(self), dwoutputnum, ::core::mem::transmute(pmediatype), pvcontext).ok()
+        (::windows::core::Vtable::vtable(self).OnOutputPropsChanged)(::windows::core::Vtable::as_raw(self), dwoutputnum, pmediatype, pvcontext).ok()
     }
     pub unsafe fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AllocateForStream)(::windows::core::Vtable::as_raw(self), wstreamnum, cbbuffer, ::core::mem::transmute(ppbuffer), pvcontext).ok()
@@ -5531,7 +5531,7 @@ pub struct IWMReaderCallbackAdvanced_Vtbl {
     pub OnTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnscurrenttime: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub OnOutputPropsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pmediatype: *const ::core::mem::ManuallyDrop<WM_MEDIA_TYPE>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub OnOutputPropsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     OnOutputPropsChanged: usize,
     pub AllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -7735,12 +7735,12 @@ impl IWMVideoMediaProps {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype), pcbtype).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetMediaType)(::windows::core::Vtable::as_raw(self), ptype, pcbtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetMediaType)(::windows::core::Vtable::as_raw(self), ptype).ok()
     }
     pub unsafe fn GetMaxKeyFrameSpacing(&self) -> ::windows::core::Result<i64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8512,7 +8512,7 @@ impl IWMWriterFileSink3 {
         (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OnDataUnitEx(&self, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnDataUnitEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfilesinkdataunit)).ok()
+        (::windows::core::Vtable::vtable(self).OnDataUnitEx)(::windows::core::Vtable::as_raw(self), pfilesinkdataunit).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8573,7 +8573,7 @@ pub struct IWMWriterFileSink3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetControlStream: usize,
     pub GetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwfilesinkmode: *mut u32) -> ::windows::core::HRESULT,
-    pub OnDataUnitEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilesinkdataunit: *const ::core::mem::ManuallyDrop<WMT_FILESINK_DATA_UNIT>) -> ::windows::core::HRESULT,
+    pub OnDataUnitEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetUnbufferedIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, funbufferedio: super::super::Foundation::BOOL, frestrictmemusage: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -11053,13 +11053,13 @@ impl ::core::default::Default for WMSCRIPTFORMAT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_BUFFER_SEGMENT {
-    pub pBuffer: ::core::option::Option<INSSBuffer>,
+    pub pBuffer: ::windows::core::ManuallyDrop<INSSBuffer>,
     pub cbOffset: u32,
     pub cbLength: u32,
 }
 impl ::core::clone::Clone for WMT_BUFFER_SEGMENT {
     fn clone(&self) -> Self {
-        Self { pBuffer: self.pBuffer.clone(), cbOffset: self.cbOffset, cbLength: self.cbLength }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for WMT_BUFFER_SEGMENT {
@@ -11068,7 +11068,7 @@ impl ::core::fmt::Debug for WMT_BUFFER_SEGMENT {
     }
 }
 unsafe impl ::windows::core::Abi for WMT_BUFFER_SEGMENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for WMT_BUFFER_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -11124,13 +11124,7 @@ pub struct WMT_FILESINK_DATA_UNIT {
 }
 impl ::core::clone::Clone for WMT_FILESINK_DATA_UNIT {
     fn clone(&self) -> Self {
-        Self {
-            packetHeaderBuffer: self.packetHeaderBuffer.clone(),
-            cPayloads: self.cPayloads,
-            pPayloadHeaderBuffers: self.pPayloadHeaderBuffers,
-            cPayloadDataFragments: self.cPayloadDataFragments,
-            pPayloadDataFragments: self.pPayloadDataFragments,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for WMT_FILESINK_DATA_UNIT {
@@ -11139,7 +11133,7 @@ impl ::core::fmt::Debug for WMT_FILESINK_DATA_UNIT {
     }
 }
 unsafe impl ::windows::core::Abi for WMT_FILESINK_DATA_UNIT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for WMT_FILESINK_DATA_UNIT {
     fn eq(&self, other: &Self) -> bool {
@@ -11160,7 +11154,7 @@ pub struct WMT_PAYLOAD_FRAGMENT {
 }
 impl ::core::clone::Clone for WMT_PAYLOAD_FRAGMENT {
     fn clone(&self) -> Self {
-        Self { dwPayloadIndex: self.dwPayloadIndex, segmentData: self.segmentData.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for WMT_PAYLOAD_FRAGMENT {
@@ -11169,7 +11163,7 @@ impl ::core::fmt::Debug for WMT_PAYLOAD_FRAGMENT {
     }
 }
 unsafe impl ::windows::core::Abi for WMT_PAYLOAD_FRAGMENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for WMT_PAYLOAD_FRAGMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -11744,24 +11738,14 @@ pub struct WM_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WM_MEDIA_TYPE {
     fn clone(&self) -> Self {
-        Self {
-            majortype: self.majortype,
-            subtype: self.subtype,
-            bFixedSizeSamples: self.bFixedSizeSamples,
-            bTemporalCompression: self.bTemporalCompression,
-            lSampleSize: self.lSampleSize,
-            formattype: self.formattype,
-            pUnk: self.pUnk.clone(),
-            cbFormat: self.cbFormat,
-            pbFormat: self.pbFormat,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11772,7 +11756,7 @@ impl ::core::fmt::Debug for WM_MEDIA_TYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WM_MEDIA_TYPE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WM_MEDIA_TYPE {

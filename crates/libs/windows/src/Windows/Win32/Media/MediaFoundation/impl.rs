@@ -147,7 +147,7 @@ impl ICodecAPI_Vtbl {
             let this = (*this).get_impl();
             this.IsModifiable(::core::mem::transmute_copy(&api)).into()
         }
-        unsafe extern "system" fn GetParameterRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, valuemin: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, valuemax: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, steppingdelta: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterRange(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&valuemin), ::core::mem::transmute_copy(&valuemax), ::core::mem::transmute_copy(&steppingdelta)).into()
@@ -157,7 +157,7 @@ impl ICodecAPI_Vtbl {
             let this = (*this).get_impl();
             this.GetParameterValues(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&valuescount)).into()
         }
-        unsafe extern "system" fn GetDefaultValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefaultValue(::core::mem::transmute_copy(&api)) {
@@ -168,7 +168,7 @@ impl ICodecAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&api)) {
@@ -179,7 +179,7 @@ impl ICodecAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&value)).into()
@@ -199,7 +199,7 @@ impl ICodecAPI_Vtbl {
             let this = (*this).get_impl();
             this.SetAllDefaults().into()
         }
-        unsafe extern "system" fn SetValueWithNotify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValueWithNotify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValueWithNotify(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&changedparam), ::core::mem::transmute_copy(&changedparamcount)).into()
@@ -284,7 +284,7 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
             let this = (*this).get_impl();
             this.ClearState()
         }
-        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const ::core::mem::ManuallyDrop<super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER>) {
+        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResourceBarrier(::core::mem::transmute_copy(&numbarriers), ::core::mem::transmute_copy(&pbarriers))
@@ -329,7 +329,7 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
             let this = (*this).get_impl();
             this.EndEvent()
         }
-        unsafe extern "system" fn DecodeFrame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS>, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS>) {
+        unsafe extern "system" fn DecodeFrame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DecodeFrame(::core::mem::transmute(&pdecoder), ::core::mem::transmute_copy(&poutputarguments), ::core::mem::transmute_copy(&pinputarguments))
@@ -370,7 +370,7 @@ impl ::windows::core::RuntimeName for ID3D12VideoDecodeCommandList1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecodeCommandList1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>() -> ID3D12VideoDecodeCommandList1_Vtbl {
-        unsafe extern "system" fn DecodeFrame1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1>, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS>) {
+        unsafe extern "system" fn DecodeFrame1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DecodeFrame1(::core::mem::transmute(&pdecoder), ::core::mem::transmute_copy(&poutputarguments), ::core::mem::transmute_copy(&pinputarguments))
@@ -698,7 +698,7 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
             let this = (*this).get_impl();
             this.ClearState()
         }
-        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const ::core::mem::ManuallyDrop<super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER>) {
+        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResourceBarrier(::core::mem::transmute_copy(&numbarriers), ::core::mem::transmute_copy(&pbarriers))
@@ -743,12 +743,12 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
             let this = (*this).get_impl();
             this.EndEvent()
         }
-        unsafe extern "system" fn EstimateMotion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmotionestimator: *mut ::core::ffi::c_void, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT>, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_MOTION_ESTIMATOR_INPUT>) {
+        unsafe extern "system" fn EstimateMotion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmotionestimator: *mut ::core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EstimateMotion(::core::mem::transmute(&pmotionestimator), ::core::mem::transmute_copy(&poutputarguments), ::core::mem::transmute_copy(&pinputarguments))
         }
-        unsafe extern "system" fn ResolveMotionVectorHeap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT>, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT>) {
+        unsafe extern "system" fn ResolveMotionVectorHeap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResolveMotionVectorHeap(::core::mem::transmute_copy(&poutputarguments), ::core::mem::transmute_copy(&pinputarguments))
@@ -827,12 +827,12 @@ impl ::windows::core::RuntimeName for ID3D12VideoEncodeCommandList2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoEncodeCommandList2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>() -> ID3D12VideoEncodeCommandList2_Vtbl {
-        unsafe extern "system" fn EncodeFrame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pencoder: *mut ::core::ffi::c_void, pheap: *mut ::core::ffi::c_void, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS>, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS>) {
+        unsafe extern "system" fn EncodeFrame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pencoder: *mut ::core::ffi::c_void, pheap: *mut ::core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EncodeFrame(::core::mem::transmute(&pencoder), ::core::mem::transmute(&pheap), ::core::mem::transmute_copy(&pinputarguments), ::core::mem::transmute_copy(&poutputarguments))
         }
-        unsafe extern "system" fn ResolveEncoderOutputMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS>, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS>) {
+        unsafe extern "system" fn ResolveEncoderOutputMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResolveEncoderOutputMetadata(::core::mem::transmute_copy(&pinputarguments), ::core::mem::transmute_copy(&poutputarguments))
@@ -1104,7 +1104,7 @@ impl ID3D12VideoProcessCommandList_Vtbl {
             let this = (*this).get_impl();
             this.ClearState()
         }
-        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const ::core::mem::ManuallyDrop<super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER>) {
+        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResourceBarrier(::core::mem::transmute_copy(&numbarriers), ::core::mem::transmute_copy(&pbarriers))
@@ -1149,7 +1149,7 @@ impl ID3D12VideoProcessCommandList_Vtbl {
             let this = (*this).get_impl();
             this.EndEvent()
         }
-        unsafe extern "system" fn ProcessFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS>, numinputstreams: u32, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS>) {
+        unsafe extern "system" fn ProcessFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ProcessFrames(::core::mem::transmute(&pvideoprocessor), ::core::mem::transmute_copy(&poutputarguments), ::core::mem::transmute_copy(&numinputstreams), ::core::mem::transmute_copy(&pinputarguments))
@@ -1190,7 +1190,7 @@ impl ::windows::core::RuntimeName for ID3D12VideoProcessCommandList1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D12VideoProcessCommandList1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>() -> ID3D12VideoProcessCommandList1_Vtbl {
-        unsafe extern "system" fn ProcessFrames1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, poutputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS>, numinputstreams: u32, pinputarguments: *const ::core::mem::ManuallyDrop<D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1>) {
+        unsafe extern "system" fn ProcessFrames1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ProcessFrames1(::core::mem::transmute(&pvideoprocessor), ::core::mem::transmute_copy(&poutputarguments), ::core::mem::transmute_copy(&numinputstreams), ::core::mem::transmute_copy(&pinputarguments))
@@ -1428,7 +1428,7 @@ impl IDXVAHD_VideoProcessor_Vtbl {
             let this = (*this).get_impl();
             this.GetVideoProcessStreamState(::core::mem::transmute_copy(&streamnumber), ::core::mem::transmute_copy(&state), ::core::mem::transmute_copy(&datasize), ::core::mem::transmute_copy(&pdata)).into()
         }
-        unsafe extern "system" fn VideoProcessBltHD<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXVAHD_VideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputsurface: *mut ::core::ffi::c_void, outputframe: u32, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<DXVAHD_STREAM_DATA>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoProcessBltHD<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXVAHD_VideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputsurface: *mut ::core::ffi::c_void, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.VideoProcessBltHD(::core::mem::transmute(&poutputsurface), ::core::mem::transmute_copy(&outputframe), ::core::mem::transmute_copy(&streamcount), ::core::mem::transmute_copy(&pstreams)).into()
@@ -1941,7 +1941,7 @@ impl IDirectXVideoProcessor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VideoProcessBlt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectXVideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prendertarget: *mut ::core::ffi::c_void, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const ::core::mem::ManuallyDrop<DXVA2_VideoSample>, numsamples: u32, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VideoProcessBlt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectXVideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prendertarget: *mut ::core::ffi::c_void, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: u32, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.VideoProcessBlt(::core::mem::transmute(&prendertarget), ::core::mem::transmute_copy(&pbltparams), ::core::mem::transmute_copy(&psamples), ::core::mem::transmute_copy(&numsamples), ::core::mem::transmute_copy(&phandlecomplete)).into()
@@ -2615,7 +2615,7 @@ impl IMFASFIndexer_Vtbl {
             let this = (*this).get_impl();
             this.SetIndexStatus(::core::mem::transmute_copy(&pbindexdescriptor), ::core::mem::transmute_copy(&cbindexdescriptor), ::core::mem::transmute_copy(&fgenerateindex)).into()
         }
-        unsafe extern "system" fn GetSeekPositionForValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFASFIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSeekPositionForValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFASFIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetSeekPositionForValue(::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&pindexidentifier), ::core::mem::transmute_copy(&pcboffsetwithindata), ::core::mem::transmute_copy(&phnsapproxtime), ::core::mem::transmute_copy(&pdwpayloadnumberofstreamwithinpacket)).into()
@@ -3655,7 +3655,7 @@ impl ::windows::core::RuntimeName for IMFAttributes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFAttributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>() -> IMFAttributes_Vtbl {
-        unsafe extern "system" fn GetItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetItem(::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&pvalue)).into()
@@ -3671,7 +3671,7 @@ impl IMFAttributes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompareItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompareItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CompareItem(::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&value)) {
@@ -3784,7 +3784,7 @@ impl IMFAttributes_Vtbl {
             let this = (*this).get_impl();
             this.GetUnknown(::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn SetItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetItem(::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&value)).into()
@@ -3855,7 +3855,7 @@ impl IMFAttributes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetItemByIndex(::core::mem::transmute_copy(&unindex), ::core::mem::transmute_copy(&pguidkey), ::core::mem::transmute_copy(&pvalue)).into()
@@ -6300,7 +6300,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             this.ProcessMessage(::core::mem::transmute_copy(&emessage), ::core::mem::transmute_copy(&ulparam)).into()
         }
-        unsafe extern "system" fn ProcessOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut ::core::mem::ManuallyDrop<MFT_OUTPUT_DATA_BUFFER>, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ProcessOutput(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&coutputbuffercount), ::core::mem::transmute_copy(&poutputsample), ::core::mem::transmute_copy(&pdwstatus)).into()
@@ -7022,7 +7022,7 @@ impl IMFImageSharingEngine_Vtbl {
             let this = (*this).get_impl();
             this.SetSource(::core::mem::transmute(&pstream)).into()
         }
-        unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFImageSharingEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::mem::ManuallyDrop<DEVICE_INFO>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFImageSharingEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut DEVICE_INFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDevice() {
@@ -7890,7 +7890,7 @@ impl IMFMediaEngineEx_Vtbl {
             let this = (*this).get_impl();
             this.SetSourceFromByteStream(::core::mem::transmute(&pbytestream), ::core::mem::transmute(&purl)).into()
         }
-        unsafe extern "system" fn GetStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticid: MF_MEDIA_ENGINE_STATISTIC, pstatistic: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statisticid: MF_MEDIA_ENGINE_STATISTIC, pstatistic: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStatistics(::core::mem::transmute_copy(&statisticid)) {
@@ -7937,7 +7937,7 @@ impl IMFMediaEngineEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPresentationAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPresentationAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPresentationAttribute(::core::mem::transmute_copy(&guidmfattribute)) {
@@ -7959,7 +7959,7 @@ impl IMFMediaEngineEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStreamAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStreamAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStreamAttribute(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&guidmfattribute)) {
@@ -8677,7 +8677,7 @@ impl IMFMediaEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue() {
@@ -8739,7 +8739,7 @@ impl IMFMediaEventGenerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueueEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueueEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.QueueEvent(::core::mem::transmute_copy(&met), ::core::mem::transmute_copy(&guidextendedtype), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&pvvalue)).into()
@@ -8803,7 +8803,7 @@ impl IMFMediaEventQueue_Vtbl {
             let this = (*this).get_impl();
             this.QueueEvent(::core::mem::transmute(&pevent)).into()
         }
-        unsafe extern "system" fn QueueEventParamVar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueueEventParamVar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.QueueEventParamVar(::core::mem::transmute_copy(&met), ::core::mem::transmute_copy(&guidextendedtype), ::core::mem::transmute_copy(&hrstatus), ::core::mem::transmute_copy(&pvvalue)).into()
@@ -9212,7 +9212,7 @@ impl IMFMediaSession_Vtbl {
             let this = (*this).get_impl();
             this.ClearTopologies().into()
         }
-        unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Start(::core::mem::transmute_copy(&pguidtimeformat), ::core::mem::transmute_copy(&pvarstartposition)).into()
@@ -9297,7 +9297,7 @@ impl ::windows::core::RuntimeName for IMFMediaSharingEngine {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaSharingEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSharingEngine_Impl, const OFFSET: isize>() -> IMFMediaSharingEngine_Vtbl {
-        unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSharingEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::mem::ManuallyDrop<DEVICE_INFO>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSharingEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut DEVICE_INFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDevice() {
@@ -9502,7 +9502,7 @@ impl IMFMediaSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresentationdescriptor: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresentationdescriptor: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Start(::core::mem::transmute(&ppresentationdescriptor), ::core::mem::transmute_copy(&pguidtimeformat), ::core::mem::transmute_copy(&pvarstartposition)).into()
@@ -10155,7 +10155,7 @@ impl IMFMetadata_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAllLanguages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvlanguages: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllLanguages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvlanguages: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAllLanguages() {
@@ -10166,12 +10166,12 @@ impl IMFMetadata_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, ppvvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, ppvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&ppvvalue)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, ppvvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, ppvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute(&pwszname)) {
@@ -10187,7 +10187,7 @@ impl IMFMetadata_Vtbl {
             let this = (*this).get_impl();
             this.DeleteProperty(::core::mem::transmute(&pwszname)).into()
         }
-        unsafe extern "system" fn GetAllPropertyNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvnames: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAllPropertyNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvnames: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAllPropertyNames() {
@@ -11142,12 +11142,12 @@ impl IMFPMediaItem_Vtbl {
             let this = (*this).get_impl();
             this.SetUserData(::core::mem::transmute_copy(&dwuserdata)).into()
         }
-        unsafe extern "system" fn GetStartStopPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *mut ::windows::core::GUID, pvstartvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: *mut ::windows::core::GUID, pvstopvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStartStopPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *mut ::windows::core::GUID, pvstartvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: *mut ::windows::core::GUID, pvstopvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetStartStopPosition(::core::mem::transmute_copy(&pguidstartpositiontype), ::core::mem::transmute_copy(&pvstartvalue), ::core::mem::transmute_copy(&pguidstoppositiontype), ::core::mem::transmute_copy(&pvstopvalue)).into()
         }
-        unsafe extern "system" fn SetStartStopPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *const ::windows::core::GUID, pvstartvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: *const ::windows::core::GUID, pvstopvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStartStopPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *const ::windows::core::GUID, pvstartvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: *const ::windows::core::GUID, pvstopvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStartStopPosition(::core::mem::transmute_copy(&pguidstartpositiontype), ::core::mem::transmute_copy(&pvstartvalue), ::core::mem::transmute_copy(&pguidstoppositiontype), ::core::mem::transmute_copy(&pvstopvalue)).into()
@@ -11173,7 +11173,7 @@ impl IMFPMediaItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDuration(::core::mem::transmute_copy(&guidpositiontype)) {
@@ -11211,7 +11211,7 @@ impl IMFPMediaItem_Vtbl {
             let this = (*this).get_impl();
             this.SetStreamSelection(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn GetStreamAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStreamAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStreamAttribute(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&guidmfattribute)) {
@@ -11222,7 +11222,7 @@ impl IMFPMediaItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPresentationAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPresentationAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPresentationAttribute(::core::mem::transmute_copy(&guidmfattribute)) {
@@ -11351,12 +11351,12 @@ impl IMFPMediaPlayer_Vtbl {
             let this = (*this).get_impl();
             this.FrameStep().into()
         }
-        unsafe extern "system" fn SetPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPosition(::core::mem::transmute_copy(&guidpositiontype), ::core::mem::transmute_copy(&pvpositionvalue)).into()
         }
-        unsafe extern "system" fn GetPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPosition(::core::mem::transmute_copy(&guidpositiontype)) {
@@ -11367,7 +11367,7 @@ impl IMFPMediaPlayer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDuration(::core::mem::transmute_copy(&guidpositiontype)) {
@@ -11648,7 +11648,7 @@ impl ::windows::core::RuntimeName for IMFPMediaPlayerCallback {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFPMediaPlayerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>() -> IMFPMediaPlayerCallback_Vtbl {
-        unsafe extern "system" fn OnMediaPlayerEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventheader: *const ::core::mem::ManuallyDrop<MFP_EVENT_HEADER>) {
+        unsafe extern "system" fn OnMediaPlayerEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventheader: *const MFP_EVENT_HEADER) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnMediaPlayerEvent(::core::mem::transmute_copy(&peventheader))
@@ -12447,7 +12447,7 @@ impl IMFSAMIStyle_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStyles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSAMIStyle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvarstylearray: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStyles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSAMIStyle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvarstylearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStyles() {
@@ -13014,7 +13014,7 @@ impl ::windows::core::RuntimeName for IMFSeekInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSeekInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSeekInfo_Impl, const OFFSET: isize>() -> IMFSeekInfo_Vtbl {
-        unsafe extern "system" fn GetNearestKeyFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSeekInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarpreviouskeyframe: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarnextkeyframe: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNearestKeyFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSeekInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetNearestKeyFrames(::core::mem::transmute_copy(&pguidtimeformat), ::core::mem::transmute_copy(&pvarstartposition), ::core::mem::transmute_copy(&pvarpreviouskeyframe), ::core::mem::transmute_copy(&pvarnextkeyframe)).into()
@@ -14374,7 +14374,7 @@ impl IMFSourceReader_Vtbl {
             let this = (*this).get_impl();
             this.SetCurrentMediaType(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&pdwreserved), ::core::mem::transmute(&pmediatype)).into()
         }
-        unsafe extern "system" fn SetCurrentPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtimeformat: *const ::windows::core::GUID, varposition: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrentPosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCurrentPosition(::core::mem::transmute_copy(&guidtimeformat), ::core::mem::transmute_copy(&varposition)).into()
@@ -14394,7 +14394,7 @@ impl IMFSourceReader_Vtbl {
             let this = (*this).get_impl();
             this.GetServiceForStream(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&guidservice), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvobject)).into()
         }
-        unsafe extern "system" fn GetPresentationAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID, pvarattribute: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPresentationAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPresentationAttribute(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&guidattribute)) {
@@ -14811,7 +14811,7 @@ impl IMFStreamSink_Vtbl {
             let this = (*this).get_impl();
             this.ProcessSample(::core::mem::transmute(&psample)).into()
         }
-        unsafe extern "system" fn PlaceMarker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFStreamSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarcontextvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlaceMarker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFStreamSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarcontextvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PlaceMarker(::core::mem::transmute_copy(&emarkertype), ::core::mem::transmute_copy(&pvarmarkervalue), ::core::mem::transmute_copy(&pvarcontextvalue)).into()
@@ -14894,7 +14894,7 @@ impl ::windows::core::RuntimeName for IMFTimecodeTranslate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFTimecodeTranslate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>() -> IMFTimecodeTranslate_Vtbl {
-        unsafe extern "system" fn BeginConvertTimecodeToHNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvartimecode: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pcallback: *mut ::core::ffi::c_void, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginConvertTimecodeToHNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: *mut ::core::ffi::c_void, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginConvertTimecodeToHNS(::core::mem::transmute_copy(&ppropvartimecode), ::core::mem::transmute(&pcallback), ::core::mem::transmute(&punkstate)).into()
@@ -14915,7 +14915,7 @@ impl IMFTimecodeTranslate_Vtbl {
             let this = (*this).get_impl();
             this.BeginConvertHNSToTimecode(::core::mem::transmute_copy(&hnstime), ::core::mem::transmute(&pcallback), ::core::mem::transmute(&punkstate)).into()
         }
-        unsafe extern "system" fn EndConvertHNSToTimecode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::ffi::c_void, ppropvartimecode: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EndConvertHNSToTimecode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::ffi::c_void, ppropvartimecode: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EndConvertHNSToTimecode(::core::mem::transmute(&presult)) {
@@ -16634,7 +16634,7 @@ impl IMFTranscodeSinkInfoProvider_Vtbl {
             let this = (*this).get_impl();
             this.SetProfile(::core::mem::transmute(&pprofile)).into()
         }
-        unsafe extern "system" fn GetSinkInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTranscodeSinkInfoProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psinkinfo: *mut ::core::mem::ManuallyDrop<MF_TRANSCODE_SINK_INFO>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSinkInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTranscodeSinkInfoProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psinkinfo: *mut MF_TRANSCODE_SINK_INFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSinkInfo() {
@@ -16861,7 +16861,7 @@ impl IMFTransform_Vtbl {
             let this = (*this).get_impl();
             this.ProcessInput(::core::mem::transmute_copy(&dwinputstreamid), ::core::mem::transmute(&psample), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn ProcessOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut ::core::mem::ManuallyDrop<MFT_OUTPUT_DATA_BUFFER>, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ProcessOutput(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&coutputbuffercount), ::core::mem::transmute_copy(&poutputsamples), ::core::mem::transmute_copy(&pdwstatus)).into()
@@ -17218,7 +17218,7 @@ impl ::windows::core::RuntimeName for IMFVideoMixerBitmap {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl IMFVideoMixerBitmap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoMixerBitmap_Impl, const OFFSET: isize>() -> IMFVideoMixerBitmap_Vtbl {
-        unsafe extern "system" fn SetAlphaBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoMixerBitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmpparms: *const ::core::mem::ManuallyDrop<MFVideoAlphaBitmap>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlphaBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoMixerBitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmpparms: *const MFVideoAlphaBitmap) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAlphaBitmap(::core::mem::transmute_copy(&pbmpparms)).into()
@@ -18703,7 +18703,7 @@ impl ::windows::core::RuntimeName for IWMCodecPrivateData {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
 impl IWMCodecPrivateData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecPrivateData_Impl, const OFFSET: isize>() -> IWMCodecPrivateData_Vtbl {
-        unsafe extern "system" fn SetPartialOutputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecPrivateData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut ::core::mem::ManuallyDrop<super::DxMediaObjects::DMO_MEDIA_TYPE>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPartialOutputType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecPrivateData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPartialOutputType(::core::mem::transmute_copy(&pmt)).into()
@@ -18733,7 +18733,7 @@ impl ::windows::core::RuntimeName for IWMCodecProps {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
 impl IWMCodecProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecProps_Impl, const OFFSET: isize>() -> IWMCodecProps_Vtbl {
-        unsafe extern "system" fn GetFormatProp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut ::core::mem::ManuallyDrop<super::DxMediaObjects::DMO_MEDIA_TYPE>, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormatProp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFormatProp(::core::mem::transmute_copy(&pmt), ::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pdwsize)).into()
@@ -18763,12 +18763,12 @@ impl ::windows::core::RuntimeName for IWMCodecStrings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
 impl IWMCodecStrings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecStrings_Impl, const OFFSET: isize>() -> IWMCodecStrings_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut ::core::mem::ManuallyDrop<super::DxMediaObjects::DMO_MEDIA_TYPE>, cchlength: u32, szname: ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szname: ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetName(::core::mem::transmute_copy(&pmt), ::core::mem::transmute_copy(&cchlength), ::core::mem::transmute_copy(&szname), ::core::mem::transmute_copy(&pcchlength)).into()
         }
-        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut ::core::mem::ManuallyDrop<super::DxMediaObjects::DMO_MEDIA_TYPE>, cchlength: u32, szdescription: ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szdescription: ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDescription(::core::mem::transmute_copy(&pmt), ::core::mem::transmute_copy(&cchlength), ::core::mem::transmute_copy(&szdescription), ::core::mem::transmute_copy(&pcchlength)).into()

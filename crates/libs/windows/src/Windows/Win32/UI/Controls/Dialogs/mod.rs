@@ -117,15 +117,15 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "comdlg32.dll""system" fn PrintDlgExA ( ppd : *mut ::core::mem::ManuallyDrop < PRINTDLGEXA > ) -> :: windows::core::HRESULT );
-    PrintDlgExA(::core::mem::transmute(ppd)).ok()
+    ::windows::core::link ! ( "comdlg32.dll""system" fn PrintDlgExA ( ppd : *mut PRINTDLGEXA ) -> :: windows::core::HRESULT );
+    PrintDlgExA(ppd).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "comdlg32.dll""system" fn PrintDlgExW ( ppd : *mut ::core::mem::ManuallyDrop < PRINTDLGEXW > ) -> :: windows::core::HRESULT );
-    PrintDlgExW(::core::mem::transmute(ppd)).ok()
+    ::windows::core::link ! ( "comdlg32.dll""system" fn PrintDlgExW ( ppd : *mut PRINTDLGEXW ) -> :: windows::core::HRESULT );
+    PrintDlgExW(ppd).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2730,7 +2730,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: ::windows::core::PCSTR,
-    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
+    pub lpCallback: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -2740,35 +2740,13 @@ pub struct PRINTDLGEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGEXA {
     fn clone(&self) -> Self {
-        Self {
-            lStructSize: self.lStructSize,
-            hwndOwner: self.hwndOwner,
-            hDevMode: self.hDevMode,
-            hDevNames: self.hDevNames,
-            hDC: self.hDC,
-            Flags: self.Flags,
-            Flags2: self.Flags2,
-            ExclusionFlags: self.ExclusionFlags,
-            nPageRanges: self.nPageRanges,
-            nMaxPageRanges: self.nMaxPageRanges,
-            lpPageRanges: self.lpPageRanges,
-            nMinPage: self.nMinPage,
-            nMaxPage: self.nMaxPage,
-            nCopies: self.nCopies,
-            hInstance: self.hInstance,
-            lpPrintTemplateName: self.lpPrintTemplateName,
-            lpCallback: self.lpCallback.clone(),
-            nPropertyPages: self.nPropertyPages,
-            lphPropertyPages: self.lphPropertyPages,
-            nStartPage: self.nStartPage,
-            dwResultAction: self.dwResultAction,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2798,7 +2776,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: ::windows::core::PCSTR,
-    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
+    pub lpCallback: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -2807,7 +2785,7 @@ pub struct PRINTDLGEXA {
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2837,7 +2815,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: ::windows::core::PCWSTR,
-    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
+    pub lpCallback: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -2847,35 +2825,13 @@ pub struct PRINTDLGEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGEXW {
     fn clone(&self) -> Self {
-        Self {
-            lStructSize: self.lStructSize,
-            hwndOwner: self.hwndOwner,
-            hDevMode: self.hDevMode,
-            hDevNames: self.hDevNames,
-            hDC: self.hDC,
-            Flags: self.Flags,
-            Flags2: self.Flags2,
-            ExclusionFlags: self.ExclusionFlags,
-            nPageRanges: self.nPageRanges,
-            nMaxPageRanges: self.nMaxPageRanges,
-            lpPageRanges: self.lpPageRanges,
-            nMinPage: self.nMinPage,
-            nMaxPage: self.nMaxPage,
-            nCopies: self.nCopies,
-            hInstance: self.hInstance,
-            lpPrintTemplateName: self.lpPrintTemplateName,
-            lpCallback: self.lpCallback.clone(),
-            nPropertyPages: self.nPropertyPages,
-            lphPropertyPages: self.lphPropertyPages,
-            nStartPage: self.nStartPage,
-            dwResultAction: self.dwResultAction,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2905,7 +2861,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: ::windows::core::PCWSTR,
-    pub lpCallback: ::core::option::Option<::windows::core::IUnknown>,
+    pub lpCallback: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -2914,7 +2870,7 @@ pub struct PRINTDLGEXW {
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

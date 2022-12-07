@@ -721,7 +721,7 @@ impl IDirectInput8A {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInput8A, ::windows::core::IUnknown);
@@ -771,7 +771,7 @@ pub struct IDirectInput8A_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumDevicesBySemantics: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ConfigureDevices: usize,
 }
@@ -826,7 +826,7 @@ impl IDirectInput8W {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInput8W, ::windows::core::IUnknown);
@@ -876,7 +876,7 @@ pub struct IDirectInput8W_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumDevicesBySemantics: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ConfigureDevices: usize,
 }
@@ -8154,21 +8154,12 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lprgFormats: *mut DIACTIONFORMATA,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::core::option::Option<::windows::core::IUnknown>,
+    pub lpUnkDDSTarget: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
     fn clone(&self) -> Self {
-        Self {
-            dwSize: self.dwSize,
-            dwcUsers: self.dwcUsers,
-            lptszUserNames: self.lptszUserNames,
-            dwcFormats: self.dwcFormats,
-            lprgFormats: self.lprgFormats,
-            hwnd: self.hwnd,
-            dics: self.dics,
-            lpUnkDDSTarget: self.lpUnkDDSTarget.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8179,7 +8170,7 @@ impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
@@ -8206,21 +8197,12 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lprgFormats: *mut DIACTIONFORMATW,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::core::option::Option<::windows::core::IUnknown>,
+    pub lpUnkDDSTarget: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
     fn clone(&self) -> Self {
-        Self {
-            dwSize: self.dwSize,
-            dwcUsers: self.dwcUsers,
-            lptszUserNames: self.lptszUserNames,
-            dwcFormats: self.dwcFormats,
-            lprgFormats: self.lprgFormats,
-            hwnd: self.hwnd,
-            dics: self.dics,
-            lpUnkDDSTarget: self.lpUnkDDSTarget.clone(),
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8231,7 +8213,7 @@ impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {

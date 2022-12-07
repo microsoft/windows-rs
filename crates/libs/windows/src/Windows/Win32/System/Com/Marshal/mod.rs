@@ -722,113 +722,113 @@ pub unsafe fn SNB_UserUnmarshal64(param0: *const u32, param1: *const u8, param2:
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGMEDIUM) {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserFree ( param0 : *const u32 , param1 : *const ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> ( ) );
-    STGMEDIUM_UserFree(param0, ::core::mem::transmute(param1))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserFree ( param0 : *const u32 , param1 : *const super:: STGMEDIUM ) -> ( ) );
+    STGMEDIUM_UserFree(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STGMEDIUM) {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserFree64 ( param0 : *const u32 , param1 : *const ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> ( ) );
-    STGMEDIUM_UserFree64(param0, ::core::mem::transmute(param1))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserFree64 ( param0 : *const u32 , param1 : *const super:: STGMEDIUM ) -> ( ) );
+    STGMEDIUM_UserFree64(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> *mut u8 );
-    STGMEDIUM_UserMarshal(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super:: STGMEDIUM ) -> *mut u8 );
+    STGMEDIUM_UserMarshal(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> *mut u8 );
-    STGMEDIUM_UserMarshal64(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super:: STGMEDIUM ) -> *mut u8 );
+    STGMEDIUM_UserMarshal64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> u32 );
-    STGMEDIUM_UserSize(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const super:: STGMEDIUM ) -> u32 );
+    STGMEDIUM_UserSize(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32 {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> u32 );
-    STGMEDIUM_UserSize64(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const super:: STGMEDIUM ) -> u32 );
+    STGMEDIUM_UserSize64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> *mut u8 );
-    STGMEDIUM_UserUnmarshal(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super:: STGMEDIUM ) -> *mut u8 );
+    STGMEDIUM_UserUnmarshal(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8 {
-    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::core::mem::ManuallyDrop < super:: STGMEDIUM > ) -> *mut u8 );
-    STGMEDIUM_UserUnmarshal64(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "ole32.dll""system" fn STGMEDIUM_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super:: STGMEDIUM ) -> *mut u8 );
+    STGMEDIUM_UserUnmarshal64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserFree ( param0 : *const u32 , param1 : *const ::core::mem::ManuallyDrop < super:: VARIANT > ) -> ( ) );
-    VARIANT_UserFree(param0, ::core::mem::transmute(param1))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserFree ( param0 : *const u32 , param1 : *const super:: VARIANT ) -> ( ) );
+    VARIANT_UserFree(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIANT) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserFree64 ( param0 : *const u32 , param1 : *const ::core::mem::ManuallyDrop < super:: VARIANT > ) -> ( ) );
-    VARIANT_UserFree64(param0, ::core::mem::transmute(param1))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserFree64 ( param0 : *const u32 , param1 : *const super:: VARIANT ) -> ( ) );
+    VARIANT_UserFree64(param0, param1)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::core::mem::ManuallyDrop < super:: VARIANT > ) -> *mut u8 );
-    VARIANT_UserMarshal(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super:: VARIANT ) -> *mut u8 );
+    VARIANT_UserMarshal(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::core::mem::ManuallyDrop < super:: VARIANT > ) -> *mut u8 );
-    VARIANT_UserMarshal64(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const super:: VARIANT ) -> *mut u8 );
+    VARIANT_UserMarshal64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const ::core::mem::ManuallyDrop < super:: VARIANT > ) -> u32 );
-    VARIANT_UserSize(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const super:: VARIANT ) -> u32 );
+    VARIANT_UserSize(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const ::core::mem::ManuallyDrop < super:: VARIANT > ) -> u32 );
-    VARIANT_UserSize64(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const super:: VARIANT ) -> u32 );
+    VARIANT_UserSize64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::core::mem::ManuallyDrop < super:: VARIANT > ) -> *mut u8 );
-    VARIANT_UserUnmarshal(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super:: VARIANT ) -> *mut u8 );
+    VARIANT_UserUnmarshal(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::core::mem::ManuallyDrop < super:: VARIANT > ) -> *mut u8 );
-    VARIANT_UserUnmarshal64(param0, param1, ::core::mem::transmute(param2))
+    ::windows::core::link ! ( "oleaut32.dll""system" fn VARIANT_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut super:: VARIANT ) -> *mut u8 );
+    VARIANT_UserUnmarshal64(param0, param1, param2)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]

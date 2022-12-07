@@ -740,7 +740,7 @@ impl ID2D1BitmapRenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -789,7 +789,7 @@ impl ID2D1BitmapRenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -1359,7 +1359,7 @@ impl ID2D1CommandSink {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
+        (::windows::core::Vtable::vtable(self).DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1454,7 +1454,7 @@ impl ID2D1CommandSink {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters1), layer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters1, layer.into().abi()).ok()
     }
     pub unsafe fn PopAxisAlignedClip(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PopAxisAlignedClip)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1512,7 +1512,7 @@ pub struct ID2D1CommandSink_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     Clear: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::HRESULT,
+    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawGlyphRun: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1551,7 +1551,7 @@ pub struct ID2D1CommandSink_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     PushAxisAlignedClip: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     PushLayer: usize,
     pub PopAxisAlignedClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1606,7 +1606,7 @@ impl ID2D1CommandSink1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
+        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1701,7 +1701,7 @@ impl ID2D1CommandSink1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters1), layer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters1, layer.into().abi()).ok()
     }
     pub unsafe fn PopAxisAlignedClip(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.PopAxisAlignedClip)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1793,7 +1793,7 @@ impl ID2D1CommandSink2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1888,7 +1888,7 @@ impl ID2D1CommandSink2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters1), layer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters1, layer.into().abi()).ok()
     }
     pub unsafe fn PopAxisAlignedClip(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.PopAxisAlignedClip)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2007,7 +2007,7 @@ impl ID2D1CommandSink3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2102,7 +2102,7 @@ impl ID2D1CommandSink3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters1), layer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters1, layer.into().abi()).ok()
     }
     pub unsafe fn PopAxisAlignedClip(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.PopAxisAlignedClip)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2223,7 +2223,7 @@ impl ID2D1CommandSink4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2318,7 +2318,7 @@ impl ID2D1CommandSink4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters1), layer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters1, layer.into().abi()).ok()
     }
     pub unsafe fn PopAxisAlignedClip(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PopAxisAlignedClip)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2442,7 +2442,7 @@ impl ID2D1CommandSink5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2537,7 +2537,7 @@ impl ID2D1CommandSink5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters1), layer.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters1, layer.into().abi()).ok()
     }
     pub unsafe fn PopAxisAlignedClip(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PopAxisAlignedClip)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3020,7 +3020,7 @@ impl ID2D1DCRenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -3069,7 +3069,7 @@ impl ID2D1DCRenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -4040,7 +4040,7 @@ impl ID2D1DeviceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -4089,7 +4089,7 @@ impl ID2D1DeviceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -4167,7 +4167,7 @@ impl ID2D1DeviceContext {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2(&self, size: Common::D2D_SIZE_U, sourcedata: ::core::option::Option<*const ::core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, ::core::mem::transmute(bitmapproperties), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, bitmapproperties, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -4271,7 +4271,7 @@ impl ID2D1DeviceContext {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::Result<Common::D2D_RECT_F> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(device))
@@ -4313,7 +4313,7 @@ impl ID2D1DeviceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4345,7 +4345,7 @@ impl ID2D1DeviceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).PushLayer2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).PushLayer2)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4376,7 +4376,7 @@ impl ID2D1DeviceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Vtable::vtable(self).GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), requiredinputrects, inputcount).ok()
+        (::windows::core::Vtable::vtable(self).GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4418,11 +4418,11 @@ unsafe impl ::windows::core::Interface for ID2D1DeviceContext {
 pub struct ID2D1DeviceContext_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateBitmap2: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-    pub CreateBitmapFromWicBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wicbitmapsource: *mut ::core::ffi::c_void, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBitmapFromWicBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wicbitmapsource: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))]
     CreateBitmapFromWicBitmap2: usize,
     pub CreateColorContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32, colorcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4432,7 +4432,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
     CreateColorContextFromWicColorContext: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateBitmapFromDxgiSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBitmapFromDxgiSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateBitmapFromDxgiSurface: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, effect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4466,7 +4466,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     GetImageWorldBounds: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub GetGlyphRunWorldBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
+    pub GetGlyphRunWorldBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     GetGlyphRunWorldBounds: usize,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut *mut ::core::ffi::c_void),
@@ -4485,7 +4485,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     pub SetUnitMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unitmode: D2D1_UNIT_MODE),
     pub GetUnitMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_UNIT_MODE,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawGlyphRun2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawGlyphRun2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawGlyphRun2: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4501,7 +4501,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     DrawBitmap2: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub PushLayer2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: *mut ::core::ffi::c_void),
+    pub PushLayer2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: *mut ::core::ffi::c_void),
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     PushLayer2: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4514,7 +4514,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     GetEffectInvalidRectangles: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub GetEffectRequiredInputRectangles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendereffect: *mut ::core::ffi::c_void, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const ::core::mem::ManuallyDrop<D2D1_EFFECT_INPUT_DESCRIPTION>, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> ::windows::core::HRESULT,
+    pub GetEffectRequiredInputRectangles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendereffect: *mut ::core::ffi::c_void, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const D2D1_EFFECT_INPUT_DESCRIPTION, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     GetEffectRequiredInputRectangles: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4728,7 +4728,7 @@ impl ID2D1DeviceContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -4777,7 +4777,7 @@ impl ID2D1DeviceContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -4855,7 +4855,7 @@ impl ID2D1DeviceContext1 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2(&self, size: Common::D2D_SIZE_U, sourcedata: ::core::option::Option<*const ::core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, ::core::mem::transmute(bitmapproperties), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, bitmapproperties, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -4959,7 +4959,7 @@ impl ID2D1DeviceContext1 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::Result<Common::D2D_RECT_F> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) {
         (::windows::core::Vtable::vtable(self).base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(device))
@@ -5001,7 +5001,7 @@ impl ID2D1DeviceContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5033,7 +5033,7 @@ impl ID2D1DeviceContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PushLayer2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.PushLayer2)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5064,7 +5064,7 @@ impl ID2D1DeviceContext1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), requiredinputrects, inputcount).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5337,7 +5337,7 @@ impl ID2D1DeviceContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -5386,7 +5386,7 @@ impl ID2D1DeviceContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -5464,7 +5464,7 @@ impl ID2D1DeviceContext2 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2(&self, size: Common::D2D_SIZE_U, sourcedata: ::core::option::Option<*const ::core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, ::core::mem::transmute(bitmapproperties), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, bitmapproperties, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -5568,7 +5568,7 @@ impl ID2D1DeviceContext2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::Result<Common::D2D_RECT_F> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(device))
@@ -5610,7 +5610,7 @@ impl ID2D1DeviceContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5642,7 +5642,7 @@ impl ID2D1DeviceContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -5673,7 +5673,7 @@ impl ID2D1DeviceContext2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), requiredinputrects, inputcount).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6045,7 +6045,7 @@ impl ID2D1DeviceContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -6094,7 +6094,7 @@ impl ID2D1DeviceContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -6172,7 +6172,7 @@ impl ID2D1DeviceContext3 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2(&self, size: Common::D2D_SIZE_U, sourcedata: ::core::option::Option<*const ::core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, ::core::mem::transmute(bitmapproperties), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, bitmapproperties, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -6276,7 +6276,7 @@ impl ID2D1DeviceContext3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::Result<Common::D2D_RECT_F> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(device))
@@ -6318,7 +6318,7 @@ impl ID2D1DeviceContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6350,7 +6350,7 @@ impl ID2D1DeviceContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6381,7 +6381,7 @@ impl ID2D1DeviceContext3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), requiredinputrects, inputcount).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6737,7 +6737,7 @@ impl ID2D1DeviceContext4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -6786,7 +6786,7 @@ impl ID2D1DeviceContext4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -6864,7 +6864,7 @@ impl ID2D1DeviceContext4 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2(&self, size: Common::D2D_SIZE_U, sourcedata: ::core::option::Option<*const ::core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, ::core::mem::transmute(bitmapproperties), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, bitmapproperties, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -6968,7 +6968,7 @@ impl ID2D1DeviceContext4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::Result<Common::D2D_RECT_F> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(device))
@@ -7010,7 +7010,7 @@ impl ID2D1DeviceContext4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7042,7 +7042,7 @@ impl ID2D1DeviceContext4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7073,7 +7073,7 @@ impl ID2D1DeviceContext4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), requiredinputrects, inputcount).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7217,7 +7217,7 @@ impl ID2D1DeviceContext4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
-        (::windows::core::Vtable::vtable(self).DrawColorBitmapGlyphRun)(::windows::core::Vtable::as_raw(self), glyphimageformat, ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, bitmapsnapoption)
+        (::windows::core::Vtable::vtable(self).DrawColorBitmapGlyphRun)(::windows::core::Vtable::as_raw(self), glyphimageformat, ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, bitmapsnapoption)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -7226,7 +7226,7 @@ impl ID2D1DeviceContext4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID2D1SvgGlyphStyle>>,
     {
-        (::windows::core::Vtable::vtable(self).DrawSvgGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, measuringmode)
+        (::windows::core::Vtable::vtable(self).DrawSvgGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -7288,11 +7288,11 @@ pub struct ID2D1DeviceContext4_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawTextLayout2: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawColorBitmapGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION),
+    pub DrawColorBitmapGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawColorBitmapGlyphRun: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawSvgGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, defaultfillbrush: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawSvgGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawSvgGlyphRun: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -7510,7 +7510,7 @@ impl ID2D1DeviceContext5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -7559,7 +7559,7 @@ impl ID2D1DeviceContext5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -7637,7 +7637,7 @@ impl ID2D1DeviceContext5 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2(&self, size: Common::D2D_SIZE_U, sourcedata: ::core::option::Option<*const ::core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, ::core::mem::transmute(bitmapproperties), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, bitmapproperties, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -7741,7 +7741,7 @@ impl ID2D1DeviceContext5 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::Result<Common::D2D_RECT_F> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(device))
@@ -7783,7 +7783,7 @@ impl ID2D1DeviceContext5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7815,7 +7815,7 @@ impl ID2D1DeviceContext5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7846,7 +7846,7 @@ impl ID2D1DeviceContext5 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), requiredinputrects, inputcount).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7990,7 +7990,7 @@ impl ID2D1DeviceContext5 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
-        (::windows::core::Vtable::vtable(self).base__.DrawColorBitmapGlyphRun)(::windows::core::Vtable::as_raw(self), glyphimageformat, ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, bitmapsnapoption)
+        (::windows::core::Vtable::vtable(self).base__.DrawColorBitmapGlyphRun)(::windows::core::Vtable::as_raw(self), glyphimageformat, ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, bitmapsnapoption)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -7999,7 +7999,7 @@ impl ID2D1DeviceContext5 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID2D1SvgGlyphStyle>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DrawSvgGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.DrawSvgGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -8298,7 +8298,7 @@ impl ID2D1DeviceContext6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -8347,7 +8347,7 @@ impl ID2D1DeviceContext6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -8425,7 +8425,7 @@ impl ID2D1DeviceContext6 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2(&self, size: Common::D2D_SIZE_U, sourcedata: ::core::option::Option<*const ::core::ffi::c_void>, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, ::core::mem::transmute(bitmapproperties), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateBitmap2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(size), ::core::mem::transmute(sourcedata.unwrap_or(::std::ptr::null())), pitch, bitmapproperties, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -8529,7 +8529,7 @@ impl ID2D1DeviceContext6 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn GetGlyphRunWorldBounds(&self, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::Result<Common::D2D_RECT_F> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetGlyphRunWorldBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDevice(&self, device: *mut ::core::option::Option<ID2D1Device>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(device))
@@ -8571,7 +8571,7 @@ impl ID2D1DeviceContext6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.DrawGlyphRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, ::core::mem::transmute(glyphrundescription.unwrap_or(::std::ptr::null())), foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -8603,7 +8603,7 @@ impl ID2D1DeviceContext6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.PushLayer2)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -8634,7 +8634,7 @@ impl ID2D1DeviceContext6 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Effect>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inputdescriptions), requiredinputrects, inputcount).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetEffectRequiredInputRectangles)(::windows::core::Vtable::as_raw(self), rendereffect.into().abi(), ::core::mem::transmute(renderimagerectangle.unwrap_or(::std::ptr::null())), inputdescriptions, requiredinputrects, inputcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -8778,7 +8778,7 @@ impl ID2D1DeviceContext6 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
-        (::windows::core::Vtable::vtable(self).base__.base__.DrawColorBitmapGlyphRun)(::windows::core::Vtable::as_raw(self), glyphimageformat, ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), measuringmode, bitmapsnapoption)
+        (::windows::core::Vtable::vtable(self).base__.base__.DrawColorBitmapGlyphRun)(::windows::core::Vtable::as_raw(self), glyphimageformat, ::core::mem::transmute(baselineorigin), glyphrun, measuringmode, bitmapsnapoption)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -8787,7 +8787,7 @@ impl ID2D1DeviceContext6 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID2D1SvgGlyphStyle>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.DrawSvgGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.base__.DrawSvgGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, defaultfillbrush.into().abi(), svgglyphstyle.into().abi(), colorpaletteindex, measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -12769,7 +12769,7 @@ impl ID2D1HwndRenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).base__.DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -12818,7 +12818,7 @@ impl ID2D1HwndRenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).base__.PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).base__.PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -14717,7 +14717,7 @@ impl ID2D1RenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Brush>>,
     {
-        (::windows::core::Vtable::vtable(self).DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), ::core::mem::transmute(glyphrun), foregroundbrush.into().abi(), measuringmode)
+        (::windows::core::Vtable::vtable(self).DrawGlyphRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(baselineorigin), glyphrun, foregroundbrush.into().abi(), measuringmode)
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -14766,7 +14766,7 @@ impl ID2D1RenderTarget {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID2D1Layer>>,
     {
-        (::windows::core::Vtable::vtable(self).PushLayer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(layerparameters), layer.into().abi())
+        (::windows::core::Vtable::vtable(self).PushLayer)(::windows::core::Vtable::as_raw(self), layerparameters, layer.into().abi())
     }
     pub unsafe fn PopLayer(&self) {
         (::windows::core::Vtable::vtable(self).PopLayer)(::windows::core::Vtable::as_raw(self))
@@ -14959,7 +14959,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawTextLayout: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawGlyphRun: usize,
     #[cfg(feature = "Foundation_Numerics")]
@@ -14985,7 +14985,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     pub SetTags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag1: u64, tag2: u64),
     pub GetTags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag1: *mut u64, tag2: *mut u64),
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: *mut ::core::ffi::c_void),
+    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: *mut ::core::ffi::c_void),
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     PushLayer: usize,
     pub PopLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -23078,12 +23078,12 @@ pub struct D2D1_BITMAP_PROPERTIES1 {
     pub dpiX: f32,
     pub dpiY: f32,
     pub bitmapOptions: D2D1_BITMAP_OPTIONS,
-    pub colorContext: ::core::option::Option<ID2D1ColorContext>,
+    pub colorContext: ::windows::core::ManuallyDrop<ID2D1ColorContext>,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D2D1_BITMAP_PROPERTIES1 {
     fn clone(&self) -> Self {
-        Self { pixelFormat: self.pixelFormat, dpiX: self.dpiX, dpiY: self.dpiY, bitmapOptions: self.bitmapOptions, colorContext: self.colorContext.clone() }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -23094,7 +23094,7 @@ impl ::core::fmt::Debug for D2D1_BITMAP_PROPERTIES1 {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_BITMAP_PROPERTIES1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D2D1_BITMAP_PROPERTIES1 {
@@ -23349,14 +23349,14 @@ impl ::core::default::Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
-    pub effect: ::core::option::Option<ID2D1Effect>,
+    pub effect: ::windows::core::ManuallyDrop<ID2D1Effect>,
     pub inputIndex: u32,
     pub inputRectangle: Common::D2D_RECT_F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::clone::Clone for D2D1_EFFECT_INPUT_DESCRIPTION {
     fn clone(&self) -> Self {
-        Self { effect: self.effect.clone(), inputIndex: self.inputIndex, inputRectangle: self.inputRectangle }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -23367,7 +23367,7 @@ impl ::core::fmt::Debug for D2D1_EFFECT_INPUT_DESCRIPTION {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_EFFECT_INPUT_DESCRIPTION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_EFFECT_INPUT_DESCRIPTION {
@@ -23939,25 +23939,17 @@ impl ::core::default::Default for D2D1_INPUT_ELEMENT_DESC {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct D2D1_LAYER_PARAMETERS {
     pub contentBounds: Common::D2D_RECT_F,
-    pub geometricMask: ::core::option::Option<ID2D1Geometry>,
+    pub geometricMask: ::windows::core::ManuallyDrop<ID2D1Geometry>,
     pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
     pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
     pub opacity: f32,
-    pub opacityBrush: ::core::option::Option<ID2D1Brush>,
+    pub opacityBrush: ::windows::core::ManuallyDrop<ID2D1Brush>,
     pub layerOptions: D2D1_LAYER_OPTIONS,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS {
     fn clone(&self) -> Self {
-        Self {
-            contentBounds: self.contentBounds,
-            geometricMask: self.geometricMask.clone(),
-            maskAntialiasMode: self.maskAntialiasMode,
-            maskTransform: self.maskTransform,
-            opacity: self.opacity,
-            opacityBrush: self.opacityBrush.clone(),
-            layerOptions: self.layerOptions,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -23968,7 +23960,7 @@ impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_LAYER_PARAMETERS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS {
@@ -23989,25 +23981,17 @@ impl ::core::default::Default for D2D1_LAYER_PARAMETERS {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct D2D1_LAYER_PARAMETERS1 {
     pub contentBounds: Common::D2D_RECT_F,
-    pub geometricMask: ::core::option::Option<ID2D1Geometry>,
+    pub geometricMask: ::windows::core::ManuallyDrop<ID2D1Geometry>,
     pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
     pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
     pub opacity: f32,
-    pub opacityBrush: ::core::option::Option<ID2D1Brush>,
+    pub opacityBrush: ::windows::core::ManuallyDrop<ID2D1Brush>,
     pub layerOptions: D2D1_LAYER_OPTIONS1,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS1 {
     fn clone(&self) -> Self {
-        Self {
-            contentBounds: self.contentBounds,
-            geometricMask: self.geometricMask.clone(),
-            maskAntialiasMode: self.maskAntialiasMode,
-            maskTransform: self.maskTransform,
-            opacity: self.opacity,
-            opacityBrush: self.opacityBrush.clone(),
-            layerOptions: self.layerOptions,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -24018,7 +24002,7 @@ impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS1 {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_LAYER_PARAMETERS1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS1 {

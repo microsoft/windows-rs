@@ -99,7 +99,7 @@ pub struct IDMLBindingTable_Vtbl {
     pub BindTemporaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
     pub BindPersistentResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const ::core::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     Reset: usize,
 }
@@ -394,7 +394,7 @@ pub struct IDMLDevice_Vtbl {
     pub CreateOperatorInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCommandRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const ::core::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateBindingTable: usize,
     pub Evict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3000,7 +3000,7 @@ impl ::core::default::Default for DML_BINDING_PROPERTIES {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BINDING_TABLE_DESC {
-    pub Dispatchable: ::core::option::Option<IDMLDispatchable>,
+    pub Dispatchable: ::windows::core::ManuallyDrop<IDMLDispatchable>,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
     pub GPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_GPU_DESCRIPTOR_HANDLE,
     pub SizeInDescriptors: u32,
@@ -3008,12 +3008,7 @@ pub struct DML_BINDING_TABLE_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for DML_BINDING_TABLE_DESC {
     fn clone(&self) -> Self {
-        Self {
-            Dispatchable: self.Dispatchable.clone(),
-            CPUDescriptorHandle: self.CPUDescriptorHandle,
-            GPUDescriptorHandle: self.GPUDescriptorHandle,
-            SizeInDescriptors: self.SizeInDescriptors,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3024,7 +3019,7 @@ impl ::core::fmt::Debug for DML_BINDING_TABLE_DESC {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for DML_BINDING_TABLE_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BINDING_TABLE_DESC {
@@ -3083,14 +3078,14 @@ impl ::core::default::Default for DML_BUFFER_ARRAY_BINDING {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_BINDING {
-    pub Buffer: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Buffer: ::windows::core::ManuallyDrop<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::clone::Clone for DML_BUFFER_BINDING {
     fn clone(&self) -> Self {
-        Self { Buffer: self.Buffer.clone(), Offset: self.Offset, SizeInBytes: self.SizeInBytes }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3101,7 +3096,7 @@ impl ::core::fmt::Debug for DML_BUFFER_BINDING {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for DML_BUFFER_BINDING {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BUFFER_BINDING {
@@ -6766,12 +6761,12 @@ impl ::core::default::Default for DML_OPERATOR_DESC {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
-    pub Operator: ::core::option::Option<IDMLOperator>,
+    pub Operator: ::windows::core::ManuallyDrop<IDMLOperator>,
     pub Name: ::windows::core::PCSTR,
 }
 impl ::core::clone::Clone for DML_OPERATOR_GRAPH_NODE_DESC {
     fn clone(&self) -> Self {
-        Self { Operator: self.Operator.clone(), Name: self.Name }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
@@ -6780,7 +6775,7 @@ impl ::core::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for DML_OPERATOR_GRAPH_NODE_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DML_OPERATOR_GRAPH_NODE_DESC {
     fn eq(&self, other: &Self) -> bool {

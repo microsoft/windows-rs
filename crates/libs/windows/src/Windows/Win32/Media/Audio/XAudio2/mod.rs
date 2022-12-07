@@ -2134,13 +2134,13 @@ impl ::core::default::Default for XAUDIO2_EFFECT_CHAIN {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
-    pub pEffect: ::core::option::Option<::windows::core::IUnknown>,
+    pub pEffect: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
     pub InitialState: super::super::super::Foundation::BOOL,
     pub OutputChannels: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for XAUDIO2_EFFECT_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for XAUDIO2_EFFECT_DESCRIPTOR {
@@ -2205,10 +2205,10 @@ impl ::core::default::Default for XAUDIO2_PERFORMANCE_DATA {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
-    pub pOutputVoice: ::core::option::Option<IXAudio2Voice>,
+    pub pOutputVoice: ::windows::core::ManuallyDrop<IXAudio2Voice>,
 }
 unsafe impl ::windows::core::Abi for XAUDIO2_SEND_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::default::Default for XAUDIO2_SEND_DESCRIPTOR {
     fn default() -> Self {

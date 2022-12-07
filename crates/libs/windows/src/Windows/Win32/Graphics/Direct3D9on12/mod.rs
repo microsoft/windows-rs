@@ -2,15 +2,15 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9> {
-    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12 ( sdkversion : u32 , poverridelist : *mut ::core::mem::ManuallyDrop < D3D9ON12_ARGS > , numoverrideentries : u32 ) -> ::core::option::Option < super::Direct3D9:: IDirect3D9 > );
-    Direct3DCreate9On12(sdkversion, ::core::mem::transmute(poverridelist), numoverrideentries)
+    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12 ( sdkversion : u32 , poverridelist : *mut D3D9ON12_ARGS , numoverrideentries : u32 ) -> ::core::option::Option < super::Direct3D9:: IDirect3D9 > );
+    Direct3DCreate9On12(sdkversion, poverridelist, numoverrideentries)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut ::core::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12Ex ( sdkversion : u32 , poverridelist : *mut ::core::mem::ManuallyDrop < D3D9ON12_ARGS > , numoverrideentries : u32 , ppoutputinterface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    Direct3DCreate9On12Ex(sdkversion, ::core::mem::transmute(poverridelist), numoverrideentries, ::core::mem::transmute(ppoutputinterface)).ok()
+    ::windows::core::link ! ( "d3d9.dll""system" fn Direct3DCreate9On12Ex ( sdkversion : u32 , poverridelist : *mut D3D9ON12_ARGS , numoverrideentries : u32 , ppoutputinterface : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    Direct3DCreate9On12Ex(sdkversion, poverridelist, numoverrideentries, ::core::mem::transmute(ppoutputinterface)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`*"]
 #[repr(transparent)]
@@ -81,21 +81,15 @@ pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D9ON12_ARGS {
     pub Enable9On12: super::super::Foundation::BOOL,
-    pub pD3D12Device: ::core::option::Option<::windows::core::IUnknown>,
-    pub ppD3D12Queues: [::core::option::Option<::windows::core::IUnknown>; 2],
+    pub pD3D12Device: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub ppD3D12Queues: [::windows::core::ManuallyDrop<::windows::core::IUnknown>; 2usize],
     pub NumQueues: u32,
     pub NodeMask: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for D3D9ON12_ARGS {
     fn clone(&self) -> Self {
-        Self {
-            Enable9On12: self.Enable9On12,
-            pD3D12Device: self.pD3D12Device.clone(),
-            ppD3D12Queues: self.ppD3D12Queues.clone(),
-            NumQueues: self.NumQueues,
-            NodeMask: self.NodeMask,
-        }
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -106,7 +100,7 @@ impl ::core::fmt::Debug for D3D9ON12_ARGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D9ON12_ARGS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D9ON12_ARGS {
