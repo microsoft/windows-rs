@@ -4,11 +4,11 @@
 pub unsafe fn WebAuthNAuthenticatorGetAssertion<P0, P1>(hwnd: P0, pwszrpid: P1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "webauthn.dll""system" fn WebAuthNAuthenticatorGetAssertion ( hwnd : super::super::Foundation:: HWND , pwszrpid : :: windows::core::PCWSTR , pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA , pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS , ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.into(), pwszrpid.into().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1327,16 +1327,16 @@ pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
     pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Vtable::as_raw(self), packagefullname.into()).ok()
+        (::windows::core::Vtable::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Vtable::as_raw(self), packagefullname.into().abi()).ok()
     }
     pub unsafe fn IsRegisteredForContentPrefetch<P0>(&self, packagefullname: P0) -> ::windows::core::Result<u8>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Vtable::as_raw(self), packagefullname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Vtable::as_raw(self), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContentPrefetcherTaskTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);

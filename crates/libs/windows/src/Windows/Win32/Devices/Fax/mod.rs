@@ -54,20 +54,20 @@ pub unsafe fn FaxCompleteJobParamsW(jobparams: *mut *mut FAX_JOB_PARAMW, coverpa
 #[inline]
 pub unsafe fn FaxConnectFaxServerA<P0>(machinename: P0, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxConnectFaxServerA ( machinename : :: windows::core::PCSTR , faxhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    FaxConnectFaxServerA(machinename.into(), faxhandle)
+    FaxConnectFaxServerA(machinename.into().abi(), faxhandle)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FaxConnectFaxServerW<P0>(machinename: P0, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxConnectFaxServerW ( machinename : :: windows::core::PCWSTR , faxhandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-    FaxConnectFaxServerW(machinename.into(), faxhandle)
+    FaxConnectFaxServerW(machinename.into().abi(), faxhandle)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -75,11 +75,11 @@ where
 pub unsafe fn FaxEnableRoutingMethodA<P0, P1, P2>(faxporthandle: P0, routingguid: P1, enabled: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxEnableRoutingMethodA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCSTR , enabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    FaxEnableRoutingMethodA(faxporthandle.into(), routingguid.into(), enabled.into())
+    FaxEnableRoutingMethodA(faxporthandle.into(), routingguid.into().abi(), enabled.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -87,11 +87,11 @@ where
 pub unsafe fn FaxEnableRoutingMethodW<P0, P1, P2>(faxporthandle: P0, routingguid: P1, enabled: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxEnableRoutingMethodW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCWSTR , enabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    FaxEnableRoutingMethodW(faxporthandle.into(), routingguid.into(), enabled.into())
+    FaxEnableRoutingMethodW(faxporthandle.into(), routingguid.into().abi(), enabled.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -295,10 +295,10 @@ where
 pub unsafe fn FaxGetRoutingInfoA<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxGetRoutingInfoA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCSTR , routinginfobuffer : *mut *mut u8 , routinginfobuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    FaxGetRoutingInfoA(faxporthandle.into(), routingguid.into(), routinginfobuffer, routinginfobuffersize)
+    FaxGetRoutingInfoA(faxporthandle.into(), routingguid.into().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -306,10 +306,10 @@ where
 pub unsafe fn FaxGetRoutingInfoW<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxGetRoutingInfoW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCWSTR , routinginfobuffer : *mut *mut u8 , routinginfobuffersize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    FaxGetRoutingInfoW(faxporthandle.into(), routingguid.into(), routinginfobuffer, routinginfobuffersize)
+    FaxGetRoutingInfoW(faxporthandle.into(), routingguid.into().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -353,25 +353,25 @@ pub unsafe fn FaxPrintCoverPageW(faxcontextinfo: *const FAX_CONTEXT_INFOW, cover
 pub unsafe fn FaxRegisterRoutingExtensionW<P0, P1, P2, P3>(faxhandle: P0, extensionname: P1, friendlyname: P2, imagename: P3, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxRegisterRoutingExtensionW ( faxhandle : super::super::Foundation:: HANDLE , extensionname : :: windows::core::PCWSTR , friendlyname : :: windows::core::PCWSTR , imagename : :: windows::core::PCWSTR , callback : PFAX_ROUTING_INSTALLATION_CALLBACKW , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    FaxRegisterRoutingExtensionW(faxhandle.into(), extensionname.into(), friendlyname.into(), imagename.into(), callback, context)
+    FaxRegisterRoutingExtensionW(faxhandle.into(), extensionname.into().abi(), friendlyname.into().abi(), imagename.into().abi(), callback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FaxRegisterServiceProviderW<P0, P1, P2, P3>(deviceprovider: P0, friendlyname: P1, imagename: P2, tspname: P3) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxRegisterServiceProviderW ( deviceprovider : :: windows::core::PCWSTR , friendlyname : :: windows::core::PCWSTR , imagename : :: windows::core::PCWSTR , tspname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    FaxRegisterServiceProviderW(deviceprovider.into(), friendlyname.into(), imagename.into(), tspname.into())
+    FaxRegisterServiceProviderW(deviceprovider.into().abi(), friendlyname.into().abi(), imagename.into().abi(), tspname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -379,10 +379,10 @@ where
 pub unsafe fn FaxSendDocumentA<P0, P1>(faxhandle: P0, filename: P1, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxSendDocumentA ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , jobparams : *mut FAX_JOB_PARAMA , coverpageinfo : *const FAX_COVERPAGE_INFOA , faxjobid : *mut u32 ) -> super::super::Foundation:: BOOL );
-    FaxSendDocumentA(faxhandle.into(), filename.into(), jobparams, coverpageinfo, faxjobid)
+    FaxSendDocumentA(faxhandle.into(), filename.into().abi(), jobparams, coverpageinfo, faxjobid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -390,10 +390,10 @@ where
 pub unsafe fn FaxSendDocumentForBroadcastA<P0, P1>(faxhandle: P0, filename: P1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxSendDocumentForBroadcastA ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCSTR , faxjobid : *mut u32 , faxrecipientcallback : PFAX_RECIPIENT_CALLBACKA , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    FaxSendDocumentForBroadcastA(faxhandle.into(), filename.into(), faxjobid, faxrecipientcallback, context)
+    FaxSendDocumentForBroadcastA(faxhandle.into(), filename.into().abi(), faxjobid, faxrecipientcallback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -401,10 +401,10 @@ where
 pub unsafe fn FaxSendDocumentForBroadcastW<P0, P1>(faxhandle: P0, filename: P1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxSendDocumentForBroadcastW ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , faxjobid : *mut u32 , faxrecipientcallback : PFAX_RECIPIENT_CALLBACKW , context : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    FaxSendDocumentForBroadcastW(faxhandle.into(), filename.into(), faxjobid, faxrecipientcallback, context)
+    FaxSendDocumentForBroadcastW(faxhandle.into(), filename.into().abi(), faxjobid, faxrecipientcallback, context)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -412,10 +412,10 @@ where
 pub unsafe fn FaxSendDocumentW<P0, P1>(faxhandle: P0, filename: P1, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxSendDocumentW ( faxhandle : super::super::Foundation:: HANDLE , filename : :: windows::core::PCWSTR , jobparams : *mut FAX_JOB_PARAMW , coverpageinfo : *const FAX_COVERPAGE_INFOW , faxjobid : *mut u32 ) -> super::super::Foundation:: BOOL );
-    FaxSendDocumentW(faxhandle.into(), filename.into(), jobparams, coverpageinfo, faxjobid)
+    FaxSendDocumentW(faxhandle.into(), filename.into().abi(), jobparams, coverpageinfo, faxjobid)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -523,10 +523,10 @@ where
 pub unsafe fn FaxSetRoutingInfoA<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxSetRoutingInfoA ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCSTR , routinginfobuffer : *const u8 , routinginfobuffersize : u32 ) -> super::super::Foundation:: BOOL );
-    FaxSetRoutingInfoA(faxporthandle.into(), routingguid.into(), routinginfobuffer, routinginfobuffersize)
+    FaxSetRoutingInfoA(faxporthandle.into(), routingguid.into().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -534,49 +534,49 @@ where
 pub unsafe fn FaxSetRoutingInfoW<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxSetRoutingInfoW ( faxporthandle : super::super::Foundation:: HANDLE , routingguid : :: windows::core::PCWSTR , routinginfobuffer : *const u8 , routinginfobuffersize : u32 ) -> super::super::Foundation:: BOOL );
-    FaxSetRoutingInfoW(faxporthandle.into(), routingguid.into(), routinginfobuffer, routinginfobuffersize)
+    FaxSetRoutingInfoW(faxporthandle.into(), routingguid.into().abi(), routinginfobuffer, routinginfobuffersize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn FaxStartPrintJobA<P0>(printername: P0, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxStartPrintJobA ( printername : :: windows::core::PCSTR , printinfo : *const FAX_PRINT_INFOA , faxjobid : *mut u32 , faxcontextinfo : *mut FAX_CONTEXT_INFOA ) -> super::super::Foundation:: BOOL );
-    FaxStartPrintJobA(printername.into(), printinfo, faxjobid, faxcontextinfo)
+    FaxStartPrintJobA(printername.into().abi(), printinfo, faxjobid, faxcontextinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn FaxStartPrintJobW<P0>(printername: P0, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxStartPrintJobW ( printername : :: windows::core::PCWSTR , printinfo : *const FAX_PRINT_INFOW , faxjobid : *mut u32 , faxcontextinfo : *mut FAX_CONTEXT_INFOW ) -> super::super::Foundation:: BOOL );
-    FaxStartPrintJobW(printername.into(), printinfo, faxjobid, faxcontextinfo)
+    FaxStartPrintJobW(printername.into().abi(), printinfo, faxjobid, faxcontextinfo)
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FaxUnregisterServiceProviderW<P0>(deviceprovider: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winfax.dll""system" fn FaxUnregisterServiceProviderW ( deviceprovider : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    FaxUnregisterServiceProviderW(deviceprovider.into())
+    FaxUnregisterServiceProviderW(deviceprovider.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[inline]
 pub unsafe fn SendToFaxRecipient<P0>(sndmode: SendToMode, lpfilename: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "fxsutility.dll""system" fn SendToFaxRecipient ( sndmode : SendToMode , lpfilename : :: windows::core::PCWSTR ) -> u32 );
-    SendToFaxRecipient(sndmode, lpfilename.into())
+    SendToFaxRecipient(sndmode, lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7510,9 +7510,9 @@ impl IStiDevice {
     pub unsafe fn Initialize<P0, P1>(&self, hinst: P0, pwszdevicename: P1, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hinst.into(), pwszdevicename.into(), dwversion, dwmode).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), hinst.into(), pwszdevicename.into().abi(), dwversion, dwmode).ok()
     }
     pub unsafe fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), pdevcaps).ok()
@@ -7645,9 +7645,9 @@ pub struct IStiDeviceControl(::windows::core::IUnknown);
 impl IStiDeviceControl {
     pub unsafe fn Initialize<P0>(&self, dwdevicetype: u32, dwmode: u32, pwszportname: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), dwdevicetype, dwmode, pwszportname.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), dwdevicetype, dwmode, pwszportname.into().abi(), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -7688,9 +7688,9 @@ impl IStiDeviceControl {
     }
     pub unsafe fn WriteToErrorLog<P0>(&self, dwmessagetype: u32, pszmessage: P0, dwerrorcode: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WriteToErrorLog)(::windows::core::Vtable::as_raw(self), dwmessagetype, pszmessage.into(), dwerrorcode).ok()
+        (::windows::core::Vtable::vtable(self).WriteToErrorLog)(::windows::core::Vtable::as_raw(self), dwmessagetype, pszmessage.into().abi(), dwerrorcode).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IStiDeviceControl, ::windows::core::IUnknown);
@@ -7902,86 +7902,86 @@ impl IStillImageW {
     }
     pub unsafe fn GetDeviceInfo<P0>(&self, pwszdevicename: P0, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDeviceInfo)(::windows::core::Vtable::as_raw(self), pwszdevicename.into(), ppbuffer).ok()
+        (::windows::core::Vtable::vtable(self).GetDeviceInfo)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi(), ppbuffer).ok()
     }
     pub unsafe fn CreateDevice<P0, P1>(&self, pwszdevicename: P0, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), pwszdevicename.into(), dwmode, ::core::mem::transmute(pdevice), punkouter.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi(), dwmode, ::core::mem::transmute(pdevice), punkouter.into().abi()).ok()
     }
     pub unsafe fn GetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDeviceValue)(::windows::core::Vtable::as_raw(self), pwszdevicename.into(), pvaluename.into(), ptype, pdata, cbdata).ok()
+        (::windows::core::Vtable::vtable(self).GetDeviceValue)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi(), pvaluename.into().abi(), ptype, pdata, cbdata).ok()
     }
     pub unsafe fn SetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDeviceValue)(::windows::core::Vtable::as_raw(self), pwszdevicename.into(), pvaluename.into(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetDeviceValue)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi(), pvaluename.into().abi(), r#type, ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _).ok()
     }
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: &mut [u16; 128], pdweventcode: ::core::option::Option<*mut u32>, pwszeventname: &mut [u16; 128]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetSTILaunchInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszdevicename.as_ptr()), ::core::mem::transmute(pdweventcode.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pwszeventname.as_ptr())).ok()
     }
     pub unsafe fn RegisterLaunchApplication<P0, P1>(&self, pwszappname: P0, pwszcommandline: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterLaunchApplication)(::windows::core::Vtable::as_raw(self), pwszappname.into(), pwszcommandline.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterLaunchApplication)(::windows::core::Vtable::as_raw(self), pwszappname.into().abi(), pwszcommandline.into().abi()).ok()
     }
     pub unsafe fn UnregisterLaunchApplication<P0>(&self, pwszappname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterLaunchApplication)(::windows::core::Vtable::as_raw(self), pwszappname.into()).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterLaunchApplication)(::windows::core::Vtable::as_raw(self), pwszappname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableHwNotifications<P0, P1>(&self, pwszdevicename: P0, bnewstate: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).EnableHwNotifications)(::windows::core::Vtable::as_raw(self), pwszdevicename.into(), bnewstate.into()).ok()
+        (::windows::core::Vtable::vtable(self).EnableHwNotifications)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi(), bnewstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHwNotificationState<P0>(&self, pwszdevicename: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHwNotificationState)(::windows::core::Vtable::as_raw(self), pwszdevicename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetHwNotificationState)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RefreshDeviceBus<P0>(&self, pwszdevicename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RefreshDeviceBus)(::windows::core::Vtable::as_raw(self), pwszdevicename.into()).ok()
+        (::windows::core::Vtable::vtable(self).RefreshDeviceBus)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi()).ok()
     }
     pub unsafe fn LaunchApplicationForDevice<P0, P1>(&self, pwszdevicename: P0, pwszappname: P1, pstinotify: *const STINOTIFY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).LaunchApplicationForDevice)(::windows::core::Vtable::as_raw(self), pwszdevicename.into(), pwszappname.into(), pstinotify).ok()
+        (::windows::core::Vtable::vtable(self).LaunchApplicationForDevice)(::windows::core::Vtable::as_raw(self), pwszdevicename.into().abi(), pwszappname.into().abi(), pstinotify).ok()
     }
     pub unsafe fn SetupDeviceParameters(&self, param0: *mut STI_DEVICE_INFORMATIONW) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetupDeviceParameters)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn WriteToErrorLog<P0>(&self, dwmessagetype: u32, pszmessage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WriteToErrorLog)(::windows::core::Vtable::as_raw(self), dwmessagetype, pszmessage.into()).ok()
+        (::windows::core::Vtable::vtable(self).WriteToErrorLog)(::windows::core::Vtable::as_raw(self), dwmessagetype, pszmessage.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IStillImageW, ::windows::core::IUnknown);

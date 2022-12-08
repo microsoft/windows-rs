@@ -115,4 +115,4 @@ macro_rules! primitive_types {
     };
 }
 
-primitive_types!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize);
+primitive_types!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize, super::PCSTR, super::PCWSTR);

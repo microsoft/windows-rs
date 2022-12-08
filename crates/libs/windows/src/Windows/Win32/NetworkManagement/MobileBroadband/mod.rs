@@ -54,10 +54,10 @@ impl IMbnConnection {
     }
     pub unsafe fn Connect<P0>(&self, connectionmode: MBN_CONNECTION_MODE, strprofile: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), connectionmode, strprofile.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), connectionmode, strprofile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -122,10 +122,10 @@ impl IMbnConnectionContext {
     }
     pub unsafe fn SetProvisionedContext<P0>(&self, provisionedcontexts: MBN_CONTEXT, providerid: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetProvisionedContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(provisionedcontexts), providerid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SetProvisionedContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(provisionedcontexts), providerid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMbnConnectionContext, ::windows::core::IUnknown);
@@ -275,10 +275,10 @@ pub struct IMbnConnectionManager(::windows::core::IUnknown);
 impl IMbnConnectionManager {
     pub unsafe fn GetConnection<P0>(&self, connectionid: P0) -> ::windows::core::Result<IMbnConnection>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), connectionid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), connectionid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -377,9 +377,9 @@ impl IMbnConnectionProfile {
     }
     pub unsafe fn UpdateProfile<P0>(&self, strprofile: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UpdateProfile)(::windows::core::Vtable::as_raw(self), strprofile.into()).ok()
+        (::windows::core::Vtable::vtable(self).UpdateProfile)(::windows::core::Vtable::as_raw(self), strprofile.into().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self)).ok()
@@ -472,16 +472,16 @@ impl IMbnConnectionProfileManager {
     pub unsafe fn GetConnectionProfile<P0, P1>(&self, mbninterface: P0, profilename: P1) -> ::windows::core::Result<IMbnConnectionProfile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IMbnInterface>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetConnectionProfile)(::windows::core::Vtable::as_raw(self), mbninterface.into().abi(), profilename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetConnectionProfile)(::windows::core::Vtable::as_raw(self), mbninterface.into().abi(), profilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateConnectionProfile<P0>(&self, xmlprofile: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateConnectionProfile)(::windows::core::Vtable::as_raw(self), xmlprofile.into()).ok()
+        (::windows::core::Vtable::vtable(self).CreateConnectionProfile)(::windows::core::Vtable::as_raw(self), xmlprofile.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMbnConnectionProfileManager, ::windows::core::IUnknown);
@@ -1150,10 +1150,10 @@ pub struct IMbnInterfaceManager(::windows::core::IUnknown);
 impl IMbnInterfaceManager {
     pub unsafe fn GetInterface<P0>(&self, interfaceid: P0) -> ::windows::core::Result<IMbnInterface>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInterface)(::windows::core::Vtable::as_raw(self), interfaceid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetInterface)(::windows::core::Vtable::as_raw(self), interfaceid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1413,40 +1413,40 @@ impl IMbnPin {
     }
     pub unsafe fn Enable<P0>(&self, pin: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Enable)(::windows::core::Vtable::as_raw(self), pin.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Enable)(::windows::core::Vtable::as_raw(self), pin.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Disable<P0>(&self, pin: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Disable)(::windows::core::Vtable::as_raw(self), pin.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Disable)(::windows::core::Vtable::as_raw(self), pin.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Enter<P0>(&self, pin: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Enter)(::windows::core::Vtable::as_raw(self), pin.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Enter)(::windows::core::Vtable::as_raw(self), pin.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Change<P0, P1>(&self, pin: P0, newpin: P1) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Change)(::windows::core::Vtable::as_raw(self), pin.into(), newpin.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Change)(::windows::core::Vtable::as_raw(self), pin.into().abi(), newpin.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Unblock<P0, P1>(&self, puk: P0, newpin: P1) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Unblock)(::windows::core::Vtable::as_raw(self), puk.into(), newpin.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Unblock)(::windows::core::Vtable::as_raw(self), puk.into().abi(), newpin.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPinManager(&self) -> ::windows::core::Result<IMbnPinManager> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1797,10 +1797,10 @@ impl IMbnRegistration {
     }
     pub unsafe fn SetRegisterMode<P0>(&self, registermode: MBN_REGISTER_MODE, providerid: P0, dataclass: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetRegisterMode)(::windows::core::Vtable::as_raw(self), registermode, providerid.into(), dataclass, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SetRegisterMode)(::windows::core::Vtable::as_raw(self), registermode, providerid.into().abi(), dataclass, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMbnRegistration, ::windows::core::IUnknown);
@@ -2090,19 +2090,19 @@ impl IMbnSms {
     }
     pub unsafe fn SmsSendPdu<P0>(&self, pdudata: P0, size: u8) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SmsSendPdu)(::windows::core::Vtable::as_raw(self), pdudata.into(), size, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SmsSendPdu)(::windows::core::Vtable::as_raw(self), pdudata.into().abi(), size, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SmsSendCdma<P0>(&self, address: P0, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SmsSendCdma)(::windows::core::Vtable::as_raw(self), address.into(), encoding, language, sizeincharacters, message, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SmsSendCdma)(::windows::core::Vtable::as_raw(self), address.into().abi(), encoding, language, sizeincharacters, message, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2175,9 +2175,9 @@ impl IMbnSmsConfiguration {
     }
     pub unsafe fn SetServiceCenterAddress<P0>(&self, scaddress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetServiceCenterAddress)(::windows::core::Vtable::as_raw(self), scaddress.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetServiceCenterAddress)(::windows::core::Vtable::as_raw(self), scaddress.into().abi()).ok()
     }
     pub unsafe fn MaxMessageIndex(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

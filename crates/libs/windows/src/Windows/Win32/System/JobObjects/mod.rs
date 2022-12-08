@@ -14,10 +14,10 @@ where
 #[inline]
 pub unsafe fn CreateJobObjectA<P0>(lpjobattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateJobObjectA ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into());
+    let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -25,10 +25,10 @@ where
 #[inline]
 pub unsafe fn CreateJobObjectW<P0>(lpjobattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateJobObjectW ( lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into());
+    let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -61,10 +61,10 @@ where
 pub unsafe fn OpenJobObjectA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenJobObjectA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into(), lpname.into());
+    let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -73,10 +73,10 @@ where
 pub unsafe fn OpenJobObjectW<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenJobObjectW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.into());
+    let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -95,10 +95,10 @@ where
 pub unsafe fn QueryIoRateControlInformationJobObject<P0, P1>(hjob: P0, volumename: P1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn QueryIoRateControlInformationJobObject ( hjob : super::super::Foundation:: HANDLE , volumename : :: windows::core::PCWSTR , infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION , infoblockcount : *mut u32 ) -> u32 );
-    QueryIoRateControlInformationJobObject(hjob.into(), volumename.into(), infoblocks, infoblockcount)
+    QueryIoRateControlInformationJobObject(hjob.into(), volumename.into().abi(), infoblocks, infoblockcount)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

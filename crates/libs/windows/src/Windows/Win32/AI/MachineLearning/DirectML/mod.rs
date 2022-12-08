@@ -38,9 +38,9 @@ impl IDMLBindingTable {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
@@ -121,9 +121,9 @@ impl IDMLCommandRecorder {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
@@ -193,9 +193,9 @@ impl IDMLCompiledOperator {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
@@ -301,9 +301,9 @@ impl IDMLDevice {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: ::core::option::Option<*const ::core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata.unwrap_or(::std::ptr::null())), featuresupportdatasize, featuresupportdata).ok()
@@ -420,9 +420,9 @@ impl IDMLDevice1 {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: ::core::option::Option<*const ::core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata.unwrap_or(::std::ptr::null())), featuresupportdatasize, featuresupportdata).ok()
@@ -533,9 +533,9 @@ impl IDMLDeviceChild {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
@@ -592,9 +592,9 @@ impl IDMLDispatchable {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
@@ -656,9 +656,9 @@ impl IDMLObject {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDMLObject, ::windows::core::IUnknown);
@@ -711,9 +711,9 @@ impl IDMLOperator {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
@@ -769,9 +769,9 @@ impl IDMLOperatorInitializer {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
@@ -836,9 +836,9 @@ impl IDMLPageable {
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where

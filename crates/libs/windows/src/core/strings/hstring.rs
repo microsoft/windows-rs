@@ -173,6 +173,13 @@ impl std::convert::From<&alloc::string::String> for HSTRING {
 }
 
 #[cfg(windows)]
+impl std::convert::From<&std::path::Path> for HSTRING {
+    fn from(value: &std::path::Path) -> Self {
+        value.as_os_str().into()
+    }
+}
+
+#[cfg(windows)]
 impl std::convert::From<&std::ffi::OsStr> for HSTRING {
     fn from(value: &std::ffi::OsStr) -> Self {
         unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len() as u32) }
@@ -382,6 +389,12 @@ impl<'a> std::convert::From<&'a HSTRING> for std::ffi::OsString {
 impl std::convert::From<HSTRING> for std::ffi::OsString {
     fn from(hstring: HSTRING) -> Self {
         Self::from(&hstring)
+    }
+}
+
+impl From<&HSTRING> for InParam<PCWSTR> {
+    fn from(hstring: &HSTRING) -> Self {
+        Self::owned(PCWSTR(hstring.as_ptr()))
     }
 }
 

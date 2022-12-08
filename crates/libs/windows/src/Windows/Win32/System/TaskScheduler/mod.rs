@@ -2594,9 +2594,9 @@ impl IScheduledWorkItem {
     }
     pub unsafe fn SetComment<P0>(&self, pwszcomment: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetComment)(::windows::core::Vtable::as_raw(self), pwszcomment.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetComment)(::windows::core::Vtable::as_raw(self), pwszcomment.into().abi()).ok()
     }
     pub unsafe fn GetComment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2604,9 +2604,9 @@ impl IScheduledWorkItem {
     }
     pub unsafe fn SetCreator<P0>(&self, pwszcreator: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCreator)(::windows::core::Vtable::as_raw(self), pwszcreator.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCreator)(::windows::core::Vtable::as_raw(self), pwszcreator.into().abi()).ok()
     }
     pub unsafe fn GetCreator(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2641,10 +2641,10 @@ impl IScheduledWorkItem {
     }
     pub unsafe fn SetAccountInformation<P0, P1>(&self, pwszaccountname: P0, pwszpassword: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAccountInformation)(::windows::core::Vtable::as_raw(self), pwszaccountname.into(), pwszpassword.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAccountInformation)(::windows::core::Vtable::as_raw(self), pwszaccountname.into().abi(), pwszpassword.into().abi()).ok()
     }
     pub unsafe fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2974,9 +2974,9 @@ impl ITask {
     }
     pub unsafe fn SetComment<P0>(&self, pwszcomment: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetComment)(::windows::core::Vtable::as_raw(self), pwszcomment.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetComment)(::windows::core::Vtable::as_raw(self), pwszcomment.into().abi()).ok()
     }
     pub unsafe fn GetComment(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2984,9 +2984,9 @@ impl ITask {
     }
     pub unsafe fn SetCreator<P0>(&self, pwszcreator: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetCreator)(::windows::core::Vtable::as_raw(self), pwszcreator.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetCreator)(::windows::core::Vtable::as_raw(self), pwszcreator.into().abi()).ok()
     }
     pub unsafe fn GetCreator(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3021,10 +3021,10 @@ impl ITask {
     }
     pub unsafe fn SetAccountInformation<P0, P1>(&self, pwszaccountname: P0, pwszpassword: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetAccountInformation)(::windows::core::Vtable::as_raw(self), pwszaccountname.into(), pwszpassword.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetAccountInformation)(::windows::core::Vtable::as_raw(self), pwszaccountname.into().abi(), pwszpassword.into().abi()).ok()
     }
     pub unsafe fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3032,9 +3032,9 @@ impl ITask {
     }
     pub unsafe fn SetApplicationName<P0>(&self, pwszapplicationname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetApplicationName)(::windows::core::Vtable::as_raw(self), pwszapplicationname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetApplicationName)(::windows::core::Vtable::as_raw(self), pwszapplicationname.into().abi()).ok()
     }
     pub unsafe fn GetApplicationName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3042,9 +3042,9 @@ impl ITask {
     }
     pub unsafe fn SetParameters<P0>(&self, pwszparameters: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), pwszparameters.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), pwszparameters.into().abi()).ok()
     }
     pub unsafe fn GetParameters(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3052,9 +3052,9 @@ impl ITask {
     }
     pub unsafe fn SetWorkingDirectory<P0>(&self, pwszworkingdirectory: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetWorkingDirectory)(::windows::core::Vtable::as_raw(self), pwszworkingdirectory.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetWorkingDirectory)(::windows::core::Vtable::as_raw(self), pwszworkingdirectory.into().abi()).ok()
     }
     pub unsafe fn GetWorkingDirectory(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3736,9 +3736,9 @@ pub struct ITaskScheduler(::windows::core::IUnknown);
 impl ITaskScheduler {
     pub unsafe fn SetTargetComputer<P0>(&self, pwszcomputer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTargetComputer)(::windows::core::Vtable::as_raw(self), pwszcomputer.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetTargetComputer)(::windows::core::Vtable::as_raw(self), pwszcomputer.into().abi()).ok()
     }
     pub unsafe fn GetTargetComputer(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3750,36 +3750,36 @@ impl ITaskScheduler {
     }
     pub unsafe fn Activate<P0>(&self, pwszname: P0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), pwszname.into(), riid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Delete<P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), pwszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), pwszname.into().abi()).ok()
     }
     pub unsafe fn NewWorkItem<P0>(&self, pwsztaskname: P0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NewWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into(), rclsid, riid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).NewWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into().abi(), rclsid, riid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn AddWorkItem<P0, P1>(&self, pwsztaskname: P0, pworkitem: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IScheduledWorkItem>>,
     {
-        (::windows::core::Vtable::vtable(self).AddWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into(), pworkitem.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).AddWorkItem)(::windows::core::Vtable::as_raw(self), pwsztaskname.into().abi(), pworkitem.into().abi()).ok()
     }
     pub unsafe fn IsOfType<P0>(&self, pwszname: P0, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsOfType)(::windows::core::Vtable::as_raw(self), pwszname.into(), riid).ok()
+        (::windows::core::Vtable::vtable(self).IsOfType)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), riid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ITaskScheduler, ::windows::core::IUnknown);

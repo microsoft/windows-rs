@@ -23,7 +23,7 @@ fn main() -> Result<()> {
 
     // Get errors enumerator for the supplied string
     println!("Checking the text: '{input}'");
-    let errors = unsafe { checker.ComprehensiveCheck(PCWSTR::from(&input.clone().into()))? };
+    let errors = unsafe { checker.ComprehensiveCheck(&HSTRING::from(&input))? };
 
     // Loop through all the errors
     while let Ok(error) = unsafe { errors.Next() } {
@@ -54,7 +54,7 @@ fn main() -> Result<()> {
             }
             CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
-                let suggestions = unsafe { checker.Suggest(PCWSTR::from(&substring.into()))? };
+                let suggestions = unsafe { checker.Suggest(&HSTRING::from(substring))? };
 
                 // Loop through the suggestions
                 loop {

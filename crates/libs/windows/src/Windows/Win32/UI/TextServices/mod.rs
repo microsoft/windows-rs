@@ -8559,10 +8559,10 @@ pub struct ITfReverseConversion(::windows::core::IUnknown);
 impl ITfReverseConversion {
     pub unsafe fn DoReverseConversion<P0>(&self, lpstr: P0) -> ::windows::core::Result<ITfReverseConversionList>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoReverseConversion)(::windows::core::Vtable::as_raw(self), lpstr.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).DoReverseConversion)(::windows::core::Vtable::as_raw(self), lpstr.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ITfReverseConversion, ::windows::core::IUnknown);

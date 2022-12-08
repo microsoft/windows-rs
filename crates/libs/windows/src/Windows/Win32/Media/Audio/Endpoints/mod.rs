@@ -620,10 +620,10 @@ pub struct IHardwareAudioEngineBase(::windows::core::IUnknown);
 impl IHardwareAudioEngineBase {
     pub unsafe fn GetAvailableOffloadConnectorCount<P0>(&self, _pwstrdeviceid: P0, _uconnectorid: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAvailableOffloadConnectorCount)(::windows::core::Vtable::as_raw(self), _pwstrdeviceid.into(), _uconnectorid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetAvailableOffloadConnectorCount)(::windows::core::Vtable::as_raw(self), _pwstrdeviceid.into().abi(), _uconnectorid, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

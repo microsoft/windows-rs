@@ -69,6 +69,24 @@ fn from_os_string_string() {
 }
 
 #[test]
+fn from_os_str_string() {
+    let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+    use std::os::windows::prelude::OsStringExt;
+    let o = std::ffi::OsString::from_wide(wide_data);
+    let o = o.as_os_str();
+    let h = HSTRING::from(o);
+    let d = HSTRING::from_wide(wide_data);
+    assert_eq!(h, d);
+}
+
+#[test]
+fn from_path() {
+    let p = std::path::Path::new("/foo/bar");
+    let h = HSTRING::from(p);
+    assert_eq!(h, "/foo/bar");
+}
+
+#[test]
 fn hstring_to_string() {
     let h = HSTRING::from("test");
     let s = String::try_from(h).unwrap();

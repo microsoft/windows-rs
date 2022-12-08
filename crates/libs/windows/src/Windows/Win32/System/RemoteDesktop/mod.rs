@@ -20,22 +20,22 @@ where
 #[inline]
 pub unsafe fn WTSConnectSessionA<P0, P1>(logonid: u32, targetlogonid: u32, ppassword: P0, bwait: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSConnectSessionA ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    WTSConnectSessionA(logonid, targetlogonid, ppassword.into(), bwait.into())
+    WTSConnectSessionA(logonid, targetlogonid, ppassword.into().abi(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSConnectSessionW<P0, P1>(logonid: u32, targetlogonid: u32, ppassword: P0, bwait: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSConnectSessionW ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCWSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    WTSConnectSessionW(logonid, targetlogonid, ppassword.into(), bwait.into())
+    WTSConnectSessionW(logonid, targetlogonid, ppassword.into().abi(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -43,10 +43,10 @@ where
 pub unsafe fn WTSCreateListenerA<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSCreateListenerA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *const WTSLISTENERCONFIGA , flag : u32 ) -> super::super::Foundation:: BOOL );
-    WTSCreateListenerA(hserver.into(), preserved, reserved, plistenername.into(), pbuffer, flag)
+    WTSCreateListenerA(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer, flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -54,10 +54,10 @@ where
 pub unsafe fn WTSCreateListenerW<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSCreateListenerW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *const WTSLISTENERCONFIGW , flag : u32 ) -> super::super::Foundation:: BOOL );
-    WTSCreateListenerW(hserver.into(), preserved, reserved, plistenername.into(), pbuffer, flag)
+    WTSCreateListenerW(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer, flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -145,20 +145,20 @@ where
 #[inline]
 pub unsafe fn WTSEnumerateServersA<P0>(pdomainname: P0, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateServersA ( pdomainname : :: windows::core::PCSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WTSEnumerateServersA(pdomainname.into(), reserved, version, ppserverinfo, pcount)
+    WTSEnumerateServersA(pdomainname.into().abi(), reserved, version, ppserverinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSEnumerateServersW<P0>(pdomainname: P0, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSEnumerateServersW ( pdomainname : :: windows::core::PCWSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WTSEnumerateServersW(pdomainname.into(), reserved, version, ppserverinfo, pcount)
+    WTSEnumerateServersW(pdomainname.into().abi(), reserved, version, ppserverinfo, pcount)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -239,10 +239,10 @@ pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Founda
 pub unsafe fn WTSGetListenerSecurityA<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSGetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WTSGetListenerSecurityA(hserver.into(), preserved, reserved, plistenername.into(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded)
+    WTSGetListenerSecurityA(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -250,10 +250,10 @@ where
 pub unsafe fn WTSGetListenerSecurityW<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSGetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WTSGetListenerSecurityW(hserver.into(), preserved, reserved, plistenername.into(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded)
+    WTSGetListenerSecurityW(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -278,40 +278,40 @@ where
 #[inline]
 pub unsafe fn WTSOpenServerA<P0>(pservername: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    WTSOpenServerA(pservername.into())
+    WTSOpenServerA(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSOpenServerExA<P0>(pservername: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerExA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
-    WTSOpenServerExA(pservername.into())
+    WTSOpenServerExA(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSOpenServerExW<P0>(pservername: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerExW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    WTSOpenServerExW(pservername.into())
+    WTSOpenServerExW(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSOpenServerW<P0>(pservername: P0) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSOpenServerW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    WTSOpenServerW(pservername.into())
+    WTSOpenServerW(pservername.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -319,10 +319,10 @@ where
 pub unsafe fn WTSQueryListenerConfigA<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: *mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryListenerConfigA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *mut WTSLISTENERCONFIGA ) -> super::super::Foundation:: BOOL );
-    WTSQueryListenerConfigA(hserver.into(), preserved, reserved, plistenername.into(), pbuffer)
+    WTSQueryListenerConfigA(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -330,10 +330,10 @@ where
 pub unsafe fn WTSQueryListenerConfigW<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: *mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryListenerConfigW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *mut WTSLISTENERCONFIGW ) -> super::super::Foundation:: BOOL );
-    WTSQueryListenerConfigW(hserver.into(), preserved, reserved, plistenername.into(), pbuffer)
+    WTSQueryListenerConfigW(hserver.into(), preserved, reserved, plistenername.into().abi(), pbuffer)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -360,22 +360,22 @@ where
 #[inline]
 pub unsafe fn WTSQueryUserConfigA<P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WTSQueryUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ppbuffer, pbytesreturned)
+    WTSQueryUserConfigA(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, ppbuffer, pbytesreturned)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryUserConfigW<P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSQueryUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
-    WTSQueryUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ppbuffer, pbytesreturned)
+    WTSQueryUserConfigW(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, ppbuffer, pbytesreturned)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -422,12 +422,12 @@ where
 pub unsafe fn WTSSendMessageW<P0, P1, P2, P3>(hserver: P0, sessionid: u32, ptitle: P1, titlelength: u32, pmessage: P2, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P3) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSendMessageW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows::core::PCWSTR , titlelength : u32 , pmessage : :: windows::core::PCWSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
-    WTSSendMessageW(hserver.into(), sessionid, ptitle.into(), titlelength, pmessage.into(), messagelength, style, timeout, presponse, bwait.into())
+    WTSSendMessageW(hserver.into(), sessionid, ptitle.into().abi(), titlelength, pmessage.into().abi(), messagelength, style, timeout, presponse, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -435,11 +435,11 @@ where
 pub unsafe fn WTSSetListenerSecurityA<P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
-    WTSSetListenerSecurityA(hserver.into(), preserved, reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
+    WTSSetListenerSecurityA(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -447,11 +447,11 @@ where
 pub unsafe fn WTSSetListenerSecurityW<P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
-    WTSSetListenerSecurityW(hserver.into(), preserved, reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
+    WTSSetListenerSecurityW(hserver.into(), preserved, reserved, plistenername.into().abi(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -468,23 +468,23 @@ where
 #[inline]
 pub unsafe fn WTSSetUserConfigA<P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: &[u8]) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
-    WTSSetUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
+    WTSSetUserConfigA(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSSetUserConfigW<P0, P1, P2>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: P2, datalength: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSSetUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCWSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
-    WTSSetUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, pbuffer.into(), datalength)
+    WTSSetUserConfigW(pservername.into().abi(), pusername.into().abi(), wtsconfigclass, pbuffer.into().abi(), datalength)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -501,20 +501,20 @@ where
 #[inline]
 pub unsafe fn WTSStartRemoteControlSessionA<P0>(ptargetservername: P0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSStartRemoteControlSessionA ( ptargetservername : :: windows::core::PCSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
-    WTSStartRemoteControlSessionA(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
+    WTSStartRemoteControlSessionA(ptargetservername.into().abi(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSStartRemoteControlSessionW<P0>(ptargetservername: P0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSStartRemoteControlSessionW ( ptargetservername : :: windows::core::PCWSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
-    WTSStartRemoteControlSessionW(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
+    WTSStartRemoteControlSessionW(ptargetservername.into().abi(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -570,20 +570,20 @@ where
 pub unsafe fn WTSVirtualChannelOpen<P0, P1>(hserver: P0, sessionid: u32, pvirtualname: P1) -> ::windows::core::Result<HwtsVirtualChannelHandle>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpen ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , pvirtualname : :: windows::core::PCSTR ) -> HwtsVirtualChannelHandle );
-    let result__ = WTSVirtualChannelOpen(hserver.into(), sessionid, pvirtualname.into());
+    let result__ = WTSVirtualChannelOpen(hserver.into(), sessionid, pvirtualname.into().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
 pub unsafe fn WTSVirtualChannelOpenEx<P0>(sessionid: u32, pvirtualname: P0, flags: u32) -> ::windows::core::Result<HwtsVirtualChannelHandle>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpenEx ( sessionid : u32 , pvirtualname : :: windows::core::PCSTR , flags : u32 ) -> HwtsVirtualChannelHandle );
-    let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into(), flags);
+    let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -1984,18 +1984,18 @@ impl ITsSbClientConnectionPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::Com::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2109,18 +2109,18 @@ impl ITsSbEnvironmentPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::Com::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2790,18 +2790,18 @@ impl ITsSbPluginPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::Com::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2850,18 +2850,18 @@ impl ITsSbPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::Com::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3828,18 +3828,18 @@ impl ITsSbTargetPropertySet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::Com::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -4345,10 +4345,10 @@ impl IWRdsProtocolConnection {
     pub unsafe fn IsUserAllowedToLogon<P0, P1, P2>(&self, sessionid: u32, usertoken: P0, pdomainname: P1, pusername: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsUserAllowedToLogon)(::windows::core::Vtable::as_raw(self), sessionid, usertoken.into(), pdomainname.into(), pusername.into()).ok()
+        (::windows::core::Vtable::vtable(self).IsUserAllowedToLogon)(::windows::core::Vtable::as_raw(self), sessionid, usertoken.into(), pdomainname.into().abi(), pusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4364,10 +4364,10 @@ impl IWRdsProtocolConnection {
     pub unsafe fn LogonNotify<P0, P1, P2>(&self, hclienttoken: P0, wszusername: P1, wszdomainname: P2, sessionid: *const WTS_SESSION_ID, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).LogonNotify)(::windows::core::Vtable::as_raw(self), hclienttoken.into(), wszusername.into(), wszdomainname.into(), sessionid, pwrdsconnectionsettings).ok()
+        (::windows::core::Vtable::vtable(self).LogonNotify)(::windows::core::Vtable::as_raw(self), hclienttoken.into(), wszusername.into().abi(), wszdomainname.into().abi(), sessionid, pwrdsconnectionsettings).ok()
     }
     pub unsafe fn PreDisconnect(&self, disconnectreason: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PreDisconnect)(::windows::core::Vtable::as_raw(self), disconnectreason).ok()
@@ -4393,11 +4393,11 @@ impl IWRdsProtocolConnection {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVirtualChannel<P0, P1>(&self, szendpointname: P0, bstatic: P1, requestedpriority: u32) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVirtualChannel)(::windows::core::Vtable::as_raw(self), szendpointname.into(), bstatic.into(), requestedpriority, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVirtualChannel)(::windows::core::Vtable::as_raw(self), szendpointname.into().abi(), bstatic.into(), requestedpriority, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryProperty(&self, querytype: ::windows::core::GUID, ppropertyentriesin: &[WTS_PROPERTY_VALUE], ppropertyentriesout: &mut [WTS_PROPERTY_VALUE]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).QueryProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(querytype), ppropertyentriesin.len() as _, ppropertyentriesout.len() as _, ::core::mem::transmute(ppropertyentriesin.as_ptr()), ::core::mem::transmute(ppropertyentriesout.as_ptr())).ok()
@@ -4740,26 +4740,26 @@ impl IWRdsProtocolLogonErrorRedirector {
     }
     pub unsafe fn RedirectStatus<P0>(&self, pszmessage: P0) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RedirectStatus)(::windows::core::Vtable::as_raw(self), pszmessage.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RedirectStatus)(::windows::core::Vtable::as_raw(self), pszmessage.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RedirectMessage<P0, P1>(&self, pszcaption: P0, pszmessage: P1, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RedirectMessage)(::windows::core::Vtable::as_raw(self), pszcaption.into(), pszmessage.into(), utype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RedirectMessage)(::windows::core::Vtable::as_raw(self), pszcaption.into().abi(), pszmessage.into().abi(), utype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RedirectLogonError<P0, P1>(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: P0, pszmessage: P1, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into(), pszmessage.into(), utype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into().abi(), pszmessage.into().abi(), utype, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWRdsProtocolLogonErrorRedirector, ::windows::core::IUnknown);
@@ -4808,10 +4808,10 @@ impl IWRdsProtocolManager {
     }
     pub unsafe fn CreateListener<P0>(&self, wszlistenername: P0) -> ::windows::core::Result<IWRdsProtocolListener>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), wszlistenername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), wszlistenername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NotifyServiceStateChange)(::windows::core::Vtable::as_raw(self), ptsservicestatechange).ok()
@@ -4937,10 +4937,10 @@ impl IWRdsProtocolShadowCallback {
     }
     pub unsafe fn InvokeTargetShadow<P0, P1>(&self, ptargetservername: P0, targetsessionid: u32, pparam1: &[u8], pparam2: &[u8], pparam3: &[u8], pparam4: &[u8], pclientname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
+        (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWRdsProtocolShadowCallback, ::windows::core::IUnknown);
@@ -4979,19 +4979,19 @@ pub struct IWRdsProtocolShadowConnection(::windows::core::IUnknown);
 impl IWRdsProtocolShadowConnection {
     pub unsafe fn Start<P0, P1>(&self, ptargetservername: P0, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWRdsProtocolShadowCallback>>,
     {
-        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), ptargetservername.into(), targetsessionid, hotkeyvk, hotkeymodifiers, pshadowcallback.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), ptargetservername.into().abi(), targetsessionid, hotkeyvk, hotkeymodifiers, pshadowcallback.into().abi()).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn DoTarget<P0>(&self, pparam1: &[u8], pparam2: &[u8], pparam3: &[u8], pparam4: &[u8], pclientname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
+        (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWRdsProtocolShadowConnection, ::windows::core::IUnknown);
@@ -5447,10 +5447,10 @@ impl IWTSProtocolConnection {
     pub unsafe fn IsUserAllowedToLogon<P0, P1, P2>(&self, sessionid: u32, usertoken: P0, pdomainname: P1, pusername: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsUserAllowedToLogon)(::windows::core::Vtable::as_raw(self), sessionid, usertoken.into(), pdomainname.into(), pusername.into()).ok()
+        (::windows::core::Vtable::vtable(self).IsUserAllowedToLogon)(::windows::core::Vtable::as_raw(self), sessionid, usertoken.into(), pdomainname.into().abi(), pusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5466,10 +5466,10 @@ impl IWTSProtocolConnection {
     pub unsafe fn LogonNotify<P0, P1, P2>(&self, hclienttoken: P0, wszusername: P1, wszdomainname: P2, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).LogonNotify)(::windows::core::Vtable::as_raw(self), hclienttoken.into(), wszusername.into(), wszdomainname.into(), sessionid).ok()
+        (::windows::core::Vtable::vtable(self).LogonNotify)(::windows::core::Vtable::as_raw(self), hclienttoken.into(), wszusername.into().abi(), wszdomainname.into().abi(), sessionid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5500,11 +5500,11 @@ impl IWTSProtocolConnection {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVirtualChannel<P0, P1>(&self, szendpointname: P0, bstatic: P1, requestedpriority: u32) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateVirtualChannel)(::windows::core::Vtable::as_raw(self), szendpointname.into(), bstatic.into(), requestedpriority, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateVirtualChannel)(::windows::core::Vtable::as_raw(self), szendpointname.into().abi(), bstatic.into(), requestedpriority, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryProperty(&self, querytype: ::windows::core::GUID, ppropertyentriesin: &[WTS_PROPERTY_VALUE], ppropertyentriesout: &mut [WTS_PROPERTY_VALUE]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).QueryProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(querytype), ppropertyentriesin.len() as _, ppropertyentriesout.len() as _, ::core::mem::transmute(ppropertyentriesin.as_ptr()), ::core::mem::transmute(ppropertyentriesout.as_ptr())).ok()
@@ -5790,26 +5790,26 @@ impl IWTSProtocolLogonErrorRedirector {
     }
     pub unsafe fn RedirectStatus<P0>(&self, pszmessage: P0) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RedirectStatus)(::windows::core::Vtable::as_raw(self), pszmessage.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RedirectStatus)(::windows::core::Vtable::as_raw(self), pszmessage.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RedirectMessage<P0, P1>(&self, pszcaption: P0, pszmessage: P1, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RedirectMessage)(::windows::core::Vtable::as_raw(self), pszcaption.into(), pszmessage.into(), utype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RedirectMessage)(::windows::core::Vtable::as_raw(self), pszcaption.into().abi(), pszmessage.into().abi(), utype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RedirectLogonError<P0, P1>(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: P0, pszmessage: P1, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into(), pszmessage.into(), utype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RedirectLogonError)(::windows::core::Vtable::as_raw(self), ntsstatus, ntssubstatus, pszcaption.into().abi(), pszmessage.into().abi(), utype, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWTSProtocolLogonErrorRedirector, ::windows::core::IUnknown);
@@ -5850,10 +5850,10 @@ pub struct IWTSProtocolManager(::windows::core::IUnknown);
 impl IWTSProtocolManager {
     pub unsafe fn CreateListener<P0>(&self, wszlistenername: P0) -> ::windows::core::Result<IWTSProtocolListener>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), wszlistenername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), wszlistenername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NotifyServiceStateChange)(::windows::core::Vtable::as_raw(self), ptsservicestatechange).ok()
@@ -5910,10 +5910,10 @@ impl IWTSProtocolShadowCallback {
     }
     pub unsafe fn InvokeTargetShadow<P0, P1>(&self, ptargetservername: P0, targetsessionid: u32, pparam1: &[u8], pparam2: &[u8], pparam3: &[u8], pparam4: &[u8], pclientname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
+        (::windows::core::Vtable::vtable(self).InvokeTargetShadow)(::windows::core::Vtable::as_raw(self), ptargetservername.into().abi(), targetsessionid, ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWTSProtocolShadowCallback, ::windows::core::IUnknown);
@@ -5952,19 +5952,19 @@ pub struct IWTSProtocolShadowConnection(::windows::core::IUnknown);
 impl IWTSProtocolShadowConnection {
     pub unsafe fn Start<P0, P1>(&self, ptargetservername: P0, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWTSProtocolShadowCallback>>,
     {
-        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), ptargetservername.into(), targetsessionid, hotkeyvk, hotkeymodifiers, pshadowcallback.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), ptargetservername.into().abi(), targetsessionid, hotkeyvk, hotkeymodifiers, pshadowcallback.into().abi()).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn DoTarget<P0>(&self, pparam1: &[u8], pparam2: &[u8], pparam3: &[u8], pparam4: &[u8], pclientname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into()).ok()
+        (::windows::core::Vtable::vtable(self).DoTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparam1.as_ptr()), pparam1.len() as _, ::core::mem::transmute(pparam2.as_ptr()), pparam2.len() as _, ::core::mem::transmute(pparam3.as_ptr()), pparam3.len() as _, ::core::mem::transmute(pparam4.as_ptr()), pparam4.len() as _, pclientname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWTSProtocolShadowConnection, ::windows::core::IUnknown);
@@ -6016,23 +6016,23 @@ impl IWTSSBPlugin {
     }
     pub unsafe fn WTSSBX_GetMostSuitableServer<P0, P1, P2, P3>(&self, username: P0, domainname: P1, applicationtype: P2, farmname: P3, pmachineid: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WTSSBX_GetMostSuitableServer)(::windows::core::Vtable::as_raw(self), username.into(), domainname.into(), applicationtype.into(), farmname.into(), pmachineid).ok()
+        (::windows::core::Vtable::vtable(self).WTSSBX_GetMostSuitableServer)(::windows::core::Vtable::as_raw(self), username.into().abi(), domainname.into().abi(), applicationtype.into().abi(), farmname.into().abi(), pmachineid).ok()
     }
     pub unsafe fn Terminated(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Terminated)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn WTSSBX_GetUserExternalSession<P0, P1, P2>(&self, username: P0, domainname: P1, applicationtype: P2, redirectorinternalip: *const WTSSBX_IP_ADDRESS, psessionid: *mut u32, pmachineconnectinfo: *mut WTSSBX_MACHINE_CONNECT_INFO) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WTSSBX_GetUserExternalSession)(::windows::core::Vtable::as_raw(self), username.into(), domainname.into(), applicationtype.into(), redirectorinternalip, psessionid, pmachineconnectinfo).ok()
+        (::windows::core::Vtable::vtable(self).WTSSBX_GetUserExternalSession)(::windows::core::Vtable::as_raw(self), username.into().abi(), domainname.into().abi(), applicationtype.into().abi(), redirectorinternalip, psessionid, pmachineconnectinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWTSSBPlugin, ::windows::core::IUnknown);
@@ -6163,11 +6163,11 @@ pub struct IWTSVirtualChannelManager(::windows::core::IUnknown);
 impl IWTSVirtualChannelManager {
     pub unsafe fn CreateListener<P0, P1>(&self, pszchannelname: P0, uflags: u32, plistenercallback: P1) -> ::windows::core::Result<IWTSListener>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWTSListenerCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), pszchannelname.into(), uflags, plistenercallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), pszchannelname.into().abi(), uflags, plistenercallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWTSVirtualChannelManager, ::windows::core::IUnknown);
@@ -6928,16 +6928,16 @@ pub struct ItsPubPlugin(::windows::core::IUnknown);
 impl ItsPubPlugin {
     pub unsafe fn GetResourceList<P0>(&self, userid: P0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetResourceList)(::windows::core::Vtable::as_raw(self), userid.into(), pceapplistsize, resourcelist).ok()
+        (::windows::core::Vtable::vtable(self).GetResourceList)(::windows::core::Vtable::as_raw(self), userid.into().abi(), pceapplistsize, resourcelist).ok()
     }
     pub unsafe fn GetResource<P0>(&self, alias: P0, flags: i32) -> ::windows::core::Result<pluginResource>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), alias.into(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCacheLastUpdateTime(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6953,10 +6953,10 @@ impl ItsPubPlugin {
     }
     pub unsafe fn ResolveResource<P0, P1>(&self, resourcetype: *mut u32, resourcelocation: ::windows::core::PWSTR, endpointname: ::windows::core::PWSTR, userid: P0, alias: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ResolveResource)(::windows::core::Vtable::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into(), alias.into()).ok()
+        (::windows::core::Vtable::vtable(self).ResolveResource)(::windows::core::Vtable::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into().abi(), alias.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ItsPubPlugin, ::windows::core::IUnknown);
@@ -6999,16 +6999,16 @@ pub struct ItsPubPlugin2(::windows::core::IUnknown);
 impl ItsPubPlugin2 {
     pub unsafe fn GetResourceList<P0>(&self, userid: P0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetResourceList)(::windows::core::Vtable::as_raw(self), userid.into(), pceapplistsize, resourcelist).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetResourceList)(::windows::core::Vtable::as_raw(self), userid.into().abi(), pceapplistsize, resourcelist).ok()
     }
     pub unsafe fn GetResource<P0>(&self, alias: P0, flags: i32) -> ::windows::core::Result<pluginResource>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), alias.into(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetResource)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCacheLastUpdateTime(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7024,38 +7024,38 @@ impl ItsPubPlugin2 {
     }
     pub unsafe fn ResolveResource<P0, P1>(&self, resourcetype: *mut u32, resourcelocation: ::windows::core::PWSTR, endpointname: ::windows::core::PWSTR, userid: P0, alias: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ResolveResource)(::windows::core::Vtable::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into(), alias.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.ResolveResource)(::windows::core::Vtable::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into().abi(), alias.into().abi()).ok()
     }
     pub unsafe fn GetResource2List<P0>(&self, userid: P0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetResource2List)(::windows::core::Vtable::as_raw(self), userid.into(), pceapplistsize, resourcelist).ok()
+        (::windows::core::Vtable::vtable(self).GetResource2List)(::windows::core::Vtable::as_raw(self), userid.into().abi(), pceapplistsize, resourcelist).ok()
     }
     pub unsafe fn GetResource2<P0>(&self, alias: P0, flags: i32) -> ::windows::core::Result<pluginResource2>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResource2)(::windows::core::Vtable::as_raw(self), alias.into(), flags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResource2)(::windows::core::Vtable::as_raw(self), alias.into().abi(), flags, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn ResolvePersonalDesktop<P0, P1>(&self, userid: P0, poolid: P1, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ResolvePersonalDesktop)(::windows::core::Vtable::as_raw(self), userid.into(), poolid.into(), epdresolutiontype, ppdassignmenttype, ::core::mem::transmute(endpointname)).ok()
+        (::windows::core::Vtable::vtable(self).ResolvePersonalDesktop)(::windows::core::Vtable::as_raw(self), userid.into().abi(), poolid.into().abi(), epdresolutiontype, ppdassignmenttype, ::core::mem::transmute(endpointname)).ok()
     }
     pub unsafe fn DeletePersonalDesktopAssignment<P0, P1, P2>(&self, userid: P0, poolid: P1, endpointname: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeletePersonalDesktopAssignment)(::windows::core::Vtable::as_raw(self), userid.into(), poolid.into(), endpointname.into()).ok()
+        (::windows::core::Vtable::vtable(self).DeletePersonalDesktopAssignment)(::windows::core::Vtable::as_raw(self), userid.into().abi(), poolid.into().abi(), endpointname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ItsPubPlugin2, ::windows::core::IUnknown, ItsPubPlugin);

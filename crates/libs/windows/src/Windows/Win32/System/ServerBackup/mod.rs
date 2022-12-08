@@ -46,12 +46,12 @@ pub struct IWsbApplicationBackupSupport(::windows::core::IUnknown);
 impl IWsbApplicationBackupSupport {
     pub unsafe fn CheckConsistency<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PCWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PCWSTR) -> ::windows::core::Result<IWsbApplicationAsync>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CheckConsistency)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows::core::IUnknown);
@@ -91,23 +91,23 @@ impl IWsbApplicationRestoreSupport {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
     {
-        (::windows::core::Vtable::vtable(self).PreRestore)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), bnorollforward.into()).ok()
+        (::windows::core::Vtable::vtable(self).PreRestore)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), bnorollforward.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostRestore<P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
     {
-        (::windows::core::Vtable::vtable(self).PostRestore)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), bnorollforward.into()).ok()
+        (::windows::core::Vtable::vtable(self).PostRestore)(::windows::core::Vtable::as_raw(self), wszwritermetadata.into().abi(), wszcomponentname.into().abi(), wszcomponentlogicalpath.into().abi(), bnorollforward.into()).ok()
     }
     pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const ::windows::core::PCWSTR, rgcomponentlogicalpaths: *const ::windows::core::PCWSTR, prgcomponentname: *mut *mut ::windows::core::PWSTR, prgcomponentlogicalpath: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OrderComponents)(::windows::core::Vtable::as_raw(self), ccomponents, rgcomponentname, rgcomponentlogicalpaths, prgcomponentname, prgcomponentlogicalpath).ok()

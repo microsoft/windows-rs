@@ -133,11 +133,11 @@ where
 pub unsafe fn ImmEnumRegisterWordA<P0, P1, P2>(param0: P0, param1: REGISTERWORDENUMPROCA, lpszreading: P1, param3: u32, lpszregister: P2, param5: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmEnumRegisterWordA ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCA , lpszreading : :: windows::core::PCSTR , param3 : u32 , lpszregister : :: windows::core::PCSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
-    ImmEnumRegisterWordA(param0.into(), param1, lpszreading.into(), param3, lpszregister.into(), param5)
+    ImmEnumRegisterWordA(param0.into(), param1, lpszreading.into().abi(), param3, lpszregister.into().abi(), param5)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -145,11 +145,11 @@ where
 pub unsafe fn ImmEnumRegisterWordW<P0, P1, P2>(param0: P0, param1: REGISTERWORDENUMPROCW, lpszreading: P1, param3: u32, lpszregister: P2, param5: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmEnumRegisterWordW ( param0 : super::super::TextServices:: HKL , param1 : REGISTERWORDENUMPROCW , lpszreading : :: windows::core::PCWSTR , param3 : u32 , lpszregister : :: windows::core::PCWSTR , param5 : *mut ::core::ffi::c_void ) -> u32 );
-    ImmEnumRegisterWordW(param0.into(), param1, lpszreading.into(), param3, lpszregister.into(), param5)
+    ImmEnumRegisterWordW(param0.into(), param1, lpszreading.into().abi(), param3, lpszregister.into().abi(), param5)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -300,10 +300,10 @@ pub unsafe fn ImmGetConversionListA<P0, P1, P2>(param0: P0, param1: P1, lpsrc: P
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
     P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmGetConversionListA ( param0 : super::super::TextServices:: HKL , param1 : super::super::super::Globalization:: HIMC , lpsrc : :: windows::core::PCSTR , lpdst : *mut CANDIDATELIST , dwbuflen : u32 , uflag : GET_CONVERSION_LIST_FLAG ) -> u32 );
-    ImmGetConversionListA(param0.into(), param1.into(), lpsrc.into(), lpdst, dwbuflen, uflag)
+    ImmGetConversionListA(param0.into(), param1.into(), lpsrc.into().abi(), lpdst, dwbuflen, uflag)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -312,10 +312,10 @@ pub unsafe fn ImmGetConversionListW<P0, P1, P2>(param0: P0, param1: P1, lpsrc: P
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
     P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmGetConversionListW ( param0 : super::super::TextServices:: HKL , param1 : super::super::super::Globalization:: HIMC , lpsrc : :: windows::core::PCWSTR , lpdst : *mut CANDIDATELIST , dwbuflen : u32 , uflag : GET_CONVERSION_LIST_FLAG ) -> u32 );
-    ImmGetConversionListW(param0.into(), param1.into(), lpsrc.into(), lpdst, dwbuflen, uflag)
+    ImmGetConversionListW(param0.into(), param1.into(), lpsrc.into().abi(), lpdst, dwbuflen, uflag)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -519,22 +519,22 @@ where
 #[inline]
 pub unsafe fn ImmInstallIMEA<P0, P1>(lpszimefilename: P0, lpszlayouttext: P1) -> super::super::TextServices::HKL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmInstallIMEA ( lpszimefilename : :: windows::core::PCSTR , lpszlayouttext : :: windows::core::PCSTR ) -> super::super::TextServices:: HKL );
-    ImmInstallIMEA(lpszimefilename.into(), lpszlayouttext.into())
+    ImmInstallIMEA(lpszimefilename.into().abi(), lpszlayouttext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ImmInstallIMEW<P0, P1>(lpszimefilename: P0, lpszlayouttext: P1) -> super::super::TextServices::HKL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmInstallIMEW ( lpszimefilename : :: windows::core::PCWSTR , lpszlayouttext : :: windows::core::PCWSTR ) -> super::super::TextServices:: HKL );
-    ImmInstallIMEW(lpszimefilename.into(), lpszlayouttext.into())
+    ImmInstallIMEW(lpszimefilename.into().abi(), lpszlayouttext.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -616,11 +616,11 @@ where
 pub unsafe fn ImmRegisterWordA<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmRegisterWordA ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows::core::PCSTR , param2 : u32 , lpszregister : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
-    ImmRegisterWordA(param0.into(), lpszreading.into(), param2, lpszregister.into())
+    ImmRegisterWordA(param0.into(), lpszreading.into().abi(), param2, lpszregister.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -628,11 +628,11 @@ where
 pub unsafe fn ImmRegisterWordW<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmRegisterWordW ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows::core::PCWSTR , param2 : u32 , lpszregister : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
-    ImmRegisterWordW(param0.into(), lpszreading.into(), param2, lpszregister.into())
+    ImmRegisterWordW(param0.into(), lpszreading.into().abi(), param2, lpszregister.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -816,11 +816,11 @@ where
 pub unsafe fn ImmUnregisterWordA<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmUnregisterWordA ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows::core::PCSTR , param2 : u32 , lpszunregister : :: windows::core::PCSTR ) -> super::super::super::Foundation:: BOOL );
-    ImmUnregisterWordA(param0.into(), lpszreading.into(), param2, lpszunregister.into())
+    ImmUnregisterWordA(param0.into(), lpszreading.into().abi(), param2, lpszunregister.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -828,11 +828,11 @@ where
 pub unsafe fn ImmUnregisterWordW<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::TextServices::HKL>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "imm32.dll""system" fn ImmUnregisterWordW ( param0 : super::super::TextServices:: HKL , lpszreading : :: windows::core::PCWSTR , param2 : u32 , lpszunregister : :: windows::core::PCWSTR ) -> super::super::super::Foundation:: BOOL );
-    ImmUnregisterWordW(param0.into(), lpszreading.into(), param2, lpszunregister.into())
+    ImmUnregisterWordW(param0.into(), lpszreading.into().abi(), param2, lpszunregister.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
@@ -846,9 +846,9 @@ impl IActiveIME {
     pub unsafe fn ConversionList<P0, P1>(&self, himc: P0, szsource: P1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ConversionList)(::windows::core::Vtable::as_raw(self), himc.into(), szsource.into(), uflag, ubuflen, pdest, pucopied).ok()
+        (::windows::core::Vtable::vtable(self).ConversionList)(::windows::core::Vtable::as_raw(self), himc.into(), szsource.into().abi(), uflag, ubuflen, pdest, pucopied).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -922,28 +922,28 @@ impl IActiveIME {
     }
     pub unsafe fn RegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into(), dwstyle, szstring.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szstring.into().abi()).ok()
     }
     pub unsafe fn UnregisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterWord)(::windows::core::Vtable::as_raw(self), szreading.into(), dwstyle, szstring.into()).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szstring.into().abi()).ok()
     }
     pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetRegisterWordStyle)(::windows::core::Vtable::as_raw(self), nitem, pstylebuf, pubufsize).ok()
     }
     pub unsafe fn EnumRegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szregister: P1, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into(), dwstyle, szregister.into(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1038,9 +1038,9 @@ impl IActiveIME2 {
     pub unsafe fn ConversionList<P0, P1>(&self, himc: P0, szsource: P1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ConversionList)(::windows::core::Vtable::as_raw(self), himc.into(), szsource.into(), uflag, ubuflen, pdest, pucopied).ok()
+        (::windows::core::Vtable::vtable(self).base__.ConversionList)(::windows::core::Vtable::as_raw(self), himc.into(), szsource.into().abi(), uflag, ubuflen, pdest, pucopied).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -1114,28 +1114,28 @@ impl IActiveIME2 {
     }
     pub unsafe fn RegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into(), dwstyle, szstring.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.RegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szstring.into().abi()).ok()
     }
     pub unsafe fn UnregisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.UnregisterWord)(::windows::core::Vtable::as_raw(self), szreading.into(), dwstyle, szstring.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.UnregisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szstring.into().abi()).ok()
     }
     pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetRegisterWordStyle)(::windows::core::Vtable::as_raw(self), nitem, pstylebuf, pubufsize).ok()
     }
     pub unsafe fn EnumRegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szregister: P1, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into(), dwstyle, szregister.into(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1241,22 +1241,22 @@ impl IActiveIMMApp {
     pub unsafe fn EnumRegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn EnumRegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -1375,9 +1375,9 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConversionListA)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into(), ubuflen, uflag, pdst, pucopied).ok()
+        (::windows::core::Vtable::vtable(self).GetConversionListA)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into().abi(), ubuflen, uflag, pdst, pucopied).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -1385,9 +1385,9 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConversionListW)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into(), ubuflen, uflag, pdst, pucopied).ok()
+        (::windows::core::Vtable::vtable(self).GetConversionListW)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into().abi(), ubuflen, uflag, pdst, pucopied).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -1509,21 +1509,21 @@ impl IActiveIMMApp {
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn InstallIMEA<P0, P1>(&self, szimefilename: P0, szlayouttext: P1) -> ::windows::core::Result<super::super::TextServices::HKL>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into(), szlayouttext.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn InstallIMEW<P0, P1>(&self, szimefilename: P0, szlayouttext: P1) -> ::windows::core::Result<super::super::TextServices::HKL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into(), szlayouttext.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -1566,20 +1566,20 @@ impl IActiveIMMApp {
     pub unsafe fn RegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn RegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -1676,20 +1676,20 @@ impl IActiveIMMApp {
     pub unsafe fn UnregisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szunregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szunregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn UnregisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szunregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szunregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2106,22 +2106,22 @@ impl IActiveIMMIME {
     pub unsafe fn EnumRegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn EnumRegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -2240,9 +2240,9 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConversionListA)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into(), ubuflen, uflag, pdst, pucopied).ok()
+        (::windows::core::Vtable::vtable(self).GetConversionListA)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into().abi(), ubuflen, uflag, pdst, pucopied).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -2250,9 +2250,9 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConversionListW)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into(), ubuflen, uflag, pdst, pucopied).ok()
+        (::windows::core::Vtable::vtable(self).GetConversionListW)(::windows::core::Vtable::as_raw(self), hkl.into(), himc.into(), psrc.into().abi(), ubuflen, uflag, pdst, pucopied).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2374,21 +2374,21 @@ impl IActiveIMMIME {
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn InstallIMEA<P0, P1>(&self, szimefilename: P0, szlayouttext: P1) -> ::windows::core::Result<super::super::TextServices::HKL>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into(), szlayouttext.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn InstallIMEW<P0, P1>(&self, szimefilename: P0, szlayouttext: P1) -> ::windows::core::Result<super::super::TextServices::HKL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into(), szlayouttext.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2431,20 +2431,20 @@ impl IActiveIMMIME {
     pub unsafe fn RegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn RegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -2541,20 +2541,20 @@ impl IActiveIMMIME {
     pub unsafe fn UnregisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szunregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szunregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
     pub unsafe fn UnregisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into(), dwstyle, szunregister.into()).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szunregister.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -3219,10 +3219,10 @@ pub struct IActiveIMMRegistrar(::windows::core::IUnknown);
 impl IActiveIMMRegistrar {
     pub unsafe fn RegisterIME<P0, P1>(&self, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: P0, pszdesc: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterIME)(::windows::core::Vtable::as_raw(self), rclsid, lgid, psziconfile.into(), pszdesc.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterIME)(::windows::core::Vtable::as_raw(self), rclsid, lgid, psziconfile.into().abi(), pszdesc.into().abi()).ok()
     }
     pub unsafe fn UnregisterIME(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterIME)(::windows::core::Vtable::as_raw(self), rclsid).ok()
@@ -3563,11 +3563,11 @@ impl IFEDictionary {
     }
     pub unsafe fn GetWords<P0, P1, P2>(&self, pwchfirst: P0, pwchlast: P1, pwchdisplay: P2, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetWords)(::windows::core::Vtable::as_raw(self), pwchfirst.into(), pwchlast.into(), pwchdisplay.into(), ulpos, ulselect, ulwordsrc, pchbuffer, cbbuffer, pcwrd).ok()
+        (::windows::core::Vtable::vtable(self).GetWords)(::windows::core::Vtable::as_raw(self), pwchfirst.into().abi(), pwchlast.into().abi(), pwchdisplay.into().abi(), ulpos, ulselect, ulwordsrc, pchbuffer, cbbuffer, pcwrd).ok()
     }
     pub unsafe fn NextWords(&self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NextWords)(::windows::core::Vtable::as_raw(self), pchbuffer, cbbuffer, pcwrd).ok()
@@ -3576,9 +3576,9 @@ impl IFEDictionary {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<P0>(&self, pchdictpath: P0, pshf: *mut IMESHF) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pchdictpath.into(), pshf).ok()
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pchdictpath.into().abi(), pshf).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3599,12 +3599,12 @@ impl IFEDictionary {
     }
     pub unsafe fn GetDependencies<P0, P1, P2, P3>(&self, pwchkakarireading: P0, pwchkakaridisplay: P1, ulkakaripos: u32, pwchukereading: P2, pwchukedisplay: P3, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDependencies)(::windows::core::Vtable::as_raw(self), pwchkakarireading.into(), pwchkakaridisplay.into(), ulkakaripos, pwchukereading.into(), pwchukedisplay.into(), ulukepos, jrel, ulwordsrc, pchbuffer, cbbuffer, pcdp).ok()
+        (::windows::core::Vtable::vtable(self).GetDependencies)(::windows::core::Vtable::as_raw(self), pwchkakarireading.into().abi(), pwchkakaridisplay.into().abi(), ulkakaripos, pwchukereading.into().abi(), pwchukedisplay.into().abi(), ulukepos, jrel, ulwordsrc, pchbuffer, cbbuffer, pcdp).ok()
     }
     pub unsafe fn NextDependencies(&self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NextDependencies)(::windows::core::Vtable::as_raw(self), pchbuffer, cbbuffer, pcdp).ok()
@@ -3613,9 +3613,9 @@ impl IFEDictionary {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConvertFromOldMSIME<P0>(&self, pchdic: P0, pfnlog: PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ConvertFromOldMSIME)(::windows::core::Vtable::as_raw(self), pchdic.into(), pfnlog, reg).ok()
+        (::windows::core::Vtable::vtable(self).ConvertFromOldMSIME)(::windows::core::Vtable::as_raw(self), pchdic.into().abi(), pfnlog, reg).ok()
     }
     pub unsafe fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ConvertFromUserToSys)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3696,9 +3696,9 @@ impl IFELanguage {
     }
     pub unsafe fn GetJMorphResult<P0>(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: P0, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetJMorphResult)(::windows::core::Vtable::as_raw(self), dwrequest, dwcmode, cwchinput, pwchinput.into(), pfcinfo, ppresult).ok()
+        (::windows::core::Vtable::vtable(self).GetJMorphResult)(::windows::core::Vtable::as_raw(self), dwrequest, dwcmode, cwchinput, pwchinput.into().abi(), pfcinfo, ppresult).ok()
     }
     pub unsafe fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetConversionModeCaps)(::windows::core::Vtable::as_raw(self), pdwcaps).ok()

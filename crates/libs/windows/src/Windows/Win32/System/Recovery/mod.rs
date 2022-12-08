@@ -47,10 +47,10 @@ pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::Windo
 #[inline]
 pub unsafe fn RegisterApplicationRestart<P0>(pwzcommandline: P0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn RegisterApplicationRestart ( pwzcommandline : :: windows::core::PCWSTR , dwflags : REGISTER_APPLICATION_RESTART_FLAGS ) -> :: windows::core::HRESULT );
-    RegisterApplicationRestart(pwzcommandline.into(), dwflags).ok()
+    RegisterApplicationRestart(pwzcommandline.into().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[inline]

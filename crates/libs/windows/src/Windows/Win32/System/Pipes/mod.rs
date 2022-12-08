@@ -3,20 +3,20 @@
 #[inline]
 pub unsafe fn CallNamedPipeA<P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CallNamedPipeA ( lpnamedpipename : :: windows::core::PCSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
-    CallNamedPipeA(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
+    CallNamedPipeA(lpnamedpipename.into().abi(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallNamedPipeW<P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CallNamedPipeW ( lpnamedpipename : :: windows::core::PCWSTR , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesread : *mut u32 , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
-    CallNamedPipeW(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
+    CallNamedPipeW(lpnamedpipename.into().abi(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -33,10 +33,10 @@ where
 #[inline]
 pub unsafe fn CreateNamedPipeA<P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateNamedPipeA ( lpname : :: windows::core::PCSTR , dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , dwpipemode : NAMED_PIPE_MODE , nmaxinstances : u32 , noutbuffersize : u32 , ninbuffersize : u32 , ndefaulttimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
-    let result__ = CreateNamedPipeA(lpname.into(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())));
+    let result__ = CreateNamedPipeA(lpname.into().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -44,10 +44,10 @@ where
 #[inline]
 pub unsafe fn CreateNamedPipeW<P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateNamedPipeW ( lpname : :: windows::core::PCWSTR , dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , dwpipemode : NAMED_PIPE_MODE , nmaxinstances : u32 , noutbuffersize : u32 , ninbuffersize : u32 , ndefaulttimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
-    CreateNamedPipeW(lpname.into(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
+    CreateNamedPipeW(lpname.into().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -201,20 +201,20 @@ where
 #[inline]
 pub unsafe fn WaitNamedPipeA<P0>(lpnamedpipename: P0, ntimeout: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn WaitNamedPipeA ( lpnamedpipename : :: windows::core::PCSTR , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
-    WaitNamedPipeA(lpnamedpipename.into(), ntimeout)
+    WaitNamedPipeA(lpnamedpipename.into().abi(), ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitNamedPipeW<P0>(lpnamedpipename: P0, ntimeout: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn WaitNamedPipeW ( lpnamedpipename : :: windows::core::PCWSTR , ntimeout : u32 ) -> super::super::Foundation:: BOOL );
-    WaitNamedPipeW(lpnamedpipename.into(), ntimeout)
+    WaitNamedPipeW(lpnamedpipename.into().abi(), ntimeout)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const NMPWAIT_NOWAIT: u32 = 1u32;

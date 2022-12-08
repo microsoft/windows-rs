@@ -56,10 +56,10 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER
 pub unsafe fn SaferRecordEventLogEntry<P0, P1>(hlevel: P0, sztargetpath: P1, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::SAFER_LEVEL_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferRecordEventLogEntry ( hlevel : super:: SAFER_LEVEL_HANDLE , sztargetpath : :: windows::core::PCWSTR , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
+    SaferRecordEventLogEntry(hlevel.into(), sztargetpath.into().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -83,11 +83,11 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[inline]
 pub unsafe fn SaferiIsExecutableFileType<P0, P1>(szfullpathname: P0, bfromshellexecute: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     ::windows::core::link ! ( "advapi32.dll""system" fn SaferiIsExecutableFileType ( szfullpathname : :: windows::core::PCWSTR , bfromshellexecute : super::super::Foundation:: BOOLEAN ) -> super::super::Foundation:: BOOL );
-    SaferiIsExecutableFileType(szfullpathname.into(), bfromshellexecute.into())
+    SaferiIsExecutableFileType(szfullpathname.into().abi(), bfromshellexecute.into())
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;

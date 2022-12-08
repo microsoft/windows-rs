@@ -3,23 +3,23 @@
 #[inline]
 pub unsafe fn DavAddConnection<P0, P1, P2>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: P0, username: P1, password: P2, clientcert: &[u8]) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn DavAddConnection ( connectionhandle : *mut super::super::Foundation:: HANDLE , remotename : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , password : :: windows::core::PCWSTR , clientcert : *const u8 , certsize : u32 ) -> u32 );
-    DavAddConnection(connectionhandle, remotename.into(), username.into(), password.into(), ::core::mem::transmute(clientcert.as_ptr()), clientcert.len() as _)
+    DavAddConnection(connectionhandle, remotename.into().abi(), username.into().abi(), password.into().abi(), ::core::mem::transmute(clientcert.as_ptr()), clientcert.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DavCancelConnectionsToServer<P0, P1>(lpname: P0, fforce: P1) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "davclnt.dll""system" fn DavCancelConnectionsToServer ( lpname : :: windows::core::PCWSTR , fforce : super::super::Foundation:: BOOL ) -> u32 );
-    DavCancelConnectionsToServer(lpname.into(), fforce.into())
+    DavCancelConnectionsToServer(lpname.into().abi(), fforce.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -55,37 +55,37 @@ where
 #[inline]
 pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn DavGetHTTPFromUNCPath ( uncpath : :: windows::core::PCWSTR , url : :: windows::core::PWSTR , lpsize : *mut u32 ) -> u32 );
-    DavGetHTTPFromUNCPath(uncpath.into(), ::core::mem::transmute(url), lpsize)
+    DavGetHTTPFromUNCPath(uncpath.into().abi(), ::core::mem::transmute(url), lpsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
 pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: ::windows::core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "davclnt.dll""system" fn DavGetTheLockOwnerOfTheFile ( filename : :: windows::core::PCWSTR , lockownername : :: windows::core::PWSTR , lockownernamelengthinbytes : *mut u32 ) -> u32 );
-    DavGetTheLockOwnerOfTheFile(filename.into(), ::core::mem::transmute(lockownername), lockownernamelengthinbytes)
+    DavGetTheLockOwnerOfTheFile(filename.into().abi(), ::core::mem::transmute(lockownername), lockownernamelengthinbytes)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
 pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn DavGetUNCFromHTTPPath ( url : :: windows::core::PCWSTR , uncpath : :: windows::core::PWSTR , lpsize : *mut u32 ) -> u32 );
-    DavGetUNCFromHTTPPath(url.into(), ::core::mem::transmute(uncpath), lpsize)
+    DavGetUNCFromHTTPPath(url.into().abi(), ::core::mem::transmute(uncpath), lpsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
 pub unsafe fn DavInvalidateCache<P0>(urlname: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "davclnt.dll""system" fn DavInvalidateCache ( urlname : :: windows::core::PCWSTR ) -> u32 );
-    DavInvalidateCache(urlname.into())
+    DavInvalidateCache(urlname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

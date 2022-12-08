@@ -20,10 +20,10 @@ impl IXMLGraphBuilder {
     pub unsafe fn BuildFromXMLFile<P0, P1, P2>(&self, pgraph: P0, wszfilename: P1, wszbaseurl: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::IGraphBuilder>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BuildFromXMLFile)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), wszfilename.into(), wszbaseurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).BuildFromXMLFile)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), wszfilename.into().abi(), wszbaseurl.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IXMLGraphBuilder, ::windows::core::IUnknown);

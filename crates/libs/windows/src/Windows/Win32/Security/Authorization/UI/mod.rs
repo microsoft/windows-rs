@@ -40,10 +40,10 @@ impl IEffectivePermission {
     pub unsafe fn GetEffectivePermission<P0, P1, P2>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: P0, pszservername: P1, psd: P2, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>,
     {
-        (::windows::core::Vtable::vtable(self).GetEffectivePermission)(::windows::core::Vtable::as_raw(self), pguidobjecttype, pusersid.into(), pszservername.into(), psd.into(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
+        (::windows::core::Vtable::vtable(self).GetEffectivePermission)(::windows::core::Vtable::as_raw(self), pguidobjecttype, pusersid.into(), pszservername.into().abi(), psd.into(), ppobjecttypelist, pcobjecttypelistlength, ppgrantedaccesslist, pcgrantedaccesslistlength).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEffectivePermission, ::windows::core::IUnknown);
@@ -104,13 +104,13 @@ impl IEffectivePermission2 {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
         P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         (::windows::core::Vtable::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
             ::windows::core::Vtable::as_raw(self),
             psid.into(),
             pdevicesid.into(),
-            pszservername.into(),
+            pszservername.into().abi(),
             psecurityobjects,
             dwsecurityobjectcount,
             ::core::mem::transmute(pusergroups.unwrap_or(::std::ptr::null())),

@@ -276,9 +276,9 @@ impl IDirectMusicCollection {
     }
     pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).EnumInstrument)(::windows::core::Vtable::as_raw(self), dwindex, pdwpatch, pwszname.into(), dwnamelen).ok()
+        (::windows::core::Vtable::vtable(self).EnumInstrument)(::windows::core::Vtable::as_raw(self), dwindex, pdwpatch, pwszname.into().abi(), dwnamelen).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectMusicCollection, ::windows::core::IUnknown);

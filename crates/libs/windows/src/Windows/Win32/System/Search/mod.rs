@@ -1048,29 +1048,29 @@ pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatyp
 #[inline]
 pub unsafe fn SQLInitEnumServers<P0, P1>(pwchservername: P0, pwchinstancename: P1) -> super::super::Foundation::HANDLE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn SQLInitEnumServers ( pwchservername : :: windows::core::PCWSTR , pwchinstancename : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
-    SQLInitEnumServers(pwchservername.into(), pwchinstancename.into())
+    SQLInitEnumServers(pwchservername.into().abi(), pwchinstancename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsA<P0>(param0: *mut ::core::ffi::c_void, param1: P0, param2: i16) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : i16 ) -> i16 );
-    SQLLinkedCatalogsA(param0, param1.into(), param2)
+    SQLLinkedCatalogsA(param0, param1.into().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsW<P0>(param0: *mut ::core::ffi::c_void, param1: P0, param2: i16) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn SQLLinkedCatalogsW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : i16 ) -> i16 );
-    SQLLinkedCatalogsW(param0, param1.into(), param2)
+    SQLLinkedCatalogsW(param0, param1.into().abi(), param2)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -1749,23 +1749,23 @@ pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
 #[inline]
 pub unsafe fn bcp_initA<P0, P1, P2>(param0: *mut ::core::ffi::c_void, param1: P0, param2: P1, param3: P2, param4: i32) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn bcp_initA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR , param2 : :: windows::core::PCSTR , param3 : :: windows::core::PCSTR , param4 : i32 ) -> i16 );
-    bcp_initA(param0, param1.into(), param2.into(), param3.into(), param4)
+    bcp_initA(param0, param1.into().abi(), param2.into().abi(), param3.into().abi(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_initW<P0, P1, P2>(param0: *mut ::core::ffi::c_void, param1: P0, param2: P1, param3: P2, param4: i32) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn bcp_initW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR , param2 : :: windows::core::PCWSTR , param3 : :: windows::core::PCWSTR , param4 : i32 ) -> i16 );
-    bcp_initW(param0, param1.into(), param2.into(), param3.into(), param4)
+    bcp_initW(param0, param1.into().abi(), param2.into().abi(), param3.into().abi(), param4)
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -1777,19 +1777,19 @@ pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2
 #[inline]
 pub unsafe fn bcp_readfmtA<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn bcp_readfmtA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR ) -> i16 );
-    bcp_readfmtA(param0, param1.into())
+    bcp_readfmtA(param0, param1.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_readfmtW<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn bcp_readfmtW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR ) -> i16 );
-    bcp_readfmtW(param0, param1.into())
+    bcp_readfmtW(param0, param1.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -1807,19 +1807,19 @@ pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
 #[inline]
 pub unsafe fn bcp_writefmtA<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn bcp_writefmtA ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCSTR ) -> i16 );
-    bcp_writefmtA(param0, param1.into())
+    bcp_writefmtA(param0, param1.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_writefmtW<P0>(param0: *mut ::core::ffi::c_void, param1: P0) -> i16
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "odbcbcp.dll""system" fn bcp_writefmtW ( param0 : *mut ::core::ffi::c_void , param1 : :: windows::core::PCWSTR ) -> i16 );
-    bcp_writefmtW(param0, param1.into())
+    bcp_writefmtW(param0, param1.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
@@ -2154,10 +2154,10 @@ impl IBindResource {
     pub unsafe fn Bind<P0, P1, P2>(&self, punkouter: P0, pwszurl: P1, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: P2, pimplsession: ::core::option::Option<*mut DBIMPLICITSESSION>, pdwbindstatus: ::core::option::Option<*mut u32>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<super::Com::IAuthenticate>>,
     {
-        (::windows::core::Vtable::vtable(self).Bind)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pwszurl.into(), dwbindurlflags, rguid, riid, pauthenticate.into().abi(), ::core::mem::transmute(pimplsession.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwbindstatus.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Vtable::vtable(self).Bind)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pwszurl.into().abi(), dwbindurlflags, rguid, riid, pauthenticate.into().abi(), ::core::mem::transmute(pimplsession.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwbindstatus.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppunk)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IBindResource, ::windows::core::IUnknown);
@@ -2243,9 +2243,9 @@ impl IColumnMapper {
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn GetPropInfoFromName<P0>(&self, wcspropname: P0, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetPropInfoFromName)(::windows::core::Vtable::as_raw(self), wcspropname.into(), pppropid, pproptype, puiwidth).ok()
+        (::windows::core::Vtable::vtable(self).GetPropInfoFromName)(::windows::core::Vtable::as_raw(self), wcspropname.into().abi(), pppropid, pproptype, puiwidth).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -2308,11 +2308,11 @@ pub struct IColumnMapperCreator(::windows::core::IUnknown);
 impl IColumnMapperCreator {
     pub unsafe fn GetColumnMapper<P0, P1>(&self, wcsmachinename: P0, wcscatalogname: P1) -> ::windows::core::Result<IColumnMapper>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetColumnMapper)(::windows::core::Vtable::as_raw(self), wcsmachinename.into(), wcscatalogname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetColumnMapper)(::windows::core::Vtable::as_raw(self), wcsmachinename.into().abi(), wcscatalogname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IColumnMapperCreator, ::windows::core::IUnknown);
@@ -2556,39 +2556,39 @@ pub struct ICommandCost(::windows::core::IUnknown);
 impl ICommandCost {
     pub unsafe fn GetAccumulatedCost<P0>(&self, pwszrowsetname: P0, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAccumulatedCost)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into(), pccostlimits, prgcostlimits).ok()
+        (::windows::core::Vtable::vtable(self).GetAccumulatedCost)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into().abi(), pccostlimits, prgcostlimits).ok()
     }
     pub unsafe fn GetCostEstimate<P0>(&self, pwszrowsetname: P0, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCostEstimate)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into(), pccostestimates, prgcostestimates).ok()
+        (::windows::core::Vtable::vtable(self).GetCostEstimate)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into().abi(), pccostestimates, prgcostestimates).ok()
     }
     pub unsafe fn GetCostGoals<P0>(&self, pwszrowsetname: P0, pccostgoals: *mut u32, prgcostgoals: *mut DBCOST) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCostGoals)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into(), pccostgoals, prgcostgoals).ok()
+        (::windows::core::Vtable::vtable(self).GetCostGoals)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into().abi(), pccostgoals, prgcostgoals).ok()
     }
     pub unsafe fn GetCostLimits<P0>(&self, pwszrowsetname: P0, pccostlimits: *mut u32, prgcostlimits: *mut DBCOST) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCostLimits)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into(), pccostlimits, prgcostlimits).ok()
+        (::windows::core::Vtable::vtable(self).GetCostLimits)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into().abi(), pccostlimits, prgcostlimits).ok()
     }
     pub unsafe fn SetCostGoals<P0>(&self, pwszrowsetname: P0, ccostgoals: u32, rgcostgoals: *const DBCOST) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCostGoals)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into(), ccostgoals, rgcostgoals).ok()
+        (::windows::core::Vtable::vtable(self).SetCostGoals)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into().abi(), ccostgoals, rgcostgoals).ok()
     }
     pub unsafe fn SetCostLimits<P0>(&self, pwszrowsetname: P0, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCostLimits)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into(), ccostlimits, prgcostlimits, dwexecutionflags).ok()
+        (::windows::core::Vtable::vtable(self).SetCostLimits)(::windows::core::Vtable::as_raw(self), pwszrowsetname.into().abi(), ccostlimits, prgcostlimits, dwexecutionflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICommandCost, ::windows::core::IUnknown);
@@ -2852,9 +2852,9 @@ impl ICommandText {
     }
     pub unsafe fn SetCommandText<P0>(&self, rguiddialect: *const ::windows::core::GUID, pwszcommand: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCommandText)(::windows::core::Vtable::as_raw(self), rguiddialect, pwszcommand.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCommandText)(::windows::core::Vtable::as_raw(self), rguiddialect, pwszcommand.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICommandText, ::windows::core::IUnknown, ICommand);
@@ -3260,15 +3260,15 @@ impl IConditionFactory {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
     pub unsafe fn MakeLeaf<P0, P1, P2, P3, P4, P5>(&self, pszpropertyname: P0, cop: Common::CONDITION_OPERATION, pszvaluetype: P1, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, fexpand: P5) -> ::windows::core::Result<ICondition>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P3: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P4: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P5: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MakeLeaf)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), cop, pszvaluetype.into(), ppropvar, ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MakeLeaf)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), cop, pszvaluetype.into().abi(), ppropvar, ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3352,15 +3352,15 @@ impl IConditionFactory2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
     pub unsafe fn MakeLeaf<P0, P1, P2, P3, P4, P5>(&self, pszpropertyname: P0, cop: Common::CONDITION_OPERATION, pszvaluetype: P1, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, fexpand: P5) -> ::windows::core::Result<ICondition>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P3: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P4: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P5: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MakeLeaf)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), cop, pszvaluetype.into(), ppropvar, ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MakeLeaf)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), cop, pszvaluetype.into().abi(), ppropvar, ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3414,12 +3414,12 @@ impl IConditionFactory2 {
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn CreateStringLeaf<P0, P1, T>(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, pszvalue: P0, pszlocalename: P1, cco: CONDITION_CREATION_OPTIONS) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStringLeaf)(::windows::core::Vtable::as_raw(self), propkey, cop, pszvalue.into(), pszlocalename.into(), cco, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateStringLeaf)(::windows::core::Vtable::as_raw(self), propkey, cop, pszvalue.into().abi(), pszlocalename.into().abi(), cco, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -3444,15 +3444,15 @@ impl IConditionFactory2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn CreateLeaf<P0, P1, P2, P3, P4, T>(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: P0, pszlocalename: P1, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, cco: CONDITION_CREATION_OPTIONS) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P3: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P4: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLeaf)(::windows::core::Vtable::as_raw(self), propkey, cop, propvar, pszsemantictype.into(), pszlocalename.into(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), cco, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateLeaf)(::windows::core::Vtable::as_raw(self), propkey, cop, propvar, pszsemantictype.into().abi(), pszlocalename.into().abi(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), cco, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3541,37 +3541,37 @@ impl IConditionGenerator {
     }
     pub unsafe fn RecognizeNamedEntities<P0, P1, P2>(&self, pszinputstring: P0, lciduserlocale: u32, ptokencollection: P1, pnamedentities: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ITokenCollection>>,
         P2: ::std::convert::Into<::windows::core::InParam<INamedEntityCollector>>,
     {
-        (::windows::core::Vtable::vtable(self).RecognizeNamedEntities)(::windows::core::Vtable::as_raw(self), pszinputstring.into(), lciduserlocale, ptokencollection.into().abi(), pnamedentities.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).RecognizeNamedEntities)(::windows::core::Vtable::as_raw(self), pszinputstring.into().abi(), lciduserlocale, ptokencollection.into().abi(), pnamedentities.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Search_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Search_Common"))]
     pub unsafe fn GenerateForLeaf<P0, P1, P2, P3, P4, P5, P6, P7, P8>(&self, pconditionfactory: P0, pszpropertyname: P1, cop: Common::CONDITION_OPERATION, pszvaluetype: P2, pszvalue: P3, pszvalue2: P4, ppropertynameterm: P5, poperationterm: P6, pvalueterm: P7, automaticwildcard: P8, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::core::option::Option<ICondition>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IConditionFactory>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P5: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P6: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P7: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P8: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GenerateForLeaf)(::windows::core::Vtable::as_raw(self), pconditionfactory.into().abi(), pszpropertyname.into(), cop, pszvaluetype.into(), pszvalue.into(), pszvalue2.into(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), automaticwildcard.into(), pnostringquery, ::core::mem::transmute(ppqueryexpression)).ok()
+        (::windows::core::Vtable::vtable(self).GenerateForLeaf)(::windows::core::Vtable::as_raw(self), pconditionfactory.into().abi(), pszpropertyname.into().abi(), cop, pszvaluetype.into().abi(), pszvalue.into().abi(), pszvalue2.into().abi(), ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), automaticwildcard.into(), pnostringquery, ::core::mem::transmute(ppqueryexpression)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn DefaultPhrase<P0, P1>(&self, pszvaluetype: P0, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), pszvaluetype.into(), ppropvar, fuseenglish.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).DefaultPhrase)(::windows::core::Vtable::as_raw(self), pszvaluetype.into().abi(), ppropvar, fuseenglish.into(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IConditionGenerator, ::windows::core::IUnknown);
@@ -3658,10 +3658,10 @@ impl ICreateRow {
     pub unsafe fn CreateRow<P0, P1, P2>(&self, punkouter: P0, pwszurl: P1, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: P2, pimplsession: ::core::option::Option<*mut DBIMPLICITSESSION>, pdwbindstatus: *mut u32, ppwsznewurl: ::core::option::Option<*mut ::windows::core::PWSTR>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<super::Com::IAuthenticate>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateRow)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pwszurl.into(), dwbindurlflags, rguid, riid, pauthenticate.into().abi(), ::core::mem::transmute(pimplsession.unwrap_or(::std::ptr::null_mut())), pdwbindstatus, ::core::mem::transmute(ppwsznewurl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Vtable::vtable(self).CreateRow)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pwszurl.into().abi(), dwbindurlflags, rguid, riid, pauthenticate.into().abi(), ::core::mem::transmute(pimplsession.unwrap_or(::std::ptr::null_mut())), pdwbindstatus, ::core::mem::transmute(ppwsznewurl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppunk)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICreateRow, ::windows::core::IUnknown);
@@ -3705,15 +3705,15 @@ impl IDBAsynchNotify {
     }
     pub unsafe fn OnProgress<P0>(&self, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnProgress)(::windows::core::Vtable::as_raw(self), hchapter, eoperation, ulprogress, ulprogressmax, easynchphase, pwszstatustext.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnProgress)(::windows::core::Vtable::as_raw(self), hchapter, eoperation, ulprogress, ulprogressmax, easynchphase, pwszstatustext.into().abi()).ok()
     }
     pub unsafe fn OnStop<P0>(&self, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnStop)(::windows::core::Vtable::as_raw(self), hchapter, eoperation, hrstatus, pwszstatustext.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnStop)(::windows::core::Vtable::as_raw(self), hchapter, eoperation, hrstatus, pwszstatustext.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDBAsynchNotify, ::windows::core::IUnknown);
@@ -4087,20 +4087,20 @@ impl IDBPromptInitialize {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PromptDataSource)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), hwndparent.into(), dwpromptoptions, rgsourcetypefilter.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgsourcetypefilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwszszzproviderfilter.into(), riid, ::core::mem::transmute(ppdatasource)).ok()
+        (::windows::core::Vtable::vtable(self).PromptDataSource)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), hwndparent.into(), dwpromptoptions, rgsourcetypefilter.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgsourcetypefilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pwszszzproviderfilter.into().abi(), riid, ::core::mem::transmute(ppdatasource)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PromptFileName<P0, P1, P2>(&self, hwndparent: P0, dwpromptoptions: u32, pwszinitialdirectory: P1, pwszinitialfile: P2) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PromptFileName)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwpromptoptions, pwszinitialdirectory.into(), pwszinitialfile.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).PromptFileName)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwpromptoptions, pwszinitialdirectory.into().abi(), pwszinitialfile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDBPromptInitialize, ::windows::core::IUnknown);
@@ -4396,9 +4396,9 @@ impl IDataInitialize {
     pub unsafe fn GetDataSource<P0, P1>(&self, punkouter: P0, dwclsctx: u32, pwszinitializationstring: P1, riid: *const ::windows::core::GUID, ppdatasource: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDataSource)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), dwclsctx, pwszinitializationstring.into(), riid, ::core::mem::transmute(ppdatasource)).ok()
+        (::windows::core::Vtable::vtable(self).GetDataSource)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), dwclsctx, pwszinitializationstring.into().abi(), riid, ::core::mem::transmute(ppdatasource)).ok()
     }
     pub unsafe fn GetInitializationString<P0>(&self, pdatasource: P0, fincludepassword: u8) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -4410,33 +4410,33 @@ impl IDataInitialize {
     pub unsafe fn CreateDBInstance<P0, P1>(&self, clsidprovider: *const ::windows::core::GUID, punkouter: P0, dwclsctx: u32, pwszreserved: P1, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDBInstance)(::windows::core::Vtable::as_raw(self), clsidprovider, punkouter.into().abi(), dwclsctx, pwszreserved.into(), riid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateDBInstance)(::windows::core::Vtable::as_raw(self), clsidprovider, punkouter.into().abi(), dwclsctx, pwszreserved.into().abi(), riid, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDBInstanceEx<P0, P1>(&self, clsidprovider: *const ::windows::core::GUID, punkouter: P0, dwclsctx: u32, pwszreserved: P1, pserverinfo: *const super::Com::COSERVERINFO, rgmqresults: &mut [super::Com::MULTI_QI]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateDBInstanceEx)(::windows::core::Vtable::as_raw(self), clsidprovider, punkouter.into().abi(), dwclsctx, pwszreserved.into(), pserverinfo, rgmqresults.len() as _, ::core::mem::transmute(rgmqresults.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).CreateDBInstanceEx)(::windows::core::Vtable::as_raw(self), clsidprovider, punkouter.into().abi(), dwclsctx, pwszreserved.into().abi(), pserverinfo, rgmqresults.len() as _, ::core::mem::transmute(rgmqresults.as_ptr())).ok()
     }
     pub unsafe fn LoadStringFromStorage<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadStringFromStorage)(::windows::core::Vtable::as_raw(self), pwszfilename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LoadStringFromStorage)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn WriteStringToStorage<P0, P1>(&self, pwszfilename: P0, pwszinitializationstring: P1, dwcreationdisposition: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WriteStringToStorage)(::windows::core::Vtable::as_raw(self), pwszfilename.into(), pwszinitializationstring.into(), dwcreationdisposition).ok()
+        (::windows::core::Vtable::vtable(self).WriteStringToStorage)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi(), pwszinitializationstring.into().abi(), dwcreationdisposition).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDataInitialize, ::windows::core::IUnknown);
@@ -4581,10 +4581,10 @@ impl IEntity {
     }
     pub unsafe fn GetRelationship<P0>(&self, pszrelationname: P0) -> ::windows::core::Result<IRelationship>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRelationship)(::windows::core::Vtable::as_raw(self), pszrelationname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetRelationship)(::windows::core::Vtable::as_raw(self), pszrelationname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn MetaData<T>(&self) -> ::windows::core::Result<T>
     where
@@ -4602,10 +4602,10 @@ impl IEntity {
     }
     pub unsafe fn GetNamedEntity<P0>(&self, pszvalue: P0) -> ::windows::core::Result<INamedEntity>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNamedEntity)(::windows::core::Vtable::as_raw(self), pszvalue.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetNamedEntity)(::windows::core::Vtable::as_raw(self), pszvalue.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DefaultPhrase(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5254,11 +5254,11 @@ impl ILoadFilter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     pub unsafe fn LoadIFilter<P0, P1, P2>(&self, pwcspath: P0, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: P1, fusedefault: P2, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).LoadIFilter)(::windows::core::Vtable::as_raw(self), pwcspath.into(), pfilteredsources, punkouter.into().abi(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
+        (::windows::core::Vtable::vtable(self).LoadIFilter)(::windows::core::Vtable::as_raw(self), pwcspath.into().abi(), pfilteredsources, punkouter.into().abi(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5266,10 +5266,10 @@ impl ILoadFilter {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::Com::StructuredStorage::IStorage>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).LoadIFilterFromStorage)(::windows::core::Vtable::as_raw(self), pstg.into().abi(), punkouter.into().abi(), pwcsoverride.into(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
+        (::windows::core::Vtable::vtable(self).LoadIFilterFromStorage)(::windows::core::Vtable::as_raw(self), pstg.into().abi(), punkouter.into().abi(), pwcsoverride.into().abi(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -5330,11 +5330,11 @@ impl ILoadFilterWithPrivateComActivation {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
     pub unsafe fn LoadIFilter<P0, P1, P2>(&self, pwcspath: P0, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: P1, fusedefault: P2, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.LoadIFilter)(::windows::core::Vtable::as_raw(self), pwcspath.into(), pfilteredsources, punkouter.into().abi(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
+        (::windows::core::Vtable::vtable(self).base__.LoadIFilter)(::windows::core::Vtable::as_raw(self), pwcspath.into().abi(), pfilteredsources, punkouter.into().abi(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5342,10 +5342,10 @@ impl ILoadFilterWithPrivateComActivation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::Com::StructuredStorage::IStorage>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.LoadIFilterFromStorage)(::windows::core::Vtable::as_raw(self), pstg.into().abi(), punkouter.into().abi(), pwcsoverride.into(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
+        (::windows::core::Vtable::vtable(self).base__.LoadIFilterFromStorage)(::windows::core::Vtable::as_raw(self), pstg.into().abi(), punkouter.into().abi(), pwcsoverride.into().abi(), fusedefault.into(), pfilterclsid, searchdecsize, pwcssearchdesc, ::core::mem::transmute(ppifilt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -5676,9 +5676,9 @@ impl INamedEntityCollector {
     pub unsafe fn Add<P0, P1>(&self, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: P0, pszvalue: P1, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IEntity>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), beginspan, endspan, beginactual, endactual, ptype.into().abi(), pszvalue.into(), certainty).ok()
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), beginspan, endspan, beginactual, endactual, ptype.into().abi(), pszvalue.into().abi(), certainty).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INamedEntityCollector, ::windows::core::IUnknown);
@@ -5945,10 +5945,10 @@ impl IProtocolHandlerSite {
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn GetFilter<P0, P1>(&self, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: P0, pcwszextension: P1, ppfilter: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetFilter)(::windows::core::Vtable::as_raw(self), pclsidobj, pcwszcontenttype.into(), pcwszextension.into(), ::core::mem::transmute(ppfilter)).ok()
+        (::windows::core::Vtable::vtable(self).GetFilter)(::windows::core::Vtable::as_raw(self), pclsidobj, pcwszcontenttype.into().abi(), pcwszextension.into().abi(), ::core::mem::transmute(ppfilter)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IProtocolHandlerSite, ::windows::core::IUnknown);
@@ -6034,11 +6034,11 @@ impl IQueryParser {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parse<P0, P1>(&self, pszinputstring: P0, pcustomproperties: P1) -> ::windows::core::Result<IQuerySolution>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::Com::IEnumUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Parse)(::windows::core::Vtable::as_raw(self), pszinputstring.into(), pcustomproperties.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Parse)(::windows::core::Vtable::as_raw(self), pszinputstring.into().abi(), pcustomproperties.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6055,9 +6055,9 @@ impl IQueryParser {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetMultiOption<P0>(&self, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: P0, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMultiOption)(::windows::core::Vtable::as_raw(self), option, pszoptionkey.into(), poptionvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetMultiOption)(::windows::core::Vtable::as_raw(self), option, pszoptionkey.into().abi(), poptionvalue).ok()
     }
     pub unsafe fn GetSchemaProvider(&self) -> ::windows::core::Result<ISchemaProvider> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6075,11 +6075,11 @@ impl IQueryParser {
     }
     pub unsafe fn ParsePropertyValue<P0, P1>(&self, pszpropertyname: P0, pszinputstring: P1) -> ::windows::core::Result<IQuerySolution>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ParsePropertyValue)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), pszinputstring.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).ParsePropertyValue)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), pszinputstring.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6151,11 +6151,11 @@ pub struct IQueryParserManager(::windows::core::IUnknown);
 impl IQueryParserManager {
     pub unsafe fn CreateLoadedParser<P0, T>(&self, pszcatalog: P0, langidforkeywords: u16) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateLoadedParser)(::windows::core::Vtable::as_raw(self), pszcatalog.into(), langidforkeywords, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateLoadedParser)(::windows::core::Vtable::as_raw(self), pszcatalog.into().abi(), langidforkeywords, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6238,15 +6238,15 @@ impl IQuerySolution {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
     pub unsafe fn MakeLeaf<P0, P1, P2, P3, P4, P5>(&self, pszpropertyname: P0, cop: Common::CONDITION_OPERATION, pszvaluetype: P1, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, fexpand: P5) -> ::windows::core::Result<ICondition>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P3: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P4: ::std::convert::Into<::windows::core::InParam<IRichChunk>>,
         P5: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MakeLeaf)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), cop, pszvaluetype.into(), ppropvar, ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MakeLeaf)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), cop, pszvaluetype.into().abi(), ppropvar, ppropertynameterm.into().abi(), poperationterm.into().abi(), pvalueterm.into().abi(), fexpand.into(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6357,22 +6357,22 @@ pub struct IRegisterProvider(::windows::core::IUnknown);
 impl IRegisterProvider {
     pub unsafe fn GetURLMapping<P0>(&self, pwszurl: P0, dwreserved: usize) -> ::windows::core::Result<::windows::core::GUID>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetURLMapping)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwreserved, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetURLMapping)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), dwreserved, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetURLMapping<P0>(&self, pwszurl: P0, dwreserved: usize, rclsidprovider: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetURLMapping)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwreserved, ::core::mem::transmute(rclsidprovider.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).SetURLMapping)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), dwreserved, ::core::mem::transmute(rclsidprovider.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn UnregisterProvider<P0>(&self, pwszurl: P0, dwreserved: usize, rclsidprovider: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterProvider)(::windows::core::Vtable::as_raw(self), pwszurl.into(), dwreserved, ::core::mem::transmute(rclsidprovider.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterProvider)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), dwreserved, ::core::mem::transmute(rclsidprovider.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRegisterProvider, ::windows::core::IUnknown);
@@ -8454,10 +8454,10 @@ pub struct ISchemaLocalizerSupport(::windows::core::IUnknown);
 impl ISchemaLocalizerSupport {
     pub unsafe fn Localize<P0>(&self, pszglobalstring: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Localize)(::windows::core::Vtable::as_raw(self), pszglobalstring.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Localize)(::windows::core::Vtable::as_raw(self), pszglobalstring.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISchemaLocalizerSupport, ::windows::core::IUnknown);
@@ -8560,10 +8560,10 @@ impl ISchemaProvider {
     }
     pub unsafe fn GetEntity<P0>(&self, pszentityname: P0) -> ::windows::core::Result<IEntity>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEntity)(::windows::core::Vtable::as_raw(self), pszentityname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetEntity)(::windows::core::Vtable::as_raw(self), pszentityname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn MetaData<T>(&self) -> ::windows::core::Result<T>
     where
@@ -8580,17 +8580,17 @@ impl ISchemaProvider {
     }
     pub unsafe fn SaveBinary<P0>(&self, pszschemabinarypath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SaveBinary)(::windows::core::Vtable::as_raw(self), pszschemabinarypath.into()).ok()
+        (::windows::core::Vtable::vtable(self).SaveBinary)(::windows::core::Vtable::as_raw(self), pszschemabinarypath.into().abi()).ok()
     }
     pub unsafe fn LookupAuthoredNamedEntity<P0, P1, P2>(&self, pentity: P0, pszinputstring: P1, ptokencollection: P2, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IEntity>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<ITokenCollection>>,
     {
-        (::windows::core::Vtable::vtable(self).LookupAuthoredNamedEntity)(::windows::core::Vtable::as_raw(self), pentity.into().abi(), pszinputstring.into(), ptokencollection.into().abi(), ctokensbegin, pctokenslength, ppszvalue).ok()
+        (::windows::core::Vtable::vtable(self).LookupAuthoredNamedEntity)(::windows::core::Vtable::as_raw(self), pentity.into().abi(), pszinputstring.into().abi(), ptokencollection.into().abi(), ctokensbegin, pctokenslength, ppszvalue).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISchemaProvider, ::windows::core::IUnknown);
@@ -8637,10 +8637,10 @@ impl IScopedOperations {
     pub unsafe fn Bind<P0, P1, P2>(&self, punkouter: P0, pwszurl: P1, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: P2, pimplsession: ::core::option::Option<*mut DBIMPLICITSESSION>, pdwbindstatus: ::core::option::Option<*mut u32>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<super::Com::IAuthenticate>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Bind)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pwszurl.into(), dwbindurlflags, rguid, riid, pauthenticate.into().abi(), ::core::mem::transmute(pimplsession.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwbindstatus.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppunk)).ok()
+        (::windows::core::Vtable::vtable(self).base__.Bind)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), pwszurl.into().abi(), dwbindurlflags, rguid, riid, pauthenticate.into().abi(), ::core::mem::transmute(pimplsession.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwbindstatus.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppunk)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8723,18 +8723,18 @@ impl ISearchCatalogManager {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), pvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), pvalue).ok()
     }
     pub unsafe fn GetCatalogStatus(&self, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCatalogStatus)(::windows::core::Vtable::as_raw(self), pstatus, ppausedreason).ok()
@@ -8747,15 +8747,15 @@ impl ISearchCatalogManager {
     }
     pub unsafe fn ReindexMatchingURLs<P0>(&self, pszpattern: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ReindexMatchingURLs)(::windows::core::Vtable::as_raw(self), pszpattern.into()).ok()
+        (::windows::core::Vtable::vtable(self).ReindexMatchingURLs)(::windows::core::Vtable::as_raw(self), pszpattern.into().abi()).ok()
     }
     pub unsafe fn ReindexSearchRoot<P0>(&self, pszrooturl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ReindexSearchRoot)(::windows::core::Vtable::as_raw(self), pszrooturl.into()).ok()
+        (::windows::core::Vtable::vtable(self).ReindexSearchRoot)(::windows::core::Vtable::as_raw(self), pszrooturl.into().abi()).ok()
     }
     pub unsafe fn SetConnectTimeout(&self, dwconnecttimeout: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetConnectTimeout)(::windows::core::Vtable::as_raw(self), dwconnecttimeout).ok()
@@ -8784,10 +8784,10 @@ impl ISearchCatalogManager {
     }
     pub unsafe fn GetURLIndexingState<P0>(&self, pszurl: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetURLIndexingState)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetURLIndexingState)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPersistentItemsChangedSink(&self) -> ::windows::core::Result<ISearchPersistentItemsChangedSink> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8795,11 +8795,11 @@ impl ISearchCatalogManager {
     }
     pub unsafe fn RegisterViewForNotification<P0, P1>(&self, pszview: P0, pviewchangedsink: P1) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ISearchViewChangedSink>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterViewForNotification)(::windows::core::Vtable::as_raw(self), pszview.into(), pviewchangedsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterViewForNotification)(::windows::core::Vtable::as_raw(self), pszview.into().abi(), pviewchangedsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetItemsChangedSink<P0>(&self, pisearchnotifyinlinesite: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void, pguidcatalogresetsignature: *mut ::windows::core::GUID, pguidcheckpointsignature: *mut ::windows::core::GUID, pdwlastcheckpointnumber: *mut u32) -> ::windows::core::Result<()>
     where
@@ -8814,10 +8814,10 @@ impl ISearchCatalogManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExtensionClusion<P0, P1>(&self, pszextension: P0, fexclude: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetExtensionClusion)(::windows::core::Vtable::as_raw(self), pszextension.into(), fexclude.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetExtensionClusion)(::windows::core::Vtable::as_raw(self), pszextension.into().abi(), fexclude.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8932,18 +8932,18 @@ impl ISearchCatalogManager2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), pvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), pvalue).ok()
     }
     pub unsafe fn GetCatalogStatus(&self, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetCatalogStatus)(::windows::core::Vtable::as_raw(self), pstatus, ppausedreason).ok()
@@ -8956,15 +8956,15 @@ impl ISearchCatalogManager2 {
     }
     pub unsafe fn ReindexMatchingURLs<P0>(&self, pszpattern: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ReindexMatchingURLs)(::windows::core::Vtable::as_raw(self), pszpattern.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.ReindexMatchingURLs)(::windows::core::Vtable::as_raw(self), pszpattern.into().abi()).ok()
     }
     pub unsafe fn ReindexSearchRoot<P0>(&self, pszrooturl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ReindexSearchRoot)(::windows::core::Vtable::as_raw(self), pszrooturl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.ReindexSearchRoot)(::windows::core::Vtable::as_raw(self), pszrooturl.into().abi()).ok()
     }
     pub unsafe fn SetConnectTimeout(&self, dwconnecttimeout: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetConnectTimeout)(::windows::core::Vtable::as_raw(self), dwconnecttimeout).ok()
@@ -8993,10 +8993,10 @@ impl ISearchCatalogManager2 {
     }
     pub unsafe fn GetURLIndexingState<P0>(&self, pszurl: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetURLIndexingState)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetURLIndexingState)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetPersistentItemsChangedSink(&self) -> ::windows::core::Result<ISearchPersistentItemsChangedSink> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9004,11 +9004,11 @@ impl ISearchCatalogManager2 {
     }
     pub unsafe fn RegisterViewForNotification<P0, P1>(&self, pszview: P0, pviewchangedsink: P1) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ISearchViewChangedSink>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.RegisterViewForNotification)(::windows::core::Vtable::as_raw(self), pszview.into(), pviewchangedsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.RegisterViewForNotification)(::windows::core::Vtable::as_raw(self), pszview.into().abi(), pviewchangedsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetItemsChangedSink<P0>(&self, pisearchnotifyinlinesite: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void, pguidcatalogresetsignature: *mut ::windows::core::GUID, pguidcheckpointsignature: *mut ::windows::core::GUID, pdwlastcheckpointnumber: *mut u32) -> ::windows::core::Result<()>
     where
@@ -9023,10 +9023,10 @@ impl ISearchCatalogManager2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExtensionClusion<P0, P1>(&self, pszextension: P0, fexclude: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetExtensionClusion)(::windows::core::Vtable::as_raw(self), pszextension.into(), fexclude.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetExtensionClusion)(::windows::core::Vtable::as_raw(self), pszextension.into().abi(), fexclude.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9058,9 +9058,9 @@ impl ISearchCatalogManager2 {
     }
     pub unsafe fn PrioritizeMatchingURLs<P0>(&self, pszpattern: P0, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PrioritizeMatchingURLs)(::windows::core::Vtable::as_raw(self), pszpattern.into(), dwprioritizeflags).ok()
+        (::windows::core::Vtable::vtable(self).PrioritizeMatchingURLs)(::windows::core::Vtable::as_raw(self), pszpattern.into().abi(), dwprioritizeflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISearchCatalogManager2, ::windows::core::IUnknown, ISearchCatalogManager);
@@ -9100,10 +9100,10 @@ impl ISearchCrawlScopeManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDefaultScopeRule<P0, P1>(&self, pszurl: P0, finclude: P1, ffollowflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).AddDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), finclude.into(), ffollowflags).ok()
+        (::windows::core::Vtable::vtable(self).AddDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), finclude.into(), ffollowflags).ok()
     }
     pub unsafe fn AddRoot<P0>(&self, psearchroot: P0) -> ::windows::core::Result<()>
     where
@@ -9113,9 +9113,9 @@ impl ISearchCrawlScopeManager {
     }
     pub unsafe fn RemoveRoot<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveRoot)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).RemoveRoot)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     pub unsafe fn EnumerateRoots(&self) -> ::windows::core::Result<IEnumSearchRoots> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9125,28 +9125,28 @@ impl ISearchCrawlScopeManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddHierarchicalScope<P0, P1, P2, P3>(&self, pszurl: P0, finclude: P1, fdefault: P2, foverridechildren: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
         P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).AddHierarchicalScope)(::windows::core::Vtable::as_raw(self), pszurl.into(), finclude.into(), fdefault.into(), foverridechildren.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddHierarchicalScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), finclude.into(), fdefault.into(), foverridechildren.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddUserScopeRule<P0, P1, P2>(&self, pszurl: P0, finclude: P1, foverridechildren: P2, ffollowflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).AddUserScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), finclude.into(), foverridechildren.into(), ffollowflags).ok()
+        (::windows::core::Vtable::vtable(self).AddUserScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), finclude.into(), foverridechildren.into(), ffollowflags).ok()
     }
     pub unsafe fn RemoveScopeRule<P0>(&self, pszrule: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveScopeRule)(::windows::core::Vtable::as_raw(self), pszrule.into()).ok()
+        (::windows::core::Vtable::vtable(self).RemoveScopeRule)(::windows::core::Vtable::as_raw(self), pszrule.into().abi()).ok()
     }
     pub unsafe fn EnumerateScopeRules(&self) -> ::windows::core::Result<IEnumSearchScopeRules> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9156,36 +9156,36 @@ impl ISearchCrawlScopeManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasParentScopeRule<P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HasParentScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).HasParentScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasChildScopeRule<P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HasChildScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).HasChildScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IncludedInCrawlScope<P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IncludedInCrawlScope)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IncludedInCrawlScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IncludedInCrawlScopeEx<P0>(&self, pszurl: P0, pfisincluded: *mut super::super::Foundation::BOOL, preason: *mut CLUSION_REASON) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IncludedInCrawlScopeEx)(::windows::core::Vtable::as_raw(self), pszurl.into(), pfisincluded, preason).ok()
+        (::windows::core::Vtable::vtable(self).IncludedInCrawlScopeEx)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), pfisincluded, preason).ok()
     }
     pub unsafe fn RevertToDefaultScopes(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RevertToDefaultScopes)(::windows::core::Vtable::as_raw(self)).ok()
@@ -9195,16 +9195,16 @@ impl ISearchCrawlScopeManager {
     }
     pub unsafe fn GetParentScopeVersionId<P0>(&self, pszurl: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParentScopeVersionId)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetParentScopeVersionId)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveDefaultScopeRule<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).RemoveDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISearchCrawlScopeManager, ::windows::core::IUnknown);
@@ -9280,10 +9280,10 @@ impl ISearchCrawlScopeManager2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDefaultScopeRule<P0, P1>(&self, pszurl: P0, finclude: P1, ffollowflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), finclude.into(), ffollowflags).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), finclude.into(), ffollowflags).ok()
     }
     pub unsafe fn AddRoot<P0>(&self, psearchroot: P0) -> ::windows::core::Result<()>
     where
@@ -9293,9 +9293,9 @@ impl ISearchCrawlScopeManager2 {
     }
     pub unsafe fn RemoveRoot<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RemoveRoot)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.RemoveRoot)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     pub unsafe fn EnumerateRoots(&self) -> ::windows::core::Result<IEnumSearchRoots> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9305,28 +9305,28 @@ impl ISearchCrawlScopeManager2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddHierarchicalScope<P0, P1, P2, P3>(&self, pszurl: P0, finclude: P1, fdefault: P2, foverridechildren: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
         P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddHierarchicalScope)(::windows::core::Vtable::as_raw(self), pszurl.into(), finclude.into(), fdefault.into(), foverridechildren.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddHierarchicalScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), finclude.into(), fdefault.into(), foverridechildren.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddUserScopeRule<P0, P1, P2>(&self, pszurl: P0, finclude: P1, foverridechildren: P2, ffollowflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddUserScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), finclude.into(), foverridechildren.into(), ffollowflags).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddUserScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), finclude.into(), foverridechildren.into(), ffollowflags).ok()
     }
     pub unsafe fn RemoveScopeRule<P0>(&self, pszrule: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RemoveScopeRule)(::windows::core::Vtable::as_raw(self), pszrule.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.RemoveScopeRule)(::windows::core::Vtable::as_raw(self), pszrule.into().abi()).ok()
     }
     pub unsafe fn EnumerateScopeRules(&self) -> ::windows::core::Result<IEnumSearchScopeRules> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9336,36 +9336,36 @@ impl ISearchCrawlScopeManager2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasParentScopeRule<P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.HasParentScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.HasParentScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasChildScopeRule<P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.HasChildScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.HasChildScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IncludedInCrawlScope<P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IncludedInCrawlScope)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.IncludedInCrawlScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IncludedInCrawlScopeEx<P0>(&self, pszurl: P0, pfisincluded: *mut super::super::Foundation::BOOL, preason: *mut CLUSION_REASON) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.IncludedInCrawlScopeEx)(::windows::core::Vtable::as_raw(self), pszurl.into(), pfisincluded, preason).ok()
+        (::windows::core::Vtable::vtable(self).base__.IncludedInCrawlScopeEx)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), pfisincluded, preason).ok()
     }
     pub unsafe fn RevertToDefaultScopes(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RevertToDefaultScopes)(::windows::core::Vtable::as_raw(self)).ok()
@@ -9375,16 +9375,16 @@ impl ISearchCrawlScopeManager2 {
     }
     pub unsafe fn GetParentScopeVersionId<P0>(&self, pszurl: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetParentScopeVersionId)(::windows::core::Vtable::as_raw(self), pszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetParentScopeVersionId)(::windows::core::Vtable::as_raw(self), pszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RemoveDefaultScopeRule<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RemoveDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.RemoveDefaultScopeRule)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9430,15 +9430,15 @@ pub struct ISearchItemsChangedSink(::windows::core::IUnknown);
 impl ISearchItemsChangedSink {
     pub unsafe fn StartedMonitoringScope<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).StartedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).StartedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     pub unsafe fn StoppedMonitoringScope<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).StoppedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).StoppedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9563,18 +9563,18 @@ impl ISearchManager {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), pvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), pvalue).ok()
     }
     pub unsafe fn ProxyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9589,17 +9589,17 @@ impl ISearchManager {
     pub unsafe fn SetProxy<P0, P1, P2>(&self, suseproxy: PROXY_ACCESS, flocalbypassproxy: P0, dwportnumber: u32, pszproxyname: P1, pszbypasslist: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProxy)(::windows::core::Vtable::as_raw(self), suseproxy, flocalbypassproxy.into(), dwportnumber, pszproxyname.into(), pszbypasslist.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetProxy)(::windows::core::Vtable::as_raw(self), suseproxy, flocalbypassproxy.into(), dwportnumber, pszproxyname.into().abi(), pszbypasslist.into().abi()).ok()
     }
     pub unsafe fn GetCatalog<P0>(&self, pszcatalog: P0) -> ::windows::core::Result<ISearchCatalogManager>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn UserAgent(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9607,9 +9607,9 @@ impl ISearchManager {
     }
     pub unsafe fn SetUserAgent<P0>(&self, pszuseragent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetUserAgent)(::windows::core::Vtable::as_raw(self), pszuseragent.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetUserAgent)(::windows::core::Vtable::as_raw(self), pszuseragent.into().abi()).ok()
     }
     pub unsafe fn UseProxy(&self) -> ::windows::core::Result<PROXY_ACCESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9694,18 +9694,18 @@ impl ISearchManager2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows::core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into(), pvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetParameter)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), pvalue).ok()
     }
     pub unsafe fn ProxyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9720,17 +9720,17 @@ impl ISearchManager2 {
     pub unsafe fn SetProxy<P0, P1, P2>(&self, suseproxy: PROXY_ACCESS, flocalbypassproxy: P0, dwportnumber: u32, pszproxyname: P1, pszbypasslist: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetProxy)(::windows::core::Vtable::as_raw(self), suseproxy, flocalbypassproxy.into(), dwportnumber, pszproxyname.into(), pszbypasslist.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProxy)(::windows::core::Vtable::as_raw(self), suseproxy, flocalbypassproxy.into(), dwportnumber, pszproxyname.into().abi(), pszbypasslist.into().abi()).ok()
     }
     pub unsafe fn GetCatalog<P0>(&self, pszcatalog: P0) -> ::windows::core::Result<ISearchCatalogManager>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn UserAgent(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9738,9 +9738,9 @@ impl ISearchManager2 {
     }
     pub unsafe fn SetUserAgent<P0>(&self, pszuseragent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetUserAgent)(::windows::core::Vtable::as_raw(self), pszuseragent.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetUserAgent)(::windows::core::Vtable::as_raw(self), pszuseragent.into().abi()).ok()
     }
     pub unsafe fn UseProxy(&self) -> ::windows::core::Result<PROXY_ACCESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9758,16 +9758,16 @@ impl ISearchManager2 {
     }
     pub unsafe fn CreateCatalog<P0>(&self, pszcatalog: P0) -> ::windows::core::Result<ISearchCatalogManager>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeleteCatalog<P0>(&self, pszcatalog: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into()).ok()
+        (::windows::core::Vtable::vtable(self).DeleteCatalog)(::windows::core::Vtable::as_raw(self), pszcatalog.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISearchManager2, ::windows::core::IUnknown, ISearchManager);
@@ -9847,15 +9847,15 @@ pub struct ISearchPersistentItemsChangedSink(::windows::core::IUnknown);
 impl ISearchPersistentItemsChangedSink {
     pub unsafe fn StartedMonitoringScope<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).StartedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).StartedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     pub unsafe fn StoppedMonitoringScope<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).StoppedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).StoppedMonitoringScope)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     pub unsafe fn OnItemsChanged(&self, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OnItemsChanged)(::windows::core::Vtable::as_raw(self), dwnumberofchanges, datachangeentries, hrcompletioncodes).ok()
@@ -9908,9 +9908,9 @@ impl ISearchProtocol {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAccessor<P0>(&self, pcwszurl: P0, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateAccessor)(::windows::core::Vtable::as_raw(self), pcwszurl.into(), pauthenticationinfo, pincrementalaccessinfo, piteminfo, ::core::mem::transmute(ppaccessor)).ok()
+        (::windows::core::Vtable::vtable(self).CreateAccessor)(::windows::core::Vtable::as_raw(self), pcwszurl.into().abi(), pauthenticationinfo, pincrementalaccessinfo, piteminfo, ::core::mem::transmute(ppaccessor)).ok()
     }
     pub unsafe fn CloseAccessor<P0>(&self, paccessor: P0) -> ::windows::core::Result<()>
     where
@@ -9976,9 +9976,9 @@ impl ISearchProtocol2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAccessor<P0>(&self, pcwszurl: P0, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CreateAccessor)(::windows::core::Vtable::as_raw(self), pcwszurl.into(), pauthenticationinfo, pincrementalaccessinfo, piteminfo, ::core::mem::transmute(ppaccessor)).ok()
+        (::windows::core::Vtable::vtable(self).base__.CreateAccessor)(::windows::core::Vtable::as_raw(self), pcwszurl.into().abi(), pauthenticationinfo, pincrementalaccessinfo, piteminfo, ::core::mem::transmute(ppaccessor)).ok()
     }
     pub unsafe fn CloseAccessor<P0>(&self, paccessor: P0) -> ::windows::core::Result<()>
     where
@@ -9993,9 +9993,9 @@ impl ISearchProtocol2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateAccessorEx<P0>(&self, pcwszurl: P0, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, puserdata: *const super::Com::BLOB, ppaccessor: *mut ::core::option::Option<IUrlAccessor>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateAccessorEx)(::windows::core::Vtable::as_raw(self), pcwszurl.into(), pauthenticationinfo, pincrementalaccessinfo, piteminfo, puserdata, ::core::mem::transmute(ppaccessor)).ok()
+        (::windows::core::Vtable::vtable(self).CreateAccessorEx)(::windows::core::Vtable::as_raw(self), pcwszurl.into().abi(), pauthenticationinfo, pincrementalaccessinfo, piteminfo, puserdata, ::core::mem::transmute(ppaccessor)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISearchProtocol2, ::windows::core::IUnknown, ISearchProtocol);
@@ -10113,9 +10113,9 @@ impl ISearchQueryHelper {
     }
     pub unsafe fn SetQueryContentProperties<P0>(&self, pszcontentproperties: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetQueryContentProperties)(::windows::core::Vtable::as_raw(self), pszcontentproperties.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetQueryContentProperties)(::windows::core::Vtable::as_raw(self), pszcontentproperties.into().abi()).ok()
     }
     pub unsafe fn QueryContentProperties(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10123,9 +10123,9 @@ impl ISearchQueryHelper {
     }
     pub unsafe fn SetQuerySelectColumns<P0>(&self, pszselectcolumns: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetQuerySelectColumns)(::windows::core::Vtable::as_raw(self), pszselectcolumns.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetQuerySelectColumns)(::windows::core::Vtable::as_raw(self), pszselectcolumns.into().abi()).ok()
     }
     pub unsafe fn QuerySelectColumns(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10133,9 +10133,9 @@ impl ISearchQueryHelper {
     }
     pub unsafe fn SetQueryWhereRestrictions<P0>(&self, pszrestrictions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetQueryWhereRestrictions)(::windows::core::Vtable::as_raw(self), pszrestrictions.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetQueryWhereRestrictions)(::windows::core::Vtable::as_raw(self), pszrestrictions.into().abi()).ok()
     }
     pub unsafe fn QueryWhereRestrictions(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10143,9 +10143,9 @@ impl ISearchQueryHelper {
     }
     pub unsafe fn SetQuerySorting<P0>(&self, pszsorting: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetQuerySorting)(::windows::core::Vtable::as_raw(self), pszsorting.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetQuerySorting)(::windows::core::Vtable::as_raw(self), pszsorting.into().abi()).ok()
     }
     pub unsafe fn QuerySorting(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10153,10 +10153,10 @@ impl ISearchQueryHelper {
     }
     pub unsafe fn GenerateSQLFromUserQuery<P0>(&self, pszquery: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GenerateSQLFromUserQuery)(::windows::core::Vtable::as_raw(self), pszquery.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GenerateSQLFromUserQuery)(::windows::core::Vtable::as_raw(self), pszquery.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -10292,9 +10292,9 @@ pub struct ISearchRoot(::windows::core::IUnknown);
 impl ISearchRoot {
     pub unsafe fn SetSchedule<P0>(&self, psztaskarg: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetSchedule)(::windows::core::Vtable::as_raw(self), psztaskarg.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetSchedule)(::windows::core::Vtable::as_raw(self), psztaskarg.into().abi()).ok()
     }
     pub unsafe fn Schedule(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10302,9 +10302,9 @@ impl ISearchRoot {
     }
     pub unsafe fn SetRootURL<P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRootURL)(::windows::core::Vtable::as_raw(self), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRootURL)(::windows::core::Vtable::as_raw(self), pszurl.into().abi()).ok()
     }
     pub unsafe fn RootURL(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10389,9 +10389,9 @@ impl ISearchRoot {
     }
     pub unsafe fn SetUser<P0>(&self, pszuser: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetUser)(::windows::core::Vtable::as_raw(self), pszuser.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetUser)(::windows::core::Vtable::as_raw(self), pszuser.into().abi()).ok()
     }
     pub unsafe fn User(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10399,9 +10399,9 @@ impl ISearchRoot {
     }
     pub unsafe fn SetPassword<P0>(&self, pszpassword: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetPassword)(::windows::core::Vtable::as_raw(self), pszpassword.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetPassword)(::windows::core::Vtable::as_raw(self), pszpassword.into().abi()).ok()
     }
     pub unsafe fn Password(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10740,16 +10740,16 @@ impl ISimpleCommandCreator {
     }
     pub unsafe fn VerifyCatalog<P0, P1>(&self, pwszmachine: P0, pwszcatalogname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).VerifyCatalog)(::windows::core::Vtable::as_raw(self), pwszmachine.into(), pwszcatalogname.into()).ok()
+        (::windows::core::Vtable::vtable(self).VerifyCatalog)(::windows::core::Vtable::as_raw(self), pwszmachine.into().abi(), pwszcatalogname.into().abi()).ok()
     }
     pub unsafe fn GetDefaultCatalog<P0>(&self, pwszcatalogname: P0, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDefaultCatalog)(::windows::core::Vtable::as_raw(self), pwszcatalogname.into(), cwcin, pcwcout).ok()
+        (::windows::core::Vtable::vtable(self).GetDefaultCatalog)(::windows::core::Vtable::as_raw(self), pwszcatalogname.into().abi(), cwcin, pcwcout).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISimpleCommandCreator, ::windows::core::IUnknown);
@@ -10839,10 +10839,10 @@ impl IStemmer {
     }
     pub unsafe fn GenerateWordForms<P0, P1>(&self, pwcinbuf: P0, cwc: u32, pstemsink: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWordFormSink>>,
     {
-        (::windows::core::Vtable::vtable(self).GenerateWordForms)(::windows::core::Vtable::as_raw(self), pwcinbuf.into(), cwc, pstemsink.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).GenerateWordForms)(::windows::core::Vtable::as_raw(self), pwcinbuf.into().abi(), cwc, pstemsink.into().abi()).ok()
     }
     pub unsafe fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLicenseToUse)(::windows::core::Vtable::as_raw(self), ppwcslicense).ok()
@@ -10964,16 +10964,16 @@ impl ISubscriptionMgr {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteSubscription<P0, P1>(&self, pwszurl: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into(), hwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).DeleteSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), hwnd.into()).ok()
     }
     pub unsafe fn UpdateSubscription<P0>(&self, pwszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UpdateSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).UpdateSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi()).ok()
     }
     pub unsafe fn UpdateAll(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateAll)(::windows::core::Vtable::as_raw(self)).ok()
@@ -10982,19 +10982,19 @@ impl ISubscriptionMgr {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubscribed<P0>(&self, pwszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsSubscribed)(::windows::core::Vtable::as_raw(self), pwszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IsSubscribed)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSubscriptionInfo<P0>(&self, pwszurl: P0) -> ::windows::core::Result<SUBSCRIPTIONINFO>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSubscriptionInfo)(::windows::core::Vtable::as_raw(self), pwszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetSubscriptionInfo)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11006,20 +11006,20 @@ impl ISubscriptionMgr {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowSubscriptionProperties<P0, P1>(&self, pwszurl: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).ShowSubscriptionProperties)(::windows::core::Vtable::as_raw(self), pwszurl.into(), hwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).ShowSubscriptionProperties)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSubscription<P0, P1, P2>(&self, hwnd: P0, pwszurl: P1, pwszfriendlyname: P2, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateSubscription)(::windows::core::Vtable::as_raw(self), hwnd.into(), pwszurl.into(), pwszfriendlyname.into(), dwflags, substype, pinfo).ok()
+        (::windows::core::Vtable::vtable(self).CreateSubscription)(::windows::core::Vtable::as_raw(self), hwnd.into(), pwszurl.into().abi(), pwszfriendlyname.into().abi(), dwflags, substype, pinfo).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISubscriptionMgr, ::windows::core::IUnknown);
@@ -11084,16 +11084,16 @@ impl ISubscriptionMgr2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteSubscription<P0, P1>(&self, pwszurl: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).base__.DeleteSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into(), hwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.DeleteSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), hwnd.into()).ok()
     }
     pub unsafe fn UpdateSubscription<P0>(&self, pwszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.UpdateSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.UpdateSubscription)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi()).ok()
     }
     pub unsafe fn UpdateAll(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UpdateAll)(::windows::core::Vtable::as_raw(self)).ok()
@@ -11102,19 +11102,19 @@ impl ISubscriptionMgr2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubscribed<P0>(&self, pwszurl: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsSubscribed)(::windows::core::Vtable::as_raw(self), pwszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.IsSubscribed)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSubscriptionInfo<P0>(&self, pwszurl: P0) -> ::windows::core::Result<SUBSCRIPTIONINFO>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSubscriptionInfo)(::windows::core::Vtable::as_raw(self), pwszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetSubscriptionInfo)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11126,27 +11126,27 @@ impl ISubscriptionMgr2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowSubscriptionProperties<P0, P1>(&self, pwszurl: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).base__.ShowSubscriptionProperties)(::windows::core::Vtable::as_raw(self), pwszurl.into(), hwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.ShowSubscriptionProperties)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSubscription<P0, P1, P2>(&self, hwnd: P0, pwszurl: P1, pwszfriendlyname: P2, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CreateSubscription)(::windows::core::Vtable::as_raw(self), hwnd.into(), pwszurl.into(), pwszfriendlyname.into(), dwflags, substype, pinfo).ok()
+        (::windows::core::Vtable::vtable(self).base__.CreateSubscription)(::windows::core::Vtable::as_raw(self), hwnd.into(), pwszurl.into().abi(), pwszfriendlyname.into().abi(), dwflags, substype, pinfo).ok()
     }
     pub unsafe fn GetItemFromURL<P0>(&self, pwszurl: P0) -> ::windows::core::Result<ISubscriptionItem>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemFromURL)(::windows::core::Vtable::as_raw(self), pwszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetItemFromURL)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetItemFromCookie(&self, psubscriptioncookie: *const ::windows::core::GUID) -> ::windows::core::Result<ISubscriptionItem> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12298,9 +12298,9 @@ impl IUrlAccessor3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetImpersonationSidBlobs<P0>(&self, pcwszurl: P0, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetImpersonationSidBlobs)(::windows::core::Vtable::as_raw(self), pcwszurl.into(), pcsidcount, ppsidblobs).ok()
+        (::windows::core::Vtable::vtable(self).GetImpersonationSidBlobs)(::windows::core::Vtable::as_raw(self), pcwszurl.into().abi(), pcsidcount, ppsidblobs).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IUrlAccessor3, ::windows::core::IUnknown, IUrlAccessor, IUrlAccessor2);
@@ -12405,9 +12405,9 @@ impl IUrlAccessor4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetImpersonationSidBlobs<P0>(&self, pcwszurl: P0, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetImpersonationSidBlobs)(::windows::core::Vtable::as_raw(self), pcwszurl.into(), pcsidcount, ppsidblobs).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetImpersonationSidBlobs)(::windows::core::Vtable::as_raw(self), pcwszurl.into().abi(), pcsidcount, ppsidblobs).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12667,11 +12667,11 @@ impl IWordBreaker {
     }
     pub unsafe fn ComposePhrase<P0, P1, P2>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: P2, pcwcphrase: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ComposePhrase)(::windows::core::Vtable::as_raw(self), pwcnoun.into(), cwcnoun, pwcmodifier.into(), cwcmodifier, ulattachmenttype, pwcphrase.into(), pcwcphrase).ok()
+        (::windows::core::Vtable::vtable(self).ComposePhrase)(::windows::core::Vtable::as_raw(self), pwcnoun.into().abi(), cwcnoun, pwcmodifier.into().abi(), cwcmodifier, ulattachmenttype, pwcphrase.into().abi(), pcwcphrase).ok()
     }
     pub unsafe fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLicenseToUse)(::windows::core::Vtable::as_raw(self), ppwcslicense).ok()
@@ -12721,15 +12721,15 @@ pub struct IWordFormSink(::windows::core::IUnknown);
 impl IWordFormSink {
     pub unsafe fn PutAltWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutAltWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into(), cwc).ok()
+        (::windows::core::Vtable::vtable(self).PutAltWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into().abi(), cwc).ok()
     }
     pub unsafe fn PutWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into(), cwc).ok()
+        (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into().abi(), cwc).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWordFormSink, ::windows::core::IUnknown);
@@ -12768,15 +12768,15 @@ pub struct IWordSink(::windows::core::IUnknown);
 impl IWordSink {
     pub unsafe fn PutWord<P0>(&self, cwc: u32, pwcinbuf: P0, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), cwc, pwcinbuf.into(), cwcsrclen, cwcsrcpos).ok()
+        (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), cwc, pwcinbuf.into().abi(), cwcsrclen, cwcsrcpos).ok()
     }
     pub unsafe fn PutAltWord<P0>(&self, cwc: u32, pwcinbuf: P0, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutAltWord)(::windows::core::Vtable::as_raw(self), cwc, pwcinbuf.into(), cwcsrclen, cwcsrcpos).ok()
+        (::windows::core::Vtable::vtable(self).PutAltWord)(::windows::core::Vtable::as_raw(self), cwc, pwcinbuf.into().abi(), cwcsrclen, cwcsrcpos).ok()
     }
     pub unsafe fn StartAltPhrase(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).StartAltPhrase)(::windows::core::Vtable::as_raw(self)).ok()

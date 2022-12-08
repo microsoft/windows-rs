@@ -81,11 +81,11 @@ impl IStorageFolderHandleAccess {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<P0, P1>(&self, filename: P0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P1) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IOplockBreakingHandler>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IStorageFolderHandleAccess, ::windows::core::IUnknown);

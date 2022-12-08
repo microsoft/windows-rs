@@ -414,9 +414,9 @@ impl IDirectInput2A {
     }
     pub unsafe fn FindDevice<P0>(&self, param0: *const ::windows::core::GUID, param1: P0, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInput2A, ::windows::core::IUnknown, IDirectInputA);
@@ -484,9 +484,9 @@ impl IDirectInput2W {
     }
     pub unsafe fn FindDevice<P0>(&self, param0: *const ::windows::core::GUID, param1: P0, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInput2W, ::windows::core::IUnknown, IDirectInputW);
@@ -554,9 +554,9 @@ impl IDirectInput7A {
     }
     pub unsafe fn FindDevice<P0>(&self, param0: *const ::windows::core::GUID, param1: P0, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     pub unsafe fn CreateDeviceEx<P0>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: P0) -> ::windows::core::Result<()>
     where
@@ -630,9 +630,9 @@ impl IDirectInput7W {
     }
     pub unsafe fn FindDevice<P0>(&self, param0: *const ::windows::core::GUID, param1: P0, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).base__.FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     pub unsafe fn CreateDeviceEx<P0>(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: P0) -> ::windows::core::Result<()>
     where
@@ -706,17 +706,17 @@ impl IDirectInput8A {
     }
     pub unsafe fn FindDevice<P0>(&self, param0: *const ::windows::core::GUID, param1: P0, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevicesBySemantics<P0>(&self, param0: P0, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3, param4).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -811,17 +811,17 @@ impl IDirectInput8W {
     }
     pub unsafe fn FindDevice<P0>(&self, param0: *const ::windows::core::GUID, param1: P0, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevicesBySemantics<P0>(&self, param0: P0, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3, param4).ok()
+        (::windows::core::Vtable::vtable(self).EnumDevicesBySemantics)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1379,17 +1379,17 @@ impl IDirectInputDevice7A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInputDevice7A, ::windows::core::IUnknown, IDirectInputDeviceA, IDirectInputDevice2A);
@@ -1537,17 +1537,17 @@ impl IDirectInputDevice7W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDirectInputDevice7W, ::windows::core::IUnknown, IDirectInputDeviceW, IDirectInputDevice2W);
@@ -1701,33 +1701,33 @@ impl IDirectInputDevice8A {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BuildActionMap<P0>(&self, param0: *mut DIACTIONFORMATA, param1: P0, param2: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BuildActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).BuildActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetActionMap<P0>(&self, param0: *mut DIACTIONFORMATA, param1: P0, param2: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).SetActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1946,33 +1946,33 @@ impl IDirectInputDevice8W {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).EnumEffectsInFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<P0>(&self, param0: P0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3).ok()
+        (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BuildActionMap<P0>(&self, param0: *mut DIACTIONFORMATW, param1: P0, param2: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BuildActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).BuildActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetActionMap<P0>(&self, param0: *mut DIACTIONFORMATW, param1: P0, param2: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into(), param2).ok()
+        (::windows::core::Vtable::vtable(self).SetActionMap)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi(), param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2529,21 +2529,21 @@ impl IDirectInputJoyConfig {
     }
     pub unsafe fn GetTypeInfo<P0>(&self, param0: P0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).GetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2).ok()
     }
     pub unsafe fn SetTypeInfo<P0>(&self, param0: P0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).SetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2).ok()
     }
     pub unsafe fn DeleteType<P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteType)(::windows::core::Vtable::as_raw(self), param0.into()).ok()
+        (::windows::core::Vtable::vtable(self).DeleteType)(::windows::core::Vtable::as_raw(self), param0.into().abi()).ok()
     }
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetConfig)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
@@ -2572,9 +2572,9 @@ impl IDirectInputJoyConfig {
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn OpenTypeKey<P0>(&self, param0: P0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OpenTypeKey)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).OpenTypeKey)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -2669,22 +2669,22 @@ impl IDirectInputJoyConfig8 {
     }
     pub unsafe fn GetTypeInfo<P0>(&self, param0: P0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).GetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2).ok()
     }
     pub unsafe fn SetTypeInfo<P0, P1>(&self, param0: P0, param1: *mut DIJOYTYPEINFO, param2: u32, param3: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2, param3.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetTypeInfo)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2, param3.into().abi()).ok()
     }
     pub unsafe fn DeleteType<P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteType)(::windows::core::Vtable::as_raw(self), param0.into()).ok()
+        (::windows::core::Vtable::vtable(self).DeleteType)(::windows::core::Vtable::as_raw(self), param0.into().abi()).ok()
     }
     pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetConfig)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
@@ -2713,9 +2713,9 @@ impl IDirectInputJoyConfig8 {
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn OpenTypeKey<P0>(&self, param0: P0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OpenTypeKey)(::windows::core::Vtable::as_raw(self), param0.into(), param1, param2).ok()
+        (::windows::core::Vtable::vtable(self).OpenTypeKey)(::windows::core::Vtable::as_raw(self), param0.into().abi(), param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]

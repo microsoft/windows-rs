@@ -518,11 +518,11 @@ impl ISimilarity {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into(), truncate.into(), securitydescriptor, recordsize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into().abi(), truncate.into(), securitydescriptor, recordsize, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -614,11 +614,11 @@ impl ISimilarityFileIdTable {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into(), truncate.into(), securitydescriptor, recordsize, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into().abi(), truncate.into(), securitydescriptor, recordsize, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -908,11 +908,11 @@ impl ISimilarityTraitsTable {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into(), truncate.into(), securitydescriptor, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateTable)(::windows::core::Vtable::as_raw(self), path.into().abi(), truncate.into(), securitydescriptor, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

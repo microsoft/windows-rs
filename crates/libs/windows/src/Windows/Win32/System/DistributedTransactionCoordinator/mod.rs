@@ -2,41 +2,41 @@
 #[inline]
 pub unsafe fn DtcGetTransactionManager<P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: ::core::option::Option<*const ::core::ffi::c_void>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManager ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManager(i_pszhost.into(), i_psztmname.into(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
+    DtcGetTransactionManager(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerC<P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: ::core::option::Option<*const ::core::ffi::c_void>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerC ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManagerC(i_pszhost.into(), i_psztmname.into(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
+    DtcGetTransactionManagerC(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExA<P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExA ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManagerExA(i_pszhost.into(), i_psztmname.into(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
+    DtcGetTransactionManagerExA(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExW<P0, P1>(i_pwszhost: P0, i_pwsztmname: P1, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExW ( i_pwszhost : :: windows::core::PCWSTR , i_pwsztmname : :: windows::core::PCWSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManagerExW(i_pwszhost.into(), i_pwsztmname.into(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
+    DtcGetTransactionManagerExW(i_pwszhost.into().abi(), i_pwsztmname.into().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[repr(transparent)]
@@ -1350,10 +1350,10 @@ pub struct IDtcToXaHelperFactory(::windows::core::IUnknown);
 impl IDtcToXaHelperFactory {
     pub unsafe fn Create<P0, P1>(&self, pszdsn: P0, pszclientdllname: P1, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::core::option::Option<IDtcToXaHelper>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pszdsn.into(), pszclientdllname.into(), pguidrm, ::core::mem::transmute(ppxahelper)).ok()
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pszdsn.into().abi(), pszclientdllname.into().abi(), pguidrm, ::core::mem::transmute(ppxahelper)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDtcToXaHelperFactory, ::windows::core::IUnknown);
@@ -1391,10 +1391,10 @@ pub struct IDtcToXaHelperSinglePipe(::windows::core::IUnknown);
 impl IDtcToXaHelperSinglePipe {
     pub unsafe fn XARMCreate<P0, P1>(&self, pszdsn: P0, pszclientdll: P1, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).XARMCreate)(::windows::core::Vtable::as_raw(self), pszdsn.into(), pszclientdll.into(), pdwrmcookie).ok()
+        (::windows::core::Vtable::vtable(self).XARMCreate)(::windows::core::Vtable::as_raw(self), pszdsn.into().abi(), pszclientdll.into().abi(), pdwrmcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1462,10 +1462,10 @@ pub struct IDtcToXaMapper(::windows::core::IUnknown);
 impl IDtcToXaMapper {
     pub unsafe fn RequestNewResourceManager<P0, P1>(&self, pszdsn: P0, pszclientdllname: P1, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RequestNewResourceManager)(::windows::core::Vtable::as_raw(self), pszdsn.into(), pszclientdllname.into(), pdwrmcookie).ok()
+        (::windows::core::Vtable::vtable(self).RequestNewResourceManager)(::windows::core::Vtable::as_raw(self), pszdsn.into().abi(), pszclientdllname.into().abi(), pdwrmcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1730,10 +1730,10 @@ impl IRMHelper {
     pub unsafe fn RMInfo<P0, P1, P2>(&self, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: P0, pszopenstring: P1, pszclosestring: P2, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RMInfo)(::windows::core::Vtable::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring.into(), pszclosestring.into(), ::core::mem::transmute(guidrmrecovery)).ok()
+        (::windows::core::Vtable::vtable(self).RMInfo)(::windows::core::Vtable::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring.into().abi(), pszclosestring.into().abi(), ::core::mem::transmute(guidrmrecovery)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRMHelper, ::windows::core::IUnknown);
@@ -1902,11 +1902,11 @@ pub struct IResourceManagerFactory(::windows::core::IUnknown);
 impl IResourceManagerFactory {
     pub unsafe fn Create<P0, P1>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: P0, piresmgrsink: P1) -> ::windows::core::Result<IResourceManager>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IResourceManagerSink>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into(), piresmgrsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IResourceManagerFactory, ::windows::core::IUnknown);
@@ -1944,18 +1944,18 @@ pub struct IResourceManagerFactory2(::windows::core::IUnknown);
 impl IResourceManagerFactory2 {
     pub unsafe fn Create<P0, P1>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: P0, piresmgrsink: P1) -> ::windows::core::Result<IResourceManager>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IResourceManagerSink>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Create)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into(), piresmgrsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Create)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateEx<P0, P1>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: P0, piresmgrsink: P1, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IResourceManagerSink>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateEx)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into(), piresmgrsink.into().abi(), riidrequested, ppvresmgr).ok()
+        (::windows::core::Vtable::vtable(self).CreateEx)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), riidrequested, ppvresmgr).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IResourceManagerFactory2, ::windows::core::IUnknown, IResourceManagerFactory);

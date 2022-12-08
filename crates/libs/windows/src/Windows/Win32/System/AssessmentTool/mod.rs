@@ -126,11 +126,11 @@ impl IAccessibleWinSAT {
     }
     pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAccessiblityData)(::windows::core::Vtable::as_raw(self), wsname.into(), wsvalue.into(), wsdesc.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAccessiblityData)(::windows::core::Vtable::as_raw(self), wsname.into().abi(), wsvalue.into().abi(), wsdesc.into().abi()).ok()
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
@@ -178,11 +178,11 @@ impl IInitiateWinSATAssessment {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitiateAssessment<P0, P1, P2>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWinSATInitiateEvents>>,
         P2: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).InitiateAssessment)(::windows::core::Vtable::as_raw(self), cmdline.into(), pcallbacks.into().abi(), callerhwnd.into()).ok()
+        (::windows::core::Vtable::vtable(self).InitiateAssessment)(::windows::core::Vtable::as_raw(self), cmdline.into().abi(), pcallbacks.into().abi(), callerhwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -573,15 +573,15 @@ pub struct IWinSATInitiateEvents(::windows::core::IUnknown);
 impl IWinSATInitiateEvents {
     pub unsafe fn WinSATComplete<P0>(&self, hresult: ::windows::core::HRESULT, strdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WinSATComplete)(::windows::core::Vtable::as_raw(self), hresult, strdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).WinSATComplete)(::windows::core::Vtable::as_raw(self), hresult, strdescription.into().abi()).ok()
     }
     pub unsafe fn WinSATUpdate<P0>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).WinSATUpdate)(::windows::core::Vtable::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.into()).ok()
+        (::windows::core::Vtable::vtable(self).WinSATUpdate)(::windows::core::Vtable::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWinSATInitiateEvents, ::windows::core::IUnknown);

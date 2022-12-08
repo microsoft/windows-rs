@@ -52,20 +52,20 @@ pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: 
 #[inline]
 pub unsafe fn WICMapSchemaToName<P0>(guidmetadataformat: *const ::windows::core::GUID, pwzschema: P0, wzname: ::core::option::Option<&mut [u16]>, pcchactual: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapSchemaToName ( guidmetadataformat : *const :: windows::core::GUID , pwzschema : :: windows::core::PCWSTR , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
-    WICMapSchemaToName(guidmetadataformat, pwzschema.into(), wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchactual).ok()
+    WICMapSchemaToName(guidmetadataformat, pwzschema.into().abi(), wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchactual).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0) -> ::windows::core::Result<::windows::core::GUID>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapShortNameToGuid ( wzname : :: windows::core::PCWSTR , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WICMapShortNameToGuid(wzname.into(), result__.as_mut_ptr()).from_abi(result__)
+    WICMapShortNameToGuid(wzname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -298,10 +298,10 @@ impl IWICBitmapCodecInfo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWICBitmapCodecInfo, ::windows::core::IUnknown, IWICComponentInfo);
@@ -582,10 +582,10 @@ impl IWICBitmapDecoderInfo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -823,10 +823,10 @@ impl IWICBitmapEncoderInfo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1310,9 +1310,9 @@ pub struct IWICColorContext(::windows::core::IUnknown);
 impl IWICColorContext {
     pub unsafe fn InitializeFromFilename<P0>(&self, wzfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).InitializeFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi()).ok()
     }
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitializeFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _).ok()
@@ -1433,10 +1433,10 @@ pub struct IWICComponentFactory(::windows::core::IUnknown);
 impl IWICComponentFactory {
     pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2381,10 +2381,10 @@ pub struct IWICImagingFactory(::windows::core::IUnknown);
 impl IWICImagingFactory {
     pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDecoderFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateDecoderFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3014,9 +3014,9 @@ impl IWICMetadataQueryReader {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into(), pvarvalue).ok()
+        (::windows::core::Vtable::vtable(self).GetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi(), pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3078,9 +3078,9 @@ impl IWICMetadataQueryWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into(), pvarvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi(), pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3092,15 +3092,15 @@ impl IWICMetadataQueryWriter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into(), pvarvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi(), pvarvalue).ok()
     }
     pub unsafe fn RemoveMetadataByName<P0>(&self, wzname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into()).ok()
+        (::windows::core::Vtable::vtable(self).RemoveMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWICMetadataQueryWriter, ::windows::core::IUnknown, IWICMetadataQueryReader);
@@ -4223,9 +4223,9 @@ impl IWICStream {
     }
     pub unsafe fn InitializeFromFilename<P0>(&self, wzfilename: P0, dwdesiredaccess: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into(), dwdesiredaccess).ok()
+        (::windows::core::Vtable::vtable(self).InitializeFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi(), dwdesiredaccess).ok()
     }
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitializeFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _).ok()

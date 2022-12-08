@@ -166,10 +166,10 @@ where
 #[inline]
 pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows::core::Result<super::super::TextServices::HKL>
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn LoadKeyboardLayoutA ( pwszklid : :: windows::core::PCSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
-    let result__ = LoadKeyboardLayoutA(pwszklid.into(), flags);
+    let result__ = LoadKeyboardLayoutA(pwszklid.into().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
@@ -177,10 +177,10 @@ where
 #[inline]
 pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows::core::Result<super::super::TextServices::HKL>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn LoadKeyboardLayoutW ( pwszklid : :: windows::core::PCWSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
-    let result__ = LoadKeyboardLayoutW(pwszklid.into(), flags);
+    let result__ = LoadKeyboardLayoutW(pwszklid.into().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]

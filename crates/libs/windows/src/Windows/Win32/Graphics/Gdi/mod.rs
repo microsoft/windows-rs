@@ -19,37 +19,37 @@ pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize
 #[inline]
 pub unsafe fn AddFontResourceA<P0>(param0: P0) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceA ( param0 : :: windows::core::PCSTR ) -> i32 );
-    AddFontResourceA(param0.into())
+    AddFontResourceA(param0.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn AddFontResourceExA<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceExA ( name : :: windows::core::PCSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *mut ::core::ffi::c_void ) -> i32 );
-    AddFontResourceExA(name.into(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    AddFontResourceExA(name.into().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn AddFontResourceExW<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceExW ( name : :: windows::core::PCWSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *mut ::core::ffi::c_void ) -> i32 );
-    AddFontResourceExW(name.into(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    AddFontResourceExW(name.into().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn AddFontResourceW<P0>(param0: P0) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceW ( param0 : :: windows::core::PCWSTR ) -> i32 );
-    AddFontResourceW(param0.into())
+    AddFontResourceW(param0.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -155,22 +155,22 @@ pub unsafe fn ChangeDisplaySettingsA(lpdevmode: ::core::option::Option<*const DE
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExA<P0, P1>(lpszdevicename: P0, lpdevmode: ::core::option::Option<*const DEVMODEA>, hwnd: P1, dwflags: CDS_TYPE, lparam: ::core::option::Option<*const ::core::ffi::c_void>) -> DISP_CHANGE
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn ChangeDisplaySettingsExA ( lpszdevicename : :: windows::core::PCSTR , lpdevmode : *const DEVMODEA , hwnd : super::super::Foundation:: HWND , dwflags : CDS_TYPE , lparam : *const ::core::ffi::c_void ) -> DISP_CHANGE );
-    ChangeDisplaySettingsExA(lpszdevicename.into(), ::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), hwnd.into(), dwflags, ::core::mem::transmute(lparam.unwrap_or(::std::ptr::null())))
+    ChangeDisplaySettingsExA(lpszdevicename.into().abi(), ::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), hwnd.into(), dwflags, ::core::mem::transmute(lparam.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExW<P0, P1>(lpszdevicename: P0, lpdevmode: ::core::option::Option<*const DEVMODEW>, hwnd: P1, dwflags: CDS_TYPE, lparam: ::core::option::Option<*const ::core::ffi::c_void>) -> DISP_CHANGE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn ChangeDisplaySettingsExW ( lpszdevicename : :: windows::core::PCWSTR , lpdevmode : *const DEVMODEW , hwnd : super::super::Foundation:: HWND , dwflags : CDS_TYPE , lparam : *const ::core::ffi::c_void ) -> DISP_CHANGE );
-    ChangeDisplaySettingsExW(lpszdevicename.into(), ::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), hwnd.into(), dwflags, ::core::mem::transmute(lparam.unwrap_or(::std::ptr::null())))
+    ChangeDisplaySettingsExW(lpszdevicename.into().abi(), ::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), hwnd.into(), dwflags, ::core::mem::transmute(lparam.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -250,40 +250,40 @@ pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: 
 pub unsafe fn CopyEnhMetaFileA<P0, P1>(henh: P0, lpfilename: P1) -> HENHMETAFILE
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CopyEnhMetaFileA ( henh : HENHMETAFILE , lpfilename : :: windows::core::PCSTR ) -> HENHMETAFILE );
-    CopyEnhMetaFileA(henh.into(), lpfilename.into())
+    CopyEnhMetaFileA(henh.into(), lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CopyEnhMetaFileW<P0, P1>(henh: P0, lpfilename: P1) -> HENHMETAFILE
 where
     P0: ::std::convert::Into<HENHMETAFILE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CopyEnhMetaFileW ( henh : HENHMETAFILE , lpfilename : :: windows::core::PCWSTR ) -> HENHMETAFILE );
-    CopyEnhMetaFileW(henh.into(), lpfilename.into())
+    CopyEnhMetaFileW(henh.into(), lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CopyMetaFileA<P0, P1>(param0: P0, param1: P1) -> HMETAFILE
 where
     P0: ::std::convert::Into<HMETAFILE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CopyMetaFileA ( param0 : HMETAFILE , param1 : :: windows::core::PCSTR ) -> HMETAFILE );
-    CopyMetaFileA(param0.into(), param1.into())
+    CopyMetaFileA(param0.into(), param1.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CopyMetaFileW<P0, P1>(param0: P0, param1: P1) -> HMETAFILE
 where
     P0: ::std::convert::Into<HMETAFILE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CopyMetaFileW ( param0 : HMETAFILE , param1 : :: windows::core::PCWSTR ) -> HMETAFILE );
-    CopyMetaFileW(param0.into(), param1.into())
+    CopyMetaFileW(param0.into(), param1.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -334,24 +334,24 @@ where
 #[inline]
 pub unsafe fn CreateDCA<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> CreatedHDC
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateDCA ( pwszdriver : :: windows::core::PCSTR , pwszdevice : :: windows::core::PCSTR , pszport : :: windows::core::PCSTR , pdm : *const DEVMODEA ) -> CreatedHDC );
-    CreateDCA(pwszdriver.into(), pwszdevice.into(), pszport.into(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
+    CreateDCA(pwszdriver.into().abi(), pwszdevice.into().abi(), pszport.into().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDCW<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> CreatedHDC
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateDCW ( pwszdriver : :: windows::core::PCWSTR , pwszdevice : :: windows::core::PCWSTR , pszport : :: windows::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
-    CreateDCW(pwszdriver.into(), pwszdevice.into(), pszport.into(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
+    CreateDCW(pwszdriver.into().abi(), pwszdevice.into().abi(), pszport.into().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -414,11 +414,11 @@ pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation:
 pub unsafe fn CreateEnhMetaFileA<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HdcMetdataEnhFileHandle
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateEnhMetaFileA ( hdc : HDC , lpfilename : :: windows::core::PCSTR , lprc : *const super::super::Foundation:: RECT , lpdesc : :: windows::core::PCSTR ) -> HdcMetdataEnhFileHandle );
-    CreateEnhMetaFileA(hdc.into(), lpfilename.into(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into())
+    CreateEnhMetaFileA(hdc.into(), lpfilename.into().abi(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -426,20 +426,20 @@ where
 pub unsafe fn CreateEnhMetaFileW<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HdcMetdataEnhFileHandle
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateEnhMetaFileW ( hdc : HDC , lpfilename : :: windows::core::PCWSTR , lprc : *const super::super::Foundation:: RECT , lpdesc : :: windows::core::PCWSTR ) -> HdcMetdataEnhFileHandle );
-    CreateEnhMetaFileW(hdc.into(), lpfilename.into(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into())
+    CreateEnhMetaFileW(hdc.into(), lpfilename.into().abi(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontA<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateFontA ( cheight : i32 , cwidth : i32 , cescapement : i32 , corientation : i32 , cweight : i32 , bitalic : u32 , bunderline : u32 , bstrikeout : u32 , icharset : u32 , ioutprecision : u32 , iclipprecision : u32 , iquality : u32 , ipitchandfamily : u32 , pszfacename : :: windows::core::PCSTR ) -> HFONT );
-    CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into())
+    CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -477,10 +477,10 @@ pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, 
 #[inline]
 pub unsafe fn CreateFontW<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateFontW ( cheight : i32 , cwidth : i32 , cescapement : i32 , corientation : i32 , cweight : i32 , bitalic : u32 , bunderline : u32 , bstrikeout : u32 , icharset : u32 , ioutprecision : u32 , iclipprecision : u32 , iquality : u32 , ipitchandfamily : u32 , pszfacename : :: windows::core::PCWSTR ) -> HFONT );
-    CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into())
+    CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -506,42 +506,42 @@ where
 #[inline]
 pub unsafe fn CreateICA<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> CreatedHDC
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateICA ( pszdriver : :: windows::core::PCSTR , pszdevice : :: windows::core::PCSTR , pszport : :: windows::core::PCSTR , pdm : *const DEVMODEA ) -> CreatedHDC );
-    CreateICA(pszdriver.into(), pszdevice.into(), pszport.into(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
+    CreateICA(pszdriver.into().abi(), pszdevice.into().abi(), pszport.into().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateICW<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> CreatedHDC
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateICW ( pszdriver : :: windows::core::PCWSTR , pszdevice : :: windows::core::PCWSTR , pszport : :: windows::core::PCWSTR , pdm : *const DEVMODEW ) -> CreatedHDC );
-    CreateICW(pszdriver.into(), pszdevice.into(), pszport.into(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
+    CreateICW(pszdriver.into().abi(), pszdevice.into().abi(), pszport.into().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateMetaFileA<P0>(pszfile: P0) -> HdcMetdataFileHandle
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateMetaFileA ( pszfile : :: windows::core::PCSTR ) -> HdcMetdataFileHandle );
-    CreateMetaFileA(pszfile.into())
+    CreateMetaFileA(pszfile.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateMetaFileW<P0>(pszfile: P0) -> HdcMetdataFileHandle
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateMetaFileW ( pszfile : :: windows::core::PCWSTR ) -> HdcMetdataFileHandle );
-    CreateMetaFileW(pszfile.into())
+    CreateMetaFileW(pszfile.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -613,24 +613,24 @@ pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: 
 #[inline]
 pub unsafe fn CreateScalableFontResourceA<P0, P1, P2>(fdwhidden: u32, lpszfont: P0, lpszfile: P1, lpszpath: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateScalableFontResourceA ( fdwhidden : u32 , lpszfont : :: windows::core::PCSTR , lpszfile : :: windows::core::PCSTR , lpszpath : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    CreateScalableFontResourceA(fdwhidden, lpszfont.into(), lpszfile.into(), lpszpath.into())
+    CreateScalableFontResourceA(fdwhidden, lpszfont.into().abi(), lpszfile.into().abi(), lpszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateScalableFontResourceW<P0, P1, P2>(fdwhidden: u32, lpszfont: P0, lpszfile: P1, lpszpath: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn CreateScalableFontResourceW ( fdwhidden : u32 , lpszfont : :: windows::core::PCWSTR , lpszfile : :: windows::core::PCWSTR , lpszpath : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    CreateScalableFontResourceW(fdwhidden, lpszfont.into(), lpszfile.into(), lpszpath.into())
+    CreateScalableFontResourceW(fdwhidden, lpszfont.into().abi(), lpszfile.into().abi(), lpszpath.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -853,20 +853,20 @@ where
 #[inline]
 pub unsafe fn EnumDisplayDevicesA<P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDisplayDevicesA ( lpdevice : :: windows::core::PCSTR , idevnum : u32 , lpdisplaydevice : *mut DISPLAY_DEVICEA , dwflags : u32 ) -> super::super::Foundation:: BOOL );
-    EnumDisplayDevicesA(lpdevice.into(), idevnum, lpdisplaydevice, dwflags)
+    EnumDisplayDevicesA(lpdevice.into().abi(), idevnum, lpdisplaydevice, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayDevicesW<P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDisplayDevicesW ( lpdevice : :: windows::core::PCWSTR , idevnum : u32 , lpdisplaydevice : *mut DISPLAY_DEVICEW , dwflags : u32 ) -> super::super::Foundation:: BOOL );
-    EnumDisplayDevicesW(lpdevice.into(), idevnum, lpdisplaydevice, dwflags)
+    EnumDisplayDevicesW(lpdevice.into().abi(), idevnum, lpdisplaydevice, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -884,40 +884,40 @@ where
 #[inline]
 pub unsafe fn EnumDisplaySettingsA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsA ( lpszdevicename : :: windows::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA ) -> super::super::Foundation:: BOOL );
-    EnumDisplaySettingsA(lpszdevicename.into(), imodenum, lpdevmode)
+    EnumDisplaySettingsA(lpszdevicename.into().abi(), imodenum, lpdevmode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsExA ( lpszdevicename : :: windows::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA , dwflags : u32 ) -> super::super::Foundation:: BOOL );
-    EnumDisplaySettingsExA(lpszdevicename.into(), imodenum, lpdevmode, dwflags)
+    EnumDisplaySettingsExA(lpszdevicename.into().abi(), imodenum, lpdevmode, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsExW ( lpszdevicename : :: windows::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW , dwflags : u32 ) -> super::super::Foundation:: BOOL );
-    EnumDisplaySettingsExW(lpszdevicename.into(), imodenum, lpdevmode, dwflags)
+    EnumDisplaySettingsExW(lpszdevicename.into().abi(), imodenum, lpdevmode, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsW ( lpszdevicename : :: windows::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW ) -> super::super::Foundation:: BOOL );
-    EnumDisplaySettingsW(lpszdevicename.into(), imodenum, lpdevmode)
+    EnumDisplaySettingsW(lpszdevicename.into().abi(), imodenum, lpdevmode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -936,11 +936,11 @@ where
 pub unsafe fn EnumFontFamiliesA<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontFamiliesA ( hdc : HDC , lplogfont : :: windows::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontFamiliesA(hdc.into(), lplogfont.into(), lpproc, lparam.into())
+    EnumFontFamiliesA(hdc.into(), lplogfont.into().abi(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -970,11 +970,11 @@ where
 pub unsafe fn EnumFontFamiliesW<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontFamiliesW ( hdc : HDC , lplogfont : :: windows::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontFamiliesW(hdc.into(), lplogfont.into(), lpproc, lparam.into())
+    EnumFontFamiliesW(hdc.into(), lplogfont.into().abi(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -982,11 +982,11 @@ where
 pub unsafe fn EnumFontsA<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontsA ( hdc : HDC , lplogfont : :: windows::core::PCSTR , lpproc : FONTENUMPROCA , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontsA(hdc.into(), lplogfont.into(), lpproc, lparam.into())
+    EnumFontsA(hdc.into(), lplogfont.into().abi(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -994,11 +994,11 @@ where
 pub unsafe fn EnumFontsW<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: P2) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn EnumFontsW ( hdc : HDC , lplogfont : :: windows::core::PCWSTR , lpproc : FONTENUMPROCW , lparam : super::super::Foundation:: LPARAM ) -> i32 );
-    EnumFontsW(hdc.into(), lplogfont.into(), lpproc, lparam.into())
+    EnumFontsW(hdc.into(), lplogfont.into().abi(), lpproc, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1102,10 +1102,10 @@ where
 pub unsafe fn ExtTextOutA<P0, P1>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: ::core::option::Option<*const super::super::Foundation::RECT>, lpstring: P1, c: u32, lpdx: ::core::option::Option<*const i32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn ExtTextOutA ( hdc : HDC , x : i32 , y : i32 , options : ETO_OPTIONS , lprect : *const super::super::Foundation:: RECT , lpstring : :: windows::core::PCSTR , c : u32 , lpdx : *const i32 ) -> super::super::Foundation:: BOOL );
-    ExtTextOutA(hdc.into(), x, y, options, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpstring.into(), c, ::core::mem::transmute(lpdx.unwrap_or(::std::ptr::null())))
+    ExtTextOutA(hdc.into(), x, y, options, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpstring.into().abi(), c, ::core::mem::transmute(lpdx.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1113,10 +1113,10 @@ where
 pub unsafe fn ExtTextOutW<P0, P1>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: ::core::option::Option<*const super::super::Foundation::RECT>, lpstring: P1, c: u32, lpdx: ::core::option::Option<*const i32>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn ExtTextOutW ( hdc : HDC , x : i32 , y : i32 , options : ETO_OPTIONS , lprect : *const super::super::Foundation:: RECT , lpstring : :: windows::core::PCWSTR , c : u32 , lpdx : *const i32 ) -> super::super::Foundation:: BOOL );
-    ExtTextOutW(hdc.into(), x, y, options, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpstring.into(), c, ::core::mem::transmute(lpdx.unwrap_or(::std::ptr::null())))
+    ExtTextOutW(hdc.into(), x, y, options, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpstring.into().abi(), c, ::core::mem::transmute(lpdx.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1613,10 +1613,10 @@ where
 #[inline]
 pub unsafe fn GetEnhMetaFileA<P0>(lpname: P0) -> HENHMETAFILE
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetEnhMetaFileA ( lpname : :: windows::core::PCSTR ) -> HENHMETAFILE );
-    GetEnhMetaFileA(lpname.into())
+    GetEnhMetaFileA(lpname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1668,10 +1668,10 @@ where
 #[inline]
 pub unsafe fn GetEnhMetaFileW<P0>(lpname: P0) -> HENHMETAFILE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetEnhMetaFileW ( lpname : :: windows::core::PCWSTR ) -> HENHMETAFILE );
-    GetEnhMetaFileW(lpname.into())
+    GetEnhMetaFileW(lpname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1705,20 +1705,20 @@ where
 pub unsafe fn GetGlyphIndicesA<P0, P1>(hdc: P0, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetGlyphIndicesA ( hdc : HDC , lpstr : :: windows::core::PCSTR , c : i32 , pgi : *mut u16 , fl : u32 ) -> u32 );
-    GetGlyphIndicesA(hdc.into(), lpstr.into(), c, pgi, fl)
+    GetGlyphIndicesA(hdc.into(), lpstr.into().abi(), c, pgi, fl)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetGlyphIndicesW<P0, P1>(hdc: P0, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetGlyphIndicesW ( hdc : HDC , lpstr : :: windows::core::PCWSTR , c : i32 , pgi : *mut u16 , fl : u32 ) -> u32 );
-    GetGlyphIndicesW(hdc.into(), lpstr.into(), c, pgi, fl)
+    GetGlyphIndicesW(hdc.into(), lpstr.into().abi(), c, pgi, fl)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1789,10 +1789,10 @@ where
 #[inline]
 pub unsafe fn GetMetaFileA<P0>(lpname: P0) -> HMETAFILE
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetMetaFileA ( lpname : :: windows::core::PCSTR ) -> HMETAFILE );
-    GetMetaFileA(lpname.into())
+    GetMetaFileA(lpname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1807,10 +1807,10 @@ where
 #[inline]
 pub unsafe fn GetMetaFileW<P0>(lpname: P0) -> HMETAFILE
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetMetaFileW ( lpname : :: windows::core::PCWSTR ) -> HMETAFILE );
-    GetMetaFileW(lpname.into())
+    GetMetaFileW(lpname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -2102,10 +2102,10 @@ where
 pub unsafe fn GetTextExtentExPointA<P0, P1>(hdc: P0, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: ::core::option::Option<*mut i32>, lpndx: ::core::option::Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetTextExtentExPointA ( hdc : HDC , lpszstring : :: windows::core::PCSTR , cchstring : i32 , nmaxextent : i32 , lpnfit : *mut i32 , lpndx : *mut i32 , lpsize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
-    GetTextExtentExPointA(hdc.into(), lpszstring.into(), cchstring, nmaxextent, ::core::mem::transmute(lpnfit.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpndx.unwrap_or(::std::ptr::null_mut())), lpsize)
+    GetTextExtentExPointA(hdc.into(), lpszstring.into().abi(), cchstring, nmaxextent, ::core::mem::transmute(lpnfit.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpndx.unwrap_or(::std::ptr::null_mut())), lpsize)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2123,10 +2123,10 @@ where
 pub unsafe fn GetTextExtentExPointW<P0, P1>(hdc: P0, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: ::core::option::Option<*mut i32>, lpndx: ::core::option::Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn GetTextExtentExPointW ( hdc : HDC , lpszstring : :: windows::core::PCWSTR , cchstring : i32 , nmaxextent : i32 , lpnfit : *mut i32 , lpndx : *mut i32 , lpsize : *mut super::super::Foundation:: SIZE ) -> super::super::Foundation:: BOOL );
-    GetTextExtentExPointW(hdc.into(), lpszstring.into(), cchstring, nmaxextent, ::core::mem::transmute(lpnfit.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpndx.unwrap_or(::std::ptr::null_mut())), lpsize)
+    GetTextExtentExPointW(hdc.into(), lpszstring.into().abi(), cchstring, nmaxextent, ::core::mem::transmute(lpnfit.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpndx.unwrap_or(::std::ptr::null_mut())), lpsize)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2474,10 +2474,10 @@ where
 pub unsafe fn LoadBitmapA<P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn LoadBitmapA ( hinstance : super::super::Foundation:: HINSTANCE , lpbitmapname : :: windows::core::PCSTR ) -> HBITMAP );
-    LoadBitmapA(hinstance.into(), lpbitmapname.into())
+    LoadBitmapA(hinstance.into(), lpbitmapname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2485,10 +2485,10 @@ where
 pub unsafe fn LoadBitmapW<P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "user32.dll""system" fn LoadBitmapW ( hinstance : super::super::Foundation:: HINSTANCE , lpbitmapname : :: windows::core::PCWSTR ) -> HBITMAP );
-    LoadBitmapW(hinstance.into(), lpbitmapname.into())
+    LoadBitmapW(hinstance.into(), lpbitmapname.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2925,40 +2925,40 @@ where
 #[inline]
 pub unsafe fn RemoveFontResourceA<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceA ( lpfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
-    RemoveFontResourceA(lpfilename.into())
+    RemoveFontResourceA(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExA<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceExA ( name : :: windows::core::PCSTR , fl : u32 , pdv : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    RemoveFontResourceExA(name.into(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
+    RemoveFontResourceExA(name.into().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExW<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceExW ( name : :: windows::core::PCWSTR , fl : u32 , pdv : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    RemoveFontResourceExW(name.into(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
+    RemoveFontResourceExW(name.into().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceW<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceW ( lpfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    RemoveFontResourceW(lpfilename.into())
+    RemoveFontResourceW(lpfilename.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3574,21 +3574,21 @@ where
 pub unsafe fn TTEmbedFontFromFileA<P0, P1>(hdc: P0, szfontfilename: P1, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: ::core::option::Option<*const TTEMBEDINFO>) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTEmbedFontFromFileA ( hdc : HDC , szfontfilename : :: windows::core::PCSTR , usttcindex : u16 , ulflags : TTEMBED_FLAGS , ulcharset : EMBED_FONT_CHARSET , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , pulstatus : *mut u32 , lpfnwritetostream : WRITEEMBEDPROC , lpvwritestream : *const ::core::ffi::c_void , puscharcodeset : *const u16 , uscharcodecount : u16 , uslanguage : u16 , pttembedinfo : *const TTEMBEDINFO ) -> i32 );
-    TTEmbedFontFromFileA(hdc.into(), szfontfilename.into(), usttcindex, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
+    TTEmbedFontFromFileA(hdc.into(), szfontfilename.into().abi(), usttcindex, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTEnableEmbeddingForFacename<P0, P1>(lpszfacename: P0, benable: P1) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTEnableEmbeddingForFacename ( lpszfacename : :: windows::core::PCSTR , benable : super::super::Foundation:: BOOL ) -> i32 );
-    TTEnableEmbeddingForFacename(lpszfacename.into(), benable.into())
+    TTEnableEmbeddingForFacename(lpszfacename.into().abi(), benable.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -3627,21 +3627,21 @@ where
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabledForFacename<P0>(lpszfacename: P0, pbenabled: *mut super::super::Foundation::BOOL) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTIsEmbeddingEnabledForFacename ( lpszfacename : :: windows::core::PCSTR , pbenabled : *mut super::super::Foundation:: BOOL ) -> i32 );
-    TTIsEmbeddingEnabledForFacename(lpszfacename.into(), pbenabled)
+    TTIsEmbeddingEnabledForFacename(lpszfacename.into().abi(), pbenabled)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTLoadEmbeddedFont<P0, P1>(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: P0, szmacfamilyname: P1, pttloadinfo: ::core::option::Option<*const TTLOADINFO>) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "t2embed.dll""system" fn TTLoadEmbeddedFont ( phfontreference : *mut super::super::Foundation:: HANDLE , ulflags : u32 , pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS , ulprivs : FONT_LICENSE_PRIVS , pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS , lpfnreadfromstream : READEMBEDPROC , lpvreadstream : *const ::core::ffi::c_void , szwinfamilyname : :: windows::core::PCWSTR , szmacfamilyname : :: windows::core::PCSTR , pttloadinfo : *const TTLOADINFO ) -> i32 );
-    TTLoadEmbeddedFont(phfontreference, ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, szwinfamilyname.into(), szmacfamilyname.into(), ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
+    TTLoadEmbeddedFont(phfontreference, ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, szwinfamilyname.into().abi(), szmacfamilyname.into().abi(), ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]

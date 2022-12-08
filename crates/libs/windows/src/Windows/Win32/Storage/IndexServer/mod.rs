@@ -24,20 +24,20 @@ where
 #[inline]
 pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    LoadIFilter(pwcspath.into(), punkouter.into().abi(), ppiunk).ok()
+    LoadIFilter(pwcspath.into().abi(), punkouter.into().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[inline]
 pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    LoadIFilterEx(pwcspath.into(), dwflags, riid, ppiunk).ok()
+    LoadIFilterEx(pwcspath.into().abi(), dwflags, riid, ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -113,16 +113,16 @@ pub struct IPhraseSink(::windows::core::IUnknown);
 impl IPhraseSink {
     pub unsafe fn PutSmallPhrase<P0, P1>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutSmallPhrase)(::windows::core::Vtable::as_raw(self), pwcnoun.into(), cwcnoun, pwcmodifier.into(), cwcmodifier, ulattachmenttype).ok()
+        (::windows::core::Vtable::vtable(self).PutSmallPhrase)(::windows::core::Vtable::as_raw(self), pwcnoun.into().abi(), cwcnoun, pwcmodifier.into().abi(), cwcmodifier, ulattachmenttype).ok()
     }
     pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutPhrase)(::windows::core::Vtable::as_raw(self), pwcphrase.into(), cwcphrase).ok()
+        (::windows::core::Vtable::vtable(self).PutPhrase)(::windows::core::Vtable::as_raw(self), pwcphrase.into().abi(), cwcphrase).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPhraseSink, ::windows::core::IUnknown);

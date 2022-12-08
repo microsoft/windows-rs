@@ -18,29 +18,29 @@ pub struct IMLOperatorAttributes(::windows::core::IUnknown);
 impl IMLOperatorAttributes {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
+        (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorAttributes, ::windows::core::IUnknown);
@@ -178,29 +178,29 @@ pub struct IMLOperatorKernelCreationContext(::windows::core::IUnknown);
 impl IMLOperatorKernelCreationContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetInputCount)(::windows::core::Vtable::as_raw(self))
@@ -366,29 +366,29 @@ pub struct IMLOperatorShapeInferenceContext(::windows::core::IUnknown);
 impl IMLOperatorShapeInferenceContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetInputCount)(::windows::core::Vtable::as_raw(self))
@@ -615,29 +615,29 @@ pub struct IMLOperatorTypeInferenceContext(::windows::core::IUnknown);
 impl IMLOperatorTypeInferenceContext {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into(), r#type, elementcount, elementbytesize, value).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAttribute)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, elementcount, elementbytesize, value).ok()
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElement)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, attributeelement.len() as _, ::core::mem::transmute(attributeelement.as_ptr())).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetInputCount)(::windows::core::Vtable::as_raw(self))
@@ -746,10 +746,10 @@ impl IWinMLEvaluationContext {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetValueByName<P0>(&self, name: P0) -> ::windows::core::Result<*mut WINML_BINDING_DESC>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValueByName)(::windows::core::Vtable::as_raw(self), name.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetValueByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -860,10 +860,10 @@ pub struct IWinMLRuntime(::windows::core::IUnknown);
 impl IWinMLRuntime {
     pub unsafe fn LoadModel<P0>(&self, path: P0) -> ::windows::core::Result<IWinMLModel>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadModel)(::windows::core::Vtable::as_raw(self), path.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LoadModel)(::windows::core::Vtable::as_raw(self), path.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

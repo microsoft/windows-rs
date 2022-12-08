@@ -383,10 +383,10 @@ pub unsafe fn JetCreateIndexW<P0, P1, P2>(sesid: P0, tableid: P1, szindexname: *
 where
     P0: ::std::convert::Into<super::StructuredStorage::JET_SESID>,
     P1: ::std::convert::Into<super::StructuredStorage::JET_TABLEID>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "esent.dll""system" fn JetCreateIndexW ( sesid : super::StructuredStorage:: JET_SESID , tableid : super::StructuredStorage:: JET_TABLEID , szindexname : *const u16 , grbit : u32 , szkey : :: windows::core::PCWSTR , cbkey : u32 , ldensity : u32 ) -> i32 );
-    JetCreateIndexW(sesid.into(), tableid.into(), szindexname, grbit, szkey.into(), cbkey, ldensity)
+    JetCreateIndexW(sesid.into(), tableid.into(), szindexname, grbit, szkey.into().abi(), cbkey, ldensity)
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -838,10 +838,10 @@ pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *
 #[inline]
 pub unsafe fn JetFreeBuffer<P0>(pbbuf: P0) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "esent.dll""system" fn JetFreeBuffer ( pbbuf : :: windows::core::PCSTR ) -> i32 );
-    JetFreeBuffer(pbbuf.into())
+    JetFreeBuffer(pbbuf.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]

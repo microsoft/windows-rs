@@ -3,40 +3,40 @@
 #[inline]
 pub unsafe fn BuildCommDCBA<P0>(lpdef: P0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBA ( lpdef : :: windows::core::PCSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBA(lpdef.into(), lpdcb)
+    BuildCommDCBA(lpdef.into().abi(), lpdcb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBAndTimeoutsA<P0>(lpdef: P0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBAndTimeoutsA ( lpdef : :: windows::core::PCSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBAndTimeoutsA(lpdef.into(), lpdcb, lpcommtimeouts)
+    BuildCommDCBAndTimeoutsA(lpdef.into().abi(), lpdcb, lpcommtimeouts)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBAndTimeoutsW<P0>(lpdef: P0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBAndTimeoutsW ( lpdef : :: windows::core::PCWSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBAndTimeoutsW(lpdef.into(), lpdcb, lpcommtimeouts)
+    BuildCommDCBAndTimeoutsW(lpdef.into().abi(), lpdcb, lpcommtimeouts)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBW<P0>(lpdef: P0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn BuildCommDCBW ( lpdef : :: windows::core::PCWSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
-    BuildCommDCBW(lpdef.into(), lpdcb)
+    BuildCommDCBW(lpdef.into().abi(), lpdcb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -63,22 +63,22 @@ where
 #[inline]
 pub unsafe fn CommConfigDialogA<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CommConfigDialogA ( lpszname : :: windows::core::PCSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
-    CommConfigDialogA(lpszname.into(), hwnd.into(), lpcc)
+    CommConfigDialogA(lpszname.into().abi(), hwnd.into(), lpcc)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommConfigDialogW<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CommConfigDialogW ( lpszname : :: windows::core::PCWSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
-    CommConfigDialogW(lpszname.into(), hwnd.into(), lpcc)
+    CommConfigDialogW(lpszname.into().abi(), hwnd.into(), lpcc)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -161,20 +161,20 @@ where
 #[inline]
 pub unsafe fn GetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetDefaultCommConfigA ( lpszname : :: windows::core::PCSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetDefaultCommConfigA(lpszname.into(), lpcc, lpdwsize)
+    GetDefaultCommConfigA(lpszname.into().abi(), lpcc, lpdwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultCommConfigW<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetDefaultCommConfigW ( lpszname : :: windows::core::PCWSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
-    GetDefaultCommConfigW(lpszname.into(), lpcc, lpdwsize)
+    GetDefaultCommConfigW(lpszname.into().abi(), lpcc, lpdwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -248,20 +248,20 @@ where
 #[inline]
 pub unsafe fn SetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetDefaultCommConfigA ( lpszname : :: windows::core::PCSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
-    SetDefaultCommConfigA(lpszname.into(), lpcc, dwsize)
+    SetDefaultCommConfigA(lpszname.into().abi(), lpcc, dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDefaultCommConfigW<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn SetDefaultCommConfigW ( lpszname : :: windows::core::PCWSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
-    SetDefaultCommConfigW(lpszname.into(), lpcc, dwsize)
+    SetDefaultCommConfigW(lpszname.into().abi(), lpcc, dwsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

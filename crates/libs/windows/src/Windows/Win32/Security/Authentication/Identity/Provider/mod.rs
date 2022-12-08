@@ -21,9 +21,9 @@ impl AsyncIAssociatedIdentityProvider {
     pub unsafe fn Begin_DisassociateIdentity<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_DisassociateIdentity)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Begin_DisassociateIdentity)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into().abi()).ok()
     }
     pub unsafe fn Finish_DisassociateIdentity(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_DisassociateIdentity)(::windows::core::Vtable::as_raw(self)).ok()
@@ -33,9 +33,9 @@ impl AsyncIAssociatedIdentityProvider {
     pub unsafe fn Begin_ChangeCredential<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_ChangeCredential)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Begin_ChangeCredential)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into().abi()).ok()
     }
     pub unsafe fn Finish_ChangeCredential(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_ChangeCredential)(::windows::core::Vtable::as_raw(self)).ok()
@@ -186,9 +186,9 @@ pub struct AsyncIIdentityAdvise(::windows::core::IUnknown);
 impl AsyncIIdentityAdvise {
     pub unsafe fn Begin_IdentityUpdated<P0>(&self, dwidentityupdateevents: u32, lpszuniqueid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_IdentityUpdated)(::windows::core::Vtable::as_raw(self), dwidentityupdateevents, lpszuniqueid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Begin_IdentityUpdated)(::windows::core::Vtable::as_raw(self), dwidentityupdateevents, lpszuniqueid.into().abi()).ok()
     }
     pub unsafe fn Finish_IdentityUpdated(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_IdentityUpdated)(::windows::core::Vtable::as_raw(self)).ok()
@@ -302,9 +302,9 @@ impl AsyncIIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_Create<P0>(&self, lpszusername: P0, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_Create)(::windows::core::Vtable::as_raw(self), lpszusername.into(), pkeywordstoadd).ok()
+        (::windows::core::Vtable::vtable(self).Begin_Create)(::windows::core::Vtable::as_raw(self), lpszusername.into().abi(), pkeywordstoadd).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -327,18 +327,18 @@ impl AsyncIIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_Delete<P0>(&self, lpszuniqueid: P0, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_Delete)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), pkeywordstodelete).ok()
+        (::windows::core::Vtable::vtable(self).Begin_Delete)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), pkeywordstodelete).ok()
     }
     pub unsafe fn Finish_Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_Delete)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Begin_FindByUniqueID<P0>(&self, lpszuniqueid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_FindByUniqueID)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Begin_FindByUniqueID)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -459,18 +459,18 @@ impl AsyncIIdentityStore {
     }
     pub unsafe fn Begin_AddToCache<P0>(&self, lpszuniqueid: P0, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid).ok()
+        (::windows::core::Vtable::vtable(self).Begin_AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), providerguid).ok()
     }
     pub unsafe fn Finish_AddToCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_AddToCache)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Begin_ConvertToSid<P0>(&self, lpszuniqueid: P0, providerguid: *const ::windows::core::GUID, cbsid: u16, psid: ::core::option::Option<*mut u8>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid, cbsid, ::core::mem::transmute(psid.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).Begin_ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), providerguid, cbsid, ::core::mem::transmute(psid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn Finish_ConvertToSid(&self, psid: ::core::option::Option<*mut u8>, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_ConvertToSid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psid.unwrap_or(::std::ptr::null_mut())), pcbrequiredsid).ok()
@@ -545,19 +545,19 @@ pub struct AsyncIIdentityStoreEx(::windows::core::IUnknown);
 impl AsyncIIdentityStoreEx {
     pub unsafe fn Begin_CreateConnectedIdentity<P0, P1>(&self, localname: P0, connectedname: P1, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into(), connectedname.into(), providerguid).ok()
+        (::windows::core::Vtable::vtable(self).Begin_CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into().abi(), connectedname.into().abi(), providerguid).ok()
     }
     pub unsafe fn Finish_CreateConnectedIdentity(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Begin_DeleteConnectedIdentity<P0>(&self, connectedname: P0, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Begin_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into(), providerguid).ok()
+        (::windows::core::Vtable::vtable(self).Begin_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into().abi(), providerguid).ok()
     }
     pub unsafe fn Finish_DeleteConnectedIdentity(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Finish_DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self)).ok()
@@ -613,18 +613,18 @@ impl IAssociatedIdentityProvider {
     pub unsafe fn DisassociateIdentity<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DisassociateIdentity)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into()).ok()
+        (::windows::core::Vtable::vtable(self).DisassociateIdentity)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCredential<P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ChangeCredential)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into()).ok()
+        (::windows::core::Vtable::vtable(self).ChangeCredential)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lpszuniqueid.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAssociatedIdentityProvider, ::windows::core::IUnknown);
@@ -741,9 +741,9 @@ pub struct IIdentityAdvise(::windows::core::IUnknown);
 impl IIdentityAdvise {
     pub unsafe fn IdentityUpdated<P0>(&self, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IdentityUpdated)(::windows::core::Vtable::as_raw(self), dwidentityupdateevents, lpszuniqueid.into()).ok()
+        (::windows::core::Vtable::vtable(self).IdentityUpdated)(::windows::core::Vtable::as_raw(self), dwidentityupdateevents, lpszuniqueid.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityAdvise, ::windows::core::IUnknown);
@@ -835,9 +835,9 @@ impl IIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Create<P0>(&self, lpszusername: P0, pppropertystore: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), lpszusername.into(), ::core::mem::transmute(pppropertystore), pkeywordstoadd).ok()
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), lpszusername.into().abi(), ::core::mem::transmute(pppropertystore), pkeywordstoadd).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -851,18 +851,18 @@ impl IIdentityProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Delete<P0>(&self, lpszuniqueid: P0, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), pkeywordstodelete).ok()
+        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), pkeywordstodelete).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn FindByUniqueID<P0>(&self, lpszuniqueid: P0) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindByUniqueID)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindByUniqueID)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -948,15 +948,15 @@ impl IIdentityStore {
     }
     pub unsafe fn AddToCache<P0>(&self, lpszuniqueid: P0, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid).ok()
+        (::windows::core::Vtable::vtable(self).AddToCache)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), providerguid).ok()
     }
     pub unsafe fn ConvertToSid<P0>(&self, lpszuniqueid: P0, providerguid: *const ::windows::core::GUID, psid: ::core::option::Option<&mut [u8]>, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into(), providerguid, psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcbrequiredsid).ok()
+        (::windows::core::Vtable::vtable(self).ConvertToSid)(::windows::core::Vtable::as_raw(self), lpszuniqueid.into().abi(), providerguid, psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcbrequiredsid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1011,16 +1011,16 @@ pub struct IIdentityStoreEx(::windows::core::IUnknown);
 impl IIdentityStoreEx {
     pub unsafe fn CreateConnectedIdentity<P0, P1>(&self, localname: P0, connectedname: P1, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into(), connectedname.into(), providerguid).ok()
+        (::windows::core::Vtable::vtable(self).CreateConnectedIdentity)(::windows::core::Vtable::as_raw(self), localname.into().abi(), connectedname.into().abi(), providerguid).ok()
     }
     pub unsafe fn DeleteConnectedIdentity<P0>(&self, connectedname: P0, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into(), providerguid).ok()
+        (::windows::core::Vtable::vtable(self).DeleteConnectedIdentity)(::windows::core::Vtable::as_raw(self), connectedname.into().abi(), providerguid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IIdentityStoreEx, ::windows::core::IUnknown);

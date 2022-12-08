@@ -2,10 +2,10 @@
 #[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<P0>(wszservername: P0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo ( wszservername : :: windows::core::PCWSTR , netisoerror : *mut NETISO_ERROR_TYPE ) -> u32 );
-    NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into(), netisoerror)
+    NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into().abi(), netisoerror)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -48,13 +48,13 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::s
 pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P0, P1, P2, P3, P4>(applicationcontainersid: P0, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: P4, binaries: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P4: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "api-ms-win-net-isolation-l1-1-0.dll""system" fn NetworkIsolationSetupAppContainerBinaries ( applicationcontainersid : super::super::Foundation:: PSID , packagefullname : :: windows::core::PCWSTR , packagefolder : :: windows::core::PCWSTR , displayname : :: windows::core::PCWSTR , bbinariesfullycomputed : super::super::Foundation:: BOOL , binaries : *const :: windows::core::PCWSTR , binariescount : u32 ) -> :: windows::core::HRESULT );
-    NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), packagefullname.into(), packagefolder.into(), displayname.into(), bbinariesfullycomputed.into(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
+    NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), packagefullname.into().abi(), packagefolder.into().abi(), displayname.into().abi(), bbinariesfullycomputed.into(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -678,10 +678,10 @@ impl INetConnection {
     }
     pub unsafe fn Duplicate<P0>(&self, pszwduplicatename: P0) -> ::windows::core::Result<INetConnection>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Duplicate)(::windows::core::Vtable::as_raw(self), pszwduplicatename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Duplicate)(::windows::core::Vtable::as_raw(self), pszwduplicatename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<*mut NETCON_PROPERTIES> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -693,9 +693,9 @@ impl INetConnection {
     }
     pub unsafe fn Rename<P0>(&self, pszwnewname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Rename)(::windows::core::Vtable::as_raw(self), pszwnewname.into()).ok()
+        (::windows::core::Vtable::vtable(self).Rename)(::windows::core::Vtable::as_raw(self), pszwnewname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetConnection, ::windows::core::IUnknown);

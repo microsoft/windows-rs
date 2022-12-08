@@ -4184,10 +4184,10 @@ impl ID2D1DeviceContext {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -4872,10 +4872,10 @@ impl ID2D1DeviceContext1 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -5481,10 +5481,10 @@ impl ID2D1DeviceContext2 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -6189,10 +6189,10 @@ impl ID2D1DeviceContext3 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -6881,10 +6881,10 @@ impl ID2D1DeviceContext4 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -7654,10 +7654,10 @@ impl ID2D1DeviceContext5 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -8442,10 +8442,10 @@ impl ID2D1DeviceContext6 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -9192,24 +9192,24 @@ impl ID2D1Effect {
     }
     pub unsafe fn GetPropertyIndex<P0>(&self, name: P0) -> u32
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyIndex)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyIndex)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn SetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetValueByName)(::windows::core::Vtable::as_raw(self), name.into(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetValueByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
     pub unsafe fn SetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetValue)(::windows::core::Vtable::as_raw(self), index, r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
     pub unsafe fn GetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetValueByName)(::windows::core::Vtable::as_raw(self), name.into(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetValueByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
     pub unsafe fn GetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetValue)(::windows::core::Vtable::as_raw(self), index, r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
@@ -9363,10 +9363,10 @@ impl ID2D1EffectContext {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -9540,10 +9540,10 @@ impl ID2D1EffectContext1 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -9680,10 +9680,10 @@ impl ID2D1EffectContext2 {
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> ::windows::core::Result<ID2D1ColorContext>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateColorContextFromFilename)(::windows::core::Vtable::as_raw(self), filename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -10256,9 +10256,9 @@ impl ID2D1Factory1 {
     }
     pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
+        (::windows::core::Vtable::vtable(self).RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -10458,9 +10458,9 @@ impl ID2D1Factory2 {
     }
     pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
+        (::windows::core::Vtable::vtable(self).base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -10651,9 +10651,9 @@ impl ID2D1Factory3 {
     }
     pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -10853,9 +10853,9 @@ impl ID2D1Factory4 {
     }
     pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -11064,9 +11064,9 @@ impl ID2D1Factory5 {
     }
     pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -11284,9 +11284,9 @@ impl ID2D1Factory6 {
     }
     pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -11513,9 +11513,9 @@ impl ID2D1Factory7 {
     }
     pub unsafe fn RegisterEffectFromString<P0>(&self, classid: *const ::windows::core::GUID, propertyxml: P0, bindings: ::core::option::Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.RegisterEffectFromString)(::windows::core::Vtable::as_raw(self), classid, propertyxml.into().abi(), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bindings.as_deref().map_or(0, |slice| slice.len() as _), effectfactory).ok()
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.UnregisterEffect)(::windows::core::Vtable::as_raw(self), classid).ok()
@@ -14122,24 +14122,24 @@ impl ID2D1Properties {
     }
     pub unsafe fn GetPropertyIndex<P0>(&self, name: P0) -> u32
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetPropertyIndex)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetPropertyIndex)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn SetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetValueByName)(::windows::core::Vtable::as_raw(self), name.into(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetValueByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
     pub unsafe fn SetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), index, r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
     pub unsafe fn GetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetValueByName)(::windows::core::Vtable::as_raw(self), name.into(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).GetValueByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
     pub unsafe fn GetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), index, r#type, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
@@ -15686,10 +15686,10 @@ impl ID2D1SvgDocument {
     }
     pub unsafe fn FindElementById<P0>(&self, id: P0) -> ::windows::core::Result<ID2D1SvgElement>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindElementById)(::windows::core::Vtable::as_raw(self), id.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindElementById)(::windows::core::Vtable::as_raw(self), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15713,10 +15713,10 @@ impl ID2D1SvgDocument {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreatePaint<P0>(&self, painttype: D2D1_SVG_PAINT_TYPE, color: ::core::option::Option<*const Common::D2D1_COLOR_F>, id: P0) -> ::windows::core::Result<ID2D1SvgPaint>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePaint)(::windows::core::Vtable::as_raw(self), painttype, ::core::mem::transmute(color.unwrap_or(::std::ptr::null())), id.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreatePaint)(::windows::core::Vtable::as_raw(self), painttype, ::core::mem::transmute(color.unwrap_or(::std::ptr::null())), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateStrokeDashArray(&self, dashes: ::core::option::Option<&[D2D1_SVG_LENGTH]>) -> ::windows::core::Result<ID2D1SvgStrokeDashArray> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15869,18 +15869,18 @@ impl ID2D1SvgElement {
     }
     pub unsafe fn CreateChild<P0>(&self, tagname: P0) -> ::windows::core::Result<ID2D1SvgElement>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateChild)(::windows::core::Vtable::as_raw(self), tagname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateChild)(::windows::core::Vtable::as_raw(self), tagname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAttributeSpecified<P0>(&self, name: P0, inherited: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> super::super::Foundation::BOOL
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsAttributeSpecified)(::windows::core::Vtable::as_raw(self), name.into(), ::core::mem::transmute(inherited.unwrap_or(::std::ptr::null_mut())))
+        (::windows::core::Vtable::vtable(self).IsAttributeSpecified)(::windows::core::Vtable::as_raw(self), name.into().abi(), ::core::mem::transmute(inherited.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn GetSpecifiedAttributeCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetSpecifiedAttributeCount)(::windows::core::Vtable::as_raw(self))
@@ -15897,9 +15897,9 @@ impl ID2D1SvgElement {
     }
     pub unsafe fn RemoveAttribute<P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveAttribute)(::windows::core::Vtable::as_raw(self), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).RemoveAttribute)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
     }
     pub unsafe fn SetTextValue(&self, name: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTextValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name.as_ptr()), name.len() as _).ok()
@@ -15912,49 +15912,49 @@ impl ID2D1SvgElement {
     }
     pub unsafe fn SetAttributeValue<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ID2D1SvgAttribute>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAttributeValue)(::windows::core::Vtable::as_raw(self), name.into(), value.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetAttributeValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
     pub unsafe fn SetAttributeValue2<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAttributeValue2)(::windows::core::Vtable::as_raw(self), name.into(), r#type, value, valuesizeinbytes).ok()
+        (::windows::core::Vtable::vtable(self).SetAttributeValue2)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, value, valuesizeinbytes).ok()
     }
     pub unsafe fn SetAttributeValue3<P0, P1>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAttributeValue3)(::windows::core::Vtable::as_raw(self), name.into(), r#type, value.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAttributeValue3)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, value.into().abi()).ok()
     }
     pub unsafe fn GetAttributeValue<P0, T>(&self, name: P0, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Vtable::vtable(self).GetAttributeValue)(::windows::core::Vtable::as_raw(self), name.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Vtable::vtable(self).GetAttributeValue)(::windows::core::Vtable::as_raw(self), name.into().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     pub unsafe fn GetAttributeValue2<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut ::core::ffi::c_void, valuesizeinbytes: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAttributeValue2)(::windows::core::Vtable::as_raw(self), name.into(), r#type, value, valuesizeinbytes).ok()
+        (::windows::core::Vtable::vtable(self).GetAttributeValue2)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, value, valuesizeinbytes).ok()
     }
     pub unsafe fn GetAttributeValue3<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: &mut [u16]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAttributeValue3)(::windows::core::Vtable::as_raw(self), name.into(), r#type, ::core::mem::transmute(value.as_ptr()), value.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).GetAttributeValue3)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, ::core::mem::transmute(value.as_ptr()), value.len() as _).ok()
     }
     pub unsafe fn GetAttributeValueLength<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributeValueLength)(::windows::core::Vtable::as_raw(self), name.into(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetAttributeValueLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID2D1SvgElement, ::windows::core::IUnknown, ID2D1Resource);
@@ -16128,9 +16128,9 @@ impl ID2D1SvgPaint {
     }
     pub unsafe fn SetId<P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetId)(::windows::core::Vtable::as_raw(self), id.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetId)(::windows::core::Vtable::as_raw(self), id.into().abi()).ok()
     }
     pub unsafe fn GetId(&self, id: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(id.as_ptr()), id.len() as _).ok()

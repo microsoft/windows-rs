@@ -1287,9 +1287,9 @@ impl IAMExtTransport {
     }
     pub unsafe fn SetTransportBasicParameters<P0>(&self, param: i32, value: i32, pszdata: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTransportBasicParameters)(::windows::core::Vtable::as_raw(self), param, value, pszdata.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetTransportBasicParameters)(::windows::core::Vtable::as_raw(self), param, value, pszdata.into().abi()).ok()
     }
     pub unsafe fn GetTransportVideoParameters(&self, param: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2441,9 +2441,9 @@ impl IAMMultiMediaStream {
     }
     pub unsafe fn OpenFile<P0>(&self, pszfilename: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OpenFile)(::windows::core::Vtable::as_raw(self), pszfilename.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).OpenFile)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3110,9 +3110,9 @@ impl IAMPlayList {
     }
     pub unsafe fn GetNamedEvent<P0>(&self, pwszeventname: P0, dwitemindex: u32, ppitem: *mut ::core::option::Option<IAMPlayListItem>, pdwflags: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetNamedEvent)(::windows::core::Vtable::as_raw(self), pwszeventname.into(), dwitemindex, ::core::mem::transmute(ppitem), pdwflags).ok()
+        (::windows::core::Vtable::vtable(self).GetNamedEvent)(::windows::core::Vtable::as_raw(self), pwszeventname.into().abi(), dwitemindex, ::core::mem::transmute(ppitem), pdwflags).ok()
     }
     pub unsafe fn GetRepeatInfo(&self, pdwrepeatcount: *mut u32, pdwrepeatstart: *mut u32, pdwrepeatend: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetRepeatInfo)(::windows::core::Vtable::as_raw(self), pdwrepeatcount, pdwrepeatstart, pdwrepeatend).ok()
@@ -3270,9 +3270,9 @@ impl IAMPluginControl {
     }
     pub unsafe fn IsLegacyDisabled<P0>(&self, dllname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsLegacyDisabled)(::windows::core::Vtable::as_raw(self), dllname.into()).ok()
+        (::windows::core::Vtable::vtable(self).IsLegacyDisabled)(::windows::core::Vtable::as_raw(self), dllname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAMPluginControl, ::windows::core::IUnknown);
@@ -8436,18 +8436,18 @@ impl IBDA_DiagnosticProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Com::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -10501,10 +10501,10 @@ impl IBaseFilter {
     }
     pub unsafe fn FindPin<P0>(&self, id: P0) -> ::windows::core::Result<IPin>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindPin)(::windows::core::Vtable::as_raw(self), id.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindPin)(::windows::core::Vtable::as_raw(self), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryFilterInfo(&self) -> ::windows::core::Result<FILTER_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10513,9 +10513,9 @@ impl IBaseFilter {
     pub unsafe fn JoinFilterGraph<P0, P1>(&self, pgraph: P0, pname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFilterGraph>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).JoinFilterGraph)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), pname.into()).ok()
+        (::windows::core::Vtable::vtable(self).JoinFilterGraph)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), pname.into().abi()).ok()
     }
     pub unsafe fn QueryVendorInfo(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11599,9 +11599,9 @@ impl ICaptureGraphBuilder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOutputFileName<P0>(&self, ptype: *const ::windows::core::GUID, lpstrfile: P0, ppf: *mut ::core::option::Option<IBaseFilter>, ppsink: *mut ::core::option::Option<IFileSinkFilter>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputFileName)(::windows::core::Vtable::as_raw(self), ptype, lpstrfile.into(), ::core::mem::transmute(ppf), ::core::mem::transmute(ppsink)).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputFileName)(::windows::core::Vtable::as_raw(self), ptype, lpstrfile.into().abi(), ::core::mem::transmute(ppf), ::core::mem::transmute(ppsink)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11631,17 +11631,17 @@ impl ICaptureGraphBuilder {
     }
     pub unsafe fn AllocCapFile<P0>(&self, lpstr: P0, dwlsize: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AllocCapFile)(::windows::core::Vtable::as_raw(self), lpstr.into(), dwlsize).ok()
+        (::windows::core::Vtable::vtable(self).AllocCapFile)(::windows::core::Vtable::as_raw(self), lpstr.into().abi(), dwlsize).ok()
     }
     pub unsafe fn CopyCaptureFile<P0, P1, P2>(&self, lpwstrold: P0, lpwstrnew: P1, fallowescabort: i32, pcallback: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IAMCopyCaptureFileProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyCaptureFile)(::windows::core::Vtable::as_raw(self), lpwstrold.into(), lpwstrnew.into(), fallowescabort, pcallback.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).CopyCaptureFile)(::windows::core::Vtable::as_raw(self), lpwstrold.into().abi(), lpwstrnew.into().abi(), fallowescabort, pcallback.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICaptureGraphBuilder, ::windows::core::IUnknown);
@@ -11710,9 +11710,9 @@ impl ICaptureGraphBuilder2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOutputFileName<P0>(&self, ptype: *const ::windows::core::GUID, lpstrfile: P0, ppf: *mut ::core::option::Option<IBaseFilter>, ppsink: ::core::option::Option<*mut ::core::option::Option<IFileSinkFilter>>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputFileName)(::windows::core::Vtable::as_raw(self), ptype, lpstrfile.into(), ::core::mem::transmute(ppf), ::core::mem::transmute(ppsink.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputFileName)(::windows::core::Vtable::as_raw(self), ptype, lpstrfile.into().abi(), ::core::mem::transmute(ppf), ::core::mem::transmute(ppsink.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11742,17 +11742,17 @@ impl ICaptureGraphBuilder2 {
     }
     pub unsafe fn AllocCapFile<P0>(&self, lpstr: P0, dwlsize: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AllocCapFile)(::windows::core::Vtable::as_raw(self), lpstr.into(), dwlsize).ok()
+        (::windows::core::Vtable::vtable(self).AllocCapFile)(::windows::core::Vtable::as_raw(self), lpstr.into().abi(), dwlsize).ok()
     }
     pub unsafe fn CopyCaptureFile<P0, P1, P2>(&self, lpwstrold: P0, lpwstrnew: P1, fallowescabort: i32, pcallback: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IAMCopyCaptureFileProgress>>,
     {
-        (::windows::core::Vtable::vtable(self).CopyCaptureFile)(::windows::core::Vtable::as_raw(self), lpwstrold.into(), lpwstrnew.into(), fallowescabort, pcallback.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).CopyCaptureFile)(::windows::core::Vtable::as_raw(self), lpwstrold.into().abi(), lpwstrnew.into().abi(), fallowescabort, pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12916,9 +12916,9 @@ impl ICreatePropBagOnRegKey {
     pub unsafe fn Create<P0, P1>(&self, hkey: P0, subkey: P1, uloptions: u32, samdesired: u32, iid: *const ::windows::core::GUID, ppbag: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::System::Registry::HKEY>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), hkey.into(), subkey.into(), uloptions, samdesired, iid, ppbag).ok()
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), hkey.into(), subkey.into().abi(), uloptions, samdesired, iid, ppbag).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICreatePropBagOnRegKey, ::windows::core::IUnknown);
@@ -19539,9 +19539,9 @@ impl IDvdControl {
     }
     pub unsafe fn SetRoot<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRoot)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRoot)(::windows::core::Vtable::as_raw(self), pszpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19744,9 +19744,9 @@ impl IDvdControl2 {
     }
     pub unsafe fn SetDVDDirectory<P0>(&self, pszwpath: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDVDDirectory)(::windows::core::Vtable::as_raw(self), pszwpath.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetDVDDirectory)(::windows::core::Vtable::as_raw(self), pszwpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19903,10 +19903,10 @@ impl IDvdGraphBuilder {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenderDvdVideoVolume<P0>(&self, lpcwszpathname: P0, dwflags: u32) -> ::windows::core::Result<AM_DVD_RENDERSTATUS>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RenderDvdVideoVolume)(::windows::core::Vtable::as_raw(self), lpcwszpathname.into(), dwflags, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RenderDvdVideoVolume)(::windows::core::Vtable::as_raw(self), lpcwszpathname.into().abi(), dwflags, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDvdGraphBuilder, ::windows::core::IUnknown);
@@ -20207,10 +20207,10 @@ impl IDvdInfo2 {
     }
     pub unsafe fn GetDiscID<P0>(&self, pszwpath: P0) -> ::windows::core::Result<u64>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDiscID)(::windows::core::Vtable::as_raw(self), pszwpath.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDiscID)(::windows::core::Vtable::as_raw(self), pszwpath.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<IDvdState> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -22230,9 +22230,9 @@ impl IFileSinkFilter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetFileName<P0>(&self, pszfilename: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetFileName)(::windows::core::Vtable::as_raw(self), pszfilename.into(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).SetFileName)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -22284,9 +22284,9 @@ impl IFileSinkFilter2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetFileName<P0>(&self, pszfilename: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetFileName)(::windows::core::Vtable::as_raw(self), pszfilename.into(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetFileName)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -22339,9 +22339,9 @@ impl IFileSourceFilter {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn Load<P0>(&self, pszfilename: P0, pmt: ::core::option::Option<*const super::MediaFoundation::AM_MEDIA_TYPE>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pszfilename.into(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -22479,9 +22479,9 @@ impl IFilterGraph {
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IBaseFilter>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22499,10 +22499,10 @@ impl IFilterGraph {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows::core::Result<IBaseFilter>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -22586,9 +22586,9 @@ impl IFilterGraph2 {
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IBaseFilter>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22606,10 +22606,10 @@ impl IFilterGraph2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows::core::Result<IBaseFilter>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -22650,20 +22650,20 @@ impl IFilterGraph2 {
     }
     pub unsafe fn RenderFile<P0, P1>(&self, lpcwstrfile: P0, lpcwstrplaylist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RenderFile)(::windows::core::Vtable::as_raw(self), lpcwstrfile.into(), lpcwstrplaylist.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.RenderFile)(::windows::core::Vtable::as_raw(self), lpcwstrfile.into().abi(), lpcwstrplaylist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilter<P0, P1>(&self, lpcwstrfilename: P0, lpcwstrfiltername: P1) -> ::windows::core::Result<IBaseFilter>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AddSourceFilter)(::windows::core::Vtable::as_raw(self), lpcwstrfilename.into(), lpcwstrfiltername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.AddSourceFilter)(::windows::core::Vtable::as_raw(self), lpcwstrfilename.into().abi(), lpcwstrfiltername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetLogFile(&self, hfile: usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetLogFile)(::windows::core::Vtable::as_raw(self), hfile).ok()
@@ -22680,10 +22680,10 @@ impl IFilterGraph2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMoniker>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSourceFilterForMoniker)(::windows::core::Vtable::as_raw(self), pmoniker.into().abi(), pctx.into().abi(), lpcwstrfiltername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSourceFilterForMoniker)(::windows::core::Vtable::as_raw(self), pmoniker.into().abi(), pctx.into().abi(), lpcwstrfiltername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -22746,9 +22746,9 @@ impl IFilterGraph3 {
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IBaseFilter>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -22766,10 +22766,10 @@ impl IFilterGraph3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows::core::Result<IBaseFilter>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -22810,20 +22810,20 @@ impl IFilterGraph3 {
     }
     pub unsafe fn RenderFile<P0, P1>(&self, lpcwstrfile: P0, lpcwstrplaylist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.RenderFile)(::windows::core::Vtable::as_raw(self), lpcwstrfile.into(), lpcwstrplaylist.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.RenderFile)(::windows::core::Vtable::as_raw(self), lpcwstrfile.into().abi(), lpcwstrplaylist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilter<P0, P1>(&self, lpcwstrfilename: P0, lpcwstrfiltername: P1) -> ::windows::core::Result<IBaseFilter>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.AddSourceFilter)(::windows::core::Vtable::as_raw(self), lpcwstrfilename.into(), lpcwstrfiltername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.AddSourceFilter)(::windows::core::Vtable::as_raw(self), lpcwstrfilename.into().abi(), lpcwstrfiltername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetLogFile(&self, hfile: usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetLogFile)(::windows::core::Vtable::as_raw(self), hfile).ok()
@@ -22840,10 +22840,10 @@ impl IFilterGraph3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IMoniker>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IBindCtx>>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AddSourceFilterForMoniker)(::windows::core::Vtable::as_raw(self), pmoniker.into().abi(), pctx.into().abi(), lpcwstrfiltername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.AddSourceFilterForMoniker)(::windows::core::Vtable::as_raw(self), pmoniker.into().abi(), pctx.into().abi(), lpcwstrfiltername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -23000,35 +23000,35 @@ pub struct IFilterMapper(::windows::core::IUnknown);
 impl IFilterMapper {
     pub unsafe fn RegisterFilter<P0>(&self, clsid: ::windows::core::GUID, name: P0, dwmerit: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterFilter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), name.into(), dwmerit).ok()
+        (::windows::core::Vtable::vtable(self).RegisterFilter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), name.into().abi(), dwmerit).ok()
     }
     pub unsafe fn RegisterFilterInstance<P0>(&self, clsid: ::windows::core::GUID, name: P0) -> ::windows::core::Result<::windows::core::GUID>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterFilterInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), name.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterFilterInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsid), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterPin<P0, P1, P2, P3, P4, P5>(&self, filter: ::windows::core::GUID, name: P0, brendered: P1, boutput: P2, bzero: P3, bmany: P4, connectstofilter: ::windows::core::GUID, connectstopin: P5) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
         P3: ::std::convert::Into<super::super::Foundation::BOOL>,
         P4: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P5: ::std::convert::Into<::windows::core::PCWSTR>,
+        P5: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterPin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filter), name.into(), brendered.into(), boutput.into(), bzero.into(), bmany.into(), ::core::mem::transmute(connectstofilter), connectstopin.into()).ok()
+        (::windows::core::Vtable::vtable(self).RegisterPin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filter), name.into().abi(), brendered.into(), boutput.into(), bzero.into(), bmany.into(), ::core::mem::transmute(connectstofilter), connectstopin.into().abi()).ok()
     }
     pub unsafe fn RegisterPinType<P0>(&self, clsfilter: ::windows::core::GUID, strname: P0, clsmajortype: ::windows::core::GUID, clssubtype: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterPinType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsfilter), strname.into(), ::core::mem::transmute(clsmajortype), ::core::mem::transmute(clssubtype)).ok()
+        (::windows::core::Vtable::vtable(self).RegisterPinType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsfilter), strname.into().abi(), ::core::mem::transmute(clsmajortype), ::core::mem::transmute(clssubtype)).ok()
     }
     pub unsafe fn UnregisterFilter(&self, filter: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterFilter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filter)).ok()
@@ -23038,9 +23038,9 @@ impl IFilterMapper {
     }
     pub unsafe fn UnregisterPin<P0>(&self, filter: ::windows::core::GUID, name: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterPin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filter), name.into()).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterPin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(filter), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -23101,24 +23101,24 @@ pub struct IFilterMapper2(::windows::core::IUnknown);
 impl IFilterMapper2 {
     pub unsafe fn CreateCategory<P0>(&self, clsidcategory: *const ::windows::core::GUID, dwcategorymerit: u32, description: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateCategory)(::windows::core::Vtable::as_raw(self), clsidcategory, dwcategorymerit, description.into()).ok()
+        (::windows::core::Vtable::vtable(self).CreateCategory)(::windows::core::Vtable::as_raw(self), clsidcategory, dwcategorymerit, description.into().abi()).ok()
     }
     pub unsafe fn UnregisterFilter<P0>(&self, pclsidcategory: *const ::windows::core::GUID, szinstance: P0, filter: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).UnregisterFilter)(::windows::core::Vtable::as_raw(self), pclsidcategory, szinstance.into(), filter).ok()
+        (::windows::core::Vtable::vtable(self).UnregisterFilter)(::windows::core::Vtable::as_raw(self), pclsidcategory, szinstance.into().abi(), filter).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterFilter<P0, P1>(&self, clsidfilter: *const ::windows::core::GUID, name: P0, ppmoniker: ::core::option::Option<*mut ::core::option::Option<super::super::System::Com::IMoniker>>, pclsidcategory: *const ::windows::core::GUID, szinstance: P1, prf2: *const REGFILTER2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterFilter)(::windows::core::Vtable::as_raw(self), clsidfilter, name.into(), ::core::mem::transmute(ppmoniker.unwrap_or(::std::ptr::null_mut())), pclsidcategory, szinstance.into(), prf2).ok()
+        (::windows::core::Vtable::vtable(self).RegisterFilter)(::windows::core::Vtable::as_raw(self), clsidfilter, name.into().abi(), ::core::mem::transmute(ppmoniker.unwrap_or(::std::ptr::null_mut())), pclsidcategory, szinstance.into().abi(), prf2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -23194,24 +23194,24 @@ pub struct IFilterMapper3(::windows::core::IUnknown);
 impl IFilterMapper3 {
     pub unsafe fn CreateCategory<P0>(&self, clsidcategory: *const ::windows::core::GUID, dwcategorymerit: u32, description: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CreateCategory)(::windows::core::Vtable::as_raw(self), clsidcategory, dwcategorymerit, description.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.CreateCategory)(::windows::core::Vtable::as_raw(self), clsidcategory, dwcategorymerit, description.into().abi()).ok()
     }
     pub unsafe fn UnregisterFilter<P0>(&self, pclsidcategory: *const ::windows::core::GUID, szinstance: P0, filter: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.UnregisterFilter)(::windows::core::Vtable::as_raw(self), pclsidcategory, szinstance.into(), filter).ok()
+        (::windows::core::Vtable::vtable(self).base__.UnregisterFilter)(::windows::core::Vtable::as_raw(self), pclsidcategory, szinstance.into().abi(), filter).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterFilter<P0, P1>(&self, clsidfilter: *const ::windows::core::GUID, name: P0, ppmoniker: ::core::option::Option<*mut ::core::option::Option<super::super::System::Com::IMoniker>>, pclsidcategory: *const ::windows::core::GUID, szinstance: P1, prf2: *const REGFILTER2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RegisterFilter)(::windows::core::Vtable::as_raw(self), clsidfilter, name.into(), ::core::mem::transmute(ppmoniker.unwrap_or(::std::ptr::null_mut())), pclsidcategory, szinstance.into(), prf2).ok()
+        (::windows::core::Vtable::vtable(self).base__.RegisterFilter)(::windows::core::Vtable::as_raw(self), clsidfilter, name.into().abi(), ::core::mem::transmute(ppmoniker.unwrap_or(::std::ptr::null_mut())), pclsidcategory, szinstance.into().abi(), prf2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -23781,9 +23781,9 @@ impl IGraphBuilder {
     pub unsafe fn AddFilter<P0, P1>(&self, pfilter: P0, pname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IBaseFilter>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddFilter)(::windows::core::Vtable::as_raw(self), pfilter.into().abi(), pname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -23801,10 +23801,10 @@ impl IGraphBuilder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindFilterByName<P0>(&self, pname: P0) -> ::windows::core::Result<IBaseFilter>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.FindFilterByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -23845,20 +23845,20 @@ impl IGraphBuilder {
     }
     pub unsafe fn RenderFile<P0, P1>(&self, lpcwstrfile: P0, lpcwstrplaylist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RenderFile)(::windows::core::Vtable::as_raw(self), lpcwstrfile.into(), lpcwstrplaylist.into()).ok()
+        (::windows::core::Vtable::vtable(self).RenderFile)(::windows::core::Vtable::as_raw(self), lpcwstrfile.into().abi(), lpcwstrplaylist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSourceFilter<P0, P1>(&self, lpcwstrfilename: P0, lpcwstrfiltername: P1) -> ::windows::core::Result<IBaseFilter>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddSourceFilter)(::windows::core::Vtable::as_raw(self), lpcwstrfilename.into(), lpcwstrfiltername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddSourceFilter)(::windows::core::Vtable::as_raw(self), lpcwstrfilename.into().abi(), lpcwstrfiltername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetLogFile(&self, hfile: usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLogFile)(::windows::core::Vtable::as_raw(self), hfile).ok()
@@ -37451,18 +37451,18 @@ impl IMediaPropertyBag {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Com::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -38007,10 +38007,10 @@ impl IMediaStreamFilter {
     }
     pub unsafe fn FindPin<P0>(&self, id: P0) -> ::windows::core::Result<IPin>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindPin)(::windows::core::Vtable::as_raw(self), id.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.FindPin)(::windows::core::Vtable::as_raw(self), id.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryFilterInfo(&self) -> ::windows::core::Result<FILTER_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -38019,9 +38019,9 @@ impl IMediaStreamFilter {
     pub unsafe fn JoinFilterGraph<P0, P1>(&self, pgraph: P0, pname: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFilterGraph>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.JoinFilterGraph)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), pname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.JoinFilterGraph)(::windows::core::Vtable::as_raw(self), pgraph.into().abi(), pname.into().abi()).ok()
     }
     pub unsafe fn QueryVendorInfo(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -38868,23 +38868,23 @@ impl IMpeg2Demultiplexer {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateOutputPin<P0>(&self, pmediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE, pszpinname: P0, ppipin: *mut ::core::option::Option<IPin>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateOutputPin)(::windows::core::Vtable::as_raw(self), pmediatype, pszpinname.into(), ::core::mem::transmute(ppipin)).ok()
+        (::windows::core::Vtable::vtable(self).CreateOutputPin)(::windows::core::Vtable::as_raw(self), pmediatype, pszpinname.into().abi(), ::core::mem::transmute(ppipin)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetOutputPinMediaType<P0>(&self, pszpinname: P0, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputPinMediaType)(::windows::core::Vtable::as_raw(self), pszpinname.into(), pmediatype).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputPinMediaType)(::windows::core::Vtable::as_raw(self), pszpinname.into().abi(), pmediatype).ok()
     }
     pub unsafe fn DeleteOutputPin<P0>(&self, pszpinname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteOutputPin)(::windows::core::Vtable::as_raw(self), pszpinname.into()).ok()
+        (::windows::core::Vtable::vtable(self).DeleteOutputPin)(::windows::core::Vtable::as_raw(self), pszpinname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMpeg2Demultiplexer, ::windows::core::IUnknown);
@@ -40027,11 +40027,11 @@ impl IPTFilterLicenseRenewal {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenewLicenses<P0, P1, P2>(&self, wszfilename: P0, wszexpiredkid: P1, dwcallersid: u32, bhighpriority: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).RenewLicenses)(::windows::core::Vtable::as_raw(self), wszfilename.into(), wszexpiredkid.into(), dwcallersid, bhighpriority.into()).ok()
+        (::windows::core::Vtable::vtable(self).RenewLicenses)(::windows::core::Vtable::as_raw(self), wszfilename.into().abi(), wszexpiredkid.into().abi(), dwcallersid, bhighpriority.into()).ok()
     }
     pub unsafe fn CancelLicenseRenewal(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CancelLicenseRenewal)(::windows::core::Vtable::as_raw(self)).ok()
@@ -41048,17 +41048,17 @@ pub struct IResourceManager(::windows::core::IUnknown);
 impl IResourceManager {
     pub unsafe fn Register<P0>(&self, pname: P0, cresource: i32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Register)(::windows::core::Vtable::as_raw(self), pname.into(), cresource, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Register)(::windows::core::Vtable::as_raw(self), pname.into().abi(), cresource, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RegisterGroup<P0>(&self, pname: P0, paltokens: &[i32]) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterGroup)(::windows::core::Vtable::as_raw(self), pname.into(), paltokens.len() as _, ::core::mem::transmute(paltokens.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterGroup)(::windows::core::Vtable::as_raw(self), pname.into().abi(), paltokens.len() as _, ::core::mem::transmute(paltokens.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn RequestResource<P0, P1>(&self, idresource: i32, pfocusobject: P0, pconsumer: P1) -> ::windows::core::Result<()>
     where
@@ -41250,9 +41250,9 @@ pub struct ISBE2FileScan(::windows::core::IUnknown);
 impl ISBE2FileScan {
     pub unsafe fn RepairFile<P0>(&self, filename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RepairFile)(::windows::core::Vtable::as_raw(self), filename.into()).ok()
+        (::windows::core::Vtable::vtable(self).RepairFile)(::windows::core::Vtable::as_raw(self), filename.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISBE2FileScan, ::windows::core::IUnknown);
@@ -42322,9 +42322,9 @@ pub struct IStreamBufferConfigure(::windows::core::IUnknown);
 impl IStreamBufferConfigure {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDirectory)(::windows::core::Vtable::as_raw(self), pszdirectoryname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetDirectory)(::windows::core::Vtable::as_raw(self), pszdirectoryname.into().abi()).ok()
     }
     pub unsafe fn GetDirectory(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42384,9 +42384,9 @@ pub struct IStreamBufferConfigure2(::windows::core::IUnknown);
 impl IStreamBufferConfigure2 {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetDirectory)(::windows::core::Vtable::as_raw(self), pszdirectoryname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDirectory)(::windows::core::Vtable::as_raw(self), pszdirectoryname.into().abi()).ok()
     }
     pub unsafe fn GetDirectory(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42457,9 +42457,9 @@ pub struct IStreamBufferConfigure3(::windows::core::IUnknown);
 impl IStreamBufferConfigure3 {
     pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetDirectory)(::windows::core::Vtable::as_raw(self), pszdirectoryname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetDirectory)(::windows::core::Vtable::as_raw(self), pszdirectoryname.into().abi()).ok()
     }
     pub unsafe fn GetDirectory(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42507,9 +42507,9 @@ impl IStreamBufferConfigure3 {
     }
     pub unsafe fn SetNamespace<P0>(&self, psznamespace: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetNamespace)(::windows::core::Vtable::as_raw(self), psznamespace.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetNamespace)(::windows::core::Vtable::as_raw(self), psznamespace.into().abi()).ok()
     }
     pub unsafe fn GetNamespace(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42844,22 +42844,22 @@ pub struct IStreamBufferRecComp(::windows::core::IUnknown);
 impl IStreamBufferRecComp {
     pub unsafe fn Initialize<P0, P1>(&self, psztargetfilename: P0, pszsbrecprofileref: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), psztargetfilename.into(), pszsbrecprofileref.into()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), psztargetfilename.into().abi(), pszsbrecprofileref.into().abi()).ok()
     }
     pub unsafe fn Append<P0>(&self, pszsbrecording: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), pszsbrecording.into()).ok()
+        (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), pszsbrecording.into().abi()).ok()
     }
     pub unsafe fn AppendEx<P0>(&self, pszsbrecording: P0, rtstart: i64, rtstop: i64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AppendEx)(::windows::core::Vtable::as_raw(self), pszsbrecording.into(), rtstart, rtstop).ok()
+        (::windows::core::Vtable::vtable(self).AppendEx)(::windows::core::Vtable::as_raw(self), pszsbrecording.into().abi(), rtstart, rtstop).ok()
     }
     pub unsafe fn GetCurrentLength(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42962,9 +42962,9 @@ pub struct IStreamBufferRecordingAttribute(::windows::core::IUnknown);
 impl IStreamBufferRecordingAttribute {
     pub unsafe fn SetAttribute<P0>(&self, ulreserved: u32, pszattributename: P0, streambufferattributetype: STREAMBUFFER_ATTR_DATATYPE, pbattribute: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAttribute)(::windows::core::Vtable::as_raw(self), ulreserved, pszattributename.into(), streambufferattributetype, ::core::mem::transmute(pbattribute.as_ptr()), pbattribute.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetAttribute)(::windows::core::Vtable::as_raw(self), ulreserved, pszattributename.into().abi(), streambufferattributetype, ::core::mem::transmute(pbattribute.as_ptr()), pbattribute.len() as _).ok()
     }
     pub unsafe fn GetAttributeCount(&self, ulreserved: u32) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -42972,9 +42972,9 @@ impl IStreamBufferRecordingAttribute {
     }
     pub unsafe fn GetAttributeByName<P0>(&self, pszattributename: P0, pulreserved: *const u32, pstreambufferattributetype: *mut STREAMBUFFER_ATTR_DATATYPE, pbattribute: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAttributeByName)(::windows::core::Vtable::as_raw(self), pszattributename.into(), pulreserved, pstreambufferattributetype, pbattribute, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetAttributeByName)(::windows::core::Vtable::as_raw(self), pszattributename.into().abi(), pulreserved, pstreambufferattributetype, pbattribute, pcblength).ok()
     }
     pub unsafe fn GetAttributeByIndex(&self, windex: u16, pulreserved: *const u32, pszattributename: ::windows::core::PWSTR, pcchnamelength: *mut u16, pstreambufferattributetype: *mut STREAMBUFFER_ATTR_DATATYPE, pbattribute: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetAttributeByIndex)(::windows::core::Vtable::as_raw(self), windex, pulreserved, ::core::mem::transmute(pszattributename), pcchnamelength, pstreambufferattributetype, pbattribute, pcblength).ok()
@@ -43023,16 +43023,16 @@ pub struct IStreamBufferSink(::windows::core::IUnknown);
 impl IStreamBufferSink {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).LockProfile)(::windows::core::Vtable::as_raw(self), pszstreambufferfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).LockProfile)(::windows::core::Vtable::as_raw(self), pszstreambufferfilename.into().abi()).ok()
     }
     pub unsafe fn CreateRecorder<P0>(&self, pszfilename: P0, dwrecordtype: u32) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRecorder)(::windows::core::Vtable::as_raw(self), pszfilename.into(), dwrecordtype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateRecorder)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), dwrecordtype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn IsProfileLocked(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsProfileLocked)(::windows::core::Vtable::as_raw(self)).ok()
@@ -43075,16 +43075,16 @@ pub struct IStreamBufferSink2(::windows::core::IUnknown);
 impl IStreamBufferSink2 {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.LockProfile)(::windows::core::Vtable::as_raw(self), pszstreambufferfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.LockProfile)(::windows::core::Vtable::as_raw(self), pszstreambufferfilename.into().abi()).ok()
     }
     pub unsafe fn CreateRecorder<P0>(&self, pszfilename: P0, dwrecordtype: u32) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateRecorder)(::windows::core::Vtable::as_raw(self), pszfilename.into(), dwrecordtype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CreateRecorder)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), dwrecordtype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn IsProfileLocked(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.IsProfileLocked)(::windows::core::Vtable::as_raw(self)).ok()
@@ -43128,16 +43128,16 @@ pub struct IStreamBufferSink3(::windows::core::IUnknown);
 impl IStreamBufferSink3 {
     pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.LockProfile)(::windows::core::Vtable::as_raw(self), pszstreambufferfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.LockProfile)(::windows::core::Vtable::as_raw(self), pszstreambufferfilename.into().abi()).ok()
     }
     pub unsafe fn CreateRecorder<P0>(&self, pszfilename: P0, dwrecordtype: u32) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CreateRecorder)(::windows::core::Vtable::as_raw(self), pszfilename.into(), dwrecordtype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CreateRecorder)(::windows::core::Vtable::as_raw(self), pszfilename.into().abi(), dwrecordtype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn IsProfileLocked(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.IsProfileLocked)(::windows::core::Vtable::as_raw(self)).ok()

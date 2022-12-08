@@ -38,19 +38,19 @@ pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, 
 #[inline]
 pub unsafe fn CertSrvBackupOpenFileW<P0>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: P0, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupOpenFileW ( hbc : *mut ::core::ffi::c_void , pwszattachmentname : :: windows::core::PCWSTR , cbreadhintsize : u32 , plifilesize : *mut i64 ) -> :: windows::core::HRESULT );
-    CertSrvBackupOpenFileW(hbc, pwszattachmentname.into(), cbreadhintsize, plifilesize).ok()
+    CertSrvBackupOpenFileW(hbc, pwszattachmentname.into().abi(), cbreadhintsize, plifilesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupPrepareW<P0>(pwszservername: P0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "certadm.dll""system" fn CertSrvBackupPrepareW ( pwszservername : :: windows::core::PCWSTR , grbitjet : u32 , dwbackupflags : CSBACKUP_TYPE , phbc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CertSrvBackupPrepareW(pwszservername.into(), grbitjet, dwbackupflags, phbc).ok()
+    CertSrvBackupPrepareW(pwszservername.into().abi(), grbitjet, dwbackupflags, phbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -69,10 +69,10 @@ pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::wind
 #[inline]
 pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "certadm.dll""system" fn CertSrvIsServerOnlineW ( pwszservername : :: windows::core::PCWSTR , pfserveronline : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    CertSrvIsServerOnlineW(pwszservername.into(), pfserveronline).ok()
+    CertSrvIsServerOnlineW(pwszservername.into().abi(), pfserveronline).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -90,10 +90,10 @@ pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_voi
 #[inline]
 pub unsafe fn CertSrvRestorePrepareW<P0>(pwszservername: P0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestorePrepareW ( pwszservername : :: windows::core::PCWSTR , dwrestoreflags : u32 , phbc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CertSrvRestorePrepareW(pwszservername.into(), dwrestoreflags, phbc).ok()
+    CertSrvRestorePrepareW(pwszservername.into().abi(), dwrestoreflags, phbc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
@@ -105,32 +105,32 @@ pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrre
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterThroughFile<P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterThroughFile ( hbc : *mut ::core::ffi::c_void , pwszcheckpointfilepath : :: windows::core::PCWSTR , pwszlogpath : :: windows::core::PCWSTR , rgrstmap : *mut CSEDB_RSTMAPW , crstmap : i32 , pwszbackuplogpath : :: windows::core::PCWSTR , genlow : u32 , genhigh : u32 ) -> :: windows::core::HRESULT );
-    CertSrvRestoreRegisterThroughFile(hbc, pwszcheckpointfilepath.into(), pwszlogpath.into(), rgrstmap, crstmap, pwszbackuplogpath.into(), genlow, genhigh).ok()
+    CertSrvRestoreRegisterThroughFile(hbc, pwszcheckpointfilepath.into().abi(), pwszlogpath.into().abi(), rgrstmap, crstmap, pwszbackuplogpath.into().abi(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterW<P0, P1, P2>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: P0, pwszlogpath: P1, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: P2, genlow: u32, genhigh: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "certadm.dll""system" fn CertSrvRestoreRegisterW ( hbc : *mut ::core::ffi::c_void , pwszcheckpointfilepath : :: windows::core::PCWSTR , pwszlogpath : :: windows::core::PCWSTR , rgrstmap : *mut CSEDB_RSTMAPW , crstmap : i32 , pwszbackuplogpath : :: windows::core::PCWSTR , genlow : u32 , genhigh : u32 ) -> :: windows::core::HRESULT );
-    CertSrvRestoreRegisterW(hbc, pwszcheckpointfilepath.into(), pwszlogpath.into(), rgrstmap, crstmap, pwszbackuplogpath.into(), genlow, genhigh).ok()
+    CertSrvRestoreRegisterW(hbc, pwszcheckpointfilepath.into().abi(), pwszlogpath.into().abi(), rgrstmap, crstmap, pwszbackuplogpath.into().abi(), genlow, genhigh).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvServerControlW<P0>(pwszservername: P0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "certadm.dll""system" fn CertSrvServerControlW ( pwszservername : :: windows::core::PCWSTR , dwcontrolflags : u32 , pcbout : *mut u32 , ppbout : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    CertSrvServerControlW(pwszservername.into(), dwcontrolflags, pcbout, ppbout).ok()
+    CertSrvServerControlW(pwszservername.into().abi(), dwcontrolflags, pcbout, ppbout).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5321,23 +5321,23 @@ pub struct ICertRequestD(::windows::core::IUnknown);
 impl ICertRequestD {
     pub unsafe fn Request<P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Request)(::windows::core::Vtable::as_raw(self), dwflags, pwszauthority.into(), pdwrequestid, pdwdisposition, pwszattributes.into(), pctbrequest, pctbcertchain, pctbencodedcert, pctbdispositionmessage).ok()
+        (::windows::core::Vtable::vtable(self).Request)(::windows::core::Vtable::as_raw(self), dwflags, pwszauthority.into().abi(), pdwrequestid, pdwdisposition, pwszattributes.into().abi(), pctbrequest, pctbcertchain, pctbencodedcert, pctbdispositionmessage).ok()
     }
     pub unsafe fn GetCACert<P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCACert)(::windows::core::Vtable::as_raw(self), fchain, pwszauthority.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCACert)(::windows::core::Vtable::as_raw(self), fchain, pwszauthority.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Ping<P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Ping)(::windows::core::Vtable::as_raw(self), pwszauthority.into()).ok()
+        (::windows::core::Vtable::vtable(self).Ping)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICertRequestD, ::windows::core::IUnknown);
@@ -5377,50 +5377,50 @@ pub struct ICertRequestD2(::windows::core::IUnknown);
 impl ICertRequestD2 {
     pub unsafe fn Request<P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Request)(::windows::core::Vtable::as_raw(self), dwflags, pwszauthority.into(), pdwrequestid, pdwdisposition, pwszattributes.into(), pctbrequest, pctbcertchain, pctbencodedcert, pctbdispositionmessage).ok()
+        (::windows::core::Vtable::vtable(self).base__.Request)(::windows::core::Vtable::as_raw(self), dwflags, pwszauthority.into().abi(), pdwrequestid, pdwdisposition, pwszattributes.into().abi(), pctbrequest, pctbcertchain, pctbencodedcert, pctbdispositionmessage).ok()
     }
     pub unsafe fn GetCACert<P0>(&self, fchain: u32, pwszauthority: P0) -> ::windows::core::Result<CERTTRANSBLOB>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCACert)(::windows::core::Vtable::as_raw(self), fchain, pwszauthority.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetCACert)(::windows::core::Vtable::as_raw(self), fchain, pwszauthority.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Ping<P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Ping)(::windows::core::Vtable::as_raw(self), pwszauthority.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Ping)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi()).ok()
     }
     pub unsafe fn Request2<P0, P1, P2>(&self, pwszauthority: P0, dwflags: u32, pwszserialnumber: P1, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P2, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Request2)(::windows::core::Vtable::as_raw(self), pwszauthority.into(), dwflags, pwszserialnumber.into(), pdwrequestid, pdwdisposition, pwszattributes.into(), pctbrequest, pctbfullresponse, pctbencodedcert, pctbdispositionmessage).ok()
+        (::windows::core::Vtable::vtable(self).Request2)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi(), dwflags, pwszserialnumber.into().abi(), pdwrequestid, pdwdisposition, pwszattributes.into().abi(), pctbrequest, pctbfullresponse, pctbencodedcert, pctbdispositionmessage).ok()
     }
     pub unsafe fn GetCAProperty<P0>(&self, pwszauthority: P0, propid: i32, propindex: i32, proptype: i32) -> ::windows::core::Result<CERTTRANSBLOB>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCAProperty)(::windows::core::Vtable::as_raw(self), pwszauthority.into(), propid, propindex, proptype, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetCAProperty)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi(), propid, propindex, proptype, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCAPropertyInfo<P0>(&self, pwszauthority: P0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCAPropertyInfo)(::windows::core::Vtable::as_raw(self), pwszauthority.into(), pcproperty, pctbpropinfo).ok()
+        (::windows::core::Vtable::vtable(self).GetCAPropertyInfo)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi(), pcproperty, pctbpropinfo).ok()
     }
     pub unsafe fn Ping2<P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Ping2)(::windows::core::Vtable::as_raw(self), pwszauthority.into()).ok()
+        (::windows::core::Vtable::vtable(self).Ping2)(::windows::core::Vtable::as_raw(self), pwszauthority.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICertRequestD2, ::windows::core::IUnknown, ICertRequestD);
@@ -7266,24 +7266,24 @@ pub struct IEnroll(::windows::core::IUnknown);
 impl IEnroll {
     pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
+        (::windows::core::Vtable::vtable(self).createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into().abi(), usage.into().abi(), wszpkcs10filename.into().abi()).ok()
     }
     pub unsafe fn acceptFilePKCS7WStr<P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into()).ok()
+        (::windows::core::Vtable::vtable(self).acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into().abi()).ok()
     }
     pub unsafe fn createPKCS10WStr<P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).createPKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), ppkcs10blob).ok()
+        (::windows::core::Vtable::vtable(self).createPKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into().abi(), usage.into().abi(), ppkcs10blob).ok()
     }
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).acceptPKCS7Blob)(::windows::core::Vtable::as_raw(self), pblobpkcs7).ok()
@@ -7316,18 +7316,18 @@ impl IEnroll {
     }
     pub unsafe fn SetMyStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetMyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetMyStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetMyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn MyStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).MyStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7340,18 +7340,18 @@ impl IEnroll {
     }
     pub unsafe fn SetCAStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetCAStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn CAStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CAStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7364,18 +7364,18 @@ impl IEnroll {
     }
     pub unsafe fn SetRootStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetRootStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn RootStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RootStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7388,18 +7388,18 @@ impl IEnroll {
     }
     pub unsafe fn SetRequestStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetRequestStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn RequestStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RequestStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7412,18 +7412,18 @@ impl IEnroll {
     }
     pub unsafe fn SetContainerNameWStr<P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer.into().abi()).ok()
     }
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider).ok()
     }
     pub unsafe fn SetProviderNameWStr<P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self, pdwtype: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ProviderType)(::windows::core::Vtable::as_raw(self), pdwtype).ok()
@@ -7519,27 +7519,27 @@ impl IEnroll {
     }
     pub unsafe fn SetSPCFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetSPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetSPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
     pub unsafe fn SetPVKFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetPVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetPVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).HashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
     pub unsafe fn SetHashAlgorithmWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetHashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetHashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7553,16 +7553,16 @@ impl IEnroll {
     }
     pub unsafe fn AddCertTypeToRequestWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn AddNameValuePairToSignatureWStr<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddNameValuePairToSignatureWStr)(::windows::core::Vtable::as_raw(self), name.into(), value.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddNameValuePairToSignatureWStr)(::windows::core::Vtable::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7727,24 +7727,24 @@ pub struct IEnroll2(::windows::core::IUnknown);
 impl IEnroll2 {
     pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into().abi(), usage.into().abi(), wszpkcs10filename.into().abi()).ok()
     }
     pub unsafe fn acceptFilePKCS7WStr<P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into().abi()).ok()
     }
     pub unsafe fn createPKCS10WStr<P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.createPKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), ppkcs10blob).ok()
+        (::windows::core::Vtable::vtable(self).base__.createPKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into().abi(), usage.into().abi(), ppkcs10blob).ok()
     }
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.acceptPKCS7Blob)(::windows::core::Vtable::as_raw(self), pblobpkcs7).ok()
@@ -7777,18 +7777,18 @@ impl IEnroll2 {
     }
     pub unsafe fn SetMyStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetMyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetMyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.MyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetMyStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetMyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetMyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn MyStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.MyStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7801,18 +7801,18 @@ impl IEnroll2 {
     }
     pub unsafe fn SetCAStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetCAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetCAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetCAStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetCAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetCAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn CAStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CAStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7825,18 +7825,18 @@ impl IEnroll2 {
     }
     pub unsafe fn SetRootStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetRootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetRootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetRootStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetRootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetRootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn RootStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RootStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7849,18 +7849,18 @@ impl IEnroll2 {
     }
     pub unsafe fn SetRequestStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetRequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetRequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetRequestStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetRequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetRequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn RequestStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RequestStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -7873,18 +7873,18 @@ impl IEnroll2 {
     }
     pub unsafe fn SetContainerNameWStr<P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer.into().abi()).ok()
     }
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider).ok()
     }
     pub unsafe fn SetProviderNameWStr<P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self, pdwtype: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ProviderType)(::windows::core::Vtable::as_raw(self), pdwtype).ok()
@@ -7980,27 +7980,27 @@ impl IEnroll2 {
     }
     pub unsafe fn SetSPCFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetSPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetSPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.PVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
     pub unsafe fn SetPVKFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetPVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetPVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.HashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
     pub unsafe fn SetHashAlgorithmWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetHashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetHashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8014,16 +8014,16 @@ impl IEnroll2 {
     }
     pub unsafe fn AddCertTypeToRequestWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn AddNameValuePairToSignatureWStr<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddNameValuePairToSignatureWStr)(::windows::core::Vtable::as_raw(self), name.into(), value.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddNameValuePairToSignatureWStr)(::windows::core::Vtable::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8205,24 +8205,24 @@ pub struct IEnroll4(::windows::core::IUnknown);
 impl IEnroll4 {
     pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), wszpkcs10filename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.createFilePKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into().abi(), usage.into().abi(), wszpkcs10filename.into().abi()).ok()
     }
     pub unsafe fn acceptFilePKCS7WStr<P0>(&self, wszpkcs7filename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.acceptFilePKCS7WStr)(::windows::core::Vtable::as_raw(self), wszpkcs7filename.into().abi()).ok()
     }
     pub unsafe fn createPKCS10WStr<P0, P1>(&self, dnname: P0, usage: P1, ppkcs10blob: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.createPKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into(), usage.into(), ppkcs10blob).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.createPKCS10WStr)(::windows::core::Vtable::as_raw(self), dnname.into().abi(), usage.into().abi(), ppkcs10blob).ok()
     }
     pub unsafe fn acceptPKCS7Blob(&self, pblobpkcs7: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.acceptPKCS7Blob)(::windows::core::Vtable::as_raw(self), pblobpkcs7).ok()
@@ -8255,18 +8255,18 @@ impl IEnroll4 {
     }
     pub unsafe fn SetMyStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetMyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetMyStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn MyStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.MyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetMyStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetMyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetMyStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn MyStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.MyStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -8279,18 +8279,18 @@ impl IEnroll4 {
     }
     pub unsafe fn SetCAStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetCAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetCAStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn CAStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetCAStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetCAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetCAStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn CAStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CAStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -8303,18 +8303,18 @@ impl IEnroll4 {
     }
     pub unsafe fn SetRootStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetRootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetRootStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn RootStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetRootStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetRootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetRootStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn RootStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RootStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -8327,18 +8327,18 @@ impl IEnroll4 {
     }
     pub unsafe fn SetRequestStoreNameWStr<P0>(&self, szwname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetRequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetRequestStoreNameWStr)(::windows::core::Vtable::as_raw(self), szwname.into().abi()).ok()
     }
     pub unsafe fn RequestStoreTypeWStr(&self, szwtype: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype).ok()
     }
     pub unsafe fn SetRequestStoreTypeWStr<P0>(&self, szwtype: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetRequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetRequestStoreTypeWStr)(::windows::core::Vtable::as_raw(self), szwtype.into().abi()).ok()
     }
     pub unsafe fn RequestStoreFlags(&self, pdwflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RequestStoreFlags)(::windows::core::Vtable::as_raw(self), pdwflags).ok()
@@ -8351,18 +8351,18 @@ impl IEnroll4 {
     }
     pub unsafe fn SetContainerNameWStr<P0>(&self, szwcontainer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetContainerNameWStr)(::windows::core::Vtable::as_raw(self), szwcontainer.into().abi()).ok()
     }
     pub unsafe fn ProviderNameWStr(&self, szwprovider: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.ProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider).ok()
     }
     pub unsafe fn SetProviderNameWStr<P0>(&self, szwprovider: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetProviderNameWStr)(::windows::core::Vtable::as_raw(self), szwprovider.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self, pdwtype: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.ProviderType)(::windows::core::Vtable::as_raw(self), pdwtype).ok()
@@ -8458,27 +8458,27 @@ impl IEnroll4 {
     }
     pub unsafe fn SetSPCFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetSPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetSPCFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn PVKFileNameWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.PVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
     pub unsafe fn SetPVKFileNameWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetPVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetPVKFileNameWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn HashAlgorithmWStr(&self, szw: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.HashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw).ok()
     }
     pub unsafe fn SetHashAlgorithmWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetHashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetHashAlgorithmWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8492,16 +8492,16 @@ impl IEnroll4 {
     }
     pub unsafe fn AddCertTypeToRequestWStr<P0>(&self, szw: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddCertTypeToRequestWStr)(::windows::core::Vtable::as_raw(self), szw.into().abi()).ok()
     }
     pub unsafe fn AddNameValuePairToSignatureWStr<P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddNameValuePairToSignatureWStr)(::windows::core::Vtable::as_raw(self), name.into(), value.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddNameValuePairToSignatureWStr)(::windows::core::Vtable::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8630,28 +8630,28 @@ impl IEnroll4 {
     }
     pub unsafe fn stringToBinaryBlob<P0>(&self, flags: i32, pwszstring: P0, pblobbinary: *mut super::CRYPT_INTEGER_BLOB, pdwskip: *mut i32, pdwflags: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).stringToBinaryBlob)(::windows::core::Vtable::as_raw(self), flags, pwszstring.into(), pblobbinary, pdwskip, pdwflags).ok()
+        (::windows::core::Vtable::vtable(self).stringToBinaryBlob)(::windows::core::Vtable::as_raw(self), flags, pwszstring.into().abi(), pblobbinary, pdwskip, pdwflags).ok()
     }
     pub unsafe fn addExtensionToRequestWStr<P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).addExtensionToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into(), pblobvalue).ok()
+        (::windows::core::Vtable::vtable(self).addExtensionToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into().abi(), pblobvalue).ok()
     }
     pub unsafe fn addAttributeToRequestWStr<P0>(&self, flags: i32, pwszname: P0, pblobvalue: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).addAttributeToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into(), pblobvalue).ok()
+        (::windows::core::Vtable::vtable(self).addAttributeToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into().abi(), pblobvalue).ok()
     }
     pub unsafe fn addNameValuePairToRequestWStr<P0, P1>(&self, flags: i32, pwszname: P0, pwszvalue: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).addNameValuePairToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into(), pwszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).addNameValuePairToRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszname.into().abi(), pwszvalue.into().abi()).ok()
     }
     pub unsafe fn resetExtensions(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).resetExtensions)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8661,27 +8661,27 @@ impl IEnroll4 {
     }
     pub unsafe fn createRequestWStr<P0, P1>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P0, pwszusage: P1, pblobrequest: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).createRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszdnname.into(), pwszusage.into(), pblobrequest).ok()
+        (::windows::core::Vtable::vtable(self).createRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszdnname.into().abi(), pwszusage.into().abi(), pblobrequest).ok()
     }
     pub unsafe fn createFileRequestWStr<P0, P1, P2>(&self, flags: CERT_CREATE_REQUEST_FLAGS, pwszdnname: P0, pwszusage: P1, pwszrequestfilename: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).createFileRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszdnname.into(), pwszusage.into(), pwszrequestfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).createFileRequestWStr)(::windows::core::Vtable::as_raw(self), flags, pwszdnname.into().abi(), pwszusage.into().abi(), pwszrequestfilename.into().abi()).ok()
     }
     pub unsafe fn acceptResponseBlob(&self, pblobresponse: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).acceptResponseBlob)(::windows::core::Vtable::as_raw(self), pblobresponse).ok()
     }
     pub unsafe fn acceptFileResponseWStr<P0>(&self, pwszresponsefilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).acceptFileResponseWStr)(::windows::core::Vtable::as_raw(self), pwszresponsefilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).acceptFileResponseWStr)(::windows::core::Vtable::as_raw(self), pwszresponsefilename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8692,30 +8692,30 @@ impl IEnroll4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getCertContextFromFileResponseWStr<P0>(&self, pwszresponsefilename: P0, ppcertcontext: *mut *mut super::CERT_CONTEXT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).getCertContextFromFileResponseWStr)(::windows::core::Vtable::as_raw(self), pwszresponsefilename.into(), ppcertcontext).ok()
+        (::windows::core::Vtable::vtable(self).getCertContextFromFileResponseWStr)(::windows::core::Vtable::as_raw(self), pwszresponsefilename.into().abi(), ppcertcontext).ok()
     }
     pub unsafe fn createPFXWStr<P0>(&self, pwszpassword: P0, pblobpfx: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).createPFXWStr)(::windows::core::Vtable::as_raw(self), pwszpassword.into(), pblobpfx).ok()
+        (::windows::core::Vtable::vtable(self).createPFXWStr)(::windows::core::Vtable::as_raw(self), pwszpassword.into().abi(), pblobpfx).ok()
     }
     pub unsafe fn createFilePFXWStr<P0, P1>(&self, pwszpassword: P0, pwszpfxfilename: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).createFilePFXWStr)(::windows::core::Vtable::as_raw(self), pwszpassword.into(), pwszpfxfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).createFilePFXWStr)(::windows::core::Vtable::as_raw(self), pwszpassword.into().abi(), pwszpfxfilename.into().abi()).ok()
     }
     pub unsafe fn setPendingRequestInfoWStr<P0, P1, P2>(&self, lrequestid: i32, pwszcadns: P0, pwszcaname: P1, pwszfriendlyname: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).setPendingRequestInfoWStr)(::windows::core::Vtable::as_raw(self), lrequestid, pwszcadns.into(), pwszcaname.into(), pwszfriendlyname.into()).ok()
+        (::windows::core::Vtable::vtable(self).setPendingRequestInfoWStr)(::windows::core::Vtable::as_raw(self), lrequestid, pwszcadns.into().abi(), pwszcaname.into().abi(), pwszfriendlyname.into().abi()).ok()
     }
     pub unsafe fn enumPendingRequestWStr(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, ppproperty: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).enumPendingRequestWStr)(::windows::core::Vtable::as_raw(self), lindex, ldesiredproperty, ppproperty).ok()
@@ -8733,16 +8733,16 @@ impl IEnroll4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddCertTypeToRequestWStrEx<P0, P1>(&self, ltype: ADDED_CERT_TYPE, pwszoidorname: P0, lmajorversion: i32, fminorversion: P1, lminorversion: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).AddCertTypeToRequestWStrEx)(::windows::core::Vtable::as_raw(self), ltype, pwszoidorname.into(), lmajorversion, fminorversion.into(), lminorversion).ok()
+        (::windows::core::Vtable::vtable(self).AddCertTypeToRequestWStrEx)(::windows::core::Vtable::as_raw(self), ltype, pwszoidorname.into().abi(), lmajorversion, fminorversion.into(), lminorversion).ok()
     }
     pub unsafe fn getProviderTypeWStr<P0>(&self, pwszprovname: P0, plprovtype: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).getProviderTypeWStr)(::windows::core::Vtable::as_raw(self), pwszprovname.into(), plprovtype).ok()
+        (::windows::core::Vtable::vtable(self).getProviderTypeWStr)(::windows::core::Vtable::as_raw(self), pwszprovname.into().abi(), plprovtype).ok()
     }
     pub unsafe fn addBlobPropertyToCertificateWStr(&self, lpropertyid: i32, lreserved: i32, pblobproperty: *mut super::CRYPT_INTEGER_BLOB) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).addBlobPropertyToCertificateWStr)(::windows::core::Vtable::as_raw(self), lpropertyid, lreserved, pblobproperty).ok()
@@ -9216,27 +9216,27 @@ impl INDESPolicy {
     }
     pub unsafe fn GenerateChallenge<P0, P1>(&self, pwsztemplate: P0, pwszparams: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GenerateChallenge)(::windows::core::Vtable::as_raw(self), pwsztemplate.into(), pwszparams.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GenerateChallenge)(::windows::core::Vtable::as_raw(self), pwsztemplate.into().abi(), pwszparams.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VerifyRequest<P0, P1>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P0, pwsztransactionid: P1, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).VerifyRequest)(::windows::core::Vtable::as_raw(self), pctbrequest, pctbsigningcertencoded, pwsztemplate.into(), pwsztransactionid.into(), pfverified).ok()
+        (::windows::core::Vtable::vtable(self).VerifyRequest)(::windows::core::Vtable::as_raw(self), pctbrequest, pctbsigningcertencoded, pwsztemplate.into().abi(), pwsztransactionid.into().abi(), pfverified).ok()
     }
     pub unsafe fn Notify<P0, P1>(&self, pwszchallenge: P0, pwsztransactionid: P1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), pwszchallenge.into(), pwsztransactionid.into(), disposition, lasthresult, pctbissuedcertencoded).ok()
+        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), pwszchallenge.into().abi(), pwsztransactionid.into().abi(), disposition, lasthresult, pctbissuedcertencoded).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INDESPolicy, ::windows::core::IUnknown);

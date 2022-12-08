@@ -528,17 +528,17 @@ impl ID3D11ClassLinkage {
     }
     pub unsafe fn GetClassInstance<P0>(&self, pclassinstancename: P0, instanceindex: u32) -> ::windows::core::Result<ID3D11ClassInstance>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClassInstance)(::windows::core::Vtable::as_raw(self), pclassinstancename.into(), instanceindex, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetClassInstance)(::windows::core::Vtable::as_raw(self), pclassinstancename.into().abi(), instanceindex, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateClassInstance<P0>(&self, pclasstypename: P0, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32) -> ::windows::core::Result<ID3D11ClassInstance>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateClassInstance)(::windows::core::Vtable::as_raw(self), pclasstypename.into(), constantbufferoffset, constantvectoroffset, textureoffset, sampleroffset, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateClassInstance)(::windows::core::Vtable::as_raw(self), pclasstypename.into().abi(), constantbufferoffset, constantvectoroffset, textureoffset, sampleroffset, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ClassLinkage, ::windows::core::IUnknown, ID3D11DeviceChild);
@@ -1640,11 +1640,11 @@ impl ID3D11Device1 {
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Device1, ::windows::core::IUnknown, ID3D11Device);
@@ -1965,11 +1965,11 @@ impl ID3D11Device2 {
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
         (::windows::core::Vtable::vtable(self).GetImmediateContext2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppimmediatecontext))
@@ -2297,11 +2297,11 @@ impl ID3D11Device3 {
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
         (::windows::core::Vtable::vtable(self).base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppimmediatecontext))
@@ -2719,11 +2719,11 @@ impl ID3D11Device4 {
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
         (::windows::core::Vtable::vtable(self).base__.base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppimmediatecontext))
@@ -3129,11 +3129,11 @@ impl ID3D11Device5 {
     }
     pub unsafe fn OpenSharedResourceByName<P0, T>(&self, lpname: P0, dwdesiredaccess: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.OpenSharedResourceByName)(::windows::core::Vtable::as_raw(self), lpname.into().abi(), dwdesiredaccess, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetImmediateContext2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppimmediatecontext))
@@ -5268,15 +5268,15 @@ impl ID3D11DeviceContext2 {
     }
     pub unsafe fn SetMarkerInt<P0>(&self, plabel: P0, data: i32)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMarkerInt)(::windows::core::Vtable::as_raw(self), plabel.into(), data)
+        (::windows::core::Vtable::vtable(self).SetMarkerInt)(::windows::core::Vtable::as_raw(self), plabel.into().abi(), data)
     }
     pub unsafe fn BeginEventInt<P0>(&self, plabel: P0, data: i32)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BeginEventInt)(::windows::core::Vtable::as_raw(self), plabel.into(), data)
+        (::windows::core::Vtable::vtable(self).BeginEventInt)(::windows::core::Vtable::as_raw(self), plabel.into().abi(), data)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Vtable::vtable(self).EndEvent)(::windows::core::Vtable::as_raw(self))
@@ -5977,15 +5977,15 @@ impl ID3D11DeviceContext3 {
     }
     pub unsafe fn SetMarkerInt<P0>(&self, plabel: P0, data: i32)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetMarkerInt)(::windows::core::Vtable::as_raw(self), plabel.into(), data)
+        (::windows::core::Vtable::vtable(self).base__.SetMarkerInt)(::windows::core::Vtable::as_raw(self), plabel.into().abi(), data)
     }
     pub unsafe fn BeginEventInt<P0>(&self, plabel: P0, data: i32)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.BeginEventInt)(::windows::core::Vtable::as_raw(self), plabel.into(), data)
+        (::windows::core::Vtable::vtable(self).base__.BeginEventInt)(::windows::core::Vtable::as_raw(self), plabel.into().abi(), data)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Vtable::vtable(self).base__.EndEvent)(::windows::core::Vtable::as_raw(self))
@@ -6694,15 +6694,15 @@ impl ID3D11DeviceContext4 {
     }
     pub unsafe fn SetMarkerInt<P0>(&self, plabel: P0, data: i32)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetMarkerInt)(::windows::core::Vtable::as_raw(self), plabel.into(), data)
+        (::windows::core::Vtable::vtable(self).base__.base__.SetMarkerInt)(::windows::core::Vtable::as_raw(self), plabel.into().abi(), data)
     }
     pub unsafe fn BeginEventInt<P0>(&self, plabel: P0, data: i32)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.BeginEventInt)(::windows::core::Vtable::as_raw(self), plabel.into(), data)
+        (::windows::core::Vtable::vtable(self).base__.base__.BeginEventInt)(::windows::core::Vtable::as_raw(self), plabel.into().abi(), data)
     }
     pub unsafe fn EndEvent(&self) {
         (::windows::core::Vtable::vtable(self).base__.base__.EndEvent)(::windows::core::Vtable::as_raw(self))
@@ -6846,10 +6846,10 @@ impl ID3D11Fence {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn CreateSharedHandle<P0>(&self, pattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwaccess: u32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetCompletedValue(&self) -> u64 {
         (::windows::core::Vtable::vtable(self).GetCompletedValue)(::windows::core::Vtable::as_raw(self))
@@ -6925,12 +6925,12 @@ impl ID3D11FunctionLinkingGraph {
     }
     pub unsafe fn CallFunction<P0, P1, P2>(&self, pmoduleinstancenamespace: P0, pmodulewithfunctionprototype: P1, pfunctionname: P2) -> ::windows::core::Result<ID3D11LinkingNode>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<ID3D11Module>>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CallFunction)(::windows::core::Vtable::as_raw(self), pmoduleinstancenamespace.into(), pmodulewithfunctionprototype.into().abi(), pfunctionname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CallFunction)(::windows::core::Vtable::as_raw(self), pmoduleinstancenamespace.into().abi(), pmodulewithfunctionprototype.into().abi(), pfunctionname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn PassValue<P0, P1>(&self, psrcnode: P0, srcparameterindex: i32, pdstnode: P1, dstparameterindex: i32) -> ::windows::core::Result<()>
     where
@@ -6942,11 +6942,11 @@ impl ID3D11FunctionLinkingGraph {
     pub unsafe fn PassValueWithSwizzle<P0, P1, P2, P3>(&self, psrcnode: P0, srcparameterindex: i32, psrcswizzle: P1, pdstnode: P2, dstparameterindex: i32, pdstswizzle: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11LinkingNode>>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<ID3D11LinkingNode>>,
-        P3: ::std::convert::Into<::windows::core::PCSTR>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PassValueWithSwizzle)(::windows::core::Vtable::as_raw(self), psrcnode.into().abi(), srcparameterindex, psrcswizzle.into(), pdstnode.into().abi(), dstparameterindex, pdstswizzle.into()).ok()
+        (::windows::core::Vtable::vtable(self).PassValueWithSwizzle)(::windows::core::Vtable::as_raw(self), psrcnode.into().abi(), srcparameterindex, psrcswizzle.into().abi(), pdstnode.into().abi(), dstparameterindex, pdstswizzle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -7069,9 +7069,9 @@ impl ID3D11FunctionReflection {
     }
     pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -7081,18 +7081,18 @@ impl ID3D11FunctionReflection {
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D11ShaderReflectionVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResourceBindingDescByName)(::windows::core::Vtable::as_raw(self), name.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResourceBindingDescByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetFunctionParameter(&self, parameterindex: i32) -> ::core::option::Option<ID3D11FunctionParameterReflection> {
         (::windows::core::Vtable::vtable(self).GetFunctionParameter)(::windows::core::Vtable::as_raw(self), parameterindex)
@@ -7320,15 +7320,15 @@ impl ID3D11InfoQueue {
     }
     pub unsafe fn AddMessage<P0>(&self, category: D3D11_MESSAGE_CATEGORY, severity: D3D11_MESSAGE_SEVERITY, id: D3D11_MESSAGE_ID, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddMessage)(::windows::core::Vtable::as_raw(self), category, severity, id, pdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddMessage)(::windows::core::Vtable::as_raw(self), category, severity, id, pdescription.into().abi()).ok()
     }
     pub unsafe fn AddApplicationMessage<P0>(&self, severity: D3D11_MESSAGE_SEVERITY, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddApplicationMessage)(::windows::core::Vtable::as_raw(self), severity, pdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddApplicationMessage)(::windows::core::Vtable::as_raw(self), severity, pdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7575,10 +7575,10 @@ impl ID3D11Linker {
     pub unsafe fn Link<P0, P1, P2>(&self, pentry: P0, pentryname: P1, ptargetname: P2, uflags: u32, ppshaderblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorbuffer: ::core::option::Option<*mut ::core::option::Option<super::Direct3D::ID3DBlob>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ID3D11ModuleInstance>>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), pentry.into().abi(), pentryname.into(), ptargetname.into(), uflags, ::core::mem::transmute(ppshaderblob), ::core::mem::transmute(pperrorbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), pentry.into().abi(), pentryname.into().abi(), ptargetname.into().abi(), uflags, ::core::mem::transmute(ppshaderblob), ::core::mem::transmute(pperrorbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UseLibrary<P0>(&self, plibrarymi: P0) -> ::windows::core::Result<()>
     where
@@ -7666,10 +7666,10 @@ pub struct ID3D11Module(::windows::core::IUnknown);
 impl ID3D11Module {
     pub unsafe fn CreateInstance<P0>(&self, pnamespace: P0) -> ::windows::core::Result<ID3D11ModuleInstance>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), pnamespace.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), pnamespace.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11Module, ::windows::core::IUnknown);
@@ -7712,45 +7712,45 @@ impl ID3D11ModuleInstance {
     }
     pub unsafe fn BindConstantBufferByName<P0>(&self, pname: P0, udstslot: u32, cbdstoffset: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BindConstantBufferByName)(::windows::core::Vtable::as_raw(self), pname.into(), udstslot, cbdstoffset).ok()
+        (::windows::core::Vtable::vtable(self).BindConstantBufferByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), udstslot, cbdstoffset).ok()
     }
     pub unsafe fn BindResource(&self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BindResource)(::windows::core::Vtable::as_raw(self), usrcslot, udstslot, ucount).ok()
     }
     pub unsafe fn BindResourceByName<P0>(&self, pname: P0, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BindResourceByName)(::windows::core::Vtable::as_raw(self), pname.into(), udstslot, ucount).ok()
+        (::windows::core::Vtable::vtable(self).BindResourceByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), udstslot, ucount).ok()
     }
     pub unsafe fn BindSampler(&self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BindSampler)(::windows::core::Vtable::as_raw(self), usrcslot, udstslot, ucount).ok()
     }
     pub unsafe fn BindSamplerByName<P0>(&self, pname: P0, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BindSamplerByName)(::windows::core::Vtable::as_raw(self), pname.into(), udstslot, ucount).ok()
+        (::windows::core::Vtable::vtable(self).BindSamplerByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), udstslot, ucount).ok()
     }
     pub unsafe fn BindUnorderedAccessView(&self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BindUnorderedAccessView)(::windows::core::Vtable::as_raw(self), usrcslot, udstslot, ucount).ok()
     }
     pub unsafe fn BindUnorderedAccessViewByName<P0>(&self, pname: P0, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BindUnorderedAccessViewByName)(::windows::core::Vtable::as_raw(self), pname.into(), udstslot, ucount).ok()
+        (::windows::core::Vtable::vtable(self).BindUnorderedAccessViewByName)(::windows::core::Vtable::as_raw(self), pname.into().abi(), udstslot, ucount).ok()
     }
     pub unsafe fn BindResourceAsUnorderedAccessView(&self, usrcsrvslot: u32, udstuavslot: u32, ucount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BindResourceAsUnorderedAccessView)(::windows::core::Vtable::as_raw(self), usrcsrvslot, udstuavslot, ucount).ok()
     }
     pub unsafe fn BindResourceAsUnorderedAccessViewByName<P0>(&self, psrvname: P0, udstuavslot: u32, ucount: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BindResourceAsUnorderedAccessViewByName)(::windows::core::Vtable::as_raw(self), psrvname.into(), udstuavslot, ucount).ok()
+        (::windows::core::Vtable::vtable(self).BindResourceAsUnorderedAccessViewByName)(::windows::core::Vtable::as_raw(self), psrvname.into().abi(), udstuavslot, ucount).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11ModuleInstance, ::windows::core::IUnknown);
@@ -8610,9 +8610,9 @@ impl ID3D11ShaderReflection {
     }
     pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetConstantBufferByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -8640,18 +8640,18 @@ impl ID3D11ShaderReflection {
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D11ShaderReflectionVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResourceBindingDescByName)(::windows::core::Vtable::as_raw(self), name.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResourceBindingDescByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetMovInstructionCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetMovInstructionCount)(::windows::core::Vtable::as_raw(self))
@@ -8781,9 +8781,9 @@ impl ID3D11ShaderReflectionConstantBuffer {
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D11ShaderReflectionVariable>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetVariableByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
 }
 impl ::core::clone::Clone for ID3D11ShaderReflectionConstantBuffer {
@@ -8832,9 +8832,9 @@ impl ID3D11ShaderReflectionType {
     }
     pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> ::core::option::Option<ID3D11ShaderReflectionType>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetMemberTypeByName)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).GetMemberTypeByName)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR {
         (::windows::core::Vtable::vtable(self).GetMemberTypeName)(::windows::core::Vtable::as_raw(self), index)
@@ -13479,18 +13479,18 @@ pub struct ID3DUserDefinedAnnotation(::windows::core::IUnknown);
 impl ID3DUserDefinedAnnotation {
     pub unsafe fn BeginEvent<P0>(&self, name: P0) -> i32
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BeginEvent)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).BeginEvent)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     pub unsafe fn EndEvent(&self) -> i32 {
         (::windows::core::Vtable::vtable(self).EndEvent)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn SetMarker<P0>(&self, name: P0)
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetMarker)(::windows::core::Vtable::as_raw(self), name.into())
+        (::windows::core::Vtable::vtable(self).SetMarker)(::windows::core::Vtable::as_raw(self), name.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

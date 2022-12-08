@@ -72,10 +72,10 @@ where
 pub unsafe fn CreateStdAccessibleProxyA<P0, P1>(hwnd: P0, pclassname: P1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyA ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CreateStdAccessibleProxyA(hwnd.into(), pclassname.into(), idobject, riid, ppvobject).ok()
+    CreateStdAccessibleProxyA(hwnd.into(), pclassname.into().abi(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -83,10 +83,10 @@ where
 pub unsafe fn CreateStdAccessibleProxyW<P0, P1>(hwnd: P0, pclassname: P1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "oleacc.dll""system" fn CreateStdAccessibleProxyW ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCWSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CreateStdAccessibleProxyW(hwnd.into(), pclassname.into(), idobject, riid, ppvobject).ok()
+    CreateStdAccessibleProxyW(hwnd.into(), pclassname.into().abi(), idobject, riid, ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -215,10 +215,10 @@ where
 pub unsafe fn LegacyIAccessiblePattern_SetValue<P0, P1>(hobj: P0, szvalue: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn LegacyIAccessiblePattern_SetValue ( hobj : HUIAPATTERNOBJECT , szvalue : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    LegacyIAccessiblePattern_SetValue(hobj.into(), szvalue.into()).ok()
+    LegacyIAccessiblePattern_SetValue(hobj.into(), szvalue.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1083,10 +1083,10 @@ where
 pub unsafe fn ValuePattern_SetValue<P0, P1>(hobj: P0, pval: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "uiautomationcore.dll""system" fn ValuePattern_SetValue ( hobj : HUIAPATTERNOBJECT , pval : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    ValuePattern_SetValue(hobj.into(), pval.into()).ok()
+    ValuePattern_SetValue(hobj.into(), pval.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -1246,9 +1246,9 @@ impl IAccPropServices {
     pub unsafe fn SetHwndPropStr<P0, P1>(&self, hwnd: P0, idobject: u32, idchild: u32, idprop: ::windows::core::GUID, str: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetHwndPropStr)(::windows::core::Vtable::as_raw(self), hwnd.into(), idobject, idchild, ::core::mem::transmute(idprop), str.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetHwndPropStr)(::windows::core::Vtable::as_raw(self), hwnd.into(), idobject, idchild, ::core::mem::transmute(idprop), str.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1293,9 +1293,9 @@ impl IAccPropServices {
     pub unsafe fn SetHmenuPropStr<P0, P1>(&self, hmenu: P0, idchild: u32, idprop: ::windows::core::GUID, str: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::WindowsAndMessaging::HMENU>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetHmenuPropStr)(::windows::core::Vtable::as_raw(self), hmenu.into(), idchild, ::core::mem::transmute(idprop), str.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetHmenuPropStr)(::windows::core::Vtable::as_raw(self), hmenu.into(), idchild, ::core::mem::transmute(idprop), str.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -2383,9 +2383,9 @@ impl ILegacyIAccessibleProvider {
     }
     pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), szvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), szvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3699,10 +3699,10 @@ pub struct ISpreadsheetProvider(::windows::core::IUnknown);
 impl ISpreadsheetProvider {
     pub unsafe fn GetItemByName<P0>(&self, name: P0) -> ::windows::core::Result<IRawElementProviderSimple>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemByName)(::windows::core::Vtable::as_raw(self), name.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetItemByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISpreadsheetProvider, ::windows::core::IUnknown);
@@ -13620,9 +13620,9 @@ impl IUIAutomationLegacyIAccessiblePattern {
     }
     pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), szvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), szvalue.into().abi()).ok()
     }
     pub unsafe fn CurrentChildId(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -14288,15 +14288,15 @@ impl IUIAutomationProxyFactoryEntry {
     }
     pub unsafe fn SetClassName<P0>(&self, classname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetClassName)(::windows::core::Vtable::as_raw(self), classname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetClassName)(::windows::core::Vtable::as_raw(self), classname.into().abi()).ok()
     }
     pub unsafe fn SetImageName<P0>(&self, imagename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetImageName)(::windows::core::Vtable::as_raw(self), imagename.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetImageName)(::windows::core::Vtable::as_raw(self), imagename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16994,9 +16994,9 @@ pub struct IValueProvider(::windows::core::IUnknown);
 impl IValueProvider {
     pub unsafe fn SetValue<P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), val.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), val.into().abi()).ok()
     }
     pub unsafe fn Value(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

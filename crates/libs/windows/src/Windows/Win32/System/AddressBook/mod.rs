@@ -334,10 +334,10 @@ pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
 #[inline]
 pub unsafe fn ScLocalPathFromUNC<P0>(lpszunc: P0, lpszlocal: &[u8]) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScLocalPathFromUNC ( lpszunc : :: windows::core::PCSTR , lpszlocal : :: windows::core::PCSTR , cchlocal : u32 ) -> i32 );
-    ScLocalPathFromUNC(lpszunc.into(), ::core::mem::transmute(lpszlocal.as_ptr()), lpszlocal.len() as _)
+    ScLocalPathFromUNC(lpszunc.into().abi(), ::core::mem::transmute(lpszlocal.as_ptr()), lpszlocal.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -357,10 +357,10 @@ pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseol
 #[inline]
 pub unsafe fn ScUNCFromLocalPath<P0>(lpszlocal: P0, lpszunc: &[u8]) -> i32
 where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "mapi32.dll""system" fn ScUNCFromLocalPath ( lpszlocal : :: windows::core::PCSTR , lpszunc : :: windows::core::PCSTR , cchunc : u32 ) -> i32 );
-    ScUNCFromLocalPath(lpszlocal.into(), ::core::mem::transmute(lpszunc.as_ptr()), lpszunc.len() as _)
+    ScUNCFromLocalPath(lpszlocal.into().abi(), ::core::mem::transmute(lpszunc.as_ptr()), lpszunc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
@@ -2411,15 +2411,15 @@ impl IWABObject {
     }
     pub unsafe fn Backup<P0>(&self, lpfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Backup)(::windows::core::Vtable::as_raw(self), lpfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).Backup)(::windows::core::Vtable::as_raw(self), lpfilename.into().abi()).ok()
     }
     pub unsafe fn Import<P0>(&self, lpwip: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), lpwip.into()).ok()
+        (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), lpwip.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2436,9 +2436,9 @@ impl IWABObject {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAddrBook>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).VCardDisplay)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), lpszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).VCardDisplay)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), lpszfilename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2446,26 +2446,26 @@ impl IWABObject {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAddrBook>>,
         P1: ::std::convert::Into<super::super::Foundation::HWND>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LDAPUrl)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), hwnd.into(), ulflags, lpszurl.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn VCardCreate<P0, P1, P2>(&self, lpiab: P0, ulflags: u32, lpszvcard: P1, lpmailuser: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAddrBook>>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IMailUser>>,
     {
-        (::windows::core::Vtable::vtable(self).VCardCreate)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into(), lpmailuser.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).VCardCreate)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into().abi(), lpmailuser.into().abi()).ok()
     }
     pub unsafe fn VCardRetrieve<P0, P1>(&self, lpiab: P0, ulflags: u32, lpszvcard: P1) -> ::windows::core::Result<IMailUser>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAddrBook>>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VCardRetrieve)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).VCardRetrieve)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, lpszvcard.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

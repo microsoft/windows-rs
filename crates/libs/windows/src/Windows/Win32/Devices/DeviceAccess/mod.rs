@@ -2,11 +2,11 @@
 #[inline]
 pub unsafe fn CreateDeviceAccessInstance<P0>(deviceinterfacepath: P0, desiredaccess: u32) -> ::windows::core::Result<ICreateDeviceAccessAsync>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "deviceaccess.dll""system" fn CreateDeviceAccessInstance ( deviceinterfacepath : :: windows::core::PCWSTR , desiredaccess : u32 , createasync : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateDeviceAccessInstance(deviceinterfacepath.into(), desiredaccess, result__.as_mut_ptr()).from_abi(result__)
+    CreateDeviceAccessInstance(deviceinterfacepath.into().abi(), desiredaccess, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[repr(transparent)]

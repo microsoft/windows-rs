@@ -4,10 +4,10 @@
 pub unsafe fn HtmlHelpA<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "htmlhelp.dll""system" fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
-    HtmlHelpA(hwndcaller.into(), pszfile.into(), ucommand, dwdata)
+    HtmlHelpA(hwndcaller.into(), pszfile.into().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15,10 +15,10 @@ where
 pub unsafe fn HtmlHelpW<P0, P1>(hwndcaller: P0, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "htmlhelp.dll""system" fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCWSTR , ucommand : HTML_HELP_COMMAND , dwdata : usize ) -> super::super::Foundation:: HWND );
-    HtmlHelpW(hwndcaller.into(), pszfile.into(), ucommand, dwdata)
+    HtmlHelpW(hwndcaller.into(), pszfile.into().abi(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 #[repr(transparent)]
@@ -26,10 +26,10 @@ pub struct IITDatabase(::windows::core::IUnknown);
 impl IITDatabase {
     pub unsafe fn Open<P0, P1>(&self, lpszhost: P0, lpszmoniker: P1, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), lpszhost.into(), lpszmoniker.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), lpszhost.into().abi(), lpszmoniker.into().abi(), dwflags).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -44,10 +44,10 @@ impl IITDatabase {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectPersistence<P0, P1>(&self, lpwszobject: P0, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetObjectPersistence)(::windows::core::Vtable::as_raw(self), lpwszobject.into(), dwobjinstance, ppvpersistence, fstream.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetObjectPersistence)(::windows::core::Vtable::as_raw(self), lpwszobject.into().abi(), dwobjinstance, ppvpersistence, fstream.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IITDatabase, ::windows::core::IUnknown);
@@ -133,9 +133,9 @@ impl IITPropList {
     }
     pub unsafe fn Set<P0>(&self, propid: u32, lpszwstring: P0, dwoperation: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), propid, lpszwstring.into(), dwoperation).ok()
+        (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), propid, lpszwstring.into().abi(), dwoperation).ok()
     }
     pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Set2)(::windows::core::Vtable::as_raw(self), propid, lpvdata, cbdata, dwoperation).ok()
@@ -305,9 +305,9 @@ impl IITResultSet {
     }
     pub unsafe fn Add2<P0>(&self, propid: u32, lpszwdefault: P0, priority: PRIORITY) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Add2)(::windows::core::Vtable::as_raw(self), propid, lpszwdefault.into(), priority).ok()
+        (::windows::core::Vtable::vtable(self).Add2)(::windows::core::Vtable::as_raw(self), propid, lpszwdefault.into().abi(), priority).ok()
     }
     pub unsafe fn Add3(&self, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Add3)(::windows::core::Vtable::as_raw(self), propid, lpvdefaultdata, cbdata, priority).ok()
@@ -323,9 +323,9 @@ impl IITResultSet {
     }
     pub unsafe fn Set2<P0>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Set2)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, lpwstr.into()).ok()
+        (::windows::core::Vtable::vtable(self).Set2)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, lpwstr.into().abi()).ok()
     }
     pub unsafe fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Set3)(::windows::core::Vtable::as_raw(self), lrowindex, lcolumnindex, dwdata).ok()
@@ -472,9 +472,9 @@ impl IITWordWheel {
     pub unsafe fn Open<P0, P1>(&self, lpitdb: P0, lpszmoniker: P1, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IITDatabase>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), lpitdb.into().abi(), lpszmoniker.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), lpitdb.into().abi(), lpszmoniker.into().abi(), dwflags).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -577,15 +577,15 @@ pub struct IStemSink(::windows::core::IUnknown);
 impl IStemSink {
     pub unsafe fn PutAltWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutAltWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into(), cwc).ok()
+        (::windows::core::Vtable::vtable(self).PutAltWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into().abi(), cwc).ok()
     }
     pub unsafe fn PutWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into(), cwc).ok()
+        (::windows::core::Vtable::vtable(self).PutWord)(::windows::core::Vtable::as_raw(self), pwcinbuf.into().abi(), cwc).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IStemSink, ::windows::core::IUnknown);

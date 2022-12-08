@@ -1143,11 +1143,11 @@ impl IConsole {
     }
     pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MessageBox)(::windows::core::Vtable::as_raw(self), lpsztext.into(), lpsztitle.into(), fustyle, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MessageBox)(::windows::core::Vtable::as_raw(self), lpsztext.into().abi(), lpsztitle.into().abi(), fustyle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1250,11 +1250,11 @@ impl IConsole2 {
     }
     pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MessageBox)(::windows::core::Vtable::as_raw(self), lpsztext.into(), lpsztitle.into(), fustyle, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MessageBox)(::windows::core::Vtable::as_raw(self), lpsztext.into().abi(), lpsztitle.into().abi(), fustyle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1285,9 +1285,9 @@ impl IConsole2 {
     }
     pub unsafe fn SetStatusText<P0>(&self, pszstatustext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetStatusText)(::windows::core::Vtable::as_raw(self), pszstatustext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetStatusText)(::windows::core::Vtable::as_raw(self), pszstatustext.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IConsole2, ::windows::core::IUnknown, IConsole);
@@ -1363,11 +1363,11 @@ impl IConsole3 {
     }
     pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.MessageBox)(::windows::core::Vtable::as_raw(self), lpsztext.into(), lpsztitle.into(), fustyle, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.MessageBox)(::windows::core::Vtable::as_raw(self), lpsztext.into().abi(), lpsztitle.into().abi(), fustyle, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1398,9 +1398,9 @@ impl IConsole3 {
     }
     pub unsafe fn SetStatusText<P0>(&self, pszstatustext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetStatusText)(::windows::core::Vtable::as_raw(self), pszstatustext.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetStatusText)(::windows::core::Vtable::as_raw(self), pszstatustext.into().abi()).ok()
     }
     pub unsafe fn RenameScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RenameScopeItem)(::windows::core::Vtable::as_raw(self), hscopeitem).ok()
@@ -1943,9 +1943,9 @@ pub struct IDisplayHelp(::windows::core::IUnknown);
 impl IDisplayHelp {
     pub unsafe fn ShowTopic<P0>(&self, pszhelptopic: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ShowTopic)(::windows::core::Vtable::as_raw(self), pszhelptopic.into()).ok()
+        (::windows::core::Vtable::vtable(self).ShowTopic)(::windows::core::Vtable::as_raw(self), pszhelptopic.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDisplayHelp, ::windows::core::IUnknown);
@@ -2275,38 +2275,38 @@ impl IExtendTaskPad {
     pub unsafe fn EnumTasks<P0, P1>(&self, pdo: P0, sztaskgroup: P1) -> ::windows::core::Result<IEnumTASK>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumTasks)(::windows::core::Vtable::as_raw(self), pdo.into().abi(), sztaskgroup.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).EnumTasks)(::windows::core::Vtable::as_raw(self), pdo.into().abi(), sztaskgroup.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetTitle<P0>(&self, pszgroup: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTitle)(::windows::core::Vtable::as_raw(self), pszgroup.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetTitle)(::windows::core::Vtable::as_raw(self), pszgroup.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetDescriptiveText<P0>(&self, pszgroup: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDescriptiveText)(::windows::core::Vtable::as_raw(self), pszgroup.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetDescriptiveText)(::windows::core::Vtable::as_raw(self), pszgroup.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetBackground<P0>(&self, pszgroup: P0) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBackground)(::windows::core::Vtable::as_raw(self), pszgroup.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetBackground)(::windows::core::Vtable::as_raw(self), pszgroup.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetListPadInfo<P0>(&self, pszgroup: P0) -> ::windows::core::Result<MMC_LISTPAD_INFO>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetListPadInfo)(::windows::core::Vtable::as_raw(self), pszgroup.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetListPadInfo)(::windows::core::Vtable::as_raw(self), pszgroup.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IExtendTaskPad, ::windows::core::IUnknown);
@@ -2401,18 +2401,18 @@ pub struct IHeaderCtrl(::windows::core::IUnknown);
 impl IHeaderCtrl {
     pub unsafe fn InsertColumn<P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).InsertColumn)(::windows::core::Vtable::as_raw(self), ncol, title.into(), nformat, nwidth).ok()
+        (::windows::core::Vtable::vtable(self).InsertColumn)(::windows::core::Vtable::as_raw(self), ncol, title.into().abi(), nformat, nwidth).ok()
     }
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteColumn)(::windows::core::Vtable::as_raw(self), ncol).ok()
     }
     pub unsafe fn SetColumnText<P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetColumnText)(::windows::core::Vtable::as_raw(self), ncol, title.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetColumnText)(::windows::core::Vtable::as_raw(self), ncol, title.into().abi()).ok()
     }
     pub unsafe fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2466,18 +2466,18 @@ pub struct IHeaderCtrl2(::windows::core::IUnknown);
 impl IHeaderCtrl2 {
     pub unsafe fn InsertColumn<P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.InsertColumn)(::windows::core::Vtable::as_raw(self), ncol, title.into(), nformat, nwidth).ok()
+        (::windows::core::Vtable::vtable(self).base__.InsertColumn)(::windows::core::Vtable::as_raw(self), ncol, title.into().abi(), nformat, nwidth).ok()
     }
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DeleteColumn)(::windows::core::Vtable::as_raw(self), ncol).ok()
     }
     pub unsafe fn SetColumnText<P0>(&self, ncol: i32, title: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetColumnText)(::windows::core::Vtable::as_raw(self), ncol, title.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetColumnText)(::windows::core::Vtable::as_raw(self), ncol, title.into().abi()).ok()
     }
     pub unsafe fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2623,17 +2623,17 @@ pub struct IMenuButton(::windows::core::IUnknown);
 impl IMenuButton {
     pub unsafe fn AddButton<P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddButton)(::windows::core::Vtable::as_raw(self), idcommand, lpbuttontext.into(), lptooltiptext.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddButton)(::windows::core::Vtable::as_raw(self), idcommand, lpbuttontext.into().abi(), lptooltiptext.into().abi()).ok()
     }
     pub unsafe fn SetButton<P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetButton)(::windows::core::Vtable::as_raw(self), idcommand, lpbuttontext.into(), lptooltiptext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetButton)(::windows::core::Vtable::as_raw(self), idcommand, lpbuttontext.into().abi(), lptooltiptext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2684,15 +2684,15 @@ pub struct IMessageView(::windows::core::IUnknown);
 impl IMessageView {
     pub unsafe fn SetTitleText<P0>(&self, psztitletext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetTitleText)(::windows::core::Vtable::as_raw(self), psztitletext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetTitleText)(::windows::core::Vtable::as_raw(self), psztitletext.into().abi()).ok()
     }
     pub unsafe fn SetBodyText<P0>(&self, pszbodytext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetBodyText)(::windows::core::Vtable::as_raw(self), pszbodytext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetBodyText)(::windows::core::Vtable::as_raw(self), pszbodytext.into().abi()).ok()
     }
     pub unsafe fn SetIcon(&self, id: IconIdentifier) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetIcon)(::windows::core::Vtable::as_raw(self), id).ok()
@@ -2844,10 +2844,10 @@ impl IPropertySheetProvider {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertySheet<P0, P1>(&self, title: P0, r#type: u8, cookie: isize, pidataobjectm: P1, dwoptions: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::Com::IDataObject>>,
     {
-        (::windows::core::Vtable::vtable(self).CreatePropertySheet)(::windows::core::Vtable::as_raw(self), title.into(), r#type, cookie, pidataobjectm.into().abi(), dwoptions).ok()
+        (::windows::core::Vtable::vtable(self).CreatePropertySheet)(::windows::core::Vtable::as_raw(self), title.into().abi(), r#type, cookie, pidataobjectm.into().abi(), dwoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3030,9 +3030,9 @@ impl IResultData {
     }
     pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDescBarText)(::windows::core::Vtable::as_raw(self), desctext.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetDescBarText)(::windows::core::Vtable::as_raw(self), desctext.into().abi()).ok()
     }
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetItemCount)(::windows::core::Vtable::as_raw(self), nitemcount, dwoptions).ok()
@@ -3164,9 +3164,9 @@ impl IResultData2 {
     }
     pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetDescBarText)(::windows::core::Vtable::as_raw(self), desctext.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDescBarText)(::windows::core::Vtable::as_raw(self), desctext.into().abi()).ok()
     }
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetItemCount)(::windows::core::Vtable::as_raw(self), nitemcount, dwoptions).ok()
@@ -3560,9 +3560,9 @@ pub struct ISnapinPropertiesCallback(::windows::core::IUnknown);
 impl ISnapinPropertiesCallback {
     pub unsafe fn AddPropertyName<P0>(&self, pszpropname: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddPropertyName)(::windows::core::Vtable::as_raw(self), pszpropname.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).AddPropertyName)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), dwflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISnapinPropertiesCallback, ::windows::core::IUnknown);
@@ -3600,10 +3600,10 @@ pub struct IStringTable(::windows::core::IUnknown);
 impl IStringTable {
     pub unsafe fn AddString<P0>(&self, pszadd: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddString)(::windows::core::Vtable::as_raw(self), pszadd.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddString)(::windows::core::Vtable::as_raw(self), pszadd.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), stringid, lpbuffer.len() as _, ::core::mem::transmute(lpbuffer.as_ptr()), pcchout).ok()
@@ -3620,10 +3620,10 @@ impl IStringTable {
     }
     pub unsafe fn FindString<P0>(&self, pszfind: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindString)(::windows::core::Vtable::as_raw(self), pszfind.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindString)(::windows::core::Vtable::as_raw(self), pszfind.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

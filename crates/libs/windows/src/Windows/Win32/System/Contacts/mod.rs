@@ -56,9 +56,9 @@ impl IContactAggregationAggregate {
     }
     pub unsafe fn Link<P0>(&self, paggregateid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), paggregateid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -70,9 +70,9 @@ impl IContactAggregationAggregate {
     }
     pub unsafe fn SetAntiLink<P0>(&self, pantilink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAntiLink)(::windows::core::Vtable::as_raw(self), pantilink.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAntiLink)(::windows::core::Vtable::as_raw(self), pantilink.into().abi()).ok()
     }
     pub unsafe fn FavoriteOrder(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -133,10 +133,10 @@ impl IContactAggregationAggregateCollection {
     }
     pub unsafe fn FindFirstByAntiLinkId<P0>(&self, pantilinkid: P0) -> ::windows::core::Result<IContactAggregationAggregate>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByAntiLinkId)(::windows::core::Vtable::as_raw(self), pantilinkid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFirstByAntiLinkId)(::windows::core::Vtable::as_raw(self), pantilinkid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationAggregate> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -191,9 +191,9 @@ impl IContactAggregationContact {
     }
     pub unsafe fn MoveToAggregate<P0>(&self, paggregateid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).MoveToAggregate)(::windows::core::Vtable::as_raw(self), paggregateid.into()).ok()
+        (::windows::core::Vtable::vtable(self).MoveToAggregate)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn Unlink(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Unlink)(::windows::core::Vtable::as_raw(self)).ok()
@@ -204,9 +204,9 @@ impl IContactAggregationContact {
     }
     pub unsafe fn SetAccountId<P0>(&self, paccountid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAccountId)(::windows::core::Vtable::as_raw(self), paccountid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAccountId)(::windows::core::Vtable::as_raw(self), paccountid.into().abi()).ok()
     }
     pub unsafe fn AggregateId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -241,9 +241,9 @@ impl IContactAggregationContact {
     }
     pub unsafe fn SetNetworkSourceIdString<P0>(&self, pnetworksourceid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkSourceIdString)(::windows::core::Vtable::as_raw(self), pnetworksourceid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetNetworkSourceIdString)(::windows::core::Vtable::as_raw(self), pnetworksourceid.into().abi()).ok()
     }
     pub unsafe fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -326,11 +326,11 @@ impl IContactAggregationContactCollection {
     }
     pub unsafe fn FindFirstByIdentityHash<P0, P1>(&self, psourcetype: P0, paccountid: P1, pidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByIdentityHash)(::windows::core::Vtable::as_raw(self), psourcetype.into(), paccountid.into(), pidentityhash, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFirstByIdentityHash)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), pidentityhash, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -338,11 +338,11 @@ impl IContactAggregationContactCollection {
     }
     pub unsafe fn FindFirstByRemoteId<P0, P1>(&self, psourcetype: P0, paccountid: P1, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into(), paccountid.into(), premoteobjectid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), premoteobjectid, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationContactCollection, ::windows::core::IUnknown);
@@ -390,15 +390,15 @@ impl IContactAggregationGroup {
     }
     pub unsafe fn Add<P0>(&self, paggregateid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), paggregateid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn Remove<P0>(&self, paggregateid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), paggregateid.into()).ok()
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn Members(&self) -> ::windows::core::Result<IContactAggregationAggregateCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -421,9 +421,9 @@ impl IContactAggregationGroup {
     }
     pub unsafe fn SetName<P0>(&self, pname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationGroup, ::windows::core::IUnknown);
@@ -533,9 +533,9 @@ impl IContactAggregationLink {
     }
     pub unsafe fn SetAccountId<P0>(&self, paccountid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAccountId)(::windows::core::Vtable::as_raw(self), paccountid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAccountId)(::windows::core::Vtable::as_raw(self), paccountid.into().abi()).ok()
     }
     pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -561,9 +561,9 @@ impl IContactAggregationLink {
     }
     pub unsafe fn SetNetworkSourceIdString<P0>(&self, pnetworksourceid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkSourceIdString)(::windows::core::Vtable::as_raw(self), pnetworksourceid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetNetworkSourceIdString)(::windows::core::Vtable::as_raw(self), pnetworksourceid.into().abi()).ok()
     }
     pub unsafe fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -578,9 +578,9 @@ impl IContactAggregationLink {
     }
     pub unsafe fn SetServerPerson<P0>(&self, pserverpersonid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetServerPerson)(::windows::core::Vtable::as_raw(self), pserverpersonid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetServerPerson)(::windows::core::Vtable::as_raw(self), pserverpersonid.into().abi()).ok()
     }
     pub unsafe fn ServerPersonBaseline(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -588,9 +588,9 @@ impl IContactAggregationLink {
     }
     pub unsafe fn SetServerPersonBaseline<P0>(&self, pserverpersonid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetServerPersonBaseline)(::windows::core::Vtable::as_raw(self), pserverpersonid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetServerPersonBaseline)(::windows::core::Vtable::as_raw(self), pserverpersonid.into().abi()).ok()
     }
     pub unsafe fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -661,11 +661,11 @@ impl IContactAggregationLinkCollection {
     }
     pub unsafe fn FindFirstByRemoteId<P0, P1>(&self, psourcetype: P0, paccountid: P1, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into(), paccountid.into(), premoteid, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFirstByRemoteId)(::windows::core::Vtable::as_raw(self), psourcetype.into().abi(), paccountid.into().abi(), premoteid, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationLink> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -719,9 +719,9 @@ impl IContactAggregationManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOrOpenGroup<P0>(&self, pgroupname: P0, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateOrOpenGroup)(::windows::core::Vtable::as_raw(self), pgroupname.into(), options, pcreatedgroup, ::core::mem::transmute(ppgroup)).ok()
+        (::windows::core::Vtable::vtable(self).CreateOrOpenGroup)(::windows::core::Vtable::as_raw(self), pgroupname.into().abi(), options, pcreatedgroup, ::core::mem::transmute(ppgroup)).ok()
     }
     pub unsafe fn CreateExternalContact(&self) -> ::windows::core::Result<IContactAggregationContact> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -740,31 +740,31 @@ impl IContactAggregationManager {
     }
     pub unsafe fn OpenAggregateContact<P0>(&self, pitemid: P0) -> ::windows::core::Result<IContactAggregationAggregate>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenAggregateContact)(::windows::core::Vtable::as_raw(self), pitemid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).OpenAggregateContact)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenContact<P0>(&self, pitemid: P0) -> ::windows::core::Result<IContactAggregationContact>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenContact)(::windows::core::Vtable::as_raw(self), pitemid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).OpenContact)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenServerContactLink<P0>(&self, pitemid: P0) -> ::windows::core::Result<IContactAggregationLink>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenServerContactLink)(::windows::core::Vtable::as_raw(self), pitemid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).OpenServerContactLink)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn OpenServerPerson<P0>(&self, pitemid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenServerPerson)(::windows::core::Vtable::as_raw(self), pitemid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).OpenServerPerson)(::windows::core::Vtable::as_raw(self), pitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn get_Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -784,10 +784,10 @@ impl IContactAggregationManager {
     }
     pub unsafe fn get_ServerContactLinks<P0>(&self, ppersonitemid: P0) -> ::windows::core::Result<IContactAggregationLinkCollection>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_ServerContactLinks)(::windows::core::Vtable::as_raw(self), ppersonitemid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_ServerContactLinks)(::windows::core::Vtable::as_raw(self), ppersonitemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationManager, ::windows::core::IUnknown);
@@ -852,9 +852,9 @@ impl IContactAggregationServerPerson {
     }
     pub unsafe fn SetAggregateId<P0>(&self, paggregateid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi()).ok()
     }
     pub unsafe fn AntiLink(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -862,9 +862,9 @@ impl IContactAggregationServerPerson {
     }
     pub unsafe fn SetAntiLink<P0>(&self, pantilink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAntiLink)(::windows::core::Vtable::as_raw(self), pantilink.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAntiLink)(::windows::core::Vtable::as_raw(self), pantilink.into().abi()).ok()
     }
     pub unsafe fn AntiLinkBaseline(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -872,9 +872,9 @@ impl IContactAggregationServerPerson {
     }
     pub unsafe fn SetAntiLinkBaseline<P0>(&self, pantilink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAntiLinkBaseline)(::windows::core::Vtable::as_raw(self), pantilink.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetAntiLinkBaseline)(::windows::core::Vtable::as_raw(self), pantilink.into().abi()).ok()
     }
     pub unsafe fn FavoriteOrder(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -928,9 +928,9 @@ impl IContactAggregationServerPerson {
     }
     pub unsafe fn SetLinkedAggregateId<P0>(&self, plinkedaggregateid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetLinkedAggregateId)(::windows::core::Vtable::as_raw(self), plinkedaggregateid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetLinkedAggregateId)(::windows::core::Vtable::as_raw(self), plinkedaggregateid.into().abi()).ok()
     }
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -938,9 +938,9 @@ impl IContactAggregationServerPerson {
     }
     pub unsafe fn SetObjectId<P0>(&self, pobjectid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetObjectId)(::windows::core::Vtable::as_raw(self), pobjectid.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IContactAggregationServerPerson, ::windows::core::IUnknown);
@@ -1010,24 +1010,24 @@ impl IContactAggregationServerPersonCollection {
     }
     pub unsafe fn FindFirstByServerId<P0>(&self, pserverid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByServerId)(::windows::core::Vtable::as_raw(self), pserverid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFirstByServerId)(::windows::core::Vtable::as_raw(self), pserverid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindFirstByAggregateId<P0>(&self, paggregateid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFirstByAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindFirstByLinkedAggregateId<P0>(&self, paggregateid: P0) -> ::windows::core::Result<IContactAggregationServerPerson>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindFirstByLinkedAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindFirstByLinkedAggregateId)(::windows::core::Vtable::as_raw(self), paggregateid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindNext(&self) -> ::windows::core::Result<IContactAggregationServerPerson> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1124,24 +1124,24 @@ pub struct IContactManager(::windows::core::IUnknown);
 impl IContactManager {
     pub unsafe fn Initialize<P0, P1>(&self, pszappname: P0, pszappversion: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pszappname.into(), pszappversion.into()).ok()
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pszappname.into().abi(), pszappversion.into().abi()).ok()
     }
     pub unsafe fn Load<P0>(&self, pszcontactid: P0) -> ::windows::core::Result<IContact>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pszcontactid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), pszcontactid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn MergeContactIDs<P0, P1>(&self, psznewcontactid: P0, pszoldcontactid: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).MergeContactIDs)(::windows::core::Vtable::as_raw(self), psznewcontactid.into(), pszoldcontactid.into()).ok()
+        (::windows::core::Vtable::vtable(self).MergeContactIDs)(::windows::core::Vtable::as_raw(self), psznewcontactid.into().abi(), pszoldcontactid.into().abi()).ok()
     }
     pub unsafe fn GetMeContact(&self) -> ::windows::core::Result<IContact> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1198,98 +1198,98 @@ pub struct IContactProperties(::windows::core::IUnknown);
 impl IContactProperties {
     pub unsafe fn GetString<P0>(&self, pszpropertyname: P0, dwflags: u32, pszvalue: &mut [u16], pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), dwflags, ::core::mem::transmute(pszvalue.as_ptr()), pszvalue.len() as _, pdwcchpropertyvaluerequired).ok()
+        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), dwflags, ::core::mem::transmute(pszvalue.as_ptr()), pszvalue.len() as _, pdwcchpropertyvaluerequired).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDate<P0>(&self, pszpropertyname: P0, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDate)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), dwflags, pftdatetime).ok()
+        (::windows::core::Vtable::vtable(self).GetDate)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), dwflags, pftdatetime).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBinary<P0>(&self, pszpropertyname: P0, dwflags: u32, pszcontenttype: &mut [u16], pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetBinary)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), dwflags, ::core::mem::transmute(pszcontenttype.as_ptr()), pszcontenttype.len() as _, pdwcchcontenttyperequired, ::core::mem::transmute(ppstream)).ok()
+        (::windows::core::Vtable::vtable(self).GetBinary)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), dwflags, ::core::mem::transmute(pszcontenttype.as_ptr()), pszcontenttype.len() as _, pdwcchcontenttyperequired, ::core::mem::transmute(ppstream)).ok()
     }
     pub unsafe fn GetLabels<P0>(&self, pszarrayelementname: P0, dwflags: u32, pszlabels: &mut [u16], pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetLabels)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into(), dwflags, ::core::mem::transmute(pszlabels.as_ptr()), pszlabels.len() as _, pdwcchlabelsrequired).ok()
+        (::windows::core::Vtable::vtable(self).GetLabels)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into().abi(), dwflags, ::core::mem::transmute(pszlabels.as_ptr()), pszlabels.len() as _, pdwcchlabelsrequired).ok()
     }
     pub unsafe fn SetString<P0, P1>(&self, pszpropertyname: P0, dwflags: u32, pszvalue: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetString)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), dwflags, pszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetString)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), dwflags, pszvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDate<P0>(&self, pszpropertyname: P0, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDate)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), dwflags, ::core::mem::transmute(ftdatetime)).ok()
+        (::windows::core::Vtable::vtable(self).SetDate)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), dwflags, ::core::mem::transmute(ftdatetime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBinary<P0, P1, P2>(&self, pszpropertyname: P0, dwflags: u32, pszcontenttype: P1, pstream: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<super::Com::IStream>>,
     {
-        (::windows::core::Vtable::vtable(self).SetBinary)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), dwflags, pszcontenttype.into(), pstream.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetBinary)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), dwflags, pszcontenttype.into().abi(), pstream.into().abi()).ok()
     }
     pub unsafe fn SetLabels<P0>(&self, pszarrayelementname: P0, dwflags: u32, ppszlabels: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetLabels)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into(), dwflags, ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).SetLabels)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into().abi(), dwflags, ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr())).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateArrayNode<P0, P1>(&self, pszarrayname: P0, dwflags: u32, fappend: P1, psznewarrayelementname: &mut [u16], pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).CreateArrayNode)(::windows::core::Vtable::as_raw(self), pszarrayname.into(), dwflags, fappend.into(), ::core::mem::transmute(psznewarrayelementname.as_ptr()), psznewarrayelementname.len() as _, pdwcchnewarrayelementnamerequired).ok()
+        (::windows::core::Vtable::vtable(self).CreateArrayNode)(::windows::core::Vtable::as_raw(self), pszarrayname.into().abi(), dwflags, fappend.into(), ::core::mem::transmute(psznewarrayelementname.as_ptr()), psznewarrayelementname.len() as _, pdwcchnewarrayelementnamerequired).ok()
     }
     pub unsafe fn DeleteProperty<P0>(&self, pszpropertyname: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteProperty)(::windows::core::Vtable::as_raw(self), pszpropertyname.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteProperty)(::windows::core::Vtable::as_raw(self), pszpropertyname.into().abi(), dwflags).ok()
     }
     pub unsafe fn DeleteArrayNode<P0>(&self, pszarrayelementname: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteArrayNode)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteArrayNode)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into().abi(), dwflags).ok()
     }
     pub unsafe fn DeleteLabels<P0>(&self, pszarrayelementname: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).DeleteLabels)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into(), dwflags).ok()
+        (::windows::core::Vtable::vtable(self).DeleteLabels)(::windows::core::Vtable::as_raw(self), pszarrayelementname.into().abi(), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyCollection<P0, P1>(&self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: P0, ppszlabels: &[::windows::core::PCWSTR], fanylabelmatches: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).GetPropertyCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppropertycollection), dwflags, pszmultivaluename.into(), ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr()), fanylabelmatches.into()).ok()
+        (::windows::core::Vtable::vtable(self).GetPropertyCollection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppropertycollection), dwflags, pszmultivaluename.into().abi(), ppszlabels.len() as _, ::core::mem::transmute(ppszlabels.as_ptr()), fanylabelmatches.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IContactProperties, ::windows::core::IUnknown);

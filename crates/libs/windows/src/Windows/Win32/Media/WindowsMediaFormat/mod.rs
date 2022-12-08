@@ -85,10 +85,10 @@ pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushS
 #[inline]
 pub unsafe fn WMIsContentProtected<P0>(pwszfilename: P0, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wmvcore.dll""system" fn WMIsContentProtected ( pwszfilename : :: windows::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    WMIsContentProtected(pwszfilename.into(), pfisprotected).ok()
+    WMIsContentProtected(pwszfilename.into().abi(), pfisprotected).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
@@ -99,19 +99,19 @@ impl INSNetSourceCreator {
     }
     pub unsafe fn CreateNetSource<P0, P1, P2, P3>(&self, pszstreamname: P0, pmonitor: P1, pdata: *const u8, pusercontext: P2, pcallback: P3, qwcontext: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P3: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).CreateNetSource)(::windows::core::Vtable::as_raw(self), pszstreamname.into(), pmonitor.into().abi(), pdata, pusercontext.into().abi(), pcallback.into().abi(), qwcontext).ok()
+        (::windows::core::Vtable::vtable(self).CreateNetSource)(::windows::core::Vtable::as_raw(self), pszstreamname.into().abi(), pmonitor.into().abi(), pdata, pusercontext.into().abi(), pcallback.into().abi(), qwcontext).ok()
     }
     pub unsafe fn GetNetSourceProperties<P0>(&self, pszstreamname: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetSourceProperties)(::windows::core::Vtable::as_raw(self), pszstreamname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetNetSourceProperties)(::windows::core::Vtable::as_raw(self), pszstreamname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNetSourceSharedNamespace(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -121,10 +121,10 @@ impl INSNetSourceCreator {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetNetSourceAdminInterface<P0>(&self, pszstreamname: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetSourceAdminInterface)(::windows::core::Vtable::as_raw(self), pszstreamname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetNetSourceAdminInterface)(::windows::core::Vtable::as_raw(self), pszstreamname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetNumProtocolsSupported(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -598,21 +598,21 @@ impl IWMBackupRestoreProps {
     }
     pub unsafe fn GetPropByName<P0>(&self, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetPropByName)(::windows::core::Vtable::as_raw(self), pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetPropByName)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetProp<P0>(&self, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProp)(::windows::core::Vtable::as_raw(self), pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetProp)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn RemoveProp<P0>(&self, pcwszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveProp)(::windows::core::Vtable::as_raw(self), pcwszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).RemoveProp)(::windows::core::Vtable::as_raw(self), pcwszname.into().abi()).ok()
     }
     pub unsafe fn RemoveAllProps(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveAllProps)(::windows::core::Vtable::as_raw(self)).ok()
@@ -924,27 +924,27 @@ impl IWMCodecInfo3 {
     }
     pub unsafe fn GetCodecFormatProp<P0>(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCodecFormatProp)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, dwformatindex, pszname.into(), ptype, pvalue, pdwsize).ok()
+        (::windows::core::Vtable::vtable(self).GetCodecFormatProp)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, dwformatindex, pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
     pub unsafe fn GetCodecProp<P0>(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCodecProp)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, pszname.into(), ptype, pvalue, pdwsize).ok()
+        (::windows::core::Vtable::vtable(self).GetCodecProp)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
     pub unsafe fn SetCodecEnumerationSetting<P0>(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCodecEnumerationSetting)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetCodecEnumerationSetting)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetCodecEnumerationSetting<P0>(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCodecEnumerationSetting)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, pszname.into(), ptype, pvalue, pdwsize).ok()
+        (::windows::core::Vtable::vtable(self).GetCodecEnumerationSetting)(::windows::core::Vtable::as_raw(self), guidtype, dwcodecindex, pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMCodecInfo3, ::windows::core::IUnknown, IWMCodecInfo, IWMCodecInfo2);
@@ -985,10 +985,10 @@ pub struct IWMCredentialCallback(::windows::core::IUnknown);
 impl IWMCredentialCallback {
     pub unsafe fn AcquireCredentials<P0, P1>(&self, pwszrealm: P0, pwszsite: P1, pwszuser: &mut [u16], pwszpassword: &mut [u16], hrstatus: ::windows::core::HRESULT, pdwflags: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AcquireCredentials)(::windows::core::Vtable::as_raw(self), pwszrealm.into(), pwszsite.into(), ::core::mem::transmute(pwszuser.as_ptr()), pwszuser.len() as _, ::core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len() as _, hrstatus, pdwflags).ok()
+        (::windows::core::Vtable::vtable(self).AcquireCredentials)(::windows::core::Vtable::as_raw(self), pwszrealm.into().abi(), pwszsite.into().abi(), ::core::mem::transmute(pwszuser.as_ptr()), pwszuser.len() as _, ::core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len() as _, hrstatus, pdwflags).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMCredentialCallback, ::windows::core::IUnknown);
@@ -1026,9 +1026,9 @@ pub struct IWMDRMEditor(::windows::core::IUnknown);
 impl IWMDRMEditor {
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), pdwtype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), pdwtype, pvalue, pcblength).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMDRMEditor, ::windows::core::IUnknown);
@@ -1125,15 +1125,15 @@ impl IWMDRMReader {
     }
     pub unsafe fn SetDRMProperty<P0>(&self, pwstrname: P0, dwtype: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), pdwtype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), pdwtype, pvalue, pcblength).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMDRMReader, ::windows::core::IUnknown);
@@ -1196,15 +1196,15 @@ impl IWMDRMReader2 {
     }
     pub unsafe fn SetDRMProperty<P0>(&self, pwstrname: P0, dwtype: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), pdwtype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), pdwtype, pvalue, pcblength).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1283,15 +1283,15 @@ impl IWMDRMReader3 {
     }
     pub unsafe fn SetDRMProperty<P0>(&self, pwstrname: P0, dwtype: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), dwtype, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), pdwtype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into().abi(), pdwtype, pvalue, pcblength).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1530,9 +1530,9 @@ impl IWMDRMWriter {
     }
     pub unsafe fn SetDRMAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMDRMWriter, ::windows::core::IUnknown);
@@ -1582,9 +1582,9 @@ impl IWMDRMWriter2 {
     }
     pub unsafe fn SetDRMAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1642,9 +1642,9 @@ impl IWMDRMWriter3 {
     }
     pub unsafe fn SetDRMAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1800,15 +1800,15 @@ impl IWMHeaderInfo {
     }
     pub unsafe fn GetAttributeByName<P0>(&self, pwstreamnum: *mut u16, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAttributeByName)(::windows::core::Vtable::as_raw(self), pwstreamnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetAttributeByName)(::windows::core::Vtable::as_raw(self), pwstreamnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetMarkerCount(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1819,9 +1819,9 @@ impl IWMHeaderInfo {
     }
     pub unsafe fn AddMarker<P0>(&self, pwszmarkername: P0, cnsmarkertime: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddMarker)(::windows::core::Vtable::as_raw(self), pwszmarkername.into(), cnsmarkertime).ok()
+        (::windows::core::Vtable::vtable(self).AddMarker)(::windows::core::Vtable::as_raw(self), pwszmarkername.into().abi(), cnsmarkertime).ok()
     }
     pub unsafe fn RemoveMarker(&self, windex: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveMarker)(::windows::core::Vtable::as_raw(self), windex).ok()
@@ -1835,10 +1835,10 @@ impl IWMHeaderInfo {
     }
     pub unsafe fn AddScript<P0, P1>(&self, pwsztype: P0, pwszcommand: P1, cnsscripttime: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddScript)(::windows::core::Vtable::as_raw(self), pwsztype.into(), pwszcommand.into(), cnsscripttime).ok()
+        (::windows::core::Vtable::vtable(self).AddScript)(::windows::core::Vtable::as_raw(self), pwsztype.into().abi(), pwszcommand.into().abi(), cnsscripttime).ok()
     }
     pub unsafe fn RemoveScript(&self, windex: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveScript)(::windows::core::Vtable::as_raw(self), windex).ok()
@@ -1897,15 +1897,15 @@ impl IWMHeaderInfo2 {
     }
     pub unsafe fn GetAttributeByName<P0>(&self, pwstreamnum: *mut u16, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetAttributeByName)(::windows::core::Vtable::as_raw(self), pwstreamnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetAttributeByName)(::windows::core::Vtable::as_raw(self), pwstreamnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetMarkerCount(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1916,9 +1916,9 @@ impl IWMHeaderInfo2 {
     }
     pub unsafe fn AddMarker<P0>(&self, pwszmarkername: P0, cnsmarkertime: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddMarker)(::windows::core::Vtable::as_raw(self), pwszmarkername.into(), cnsmarkertime).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddMarker)(::windows::core::Vtable::as_raw(self), pwszmarkername.into().abi(), cnsmarkertime).ok()
     }
     pub unsafe fn RemoveMarker(&self, windex: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RemoveMarker)(::windows::core::Vtable::as_raw(self), windex).ok()
@@ -1932,10 +1932,10 @@ impl IWMHeaderInfo2 {
     }
     pub unsafe fn AddScript<P0, P1>(&self, pwsztype: P0, pwszcommand: P1, cnsscripttime: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddScript)(::windows::core::Vtable::as_raw(self), pwsztype.into(), pwszcommand.into(), cnsscripttime).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddScript)(::windows::core::Vtable::as_raw(self), pwsztype.into().abi(), pwszcommand.into().abi(), cnsscripttime).ok()
     }
     pub unsafe fn RemoveScript(&self, windex: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.RemoveScript)(::windows::core::Vtable::as_raw(self), windex).ok()
@@ -1991,15 +1991,15 @@ impl IWMHeaderInfo3 {
     }
     pub unsafe fn GetAttributeByName<P0>(&self, pwstreamnum: *mut u16, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAttributeByName)(::windows::core::Vtable::as_raw(self), pwstreamnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetAttributeByName)(::windows::core::Vtable::as_raw(self), pwstreamnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetMarkerCount(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2010,9 +2010,9 @@ impl IWMHeaderInfo3 {
     }
     pub unsafe fn AddMarker<P0>(&self, pwszmarkername: P0, cnsmarkertime: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddMarker)(::windows::core::Vtable::as_raw(self), pwszmarkername.into(), cnsmarkertime).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddMarker)(::windows::core::Vtable::as_raw(self), pwszmarkername.into().abi(), cnsmarkertime).ok()
     }
     pub unsafe fn RemoveMarker(&self, windex: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RemoveMarker)(::windows::core::Vtable::as_raw(self), windex).ok()
@@ -2026,10 +2026,10 @@ impl IWMHeaderInfo3 {
     }
     pub unsafe fn AddScript<P0, P1>(&self, pwsztype: P0, pwszcommand: P1, cnsscripttime: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddScript)(::windows::core::Vtable::as_raw(self), pwsztype.into(), pwszcommand.into(), cnsscripttime).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddScript)(::windows::core::Vtable::as_raw(self), pwsztype.into().abi(), pwszcommand.into().abi(), cnsscripttime).ok()
     }
     pub unsafe fn RemoveScript(&self, windex: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.RemoveScript)(::windows::core::Vtable::as_raw(self), windex).ok()
@@ -2047,9 +2047,9 @@ impl IWMHeaderInfo3 {
     }
     pub unsafe fn GetAttributeIndices<P0>(&self, wstreamnum: u16, pwszname: P0, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetAttributeIndices)(::windows::core::Vtable::as_raw(self), wstreamnum, pwszname.into(), pwlangindex, pwindices, pwcount).ok()
+        (::windows::core::Vtable::vtable(self).GetAttributeIndices)(::windows::core::Vtable::as_raw(self), wstreamnum, pwszname.into().abi(), pwlangindex, pwindices, pwcount).ok()
     }
     pub unsafe fn GetAttributeByIndexEx(&self, wstreamnum: u16, windex: u16, pwszname: ::windows::core::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetAttributeByIndexEx)(::windows::core::Vtable::as_raw(self), wstreamnum, windex, ::core::mem::transmute(pwszname), pwnamelen, ptype, pwlangindex, pvalue, pdwdatalength).ok()
@@ -2059,19 +2059,19 @@ impl IWMHeaderInfo3 {
     }
     pub unsafe fn AddAttribute<P0>(&self, wstreamnum: u16, pszname: P0, pwindex: *mut u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), pwindex, r#type, wlangindex, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).AddAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into().abi(), pwindex, r#type, wlangindex, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn DeleteAttribute(&self, wstreamnum: u16, windex: u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, windex).ok()
     }
     pub unsafe fn AddCodecInfo<P0, P1>(&self, pwszname: P0, pwszdescription: P1, codectype: WMT_CODEC_INFO_TYPE, pbcodecinfo: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddCodecInfo)(::windows::core::Vtable::as_raw(self), pwszname.into(), pwszdescription.into(), codectype, pbcodecinfo.len() as _, ::core::mem::transmute(pbcodecinfo.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).AddCodecInfo)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), pwszdescription.into().abi(), codectype, pbcodecinfo.len() as _, ::core::mem::transmute(pbcodecinfo.as_ptr())).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMHeaderInfo3, ::windows::core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
@@ -2115,9 +2115,9 @@ pub struct IWMIStreamProps(::windows::core::IUnknown);
 impl IWMIStreamProps {
     pub unsafe fn GetProperty<P0>(&self, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pszname.into(), ptype, pvalue, pdwsize).ok()
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMIStreamProps, ::windows::core::IUnknown);
@@ -2197,10 +2197,10 @@ pub struct IWMIndexer(::windows::core::IUnknown);
 impl IWMIndexer {
     pub unsafe fn StartIndexing<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWMStatusCallback>>,
     {
-        (::windows::core::Vtable::vtable(self).StartIndexing)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pcallback.into().abi(), pvcontext).ok()
+        (::windows::core::Vtable::vtable(self).StartIndexing)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), pcallback.into().abi(), pvcontext).ok()
     }
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2242,10 +2242,10 @@ pub struct IWMIndexer2(::windows::core::IUnknown);
 impl IWMIndexer2 {
     pub unsafe fn StartIndexing<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWMStatusCallback>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.StartIndexing)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pcallback.into().abi(), pvcontext).ok()
+        (::windows::core::Vtable::vtable(self).base__.StartIndexing)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), pcallback.into().abi(), pvcontext).ok()
     }
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Cancel)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2351,10 +2351,10 @@ impl IWMLanguageList {
     }
     pub unsafe fn AddLanguageByRFC1766String<P0>(&self, pwszlanguagestring: P0) -> ::windows::core::Result<u16>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddLanguageByRFC1766String)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).AddLanguageByRFC1766String)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWMLanguageList, ::windows::core::IUnknown);
@@ -2579,9 +2579,9 @@ pub struct IWMMetadataEditor(::windows::core::IUnknown);
 impl IWMMetadataEditor {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2627,9 +2627,9 @@ pub struct IWMMetadataEditor2(::windows::core::IUnknown);
 impl IWMMetadataEditor2 {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2639,9 +2639,9 @@ impl IWMMetadataEditor2 {
     }
     pub unsafe fn OpenEx<P0>(&self, pwszfilename: P0, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OpenEx)(::windows::core::Vtable::as_raw(self), pwszfilename.into(), dwdesiredaccess, dwsharemode).ok()
+        (::windows::core::Vtable::vtable(self).OpenEx)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi(), dwdesiredaccess, dwsharemode).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMMetadataEditor2, ::windows::core::IUnknown, IWMMetadataEditor);
@@ -2749,9 +2749,9 @@ impl IWMMutualExclusion2 {
     }
     pub unsafe fn SetName<P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pwszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pwszname.into().abi()).ok()
     }
     pub unsafe fn GetRecordCount(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2768,9 +2768,9 @@ impl IWMMutualExclusion2 {
     }
     pub unsafe fn SetRecordName<P0>(&self, wrecordnumber: u16, pwszrecordname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRecordName)(::windows::core::Vtable::as_raw(self), wrecordnumber, pwszrecordname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRecordName)(::windows::core::Vtable::as_raw(self), wrecordnumber, pwszrecordname.into().abi()).ok()
     }
     pub unsafe fn GetStreamsForRecord(&self, wrecordnumber: u16, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStreamsForRecord)(::windows::core::Vtable::as_raw(self), wrecordnumber, pwstreamnumarray, pcstreams).ok()
@@ -3054,18 +3054,18 @@ impl IWMProfile {
     }
     pub unsafe fn SetName<P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pwszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), pwszname.into().abi()).ok()
     }
     pub unsafe fn GetDescription(&self, pwszdescription: ::windows::core::PWSTR, pcchdescription: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszdescription), pcchdescription).ok()
     }
     pub unsafe fn SetDescription<P0>(&self, pwszdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetDescription)(::windows::core::Vtable::as_raw(self), pwszdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetDescription)(::windows::core::Vtable::as_raw(self), pwszdescription.into().abi()).ok()
     }
     pub unsafe fn GetStreamCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3188,18 +3188,18 @@ impl IWMProfile2 {
     }
     pub unsafe fn SetName<P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetName)(::windows::core::Vtable::as_raw(self), pwszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetName)(::windows::core::Vtable::as_raw(self), pwszname.into().abi()).ok()
     }
     pub unsafe fn GetDescription(&self, pwszdescription: ::windows::core::PWSTR, pcchdescription: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszdescription), pcchdescription).ok()
     }
     pub unsafe fn SetDescription<P0>(&self, pwszdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetDescription)(::windows::core::Vtable::as_raw(self), pwszdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetDescription)(::windows::core::Vtable::as_raw(self), pwszdescription.into().abi()).ok()
     }
     pub unsafe fn GetStreamCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3309,18 +3309,18 @@ impl IWMProfile3 {
     }
     pub unsafe fn SetName<P0>(&self, pwszname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), pwszname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetName)(::windows::core::Vtable::as_raw(self), pwszname.into().abi()).ok()
     }
     pub unsafe fn GetDescription(&self, pwszdescription: ::windows::core::PWSTR, pcchdescription: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszdescription), pcchdescription).ok()
     }
     pub unsafe fn SetDescription<P0>(&self, pwszdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetDescription)(::windows::core::Vtable::as_raw(self), pwszdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetDescription)(::windows::core::Vtable::as_raw(self), pwszdescription.into().abi()).ok()
     }
     pub unsafe fn GetStreamCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3494,17 +3494,17 @@ impl IWMProfileManager {
     }
     pub unsafe fn LoadProfileByData<P0>(&self, pwszprofile: P0) -> ::windows::core::Result<IWMProfile>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadProfileByData)(::windows::core::Vtable::as_raw(self), pwszprofile.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).LoadProfileByData)(::windows::core::Vtable::as_raw(self), pwszprofile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SaveProfile<P0, P1>(&self, piwmprofile: P0, pwszprofile: P1, pdwlength: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWMProfile>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SaveProfile)(::windows::core::Vtable::as_raw(self), piwmprofile.into().abi(), pwszprofile.into(), pdwlength).ok()
+        (::windows::core::Vtable::vtable(self).SaveProfile)(::windows::core::Vtable::as_raw(self), piwmprofile.into().abi(), pwszprofile.into().abi(), pdwlength).ok()
     }
     pub unsafe fn GetSystemProfileCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3563,17 +3563,17 @@ impl IWMProfileManager2 {
     }
     pub unsafe fn LoadProfileByData<P0>(&self, pwszprofile: P0) -> ::windows::core::Result<IWMProfile>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.LoadProfileByData)(::windows::core::Vtable::as_raw(self), pwszprofile.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.LoadProfileByData)(::windows::core::Vtable::as_raw(self), pwszprofile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SaveProfile<P0, P1>(&self, piwmprofile: P0, pwszprofile: P1, pdwlength: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWMProfile>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SaveProfile)(::windows::core::Vtable::as_raw(self), piwmprofile.into().abi(), pwszprofile.into(), pdwlength).ok()
+        (::windows::core::Vtable::vtable(self).base__.SaveProfile)(::windows::core::Vtable::as_raw(self), piwmprofile.into().abi(), pwszprofile.into().abi(), pdwlength).ok()
     }
     pub unsafe fn GetSystemProfileCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3670,15 +3670,15 @@ impl IWMPropertyVault {
     }
     pub unsafe fn GetPropertyByName<P0>(&self, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetPropertyByName)(::windows::core::Vtable::as_raw(self), pszname.into(), ptype, pvalue, pdwsize).ok()
+        (::windows::core::Vtable::vtable(self).GetPropertyByName)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), ptype, pvalue, pdwsize).ok()
     }
     pub unsafe fn SetProperty<P0>(&self, pszname: P0, ptype: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), pszname.into(), ptype, pvalue, dwsize).ok()
+        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), ptype, pvalue, dwsize).ok()
     }
     pub unsafe fn GetPropertyByIndex(&self, dwindex: u32, pszname: ::windows::core::PWSTR, pdwnamelen: *mut u32, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPropertyByIndex)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(pszname), pdwnamelen, ptype, pvalue, pdwsize).ok()
@@ -3773,10 +3773,10 @@ pub struct IWMReader(::windows::core::IUnknown);
 impl IWMReader {
     pub unsafe fn Open<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IWMReaderCallback>>,
     {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pcallback.into().abi(), pvcontext).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), pcallback.into().abi(), pvcontext).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4242,9 +4242,9 @@ impl IWMReaderAdvanced2 {
     }
     pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn GetProtocolName(&self, pwszprotocol: ::windows::core::PWSTR, pcchprotocol: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetProtocolName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszprotocol), pcchprotocol).ok()
@@ -4254,15 +4254,15 @@ impl IWMReaderAdvanced2 {
     }
     pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Preroll)(::windows::core::Vtable::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -4482,9 +4482,9 @@ impl IWMReaderAdvanced3 {
     }
     pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn GetProtocolName(&self, pwszprotocol: ::windows::core::PWSTR, pcchprotocol: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetProtocolName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszprotocol), pcchprotocol).ok()
@@ -4494,15 +4494,15 @@ impl IWMReaderAdvanced3 {
     }
     pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Preroll)(::windows::core::Vtable::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -4706,9 +4706,9 @@ impl IWMReaderAdvanced4 {
     }
     pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn GetProtocolName(&self, pwszprotocol: ::windows::core::PWSTR, pcchprotocol: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetProtocolName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszprotocol), pcchprotocol).ok()
@@ -4718,15 +4718,15 @@ impl IWMReaderAdvanced4 {
     }
     pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.Preroll)(::windows::core::Vtable::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -4782,11 +4782,11 @@ impl IWMReaderAdvanced4 {
     }
     pub unsafe fn AddLogParam<P0, P1, P2>(&self, wsznamespace: P0, wszname: P1, wszvalue: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddLogParam)(::windows::core::Vtable::as_raw(self), wsznamespace.into(), wszname.into(), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddLogParam)(::windows::core::Vtable::as_raw(self), wsznamespace.into().abi(), wszname.into().abi(), wszvalue.into().abi()).ok()
     }
     pub unsafe fn SendLogParams(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SendLogParams)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4983,9 +4983,9 @@ impl IWMReaderAdvanced5 {
     }
     pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn GetProtocolName(&self, pwszprotocol: ::windows::core::PWSTR, pcchprotocol: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProtocolName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszprotocol), pcchprotocol).ok()
@@ -4995,15 +4995,15 @@ impl IWMReaderAdvanced5 {
     }
     pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Preroll)(::windows::core::Vtable::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -5059,11 +5059,11 @@ impl IWMReaderAdvanced5 {
     }
     pub unsafe fn AddLogParam<P0, P1, P2>(&self, wsznamespace: P0, wszname: P1, wszvalue: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddLogParam)(::windows::core::Vtable::as_raw(self), wsznamespace.into(), wszname.into(), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddLogParam)(::windows::core::Vtable::as_raw(self), wsznamespace.into().abi(), wszname.into().abi(), wszvalue.into().abi()).ok()
     }
     pub unsafe fn SendLogParams(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SendLogParams)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5252,9 +5252,9 @@ impl IWMReaderAdvanced6 {
     }
     pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SaveFileAs)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn GetProtocolName(&self, pwszprotocol: ::windows::core::PWSTR, pcchprotocol: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetProtocolName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszprotocol), pcchprotocol).ok()
@@ -5264,15 +5264,15 @@ impl IWMReaderAdvanced6 {
     }
     pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.Preroll)(::windows::core::Vtable::as_raw(self), cnsstart, cnsduration, frate).ok()
@@ -5328,11 +5328,11 @@ impl IWMReaderAdvanced6 {
     }
     pub unsafe fn AddLogParam<P0, P1, P2>(&self, wsznamespace: P0, wszname: P1, wszvalue: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.AddLogParam)(::windows::core::Vtable::as_raw(self), wsznamespace.into(), wszname.into(), wszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.AddLogParam)(::windows::core::Vtable::as_raw(self), wsznamespace.into().abi(), wszname.into().abi(), wszvalue.into().abi()).ok()
     }
     pub unsafe fn SendLogParams(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SendLogParams)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5556,73 +5556,73 @@ impl IWMReaderNetworkConfig {
     }
     pub unsafe fn GetProxySettings<P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<WMT_PROXY_SETTINGS>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProxySettings<P0>(&self, pwszprotocol: P0, proxysetting: WMT_PROXY_SETTINGS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), proxysetting).ok()
+        (::windows::core::Vtable::vtable(self).SetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), proxysetting).ok()
     }
     pub unsafe fn GetProxyHostName<P0>(&self, pwszprotocol: P0, pwszhostname: ::windows::core::PWSTR, pcchhostname: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), ::core::mem::transmute(pwszhostname), pcchhostname).ok()
+        (::windows::core::Vtable::vtable(self).GetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), ::core::mem::transmute(pwszhostname), pcchhostname).ok()
     }
     pub unsafe fn SetProxyHostName<P0, P1>(&self, pwszprotocol: P0, pwszhostname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), pwszhostname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), pwszhostname.into().abi()).ok()
     }
     pub unsafe fn GetProxyPort<P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProxyPort<P0>(&self, pwszprotocol: P0, dwport: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), dwport).ok()
+        (::windows::core::Vtable::vtable(self).SetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), dwport).ok()
     }
     pub unsafe fn GetProxyExceptionList<P0>(&self, pwszprotocol: P0, pwszexceptionlist: ::windows::core::PWSTR, pcchexceptionlist: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), ::core::mem::transmute(pwszexceptionlist), pcchexceptionlist).ok()
+        (::windows::core::Vtable::vtable(self).GetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), ::core::mem::transmute(pwszexceptionlist), pcchexceptionlist).ok()
     }
     pub unsafe fn SetProxyExceptionList<P0, P1>(&self, pwszprotocol: P0, pwszexceptionlist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), pwszexceptionlist.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), pwszexceptionlist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProxyBypassForLocal<P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProxyBypassForLocal<P0, P1>(&self, pwszprotocol: P0, fbypassforlocal: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), fbypassforlocal.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), fbypassforlocal.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5713,9 +5713,9 @@ impl IWMReaderNetworkConfig {
     }
     pub unsafe fn AddLoggingUrl<P0>(&self, pwszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddLoggingUrl)(::windows::core::Vtable::as_raw(self), pwszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddLoggingUrl)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi()).ok()
     }
     pub unsafe fn GetLoggingUrl(&self, dwindex: u32, pwszurl: ::windows::core::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLoggingUrl)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(pwszurl), pcchurl).ok()
@@ -5844,73 +5844,73 @@ impl IWMReaderNetworkConfig2 {
     }
     pub unsafe fn GetProxySettings<P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<WMT_PROXY_SETTINGS>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProxySettings<P0>(&self, pwszprotocol: P0, proxysetting: WMT_PROXY_SETTINGS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), proxysetting).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProxySettings)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), proxysetting).ok()
     }
     pub unsafe fn GetProxyHostName<P0>(&self, pwszprotocol: P0, pwszhostname: ::windows::core::PWSTR, pcchhostname: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), ::core::mem::transmute(pwszhostname), pcchhostname).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), ::core::mem::transmute(pwszhostname), pcchhostname).ok()
     }
     pub unsafe fn SetProxyHostName<P0, P1>(&self, pwszprotocol: P0, pwszhostname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), pwszhostname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProxyHostName)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), pwszhostname.into().abi()).ok()
     }
     pub unsafe fn GetProxyPort<P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetProxyPort<P0>(&self, pwszprotocol: P0, dwport: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), dwport).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProxyPort)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), dwport).ok()
     }
     pub unsafe fn GetProxyExceptionList<P0>(&self, pwszprotocol: P0, pwszexceptionlist: ::windows::core::PWSTR, pcchexceptionlist: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), ::core::mem::transmute(pwszexceptionlist), pcchexceptionlist).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), ::core::mem::transmute(pwszexceptionlist), pcchexceptionlist).ok()
     }
     pub unsafe fn SetProxyExceptionList<P0, P1>(&self, pwszprotocol: P0, pwszexceptionlist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), pwszexceptionlist.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProxyExceptionList)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), pwszexceptionlist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProxyBypassForLocal<P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProxyBypassForLocal<P0, P1>(&self, pwszprotocol: P0, fbypassforlocal: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into(), fbypassforlocal.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetProxyBypassForLocal)(::windows::core::Vtable::as_raw(self), pwszprotocol.into().abi(), fbypassforlocal.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6001,9 +6001,9 @@ impl IWMReaderNetworkConfig2 {
     }
     pub unsafe fn AddLoggingUrl<P0>(&self, pwszurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.AddLoggingUrl)(::windows::core::Vtable::as_raw(self), pwszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.AddLoggingUrl)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi()).ok()
     }
     pub unsafe fn GetLoggingUrl(&self, dwindex: u32, pwszurl: ::windows::core::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetLoggingUrl)(::windows::core::Vtable::as_raw(self), dwindex, ::core::mem::transmute(pwszurl), pcchurl).ok()
@@ -7029,18 +7029,18 @@ impl IWMStreamConfig {
     }
     pub unsafe fn SetStreamName<P0>(&self, pwszstreamname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetStreamName)(::windows::core::Vtable::as_raw(self), pwszstreamname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetStreamName)(::windows::core::Vtable::as_raw(self), pwszstreamname.into().abi()).ok()
     }
     pub unsafe fn GetConnectionName(&self, pwszinputname: ::windows::core::PWSTR, pcchinputname: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetConnectionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszinputname), pcchinputname).ok()
     }
     pub unsafe fn SetConnectionName<P0>(&self, pwszinputname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetConnectionName)(::windows::core::Vtable::as_raw(self), pwszinputname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetConnectionName)(::windows::core::Vtable::as_raw(self), pwszinputname.into().abi()).ok()
     }
     pub unsafe fn GetBitrate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7116,18 +7116,18 @@ impl IWMStreamConfig2 {
     }
     pub unsafe fn SetStreamName<P0>(&self, pwszstreamname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetStreamName)(::windows::core::Vtable::as_raw(self), pwszstreamname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetStreamName)(::windows::core::Vtable::as_raw(self), pwszstreamname.into().abi()).ok()
     }
     pub unsafe fn GetConnectionName(&self, pwszinputname: ::windows::core::PWSTR, pcchinputname: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetConnectionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszinputname), pcchinputname).ok()
     }
     pub unsafe fn SetConnectionName<P0>(&self, pwszinputname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetConnectionName)(::windows::core::Vtable::as_raw(self), pwszinputname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetConnectionName)(::windows::core::Vtable::as_raw(self), pwszinputname.into().abi()).ok()
     }
     pub unsafe fn GetBitrate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7218,18 +7218,18 @@ impl IWMStreamConfig3 {
     }
     pub unsafe fn SetStreamName<P0>(&self, pwszstreamname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetStreamName)(::windows::core::Vtable::as_raw(self), pwszstreamname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetStreamName)(::windows::core::Vtable::as_raw(self), pwszstreamname.into().abi()).ok()
     }
     pub unsafe fn GetConnectionName(&self, pwszinputname: ::windows::core::PWSTR, pcchinputname: *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.GetConnectionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszinputname), pcchinputname).ok()
     }
     pub unsafe fn SetConnectionName<P0>(&self, pwszinputname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetConnectionName)(::windows::core::Vtable::as_raw(self), pwszinputname.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.SetConnectionName)(::windows::core::Vtable::as_raw(self), pwszinputname.into().abi()).ok()
     }
     pub unsafe fn GetBitrate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7270,9 +7270,9 @@ impl IWMStreamConfig3 {
     }
     pub unsafe fn SetLanguage<P0>(&self, pwszlanguagestring: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetLanguage)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetLanguage)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMStreamConfig3, ::windows::core::IUnknown, IWMStreamConfig, IWMStreamConfig2);
@@ -7407,9 +7407,9 @@ pub struct IWMSyncReader(::windows::core::IUnknown);
 impl IWMSyncReader {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7446,15 +7446,15 @@ impl IWMSyncReader {
     }
     pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetOutputCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7567,9 +7567,9 @@ pub struct IWMSyncReader2(::windows::core::IUnknown);
 impl IWMSyncReader2 {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Close)(::windows::core::Vtable::as_raw(self)).ok()
@@ -7606,15 +7606,15 @@ impl IWMSyncReader2 {
     }
     pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetOutputSetting)(::windows::core::Vtable::as_raw(self), dwoutputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetOutputCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7847,9 +7847,9 @@ impl IWMWriter {
     }
     pub unsafe fn SetOutputFilename<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetOutputFilename)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetOutputFilename)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn GetInputCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8100,15 +8100,15 @@ impl IWMWriterAdvanced2 {
     }
     pub unsafe fn GetInputSetting<P0>(&self, dwinputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).GetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetInputSetting<P0>(&self, dwinputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).SetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMWriterAdvanced2, ::windows::core::IUnknown, IWMWriterAdvanced);
@@ -8202,15 +8202,15 @@ impl IWMWriterAdvanced3 {
     }
     pub unsafe fn GetInputSetting<P0>(&self, dwinputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into(), ptype, pvalue, pcblength).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into().abi(), ptype, pvalue, pcblength).ok()
     }
     pub unsafe fn SetInputSetting<P0>(&self, dwinputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into().abi(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
     pub unsafe fn GetStatisticsEx(&self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS_EX> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8281,9 +8281,9 @@ impl IWMWriterFileSink {
     }
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMWriterFileSink, ::windows::core::IUnknown, IWMWriterSink);
@@ -8346,9 +8346,9 @@ impl IWMWriterFileSink2 {
     }
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn Start(&self, cnsstarttime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Start)(::windows::core::Vtable::as_raw(self), cnsstarttime).ok()
@@ -8452,9 +8452,9 @@ impl IWMWriterFileSink3 {
     }
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into().abi()).ok()
     }
     pub unsafe fn Start(&self, cnsstarttime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Start)(::windows::core::Vtable::as_raw(self), cnsstarttime).ok()
@@ -8919,11 +8919,11 @@ impl IWMWriterPushSink {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<P0, P1, P2>(&self, pwszurl: P0, pwsztemplateurl: P1, fautodestroy: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pwsztemplateurl.into(), fautodestroy.into()).ok()
+        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), pwsztemplateurl.into().abi(), fautodestroy.into()).ok()
     }
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()

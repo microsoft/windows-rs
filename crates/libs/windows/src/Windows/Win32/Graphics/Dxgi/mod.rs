@@ -2901,15 +2901,15 @@ impl IDXGIInfoQueue {
     }
     pub unsafe fn AddMessage<P0>(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddMessage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(producer), category, severity, id, pdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddMessage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(producer), category, severity, id, pdescription.into().abi()).ok()
     }
     pub unsafe fn AddApplicationMessage<P0>(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).AddApplicationMessage)(::windows::core::Vtable::as_raw(self), severity, pdescription.into()).ok()
+        (::windows::core::Vtable::vtable(self).AddApplicationMessage)(::windows::core::Vtable::as_raw(self), severity, pdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4593,10 +4593,10 @@ impl IDXGIResource1 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn CreateSharedHandle<P0>(&self, pattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwaccess: u32, lpname: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDXGIResource1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGIResource);

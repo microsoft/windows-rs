@@ -66,12 +66,12 @@ pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOnFile<P0, T>(filepath: P0, accessmode: u32) -> ::windows::core::Result<T>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "api-ms-win-shcore-stream-winrt-l1-1-0.dll""system" fn CreateRandomAccessStreamOnFile ( filepath : :: windows::core::PCWSTR , accessmode : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateRandomAccessStreamOnFile(filepath.into(), accessmode, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    CreateRandomAccessStreamOnFile(filepath.into().abi(), accessmode, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -353,11 +353,11 @@ where
 #[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0) -> ::windows::core::Result<IRestrictedErrorInfo>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "api-ms-win-core-winrt-error-l1-1-0.dll""system" fn RoResolveRestrictedErrorInfoReference ( reference : :: windows::core::PCWSTR , pprestrictederrorinfo : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RoResolveRestrictedErrorInfoReference(reference.into(), result__.as_mut_ptr()).from_abi(result__)
+    RoResolveRestrictedErrorInfoReference(reference.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -434,10 +434,10 @@ pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) 
 #[inline]
 pub unsafe fn WindowsCreateStringReference<P0>(sourcestring: P0, length: u32, hstringheader: *mut HSTRING_HEADER, string: ::core::option::Option<*mut ::windows::core::HSTRING>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "api-ms-win-core-winrt-string-l1-1-0.dll""system" fn WindowsCreateStringReference ( sourcestring : :: windows::core::PCWSTR , length : u32 , hstringheader : *mut HSTRING_HEADER , string : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WindowsCreateStringReference(sourcestring.into(), length, hstringheader, ::core::mem::transmute(string.unwrap_or(::std::ptr::null_mut()))).ok()
+    WindowsCreateStringReference(sourcestring.into().abi(), length, hstringheader, ::core::mem::transmute(string.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -891,9 +891,9 @@ impl ICastingEventHandler {
     }
     pub unsafe fn OnError<P0>(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnError)(::windows::core::Vtable::as_raw(self), errorstatus, errormessage.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnError)(::windows::core::Vtable::as_raw(self), errorstatus, errormessage.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICastingEventHandler, ::windows::core::IUnknown);
@@ -1767,10 +1767,10 @@ pub struct IRoMetaDataLocator(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IRoMetaDataLocator {
     pub unsafe fn Locate<P0, P1>(&self, nameelement: P0, metadatadestination: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IRoSimpleMetaDataBuilder>>,
     {
-        (::windows::core::Vtable::vtable(self).Locate)(::windows::core::Vtable::as_raw(self), nameelement.into(), metadatadestination.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Locate)(::windows::core::Vtable::as_raw(self), nameelement.into().abi(), metadatadestination.into().abi()).ok()
     }
 }
 impl ::core::clone::Clone for IRoMetaDataLocator {
@@ -1809,42 +1809,42 @@ impl IRoSimpleMetaDataBuilder {
     }
     pub unsafe fn SetInterfaceGroupSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetInterfaceGroupSimpleDefault)(::windows::core::Vtable::as_raw(self), name.into(), defaultinterfacename.into(), ::core::mem::transmute(defaultinterfaceiid.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).SetInterfaceGroupSimpleDefault)(::windows::core::Vtable::as_raw(self), name.into().abi(), defaultinterfacename.into().abi(), ::core::mem::transmute(defaultinterfaceiid.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetInterfaceGroupParameterizedDefault<P0>(&self, name: P0, defaultinterfacenameelements: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetInterfaceGroupParameterizedDefault)(::windows::core::Vtable::as_raw(self), name.into(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).SetInterfaceGroupParameterizedDefault)(::windows::core::Vtable::as_raw(self), name.into().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
     }
     pub unsafe fn SetRuntimeClassSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: ::core::option::Option<*const ::windows::core::GUID>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRuntimeClassSimpleDefault)(::windows::core::Vtable::as_raw(self), name.into(), defaultinterfacename.into(), ::core::mem::transmute(defaultinterfaceiid.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Vtable::vtable(self).SetRuntimeClassSimpleDefault)(::windows::core::Vtable::as_raw(self), name.into().abi(), defaultinterfacename.into().abi(), ::core::mem::transmute(defaultinterfaceiid.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn SetRuntimeClassParameterizedDefault<P0>(&self, name: P0, defaultinterfacenameelements: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRuntimeClassParameterizedDefault)(::windows::core::Vtable::as_raw(self), name.into(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).SetRuntimeClassParameterizedDefault)(::windows::core::Vtable::as_raw(self), name.into().abi(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(defaultinterfacenameelements.as_ptr())).ok()
     }
     pub unsafe fn SetStruct<P0>(&self, name: P0, fieldtypenames: &[::windows::core::PCWSTR]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetStruct)(::windows::core::Vtable::as_raw(self), name.into(), fieldtypenames.len() as _, ::core::mem::transmute(fieldtypenames.as_ptr())).ok()
+        (::windows::core::Vtable::vtable(self).SetStruct)(::windows::core::Vtable::as_raw(self), name.into().abi(), fieldtypenames.len() as _, ::core::mem::transmute(fieldtypenames.as_ptr())).ok()
     }
     pub unsafe fn SetEnum<P0, P1>(&self, name: P0, basetype: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetEnum)(::windows::core::Vtable::as_raw(self), name.into(), basetype.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetEnum)(::windows::core::Vtable::as_raw(self), name.into().abi(), basetype.into().abi()).ok()
     }
     pub unsafe fn SetParameterizedInterface(&self, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetParameterizedInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid), numargs).ok()

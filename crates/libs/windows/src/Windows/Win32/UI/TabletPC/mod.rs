@@ -13,10 +13,10 @@ where
 pub unsafe fn AddWordsToWordList<P0, P1>(hwl: P0, pwcwords: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOWORDLIST>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "inkobjcore.dll""system" fn AddWordsToWordList ( hwl : HRECOWORDLIST , pwcwords : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    AddWordsToWordList(hwl.into(), pwcwords.into()).ok()
+    AddWordsToWordList(hwl.into(), pwcwords.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -154,10 +154,10 @@ where
 pub unsafe fn IsStringSupported<P0, P1>(hrc: P0, wcstring: u32, pwcstring: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "inkobjcore.dll""system" fn IsStringSupported ( hrc : HRECOCONTEXT , wcstring : u32 , pwcstring : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    IsStringSupported(hrc.into(), wcstring, pwcstring.into()).ok()
+    IsStringSupported(hrc.into(), wcstring, pwcstring.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
@@ -170,10 +170,10 @@ pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes
 pub unsafe fn MakeWordList<P0, P1>(hrec: P0, pbuffer: P1, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOGNIZER>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "inkobjcore.dll""system" fn MakeWordList ( hrec : HRECOGNIZER , pbuffer : :: windows::core::PCWSTR , phwl : *mut HRECOWORDLIST ) -> :: windows::core::HRESULT );
-    MakeWordList(hrec.into(), pbuffer.into(), phwl).ok()
+    MakeWordList(hrec.into(), pbuffer.into().abi(), phwl).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -199,10 +199,10 @@ where
 pub unsafe fn SetFactoid<P0, P1>(hrc: P0, cwcfactoid: u32, pwcfactoid: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HRECOCONTEXT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "inkobjcore.dll""system" fn SetFactoid ( hrc : HRECOCONTEXT , cwcfactoid : u32 , pwcfactoid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SetFactoid(hrc.into(), cwcfactoid, pwcfactoid.into()).ok()
+    SetFactoid(hrc.into(), cwcfactoid, pwcfactoid.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
@@ -3008,15 +3008,15 @@ impl IInkLineInfo {
     }
     pub unsafe fn GetCandidate<P0>(&self, ncandidatenum: u32, pwcrecogword: P0, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCandidate)(::windows::core::Vtable::as_raw(self), ncandidatenum, pwcrecogword.into(), pcwcrecogword, dwflags).ok()
+        (::windows::core::Vtable::vtable(self).GetCandidate)(::windows::core::Vtable::as_raw(self), ncandidatenum, pwcrecogword.into().abi(), pcwcrecogword, dwflags).ok()
     }
     pub unsafe fn SetCandidate<P0>(&self, ncandidatenum: u32, strrecogword: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCandidate)(::windows::core::Vtable::as_raw(self), ncandidatenum, strrecogword.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetCandidate)(::windows::core::Vtable::as_raw(self), ncandidatenum, strrecogword.into().abi()).ok()
     }
     pub unsafe fn Recognize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Recognize)(::windows::core::Vtable::as_raw(self)).ok()

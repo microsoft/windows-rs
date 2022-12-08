@@ -1246,11 +1246,11 @@ pub struct ICheckSxsConfig(::windows::core::IUnknown);
 impl ICheckSxsConfig {
     pub unsafe fn IsSameSxsConfig<P0, P1, P2>(&self, wszsxsname: P0, wszsxsdirectory: P1, wszsxsappname: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).IsSameSxsConfig)(::windows::core::Vtable::as_raw(self), wszsxsname.into(), wszsxsdirectory.into(), wszsxsappname.into()).ok()
+        (::windows::core::Vtable::vtable(self).IsSameSxsConfig)(::windows::core::Vtable::as_raw(self), wszsxsname.into().abi(), wszsxsdirectory.into().abi(), wszsxsappname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICheckSxsConfig, ::windows::core::IUnknown);
@@ -1564,9 +1564,9 @@ pub struct IComExceptionEvents(::windows::core::IUnknown);
 impl IComExceptionEvents {
     pub unsafe fn OnExceptionUser<P0>(&self, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnExceptionUser)(::windows::core::Vtable::as_raw(self), pinfo, code, address, pszstacktrace.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnExceptionUser)(::windows::core::Vtable::as_raw(self), pinfo, code, address, pszstacktrace.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IComExceptionEvents, ::windows::core::IUnknown);
@@ -1604,11 +1604,11 @@ pub struct IComIdentityEvents(::windows::core::IUnknown);
 impl IComIdentityEvents {
     pub unsafe fn OnIISRequestInfo<P0, P1, P2>(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: P0, pszserverip: P1, pszurl: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnIISRequestInfo)(::windows::core::Vtable::as_raw(self), pinfo, objid, pszclientip.into(), pszserverip.into(), pszurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnIISRequestInfo)(::windows::core::Vtable::as_raw(self), pinfo, objid, pszclientip.into().abi(), pszserverip.into().abi(), pszurl.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IComIdentityEvents, ::windows::core::IUnknown);
@@ -1938,9 +1938,9 @@ pub struct IComObjectConstruction2Events(::windows::core::IUnknown);
 impl IComObjectConstruction2Events {
     pub unsafe fn OnObjectConstruct2<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: P0, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnObjectConstruct2)(::windows::core::Vtable::as_raw(self), pinfo, guidobject, sconstructstring.into(), oid, guidpartition).ok()
+        (::windows::core::Vtable::vtable(self).OnObjectConstruct2)(::windows::core::Vtable::as_raw(self), pinfo, guidobject, sconstructstring.into().abi(), oid, guidpartition).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IComObjectConstruction2Events, ::windows::core::IUnknown);
@@ -1978,9 +1978,9 @@ pub struct IComObjectConstructionEvents(::windows::core::IUnknown);
 impl IComObjectConstructionEvents {
     pub unsafe fn OnObjectConstruct<P0>(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: P0, oid: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnObjectConstruct)(::windows::core::Vtable::as_raw(self), pinfo, guidobject, sconstructstring.into(), oid).ok()
+        (::windows::core::Vtable::vtable(self).OnObjectConstruct)(::windows::core::Vtable::as_raw(self), pinfo, guidobject, sconstructstring.into().abi(), oid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IComObjectConstructionEvents, ::windows::core::IUnknown);
@@ -2289,40 +2289,40 @@ impl IComResourceEvents {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResourceCreate<P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnResourceCreate)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into(), resid, enlisted.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnResourceCreate)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into().abi(), resid, enlisted.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResourceAllocate<P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1, numrated: u32, rating: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnResourceAllocate)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into(), resid, enlisted.into(), numrated, rating).ok()
+        (::windows::core::Vtable::vtable(self).OnResourceAllocate)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into().abi(), resid, enlisted.into(), numrated, rating).ok()
     }
     pub unsafe fn OnResourceRecycle<P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnResourceRecycle)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into(), resid).ok()
+        (::windows::core::Vtable::vtable(self).OnResourceRecycle)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into().abi(), resid).ok()
     }
     pub unsafe fn OnResourceDestroy<P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, hr: ::windows::core::HRESULT, psztype: P0, resid: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnResourceDestroy)(::windows::core::Vtable::as_raw(self), pinfo, objectid, hr, psztype.into(), resid).ok()
+        (::windows::core::Vtable::vtable(self).OnResourceDestroy)(::windows::core::Vtable::as_raw(self), pinfo, objectid, hr, psztype.into().abi(), resid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResourceTrack<P0, P1>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).OnResourceTrack)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into(), resid, enlisted.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnResourceTrack)(::windows::core::Vtable::as_raw(self), pinfo, objectid, psztype.into().abi(), resid, enlisted.into()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IComResourceEvents, ::windows::core::IUnknown);
@@ -2822,10 +2822,10 @@ impl IComTrackingInfoObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue<P0>(&self, szpropertyname: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), szpropertyname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), szpropertyname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IComTrackingInfoObject, ::windows::core::IUnknown);
@@ -3684,10 +3684,10 @@ impl ICrmLogControl {
     }
     pub unsafe fn RegisterCompensator<P0, P1>(&self, lpcwstrprogidcompensator: P0, lpcwstrdescription: P1, lcrmregflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).RegisterCompensator)(::windows::core::Vtable::as_raw(self), lpcwstrprogidcompensator.into(), lpcwstrdescription.into(), lcrmregflags).ok()
+        (::windows::core::Vtable::vtable(self).RegisterCompensator)(::windows::core::Vtable::as_raw(self), lpcwstrprogidcompensator.into().abi(), lpcwstrdescription.into().abi(), lcrmregflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4050,10 +4050,10 @@ impl IDispenserManager {
     pub unsafe fn RegisterDispenser<P0, P1>(&self, __midl__idispensermanager0000: P0, szdispensername: P1) -> ::windows::core::Result<IHolder>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDispenserDriver>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterDispenser)(::windows::core::Vtable::as_raw(self), __midl__idispensermanager0000.into().abi(), szdispensername.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterDispenser)(::windows::core::Vtable::as_raw(self), __midl__idispensermanager0000.into().abi(), szdispensername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetContext(&self, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), __midl__idispensermanager0002, __midl__idispensermanager0003).ok()
@@ -6536,15 +6536,15 @@ impl IServiceSxsConfig {
     }
     pub unsafe fn SxsName<P0>(&self, szsxsname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SxsName)(::windows::core::Vtable::as_raw(self), szsxsname.into()).ok()
+        (::windows::core::Vtable::vtable(self).SxsName)(::windows::core::Vtable::as_raw(self), szsxsname.into().abi()).ok()
     }
     pub unsafe fn SxsDirectory<P0>(&self, szsxsdirectory: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SxsDirectory)(::windows::core::Vtable::as_raw(self), szsxsdirectory.into()).ok()
+        (::windows::core::Vtable::vtable(self).SxsDirectory)(::windows::core::Vtable::as_raw(self), szsxsdirectory.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IServiceSxsConfig, ::windows::core::IUnknown);
@@ -6630,15 +6630,15 @@ impl IServiceSysTxnConfig {
     }
     pub unsafe fn BringYourOwnTransaction<P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into().abi()).ok()
     }
     pub unsafe fn NewTransactionDescription<P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.NewTransactionDescription)(::windows::core::Vtable::as_raw(self), sztxdesc.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.NewTransactionDescription)(::windows::core::Vtable::as_raw(self), sztxdesc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -6731,10 +6731,10 @@ pub struct IServiceTrackerConfig(::windows::core::IUnknown);
 impl IServiceTrackerConfig {
     pub unsafe fn TrackerConfig<P0, P1>(&self, trackerconfig: CSC_TrackerConfig, sztrackerappname: P0, sztrackerctxname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).TrackerConfig)(::windows::core::Vtable::as_raw(self), trackerconfig, sztrackerappname.into(), sztrackerctxname.into()).ok()
+        (::windows::core::Vtable::vtable(self).TrackerConfig)(::windows::core::Vtable::as_raw(self), trackerconfig, sztrackerappname.into().abi(), sztrackerctxname.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IServiceTrackerConfig, ::windows::core::IUnknown);
@@ -6781,15 +6781,15 @@ impl IServiceTransactionConfig {
     }
     pub unsafe fn BringYourOwnTransaction<P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into().abi()).ok()
     }
     pub unsafe fn NewTransactionDescription<P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.NewTransactionDescription)(::windows::core::Vtable::as_raw(self), sztxdesc.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.NewTransactionDescription)(::windows::core::Vtable::as_raw(self), sztxdesc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -6847,15 +6847,15 @@ impl IServiceTransactionConfigBase {
     }
     pub unsafe fn BringYourOwnTransaction<P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).BringYourOwnTransaction)(::windows::core::Vtable::as_raw(self), sztipurl.into().abi()).ok()
     }
     pub unsafe fn NewTransactionDescription<P0>(&self, sztxdesc: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).NewTransactionDescription)(::windows::core::Vtable::as_raw(self), sztxdesc.into()).ok()
+        (::windows::core::Vtable::vtable(self).NewTransactionDescription)(::windows::core::Vtable::as_raw(self), sztxdesc.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IServiceTransactionConfigBase, ::windows::core::IUnknown);

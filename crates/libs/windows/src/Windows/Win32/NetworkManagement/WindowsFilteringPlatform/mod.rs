@@ -267,10 +267,10 @@ where
 #[inline]
 pub unsafe fn FwpmEngineOpen0<P0>(servername: P0, authnservice: u32, authidentity: ::core::option::Option<*const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: ::core::option::Option<*const FWPM_SESSION0>, enginehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmEngineOpen0 ( servername : :: windows::core::PCWSTR , authnservice : u32 , authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W , session : *const FWPM_SESSION0 , enginehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmEngineOpen0(servername.into(), authnservice, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), ::core::mem::transmute(session.unwrap_or(::std::ptr::null())), enginehandle)
+    FwpmEngineOpen0(servername.into().abi(), authnservice, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), ::core::mem::transmute(session.unwrap_or(::std::ptr::null())), enginehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -436,10 +436,10 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
 #[inline]
 pub unsafe fn FwpmGetAppIdFromFileName0<P0>(filename: P0, appid: *mut *mut FWP_BYTE_BLOB) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmGetAppIdFromFileName0 ( filename : :: windows::core::PCWSTR , appid : *mut *mut FWP_BYTE_BLOB ) -> u32 );
-    FwpmGetAppIdFromFileName0(filename.into(), appid)
+    FwpmGetAppIdFromFileName0(filename.into().abi(), appid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

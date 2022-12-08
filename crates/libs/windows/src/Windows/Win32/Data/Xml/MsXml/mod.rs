@@ -129,28 +129,28 @@ impl IMXNamespaceManager {
     }
     pub unsafe fn declarePrefix<P0, P1>(&self, prefix: P0, namespaceuri: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).declarePrefix)(::windows::core::Vtable::as_raw(self), prefix.into(), namespaceuri.into()).ok()
+        (::windows::core::Vtable::vtable(self).declarePrefix)(::windows::core::Vtable::as_raw(self), prefix.into().abi(), namespaceuri.into().abi()).ok()
     }
     pub unsafe fn getDeclaredPrefix(&self, nindex: i32, pwchprefix: ::windows::core::PWSTR, pcchprefix: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getDeclaredPrefix)(::windows::core::Vtable::as_raw(self), nindex, ::core::mem::transmute(pwchprefix), pcchprefix).ok()
     }
     pub unsafe fn getPrefix<P0>(&self, pwsznamespaceuri: P0, nindex: i32, pwchprefix: ::windows::core::PWSTR, pcchprefix: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).getPrefix)(::windows::core::Vtable::as_raw(self), pwsznamespaceuri.into(), nindex, ::core::mem::transmute(pwchprefix), pcchprefix).ok()
+        (::windows::core::Vtable::vtable(self).getPrefix)(::windows::core::Vtable::as_raw(self), pwsznamespaceuri.into().abi(), nindex, ::core::mem::transmute(pwchprefix), pcchprefix).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getURI<P0, P1>(&self, pwchprefix: P0, pcontextnode: P1, pwchuri: ::windows::core::PWSTR, pcchuri: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).getURI)(::windows::core::Vtable::as_raw(self), pwchprefix.into(), pcontextnode.into().abi(), ::core::mem::transmute(pwchuri), pcchuri).ok()
+        (::windows::core::Vtable::vtable(self).getURI)(::windows::core::Vtable::as_raw(self), pwchprefix.into().abi(), pcontextnode.into().abi(), ::core::mem::transmute(pwchuri), pcchuri).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMXNamespaceManager, ::windows::core::IUnknown);
@@ -701,50 +701,50 @@ impl ISAXAttributes {
     }
     pub unsafe fn getIndexFromName<P0, P1>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P1, cchlocalname: i32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).getIndexFromName)(::windows::core::Vtable::as_raw(self), pwchuri.into(), cchuri, pwchlocalname.into(), cchlocalname, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).getIndexFromName)(::windows::core::Vtable::as_raw(self), pwchuri.into().abi(), cchuri, pwchlocalname.into().abi(), cchlocalname, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn getIndexFromQName<P0>(&self, pwchqname: P0, cchqname: i32) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).getIndexFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into(), cchqname, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).getIndexFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into().abi(), cchqname, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getType)(::windows::core::Vtable::as_raw(self), nindex, ppwchtype, pcchtype).ok()
     }
     pub unsafe fn getTypeFromName<P0, P1>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P1, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).getTypeFromName)(::windows::core::Vtable::as_raw(self), pwchuri.into(), cchuri, pwchlocalname.into(), cchlocalname, ppwchtype, pcchtype).ok()
+        (::windows::core::Vtable::vtable(self).getTypeFromName)(::windows::core::Vtable::as_raw(self), pwchuri.into().abi(), cchuri, pwchlocalname.into().abi(), cchlocalname, ppwchtype, pcchtype).ok()
     }
     pub unsafe fn getTypeFromQName<P0>(&self, pwchqname: P0, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).getTypeFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into(), cchqname, ppwchtype, pcchtype).ok()
+        (::windows::core::Vtable::vtable(self).getTypeFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into().abi(), cchqname, ppwchtype, pcchtype).ok()
     }
     pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getValue)(::windows::core::Vtable::as_raw(self), nindex, ppwchvalue, pcchvalue).ok()
     }
     pub unsafe fn getValueFromName<P0, P1>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P1, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).getValueFromName)(::windows::core::Vtable::as_raw(self), pwchuri.into(), cchuri, pwchlocalname.into(), cchlocalname, ppwchvalue, pcchvalue).ok()
+        (::windows::core::Vtable::vtable(self).getValueFromName)(::windows::core::Vtable::as_raw(self), pwchuri.into().abi(), cchuri, pwchlocalname.into().abi(), cchlocalname, ppwchvalue, pcchvalue).ok()
     }
     pub unsafe fn getValueFromQName<P0>(&self, pwchqname: P0, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).getValueFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into(), cchqname, ppwchvalue, pcchvalue).ok()
+        (::windows::core::Vtable::vtable(self).getValueFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into().abi(), cchqname, ppwchvalue, pcchvalue).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISAXAttributes, ::windows::core::IUnknown);
@@ -806,58 +806,58 @@ impl ISAXContentHandler {
     }
     pub unsafe fn startPrefixMapping<P0, P1>(&self, pwchprefix: P0, cchprefix: i32, pwchuri: P1, cchuri: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).startPrefixMapping)(::windows::core::Vtable::as_raw(self), pwchprefix.into(), cchprefix, pwchuri.into(), cchuri).ok()
+        (::windows::core::Vtable::vtable(self).startPrefixMapping)(::windows::core::Vtable::as_raw(self), pwchprefix.into().abi(), cchprefix, pwchuri.into().abi(), cchuri).ok()
     }
     pub unsafe fn endPrefixMapping<P0>(&self, pwchprefix: P0, cchprefix: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).endPrefixMapping)(::windows::core::Vtable::as_raw(self), pwchprefix.into(), cchprefix).ok()
+        (::windows::core::Vtable::vtable(self).endPrefixMapping)(::windows::core::Vtable::as_raw(self), pwchprefix.into().abi(), cchprefix).ok()
     }
     pub unsafe fn startElement<P0, P1, P2, P3>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P1, cchlocalname: i32, pwchqname: P2, cchqname: i32, pattributes: P3) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<ISAXAttributes>>,
     {
-        (::windows::core::Vtable::vtable(self).startElement)(::windows::core::Vtable::as_raw(self), pwchnamespaceuri.into(), cchnamespaceuri, pwchlocalname.into(), cchlocalname, pwchqname.into(), cchqname, pattributes.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).startElement)(::windows::core::Vtable::as_raw(self), pwchnamespaceuri.into().abi(), cchnamespaceuri, pwchlocalname.into().abi(), cchlocalname, pwchqname.into().abi(), cchqname, pattributes.into().abi()).ok()
     }
     pub unsafe fn endElement<P0, P1, P2>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P1, cchlocalname: i32, pwchqname: P2, cchqname: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).endElement)(::windows::core::Vtable::as_raw(self), pwchnamespaceuri.into(), cchnamespaceuri, pwchlocalname.into(), cchlocalname, pwchqname.into(), cchqname).ok()
+        (::windows::core::Vtable::vtable(self).endElement)(::windows::core::Vtable::as_raw(self), pwchnamespaceuri.into().abi(), cchnamespaceuri, pwchlocalname.into().abi(), cchlocalname, pwchqname.into().abi(), cchqname).ok()
     }
     pub unsafe fn characters<P0>(&self, pwchchars: P0, cchchars: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).characters)(::windows::core::Vtable::as_raw(self), pwchchars.into(), cchchars).ok()
+        (::windows::core::Vtable::vtable(self).characters)(::windows::core::Vtable::as_raw(self), pwchchars.into().abi(), cchchars).ok()
     }
     pub unsafe fn ignorableWhitespace<P0>(&self, pwchchars: P0, cchchars: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ignorableWhitespace)(::windows::core::Vtable::as_raw(self), pwchchars.into(), cchchars).ok()
+        (::windows::core::Vtable::vtable(self).ignorableWhitespace)(::windows::core::Vtable::as_raw(self), pwchchars.into().abi(), cchchars).ok()
     }
     pub unsafe fn processingInstruction<P0, P1>(&self, pwchtarget: P0, cchtarget: i32, pwchdata: P1, cchdata: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).processingInstruction)(::windows::core::Vtable::as_raw(self), pwchtarget.into(), cchtarget, pwchdata.into(), cchdata).ok()
+        (::windows::core::Vtable::vtable(self).processingInstruction)(::windows::core::Vtable::as_raw(self), pwchtarget.into().abi(), cchtarget, pwchdata.into().abi(), cchdata).ok()
     }
     pub unsafe fn skippedEntity<P0>(&self, pwchname: P0, cchname: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).skippedEntity)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname).ok()
+        (::windows::core::Vtable::vtable(self).skippedEntity)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISAXContentHandler, ::windows::core::IUnknown);
@@ -905,20 +905,20 @@ pub struct ISAXDTDHandler(::windows::core::IUnknown);
 impl ISAXDTDHandler {
     pub unsafe fn notationDecl<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).notationDecl)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchpublicid.into(), cchpublicid, pwchsystemid.into(), cchsystemid).ok()
+        (::windows::core::Vtable::vtable(self).notationDecl)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchpublicid.into().abi(), cchpublicid, pwchsystemid.into().abi(), cchsystemid).ok()
     }
     pub unsafe fn unparsedEntityDecl<P0, P1, P2, P3>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32, pwchnotationname: P3, cchnotationname: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).unparsedEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchpublicid.into(), cchpublicid, pwchsystemid.into(), cchsystemid, pwchnotationname.into(), cchnotationname).ok()
+        (::windows::core::Vtable::vtable(self).unparsedEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchpublicid.into().abi(), cchpublicid, pwchsystemid.into().abi(), cchsystemid, pwchnotationname.into().abi(), cchnotationname).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISAXDTDHandler, ::windows::core::IUnknown);
@@ -957,35 +957,35 @@ pub struct ISAXDeclHandler(::windows::core::IUnknown);
 impl ISAXDeclHandler {
     pub unsafe fn elementDecl<P0, P1>(&self, pwchname: P0, cchname: i32, pwchmodel: P1, cchmodel: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).elementDecl)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchmodel.into(), cchmodel).ok()
+        (::windows::core::Vtable::vtable(self).elementDecl)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchmodel.into().abi(), cchmodel).ok()
     }
     pub unsafe fn attributeDecl<P0, P1, P2, P3, P4>(&self, pwchelementname: P0, cchelementname: i32, pwchattributename: P1, cchattributename: i32, pwchtype: P2, cchtype: i32, pwchvaluedefault: P3, cchvaluedefault: i32, pwchvalue: P4, cchvalue: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).attributeDecl)(::windows::core::Vtable::as_raw(self), pwchelementname.into(), cchelementname, pwchattributename.into(), cchattributename, pwchtype.into(), cchtype, pwchvaluedefault.into(), cchvaluedefault, pwchvalue.into(), cchvalue).ok()
+        (::windows::core::Vtable::vtable(self).attributeDecl)(::windows::core::Vtable::as_raw(self), pwchelementname.into().abi(), cchelementname, pwchattributename.into().abi(), cchattributename, pwchtype.into().abi(), cchtype, pwchvaluedefault.into().abi(), cchvaluedefault, pwchvalue.into().abi(), cchvalue).ok()
     }
     pub unsafe fn internalEntityDecl<P0, P1>(&self, pwchname: P0, cchname: i32, pwchvalue: P1, cchvalue: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).internalEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchvalue.into(), cchvalue).ok()
+        (::windows::core::Vtable::vtable(self).internalEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchvalue.into().abi(), cchvalue).ok()
     }
     pub unsafe fn externalEntityDecl<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).externalEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchpublicid.into(), cchpublicid, pwchsystemid.into(), cchsystemid).ok()
+        (::windows::core::Vtable::vtable(self).externalEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchpublicid.into().abi(), cchpublicid, pwchsystemid.into().abi(), cchsystemid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISAXDeclHandler, ::windows::core::IUnknown);
@@ -1028,11 +1028,11 @@ impl ISAXEntityResolver {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn resolveEntity<P0, P1>(&self, pwchpublicid: P0, pwchsystemid: P1) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).resolveEntity)(::windows::core::Vtable::as_raw(self), pwchpublicid.into(), pwchsystemid.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).resolveEntity)(::windows::core::Vtable::as_raw(self), pwchpublicid.into().abi(), pwchsystemid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISAXEntityResolver, ::windows::core::IUnknown);
@@ -1074,23 +1074,23 @@ impl ISAXErrorHandler {
     pub unsafe fn error<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ISAXLocator>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).error)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into(), hrerrorcode).ok()
+        (::windows::core::Vtable::vtable(self).error)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into().abi(), hrerrorcode).ok()
     }
     pub unsafe fn fatalError<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ISAXLocator>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).fatalError)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into(), hrerrorcode).ok()
+        (::windows::core::Vtable::vtable(self).fatalError)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into().abi(), hrerrorcode).ok()
     }
     pub unsafe fn ignorableWarning<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ISAXLocator>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).ignorableWarning)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into(), hrerrorcode).ok()
+        (::windows::core::Vtable::vtable(self).ignorableWarning)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into().abi(), hrerrorcode).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISAXErrorHandler, ::windows::core::IUnknown);
@@ -1130,26 +1130,26 @@ pub struct ISAXLexicalHandler(::windows::core::IUnknown);
 impl ISAXLexicalHandler {
     pub unsafe fn startDTD<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).startDTD)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchpublicid.into(), cchpublicid, pwchsystemid.into(), cchsystemid).ok()
+        (::windows::core::Vtable::vtable(self).startDTD)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname, pwchpublicid.into().abi(), cchpublicid, pwchsystemid.into().abi(), cchsystemid).ok()
     }
     pub unsafe fn endDTD(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).endDTD)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn startEntity<P0>(&self, pwchname: P0, cchname: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).startEntity)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname).ok()
+        (::windows::core::Vtable::vtable(self).startEntity)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname).ok()
     }
     pub unsafe fn endEntity<P0>(&self, pwchname: P0, cchname: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).endEntity)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname).ok()
+        (::windows::core::Vtable::vtable(self).endEntity)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), cchname).ok()
     }
     pub unsafe fn startCDATA(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).startCDATA)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1159,9 +1159,9 @@ impl ISAXLexicalHandler {
     }
     pub unsafe fn comment<P0>(&self, pwchchars: P0, cchchars: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).comment)(::windows::core::Vtable::as_raw(self), pwchchars.into(), cchchars).ok()
+        (::windows::core::Vtable::vtable(self).comment)(::windows::core::Vtable::as_raw(self), pwchchars.into().abi(), cchchars).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISAXLexicalHandler, ::windows::core::IUnknown);
@@ -1260,35 +1260,35 @@ impl ISAXXMLFilter {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getFeature<P0>(&self, pwchname: P0) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.getFeature)(::windows::core::Vtable::as_raw(self), pwchname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.getFeature)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn putFeature<P0>(&self, pwchname: P0, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.putFeature)(::windows::core::Vtable::as_raw(self), pwchname.into(), vfvalue).ok()
+        (::windows::core::Vtable::vtable(self).base__.putFeature)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), vfvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.getProperty)(::windows::core::Vtable::as_raw(self), pwchname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.getProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into(), ::core::mem::transmute(varvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), ::core::mem::transmute(varvalue)).ok()
     }
     pub unsafe fn getEntityResolver(&self) -> ::windows::core::Result<ISAXEntityResolver> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1336,9 +1336,9 @@ impl ISAXXMLFilter {
     }
     pub unsafe fn putBaseURL<P0>(&self, pwchbaseurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.putBaseURL)(::windows::core::Vtable::as_raw(self), pwchbaseurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.putBaseURL)(::windows::core::Vtable::as_raw(self), pwchbaseurl.into().abi()).ok()
     }
     pub unsafe fn getSecureBaseURL(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1346,9 +1346,9 @@ impl ISAXXMLFilter {
     }
     pub unsafe fn putSecureBaseURL<P0>(&self, pwchsecurebaseurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.putSecureBaseURL)(::windows::core::Vtable::as_raw(self), pwchsecurebaseurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.putSecureBaseURL)(::windows::core::Vtable::as_raw(self), pwchsecurebaseurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1357,9 +1357,9 @@ impl ISAXXMLFilter {
     }
     pub unsafe fn parseURL<P0>(&self, pwchurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.parseURL)(::windows::core::Vtable::as_raw(self), pwchurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.parseURL)(::windows::core::Vtable::as_raw(self), pwchurl.into().abi()).ok()
     }
     pub unsafe fn getParent(&self) -> ::windows::core::Result<ISAXXMLReader> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1410,35 +1410,35 @@ impl ISAXXMLReader {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getFeature<P0>(&self, pwchname: P0) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).getFeature)(::windows::core::Vtable::as_raw(self), pwchname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).getFeature)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn putFeature<P0>(&self, pwchname: P0, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).putFeature)(::windows::core::Vtable::as_raw(self), pwchname.into(), vfvalue).ok()
+        (::windows::core::Vtable::vtable(self).putFeature)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), vfvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).getProperty)(::windows::core::Vtable::as_raw(self), pwchname.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).getProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into(), ::core::mem::transmute(varvalue)).ok()
+        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), ::core::mem::transmute(varvalue)).ok()
     }
     pub unsafe fn getEntityResolver(&self) -> ::windows::core::Result<ISAXEntityResolver> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1486,9 +1486,9 @@ impl ISAXXMLReader {
     }
     pub unsafe fn putBaseURL<P0>(&self, pwchbaseurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).putBaseURL)(::windows::core::Vtable::as_raw(self), pwchbaseurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).putBaseURL)(::windows::core::Vtable::as_raw(self), pwchbaseurl.into().abi()).ok()
     }
     pub unsafe fn getSecureBaseURL(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1496,9 +1496,9 @@ impl ISAXXMLReader {
     }
     pub unsafe fn putSecureBaseURL<P0>(&self, pwchsecurebaseurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).putSecureBaseURL)(::windows::core::Vtable::as_raw(self), pwchsecurebaseurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).putSecureBaseURL)(::windows::core::Vtable::as_raw(self), pwchsecurebaseurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1507,9 +1507,9 @@ impl ISAXXMLReader {
     }
     pub unsafe fn parseURL<P0>(&self, pwchurl: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).parseURL)(::windows::core::Vtable::as_raw(self), pwchurl.into()).ok()
+        (::windows::core::Vtable::vtable(self).parseURL)(::windows::core::Vtable::as_raw(self), pwchurl.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ISAXXMLReader, ::windows::core::IUnknown);
@@ -11361,15 +11361,15 @@ pub struct IXMLHTTPRequest2(::windows::core::IUnknown);
 impl IXMLHTTPRequest2 {
     pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IXMLHTTPRequest2Callback>>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
-        P5: ::std::convert::Into<::windows::core::PCWSTR>,
-        P6: ::std::convert::Into<::windows::core::PCWSTR>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P5: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P6: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszmethod.into(), pwszurl.into(), pstatuscallback.into().abi(), pwszusername.into(), pwszpassword.into(), pwszproxyusername.into(), pwszproxypassword.into()).ok()
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszmethod.into().abi(), pwszurl.into().abi(), pstatuscallback.into().abi(), pwszusername.into().abi(), pwszpassword.into().abi(), pwszproxyusername.into().abi(), pwszproxypassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11401,10 +11401,10 @@ impl IXMLHTTPRequest2 {
     }
     pub unsafe fn SetRequestHeader<P0, P1>(&self, pwszheader: P0, pwszvalue: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetRequestHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into(), pwszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetRequestHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into().abi(), pwszvalue.into().abi()).ok()
     }
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11414,17 +11414,17 @@ impl IXMLHTTPRequest2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCookie<P0, P1>(&self, pwszurl: P0, pwszname: P1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetCookie)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pwszname.into(), dwflags, pccookies, ppcookies).ok()
+        (::windows::core::Vtable::vtable(self).GetCookie)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), pwszname.into().abi(), dwflags, pccookies, ppcookies).ok()
     }
     pub unsafe fn GetResponseHeader<P0>(&self, pwszheader: P0) -> ::windows::core::Result<*mut u16>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResponseHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetResponseHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXMLHTTPRequest2, ::windows::core::IUnknown);
@@ -11484,16 +11484,16 @@ impl IXMLHTTPRequest2Callback {
     pub unsafe fn OnRedirect<P0, P1>(&self, pxhr: P0, pwszredirecturl: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLHTTPRequest2>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnRedirect)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), pwszredirecturl.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnRedirect)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), pwszredirecturl.into().abi()).ok()
     }
     pub unsafe fn OnHeadersAvailable<P0, P1>(&self, pxhr: P0, dwstatus: u32, pwszstatus: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLHTTPRequest2>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OnHeadersAvailable)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), dwstatus, pwszstatus.into()).ok()
+        (::windows::core::Vtable::vtable(self).OnHeadersAvailable)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), dwstatus, pwszstatus.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11565,15 +11565,15 @@ pub struct IXMLHTTPRequest3(::windows::core::IUnknown);
 impl IXMLHTTPRequest3 {
     pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<IXMLHTTPRequest2Callback>>,
-        P3: ::std::convert::Into<::windows::core::PCWSTR>,
-        P4: ::std::convert::Into<::windows::core::PCWSTR>,
-        P5: ::std::convert::Into<::windows::core::PCWSTR>,
-        P6: ::std::convert::Into<::windows::core::PCWSTR>,
+        P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P5: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P6: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszmethod.into(), pwszurl.into(), pstatuscallback.into().abi(), pwszusername.into(), pwszpassword.into(), pwszproxyusername.into(), pwszproxypassword.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pwszmethod.into().abi(), pwszurl.into().abi(), pstatuscallback.into().abi(), pwszusername.into().abi(), pwszpassword.into().abi(), pwszproxyusername.into().abi(), pwszproxypassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11605,10 +11605,10 @@ impl IXMLHTTPRequest3 {
     }
     pub unsafe fn SetRequestHeader<P0, P1>(&self, pwszheader: P0, pwszvalue: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetRequestHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into(), pwszvalue.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetRequestHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into().abi(), pwszvalue.into().abi()).ok()
     }
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11618,23 +11618,23 @@ impl IXMLHTTPRequest3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCookie<P0, P1>(&self, pwszurl: P0, pwszname: P1, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetCookie)(::windows::core::Vtable::as_raw(self), pwszurl.into(), pwszname.into(), dwflags, pccookies, ppcookies).ok()
+        (::windows::core::Vtable::vtable(self).base__.GetCookie)(::windows::core::Vtable::as_raw(self), pwszurl.into().abi(), pwszname.into().abi(), dwflags, pccookies, ppcookies).ok()
     }
     pub unsafe fn GetResponseHeader<P0>(&self, pwszheader: P0) -> ::windows::core::Result<*mut u16>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResponseHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetResponseHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn SetClientCertificate<P0>(&self, pbclientcertificatehash: &[u8], pwszpin: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetClientCertificate)(::windows::core::Vtable::as_raw(self), pbclientcertificatehash.len() as _, ::core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.into()).ok()
+        (::windows::core::Vtable::vtable(self).SetClientCertificate)(::windows::core::Vtable::as_raw(self), pbclientcertificatehash.len() as _, ::core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.into().abi()).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IXMLHTTPRequest3, ::windows::core::IUnknown, IXMLHTTPRequest2);
@@ -11673,16 +11673,16 @@ impl IXMLHTTPRequest3Callback {
     pub unsafe fn OnRedirect<P0, P1>(&self, pxhr: P0, pwszredirecturl: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLHTTPRequest2>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.OnRedirect)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), pwszredirecturl.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnRedirect)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), pwszredirecturl.into().abi()).ok()
     }
     pub unsafe fn OnHeadersAvailable<P0, P1>(&self, pxhr: P0, dwstatus: u32, pwszstatus: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLHTTPRequest2>>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.OnHeadersAvailable)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), dwstatus, pwszstatus.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.OnHeadersAvailable)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), dwstatus, pwszstatus.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

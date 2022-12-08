@@ -3,33 +3,33 @@
 #[inline]
 pub unsafe fn CreateAppContainerProfile<P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: ::core::option::Option<&[super::SID_AND_ATTRIBUTES]>) -> ::windows::core::Result<super::super::Foundation::PSID>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "userenv.dll""system" fn CreateAppContainerProfile ( pszappcontainername : :: windows::core::PCWSTR , pszdisplayname : :: windows::core::PCWSTR , pszdescription : :: windows::core::PCWSTR , pcapabilities : *const super:: SID_AND_ATTRIBUTES , dwcapabilitycount : u32 , ppsidappcontainersid : *mut super::super::Foundation:: PSID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateAppContainerProfile(pszappcontainername.into(), pszdisplayname.into(), pszdescription.into(), ::core::mem::transmute(pcapabilities.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
+    CreateAppContainerProfile(pszappcontainername.into().abi(), pszdisplayname.into().abi(), pszdescription.into().abi(), ::core::mem::transmute(pcapabilities.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
 pub unsafe fn DeleteAppContainerProfile<P0>(pszappcontainername: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "userenv.dll""system" fn DeleteAppContainerProfile ( pszappcontainername : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    DeleteAppContainerProfile(pszappcontainername.into()).ok()
+    DeleteAppContainerProfile(pszappcontainername.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<P0>(pszappcontainername: P0) -> ::windows::core::Result<super::super::Foundation::PSID>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "userenv.dll""system" fn DeriveAppContainerSidFromAppContainerName ( pszappcontainername : :: windows::core::PCWSTR , ppsidappcontainersid : *mut super::super::Foundation:: PSID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DeriveAppContainerSidFromAppContainerName(pszappcontainername.into(), result__.as_mut_ptr()).from_abi(result__)
+    DeriveAppContainerSidFromAppContainerName(pszappcontainername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -37,21 +37,21 @@ where
 pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<P0, P1>(psidappcontainersid: P0, pszrestrictedappcontainername: P1) -> ::windows::core::Result<super::super::Foundation::PSID>
 where
     P0: ::std::convert::Into<super::super::Foundation::PSID>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "userenv.dll""system" fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName ( psidappcontainersid : super::super::Foundation:: PSID , pszrestrictedappcontainername : :: windows::core::PCWSTR , ppsidrestrictedappcontainersid : *mut super::super::Foundation:: PSID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into(), pszrestrictedappcontainername.into(), result__.as_mut_ptr()).from_abi(result__)
+    DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into(), pszrestrictedappcontainername.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
 pub unsafe fn GetAppContainerFolderPath<P0>(pszappcontainersid: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "userenv.dll""system" fn GetAppContainerFolderPath ( pszappcontainersid : :: windows::core::PCWSTR , ppszpath : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetAppContainerFolderPath(pszappcontainersid.into(), result__.as_mut_ptr()).from_abi(result__)
+    GetAppContainerFolderPath(pszappcontainersid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -104,10 +104,10 @@ impl IIsolatedAppLauncher {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Launch<P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Launch)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), arguments.into(), telemetryparameters).ok()
+        (::windows::core::Vtable::vtable(self).Launch)(::windows::core::Vtable::as_raw(self), appusermodelid.into().abi(), arguments.into().abi(), telemetryparameters).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IIsolatedAppLauncher, ::windows::core::IUnknown);
