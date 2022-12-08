@@ -172,6 +172,12 @@ impl std::convert::From<&alloc::string::String> for HSTRING {
     }
 }
 
+impl std::convert::From<&std::path::Path> for HSTRING {
+    fn from(value: &std::path::Path) -> Self {
+        value.as_os_str().into()
+    }
+}
+
 #[cfg(windows)]
 impl std::convert::From<&std::ffi::OsStr> for HSTRING {
     fn from(value: &std::ffi::OsStr) -> Self {
