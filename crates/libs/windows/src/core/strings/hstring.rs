@@ -385,6 +385,12 @@ impl std::convert::From<HSTRING> for std::ffi::OsString {
     }
 }
 
+impl From<&HSTRING> for InParam<PCWSTR> {
+    fn from(hstring: &HSTRING) -> Self {
+        Self::owned(PCWSTR(hstring.as_ptr()))
+    }
+}
+
 const REFERENCE_FLAG: u32 = 1;
 
 #[repr(C)]

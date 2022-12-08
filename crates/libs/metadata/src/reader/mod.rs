@@ -1684,7 +1684,7 @@ impl<'a> Reader<'a> {
     fn type_is_borrowed(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
-            Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
+            Type::PCSTR | Type::PCWSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
             _ => false,
         }
     }

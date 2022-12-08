@@ -59,12 +59,6 @@ unsafe impl Abi for PCWSTR {
     type Abi = Self;
 }
 
-impl From<&HSTRING> for PCWSTR {
-    fn from(hstring: &HSTRING) -> Self {
-        Self(hstring.as_ptr())
-    }
-}
-
 // This just ensures that `None` can be used for optional PCWSTR parameters, which can be quite common
 // with some Windows APIs.
 impl From<Option<PCWSTR>> for PCWSTR {
